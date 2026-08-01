@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>CreateLK Academy | English MCQ Learning</title>
 
@@ -28,7 +32,8 @@ body{
   line-height:1.6;
 }
 
-/* NAVIGATION */
+
+/* NAV */
 
 nav{
   background:#fff;
@@ -36,7 +41,7 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
   position:sticky;
   top:0;
   z-index:1000;
@@ -65,10 +70,16 @@ nav a:hover{
   color:#1565c0;
 }
 
+
 /* HERO */
 
 header{
-  background:linear-gradient(135deg,#1565c0,#00897b);
+  background:linear-gradient(
+    135deg,
+    #1565c0,
+    #00897b
+  );
+
   color:white;
   text-align:center;
   padding:80px 20px;
@@ -84,6 +95,7 @@ header p{
   font-size:18px;
   opacity:.95;
 }
+
 
 /* CONTAINER */
 
@@ -109,12 +121,14 @@ header p{
   font-weight:700;
 }
 
+
 /* COURSE GRID */
 
 .grid{
   display:grid;
   grid-template-columns:
   repeat(auto-fit,minmax(260px,1fr));
+
   gap:24px;
 }
 
@@ -124,16 +138,23 @@ header p{
   border-radius:16px;
   text-decoration:none;
   color:#333;
-  box-shadow:0 5px 15px rgba(0,0,0,.04);
+
+  box-shadow:
+  0 5px 15px rgba(0,0,0,.04);
+
   border-left:5px solid #1565c0;
+
   transition:.25s;
+
   display:block;
   cursor:pointer;
 }
 
 .card:hover{
   transform:translateY(-5px);
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+  box-shadow:
+  0 10px 25px rgba(0,0,0,.08);
 }
 
 .free-card{
@@ -168,15 +189,22 @@ header p{
   color:#00897b;
 }
 
+
 /* ACCESS BOX */
 
 .access-box{
   background:white;
   padding:30px;
   border-radius:16px;
-  box-shadow:0 5px 15px rgba(0,0,0,.05);
+
+  box-shadow:
+  0 5px 15px rgba(0,0,0,.05);
+
   max-width:500px;
-  margin:50px auto 30px;
+
+  margin:
+  50px auto 30px;
+
   text-align:center;
 }
 
@@ -194,12 +222,17 @@ header p{
 .access-box input{
   width:100%;
   padding:13px;
+
   border:1px solid #ddd;
   border-radius:8px;
+
   font-size:16px;
   text-align:center;
+
   margin-bottom:10px;
   outline:none;
+
+  text-transform:uppercase;
 }
 
 .access-box input:focus{
@@ -209,12 +242,16 @@ header p{
 .access-box button{
   width:100%;
   padding:13px;
+
   border:none;
   border-radius:8px;
+
   background:#1565c0;
   color:white;
+
   font-size:16px;
   font-weight:bold;
+
   cursor:pointer;
 }
 
@@ -233,14 +270,25 @@ header p{
   font-size:14px;
 }
 
+
 /* SUBSCRIPTION */
 
 .subscription{
-  background:linear-gradient(135deg,#1565c0,#0d47a1);
+  background:
+  linear-gradient(
+    135deg,
+    #1565c0,
+    #0d47a1
+  );
+
   color:white;
+
   padding:45px 30px;
+
   border-radius:20px;
+
   text-align:center;
+
   margin:50px 0;
 }
 
@@ -260,11 +308,17 @@ header p{
 .subscription a{
   background:white;
   color:#1565c0;
+
   padding:14px 30px;
+
   border-radius:30px;
+
   text-decoration:none;
+
   font-weight:bold;
+
   display:inline-block;
+
   margin-top:15px;
 }
 
@@ -272,16 +326,22 @@ header p{
   background:#f1f1f1;
 }
 
+
 /* FOOTER */
 
 footer{
   background:#111;
   color:#aaa;
+
   text-align:center;
+
   padding:30px;
+
   margin-top:50px;
+
   font-size:14px;
 }
+
 
 /* MOBILE */
 
@@ -318,9 +378,12 @@ footer{
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <!-- NAVIGATION -->
 
@@ -333,19 +396,27 @@ footer{
   <ul>
 
     <li>
-      <a href="index.html">Home</a>
+      <a href="index.html">
+        Home
+      </a>
     </li>
 
     <li>
-      <a href="#courses">Courses</a>
+      <a href="#courses">
+        Courses
+      </a>
     </li>
 
     <li>
-      <a href="payment.html">Payment</a>
+      <a href="payment.html">
+        Payment
+      </a>
     </li>
 
     <li>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html">
+        Contact
+      </a>
     </li>
 
   </ul>
@@ -380,7 +451,7 @@ footer{
   </h2>
 
   <p id="subscriptionStatus">
-    Checking premium access...
+    🔒 Premium access required for premium courses.
   </p>
 
 </div>
@@ -415,6 +486,7 @@ footer{
 
 <a
   class="card locked-card premium-link"
+  href="#"
   data-page="grammar/index.html"
 >
 
@@ -437,6 +509,7 @@ footer{
 
 <a
   class="card locked-card premium-link"
+  href="#"
   data-page="vocabulary/index.html"
 >
 
@@ -459,6 +532,7 @@ footer{
 
 <a
   class="card locked-card premium-link"
+  href="#"
   data-page="speaking/index.html"
 >
 
@@ -481,6 +555,7 @@ footer{
 
 <a
   class="card locked-card premium-link"
+  href="#"
   data-page="pronunciation/index.html"
 >
 
@@ -503,6 +578,7 @@ footer{
 
 <a
   class="card locked-card premium-link"
+  href="#"
   data-page="conversation/index.html"
 >
 
@@ -525,6 +601,7 @@ footer{
 
 <a
   class="card locked-card premium-link"
+  href="#"
   data-page="writing/index.html"
 >
 
@@ -547,6 +624,7 @@ footer{
 
 <a
   class="card locked-card premium-link"
+  href="#"
   data-page="listening/index.html"
 >
 
@@ -569,6 +647,7 @@ footer{
 
 <a
   class="card locked-card premium-link"
+  href="#"
   data-page="business/index.html"
 >
 
@@ -591,6 +670,7 @@ footer{
 
 <a
   class="card locked-card premium-link"
+  href="#"
   data-page="advanced/index.html"
 >
 
@@ -608,6 +688,7 @@ footer{
 
 </a>
 
+
 </div>
 
 
@@ -623,19 +704,21 @@ footer{
   </h2>
 
   <p>
-    Already received an access code?
-    Enter your code below to unlock
-    all premium sections for 30 days.
+    Enter the access code provided after
+    your payment has been manually approved.
   </p>
 
   <input
     type="text"
     id="accessCode"
-    placeholder="Enter your access code"
+    placeholder="ENTER ACCESS CODE"
     autocomplete="off"
+    maxlength="50"
   >
 
-  <button id="verifyBtn">
+  <button
+    id="verifyBtn"
+  >
     Verify Access Code
   </button>
 
@@ -653,12 +736,12 @@ footer{
   </h2>
 
   <h1>
-    LKR 1,500 / Month
+    LKR 1,500 / 30 Days
   </h1>
 
   <p>
-    Unlock full access to the complete
-    English MCQ learning system.
+    Pay manually and receive your premium
+    access code after approval.
   </p>
 
   <a href="payment.html">
@@ -666,6 +749,7 @@ footer{
   </a>
 
 </div>
+
 
 </div>
 
@@ -684,17 +768,18 @@ footer{
 
 <script>
 
-/* ==========================================
+
+/* =========================================
    CLOUDFLARE WORKER
-========================================== */
+========================================= */
 
 const WORKER_URL =
 "https://proud-smoke-3af1.gateofheavensl1.workers.dev";
 
 
-/* ==========================================
+/* =========================================
    ELEMENTS
-========================================== */
+========================================= */
 
 const verifyBtn =
 document.getElementById("verifyBtn");
@@ -706,54 +791,31 @@ const accessStatus =
 document.getElementById("accessStatus");
 
 const subscriptionStatus =
-document.getElementById("subscriptionStatus");
+document.getElementById(
+  "subscriptionStatus"
+);
 
 const premiumLinks =
-document.querySelectorAll(".premium-link");
+document.querySelectorAll(
+  ".premium-link"
+);
 
 
-/* ==========================================
-   CHECK SAVED ACCESS
-========================================== */
+/* =========================================
+   LOCAL ACCESS DISPLAY
+========================================= */
 
-function checkSavedAccess(){
+function displayActiveAccess(expiresAt){
 
-  const savedExpiry =
-  localStorage.getItem(
-    "createLKPremiumExpiry"
-  );
-
-  if(!savedExpiry){
-
-    showLocked();
-
-    subscriptionStatus.innerText =
-    "🔒 Premium sections require a 30-day access code.";
-
-    return false;
-  }
-
-
-  const expiryTime =
-  new Date(savedExpiry).getTime();
-
-  const now =
-  Date.now();
-
+  const expiry =
+    new Date(expiresAt);
 
   if(
-    isNaN(expiryTime) ||
-    now >= expiryTime
+    isNaN(expiry.getTime()) ||
+    Date.now() >= expiry.getTime()
   ){
 
-    localStorage.removeItem(
-      "createLKPremiumExpiry"
-    );
-
-    showLocked();
-
-    subscriptionStatus.innerText =
-    "⏰ Your premium access has expired.";
+    clearAccess();
 
     return false;
   }
@@ -761,180 +823,236 @@ function checkSavedAccess(){
 
   showUnlocked();
 
-  const expiryDate =
-  new Date(savedExpiry)
-  .toLocaleDateString();
+
+  const date =
+    expiry.toLocaleDateString();
 
 
   subscriptionStatus.innerText =
-  "✓ Premium access active until " +
-  expiryDate;
+    "✓ Premium access active until " +
+    date;
+
 
   return true;
 }
 
 
-/* ==========================================
+/* =========================================
+   CLEAR ACCESS
+========================================= */
+
+function clearAccess(){
+
+  localStorage.removeItem(
+    "createLKPremiumExpiry"
+  );
+
+  showLocked();
+
+  subscriptionStatus.innerText =
+    "🔒 Premium access required for premium courses.";
+
+}
+
+
+/* =========================================
    SHOW LOCKED
-========================================== */
+========================================= */
 
 function showLocked(){
 
-  premiumLinks.forEach(link => {
+  premiumLinks.forEach(
+    link => {
 
-    link.classList.remove("free-card");
+      link.classList.remove(
+        "free-card"
+      );
 
-    link.classList.add("locked-card");
-
-    const label =
-    link.querySelector(".locked-label");
-
-    if(label){
-      label.innerText =
-      "🔒 PREMIUM";
-    }
-
-  });
-
-}
+      link.classList.add(
+        "locked-card"
+      );
 
 
-/* ==========================================
-   SHOW UNLOCKED
-========================================== */
-
-function showUnlocked(){
-
-  premiumLinks.forEach(link => {
-
-    link.classList.remove("locked-card");
-
-    link.classList.add("free-card");
-
-    const label =
-    link.querySelector(".locked-label");
-
-    if(label){
-      label.innerText =
-      "✓ UNLOCKED";
-    }
-
-  });
-
-}
+      const label =
+        link.querySelector(
+          ".locked-label"
+        );
 
 
-/* ==========================================
-   PREMIUM LINK
-========================================== */
+      if(label){
 
-premiumLinks.forEach(link => {
+        label.innerText =
+          "🔒 PREMIUM";
 
-  link.addEventListener(
-    "click",
-    function(event){
-
-      const hasAccess =
-      checkSavedAccess();
-
-
-      if(!hasAccess){
-
-        event.preventDefault();
-
-        accessStatus.style.color =
-        "#c62828";
-
-        accessStatus.innerText =
-        "🔒 Please enter a valid premium access code first.";
-
-
-        document
-        .getElementById("accessBox")
-        .scrollIntoView({
-          behavior:"smooth",
-          block:"center"
-        });
-
-        return;
       }
-
-
-      event.preventDefault();
-
-      const page =
-      this.dataset.page;
-
-      window.location.href =
-      page;
 
     }
   );
 
-});
+}
 
 
-/* ==========================================
-   VERIFY CODE
-========================================== */
+/* =========================================
+   SHOW UNLOCKED
+========================================= */
+
+function showUnlocked(){
+
+  premiumLinks.forEach(
+    link => {
+
+      link.classList.remove(
+        "locked-card"
+      );
+
+      link.classList.add(
+        "free-card"
+      );
+
+
+      const label =
+        link.querySelector(
+          ".locked-label"
+        );
+
+
+      if(label){
+
+        label.innerText =
+          "✓ UNLOCKED";
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================
+   PREMIUM CLICK
+========================================= */
+
+premiumLinks.forEach(
+  link => {
+
+    link.addEventListener(
+      "click",
+      function(event){
+
+        event.preventDefault();
+
+
+        const savedExpiry =
+          localStorage.getItem(
+            "createLKPremiumExpiry"
+          );
+
+
+        if(
+          !savedExpiry ||
+          !displayActiveAccess(
+            savedExpiry
+          )
+        ){
+
+          accessStatus.style.color =
+            "#c62828";
+
+          accessStatus.innerText =
+            "🔒 Please enter a valid premium access code.";
+
+
+          document
+            .getElementById(
+              "accessBox"
+            )
+            .scrollIntoView({
+              behavior:"smooth",
+              block:"center"
+            });
+
+
+          return;
+
+        }
+
+
+        window.location.href =
+          this.dataset.page;
+
+      }
+    );
+
+  }
+);
+
+
+/* =========================================
+   VERIFY ACCESS CODE
+========================================= */
 
 verifyBtn.addEventListener(
   "click",
   async function(){
 
     const code =
-    accessCodeInput.value
-    .trim()
-    .toUpperCase();
+      accessCodeInput.value
+        .trim()
+        .toUpperCase();
 
 
     if(!code){
 
       accessStatus.style.color =
-      "#c62828";
+        "#c62828";
 
       accessStatus.innerText =
-      "Please enter your access code.";
+        "Please enter your access code.";
 
       return;
+
     }
 
 
     verifyBtn.disabled = true;
 
     verifyBtn.innerText =
-    "Checking...";
+      "Checking...";
 
 
     accessStatus.style.color =
-    "#333";
+      "#333";
 
     accessStatus.innerText =
-    "Verifying your code...";
+      "Verifying your access code...";
 
 
     try{
 
       const response =
-      await fetch(
-        `${WORKER_URL}/api/verify-code`,
-        {
-          method:"POST",
+        await fetch(
+          WORKER_URL +
+          "/api/verify-code",
+          {
 
-          headers:{
-            "Content-Type":
-            "application/json"
-          },
+            method:"POST",
 
-          body:JSON.stringify({
-            code:code
-          })
-        }
-      );
+            headers:{
+              "Content-Type":
+                "application/json"
+            },
+
+            body:JSON.stringify({
+              code:code
+            })
+
+          }
+        );
 
 
       const result =
-      await response.json();
+        await response.json();
 
 
       if(
@@ -949,25 +1067,19 @@ verifyBtn.addEventListener(
         );
 
 
-        showUnlocked();
-
-
-        const expiryDate =
-        new Date(result.expiresAt)
-        .toLocaleDateString();
+        displayActiveAccess(
+          result.expiresAt
+        );
 
 
         accessStatus.style.color =
-        "#00897b";
+          "#00897b";
 
         accessStatus.innerText =
-        "✓ Premium access activated until " +
-        expiryDate;
-
-
-        subscriptionStatus.innerText =
-        "✓ Premium access active until " +
-        expiryDate;
+          "✓ Premium access activated until " +
+          new Date(
+            result.expiresAt
+          ).toLocaleDateString();
 
 
         accessCodeInput.value = "";
@@ -975,19 +1087,15 @@ verifyBtn.addEventListener(
 
       }else{
 
-        localStorage.removeItem(
-          "createLKPremiumExpiry"
-        );
-
-        showLocked();
+        clearAccess();
 
 
         accessStatus.style.color =
-        "#c62828";
+          "#c62828";
 
         accessStatus.innerText =
-        result.error ||
-        "Invalid or expired access code.";
+          result.error ||
+          "Invalid or expired access code.";
 
       }
 
@@ -998,10 +1106,10 @@ verifyBtn.addEventListener(
 
 
       accessStatus.style.color =
-      "#c62828";
+        "#c62828";
 
       accessStatus.innerText =
-      "Network error. Please try again.";
+        "Unable to connect to the premium access server.";
 
     }
 
@@ -1009,15 +1117,15 @@ verifyBtn.addEventListener(
     verifyBtn.disabled = false;
 
     verifyBtn.innerText =
-    "Verify Access Code";
+      "Verify Access Code";
 
   }
 );
 
 
-/* ==========================================
+/* =========================================
    ENTER KEY
-========================================== */
+========================================= */
 
 accessCodeInput.addEventListener(
   "keydown",
@@ -1033,13 +1141,30 @@ accessCodeInput.addEventListener(
 );
 
 
-/* ==========================================
+/* =========================================
    START
-========================================== */
+========================================= */
 
-checkSavedAccess();
+const savedExpiry =
+  localStorage.getItem(
+    "createLKPremiumExpiry"
+  );
+
+
+if(savedExpiry){
+
+  displayActiveAccess(
+    savedExpiry
+  );
+
+}else{
+
+  showLocked();
+
+}
 
 </script>
+
 
 </body>
 </html>
