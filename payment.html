@@ -1,462 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>CreateLK Academy | Premium Payment</title>
-
-<style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,sans-serif
-}
-
-body{
-background:#f4f7fc;
-color:#333;
-min-height:100vh
-}
-
-nav{
-background:#fff;
-padding:16px 25px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 3px 15px rgba(0,0,0,.08)
-}
-
-.logo{
-color:#1565c0;
-font-size:22px;
-font-weight:bold
-}
-
-nav a{
-text-decoration:none;
-color:#333;
-font-weight:bold
-}
-
-.container{
-max-width:650px;
-margin:40px auto;
-padding:20px
-}
-
-.card{
-background:#fff;
-padding:30px;
-border-radius:18px;
-box-shadow:0 5px 20px rgba(0,0,0,.07);
-margin-bottom:25px
-}
-
-.title{
-text-align:center;
-margin-bottom:25px
-}
-
-.title h1,
-.title h2{
-color:#1565c0;
-margin-bottom:8px
-}
-
-.title p{
-color:#666
-}
-
-.price{
-background:linear-gradient(135deg,#1565c0,#00897b);
-color:#fff;
-text-align:center;
-padding:25px;
-border-radius:15px;
-margin-bottom:25px
-}
-
-.price h2{
-font-size:38px;
-margin:8px 0
-}
-
-.details{
-line-height:2;
-margin-top:15px
-}
-
-.details strong{
-color:#1565c0
-}
-
-.notice{
-background:#fff8e1;
-border-left:5px solid #ffb300;
-padding:15px;
-margin-top:20px;
-border-radius:8px;
-font-size:14px;
-line-height:1.6
-}
-
-form{
-margin-top:20px
-}
-
-label{
-display:block;
-font-weight:bold;
-margin-bottom:6px
-}
-
-input{
-width:100%;
-padding:13px;
-border:1px solid #ddd;
-border-radius:8px;
-font-size:16px;
-margin-bottom:18px
-}
-
-input:focus{
-outline:none;
-border-color:#1565c0
-}
-
-input[type="file"]{
-background:#fafafa;
-cursor:pointer
-}
-
-.upload-help{
-font-size:13px;
-color:#777;
-margin-top:-10px;
-margin-bottom:18px
-}
-
-button{
-width:100%;
-padding:14px;
-border:0;
-border-radius:8px;
-background:#1565c0;
-color:#fff;
-font-size:17px;
-font-weight:bold;
-cursor:pointer
-}
-
-button:hover{
-background:#0d47a1
-}
-
-button:disabled{
-opacity:.6;
-cursor:not-allowed
-}
-
-#status{
-margin-top:18px;
-text-align:center;
-font-weight:bold;
-line-height:1.5
-}
-
-.success{
-color:#00897b
-}
-
-.error{
-color:#c62828
-}
-
-.back{
-display:block;
-text-align:center;
-margin-top:20px;
-text-decoration:none;
-color:#1565c0;
-font-weight:bold
-}
-
-footer{
-text-align:center;
-color:#777;
-padding:25px
-}
-
-@media(max-width:600px){
-
-nav{
-padding:15px 18px
-}
-
-.container{
-margin:20px auto;
-padding:15px
-}
-
-.card{
-padding:22px
-}
-
-.price h2{
-font-size:32px
-}
-
-.logo{
-font-size:19px
-}
-
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-
-<div class="logo">
-📚 CreateLK Academy
-</div>
-
-<a href="index.html">
-Home
-</a>
-
-</nav>
-
-<div class="container">
-
-<div class="card">
-
-<div class="title">
-
-<h1>
-💳 Premium Membership
-</h1>
-
-<p>
-Get full access to all premium English MCQ courses.
-</p>
-
-</div>
-
-<div class="price">
-
-<p>
-30-Day Premium Membership
-</p>
-
-<h2>
-LKR 1,500
-</h2>
-
-<p>
-Manual payment verification
-</p>
-
-</div>
-
-<h2>
-🏦 Bank Payment
-</h2>
-
-<div class="details">
-
-<p>
-<strong>Bank:</strong>
-People's Bank
-</p>
-
-<p>
-<strong>Account Name:</strong>
-Thinarathnam Saththiyanadan
-</p>
-
-<p>
-<strong>Account Number:</strong>
-292200280023178
-</p>
-
-<p>
-<strong>Branch:</strong>
-Udapussellawa
-</p>
-
-<p>
-<strong>Amount:</strong>
-LKR 1,500
-</p>
-
-</div>
-
-<div class="notice">
-
-<strong>Important:</strong>
-
-First make the bank payment.
-
-Then enter your payment information
-and upload your payment slip.
-
-Your account will remain
-<strong>PENDING</strong>
-until the administrator verifies your payment.
-
-</div>
-
-</div>
-
-
-<div class="card">
-
-<div class="title">
-
-<h2>
-📝 Submit Payment
-</h2>
-
-<p>
-Enter the details exactly as shown on your payment receipt.
-</p>
-
-</div>
-
-
-<form id="paymentForm">
-
-
-<label for="name">
-Full Name
-</label>
-
-<input
-id="name"
-name="name"
-type="text"
-placeholder="Your full name"
-required
->
-
-
-<label for="email">
-Email Address
-</label>
-
-<input
-id="email"
-name="email"
-type="email"
-placeholder="you@example.com"
-required
->
-
-
-<label for="reference">
-Payment Reference
-</label>
-
-<input
-id="reference"
-name="payment_reference"
-type="text"
-placeholder="Bank transaction/reference number"
-required
->
-
-
-<label for="amount">
-Payment Amount
-</label>
-
-<input
-id="amount"
-name="amount"
-type="number"
-value="1500"
-readonly
->
-
-
-<label for="slip">
-📎 Payment Slip
-</label>
-
-<input
-id="slip"
-name="slip"
-type="file"
-accept="image/jpeg,image/png,image/webp,application/pdf"
-required
->
-
-<div class="upload-help">
-
-Upload your bank payment receipt.
-
-Accepted:
-JPG, PNG, WEBP or PDF.
-
-Maximum size: 10 MB.
-
-</div>
-
-
-<button
-type="submit"
-id="submitButton"
->
-Submit Payment
-</button>
-
-
-<div id="status"></div>
-
-
-</form>
-
-
-<a
-href="index.html"
-class="back"
->
-← Back to Academy
-</a>
-
-</div>
-
-</div>
-
-
-<footer>
-
-© 2026 CreateLK Academy
-
-</footer>
-
-
 <script>
 
 const WORKER_URL =
-"https://noisy-feather-27d2.gateofheavensl1.workers.dev";
-
+"https://white-mouse-3643.gateofheavensl1.workers.dev";
 
 const form =
 document.getElementById("paymentForm");
 
-
 const submitButton =
 document.getElementById("submitButton");
 
-
 const status =
 document.getElementById("status");
-
 
 form.addEventListener(
 "submit",
@@ -464,97 +18,119 @@ async function(e){
 
 e.preventDefault();
 
+const name =
+document.getElementById("name").value.trim();
 
-submitButton.disabled = true;
+const email =
+document.getElementById("email").value.trim().toLowerCase();
 
-submitButton.innerText =
-"Submitting...";
+const reference =
+document.getElementById("reference").value.trim();
 
+const slip =
+document.getElementById("slip").files[0];
 
-status.className = "";
+if(!name || !email || !reference || !slip){
+
+status.className="error";
+
+status.innerText =
+"Please complete all fields and upload your payment slip.";
+
+return;
+
+}
+
+if(slip.size > 10 * 1024 * 1024){
+
+status.className="error";
+
+status.innerText =
+"Payment slip must be under 10 MB.";
+
+return;
+
+}
+
+submitButton.disabled=true;
+
+submitButton.innerText="Submitting...";
+
+status.className="";
 
 status.innerText =
 "Uploading payment slip...";
 
-
 try{
 
-
 const formData =
-new FormData(form);
+new FormData();
 
+formData.append("name",name);
 
-formData.set(
+formData.append("email",email);
+
+formData.append(
+"payment_reference",
+reference
+);
+
+formData.append(
 "amount",
 "1500"
 );
 
+formData.append(
+"slip",
+slip
+);
 
 const response =
 await fetch(
-WORKER_URL +
-"/api/subscribe",
+WORKER_URL + "/api/subscribe",
 {
 method:"POST",
 body:formData
 }
 );
 
-
 const result =
 await response.json();
 
+if(response.ok && result.success){
 
-if(
-response.ok &&
-result.success
-){
-
-status.className =
-"success";
+status.className="success";
 
 status.innerText =
-"✓ Payment submitted successfully. Your payment is waiting for administrator approval.";
+"✓ Payment submitted successfully. Your payment is now waiting for administrator approval.";
 
 form.reset();
 
-
 }else{
 
-status.className =
-"error";
+status.className="error";
 
 status.innerText =
 result.error ||
-"Payment submission failed.";
+"Unable to submit payment.";
 
 }
-
 
 }catch(error){
 
 console.error(error);
 
-status.className =
-"error";
+status.className="error";
 
 status.innerText =
-"Connection error: " +
-error.message;
+"Connection error: " + error.message;
 
 }
 
+submitButton.disabled=false;
 
-submitButton.disabled =
-false;
-
-submitButton.innerText =
-"Submit Payment";
+submitButton.innerText="Submit Payment";
 
 });
 
-
 </script>
-
-</body>
-</html>
