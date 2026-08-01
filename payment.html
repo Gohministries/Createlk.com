@@ -10,13 +10,13 @@
 box-sizing:border-box;
 margin:0;
 padding:0;
-font-family:Arial,sans-serif;
+font-family:Arial,sans-serif
 }
 
 body{
 background:#f4f7fc;
 color:#333;
-min-height:100vh;
+min-height:100vh
 }
 
 nav{
@@ -25,25 +25,25 @@ padding:16px 25px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 3px 15px rgba(0,0,0,.08);
+box-shadow:0 3px 15px rgba(0,0,0,.08)
 }
 
 .logo{
 color:#1565c0;
 font-size:22px;
-font-weight:bold;
+font-weight:bold
 }
 
 nav a{
 text-decoration:none;
 color:#333;
-font-weight:bold;
+font-weight:bold
 }
 
 .container{
 max-width:650px;
 margin:40px auto;
-padding:20px;
+padding:20px
 }
 
 .card{
@@ -51,22 +51,22 @@ background:#fff;
 padding:30px;
 border-radius:18px;
 box-shadow:0 5px 20px rgba(0,0,0,.07);
-margin-bottom:25px;
+margin-bottom:25px
 }
 
 .title{
 text-align:center;
-margin-bottom:25px;
+margin-bottom:25px
 }
 
 .title h1,
 .title h2{
 color:#1565c0;
-margin-bottom:8px;
+margin-bottom:8px
 }
 
 .title p{
-color:#666;
+color:#666
 }
 
 .price{
@@ -75,21 +75,21 @@ color:#fff;
 text-align:center;
 padding:25px;
 border-radius:15px;
-margin-bottom:25px;
+margin-bottom:25px
 }
 
 .price h2{
 font-size:38px;
-margin:8px 0;
+margin:8px 0
 }
 
 .details{
 line-height:2;
-margin-top:15px;
+margin-top:15px
 }
 
 .details strong{
-color:#1565c0;
+color:#1565c0
 }
 
 .notice{
@@ -99,17 +99,17 @@ padding:15px;
 margin-top:20px;
 border-radius:8px;
 font-size:14px;
-line-height:1.6;
+line-height:1.6
 }
 
 form{
-margin-top:20px;
+margin-top:20px
 }
 
 label{
 display:block;
 font-weight:bold;
-margin-bottom:6px;
+margin-bottom:6px
 }
 
 input{
@@ -118,12 +118,24 @@ padding:13px;
 border:1px solid #ddd;
 border-radius:8px;
 font-size:16px;
-margin-bottom:18px;
+margin-bottom:18px
 }
 
 input:focus{
 outline:none;
-border-color:#1565c0;
+border-color:#1565c0
+}
+
+input[type="file"]{
+background:#fafafa;
+cursor:pointer
+}
+
+.upload-help{
+font-size:13px;
+color:#777;
+margin-top:-10px;
+margin-bottom:18px
 }
 
 button{
@@ -135,18 +147,30 @@ background:#1565c0;
 color:#fff;
 font-size:17px;
 font-weight:bold;
-cursor:pointer;
+cursor:pointer
 }
 
 button:hover{
-background:#0d47a1;
+background:#0d47a1
+}
+
+button:disabled{
+opacity:.6;
+cursor:not-allowed
 }
 
 #status{
 margin-top:18px;
 text-align:center;
-font-weight:bold;
-color:#00897b;
+font-weight:bold
+}
+
+.success{
+color:#00897b
+}
+
+.error{
+color:#c62828
 }
 
 .back{
@@ -155,37 +179,38 @@ text-align:center;
 margin-top:20px;
 text-decoration:none;
 color:#1565c0;
-font-weight:bold;
+font-weight:bold
 }
 
 footer{
 text-align:center;
 color:#777;
-padding:25px;
+padding:25px
 }
 
 @media(max-width:600px){
 
 nav{
-padding:15px 18px;
+padding:15px 18px
 }
 
 .container{
 margin:20px auto;
-padding:15px;
+padding:15px
 }
 
 .card{
-padding:22px;
+padding:22px
 }
 
 .price h2{
-font-size:32px;
+font-size:32px
 }
 
 .logo{
-font-size:19px;
+font-size:19px
 }
+
 }
 </style>
 </head>
@@ -215,20 +240,44 @@ font-size:19px;
 <h2>🏦 Bank Payment</h2>
 
 <div class="details">
-<p><strong>Bank:</strong> People's Bank</p>
-<p><strong>Account Name:</strong> Thinarathnam Saththiyanadan</p>
-<p><strong>Account Number:</strong> 292200280023178</p>
-<p><strong>Branch:</strong> Udapussellawa</p>
-<p><strong>Amount:</strong> LKR 1,500</p>
+
+<p>
+<strong>Bank:</strong>
+People's Bank
+</p>
+
+<p>
+<strong>Account Name:</strong>
+Thinarathnam Saththiyanadan
+</p>
+
+<p>
+<strong>Account Number:</strong>
+292200280023178
+</p>
+
+<p>
+<strong>Branch:</strong>
+Udapussellawa
+</p>
+
+<p>
+<strong>Amount:</strong>
+LKR 1,500
+</p>
+
 </div>
 
 <div class="notice">
 <strong>Important:</strong>
-First make the bank payment. Then enter your payment information below.
-Your account will remain <strong>PENDING</strong> until the administrator verifies your payment.
+First make the bank payment.
+Then enter your payment information and upload your payment slip.
+Your account will remain <strong>PENDING</strong>
+until the administrator verifies your payment.
 </div>
 
 </div>
+
 
 <div class="card">
 
@@ -239,7 +288,10 @@ Your account will remain <strong>PENDING</strong> until the administrator verifi
 
 <form id="paymentForm">
 
-<label for="name">Full Name</label>
+<label for="name">
+Full Name
+</label>
+
 <input
 id="name"
 type="text"
@@ -247,7 +299,11 @@ placeholder="Your full name"
 required
 >
 
-<label for="email">Email Address</label>
+
+<label for="email">
+Email Address
+</label>
+
 <input
 id="email"
 type="email"
@@ -255,7 +311,11 @@ placeholder="you@example.com"
 required
 >
 
-<label for="reference">Payment Reference</label>
+
+<label for="reference">
+Payment Reference
+</label>
+
 <input
 id="reference"
 type="text"
@@ -263,7 +323,40 @@ placeholder="Bank transaction/reference number"
 required
 >
 
-<button type="submit">
+
+<label for="amount">
+Payment Amount
+</label>
+
+<input
+id="amount"
+type="number"
+value="1500"
+readonly
+>
+
+
+<label for="slip">
+📎 Payment Slip
+</label>
+
+<input
+id="slip"
+type="file"
+accept="image/jpeg,image/png,image/webp,application/pdf"
+required
+>
+
+<div class="upload-help">
+Upload your bank payment receipt.
+Accepted: JPG, PNG, WEBP or PDF.
+</div>
+
+
+<button
+type="submit"
+id="submitButton"
+>
 Submit Payment
 </button>
 
@@ -271,7 +364,10 @@ Submit Payment
 
 </form>
 
-<a href="index.html" class="back">
+<a
+href="index.html"
+class="back"
+>
 ← Back to Academy
 </a>
 
@@ -283,15 +379,65 @@ Submit Payment
 © 2026 CreateLK Academy
 </footer>
 
+
 <script>
-document.getElementById("paymentForm").addEventListener("submit",function(e){
+
+const WORKER_URL =
+"https://noisy-feather-27d2.gateofheavensl1.workers.dev";
+
+const form =
+document.getElementById("paymentForm");
+
+const submitButton =
+document.getElementById("submitButton");
+
+const status =
+document.getElementById("status");
+
+
+form.addEventListener(
+"submit",
+async function(e){
 
 e.preventDefault();
 
-document.getElementById("status").innerText=
-"✓ Form is working!";
+const name =
+document.getElementById("name").value.trim();
+
+const email =
+document.getElementById("email").value.trim().toLowerCase();
+
+const reference =
+document.getElementById("reference").value.trim();
+
+const slip =
+document.getElementById("slip").files[0];
+
+
+if(!name || !email || !reference || !slip){
+
+status.className="error";
+status.innerText="Please complete all fields and upload your payment slip.";
+
+return;
+
+}
+
+
+/*
+Do not upload the file directly yet.
+
+The next Worker version will securely receive
+the slip and store it in Cloudflare R2.
+*/
+
+status.className="";
+status.innerText="Payment slip selected. Preparing submission...";
+
+console.log("Selected slip:",slip.name);
 
 });
+
 </script>
 
 </body>
