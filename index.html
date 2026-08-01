@@ -5,261 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CreateLK Academy | English MCQ Learning</title>
 <style>
-/* Reset & Base Styles */
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body{
-  background: #f4f7fc;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* Top Navigation Bar */
-nav{
-  background: #ffffff;
-  padding: 16px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.logo{
-  font-size: 24px;
-  font-weight: 800;
-  color: #1565c0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-nav ul{
-  display: flex;
-  list-style: none;
-  gap: 25px;
-  align-items: center;
-}
-
-nav a{
-  text-decoration: none;
-  color: #444;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-nav a:hover{
-  color: #1565c0;
-}
-
-/* Hero Section */
-header{
-  background: linear-gradient(135deg, #1565c0, #00897b);
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-header h1{
-  font-size: 42px;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
-header p{
-  font-size: 18px;
-  opacity: 0.95;
-  font-weight: 300;
-}
-
-/* Main Container */
-.container{
-  max-width: 1200px;
-  margin: auto;
-  padding: 40px 20px;
-}
-
-/* Section Titles */
-.title{
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.title h2{
-  color: #1565c0;
-  font-size: 30px;
-  font-weight: 700;
-}
-
-/* Course Grid & Cards */
-.grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.card{
-  background: white;
-  padding: 24px;
-  border-radius: 16px;
-  text-decoration: none;
-  color: #333;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-  border-left: 5px solid #1565c0;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.card:hover{
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(21, 101, 192, 0.12);
-}
-
-.card h3 {
-  font-size: 18px;
-  margin-bottom: 8px;
-  color: #222;
-}
-
-.card p {
-  color: #666;
-  font-size: 14px;
-}
-
-/* Subscription Box */
-.subscription{
-  background: linear-gradient(135deg, #1565c0, #0d47a1);
-  color: white;
-  padding: 45px 30px;
-  border-radius: 20px;
-  text-align: center;
-  margin: 50px 0;
-  box-shadow: 0 10px 30px rgba(21, 101, 192, 0.2);
-}
-
-.subscription h2 {
-  font-size: 26px;
-  margin-bottom: 5px;
-}
-
-.subscription h1 {
-  font-size: 36px;
-  margin: 15px 0;
-  font-weight: 800;
-}
-
-.subscription p {
-  opacity: 0.9;
-  margin-bottom: 25px;
-}
-
-.subscription a{
-  background: white;
-  color: #1565c0;
-  padding: 14px 30px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  transition: transform 0.2s ease, background 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.subscription a:hover {
-  transform: scale(1.05);
-  background: #f0f4f8;
-}
-
-/* Quick Links Section */
-.quick-section{
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  margin-top: 40px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-}
-
-.quick-section h2 {
-  color: #1565c0;
-  font-size: 22px;
-  margin-bottom: 20px;
-}
-
-.quick-columns{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 30px;
-}
-
-.quick-columns h3{
-  color: #333;
-  font-size: 16px;
-  margin-bottom: 15px;
-  font-weight: 700;
-}
-
-.quick-columns a{
-  display: block;
-  text-decoration: none;
-  color: #666;
-  padding: 4px 0;
-  font-size: 14px;
-  transition: color 0.2s ease;
-}
-
-.quick-columns a:hover{
-  color: #1565c0;
-  padding-left: 4px;
-}
-
-/* Footer */
-footer{
-  background: #111;
-  color: #aaa;
-  text-align: center;
-  padding: 30px;
-  margin-top: 50px;
-  font-size: 14px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  nav {
-    padding: 15px 20px;
-  }
-  nav ul {
-    display: none; 
-  }
-  header h1 {
-    font-size: 32px;
-  }
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#f4f7fc;color:#333;line-height:1.6;}
+nav{background:#fff;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 20px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;}
+.logo{font-size:24px;font-weight:800;color:#1565c0;}
+nav ul{display:flex;list-style:none;gap:25px;align-items:center;}
+nav a{text-decoration:none;color:#444;font-weight:600;}
+nav a:hover{color:#1565c0;}
+header{background:linear-gradient(135deg,#1565c0,#00897b);color:white;text-align:center;padding:80px 20px;}
+header h1{font-size:42px;font-weight:800;margin-bottom:10px;}
+header p{font-size:18px;opacity:0.95;}
+.container{max-width:1200px;margin:auto;padding:40px 20px;}
+.title{text-align:center;margin-bottom:30px;}
+.title h2{color:#1565c0;font-size:30px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
+.card{background:white;padding:24px;border-radius:16px;text-decoration:none;color:#333;box-shadow:0 5px 15px rgba(0,0,0,0.03);border-left:5px solid #1565c0;transition:0.25s;}
+.card:hover{transform:translateY(-5px);}
+.subscription{background:linear-gradient(135deg,#1565c0,#0d47a1);color:white;padding:45px 30px;border-radius:20px;text-align:center;margin:50px 0;}
+.subscription h1{font-size:36px;margin:15px 0;}
+.subscription a{background:white;color:#1565c0;padding:14px 30px;border-radius:30px;text-decoration:none;font-weight:bold;display:inline-block;}
+footer{background:#111;color:#aaa;text-align:center;padding:30px;margin-top:50px;font-size:14px;}
 </style>
 </head>
-
 <body>
 
 <nav>
-  <div class="logo">
-    📚 CreateLK Academy
-  </div>
+  <div class="logo">📚 CreateLK Academy</div>
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="#courses">Courses</a></li>
-    <li><a href="pricing.html">Pricing</a></li>
     <li><a href="/payment.html">Payment</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
@@ -271,81 +46,21 @@ footer{
 </header>
 
 <div class="container">
-
   <div class="title" id="courses">
     <h2>English MCQ Categories</h2>
   </div>
 
   <div class="grid">
-    <a class="card" href="beginner-english/index.html">
-      <div>
-        <h3>🌱 Beginner English</h3>
-        <p>100 MCQ Questions</p>
-      </div>
-    </a>
-
-    <a class="card" href="grammar/index.html">
-      <div>
-        <h3>📖 Grammar</h3>
-        <p>100 MCQ Questions</p>
-      </div>
-    </a>
-
-    <a class="card" href="vocabulary/index.html">
-      <div>
-        <h3>📝 Vocabulary</h3>
-        <p>100 MCQ Questions</p>
-      </div>
-    </a>
-
-    <a class="card" href="speaking/index.html">
-      <div>
-        <h3>🗣 Speaking</h3>
-        <p>100 MCQ Questions</p>
-      </div>
-    </a>
-
-    <a class="card" href="pronunciation/index.html">
-      <div>
-        <h3>🔊 Pronunciation</h3>
-        <p>100 MCQ Questions</p>
-      </div>
-    </a>
-
-    <a class="card" href="conversation/index.html">
-      <div>
-        <h3>💬 Conversation</h3>
-        <p>100 MCQ Questions</p>
-      </div>
-    </a>
-
-    <a class="card" href="writing/index.html">
-      <div>
-        <h3>✍️ Writing</h3>
-        <p>100 MCQ Questions</p>
-      </div>
-    </a>
-
-    <a class="card" href="listening/index.html">
-      <div>
-        <h3>🎧 Listening</h3>
-        <p>100 MCQ Questions</p>
-      </div>
-    </a>
-
-    <a class="card" href="business/index.html">
-      <div>
-        <h3>💼 Business English</h3>
-        <p>100 MCQ Questions</p>
-      </div>
-    </a>
-
-    <a class="card" href="advanced/index.html">
-      <div>
-        <h3>⭐ Advanced English</h3>
-        <p>100 MCQ Questions</p>
-      </div>
-    </a>
+    <a class="card" href="beginner-english/index.html"><h3>🌱 Beginner English</h3><p>100 MCQ Questions</p></a>
+    <a class="card" href="grammar/index.html"><h3>📖 Grammar</h3><p>100 MCQ Questions</p></a>
+    <a class="card" href="vocabulary/index.html"><h3>📝 Vocabulary</h3><p>100 MCQ Questions</p></a>
+    <a class="card" href="speaking/index.html"><h3>🗣 Speaking</h3><p>100 MCQ Questions</p></a>
+    <a class="card" href="pronunciation/index.html"><h3>🔊 Pronunciation</h3><p>100 MCQ Questions</p></a>
+    <a class="card" href="conversation/index.html"><h3>💬 Conversation</h3><p>100 MCQ Questions</p></a>
+    <a class="card" href="writing/index.html"><h3>✍️ Writing</h3><p>100 MCQ Questions</p></a>
+    <a class="card" href="listening/index.html"><h3>🎧 Listening</h3><p>100 MCQ Questions</p></a>
+    <a class="card" href="business/index.html"><h3>💼 Business English</h3><p>100 MCQ Questions</p></a>
+    <a class="card" href="advanced/index.html"><h3>⭐ Advanced English</h3><p>100 MCQ Questions</p></a>
   </div>
 
   <div class="subscription">
@@ -354,36 +69,6 @@ footer{
     <p>Unlock full access to the complete English MCQ learning system</p>
     <a href="/payment.html">Subscribe Now</a>
   </div>
-
-  <div class="quick-section">
-    <h2>Quick Links</h2>
-    <div class="quick-columns">
-      <div>
-        <h3>Company</h3>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h3>Student</h3>
-        <a href="login.html">Student Login</a>
-        <a href="register.html">Registration</a>
-        <a href="support.html">Support</a>
-      </div>
-      <div>
-        <h3>Information</h3>
-        <a href="pricing.html">Pricing</a>
-        <a href="/payment.html">Payment</a>
-        <a href="faq.html">FAQ</a>
-      </div>
-      <div>
-        <h3>Legal</h3>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
-        <a href="refund-policy.html">Refund Policy</a>
-      </div>
-    </div>
-  </div>
-
 </div>
 
 <footer>
