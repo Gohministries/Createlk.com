@@ -1,3 +1,18 @@
+<form id="orderForm">
+  <input type="text" id="name" placeholder="Full Name" required>
+  <input type="tel" id="phone" placeholder="Phone Number" required>
+  <select id="service" required>
+    <option value="">Select Service</option>
+    <option>Professional Photo Editing</option>
+    <option>Logo Design</option>
+    <option>Banner Design</option>
+    <option>Photo Background Removal</option>
+  </select>
+  <textarea id="description" placeholder="Describe your project"></textarea>
+  <button type="submit">Submit Order</button>
+</form>
+
+<script>
 document.getElementById("orderForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -30,3 +45,4 @@ document.getElementById("orderForm").addEventListener("submit", async (e) => {
     alert("An error occurred. Please contact us via WhatsApp.");
   }
 });
+</script>
