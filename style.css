@@ -360,7 +360,7 @@ footer {
     background: var(--secondary);
     color: var(--text-light);
     text-align: center;
-    padding: 40px 20px;
+    padding: 50px 20px 80px 20px; /* Generous bottom padding to clear floating elements */
     margin-top: 40px;
 }
 
@@ -386,14 +386,15 @@ footer a:hover {
 
 .whatsapp {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    bottom: 20px;
+    right: 20px;
     background: #25D366;
     color: white;
-    padding: 15px 25px;
+    padding: 12px 20px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
+    font-size: 14px;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
     transition: var(--transition);
     z-index: 9999;
