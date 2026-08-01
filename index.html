@@ -6,12 +6,12 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width,initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
 <title>CreateLK Academy | English MCQ Learning</title>
 
 <meta name="description"
-content="CreateLK Academy - Interactive English MCQ courses for beginners and advanced learners.">
+content="CreateLK Academy - Learn English with 1000 interactive MCQ questions.">
 
 <style>
 
@@ -38,8 +38,7 @@ line-height:1.6;
 ========================= */
 
 nav{
-background:rgba(255,255,255,.97);
-backdrop-filter:blur(10px);
+background:#fff;
 padding:16px 6%;
 display:flex;
 justify-content:space-between;
@@ -68,7 +67,6 @@ nav a{
 text-decoration:none;
 color:#37474f;
 font-weight:600;
-transition:.2s;
 }
 
 nav a:hover{
@@ -81,44 +79,19 @@ color:#1565c0;
 ========================= */
 
 header{
-position:relative;
-overflow:hidden;
 background:linear-gradient(
 135deg,
 #0d47a1,
 #1565c0 50%,
 #00897b
 );
+
 color:white;
 text-align:center;
-padding:95px 20px 105px;
-}
-
-header:before{
-content:"";
-position:absolute;
-width:350px;
-height:350px;
-border-radius:50%;
-background:rgba(255,255,255,.08);
-top:-180px;
-left:-100px;
-}
-
-header:after{
-content:"";
-position:absolute;
-width:300px;
-height:300px;
-border-radius:50%;
-background:rgba(255,255,255,.08);
-bottom:-180px;
-right:-80px;
+padding:85px 20px;
 }
 
 .hero-content{
-position:relative;
-z-index:2;
 max-width:850px;
 margin:auto;
 }
@@ -135,21 +108,20 @@ margin-bottom:18px;
 }
 
 header h1{
-font-size:48px;
-font-weight:800;
+font-size:46px;
 line-height:1.15;
 margin-bottom:18px;
 }
 
 header p{
-font-size:19px;
+font-size:18px;
 opacity:.95;
 max-width:700px;
 margin:auto;
 }
 
 .hero-buttons{
-margin-top:30px;
+margin-top:28px;
 display:flex;
 justify-content:center;
 gap:14px;
@@ -157,36 +129,25 @@ flex-wrap:wrap;
 }
 
 .hero-button{
-display:inline-block;
-padding:14px 27px;
+padding:13px 25px;
 border-radius:30px;
 text-decoration:none;
 font-weight:700;
-transition:.2s;
 }
 
-.primary-button{
-background:white;
+.primary{
+background:#fff;
 color:#1565c0;
 }
 
-.primary-button:hover{
-transform:translateY(-2px);
-box-shadow:0 8px 20px rgba(0,0,0,.18);
-}
-
-.secondary-button{
-border:1px solid rgba(255,255,255,.6);
-color:white;
-}
-
-.secondary-button:hover{
-background:rgba(255,255,255,.12);
+.secondary{
+border:1px solid rgba(255,255,255,.7);
+color:#fff;
 }
 
 
 /* =========================
-   MAIN CONTAINER
+   CONTAINER
 ========================= */
 
 .container{
@@ -203,11 +164,11 @@ margin-bottom:35px;
 .section-title h2{
 font-size:32px;
 color:#1565c0;
-margin-bottom:7px;
 }
 
 .section-title p{
-color:#667;
+color:#68757c;
+margin-top:5px;
 }
 
 
@@ -223,17 +184,22 @@ gap:22px;
 }
 
 .card{
-background:white;
+background:#fff;
 padding:25px;
 border-radius:18px;
-text-decoration:none;
 color:#263238;
+text-decoration:none;
 box-shadow:0 6px 22px rgba(0,0,0,.06);
 border:1px solid #edf0f5;
 position:relative;
-overflow:hidden;
 transition:.25s;
 display:block;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 14px 30px rgba(0,0,0,.10);
 }
 
 .card:before{
@@ -246,13 +212,8 @@ height:4px;
 background:#1565c0;
 }
 
-.card:first-child:before{
+.free-card:before{
 background:#00897b;
-}
-
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 14px 30px rgba(0,0,0,.1);
 }
 
 .card-icon{
@@ -270,23 +231,72 @@ color:#697780;
 font-size:14px;
 }
 
-.course-tag{
+.tag{
 display:inline-block;
 margin-top:15px;
-padding:5px 11px;
+padding:5px 12px;
 border-radius:20px;
 font-size:12px;
 font-weight:700;
 }
 
-.free{
+.free-tag{
 background:#e8f5e9;
 color:#00897b;
 }
 
-.premium{
+.premium-tag{
 background:#e3f2fd;
 color:#1565c0;
+}
+
+.locked{
+cursor:pointer;
+}
+
+.locked:hover{
+transform:translateY(-3px);
+}
+
+
+/* =========================
+   LOCKED MESSAGE
+========================= */
+
+.lock-box{
+margin:45px auto 0;
+max-width:700px;
+background:#fff;
+padding:25px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 6px 20px rgba(0,0,0,.06);
+border:1px solid #edf0f5;
+}
+
+.lock-box h3{
+color:#1565c0;
+margin-bottom:8px;
+}
+
+.lock-box p{
+color:#68757c;
+font-size:14px;
+}
+
+.lock-box a{
+display:inline-block;
+margin-top:16px;
+background:#1565c0;
+color:#fff;
+padding:12px 24px;
+border-radius:25px;
+text-decoration:none;
+font-weight:700;
+}
+
+.lock-box a:hover{
+background:#0d47a1;
 }
 
 
@@ -303,7 +313,7 @@ margin-top:55px;
 }
 
 .feature{
-background:white;
+background:#fff;
 padding:25px;
 border-radius:16px;
 text-align:center;
@@ -326,7 +336,7 @@ color:#68757c;
 
 
 /* =========================
-   PREMIUM SECTION
+   MEMBERSHIP
 ========================= */
 
 .subscription{
@@ -336,11 +346,11 @@ background:linear-gradient(
 #1565c0,
 #0d47a1
 );
-color:white;
+
+color:#fff;
 padding:50px 25px;
 border-radius:24px;
 text-align:center;
-box-shadow:0 15px 35px rgba(13,71,161,.2);
 }
 
 .subscription h2{
@@ -353,26 +363,20 @@ margin:12px 0;
 }
 
 .subscription p{
-opacity:.92;
-max-width:600px;
+max-width:650px;
 margin:auto;
+opacity:.92;
 }
 
 .subscription a{
 display:inline-block;
 margin-top:23px;
-background:white;
+background:#fff;
 color:#1565c0;
 padding:14px 30px;
 border-radius:30px;
 text-decoration:none;
 font-weight:800;
-transition:.2s;
-}
-
-.subscription a:hover{
-transform:translateY(-2px);
-box-shadow:0 8px 20px rgba(0,0,0,.18);
 }
 
 
@@ -389,7 +393,7 @@ margin-top:60px;
 }
 
 footer strong{
-color:white;
+color:#fff;
 }
 
 
@@ -416,7 +420,7 @@ font-size:20px;
 }
 
 header{
-padding:70px 20px 80px;
+padding:70px 20px;
 }
 
 header h1{
@@ -507,23 +511,23 @@ Master English With Confidence
 </h1>
 
 <p>
-Improve your English through interactive
-MCQ practice, vocabulary training,
-grammar exercises and more.
+Practice English with 1,000 carefully
+prepared MCQ questions across 10
+different learning categories.
 </p>
 
 <div class="hero-buttons">
 
 <a
 href="#courses"
-class="hero-button primary-button"
+class="hero-button primary"
 >
 Explore Courses
 </a>
 
 <a
 href="payment.html"
-class="hero-button secondary-button"
+class="hero-button secondary"
 >
 Get Premium Access
 </a>
@@ -547,11 +551,11 @@ Get Premium Access
 <div class="section-title">
 
 <h2>
-📚 English MCQ Courses
+📚 1,000 English MCQ Questions
 </h2>
 
 <p>
-Choose a course and start learning today.
+10 courses × 100 questions each
 </p>
 
 </div>
@@ -560,10 +564,12 @@ Choose a course and start learning today.
 <div class="grid">
 
 
-<!-- FREE COURSE -->
+<!-- =========================
+     FREE COURSE
+========================= -->
 
 <a
-class="card"
+class="card free-card"
 href="beginner-english/index.html"
 >
 
@@ -577,25 +583,27 @@ Beginner English
 
 <p>
 Build your English foundation with
-100 practice questions.
+100 interactive MCQ questions.
 </p>
 
-<span class="course-tag free">
-✓ FREE
+<span class="tag free-tag">
+✓ FREE • 100 MCQs
 </span>
 
 </a>
 
 
-<!-- PREMIUM COURSES -->
+<!-- =========================
+     PREMIUM 1
+========================= -->
 
 <a
-class="card"
-href="grammar/index.html"
+class="card locked"
+href="payment.html"
 >
 
 <div class="card-icon">
-📖
+🔒
 </div>
 
 <h3>
@@ -603,24 +611,26 @@ Grammar
 </h3>
 
 <p>
-Practice essential English grammar
-with 100 MCQ questions.
+100 MCQ questions covering
+essential English grammar.
 </p>
 
-<span class="course-tag premium">
-⭐ PREMIUM
+<span class="tag premium-tag">
+🔒 PREMIUM • 100 MCQs
 </span>
 
 </a>
 
 
+<!-- PREMIUM 2 -->
+
 <a
-class="card"
-href="vocabulary/index.html"
+class="card locked"
+href="payment.html"
 >
 
 <div class="card-icon">
-📝
+🔒
 </div>
 
 <h3>
@@ -632,20 +642,22 @@ Expand your vocabulary with
 100 carefully selected questions.
 </p>
 
-<span class="course-tag premium">
-⭐ PREMIUM
+<span class="tag premium-tag">
+🔒 PREMIUM • 100 MCQs
 </span>
 
 </a>
 
 
+<!-- PREMIUM 3 -->
+
 <a
-class="card"
-href="speaking/index.html"
+class="card locked"
+href="payment.html"
 >
 
 <div class="card-icon">
-🗣️
+🔒
 </div>
 
 <h3>
@@ -653,24 +665,26 @@ Speaking
 </h3>
 
 <p>
-Develop practical English speaking
-skills through MCQ practice.
+Practice practical English
+speaking skills with 100 MCQs.
 </p>
 
-<span class="course-tag premium">
-⭐ PREMIUM
+<span class="tag premium-tag">
+🔒 PREMIUM • 100 MCQs
 </span>
 
 </a>
 
 
+<!-- PREMIUM 4 -->
+
 <a
-class="card"
-href="pronunciation/index.html"
+class="card locked"
+href="payment.html"
 >
 
 <div class="card-icon">
-🔊
+🔒
 </div>
 
 <h3>
@@ -678,24 +692,26 @@ Pronunciation
 </h3>
 
 <p>
-Improve pronunciation knowledge
-with interactive questions.
+Learn pronunciation concepts
+through 100 MCQ questions.
 </p>
 
-<span class="course-tag premium">
-⭐ PREMIUM
+<span class="tag premium-tag">
+🔒 PREMIUM • 100 MCQs
 </span>
 
 </a>
 
 
+<!-- PREMIUM 5 -->
+
 <a
-class="card"
-href="conversation/index.html"
+class="card locked"
+href="payment.html"
 >
 
 <div class="card-icon">
-💬
+🔒
 </div>
 
 <h3>
@@ -703,24 +719,26 @@ Conversation
 </h3>
 
 <p>
-Practice useful English conversations
-and everyday situations.
+Practice everyday English
+conversation with 100 MCQs.
 </p>
 
-<span class="course-tag premium">
-⭐ PREMIUM
+<span class="tag premium-tag">
+🔒 PREMIUM • 100 MCQs
 </span>
 
 </a>
 
 
+<!-- PREMIUM 6 -->
+
 <a
-class="card"
-href="writing/index.html"
+class="card locked"
+href="payment.html"
 >
 
 <div class="card-icon">
-✍️
+🔒
 </div>
 
 <h3>
@@ -729,23 +747,25 @@ Writing
 
 <p>
 Improve sentence construction
-and practical writing skills.
+with 100 writing MCQs.
 </p>
 
-<span class="course-tag premium">
-⭐ PREMIUM
+<span class="tag premium-tag">
+🔒 PREMIUM • 100 MCQs
 </span>
 
 </a>
 
 
+<!-- PREMIUM 7 -->
+
 <a
-class="card"
-href="listening/index.html"
+class="card locked"
+href="payment.html"
 >
 
 <div class="card-icon">
-🎧
+🔒
 </div>
 
 <h3>
@@ -753,24 +773,26 @@ Listening
 </h3>
 
 <p>
-Strengthen your English listening
-and comprehension skills.
+Improve English listening and
+comprehension with 100 MCQs.
 </p>
 
-<span class="course-tag premium">
-⭐ PREMIUM
+<span class="tag premium-tag">
+🔒 PREMIUM • 100 MCQs
 </span>
 
 </a>
 
 
+<!-- PREMIUM 8 -->
+
 <a
-class="card"
-href="business/index.html"
+class="card locked"
+href="payment.html"
 >
 
 <div class="card-icon">
-💼
+🔒
 </div>
 
 <h3>
@@ -778,24 +800,26 @@ Business English
 </h3>
 
 <p>
-Learn useful English for professional
-and workplace situations.
+Learn professional English with
+100 workplace MCQ questions.
 </p>
 
-<span class="course-tag premium">
-⭐ PREMIUM
+<span class="tag premium-tag">
+🔒 PREMIUM • 100 MCQs
 </span>
 
 </a>
 
 
+<!-- PREMIUM 9 -->
+
 <a
-class="card"
-href="advanced/index.html"
+class="card locked"
+href="payment.html"
 >
 
 <div class="card-icon">
-⭐
+🔒
 </div>
 
 <h3>
@@ -803,16 +827,40 @@ Advanced English
 </h3>
 
 <p>
-Challenge yourself with advanced
-English MCQ practice.
+Challenge yourself with
+100 advanced English MCQs.
 </p>
 
-<span class="course-tag premium">
-⭐ PREMIUM
+<span class="tag premium-tag">
+🔒 PREMIUM • 100 MCQs
 </span>
 
 </a>
 
+
+</div>
+
+
+<!-- =========================
+     LOCK MESSAGE
+========================= -->
+
+<div class="lock-box">
+
+<h3>
+🔐 Premium Courses Are Protected
+</h3>
+
+<p>
+Grammar, Vocabulary, Speaking, Pronunciation,
+Conversation, Writing, Listening, Business English
+and Advanced English are available only after
+your payment has been approved by the administrator.
+</p>
+
+<a href="payment.html">
+Apply for Premium Membership
+</a>
 
 </div>
 
@@ -838,7 +886,24 @@ Practice
 </h3>
 
 <p>
-Learn through focused MCQ exercises.
+Practice with focused English MCQ questions.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+📚
+</div>
+
+<h3>
+1,000 MCQs
+</h3>
+
+<p>
+10 learning categories with 100 questions each.
 </p>
 
 </div>
@@ -864,23 +929,6 @@ Build your English skills step by step.
 <div class="feature">
 
 <div class="feature-icon">
-🏆
-</div>
-
-<h3>
-Achieve
-</h3>
-
-<p>
-Track your progress and become more confident.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
 📱
 </div>
 
@@ -889,7 +937,7 @@ Learn Anywhere
 </h3>
 
 <p>
-Practice comfortably on your phone or computer.
+Practice comfortably on phone or computer.
 </p>
 
 </div>
@@ -917,14 +965,14 @@ LKR 1,500 / 30 Days
 </h1>
 
 <p>
-Unlock the complete CreateLK Academy
-learning experience with our premium courses.
-Manual payment verification keeps your
-membership secure.
+Get access to all 9 premium courses,
+including 900 premium MCQ questions.
+Your membership becomes active after
+administrator approval of your payment.
 </p>
 
 <a href="payment.html">
-Get Premium Membership →
+Apply for Premium →
 </a>
 
 </section>
@@ -947,6 +995,10 @@ Get Premium Membership →
 
 <p>
 Learn English. Practice More. Improve Faster.
+</p>
+
+<p>
+1,000 MCQs • 10 Courses • Premium Learning
 </p>
 
 <p>
