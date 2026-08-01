@@ -1,56 +1,68 @@
 <script>
 const WORKER_URL="https://noisy-feather-27d2.gateofheavensl1.workers.dev";
+
 const form=document.getElementById("paymentForm");
 const submitButton=document.getElementById("submitButton");
 const status=document.getElementById("status");
 
 form.addEventListener("submit",async e=>{
-e.preventDefault();
+  e.preventDefault();
 
-const name=document.getElementById("name").value.trim();
-const email=document.getElementById("email").value.trim().toLowerCase();
-const reference=document.getElementById("reference").value.trim();
+  const name=document.getElementById("name").value.trim();
+  const email=document.getElementById("email").value.trim().toLowerCase();
+  const reference=document.getElementById("reference").value.trim();
 
-if(!name||!email||!reference){
-status.className="error";
-status.innerText="Please complete all fields.";
-return;
-}
+  if(!name||!email||!reference){
+    status.className="error";
+    status.innerText="Please complete all fields.";
+    return;
+  }
 
-submitButton.disabled=true;
-submitButton.innerText="Submitting...";
-status.className="";
-status.innerText="Sending your payment information...";
+  submitButton.disabled=true;
+  submitButton.innerText="Submitting...";
+  status.className="";
+  status.innerText="Sending your payment information...";
 
-try{
-const response=await fetch(WORKER_URL+"/api/subscribe",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({
-name:name,
-email:email,
-payment_reference:reference,
-amount:1500
-})
-});
+  try{
+    const response=await fetch(WORKER_URL+"/api/subscribe",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        name:name,
+        email:email,
+        payment_reference:reference,
+        amount:1500
+      })
+    });
 
-const result=await response.json();
+    const text=await response.text();
 
-if(response.ok&&result.success){
-status.className="success";
-status.innerText="✓ Payment submitted successfully! Your payment is waiting for administrator approval.";
-form.reset();
-}else{
-status.className="error";
-status.innerText=result.error||"Unable to submit payment.";
-}
-}catch(error){
-console.error(error);
-status.className="error";
-status.innerText="Connection error. Please try again.";
-}
+    let result;
 
-submitButton.disabled=false;
-submitButton.innerText="Submit Payment";
+    try{
+      result=JSON.parse(text);
+    }catch{
+      throw new Error("Worker returned: "+text);
+    }
+
+    if(response.ok&&result.success){
+      status.className="success";
+      status.innerText="✓ Payment submitted successfully! Your payment is waiting for administrator approval.";
+      form.reset();
+    }else{
+      status.className="error";
+      status.innerText=result.error||"Payment submission failed.";
+    }
+
+  }catch(error){
+    console.error(error);
+    status.className="error";
+    status.innerText="Error: "+error.message;
+  }
+
+  submitButton.disabled=false;
+  submitButton.innerText="Submit Payment";
 });
 </script>
