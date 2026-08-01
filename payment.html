@@ -1,7 +1,7 @@
 <script>
 
 const WORKER_URL =
-"https://white-mouse-3643.gateofheavensl1.workers.dev";
+"https://flat-rain-c4ac.gateofheavensl1.workers.dev";
 
 const form =
 document.getElementById("paymentForm");
@@ -52,6 +52,24 @@ return;
 
 }
 
+const allowedTypes = [
+"image/jpeg",
+"image/png",
+"image/webp",
+"application/pdf"
+];
+
+if(!allowedTypes.includes(slip.type)){
+
+status.className="error";
+
+status.innerText =
+"Only JPG, PNG, WEBP or PDF files are allowed.";
+
+return;
+
+}
+
 submitButton.disabled=true;
 
 submitButton.innerText="Submitting...";
@@ -66,9 +84,15 @@ try{
 const formData =
 new FormData();
 
-formData.append("name",name);
+formData.append(
+"name",
+name
+);
 
-formData.append("email",email);
+formData.append(
+"email",
+email
+);
 
 formData.append(
 "payment_reference",
