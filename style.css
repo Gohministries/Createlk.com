@@ -119,6 +119,23 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.mobile-menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
 /* =========================
    Hero Section
 ========================= */
@@ -131,6 +148,7 @@ nav a:hover {
 }
 
 .hero h2 {
+    color: #ffffff; /* Ensures strong contrast on dark backgrounds */
     font-size: clamp(32px, 5vw, 48px);
     margin: 20px 0;
     line-height: 1.2;
@@ -228,7 +246,7 @@ section h2 {
 }
 
 .card:nth-child(even) {
-    border-top: 4px solid var(--accent); /* Adds a splash of color */
+    border-top: 4px solid var(--accent);
 }
 
 .card:hover {
@@ -389,7 +407,7 @@ footer a:hover {
     background: #1ebc59;
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-    animation: none; /* Stop pulse on hover */
+    animation: none;
 }
 
 @keyframes pulse {
@@ -408,10 +426,33 @@ footer a:hover {
         text-align: center;
     }
 
-    nav {
-        justify-content: center;
+    .brand p {
+        display: none; /* Hides subtitle to save space on small screens */
+    }
+
+    .mobile-menu-toggle {
+        display: inline-block;
+        margin-top: 15px;
+    }
+
+    /* Hides navigation items by default until toggled */
+    #mainNav {
+        display: none;
         width: 100%;
-        margin-top: 10px;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding-top: 15px;
+    }
+
+    /* Class triggered by JavaScript */
+    #mainNav.active {
+        display: flex;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
     }
 
     .hero {
