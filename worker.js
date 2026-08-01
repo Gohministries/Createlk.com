@@ -10,24 +10,16 @@ export default {
       return new Response(null, { headers: corsHeaders });
     }
 
-    if (request.method === "POST" && new URL(request.url).pathname === "/order") {
+    if (request.method === "POST") {
       try {
         const orderData = await request.json();
 
-        if (!orderData.name || !orderData.phone || !orderData.service) {
-          return new Response(JSON.stringify({ success: false, error: "Missing required fields" }), {
-            status: 400,
-            headers: { ...corsHeaders, "Content-Type": "application/json" }
-          });
-        }
+        console.log("New Order Received:", orderData);
 
-        console.log("New CreateLK Order Received:", orderData);
-
-        return new Response(JSON.stringify({ success: true, message: "Order received successfully!" }), {
+        return new Response(JSON.stringify({ success: true, message: "Order received!" }), {
           status: 200,
           headers: { ...corsHeaders, "Content-Type": "application/json" }
         });
-
       } catch (err) {
         return new Response(JSON.stringify({ success: false, error: err.message }), {
           status: 400,
@@ -36,6 +28,6 @@ export default {
       }
     }
 
-    return new Response("Endpoint not found", { status: 404 });
+    return new Response("Method not allowed", { status: 405, headers: corsHeaders });
   }
 };
