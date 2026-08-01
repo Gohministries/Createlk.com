@@ -1,17 +1,27 @@
 /* =========================
    CreateLK Digital Services
-   Premium Style CSS (Refactored)
+   Premium Style CSS (Final)
 ========================= */
 
 :root {
+    /* Brand Blues */
     --primary-color: #0b3d91;
     --secondary-color: #007bff;
-    --bg-light: #f4f8ff;
+    
+    /* Vibrant Accents */
+    --accent-color: #ff5e62; 
+    --accent-gradient: linear-gradient(135deg, #ff9966, #ff5e62);
+    --blue-gradient: linear-gradient(135deg, #0b3d91, #007bff);
+    
+    /* Backgrounds & Text */
+    --bg-light: #f8faff;
     --text-main: #333333;
     --text-light: #ffffff;
-    --shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 15px 35px rgba(0, 123, 255, 0.25);
+    
+    /* Shadows & Radii */
+    --shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 15px 35px rgba(255, 94, 98, 0.2); 
     --radius-md: 15px;
     --radius-lg: 20px;
     --transition: 0.3s ease;
@@ -45,7 +55,7 @@ a {
 ========================= */
 
 header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--blue-gradient);
     color: var(--text-light);
     padding: 20px 6%;
     display: flex;
@@ -95,90 +105,38 @@ nav a:focus {
 ========================= */
 
 .page-banner {
-    background: linear-gradient(
-        135deg,
-        rgba(11, 61, 145, 0.95),
-        rgba(0, 123, 255, 0.9)
-    );
-    color: var(--text-light);
-    text-align: center;
-    padding: clamp(50px, 8vw, 80px) 20px;
+    background: var(--text-light);
+    color: var(--text-main);
+    padding: clamp(30px, 5vw, 50px) 6%;
 }
 
 .page-banner h2 {
-    font-size: clamp(30px, 5vw, 42px);
+    font-size: clamp(24px, 5vw, 36px);
+    color: var(--primary-color);
     margin-bottom: 15px;
 }
 
 .page-banner p {
-    font-size: clamp(16px, 3vw, 18px);
-    opacity: 0.95;
-}
-
-/* =========================
-   Layout Sections
-========================= */
-
-.content-section {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 0;
-}
-
-.content-section h2 {
-    text-align: center;
-    color: var(--primary-color);
-    font-size: clamp(26px, 4vw, 32px);
-    margin-bottom: 30px;
-}
-
-.content-section p {
-    margin-bottom: 20px;
+    font-size: clamp(15px, 3vw, 18px);
+    margin-bottom: 25px;
     color: #555;
-}
-
-/* =========================
-   Cards
-========================= */
-
-.card-container,
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding-top: 10px;
-}
-
-.card {
-    background: var(--text-light);
-    padding: 30px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    transition: var(--transition);
-    border: 1px solid rgba(0,0,0,0.03);
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
-
-.card h3 {
-    color: var(--primary-color);
-    margin-bottom: 12px;
-    font-size: 20px;
 }
 
 /* =========================
    Buttons
 ========================= */
 
+.button-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
 .button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--blue-gradient);
     color: var(--text-light);
     padding: 14px 28px;
     border-radius: 30px;
@@ -188,20 +146,77 @@ nav a:focus {
     font-weight: 600;
     transition: var(--transition);
     text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
 }
 
 .button:hover,
 .button:focus {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.35);
+    color: var(--text-light);
 }
 
-/* Helper for aligning multiple buttons like in the screenshot */
-.button-group {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+.button.accent {
+    background: var(--accent-gradient);
+    box-shadow: 0 4px 15px rgba(255, 94, 98, 0.25);
+}
+
+.button.accent:hover,
+.button.accent:focus {
+    box-shadow: 0 8px 25px rgba(255, 94, 98, 0.4);
+}
+
+/* =========================
+   Cards
+========================= */
+
+.content-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.content-section h2 {
+    color: var(--text-main);
+    font-size: clamp(22px, 4vw, 28px);
+    margin-bottom: 20px;
+}
+
+.card-container,
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--text-light);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.03);
+    border-top: 5px solid var(--secondary-color); 
+}
+
+.card:nth-child(even) {
+    border-top: 5px solid var(--accent-color);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 123, 255, 0.15);
+}
+
+.card:nth-child(even):hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-size: 20px;
 }
 
 /* =========================
@@ -225,9 +240,7 @@ label {
     font-size: 15px;
 }
 
-input,
-select,
-textarea {
+input, select, textarea {
     width: 100%;
     padding: 14px 16px;
     margin-top: 8px;
@@ -240,101 +253,10 @@ textarea {
     background: #fafcff;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+input:focus, select:focus, textarea:focus {
     border-color: var(--secondary-color);
     background: var(--text-light);
     box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
-}
-
-/* =========================
-   Notices & Callouts
-========================= */
-
-.notice {
-    background: #fff8dc;
-    border-left: 5px solid #ffc107;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 25px 0;
-    color: #665000;
-}
-
-.payment-box {
-    background: var(--text-light);
-    padding: 30px;
-    border-radius: var(--radius-md);
-    border-left: 6px solid var(--secondary-color);
-    box-shadow: var(--shadow-md);
-    margin: 20px 0;
-}
-
-/* =========================
-   Tables & FAQ
-========================= */
-
-table {
-    width: 100%;
-    background: var(--text-light);
-    border-collapse: collapse;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-}
-
-th {
-    background: var(--primary-color);
-    color: var(--text-light);
-    font-weight: 600;
-    text-align: left;
-}
-
-th, td {
-    padding: 16px;
-    border-bottom: 1px solid #eee;
-}
-
-.faq-item {
-    background: var(--text-light);
-    padding: 25px;
-    margin: 15px 0;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-}
-
-.faq-item:hover {
-    box-shadow: var(--shadow-md);
-}
-
-.faq-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 10px;
-}
-
-/* =========================
-   Footer
-========================= */
-
-footer {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--text-light);
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 60px;
-}
-
-footer a {
-    color: var(--text-light);
-    font-weight: 500;
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    transition: var(--transition);
-}
-
-footer a:hover {
-    text-decoration-color: var(--text-light);
 }
 
 /* =========================
@@ -350,7 +272,7 @@ footer a:hover {
 
     nav {
         justify-content: center;
-        margin-top: 20px;
+        margin-top: 15px;
         gap: 8px;
     }
 
@@ -358,22 +280,18 @@ footer a:hover {
         font-size: 14px;
         padding: 8px 12px;
     }
-
-    .content-section {
-        width: 92%;
-        padding: 40px 0;
-    }
     
-    .card-container, 
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    form {
-        padding: 25px 20px;
+    .button-group {
+        flex-direction: column;
+        width: 100%;
     }
 
     .button {
-        width: 100%; /* Better touch targets for mobile */
+        width: 100%;
+    }
+
+    .card-container, 
+    .cards {
+        grid-template-columns: 1fr;
     }
 }
