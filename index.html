@@ -3,14 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>CreateLK Academy | English MCQ Learning</title>
 
+<meta name="description"
+content="CreateLK Academy - Learn English with interactive MCQ practice questions.">
+
 <style>
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Segoe UI',sans-serif;
+  font-family:'Segoe UI',Arial,sans-serif;
 }
 
 html{
@@ -23,13 +28,15 @@ body{
   line-height:1.6;
 }
 
+/* NAVIGATION */
+
 nav{
   background:#fff;
   padding:16px 40px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  box-shadow:0 4px 20px rgba(0,0,0,0.05);
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
   position:sticky;
   top:0;
   z-index:1000;
@@ -58,6 +65,8 @@ nav a:hover{
   color:#1565c0;
 }
 
+/* HERO */
+
 header{
   background:linear-gradient(135deg,#1565c0,#00897b);
   color:white;
@@ -73,8 +82,10 @@ header h1{
 
 header p{
   font-size:18px;
-  opacity:0.95;
+  opacity:.95;
 }
+
+/* CONTAINER */
 
 .container{
   max-width:1200px;
@@ -92,9 +103,18 @@ header p{
   font-size:30px;
 }
 
+#subscriptionStatus{
+  margin-top:8px;
+  font-size:14px;
+  font-weight:700;
+}
+
+/* COURSE GRID */
+
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:
+  repeat(auto-fit,minmax(260px,1fr));
   gap:24px;
 }
 
@@ -104,15 +124,16 @@ header p{
   border-radius:16px;
   text-decoration:none;
   color:#333;
-  box-shadow:0 5px 15px rgba(0,0,0,0.03);
+  box-shadow:0 5px 15px rgba(0,0,0,.04);
   border-left:5px solid #1565c0;
-  transition:0.25s;
+  transition:.25s;
   display:block;
   cursor:pointer;
 }
 
 .card:hover{
   transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 .free-card{
@@ -131,54 +152,31 @@ header p{
   color:#666;
 }
 
-.locked-label{
-  display:inline-block;
-  margin-top:10px;
-  font-size:13px;
-  font-weight:bold;
-  color:#c62828;
-}
-
+.locked-label,
 .free-label{
   display:inline-block;
   margin-top:10px;
   font-size:13px;
   font-weight:bold;
+}
+
+.locked-label{
+  color:#c62828;
+}
+
+.free-label{
   color:#00897b;
 }
 
-.subscription{
-  background:linear-gradient(135deg,#1565c0,#0d47a1);
-  color:white;
-  padding:45px 30px;
-  border-radius:20px;
-  text-align:center;
-  margin:50px 0;
-}
-
-.subscription h1{
-  font-size:36px;
-  margin:15px 0;
-}
-
-.subscription a{
-  background:white;
-  color:#1565c0;
-  padding:14px 30px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-  display:inline-block;
-  margin-top:15px;
-}
+/* ACCESS BOX */
 
 .access-box{
   background:white;
   padding:30px;
   border-radius:16px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  box-shadow:0 5px 15px rgba(0,0,0,.05);
   max-width:500px;
-  margin:40px auto;
+  margin:50px auto 30px;
   text-align:center;
 }
 
@@ -195,17 +193,22 @@ header p{
 
 .access-box input{
   width:100%;
-  padding:12px;
+  padding:13px;
   border:1px solid #ddd;
   border-radius:8px;
   font-size:16px;
   text-align:center;
   margin-bottom:10px;
+  outline:none;
+}
+
+.access-box input:focus{
+  border-color:#1565c0;
 }
 
 .access-box button{
   width:100%;
-  padding:12px;
+  padding:13px;
   border:none;
   border-radius:8px;
   background:#1565c0;
@@ -219,17 +222,57 @@ header p{
   background:#0d47a1;
 }
 
+.access-box button:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
 #accessStatus{
   margin-top:12px;
   font-weight:600;
   font-size:14px;
 }
 
-#subscriptionStatus{
-  margin-top:10px;
-  font-size:14px;
-  font-weight:bold;
+/* SUBSCRIPTION */
+
+.subscription{
+  background:linear-gradient(135deg,#1565c0,#0d47a1);
+  color:white;
+  padding:45px 30px;
+  border-radius:20px;
+  text-align:center;
+  margin:50px 0;
 }
+
+.subscription h2{
+  font-size:22px;
+}
+
+.subscription h1{
+  font-size:36px;
+  margin:15px 0;
+}
+
+.subscription p{
+  opacity:.95;
+}
+
+.subscription a{
+  background:white;
+  color:#1565c0;
+  padding:14px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  display:inline-block;
+  margin-top:15px;
+}
+
+.subscription a:hover{
+  background:#f1f1f1;
+}
+
+/* FOOTER */
 
 footer{
   background:#111;
@@ -239,6 +282,8 @@ footer{
   margin-top:50px;
   font-size:14px;
 }
+
+/* MOBILE */
 
 @media(max-width:700px){
 
@@ -262,266 +307,501 @@ footer{
     font-size:32px;
   }
 
+  header p{
+    font-size:16px;
+  }
+
   .subscription h1{
     font-size:28px;
   }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
-  <div class="logo">📚 CreateLK Academy</div>
+
+  <div class="logo">
+    📚 CreateLK Academy
+  </div>
 
   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="#courses">Courses</a></li>
-    <li><a href="payment.html">Payment</a></li>
-    <li><a href="contact.html">Contact</a></li>
+
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+
+    <li>
+      <a href="#courses">Courses</a>
+    </li>
+
+    <li>
+      <a href="payment.html">Payment</a>
+    </li>
+
+    <li>
+      <a href="contact.html">Contact</a>
+    </li>
+
   </ul>
+
 </nav>
 
+
+<!-- HERO -->
+
 <header>
-  <h1>CreateLK English MCQ Academy</h1>
-  <p>Master English with 1,000+ interactive practice questions</p>
+
+  <h1>
+    CreateLK English MCQ Academy
+  </h1>
+
+  <p>
+    Master English with 1,000+ interactive practice questions
+  </p>
+
 </header>
+
 
 <div class="container">
 
-  <div class="title" id="courses">
-    <h2>English MCQ Categories</h2>
-    <p id="subscriptionStatus">Checking subscription...</p>
-  </div>
 
-  <div class="grid">
+<!-- COURSES -->
 
-    <!-- FREE SECTION -->
-    <a class="card free-card" href="beginner-english/index.html">
-      <h3>🌱 Beginner English</h3>
-      <p>100 MCQ Questions</p>
-      <span class="free-label">✓ FREE ACCESS</span>
-    </a>
+<div class="title" id="courses">
 
-    <!-- PREMIUM SECTION -->
-    <a class="card locked-card premium-link" data-page="grammar/index.html">
-      <h3>📖 Grammar</h3>
-      <p>100 MCQ Questions</p>
-      <span class="locked-label">🔒 PREMIUM</span>
-    </a>
+  <h2>
+    English MCQ Categories
+  </h2>
 
-    <a class="card locked-card premium-link" data-page="vocabulary/index.html">
-      <h3>📝 Vocabulary</h3>
-      <p>100 MCQ Questions</p>
-      <span class="locked-label">🔒 PREMIUM</span>
-    </a>
-
-    <a class="card locked-card premium-link" data-page="speaking/index.html">
-      <h3>🗣 Speaking</h3>
-      <p>100 MCQ Questions</p>
-      <span class="locked-label">🔒 PREMIUM</span>
-    </a>
-
-    <a class="card locked-card premium-link" data-page="pronunciation/index.html">
-      <h3>🔊 Pronunciation</h3>
-      <p>100 MCQ Questions</p>
-      <span class="locked-label">🔒 PREMIUM</span>
-    </a>
-
-    <a class="card locked-card premium-link" data-page="conversation/index.html">
-      <h3>💬 Conversation</h3>
-      <p>100 MCQ Questions</p>
-      <span class="locked-label">🔒 PREMIUM</span>
-    </a>
-
-    <a class="card locked-card premium-link" data-page="writing/index.html">
-      <h3>✍️ Writing</h3>
-      <p>100 MCQ Questions</p>
-      <span class="locked-label">🔒 PREMIUM</span>
-    </a>
-
-    <a class="card locked-card premium-link" data-page="listening/index.html">
-      <h3>🎧 Listening</h3>
-      <p>100 MCQ Questions</p>
-      <span class="locked-label">🔒 PREMIUM</span>
-    </a>
-
-    <a class="card locked-card premium-link" data-page="business/index.html">
-      <h3>💼 Business English</h3>
-      <p>100 MCQ Questions</p>
-      <span class="locked-label">🔒 PREMIUM</span>
-    </a>
-
-    <a class="card locked-card premium-link" data-page="advanced/index.html">
-      <h3>⭐ Advanced English</h3>
-      <p>100 MCQ Questions</p>
-      <span class="locked-label">🔒 PREMIUM</span>
-    </a>
-
-  </div>
-
-  <!-- ACCESS CODE -->
-  <div class="access-box" id="accessBox">
-
-    <h2>🔑 Premium Access</h2>
-
-    <p>
-      Already received an access code?
-      Enter it below to unlock all premium sections for 30 days.
-    </p>
-
-    <input
-      type="text"
-      id="accessCode"
-      placeholder="Enter your access code"
-      autocomplete="off"
-    >
-
-    <button id="verifyBtn">
-      Verify Access Code
-    </button>
-
-    <div id="accessStatus"></div>
-
-  </div>
-
-  <!-- SUBSCRIPTION -->
-  <div class="subscription">
-
-    <h2>Premium Membership</h2>
-
-    <h1>LKR 1,500 / Month</h1>
-
-    <p>
-      Unlock full access to the complete English MCQ learning system
-    </p>
-
-    <a href="payment.html">
-      Subscribe Now
-    </a>
-
-  </div>
+  <p id="subscriptionStatus">
+    Checking premium access...
+  </p>
 
 </div>
 
+
+<div class="grid">
+
+
+<!-- FREE -->
+
+<a
+  class="card free-card"
+  href="beginner-english/index.html"
+>
+
+  <h3>
+    🌱 Beginner English
+  </h3>
+
+  <p>
+    100 MCQ Questions
+  </p>
+
+  <span class="free-label">
+    ✓ FREE ACCESS
+  </span>
+
+</a>
+
+
+<!-- GRAMMAR -->
+
+<a
+  class="card locked-card premium-link"
+  data-page="grammar/index.html"
+>
+
+  <h3>
+    📖 Grammar
+  </h3>
+
+  <p>
+    100 MCQ Questions
+  </p>
+
+  <span class="locked-label">
+    🔒 PREMIUM
+  </span>
+
+</a>
+
+
+<!-- VOCABULARY -->
+
+<a
+  class="card locked-card premium-link"
+  data-page="vocabulary/index.html"
+>
+
+  <h3>
+    📝 Vocabulary
+  </h3>
+
+  <p>
+    100 MCQ Questions
+  </p>
+
+  <span class="locked-label">
+    🔒 PREMIUM
+  </span>
+
+</a>
+
+
+<!-- SPEAKING -->
+
+<a
+  class="card locked-card premium-link"
+  data-page="speaking/index.html"
+>
+
+  <h3>
+    🗣 Speaking
+  </h3>
+
+  <p>
+    100 MCQ Questions
+  </p>
+
+  <span class="locked-label">
+    🔒 PREMIUM
+  </span>
+
+</a>
+
+
+<!-- PRONUNCIATION -->
+
+<a
+  class="card locked-card premium-link"
+  data-page="pronunciation/index.html"
+>
+
+  <h3>
+    🔊 Pronunciation
+  </h3>
+
+  <p>
+    100 MCQ Questions
+  </p>
+
+  <span class="locked-label">
+    🔒 PREMIUM
+  </span>
+
+</a>
+
+
+<!-- CONVERSATION -->
+
+<a
+  class="card locked-card premium-link"
+  data-page="conversation/index.html"
+>
+
+  <h3>
+    💬 Conversation
+  </h3>
+
+  <p>
+    100 MCQ Questions
+  </p>
+
+  <span class="locked-label">
+    🔒 PREMIUM
+  </span>
+
+</a>
+
+
+<!-- WRITING -->
+
+<a
+  class="card locked-card premium-link"
+  data-page="writing/index.html"
+>
+
+  <h3>
+    ✍️ Writing
+  </h3>
+
+  <p>
+    100 MCQ Questions
+  </p>
+
+  <span class="locked-label">
+    🔒 PREMIUM
+  </span>
+
+</a>
+
+
+<!-- LISTENING -->
+
+<a
+  class="card locked-card premium-link"
+  data-page="listening/index.html"
+>
+
+  <h3>
+    🎧 Listening
+  </h3>
+
+  <p>
+    100 MCQ Questions
+  </p>
+
+  <span class="locked-label">
+    🔒 PREMIUM
+  </span>
+
+</a>
+
+
+<!-- BUSINESS -->
+
+<a
+  class="card locked-card premium-link"
+  data-page="business/index.html"
+>
+
+  <h3>
+    💼 Business English
+  </h3>
+
+  <p>
+    100 MCQ Questions
+  </p>
+
+  <span class="locked-label">
+    🔒 PREMIUM
+  </span>
+
+</a>
+
+
+<!-- ADVANCED -->
+
+<a
+  class="card locked-card premium-link"
+  data-page="advanced/index.html"
+>
+
+  <h3>
+    ⭐ Advanced English
+  </h3>
+
+  <p>
+    100 MCQ Questions
+  </p>
+
+  <span class="locked-label">
+    🔒 PREMIUM
+  </span>
+
+</a>
+
+</div>
+
+
+<!-- ACCESS CODE -->
+
+<div
+  class="access-box"
+  id="accessBox"
+>
+
+  <h2>
+    🔑 Premium Access
+  </h2>
+
+  <p>
+    Already received an access code?
+    Enter your code below to unlock
+    all premium sections for 30 days.
+  </p>
+
+  <input
+    type="text"
+    id="accessCode"
+    placeholder="Enter your access code"
+    autocomplete="off"
+  >
+
+  <button id="verifyBtn">
+    Verify Access Code
+  </button>
+
+  <div id="accessStatus"></div>
+
+</div>
+
+
+<!-- SUBSCRIPTION -->
+
+<div class="subscription">
+
+  <h2>
+    Premium Membership
+  </h2>
+
+  <h1>
+    LKR 1,500 / Month
+  </h1>
+
+  <p>
+    Unlock full access to the complete
+    English MCQ learning system.
+  </p>
+
+  <a href="payment.html">
+    Subscribe Now
+  </a>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
 <footer>
-  <p>© 2026 CreateLK Academy | All Rights Reserved</p>
+
+  <p>
+    © 2026 CreateLK Academy |
+    All Rights Reserved
+  </p>
+
 </footer>
+
 
 <script>
 
+/* ==========================================
+   CLOUDFLARE WORKER
+========================================== */
+
 const WORKER_URL =
-  "https://proud-smoke-3af1.gateofheavensl1.workers.dev";
+"https://proud-smoke-3af1.gateofheavensl1.workers.dev";
 
-/*
-  IMPORTANT:
 
-  This frontend expects your Cloudflare Worker
-  to have an endpoint:
+/* ==========================================
+   ELEMENTS
+========================================== */
 
-  POST /api/verify-code
+const verifyBtn =
+document.getElementById("verifyBtn");
 
-  The Worker should receive:
+const accessCodeInput =
+document.getElementById("accessCode");
 
-  {
-    "code": "YOUR-CODE"
-  }
+const accessStatus =
+document.getElementById("accessStatus");
 
-  and return something like:
-
-  {
-    "success": true,
-    "expiresAt": "2026-08-31T12:00:00.000Z"
-  }
-
-  or:
-
-  {
-    "success": false,
-    "error": "Invalid or expired code"
-  }
-*/
-
-const verifyBtn = document.getElementById("verifyBtn");
-const accessCodeInput = document.getElementById("accessCode");
-const accessStatus = document.getElementById("accessStatus");
 const subscriptionStatus =
-  document.getElementById("subscriptionStatus");
+document.getElementById("subscriptionStatus");
 
 const premiumLinks =
-  document.querySelectorAll(".premium-link");
+document.querySelectorAll(".premium-link");
 
 
-/* --------------------------------------------------
+/* ==========================================
    CHECK SAVED ACCESS
--------------------------------------------------- */
+========================================== */
 
 function checkSavedAccess(){
 
   const savedExpiry =
-    localStorage.getItem("createLKPremiumExpiry");
+  localStorage.getItem(
+    "createLKPremiumExpiry"
+  );
 
   if(!savedExpiry){
 
     showLocked();
 
     subscriptionStatus.innerText =
-      "🔒 Premium sections require a 30-day access code.";
+    "🔒 Premium sections require a 30-day access code.";
 
     return false;
   }
 
+
   const expiryTime =
-    new Date(savedExpiry).getTime();
+  new Date(savedExpiry).getTime();
 
   const now =
-    Date.now();
+  Date.now();
 
-  if(now >= expiryTime){
 
-    localStorage.removeItem("createLKPremiumExpiry");
+  if(
+    isNaN(expiryTime) ||
+    now >= expiryTime
+  ){
+
+    localStorage.removeItem(
+      "createLKPremiumExpiry"
+    );
 
     showLocked();
 
     subscriptionStatus.innerText =
-      "⏰ Your premium access has expired.";
+    "⏰ Your premium access has expired.";
 
     return false;
   }
 
+
   showUnlocked();
 
   const expiryDate =
-    new Date(savedExpiry).toLocaleDateString();
+  new Date(savedExpiry)
+  .toLocaleDateString();
+
 
   subscriptionStatus.innerText =
-    "✓ Premium access active until " + expiryDate;
+  "✓ Premium access active until " +
+  expiryDate;
 
   return true;
 }
 
 
-/* --------------------------------------------------
+/* ==========================================
    SHOW LOCKED
--------------------------------------------------- */
+========================================== */
 
 function showLocked(){
 
   premiumLinks.forEach(link => {
 
+    link.classList.remove("free-card");
+
     link.classList.add("locked-card");
 
-    link.querySelector(".locked-label").innerText =
+    const label =
+    link.querySelector(".locked-label");
+
+    if(label){
+      label.innerText =
       "🔒 PREMIUM";
+    }
 
   });
 
 }
 
 
-/* --------------------------------------------------
+/* ==========================================
    SHOW UNLOCKED
--------------------------------------------------- */
+========================================== */
 
 function showUnlocked(){
 
@@ -531,91 +811,111 @@ function showUnlocked(){
 
     link.classList.add("free-card");
 
-    link.querySelector(".locked-label").innerText =
+    const label =
+    link.querySelector(".locked-label");
+
+    if(label){
+      label.innerText =
       "✓ UNLOCKED";
+    }
 
   });
 
 }
 
 
-/* --------------------------------------------------
-   PREMIUM LINK CLICK
--------------------------------------------------- */
+/* ==========================================
+   PREMIUM LINK
+========================================== */
 
 premiumLinks.forEach(link => {
 
-  link.addEventListener("click", function(e){
+  link.addEventListener(
+    "click",
+    function(event){
 
-    const hasAccess =
+      const hasAccess =
       checkSavedAccess();
 
-    if(!hasAccess){
 
-      e.preventDefault();
+      if(!hasAccess){
 
-      accessStatus.style.color = "#c62828";
+        event.preventDefault();
 
-      accessStatus.innerText =
+        accessStatus.style.color =
+        "#c62828";
+
+        accessStatus.innerText =
         "🔒 Please enter a valid premium access code first.";
 
-      document.getElementById("accessBox")
+
+        document
+        .getElementById("accessBox")
         .scrollIntoView({
           behavior:"smooth",
           block:"center"
         });
 
-      return;
-    }
+        return;
+      }
 
-    /*
-      Access is currently valid,
-      so open the requested section.
-    */
 
-    const page =
+      event.preventDefault();
+
+      const page =
       this.dataset.page;
 
-    window.location.href = page;
+      window.location.href =
+      page;
 
-  });
+    }
+  );
 
 });
 
 
-/* --------------------------------------------------
+/* ==========================================
    VERIFY CODE
--------------------------------------------------- */
+========================================== */
 
-verifyBtn.addEventListener("click", async function(){
+verifyBtn.addEventListener(
+  "click",
+  async function(){
 
-  const code =
-    accessCodeInput.value.trim();
+    const code =
+    accessCodeInput.value
+    .trim()
+    .toUpperCase();
 
-  if(!code){
 
-    accessStatus.style.color = "#c62828";
+    if(!code){
 
-    accessStatus.innerText =
+      accessStatus.style.color =
+      "#c62828";
+
+      accessStatus.innerText =
       "Please enter your access code.";
 
-    return;
-  }
+      return;
+    }
 
-  verifyBtn.disabled = true;
 
-  verifyBtn.innerText =
+    verifyBtn.disabled = true;
+
+    verifyBtn.innerText =
     "Checking...";
 
-  accessStatus.style.color =
+
+    accessStatus.style.color =
     "#333";
 
-  accessStatus.innerText =
+    accessStatus.innerText =
     "Verifying your code...";
 
-  try{
 
-    const response =
+    try{
+
+      const response =
       await fetch(
         `${WORKER_URL}/api/verify-code`,
         {
@@ -623,7 +923,7 @@ verifyBtn.addEventListener("click", async function(){
 
           headers:{
             "Content-Type":
-              "application/json"
+            "application/json"
           },
 
           body:JSON.stringify({
@@ -632,79 +932,110 @@ verifyBtn.addEventListener("click", async function(){
         }
       );
 
-    const result =
+
+      const result =
       await response.json();
 
 
-    if(response.ok && result.success){
-
-      /*
-        Save only the expiry date locally.
-
-        The actual code validation must happen
-        on Cloudflare Worker.
-      */
-
-      localStorage.setItem(
-        "createLKPremiumExpiry",
+      if(
+        response.ok &&
+        result.success &&
         result.expiresAt
-      );
+      ){
 
-      showUnlocked();
+        localStorage.setItem(
+          "createLKPremiumExpiry",
+          result.expiresAt
+        );
 
-      const expiryDate =
+
+        showUnlocked();
+
+
+        const expiryDate =
         new Date(result.expiresAt)
-          .toLocaleDateString();
+        .toLocaleDateString();
 
-      accessStatus.style.color =
+
+        accessStatus.style.color =
         "#00897b";
 
-      accessStatus.innerText =
-        "✓ Access activated until " +
+        accessStatus.innerText =
+        "✓ Premium access activated until " +
         expiryDate;
 
-      subscriptionStatus.innerText =
+
+        subscriptionStatus.innerText =
         "✓ Premium access active until " +
         expiryDate;
 
-      accessCodeInput.value = "";
 
-    }else{
+        accessCodeInput.value = "";
 
-      accessStatus.style.color =
+
+      }else{
+
+        localStorage.removeItem(
+          "createLKPremiumExpiry"
+        );
+
+        showLocked();
+
+
+        accessStatus.style.color =
         "#c62828";
 
-      accessStatus.innerText =
+        accessStatus.innerText =
         result.error ||
         "Invalid or expired access code.";
 
-    }
+      }
 
-  }catch(error){
 
-    console.error(error);
+    }catch(error){
 
-    accessStatus.style.color =
+      console.error(error);
+
+
+      accessStatus.style.color =
       "#c62828";
 
-    accessStatus.innerText =
+      accessStatus.innerText =
       "Network error. Please try again.";
 
-  }finally{
+    }
+
 
     verifyBtn.disabled = false;
 
     verifyBtn.innerText =
-      "Verify Access Code";
+    "Verify Access Code";
 
   }
+);
 
-});
+
+/* ==========================================
+   ENTER KEY
+========================================== */
+
+accessCodeInput.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Enter"){
+
+      verifyBtn.click();
+
+    }
+
+  }
+);
 
 
-/* --------------------------------------------------
+/* ==========================================
    START
--------------------------------------------------- */
+========================================== */
 
 checkSavedAccess();
 
