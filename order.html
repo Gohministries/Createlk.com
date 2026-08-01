@@ -1,5 +1,5 @@
 <div style="max-width: 500px; margin: 40px auto; padding: 20px; font-family: Arial, sans-serif; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-  <h2 style="text-align: center; margin-bottom: 20px;">Place Your Order</h2>
+  <h2 style="text-align: center; margin-bottom: 20px;">Place Your Order via WhatsApp</h2>
   <form id="orderForm" style="display: flex; flex-direction: column; gap: 15px;">
     <input type="text" id="name" placeholder="Full Name" required style="padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px;">
     <input type="tel" id="phone" placeholder="Phone Number" required style="padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px;">
@@ -11,41 +11,24 @@
       <option>Photo Background Removal</option>
     </select>
     <textarea id="description" placeholder="Describe your project" rows="4" style="padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;"></textarea>
-    <button type="submit" style="padding: 12px; font-size: 16px; background-color: #0070f3; color: white; border: none; border-radius: 4px; cursor: pointer;">Submit Order</button>
+    <button type="submit" style="padding: 12px; font-size: 16px; background-color: #25D366; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Send Order via WhatsApp</button>
   </form>
 </div>
 
 <script>
-document.getElementById("orderForm").addEventListener("submit", async (e) => {
+document.getElementById("orderForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const data = {
-    name: document.getElementById("name").value,
-    phone: document.getElementById("phone").value,
-    service: document.getElementById("service").value,
-    description: document.getElementById("description").value
-  };
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const service = document.getElementById("service").value;
+  const description = document.getElementById("description").value;
 
-  try {
-    const res = await fetch("https://proud-smoke-3af1.gateofheavensl1.workers.dev", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
+  // Replace with your WhatsApp phone number including country code (e.g., 94771234567)
+  const whatsappNumber = "94771234567"; 
 
-    const result = await res.json();
+  const message = `*New Order Inquiry*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A*Description:* ${encodeURIComponent(description)}`;
 
-    if (res.ok && result.success) {
-      alert("Order submitted successfully! We will contact you soon.");
-      document.getElementById("orderForm").reset();
-    } else {
-      alert("Submission failed. Please try again.");
-    }
-  } catch (err) {
-    console.error("Error submitting order:", err);
-    alert("An error occurred. Please contact us via WhatsApp.");
-  }
+  window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
 });
 </script>
