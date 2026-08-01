@@ -1,8 +1,21 @@
 /* =========================
    CreateLK Digital Services
-   Premium Style CSS
+   Premium Style CSS (Refactored)
 ========================= */
 
+:root {
+    --primary-color: #0b3d91;
+    --secondary-color: #007bff;
+    --bg-light: #f4f8ff;
+    --text-main: #333333;
+    --text-light: #ffffff;
+    --shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 15px 35px rgba(0, 123, 255, 0.25);
+    --radius-md: 15px;
+    --radius-lg: 20px;
+    --transition: 0.3s ease;
+}
 
 * {
     margin: 0;
@@ -10,523 +23,357 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    background: #f4f8ff;
-    color: #333;
-
+    background: var(--bg-light);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
 }
-
 
 a {
-
     text-decoration: none;
-
+    color: inherit;
 }
 
-
 /* =========================
-   Header
+   Header & Navigation
 ========================= */
-
 
 header {
-
-    background: linear-gradient(135deg,#0b3d91,#007bff);
-    color:white;
-    padding:20px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    box-shadow:0 5px 20px rgba(0,0,0,0.15);
-
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-light);
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-
 
 .logo h1 {
-
-    font-size:28px;
-    font-weight:700;
-
+    font-size: clamp(22px, 4vw, 28px);
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
-
 
 .logo p {
-
-    font-size:14px;
-    opacity:.9;
-
+    font-size: 14px;
+    opacity: 0.9;
 }
-
-
 
 nav {
-
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
-
-
 
 nav a {
-
-    color:white;
-    padding:10px 16px;
-    border-radius:25px;
-    transition:.3s;
-    font-weight:500;
-
+    color: var(--text-light);
+    padding: 10px 16px;
+    border-radius: 25px;
+    transition: var(--transition);
+    font-weight: 500;
+    font-size: 15px;
 }
 
-
-
-nav a:hover {
-
-    background:white;
-    color:#0b3d91;
-
+nav a:hover,
+nav a:focus {
+    background: var(--text-light);
+    color: var(--primary-color);
 }
-
-
-
-
 
 /* =========================
-   Banner
+   Banner / Hero Section
 ========================= */
-
 
 .page-banner {
-
-    background:
-    linear-gradient(
-    rgba(11,61,145,.9),
-    rgba(0,123,255,.85)
+    background: linear-gradient(
+        135deg,
+        rgba(11, 61, 145, 0.95),
+        rgba(0, 123, 255, 0.9)
     );
-
-    color:white;
-    text-align:center;
-    padding:80px 20px;
-
+    color: var(--text-light);
+    text-align: center;
+    padding: clamp(50px, 8vw, 80px) 20px;
 }
-
 
 .page-banner h2 {
-
-    font-size:42px;
-    margin-bottom:15px;
-
+    font-size: clamp(30px, 5vw, 42px);
+    margin-bottom: 15px;
 }
-
 
 .page-banner p {
-
-    font-size:18px;
-
+    font-size: clamp(16px, 3vw, 18px);
+    opacity: 0.95;
 }
-
-
-
-
 
 /* =========================
-   Sections
+   Layout Sections
 ========================= */
 
-
 .content-section {
-
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    padding:50px 0;
-
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
 }
-
-
 
 .content-section h2 {
-
-    text-align:center;
-    color:#0b3d91;
-    font-size:32px;
-    margin-bottom:25px;
-
+    text-align: center;
+    color: var(--primary-color);
+    font-size: clamp(26px, 4vw, 32px);
+    margin-bottom: 30px;
 }
-
-
 
 .content-section p {
-
-    margin-bottom:15px;
-
+    margin-bottom: 20px;
+    color: #555;
 }
-
-
-
-
 
 /* =========================
    Cards
 ========================= */
 
-
 .card-container,
 .cards {
-
-    display:grid;
-    grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
-
-    gap:25px;
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding-top: 10px;
 }
-
-
 
 .card {
-
-    background:white;
-    padding:30px;
-    border-radius:18px;
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.08);
-
-    transition:.3s;
-
+    background: var(--text-light);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.03);
 }
-
-
 
 .card:hover {
-
-    transform:translateY(-8px);
-    box-shadow:
-    0 15px 35px rgba(0,123,255,.25);
-
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
-
-
 
 .card h3 {
-
-    color:#0b3d91;
-    margin-bottom:10px;
-
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-size: 20px;
 }
-
-
-
-
 
 /* =========================
    Buttons
 ========================= */
 
-
 .button {
-
-    display:inline-block;
-    background:
-    linear-gradient(135deg,#0b3d91,#007bff);
-
-    color:white;
-    padding:14px 30px;
-    border-radius:30px;
-    border:none;
-    cursor:pointer;
-    font-size:16px;
-    font-weight:bold;
-    transition:.3s;
-
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-light);
+    padding: 14px 28px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: var(--transition);
+    text-align: center;
 }
 
-
-
-.button:hover {
-
-    transform:scale(1.05);
-    box-shadow:
-    0 8px 20px rgba(0,123,255,.35);
-
+.button:hover,
+.button:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.35);
 }
 
-
-
-
+/* Helper for aligning multiple buttons like in the screenshot */
+.button-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
 
 /* =========================
-   Forms
+   Forms & Inputs
 ========================= */
 
-
 form {
-
-    background:white;
-    padding:35px;
-    border-radius:20px;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.1);
-
+    background: var(--text-light);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    max-width: 800px;
+    margin: 0 auto;
 }
-
-
 
 label {
-
-    display:block;
-    margin-top:18px;
-    font-weight:600;
-    color:#0b3d91;
-
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 15px;
 }
-
-
 
 input,
 select,
 textarea {
-
-    width:100%;
-    padding:14px;
-    margin-top:8px;
-
-    border:1px solid #ddd;
-    border-radius:10px;
-
-    font-size:15px;
-
-    outline:none;
-    transition:.3s;
-
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 8px;
+    border: 1.5px solid #e1e5ee;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: var(--transition);
+    background: #fafcff;
 }
-
-
 
 input:focus,
 select:focus,
 textarea:focus {
-
-    border-color:#007bff;
-    box-shadow:
-    0 0 8px rgba(0,123,255,.2);
-
+    border-color: var(--secondary-color);
+    background: var(--text-light);
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
 }
 
-
-
-
-
 /* =========================
-   Notice
+   Notices & Callouts
 ========================= */
-
 
 .notice {
-
-    background:#fff8dc;
-    border-left:5px solid #ffc107;
-
-    padding:18px;
-    border-radius:10px;
-    margin:25px 0;
-
+    background: #fff8dc;
+    border-left: 5px solid #ffc107;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+    color: #665000;
 }
-
-
-
-
-
-/* =========================
-   Payment Box
-========================= */
-
 
 .payment-box {
-
-    background:white;
-    padding:30px;
-
-    border-radius:15px;
-
-    border-left:
-    6px solid #007bff;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.1);
-
+    background: var(--text-light);
+    padding: 30px;
+    border-radius: var(--radius-md);
+    border-left: 6px solid var(--secondary-color);
+    box-shadow: var(--shadow-md);
+    margin: 20px 0;
 }
 
-
-
-
-
 /* =========================
-   Tables
+   Tables & FAQ
 ========================= */
-
 
 table {
-
-    width:100%;
-    background:white;
-    border-collapse:collapse;
-    border-radius:10px;
-    overflow:hidden;
-
+    width: 100%;
+    background: var(--text-light);
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
 }
-
-
 
 th {
-
-    background:#0b3d91;
-    color:white;
-
+    background: var(--primary-color);
+    color: var(--text-light);
+    font-weight: 600;
+    text-align: left;
 }
 
-
-
-th,td {
-
-    padding:14px;
-    border-bottom:1px solid #ddd;
-
+th, td {
+    padding: 16px;
+    border-bottom: 1px solid #eee;
 }
-
-
-
-
-
-/* =========================
-   FAQ
-========================= */
-
 
 .faq-item {
-
-    background:white;
-    padding:25px;
-    margin:15px 0;
-
-    border-radius:15px;
-
-    box-shadow:
-    0 5px 20px rgba(0,0,0,.08);
-
+    background: var(--text-light);
+    padding: 25px;
+    margin: 15px 0;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
 }
 
-
+.faq-item:hover {
+    box-shadow: var(--shadow-md);
+}
 
 .faq-item h3 {
-
-    color:#0b3d91;
-
+    color: var(--primary-color);
+    margin-bottom: 10px;
 }
-
-
-
-
 
 /* =========================
    Footer
 ========================= */
 
-
 footer {
-
-    background:
-    linear-gradient(135deg,#0b3d91,#007bff);
-
-    color:white;
-
-    text-align:center;
-    padding:30px 10px;
-
-    margin-top:50px;
-
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-light);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
 }
-
-
 
 footer a {
-
-    color:white;
-    font-weight:500;
-
+    color: var(--text-light);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: var(--transition);
 }
 
-
-
-
+footer a:hover {
+    text-decoration-color: var(--text-light);
+}
 
 /* =========================
-   Mobile
+   Mobile Responsiveness
 ========================= */
 
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 4%;
+    }
 
-@media(max-width:768px){
+    nav {
+        justify-content: center;
+        margin-top: 20px;
+        gap: 8px;
+    }
 
+    nav a {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
 
-header {
+    .content-section {
+        width: 92%;
+        padding: 40px 0;
+    }
+    
+    .card-container, 
+    .cards {
+        grid-template-columns: 1fr;
+    }
 
-    flex-direction:column;
-    text-align:center;
+    form {
+        padding: 25px 20px;
+    }
 
-}
-
-
-.logo h1 {
-
-    font-size:22px;
-
-}
-
-
-nav {
-
-    justify-content:center;
-    margin-top:15px;
-
-}
-
-
-nav a {
-
-    font-size:14px;
-    padding:8px 12px;
-
-}
-
-
-
-.page-banner h2 {
-
-    font-size:30px;
-
-}
-
-
-
-.content-section {
-
-    width:95%;
-
-}
-
-
-form {
-
-    padding:20px;
-
-}
-
-
+    .button {
+        width: 100%; /* Better touch targets for mobile */
+    }
 }
