@@ -2,8 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook Monetization Guide - CreateLK</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #1877f2, #0d5bb9);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        .cta-btn {
+            display: inline-block;
+            background-color: #42b72a;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .cta-btn:hover {
+            background-color: #36a420;
+        }
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        main h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1877f2;
+        }
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .badge-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-left: 5px solid #1877f2;
+        }
+        .badge-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        .badge-card span {
+            font-size: 24px;
+        }
+        .badge-card strong {
+            font-size: 1.05rem;
+            color: #222;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #e4e6eb;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #65676b;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,18 +103,49 @@
     <main>
         <h2>Education Badges</h2>
         <div class="badge-grid">
-            <a href="get-started.html" class="badge-card"><span>⭐</span><strong>Get started</strong></a>
-            <a href="develop-strategy.html" class="badge-card"><span>⭐</span><strong>Develop a strategy</strong></a>
-            <a href="grow-audience.html" class="badge-card"><span>⭐</span><strong>Grow your audience</strong></a>
+            <a href="get-started.html" class="badge-card">
+                <span>⭐</span>
+                <strong>Get started</strong>
+            </a>
+            <a href="develop-strategy.html" class="badge-card">
+                <span>⭐</span>
+                <strong>Develop a strategy</strong>
+            </a>
+            <a href="grow-audience.html" class="badge-card">
+                <span>⭐</span>
+                <strong>Grow your audience</strong>
+            </a>
             
-            <a href="create-reels.html" class="badge-card"><span>⭐</span><strong>Create reels</strong></a>
-            <a href="protect-yourself.html" class="badge-card"><span>⭐</span><strong>Protect yourself and others</strong></a>
-            <a href="live-advice.html" class="badge-card"><span>⭐</span><strong>Advice from live creators</strong></a>
+            <a href="create-reels.html" class="badge-card">
+                <span>⭐</span>
+                <strong>Create reels</strong>
+            </a>
+            <a href="protect-yourself.html" class="badge-card">
+                <span>⭐</span>
+                <strong>Protect yourself and others</strong>
+            </a>
+            <a href="live-advice.html" class="badge-card">
+                <span>⭐</span>
+                <strong>Advice from live creators</strong>
+            </a>
             
-            <a href="reels-advice.html" class="badge-card"><span>⭐</span><strong>Reels advice from top creators</strong></a>
-            <a href="creator-essentials.html" class="badge-card"><span>⭐</span><strong>Creator essentials</strong></a>
-            <a href="policies-guidelines.html" class="badge-card"><span>⭐</span><strong>Understand policies and guidelines</strong></a>
+            <a href="reels-advice.html" class="badge-card">
+                <span>⭐</span>
+                <strong>Reels advice from top creators</strong>
+            </a>
+            <a href="creator-essentials.html" class="badge-card">
+                <span>⭐</span>
+                <strong>Creator essentials</strong>
+            </a>
+            <a href="policies-guidelines.html" class="badge-card">
+                <span>⭐</span>
+                <strong>Understand policies and guidelines</strong>
+            </a>
         </div>
     </main>
+
+    <footer>
+        <p>&copy; 2026 CreateLK.com. All rights reserved.</p>
+    </footer>
 </body>
 </html>
