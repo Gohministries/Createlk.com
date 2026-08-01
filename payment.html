@@ -10,19 +10,21 @@
   .payment-box{background:white;padding:30px;border-radius:16px;max-width:500px;width:100%;box-shadow:0 8px 25px rgba(0,0,0,0.05);}
   h2{color:#1565c0;margin-bottom:15px;text-align:center;}
   p{font-size:14px;color:#666;margin-bottom:20px;text-align:center;}
-  .bank-details{background:#f8f9fa;padding:15px;border-radius:10px;margin-bottom:20px;font-size:14px;border-left:4px solid #1565c0;}
+  .bank-details{background:#f8f9fa;padding:15px;border-radius:10px;margin-bottom:20px;font-size:14px;border-left:4px solid #1565c0;line-height: 1.5;}
   .form-group{margin-bottom:15px;}
   label{display:block;margin-bottom:5px;font-weight:600;font-size:14px;}
-  input, select{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;}
+  input{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;}
   button{width:100%;background:#1565c0;color:white;padding:12px;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;transition:background 0.2s;}
   button:hover{background:#0d47a1;}
+  .back-link{display:block;text-align:center;margin-top:15px;color:#666;text-decoration:none;font-size:14px;}
+  .back-link:hover{color:#1565c0;}
 </style>
 </head>
 <body>
 
 <div class="payment-box">
   <h2>Manual Deposit Verification</h2>
-  <p>Pay <strong>LKR 1,500</strong> for 30 Days Subscription and submit details below.</p>
+  <p>Pay <strong>LKR 1,500</strong> for 30 Days Subscription and submit your details below.</p>
   
   <div class="bank-details">
     <strong>Bank Transfer Details:</strong><br>
@@ -47,6 +49,8 @@
     </div>
     <button type="submit">Submit Deposit for Approval</button>
   </form>
+
+  <a href="index.html" class="back-link">← Back to Home</a>
 </div>
 
 </body>
