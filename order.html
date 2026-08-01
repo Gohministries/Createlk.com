@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Place Order | Saththiyanadan Digital Services</title>
+
+<meta name="description" content="Place your digital service order and send details through WhatsApp.">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+<h1>Saththiyanadan Digital Services</h1>
+</div>
+
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="pricing.html">Pricing</a>
+<a href="order.html">Order</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+
+</header>
+
+
+
+
+<section class="page-banner">
+
+<h2>Place Your Order</h2>
+
+<p>
+Fill the details below and send your order through WhatsApp.
+</p>
+
+</section>
+
+
+
+
+
+<section class="content-section">
+
+
+
+<form id="orderForm">
+
+
+
+<label>
+Full Name
+</label>
+
+<input 
+type="text"
+id="name"
+placeholder="Enter your name"
+required>
+
+
+
+<label>
+WhatsApp Number
+</label>
+
+<input 
+type="tel"
+id="phone"
+placeholder="Enter your WhatsApp number"
+required>
+
+
+
+
+<label>
+Select Category
+</label>
+
+
+<select id="category" onchange="loadServices()">
+
+<option value="">
+Select Category
+</option>
+
+<option value="Design">
+Design Services
+</option>
+
+<option value="Documents">
+Document Services
+</option>
+
+<option value="Website">
+Website Services
+</option>
+
+<option value="Digital">
+Digital Services
+</option>
+
+<option value="Other">
+Other Services
+</option>
+
+</select>
+
+
+
+
+
+<label>
+Select Service
+</label>
+
+
+<select id="service" required>
+
+<option value="">
+Choose service
+</option>
+
+</select>
+
+
+
+
+
+<label>
+Project Description
+</label>
+
+
+<textarea 
+id="description"
+rows="5"
+placeholder="Explain your requirements">
+</textarea>
+
+
+
+
+
+<label>
+Reference Image (Optional)
+</label>
+
+
+<input 
+type="file"
+id="referenceImage"
+accept="image/*">
+
+
+
+
+
+<label>
+Payment Slip Upload (Required)
+</label>
+
+
+<input 
+type="file"
+id="paymentSlip"
+accept="image/*"
+required>
+
+
+
+<p class="notice">
+
+After submitting, WhatsApp will open with your order details.
+Please manually attach your reference image and payment slip before sending.
+
+</p>
+
+
+
+
+
+<button type="submit" class="button">
+
+Send Order via WhatsApp
+
+</button>
+
+
+
+</form>
+
+
+
+</section>
+
+
+
+
+
+
+<footer>
+
+<p>
+© 2026 Saththiyanadan Digital Services. All Rights Reserved.
+</p>
+
+<p>
+<a href="privacy-policy.html">
+Privacy Policy
+</a>
+|
+<a href="terms-and-conditions.html">
+Terms & Conditions
+</a>
+</p>
+
+</footer>
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
