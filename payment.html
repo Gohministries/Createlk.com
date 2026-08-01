@@ -162,7 +162,8 @@ cursor:not-allowed
 #status{
 margin-top:18px;
 text-align:center;
-font-weight:bold
+font-weight:bold;
+line-height:1.5
 }
 
 .success{
@@ -218,8 +219,15 @@ font-size:19px
 <body>
 
 <nav>
-<div class="logo">📚 CreateLK Academy</div>
-<a href="index.html">Home</a>
+
+<div class="logo">
+📚 CreateLK Academy
+</div>
+
+<a href="index.html">
+Home
+</a>
+
 </nav>
 
 <div class="container">
@@ -227,17 +235,36 @@ font-size:19px
 <div class="card">
 
 <div class="title">
-<h1>💳 Premium Membership</h1>
-<p>Get full access to all premium English MCQ courses.</p>
+
+<h1>
+💳 Premium Membership
+</h1>
+
+<p>
+Get full access to all premium English MCQ courses.
+</p>
+
 </div>
 
 <div class="price">
-<p>30-Day Premium Membership</p>
-<h2>LKR 1,500</h2>
-<p>Manual payment verification</p>
+
+<p>
+30-Day Premium Membership
+</p>
+
+<h2>
+LKR 1,500
+</h2>
+
+<p>
+Manual payment verification
+</p>
+
 </div>
 
-<h2>🏦 Bank Payment</h2>
+<h2>
+🏦 Bank Payment
+</h2>
 
 <div class="details">
 
@@ -269,11 +296,18 @@ LKR 1,500
 </div>
 
 <div class="notice">
+
 <strong>Important:</strong>
+
 First make the bank payment.
-Then enter your payment information and upload your payment slip.
-Your account will remain <strong>PENDING</strong>
+
+Then enter your payment information
+and upload your payment slip.
+
+Your account will remain
+<strong>PENDING</strong>
 until the administrator verifies your payment.
+
 </div>
 
 </div>
@@ -282,11 +316,20 @@ until the administrator verifies your payment.
 <div class="card">
 
 <div class="title">
-<h2>📝 Submit Payment</h2>
-<p>Enter the details exactly as shown on your payment receipt.</p>
+
+<h2>
+📝 Submit Payment
+</h2>
+
+<p>
+Enter the details exactly as shown on your payment receipt.
+</p>
+
 </div>
 
+
 <form id="paymentForm">
+
 
 <label for="name">
 Full Name
@@ -294,6 +337,7 @@ Full Name
 
 <input
 id="name"
+name="name"
 type="text"
 placeholder="Your full name"
 required
@@ -306,6 +350,7 @@ Email Address
 
 <input
 id="email"
+name="email"
 type="email"
 placeholder="you@example.com"
 required
@@ -318,6 +363,7 @@ Payment Reference
 
 <input
 id="reference"
+name="payment_reference"
 type="text"
 placeholder="Bank transaction/reference number"
 required
@@ -330,6 +376,7 @@ Payment Amount
 
 <input
 id="amount"
+name="amount"
 type="number"
 value="1500"
 readonly
@@ -342,14 +389,21 @@ readonly
 
 <input
 id="slip"
+name="slip"
 type="file"
 accept="image/jpeg,image/png,image/webp,application/pdf"
 required
 >
 
 <div class="upload-help">
+
 Upload your bank payment receipt.
-Accepted: JPG, PNG, WEBP or PDF.
+
+Accepted:
+JPG, PNG, WEBP or PDF.
+
+Maximum size: 10 MB.
+
 </div>
 
 
@@ -360,9 +414,12 @@ id="submitButton"
 Submit Payment
 </button>
 
+
 <div id="status"></div>
 
+
 </form>
+
 
 <a
 href="index.html"
@@ -375,8 +432,11 @@ class="back"
 
 </div>
 
+
 <footer>
+
 © 2026 CreateLK Academy
+
 </footer>
 
 
@@ -385,11 +445,14 @@ class="back"
 const WORKER_URL =
 "https://noisy-feather-27d2.gateofheavensl1.workers.dev";
 
+
 const form =
 document.getElementById("paymentForm");
 
+
 const submitButton =
 document.getElementById("submitButton");
+
 
 const status =
 document.getElementById("status");
@@ -401,42 +464,95 @@ async function(e){
 
 e.preventDefault();
 
-const name =
-document.getElementById("name").value.trim();
 
-const email =
-document.getElementById("email").value.trim().toLowerCase();
+submitButton.disabled = true;
 
-const reference =
-document.getElementById("reference").value.trim();
-
-const slip =
-document.getElementById("slip").files[0];
+submitButton.innerText =
+"Submitting...";
 
 
-if(!name || !email || !reference || !slip){
+status.className = "";
 
-status.className="error";
-status.innerText="Please complete all fields and upload your payment slip.";
+status.innerText =
+"Uploading payment slip...";
 
-return;
+
+try{
+
+
+const formData =
+new FormData(form);
+
+
+formData.set(
+"amount",
+"1500"
+);
+
+
+const response =
+await fetch(
+WORKER_URL +
+"/api/subscribe",
+{
+method:"POST",
+body:formData
+}
+);
+
+
+const result =
+await response.json();
+
+
+if(
+response.ok &&
+result.success
+){
+
+status.className =
+"success";
+
+status.innerText =
+"✓ Payment submitted successfully. Your payment is waiting for administrator approval.";
+
+form.reset();
+
+
+}else{
+
+status.className =
+"error";
+
+status.innerText =
+result.error ||
+"Payment submission failed.";
 
 }
 
 
-/*
-Do not upload the file directly yet.
+}catch(error){
 
-The next Worker version will securely receive
-the slip and store it in Cloudflare R2.
-*/
+console.error(error);
 
-status.className="";
-status.innerText="Payment slip selected. Preparing submission...";
+status.className =
+"error";
 
-console.log("Selected slip:",slip.name);
+status.innerText =
+"Connection error: " +
+error.message;
+
+}
+
+
+submitButton.disabled =
+false;
+
+submitButton.innerText =
+"Submit Payment";
 
 });
+
 
 </script>
 
