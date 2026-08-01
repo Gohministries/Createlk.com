@@ -1,325 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Place Order | CreateLK Digital Services</title>
-
-<meta name="description" content="Place your photo editing and design order with CreateLK Digital Services.">
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-
-<body>
-
-
-<header>
-
-<div class="logo">
-
-<h1>CreateLK Digital Services</h1>
-
-<p>Professional Photo Editing & Design Services</p>
-
-</div>
-
-
-<nav>
-
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="services.html">Services</a>
-<a href="pricing.html">Pricing</a>
-<a href="order.html">Order</a>
-<a href="contact.html">Contact</a>
-
-</nav>
-
-</header>
-
-
-
-
-
-<section class="page-banner">
-
-<h2>Place Your Order</h2>
-
-<p>
-Fill your details and send your photo editing request through WhatsApp.
-</p>
-
-</section>
-
-
-
-
-
-<section class="content-section">
-
-
 <form id="orderForm">
 
+  <input type="text" id="name" placeholder="Full Name" required>
 
-<label>
-Full Name
-</label>
+  <input type="tel" id="phone" placeholder="Phone Number" required>
 
-<input 
-type="text"
-id="name"
-placeholder="Enter your name"
-required>
+  <select id="service" required>
+    <option value="">Select Service</option>
+    <option>Professional Photo Editing</option>
+    <option>Logo Design</option>
+    <option>Banner Design</option>
+    <option>Photo Background Removal</option>
+  </select>
 
+  <textarea id="description" placeholder="Describe your project"></textarea>
 
-
-
-<label>
-WhatsApp Number
-</label>
-
-<input 
-type="tel"
-id="phone"
-placeholder="Enter WhatsApp number"
-required>
-
-
-
-
-<label>
-Select Service
-</label>
-
-
-<select id="service" required>
-
-
-<option value="">
-Choose Service
-</option>
-
-
-<option>
-Professional Photo Editing
-</option>
-
-<option>
-Birthday Photo Editing
-</option>
-
-<option>
-Birthday Photo Frame Design
-</option>
-
-<option>
-Birthday Invitation Card Design
-</option>
-
-<option>
-Wedding Photo Editing
-</option>
-
-<option>
-Wedding Album Design
-</option>
-
-<option>
-Wedding Invitation Design
-</option>
-
-<option>
-Couple Photo Editing
-</option>
-
-<option>
-Family Photo Editing
-</option>
-
-<option>
-Baby Photo Editing
-</option>
-
-<option>
-Newborn Photo Design
-</option>
-
-<option>
-Old Photo Restoration
-</option>
-
-<option>
-Photo Background Removal
-</option>
-
-<option>
-Photo Background Change
-</option>
-
-<option>
-AI Photo Enhancement
-</option>
-
-<option>
-AI Portrait Design
-</option>
-
-<option>
-Passport Photo Editing
-</option>
-
-<option>
-Professional Profile Photo Design
-</option>
-
-<option>
-Business Logo Design
-</option>
-
-<option>
-Church Logo Design
-</option>
-
-<option>
-Social Media Logo Design
-</option>
-
-<option>
-Facebook Post Photo Design
-</option>
-
-<option>
-Instagram Post Photo Design
-</option>
-
-<option>
-Poster Photo Design
-</option>
-
-<option>
-Flyer Photo Design
-</option>
-
-<option>
-Banner Photo Design
-</option>
-
-
-</select>
-
-
-
-
-
-<label>
-Project Description
-</label>
-
-
-<textarea 
-id="description"
-rows="5"
-placeholder="Describe your photo editing requirements">
-</textarea>
-
-
-
-
-
-<label>
-Upload Your Photo (Optional)
-</label>
-
-
-<input 
-type="file"
-id="referenceImage"
-accept="image/*">
-
-
-
-
-
-<label>
-Payment Slip Upload
-</label>
-
-
-<input 
-type="file"
-id="paymentSlip"
-accept="image/*"
-required>
-
-
-
-
-
-<p class="notice">
-
-After submitting, WhatsApp will open with your order details.
-Please manually attach your photos and payment slip before sending.
-
-</p>
-
-
-
-
-
-<button type="submit" class="button">
-
-Send Order via WhatsApp
-
-</button>
-
-
+  <button type="submit">Submit Order</button>
 
 </form>
 
+<script>
+document.getElementById("orderForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-</section>
+  const data = {
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    service: document.getElementById("service").value,
+    description: document.getElementById("description").value
+  };
 
+  const res = await fetch("https://YOUR-WORKER.workers.dev/order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
 
-
-
-
-
-<footer>
-
-
-<p>
-© 2026 CreateLK Digital Services. All Rights Reserved.
-</p>
-
-
-<p>
-
-<a href="privacy-policy.html">
-Privacy Policy
-</a>
-|
-
-<a href="terms-and-conditions.html">
-Terms & Conditions
-</a>
-
-</p>
-
-
-</footer>
-
-
-
-
-
-<script src="script.js"></script>
-
-
-</body>
-
-</html>
+  if (res.ok) {
+    alert("Order submitted successfully!");
+    document.getElementById("orderForm").reset();
+  } else {
+    alert("Submission failed.");
+  }
+});
+</script>
