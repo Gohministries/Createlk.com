@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
+<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Student Login | CreateLK Academy</title>
-
-<meta name="description"
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Student Login | CreateLK Academy</title><meta name="description"
 content="Sign in to your CreateLK Academy student account.">
 
 <style>
@@ -201,148 +191,76 @@ font-size:27px;
 
 }
 
-</style>
-
-</head>
-
-<body>
-
-<nav>
-
-<div class="logo">
+</style></head><body><nav><div class="logo">
 📚 CreateLK Academy
-</div>
-
-</nav>
-
-
-<main class="container">
-
-<div class="card">
-
-<h1>
+</div></nav><main class="container"><div class="card"><h1>
 Student Login
-</h1>
-
-<p class="subtitle">
+</h1><p class="subtitle">
 Sign in to access your CreateLK Academy account.
-</p>
-
-
-<form id="loginForm">
-
-
-<label for="email">
+</p><form id="loginForm"><label for="email">
 Email Address
-</label>
-
-<input
+</label><input
 id="email"
 type="email"
 placeholder="Enter your email"
 autocomplete="email"
 required
->
 
+«»
 
 <label for="password">
 Password
-</label>
-
-<div class="password-wrap">
-
-<input
+</label><div class="password-wrap"><input
 id="password"
 type="password"
 placeholder="Enter your password"
 autocomplete="current-password"
 required
->
+
+«»
 
 <button
 type="button"
 class="show-password"
 id="showPassword"
->
+
+«»
+
 Show
 </button>
 
-</div>
-
-
-<button
+</div><button
 id="loginButton"
 class="login-button"
 type="submit"
->
+
+«»
 
 Login
-
 </button>
-
 
 <div
 id="message"
 class="message">
-</div>
-
-
-<div
+</div><div
 id="accountBox"
 class="account-box">
-</div>
-
-</form>
-
-
-<div class="links">
-
-<a href="register.html">
+</div></form><div class="links"><a href="register.html">
 Create an account
-</a>
-
-<a href="forgot-password.html">
+</a><a href="forgot-password.html">
 Forgot your password?
-</a>
-
-<a href="index.html">
+</a><a href="index.html">
 ← Back to Academy
-</a>
-
-</div>
-
-
-<div class="security">
-
-🔐 Your login will be securely verified by
+</a></div><div class="security">🔐 Your login will be securely verified by
 the CreateLK Academy server.
 
-</div>
-
-</div>
-
-</main>
-
-
-<footer>
-
-<p>
-
+</div></div></main><footer><p>
 <strong>
 📚 CreateLK Academy
 </strong>
-
-</p>
-
-<p style="margin-top:8px;">
+</p><p style="margin-top:8px;">
 © 2026 CreateLK Academy. All Rights Reserved.
-</p>
-
-</footer>
-
-
-<script>
-
+</p></footer><script>
 
 /*
 ==================================================
@@ -350,44 +268,31 @@ CREATE LK ACADEMY — STUDENT LOGIN
 ==================================================
 */
 
+/*
+NEW STUDENT API
+*/
+
 const API =
-"https://falling-pond-40a7.gateofheavensl1.workers.dev";
+"https://flat-queen-4e0b.gateofheavensl1.workers.dev";
 
 
 const loginForm =
-document.getElementById(
-"loginForm"
-);
-
+document.getElementById("loginForm");
 
 const loginButton =
-document.getElementById(
-"loginButton"
-);
-
+document.getElementById("loginButton");
 
 const message =
-document.getElementById(
-"message"
-);
-
+document.getElementById("message");
 
 const password =
-document.getElementById(
-"password"
-);
-
+document.getElementById("password");
 
 const showPassword =
-document.getElementById(
-"showPassword"
-);
-
+document.getElementById("showPassword");
 
 const accountBox =
-document.getElementById(
-"accountBox"
-);
+document.getElementById("accountBox");
 
 
 /*
@@ -401,20 +306,17 @@ showPassword.addEventListener(
 function(){
 
 if(
-password.type ===
-"password"
+password.type === "password"
 ){
 
-password.type =
-"text";
+password.type = "text";
 
 showPassword.textContent =
 "Hide";
 
 }else{
 
-password.type =
-"password";
+password.type = "password";
 
 showPassword.textContent =
 "Show";
@@ -436,20 +338,15 @@ async function(event){
 
 event.preventDefault();
 
-
 const email =
 document
-.getElementById(
-"email"
-)
+.getElementById("email")
 .value
 .trim()
 .toLowerCase();
 
-
 const passwordValue =
 password.value;
-
 
 if(
 !email ||
@@ -465,7 +362,6 @@ message.style.color =
 return;
 
 }
-
 
 loginButton.disabled =
 true;
@@ -485,34 +381,23 @@ accountBox.style.display =
 
 try{
 
-
-/*
-==================================================
-NEW STUDENT API
-==================================================
-*/
-
 const response =
 await fetch(
 API + "/login",
 {
 
-method:
-"POST",
+method:"POST",
 
 headers:{
 "Content-Type":
 "application/json"
 },
 
-body:
-JSON.stringify({
+body:JSON.stringify({
 
-email:
-email,
+email:email,
 
-password:
-passwordValue
+password:passwordValue
 
 })
 
@@ -521,7 +406,6 @@ passwordValue
 
 
 let data;
-
 
 try{
 
@@ -536,12 +420,6 @@ throw new Error(
 
 }
 
-
-/*
-==================================================
-LOGIN ERROR
-==================================================
-*/
 
 if(
 !response.ok ||
@@ -565,13 +443,12 @@ SAVE LOGIN INFORMATION
 const student =
 data.student;
 
-
 const premium =
 data.premium;
 
 
 /*
-Do NOT store the password.
+Never store the password.
 */
 
 sessionStorage.setItem(
@@ -580,7 +457,6 @@ JSON.stringify(
 student
 )
 );
-
 
 sessionStorage.setItem(
 "createLK_premium",
@@ -603,9 +479,7 @@ message.style.color =
 "#00897b";
 
 
-if(
-student
-){
+if(student){
 
 accountBox.innerHTML =
 `
@@ -626,11 +500,6 @@ accountBox.style.display =
 ==================================================
 REDIRECT
 ==================================================
-
-For now, send the student to the academy home.
-
-Later we can create a dedicated dashboard
-with premium course protection.
 */
 
 setTimeout(
@@ -652,14 +521,12 @@ console.error(
 error
 );
 
-
 message.textContent =
 error.message ||
 "Unable to login.";
 
 message.style.color =
 "#c62828";
-
 
 loginButton.disabled =
 false;
@@ -681,31 +548,12 @@ SAFE HTML TEXT
 function escapeHtml(value){
 
 return String(value)
-.replace(
-/&/g,
-"&amp;"
-)
-.replace(
-/</g,
-"&lt;"
-)
-.replace(
-/>/g,
-"&gt;"
-)
-.replace(
-/"/g,
-"&quot;"
-)
-.replace(
-/'/g,
-"&#039;"
-);
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 
 }
 
-</script>
-
-</body>
-
-</html>
+</script></body></html>
