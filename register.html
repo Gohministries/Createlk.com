@@ -1,8 +1,17 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Student Login | CreateLK Academy</title><meta name="description"
-content="Log in to your CreateLK Academy student account.">
+<title>Create Account | CreateLK Academy</title>
+
+<meta name="description"
+content="Create your CreateLK Academy student account.">
 
 <style>
 
@@ -14,13 +23,11 @@ font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
-background:linear-gradient(
-135deg,
-#eef4ff,
-#f4f7fc
-);
 min-height:100vh;
+background:#f4f7fc;
 color:#263238;
+display:flex;
+flex-direction:column;
 }
 
 nav{
@@ -30,28 +37,31 @@ box-shadow:0 4px 20px rgba(0,0,0,.06);
 }
 
 .logo{
-font-size:22px;
+font-size:23px;
 font-weight:800;
 color:#1565c0;
 }
 
 .container{
-max-width:500px;
-margin:55px auto;
-padding:20px;
+width:100%;
+max-width:520px;
+margin:auto;
+padding:30px 20px;
 }
 
 .card{
 background:#fff;
-padding:35px;
+padding:32px;
 border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+box-shadow:0 8px 28px rgba(0,0,0,.08);
+border:1px solid #edf0f5;
 }
 
 h1{
 text-align:center;
 color:#1565c0;
 margin-bottom:8px;
+font-size:30px;
 }
 
 .subtitle{
@@ -68,7 +78,7 @@ margin:15px 0 6px;
 
 input{
 width:100%;
-padding:13px;
+padding:13px 15px;
 border:1px solid #ccd5dc;
 border-radius:10px;
 font-size:15px;
@@ -77,44 +87,45 @@ outline:none;
 
 input:focus{
 border-color:#1565c0;
-box-shadow:0 0 0 3px rgba(21,101,192,.1);
 }
 
-button{
+.register-button{
 width:100%;
 margin-top:22px;
 padding:14px;
 border:0;
-border-radius:25px;
+border-radius:28px;
 background:#1565c0;
 color:#fff;
 font-size:16px;
-font-weight:700;
+font-weight:800;
 cursor:pointer;
 }
 
-button:hover{
+.register-button:hover{
 background:#0d47a1;
 }
 
-button:disabled{
-opacity:.65;
+.register-button:disabled{
+background:#9eabb3;
 cursor:not-allowed;
 }
 
 .message{
-font-size:14px;
-margin-top:15px;
 text-align:center;
+margin-top:16px;
 font-weight:600;
+font-size:14px;
 }
 
 .links{
 text-align:center;
-margin-top:20px;
+margin-top:22px;
 }
 
 .links a{
+display:block;
+margin-top:10px;
 color:#1565c0;
 text-decoration:none;
 font-weight:600;
@@ -124,112 +135,296 @@ font-weight:600;
 text-decoration:underline;
 }
 
-.info{
+.security{
 margin-top:25px;
-padding:15px;
-background:#e3f2fd;
+padding:16px;
+background:#f8fafc;
 border-radius:12px;
-color:#1565c0;
-font-size:13px;
 text-align:center;
+font-size:13px;
+color:#68757c;
 }
 
 footer{
+margin-top:auto;
+background:#111827;
+color:#9ca3af;
 text-align:center;
-color:#68757c;
-font-size:13px;
-padding:25px;
+padding:25px 20px;
 }
 
-</style></head><body><nav><div class="logo">
+footer strong{
+color:#fff;
+}
+
+@media(max-width:600px){
+
+.card{
+padding:24px 20px;
+}
+
+h1{
+font-size:27px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
 📚 CreateLK Academy
-</div></nav><main class="container"><div class="card"><h1>
-Student Login
-</h1><p class="subtitle">
-Sign in to access your CreateLK Academy account.
-</p><form id="loginForm"><label for="email">
+</div>
+
+</nav>
+
+
+<main class="container">
+
+<div class="card">
+
+<h1>
+Create Student Account
+</h1>
+
+<p class="subtitle">
+Create your account to access CreateLK Academy.
+</p>
+
+
+<form id="registerForm">
+
+
+<label for="firstName">
+First Name
+</label>
+
+<input
+id="firstName"
+type="text"
+placeholder="Enter your first name"
+autocomplete="given-name"
+required
+>
+
+
+<label for="lastName">
+Last Name
+</label>
+
+<input
+id="lastName"
+type="text"
+placeholder="Enter your last name"
+autocomplete="family-name"
+required
+>
+
+
+<label for="email">
 Email Address
-</label><input
+</label>
+
+<input
 id="email"
 type="email"
 placeholder="Enter your email"
 autocomplete="email"
 required
+>
 
-«»
+
+<label for="phone">
+WhatsApp Number
+</label>
+
+<input
+id="phone"
+type="tel"
+placeholder="+94 7XXXXXXXX"
+autocomplete="tel"
+>
+
 
 <label for="password">
 Password
-</label><input
+</label>
+
+<input
 id="password"
 type="password"
-placeholder="Enter your password"
-autocomplete="current-password"
+placeholder="At least 8 characters"
+autocomplete="new-password"
+minlength="8"
 required
+>
 
-«»
+
+<label for="confirmPassword">
+Confirm Password
+</label>
+
+<input
+id="confirmPassword"
+type="password"
+placeholder="Enter your password again"
+autocomplete="new-password"
+minlength="8"
+required
+>
+
 
 <button
-id="loginButton"
-type="submit">
+id="registerButton"
+class="register-button"
+type="submit"
+>
 
-Login
+Create Account
 
-</button></form><div
+</button>
+
+
+<div
 id="message"
 class="message">
-</div><div class="links"><a href="register.html">
-Create an account
-</a></div><div class="links"><a href="forgot-password.html">
-Forgot your password?
-</a></div><div class="links"><a href="index.html">
+</div>
+
+</form>
+
+
+<div class="links">
+
+<a href="login.html">
+Already have an account? Sign in
+</a>
+
+<a href="index.html">
 ← Back to Academy
-</a></div><div class="info">🔐 Your login will be securely verified by
-the CreateLK Academy server.
+</a>
 
-</div></div></main><footer>© 2026 CreateLK Academy
-
-</footer><script>
-
-const API_URL =
-"https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev";
+</div>
 
 
+<div class="security">
+
+🔐 Your password is securely hashed
+before it is stored by the server.
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<p>
+
+<strong>
+📚 CreateLK Academy
+</strong>
+
+</p>
+
+<p style="margin-top:8px;">
+© 2026 CreateLK Academy. All Rights Reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+const registerForm =
+document.getElementById(
+"registerForm"
+);
+
+const registerButton =
+document.getElementById(
+"registerButton"
+);
+
+const message =
+document.getElementById(
+"message"
+);
+
+
+registerForm.addEventListener(
+"submit",
+async function(event){
+
+event.preventDefault();
+
+
+const firstName =
 document
-.getElementById("loginForm")
-.addEventListener("submit", async function(e){
+.getElementById(
+"firstName"
+)
+.value
+.trim();
 
-e.preventDefault();
+
+const lastName =
+document
+.getElementById(
+"lastName"
+)
+.value
+.trim();
 
 
 const email =
 document
-.getElementById("email")
+.getElementById(
+"email"
+)
 .value
 .trim()
 .toLowerCase();
 
 
+const phone =
+document
+.getElementById(
+"phone"
+)
+.value
+.trim();
+
+
 const password =
 document
-.getElementById("password")
+.getElementById(
+"password"
+)
 .value;
 
 
-const message =
+const confirmPassword =
 document
-.getElementById("message");
+.getElementById(
+"confirmPassword"
+)
+.value;
 
 
-const button =
-document
-.getElementById("loginButton");
-
-
-if(!email || !password){
+if(
+password !==
+confirmPassword
+){
 
 message.textContent =
-"Please enter your email and password.";
+"Passwords do not match.";
 
 message.style.color =
 "#c62828";
@@ -239,33 +434,40 @@ return;
 }
 
 
-button.disabled = true;
-
-button.textContent =
-"Signing in...";
+if(password.length < 8){
 
 message.textContent =
-"";
+"Password must contain at least 8 characters.";
+
+message.style.color =
+"#c62828";
+
+return;
+
+}
+
+
+registerButton.disabled =
+true;
+
+registerButton.textContent =
+"Creating account...";
+
+message.textContent =
+"Please wait...";
+
+message.style.color =
+"#1565c0";
 
 
 try{
 
-/*
-  Cloudflare Worker endpoint.
-
-  We will create this endpoint later:
-
-  POST /api/login
-
-  The server will verify the password and
-  return a secure authentication session.
-*/
-
 
 const response =
 await fetch(
-API_URL + "/api/login",
+"https://falling-pond-40a7.gateofheavensl1.workers.dev/register",
 {
+
 method:"POST",
 
 headers:{
@@ -275,9 +477,20 @@ headers:{
 
 body:JSON.stringify({
 
-email:email,
+first_name:
+firstName,
 
-password:password
+last_name:
+lastName,
+
+email:
+email,
+
+phone:
+phone,
+
+password:
+password
 
 })
 
@@ -290,68 +503,60 @@ await response.json();
 
 
 if(
-data.success &&
-data.token
+!response.ok ||
+!data.success
 ){
 
-/*
-  Temporary session storage.
-
-  Later we can replace this with
-  an HttpOnly Secure cookie from
-  the Cloudflare Worker.
-*/
-
-sessionStorage.setItem(
-"createLK_session",
-data.token
+throw new Error(
+data.message ||
+"Account creation failed."
 );
+
+}
 
 
 message.textContent =
-"✅ Login successful. Redirecting...";
+"Account created successfully!";
 
 message.style.color =
 "#00897b";
 
 
-setTimeout(function(){
+setTimeout(
+function(){
 
 window.location.href =
-"dashboard.html";
+"login.html";
 
-},700);
+},
+1000
+);
 
-
-}else{
-
-message.textContent =
-data.message ||
-"Invalid email or password.";
-
-message.style.color =
-"#c62828";
 
 }
-
-}catch(error){
+catch(error){
 
 console.error(error);
 
 message.textContent =
-"Unable to connect to the server. Please try again.";
+error.message ||
+"Unable to create account.";
 
 message.style.color =
 "#c62828";
 
+registerButton.disabled =
+false;
+
+registerButton.textContent =
+"Create Account";
+
 }
-
-
-button.disabled = false;
-
-button.textContent =
-"Login";
 
 });
 
-</script></body></html>
+</script>
+
+</body>
+
+</html>
