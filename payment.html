@@ -617,19 +617,6 @@ Payment
 
 <script>
 
-/*
-==================================================
-CREATE LK ACADEMY — PAYMENT PAGE
-==================================================
-
-Payment page connects to the Cloudflare Worker.
-
-PayHere secrets must NEVER be placed in this file.
-
-==================================================
-*/
-
-
 const paymentForm =
 document.getElementById(
 "paymentForm"
@@ -726,12 +713,12 @@ try{
 
 /*
 ==================================================
-CLOUDFLARE WORKER
+NEW CLOUDFLARE WORKER
 ==================================================
 */
 
 const PAYMENT_API =
-"https://plain-mountain-baf6.gateofheavensl1.workers.dev/create-payment";
+"https://tiny-sound-4907.gateofheavensl1.workers.dev/create-payment";
 
 
 const response =
@@ -786,26 +773,129 @@ await response.json();
 
 /*
 ==================================================
-WORKER RESPONSE
+PAYMENT RESPONSE
 ==================================================
 */
 
 if(
-data.success
+data.success &&
+data.gateway &&
+data.payment
 ){
 
+const payment =
+data.payment;
+
+
+const payhereForm =
+document.createElement(
+"form"
+);
+
+
+payhereForm.method =
+"POST";
+
+payhereForm.action =
+data.gateway;
+
+payhereForm.style.display =
+"none";
+
+
+const fields = {
+
+merchant_id:
+payment.merchant_id,
+
+return_url:
+payment.return_url,
+
+cancel_url:
+payment.cancel_url,
+
+notify_url:
+payment.notify_url,
+
+first_name:
+payment.first_name,
+
+last_name:
+payment.last_name,
+
+email:
+payment.email,
+
+phone:
+payment.phone,
+
+address:
+payment.address,
+
+city:
+payment.city,
+
+country:
+payment.country,
+
+order_id:
+payment.order_id,
+
+items:
+payment.items,
+
+currency:
+payment.currency,
+
+amount:
+payment.amount,
+
+hash:
+payment.hash
+
+};
+
+
+Object.entries(
+fields
+).forEach(
+([name,value])=>{
+
+const input =
+document.createElement(
+"input"
+);
+
+input.type =
+"hidden";
+
+input.name =
+name;
+
+input.value =
+value;
+
+payhereForm.appendChild(
+input
+);
+
+}
+);
+
+
+document.body.appendChild(
+payhereForm
+);
+
+
 message.textContent =
-data.message ||
-"Payment request received.";
+"Opening PayHere Sandbox...";
 
 message.style.color =
 "#00897b";
 
-payButton.disabled =
-false;
 
-payButton.textContent =
-"Continue to Secure Payment";
+payhereForm.submit();
 
 return;
 
