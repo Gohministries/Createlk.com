@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Student Login | CreateLK Academy</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -22,11 +17,9 @@
 body{
     min-height:100vh;
     background:linear-gradient(135deg,#eef4ff,#ffffff);
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     padding:20px;
 }
 
@@ -39,10 +32,7 @@ body{
     background:#fff;
     padding:35px 28px;
     border-radius:20px;
-
-    box-shadow:
-        0 10px 35px
-        rgba(0,0,0,.10);
+    box-shadow:0 10px 35px rgba(0,0,0,.10);
 }
 
 .logo{
@@ -71,20 +61,14 @@ label{
 input{
     width:100%;
     padding:14px;
-
     border:1px solid #d5d9e0;
     border-radius:10px;
-
     font-size:15px;
     outline:none;
 }
 
 input:focus{
     border-color:#174ea6;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(23,78,166,.10);
 }
 
 .password-box{
@@ -100,49 +84,36 @@ input:focus{
     right:10px;
     top:50%;
     transform:translateY(-50%);
-
     border:0;
     background:none;
-
     color:#174ea6;
     font-weight:600;
-
     cursor:pointer;
 }
 
 .login-button{
     width:100%;
     padding:14px;
-
     border:0;
     border-radius:11px;
-
     background:#174ea6;
     color:#fff;
-
     font-size:16px;
     font-weight:700;
-
     cursor:pointer;
 }
 
 .login-button:disabled{
     opacity:.6;
-    cursor:not-allowed;
 }
 
 .message{
     display:none;
-
     padding:12px;
     border-radius:9px;
-
     margin-bottom:18px;
-
     text-align:center;
-
     font-size:14px;
-    line-height:1.5;
 }
 
 .success{
@@ -157,12 +128,9 @@ input:focus{
 
 .loading{
     display:none;
-
     text-align:center;
-
     color:#174ea6;
     font-weight:600;
-
     margin-top:15px;
 }
 
@@ -188,9 +156,7 @@ input:focus{
     text-decoration:none;
     font-size:14px;
 }
-
 </style>
-
 </head>
 
 <body>
@@ -207,9 +173,7 @@ input:focus{
 Student Login
 </div>
 
-<div id="message"
-     class="message">
-</div>
+<div id="message" class="message"></div>
 
 <form id="loginForm">
 
@@ -220,11 +184,11 @@ Email Address
 </label>
 
 <input
-type="email"
-id="email"
-placeholder="you@example.com"
-autocomplete="email"
-required>
+    type="email"
+    id="email"
+    placeholder="you@example.com"
+    autocomplete="email"
+    required>
 
 </div>
 
@@ -237,29 +201,28 @@ Password
 <div class="password-box">
 
 <input
-type="password"
-id="password"
-placeholder="Enter your password"
-autocomplete="current-password"
-required>
+    type="password"
+    id="password"
+    placeholder="Enter your password"
+    autocomplete="current-password"
+    required>
 
 <button
-type="button"
-class="show"
-id="showPassword">
+    type="button"
+    class="show"
+    id="showPassword">
 
 Show
 
 </button>
 
 </div>
-
 </div>
 
 <button
-type="submit"
-class="login-button"
-id="loginButton">
+    type="submit"
+    class="login-button"
+    id="loginButton">
 
 Login
 
@@ -267,11 +230,8 @@ Login
 
 </form>
 
-<div id="loading"
-     class="loading">
-
-Opening your dashboard...
-
+<div id="loading" class="loading">
+Opening your student dashboard...
 </div>
 
 <div class="register-link">
@@ -293,20 +253,14 @@ Create Account
 </div>
 
 </div>
-
 </div>
-
 
 <script>
 
 "use strict";
 
-
-/* CURRENT WORKER */
-
 const API_URL =
 "https://cool-resonance-7780.gateofheavensl1.workers.dev";
-
 
 const form =
 document.getElementById("loginForm");
@@ -350,8 +304,6 @@ function setLoading(state){
 }
 
 
-/* SHOW PASSWORD */
-
 showPassword.addEventListener(
     "click",
     function(){
@@ -369,13 +321,12 @@ showPassword.addEventListener(
 
             showPassword.textContent =
                 "Show";
+
         }
 
     }
 );
 
-
-/* LOGIN */
 
 form.addEventListener(
     "submit",
@@ -383,9 +334,7 @@ form.addEventListener(
 
         event.preventDefault();
 
-        message.style.display =
-            "none";
-
+        message.style.display = "none";
 
         const email =
             document
@@ -397,7 +346,6 @@ form.addEventListener(
         const passwordValue =
             password.value;
 
-
         if(!email || !passwordValue){
 
             showMessage(
@@ -408,9 +356,7 @@ form.addEventListener(
             return;
         }
 
-
         setLoading(true);
-
 
         try{
 
@@ -435,12 +381,10 @@ form.addEventListener(
                     }
                 );
 
-
             const text =
                 await response.text();
 
-
-            let data = {};
+            let data;
 
             try{
 
@@ -449,22 +393,8 @@ form.addEventListener(
 
             }catch(error){
 
-                data = {
-                    success:false,
-                    message:
-                        text ||
-                        "Invalid server response."
-                };
-
-            }
-
-
-            if(!response.ok){
-
                 showMessage(
-                    data.message ||
-                    "Login failed. Server error " +
-                    response.status,
+                    "Server returned an invalid response.",
                     "error"
                 );
 
@@ -473,8 +403,20 @@ form.addEventListener(
                 return;
             }
 
+            if(!response.ok){
 
-            if(!data.success){
+                showMessage(
+                    data.message ||
+                    "Login failed.",
+                    "error"
+                );
+
+                setLoading(false);
+
+                return;
+            }
+
+            if(data.success !== true){
 
                 showMessage(
                     data.message ||
@@ -487,14 +429,13 @@ form.addEventListener(
                 return;
             }
 
-
             if(
                 !data.student ||
                 !data.student.id
             ){
 
                 showMessage(
-                    "Login successful, but student information was not returned.",
+                    "Student information was not returned.",
                     "error"
                 );
 
@@ -503,29 +444,48 @@ form.addEventListener(
                 return;
             }
 
+            const student = {
 
-            /* SAVE LOGIN */
+                id:
+                    data.student.id,
+
+                first_name:
+                    data.student.first_name || "",
+
+                last_name:
+                    data.student.last_name || "",
+
+                email:
+                    data.student.email || email,
+
+                phone:
+                    data.student.phone || "",
+
+                membership_status:
+                    data.student.membership_status ||
+                    "inactive",
+
+                membership_expiry:
+                    data.student.membership_expiry ||
+                    null
+
+            };
 
             localStorage.setItem(
                 "createlk_student",
-                JSON.stringify(
-                    data.student
-                )
+                JSON.stringify(student)
             );
-
 
             showMessage(
                 "Login successful!",
                 "success"
             );
 
-
             loading.style.display =
                 "block";
 
             form.style.display =
                 "none";
-
 
             setTimeout(function(){
 
@@ -534,13 +494,9 @@ form.addEventListener(
 
             },700);
 
-
         }catch(error){
 
-            console.error(
-                "LOGIN ERROR:",
-                error
-            );
+            console.error(error);
 
             showMessage(
                 "Could not connect to CreateLK Academy server.",
@@ -556,5 +512,4 @@ form.addEventListener(
 </script>
 
 </body>
-
 </html>
