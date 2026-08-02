@@ -26,7 +26,6 @@ box-sizing:border-box;
 font-family:"Segoe UI",Arial,sans-serif;
 }
 
-
 /* ================================
    PAGE
 ================================ */
@@ -38,7 +37,6 @@ color:#263238;
 display:flex;
 flex-direction:column;
 }
-
 
 /* ================================
    NAVIGATION
@@ -56,7 +54,6 @@ font-weight:800;
 color:#1565c0;
 }
 
-
 /* ================================
    CONTAINER
 ================================ */
@@ -67,7 +64,6 @@ max-width:520px;
 margin:auto;
 padding:35px 20px;
 }
-
 
 /* ================================
    CARD
@@ -81,7 +77,6 @@ border-radius:20px;
 box-shadow:0 8px 28px rgba(0,0,0,.08);
 border:1px solid #edf0f5;
 }
-
 
 /* ================================
    HEADINGS
@@ -102,7 +97,6 @@ margin-bottom:25px;
 line-height:1.6;
 }
 
-
 /* ================================
    FORM
 ================================ */
@@ -117,7 +111,6 @@ font-weight:600;
 margin:18px 0 7px;
 line-height:1.4;
 }
-
 
 /* ================================
    INPUT
@@ -140,7 +133,6 @@ input:focus{
 border-color:#1565c0;
 box-shadow:0 0 0 3px rgba(21,101,192,.08);
 }
-
 
 /* ================================
    PASSWORD
@@ -178,7 +170,6 @@ background:#e3f2fd;
 color:#0d47a1;
 }
 
-
 /* ================================
    PASSWORD STRENGTH
 ================================ */
@@ -190,7 +181,6 @@ font-size:13px;
 font-weight:600;
 line-height:1.5;
 }
-
 
 /* ================================
    REGISTER BUTTON
@@ -220,7 +210,6 @@ background:#9eabb3;
 cursor:not-allowed;
 }
 
-
 /* ================================
    MESSAGE
 ================================ */
@@ -235,7 +224,6 @@ font-size:14px;
 line-height:1.5;
 word-break:break-word;
 }
-
 
 /* ================================
    LINKS
@@ -260,7 +248,6 @@ line-height:1.5;
 text-decoration:underline;
 }
 
-
 /* ================================
    SECURITY
 ================================ */
@@ -277,7 +264,6 @@ color:#68757c;
 line-height:1.6;
 }
 
-
 /* ================================
    FOOTER
 ================================ */
@@ -293,7 +279,6 @@ padding:25px 20px;
 footer strong{
 color:#fff;
 }
-
 
 /* ================================
    WHATSAPP SUPPORT
@@ -331,7 +316,6 @@ box-shadow:0 9px 25px rgba(0,0,0,.25);
 font-size:22px;
 line-height:1;
 }
-
 
 /* ================================
    MOBILE
@@ -397,7 +381,6 @@ font-size:24px;
 
 }
 
-
 /* ================================
    VERY SMALL SCREENS
 ================================ */
@@ -422,13 +405,7 @@ font-size:24px;
 
 </head>
 
-
 <body>
-
-
-<!-- ================================
-     NAVIGATION
-================================ -->
 
 <nav>
 
@@ -437,11 +414,6 @@ font-size:24px;
 </div>
 
 </nav>
-
-
-<!-- ================================
-     REGISTER
-================================ -->
 
 <main class="container">
 
@@ -455,11 +427,7 @@ Create Student Account
 Create your account to access CreateLK Academy.
 </p>
 
-
 <form id="registerForm">
-
-
-<!-- FIRST NAME -->
 
 <label for="firstName">
 First Name
@@ -473,9 +441,6 @@ autocomplete="given-name"
 required
 >
 
-
-<!-- LAST NAME -->
-
 <label for="lastName">
 Last Name
 </label>
@@ -487,9 +452,6 @@ placeholder="Enter your last name"
 autocomplete="family-name"
 required
 >
-
-
-<!-- EMAIL -->
 
 <label for="email">
 Email Address
@@ -503,9 +465,6 @@ autocomplete="email"
 required
 >
 
-
-<!-- PHONE -->
-
 <label for="phone">
 WhatsApp Number
 </label>
@@ -516,9 +475,6 @@ type="tel"
 placeholder="+94 7XXXXXXXX"
 autocomplete="tel"
 >
-
-
-<!-- PASSWORD -->
 
 <label for="password">
 Password
@@ -538,21 +494,16 @@ required
 <button
 type="button"
 class="show-password"
-id="showPassword"
->
+id="showPassword">
 Show
 </button>
 
 </div>
 
-
 <div
 id="passwordStrength"
 class="password-strength">
 </div>
-
-
-<!-- CONFIRM PASSWORD -->
 
 <label for="confirmPassword">
 Confirm Password
@@ -572,26 +523,18 @@ required
 <button
 type="button"
 class="show-password"
-id="showConfirmPassword"
->
+id="showConfirmPassword">
 Show
 </button>
 
 </div>
 
-
-<!-- REGISTER BUTTON -->
-
 <button
 id="registerButton"
 class="register-button"
-type="submit"
->
+type="submit">
 Create Account
 </button>
-
-
-<!-- MESSAGE -->
 
 <div
 id="message"
@@ -599,11 +542,7 @@ class="message"
 aria-live="polite">
 </div>
 
-
 </form>
-
-
-<!-- LINKS -->
 
 <div class="links">
 
@@ -617,9 +556,6 @@ Already have an account? Sign in
 
 </div>
 
-
-<!-- SECURITY -->
-
 <div class="security">
 
 🔐 Your password is securely hashed
@@ -627,24 +563,16 @@ before it is stored by the server.
 
 </div>
 
-
 </div>
 
 </main>
 
-
-<!-- ================================
-     FOOTER
-================================ -->
-
 <footer>
 
 <p>
-
 <strong>
 📚 CreateLK Academy
 </strong>
-
 </p>
 
 <p style="margin-top:8px;">
@@ -653,19 +581,13 @@ before it is stored by the server.
 
 </footer>
 
-
-<!-- ================================
-     WHATSAPP SUPPORT
-================================ -->
-
 <div class="whatsapp-support">
 
 <a
 href="https://wa.me/94771190395?text=Hello%20CreateLK%20Academy%20Support"
 target="_blank"
 rel="noopener noreferrer"
-aria-label="WhatsApp Support"
->
+aria-label="WhatsApp Support">
 
 <span class="whatsapp-icon">
 💬
@@ -679,13 +601,7 @@ WhatsApp Support
 
 </div>
 
-
-<!-- ================================
-     JAVASCRIPT
-================================ -->
-
 <script>
-
 
 /*
 ==================================================
@@ -693,9 +609,13 @@ CREATE LK ACADEMY — STUDENT REGISTRATION
 ==================================================
 */
 
-const API =
-"https://icy-queen-7175.gateofheavensl1.workers.dev";
+/*
+IMPORTANT:
+This is the NEW active Worker URL.
+*/
 
+const API =
+"https://green-mountain-7f08.gateofheavensl1.workers.dev";
 
 const registerForm =
 document.getElementById("registerForm");
@@ -806,7 +726,6 @@ score++;
 if(/[^A-Za-z0-9]/.test(value))
 score++;
 
-
 if(score <= 2){
 
 passwordStrength.textContent =
@@ -861,20 +780,17 @@ async function(event){
 
 event.preventDefault();
 
-
 const firstName =
 document
 .getElementById("firstName")
 .value
 .trim();
 
-
 const lastName =
 document
 .getElementById("lastName")
 .value
 .trim();
-
 
 const email =
 document
@@ -883,17 +799,14 @@ document
 .trim()
 .toLowerCase();
 
-
 const phone =
 document
 .getElementById("phone")
 .value
 .trim();
 
-
 const password =
 passwordInput.value;
-
 
 const confirmPassword =
 confirmPasswordInput.value;
@@ -991,7 +904,6 @@ message.style.color =
 
 try{
 
-
 const response =
 await fetch(
 API + "/register",
@@ -1027,7 +939,6 @@ password
 
 
 let data;
-
 
 try{
 
@@ -1078,10 +989,6 @@ registerButton.textContent =
 "Account Created";
 
 
-/*
-CLEAR PASSWORDS ONLY
-*/
-
 passwordInput.value =
 "";
 
@@ -1091,10 +998,6 @@ confirmPasswordInput.value =
 passwordStrength.textContent =
 "";
 
-
-/*
-REDIRECT TO LOGIN
-*/
 
 setTimeout(
 function(){
@@ -1115,14 +1018,12 @@ console.error(
 error
 );
 
-
 message.textContent =
 error.message ||
 "Unable to create account.";
 
 message.style.color =
 "#c62828";
-
 
 registerButton.disabled =
 false;
@@ -1134,9 +1035,7 @@ registerButton.textContent =
 
 });
 
-
 </script>
-
 
 </body>
 
