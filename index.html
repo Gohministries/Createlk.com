@@ -32,11 +32,6 @@ color:#263238;
 line-height:1.6;
 }
 
-
-/* =========================
-   NAVIGATION
-========================= */
-
 nav{
 background:#fff;
 padding:16px 6%;
@@ -73,11 +68,6 @@ nav a:hover{
 color:#1565c0;
 }
 
-
-/* =========================
-   HERO
-========================= */
-
 header{
 background:linear-gradient(
 135deg,
@@ -85,7 +75,6 @@ background:linear-gradient(
 #1565c0 50%,
 #00897b
 );
-
 color:white;
 text-align:center;
 padding:85px 20px;
@@ -145,11 +134,6 @@ border:1px solid rgba(255,255,255,.7);
 color:#fff;
 }
 
-
-/* =========================
-   CONTAINER
-========================= */
-
 .container{
 max-width:1200px;
 margin:auto;
@@ -170,11 +154,6 @@ color:#1565c0;
 color:#68757c;
 margin-top:5px;
 }
-
-
-/* =========================
-   COURSE GRID
-========================= */
 
 .grid{
 display:grid;
@@ -254,14 +233,73 @@ color:#1565c0;
 cursor:pointer;
 }
 
-.locked:hover{
-transform:translateY(-3px);
+.access-box{
+max-width:700px;
+margin:0 auto 35px;
+background:#fff;
+padding:25px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 6px 20px rgba(0,0,0,.06);
+border:1px solid #edf0f5;
 }
 
+.access-box h3{
+color:#1565c0;
+margin-bottom:8px;
+}
 
-/* =========================
-   LOCKED MESSAGE
-========================= */
+.access-box p{
+color:#68757c;
+font-size:14px;
+}
+
+.access-form{
+display:flex;
+justify-content:center;
+gap:8px;
+margin-top:18px;
+flex-wrap:wrap;
+}
+
+.access-form input{
+padding:12px 15px;
+border:1px solid #ccd5dc;
+border-radius:25px;
+width:280px;
+font-size:15px;
+}
+
+.access-form button{
+padding:12px 22px;
+border:0;
+border-radius:25px;
+background:#1565c0;
+color:white;
+font-weight:700;
+cursor:pointer;
+}
+
+.access-form button:hover{
+background:#0d47a1;
+}
+
+#accessMessage{
+margin-top:15px;
+font-weight:600;
+}
+
+.unlock{
+border:2px solid #00897b;
+}
+
+.unlock:before{
+background:#00897b;
+}
+
+.unlock .card-icon{
+color:#00897b;
+}
 
 .lock-box{
 margin:45px auto 0;
@@ -295,15 +333,6 @@ text-decoration:none;
 font-weight:700;
 }
 
-.lock-box a:hover{
-background:#0d47a1;
-}
-
-
-/* =========================
-   FEATURES
-========================= */
-
 .features{
 display:grid;
 grid-template-columns:
@@ -334,11 +363,6 @@ font-size:14px;
 color:#68757c;
 }
 
-
-/* =========================
-   MEMBERSHIP
-========================= */
-
 .subscription{
 margin-top:60px;
 background:linear-gradient(
@@ -346,7 +370,6 @@ background:linear-gradient(
 #1565c0,
 #0d47a1
 );
-
 color:#fff;
 padding:50px 25px;
 border-radius:24px;
@@ -379,11 +402,6 @@ text-decoration:none;
 font-weight:800;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
 footer{
 background:#111827;
 color:#9ca3af;
@@ -395,11 +413,6 @@ margin-top:60px;
 footer strong{
 color:#fff;
 }
-
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:700px){
 
@@ -449,13 +462,7 @@ font-size:30px;
 
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     NAVIGATION
-========================= -->
 
 <nav>
 
@@ -493,11 +500,6 @@ Contact
 
 </nav>
 
-
-<!-- =========================
-     HERO
-========================= -->
-
 <header>
 
 <div class="hero-content">
@@ -520,15 +522,13 @@ different learning categories.
 
 <a
 href="#courses"
-class="hero-button primary"
->
+class="hero-button primary">
 Explore Courses
 </a>
 
 <a
 href="payment.html"
-class="hero-button secondary"
->
+class="hero-button secondary">
 Get Premium Access
 </a>
 
@@ -538,13 +538,7 @@ Get Premium Access
 
 </header>
 
-
 <main class="container">
-
-
-<!-- =========================
-     COURSES
-========================= -->
 
 <section id="courses">
 
@@ -560,18 +554,46 @@ Get Premium Access
 
 </div>
 
+<!-- PREMIUM ACCESS LOGIN -->
+
+<div class="access-box">
+
+<h3>
+🔐 Check Your Premium Access
+</h3>
+
+<p>
+Enter the email address you used when making your payment.
+</p>
+
+<div class="access-form">
+
+<input
+id="studentEmail"
+type="email"
+placeholder="Your payment email"
+autocomplete="email"
+>
+
+<button
+id="checkAccessBtn"
+onclick="checkPremiumAccess()">
+Check Access
+</button>
+
+</div>
+
+<div id="accessMessage"></div>
+
+</div>
 
 <div class="grid">
 
-
-<!-- =========================
-     FREE COURSE
-========================= -->
+<!-- FREE -->
 
 <a
 class="card free-card"
-href="beginner-english/index.html"
->
+href="beginner-english/index.html">
 
 <div class="card-icon">
 🌱
@@ -593,14 +615,12 @@ Build your English foundation with
 </a>
 
 
-<!-- =========================
-     PREMIUM 1
-========================= -->
+<!-- PREMIUM 1 -->
 
 <a
-class="card locked"
-href="payment.html"
->
+class="card premium-card"
+data-course="grammar"
+href="payment.html">
 
 <div class="card-icon">
 🔒
@@ -625,9 +645,9 @@ essential English grammar.
 <!-- PREMIUM 2 -->
 
 <a
-class="card locked"
-href="payment.html"
->
+class="card premium-card"
+data-course="vocabulary"
+href="payment.html">
 
 <div class="card-icon">
 🔒
@@ -652,9 +672,9 @@ Expand your vocabulary with
 <!-- PREMIUM 3 -->
 
 <a
-class="card locked"
-href="payment.html"
->
+class="card premium-card"
+data-course="speaking"
+href="payment.html">
 
 <div class="card-icon">
 🔒
@@ -679,9 +699,9 @@ speaking skills with 100 MCQs.
 <!-- PREMIUM 4 -->
 
 <a
-class="card locked"
-href="payment.html"
->
+class="card premium-card"
+data-course="pronunciation"
+href="payment.html">
 
 <div class="card-icon">
 🔒
@@ -706,9 +726,9 @@ through 100 MCQ questions.
 <!-- PREMIUM 5 -->
 
 <a
-class="card locked"
-href="payment.html"
->
+class="card premium-card"
+data-course="conversation"
+href="payment.html">
 
 <div class="card-icon">
 🔒
@@ -733,9 +753,9 @@ conversation with 100 MCQs.
 <!-- PREMIUM 6 -->
 
 <a
-class="card locked"
-href="payment.html"
->
+class="card premium-card"
+data-course="writing"
+href="payment.html">
 
 <div class="card-icon">
 🔒
@@ -760,9 +780,9 @@ with 100 writing MCQs.
 <!-- PREMIUM 7 -->
 
 <a
-class="card locked"
-href="payment.html"
->
+class="card premium-card"
+data-course="listening"
+href="payment.html">
 
 <div class="card-icon">
 🔒
@@ -787,9 +807,9 @@ comprehension with 100 MCQs.
 <!-- PREMIUM 8 -->
 
 <a
-class="card locked"
-href="payment.html"
->
+class="card premium-card"
+data-course="business"
+href="payment.html">
 
 <div class="card-icon">
 🔒
@@ -814,9 +834,9 @@ Learn professional English with
 <!-- PREMIUM 9 -->
 
 <a
-class="card locked"
-href="payment.html"
->
+class="card premium-card"
+data-course="advanced"
+href="payment.html">
 
 <div class="card-icon">
 🔒
@@ -837,25 +857,20 @@ Challenge yourself with
 
 </a>
 
-
 </div>
 
 
-<!-- =========================
-     LOCK MESSAGE
-========================= -->
-
-<div class="lock-box">
+<div class="lock-box" id="lockBox">
 
 <h3>
 🔐 Premium Courses Are Protected
 </h3>
 
 <p>
-Grammar, Vocabulary, Speaking, Pronunciation,
-Conversation, Writing, Listening, Business English
-and Advanced English are available only after
-your payment has been approved by the administrator.
+Enter your payment email above.
+After your payment is approved,
+all 9 premium courses will unlock
+for the active 30-day membership.
 </p>
 
 <a href="payment.html">
@@ -866,10 +881,6 @@ Apply for Premium Membership
 
 </section>
 
-
-<!-- =========================
-     FEATURES
-========================= -->
 
 <section>
 
@@ -891,7 +902,6 @@ Practice with focused English MCQ questions.
 
 </div>
 
-
 <div class="feature">
 
 <div class="feature-icon">
@@ -908,7 +918,6 @@ Practice with focused English MCQ questions.
 
 </div>
 
-
 <div class="feature">
 
 <div class="feature-icon">
@@ -924,7 +933,6 @@ Build your English skills step by step.
 </p>
 
 </div>
-
 
 <div class="feature">
 
@@ -947,14 +955,9 @@ Practice comfortably on phone or computer.
 </section>
 
 
-<!-- =========================
-     MEMBERSHIP
-========================= -->
-
 <section
 id="membership"
-class="subscription"
->
+class="subscription">
 
 <h2>
 ⭐ Premium Membership
@@ -977,13 +980,8 @@ Apply for Premium →
 
 </section>
 
-
 </main>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
 
@@ -1008,6 +1006,265 @@ All Rights Reserved
 
 </footer>
 
+
+<script>
+
+const ADMIN_API =
+"https://admin3.gateofheavensl1.workers.dev";
+
+
+async function checkPremiumAccess(){
+
+const email =
+document
+.getElementById("studentEmail")
+.value
+.trim()
+.toLowerCase();
+
+const message =
+document
+.getElementById("accessMessage");
+
+const button =
+document
+.getElementById("checkAccessBtn");
+
+if(!email){
+
+message.textContent =
+"Please enter your payment email.";
+
+message.style.color =
+"#c62828";
+
+return;
+}
+
+button.disabled = true;
+
+button.textContent =
+"Checking...";
+
+message.textContent =
+"Checking your membership...";
+
+message.style.color =
+"#1565c0";
+
+try{
+
+const response =
+await fetch(
+ADMIN_API +
+"/api/access?email=" +
+encodeURIComponent(email)
+);
+
+const data =
+await response.json();
+
+if(
+data.success &&
+data.active === true
+){
+
+unlockPremiumCourses(
+data.expires_at
+);
+
+message.textContent =
+"✅ Premium access is active until " +
+formatDate(data.expires_at);
+
+message.style.color =
+"#00897b";
+
+}else{
+
+lockPremiumCourses();
+
+message.textContent =
+data.message ||
+"Premium access is not active. Please wait for payment approval.";
+
+message.style.color =
+"#c62828";
+
+}
+
+}catch(error){
+
+message.textContent =
+"Unable to check membership right now.";
+
+message.style.color =
+"#c62828";
+
+}
+
+button.disabled = false;
+
+button.textContent =
+"Check Access";
+
+}
+
+
+function unlockPremiumCourses(expiresAt){
+
+const courses =
+document.querySelectorAll(
+".premium-card"
+);
+
+courses.forEach(card=>{
+
+card.classList.add("unlock");
+
+const course =
+card.dataset.course;
+
+card.href =
+getCourseUrl(course);
+
+const icon =
+card.querySelector(".card-icon");
+
+if(icon){
+icon.textContent = "🔓";
+}
+
+const tag =
+card.querySelector(".premium-tag");
+
+if(tag){
+tag.textContent =
+"✓ PREMIUM • UNLOCKED";
+}
+
+});
+
+const lockBox =
+document.getElementById(
+"lockBox"
+);
+
+lockBox.innerHTML = `
+
+<h3>
+🎉 Premium Access Unlocked!
+</h3>
+
+<p>
+All 9 premium courses are now available.
+Your membership is active until
+<strong>${formatDate(expiresAt)}</strong>.
+</p>
+
+`;
+
+}
+
+
+function lockPremiumCourses(){
+
+const courses =
+document.querySelectorAll(
+".premium-card"
+);
+
+courses.forEach(card=>{
+
+card.classList.remove("unlock");
+
+card.href =
+"payment.html";
+
+const icon =
+card.querySelector(".card-icon");
+
+if(icon){
+icon.textContent = "🔒";
+}
+
+const tag =
+card.querySelector(".premium-tag");
+
+if(tag){
+tag.textContent =
+"🔒 PREMIUM • 100 MCQs";
+}
+
+});
+
+}
+
+
+function getCourseUrl(course){
+
+const urls = {
+
+grammar:
+"grammar/index.html",
+
+vocabulary:
+"vocabulary/index.html",
+
+speaking:
+"speaking/index.html",
+
+pronunciation:
+"pronunciation/index.html",
+
+conversation:
+"conversation/index.html",
+
+writing:
+"writing/index.html",
+
+listening:
+"listening/index.html",
+
+business:
+"business-english/index.html",
+
+advanced:
+"advanced-english/index.html"
+
+};
+
+return urls[course] ||
+"payment.html";
+
+}
+
+
+function formatDate(value){
+
+if(!value){
+return "";
+}
+
+const date =
+new Date(value);
+
+if(isNaN(date.getTime())){
+return value;
+}
+
+return date.toLocaleDateString(
+undefined,
+{
+year:"numeric",
+month:"long",
+day:"numeric"
+}
+);
+
+}
+
+</script>
 
 </body>
 
