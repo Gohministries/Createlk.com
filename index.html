@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CreateLK Academy | English Learning Platform</title>
-
-<meta name="description"
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CreateLK Academy | Learn English Online</title><meta name="description"
 content="CreateLK Academy - Learn English with 1,000 interactive MCQ questions across 10 learning categories.">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -27,30 +22,33 @@ body{
     line-height:1.6;
 }
 
-/* NAVIGATION */
+/* =========================
+   NAVIGATION
+========================= */
 
 nav{
     background:#fff;
-    padding:15px 6%;
+    padding:14px 6%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    box-shadow:0 4px 20px rgba(0,0,0,.06);
+    box-shadow:0 4px 20px rgba(0,0,0,.07);
     position:sticky;
     top:0;
     z-index:1000;
 }
 
 .logo{
-    font-size:22px;
+    font-size:21px;
     font-weight:800;
     color:#1565c0;
+    white-space:nowrap;
 }
 
 nav ul{
     display:flex;
     list-style:none;
-    gap:10px;
+    gap:8px;
     align-items:center;
 }
 
@@ -58,19 +56,23 @@ nav a{
     text-decoration:none;
     color:#37474f;
     font-weight:600;
-    padding:8px 12px;
+    padding:9px 13px;
+    border-radius:22px;
+    transition:.2s;
+}
+
+nav a:hover{
+    background:#f1f5fb;
 }
 
 .login-btn{
     background:#1565c0;
     color:#fff!important;
-    border-radius:22px;
 }
 
 .register-btn{
     border:1px solid #1565c0;
     color:#1565c0!important;
-    border-radius:22px;
 }
 
 .student-menu{
@@ -88,16 +90,23 @@ nav a{
     border:0;
     background:#ef4444;
     color:#fff;
-    padding:8px 13px;
+    padding:9px 14px;
     border-radius:20px;
     font-weight:700;
     cursor:pointer;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 header{
-    background:linear-gradient(135deg,#0d47a1,#1565c0 50%,#00897b);
+    background:linear-gradient(
+        135deg,
+        #0d47a1,
+        #1565c0 50%,
+        #00897b
+    );
     color:#fff;
     text-align:center;
     padding:85px 20px;
@@ -128,6 +137,7 @@ header p{
     max-width:700px;
     margin:auto;
     font-size:18px;
+    opacity:.95;
 }
 
 .hero-buttons{
@@ -155,7 +165,14 @@ header p{
     color:#fff;
 }
 
-/* CONTENT */
+.primary:hover,
+.secondary:hover{
+    transform:translateY(-2px);
+}
+
+/* =========================
+   CONTENT
+========================= */
 
 .container{
     max-width:1200px;
@@ -177,7 +194,9 @@ header p{
     color:#68757c;
 }
 
-/* ACCESS */
+/* =========================
+   ACCESS
+========================= */
 
 .access{
     max-width:700px;
@@ -223,11 +242,14 @@ header p{
     color:#1565c0;
 }
 
-/* COURSES */
+/* =========================
+   COURSE CARDS
+========================= */
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    grid-template-columns:
+        repeat(auto-fit,minmax(240px,1fr));
     gap:20px;
 }
 
@@ -241,10 +263,12 @@ header p{
     border:1px solid #edf0f5;
     transition:.25s;
     position:relative;
+    overflow:hidden;
 }
 
 .card:hover{
     transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,.10);
 }
 
 .card:before{
@@ -294,11 +318,17 @@ header p{
     color:#1565c0;
 }
 
-/* MEMBERSHIP */
+/* =========================
+   MEMBERSHIP
+========================= */
 
 .membership{
     margin-top:55px;
-    background:linear-gradient(135deg,#1565c0,#0d47a1);
+    background:linear-gradient(
+        135deg,
+        #1565c0,
+        #0d47a1
+    );
     color:#fff;
     padding:45px 25px;
     border-radius:24px;
@@ -340,7 +370,9 @@ header p{
     font-weight:800;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     background:#111827;
@@ -368,7 +400,9 @@ footer strong{
     font-size:14px;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:700px){
 
@@ -406,68 +440,51 @@ footer strong{
     .membership h1{
         font-size:30px;
     }
+
+    .student-name{
+        font-size:14px;
+    }
 }
-</style>
-</head>
 
-<body>
+</style></head><body><nav><div class="logo">
+📚 CreateLK Academy
+</div><ul><li id="homeNav">
+<a href="index.html">Home</a>
+</li><li>
+<a href="#courses">Courses</a>
+</li><li>
+<a href="#membership">Membership</a>
+</li><li id="loginNav">
+<a href="login.html" class="login-btn">
+Login
+</a>
+</li><li id="registerNav">
+<a href="register.html" class="register-btn">
+Create Account
+</a>
+</li><li id="studentNav" class="student-menu"><span class="student-name"
+id="studentName">
+</span>
 
-<nav>
-
-<div class="logo">📚 CreateLK Academy</div>
-
-<ul>
-
-<li><a href="index.html">Home</a></li>
-<li><a href="#courses">Courses</a></li>
-<li><a href="#membership">Membership</a></li>
-
-<li id="loginNav">
-<a href="login.html" class="login-btn">Login</a>
-</li>
-
-<li id="registerNav">
-<a href="register.html" class="register-btn">Create Account</a>
-</li>
-
-<li id="studentNav" class="student-menu">
-
-<span class="student-name" id="studentName"></span>
-
-<a href="dashboard.html" class="login-btn">
+<a href="dashboard.html"
+class="login-btn">
 Dashboard
 </a>
 
-<button class="logout" onclick="logout()">
+<button class="logout"
+id="logoutBtn">
 Logout
 </button>
 
-</li>
-
-</ul>
-
-</nav>
-
-<header>
-
-<div class="hero">
-
-<div class="badge">
+</li></ul></nav><header><div class="hero"><div class="badge">
 🎓 English Learning Platform
-</div>
-
-<h1>
+</div><h1>
 Master English With Confidence
-</h1>
-
-<p>
+</h1><p>
 Practice English with 1,000 carefully prepared
 MCQ questions across 10 learning categories.
-</p>
-
-<div class="hero-buttons">
-
-<a href="#courses" class="hero-button primary">
+</p><div class="hero-buttons"><a href="#courses"
+class="hero-button primary">
 Explore Courses
 </a>
 
@@ -481,43 +498,19 @@ Create Student Account
 id="heroDashboard"
 class="hero-button primary"
 style="display:none;">
-Open Dashboard
+📚 Open Dashboard
 </a>
 
-</div>
-
-</div>
-
-</header>
-
-<main class="container">
-
-<section id="courses">
-
-<div class="section-title">
-
-<h2>📚 1,000 English MCQ Questions</h2>
-
-<p>
+</div></div></header><main class="container"><section id="courses"><div class="section-title"><h2>
+📚 1,000 English MCQ Questions
+</h2><p>
 10 courses × 100 questions each
-</p>
-
-</div>
-
-<div class="access">
-
-<h3 id="accessTitle">
+</p></div><div class="access"><h3 id="accessTitle">
 🔐 Student Access
-</h3>
-
-<p id="accessText">
+</h3><p id="accessText">
 Create your student account or log in
 to access your learning dashboard.
-</p>
-
-<div class="access-buttons">
-
-<a href="register.html"
+</p><div class="access-buttons"><a href="register.html"
 id="createBtn"
 class="create">
 Create Account
@@ -536,174 +529,125 @@ style="display:none;">
 📚 Open Dashboard
 </a>
 
-</div>
-
-</div>
-
-<div class="grid">
-
-<a href="beginner-english/index.html"
+</div></div><div class="grid"><a href="beginner-english/index.html"
 class="card free">
 
-<div class="icon">🌱</div>
-
-<h3>Beginner English</h3>
-
-<p>
+<div class="icon">🌱</div><h3>Beginner English</h3><p>
 Build your English foundation with
 100 interactive MCQ questions.
-</p>
-
-<span class="tag free-tag">
-✓ FREE • 100 MCQs
-</span>
-
-</a>
-
-<a href="login.html" class="card">
-<div class="icon">🔒</div>
+</p><span class="tag free-tag">
+✓ FREE FOREVER • 100 MCQs
+</span></a><a href="login.html" class="card">
+<div class="icon">📖</div>
 <h3>Grammar</h3>
 <p>100 MCQ questions covering essential English grammar.</p>
 <span class="tag premium-tag">🔒 PREMIUM</span>
-</a>
-
-<a href="login.html" class="card">
-<div class="icon">🔒</div>
+</a><a href="login.html" class="card">
+<div class="icon">📝</div>
 <h3>Vocabulary</h3>
 <p>Expand your vocabulary with 100 carefully selected questions.</p>
 <span class="tag premium-tag">🔒 PREMIUM</span>
-</a>
-
-<a href="login.html" class="card">
-<div class="icon">🔒</div>
+</a><a href="login.html" class="card">
+<div class="icon">🗣️</div>
 <h3>Speaking</h3>
 <p>Practice practical English speaking skills.</p>
 <span class="tag premium-tag">🔒 PREMIUM</span>
-</a>
-
-<a href="login.html" class="card">
-<div class="icon">🔒</div>
+</a><a href="login.html" class="card">
+<div class="icon">🔊</div>
 <h3>Pronunciation</h3>
 <p>Learn pronunciation concepts through MCQs.</p>
 <span class="tag premium-tag">🔒 PREMIUM</span>
-</a>
-
-<a href="login.html" class="card">
-<div class="icon">🔒</div>
+</a><a href="login.html" class="card">
+<div class="icon">💬</div>
 <h3>Conversation</h3>
 <p>Practice everyday English conversation.</p>
 <span class="tag premium-tag">🔒 PREMIUM</span>
-</a>
-
-<a href="login.html" class="card">
-<div class="icon">🔒</div>
+</a><a href="login.html" class="card">
+<div class="icon">✍️</div>
 <h3>Writing</h3>
 <p>Improve sentence construction and writing.</p>
 <span class="tag premium-tag">🔒 PREMIUM</span>
-</a>
-
-<a href="login.html" class="card">
-<div class="icon">🔒</div>
+</a><a href="login.html" class="card">
+<div class="icon">🎧</div>
 <h3>Listening</h3>
 <p>Improve English listening and comprehension.</p>
 <span class="tag premium-tag">🔒 PREMIUM</span>
-</a>
-
-<a href="login.html" class="card">
-<div class="icon">🔒</div>
+</a><a href="login.html" class="card">
+<div class="icon">💼</div>
 <h3>Business English</h3>
 <p>Learn professional English for the workplace.</p>
 <span class="tag premium-tag">🔒 PREMIUM</span>
-</a>
-
-<a href="login.html" class="card">
-<div class="icon">🔒</div>
+</a><a href="login.html" class="card">
+<div class="icon">🚀</div>
 <h3>Advanced English</h3>
 <p>Challenge yourself with advanced English MCQs.</p>
 <span class="tag premium-tag">🔒 PREMIUM</span>
-</a>
-
-</div>
-
-</section>
-
-<section id="membership"
-class="membership">
-
-<h2>⭐ Premium Membership</h2>
-
-<h1>LKR 1,500 / 30 Days</h1>
-
-<p>
+</a></div></section><section id="membership"
+class="membership"><h2>
+⭐ Premium Membership
+</h2><h1>
+LKR 1,500 / 30 Days
+</h1><p>
 Get access to all 9 premium courses,
 including 900 premium MCQ questions.
-</p>
-
-<ul>
-
-<li>✓ 9 Premium English Courses</li>
+</p><ul><li>✓ 9 Premium English Courses</li>
 <li>✓ 900 Premium MCQ Questions</li>
 <li>✓ Student Dashboard</li>
 <li>✓ 30 Days Premium Access</li>
-<li>✓ Phone & Computer Access</li>
-
-</ul>
-
-<a href="register.html" id="membershipBtn">
+<li>✓ Phone & Computer Access</li></ul><a href="register.html"
+id="membershipBtn">
 Join Premium →
 </a>
 
-</section>
-
-</main>
-
-<footer>
-
-<p>
+</section></main><footer><p>
 <strong>📚 CreateLK Academy</strong>
-</p>
-
-<p>
+</p><p>
 Learn English. Practice More. Improve Faster.
-</p>
-
-<div class="footer-links">
-
-<a href="about.html">About Us</a>
+</p><div class="footer-links"><a href="about.html">About Us</a>
 <a href="contact.html">Contact</a>
 <a href="terms.html">Terms</a>
 <a href="privacy.html">Privacy</a>
 <a href="refund.html">Refund Policy</a>
 <a href="membership.html">Membership</a>
 
-</div>
-
-<p>
+</div><p>
 1,000 MCQs • 10 Courses • Premium Learning
-</p>
-
-<p>
+</p><p>
 © 2026 CreateLK Academy. All Rights Reserved.
-</p>
+</p></footer><script>
 
-</footer>
-
-<script>
+"use strict";
 
 function getStudent(){
 
     const saved =
         localStorage.getItem("createlk_student");
 
-    if(!saved) return null;
+    if(!saved){
+        return null;
+    }
 
     try{
-        return JSON.parse(saved);
+
+        const student =
+            JSON.parse(saved);
+
+        if(!student || !student.id){
+            return null;
+        }
+
+        return student;
+
     }catch(error){
-        localStorage.removeItem("createlk_student");
+
+        localStorage.removeItem(
+            "createlk_student"
+        );
+
         return null;
     }
 }
+
 
 function updatePage(){
 
@@ -736,50 +680,99 @@ function updatePage(){
     const studentName =
         document.getElementById("studentName");
 
+    const membershipBtn =
+        document.getElementById("membershipBtn");
+
+
     if(!student){
 
-        loginNav.style.display = "list-item";
-        registerNav.style.display = "list-item";
-        studentNav.style.display = "none";
+        loginNav.style.display =
+            "list-item";
 
-        heroRegister.style.display = "inline-block";
-        heroDashboard.style.display = "none";
+        registerNav.style.display =
+            "list-item";
 
-        createBtn.style.display = "inline-block";
-        loginBtn.style.display = "inline-block";
-        dashboardBtn.style.display = "none";
+        studentNav.style.display =
+            "none";
+
+        heroRegister.style.display =
+            "inline-block";
+
+        heroDashboard.style.display =
+            "none";
+
+        createBtn.style.display =
+            "inline-block";
+
+        loginBtn.style.display =
+            "inline-block";
+
+        dashboardBtn.style.display =
+            "none";
+
+        membershipBtn.href =
+            "register.html";
 
         return;
     }
 
-    loginNav.style.display = "none";
-    registerNav.style.display = "none";
-    studentNav.style.display = "flex";
 
-    heroRegister.style.display = "none";
-    heroDashboard.style.display = "inline-block";
+    loginNav.style.display =
+        "none";
 
-    createBtn.style.display = "none";
-    loginBtn.style.display = "none";
-    dashboardBtn.style.display = "inline-block";
+    registerNav.style.display =
+        "none";
+
+    studentNav.style.display =
+        "flex";
+
+    heroRegister.style.display =
+        "none";
+
+    heroDashboard.style.display =
+        "inline-block";
+
+    createBtn.style.display =
+        "none";
+
+    loginBtn.style.display =
+        "none";
+
+    dashboardBtn.style.display =
+        "inline-block";
 
     studentName.textContent =
-        "👤 " + (student.first_name || "Student");
+        "👤 " +
+        (student.first_name || "Student");
+
+    membershipBtn.href =
+        "dashboard.html";
 }
+
 
 function logout(){
 
-    localStorage.removeItem("createlk_student");
+    localStorage.removeItem(
+        "createlk_student"
+    );
 
-    window.location.href = "index.html";
+    window.location.href =
+        "index.html";
 }
+
+
+document
+    .getElementById("logoutBtn")
+    .addEventListener(
+        "click",
+        logout
+    );
+
 
 document.addEventListener(
     "DOMContentLoaded",
     updatePage
 );
 
-</script>
-
-</body>
+</script></body>
 </html>
