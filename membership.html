@@ -1,6 +1,17 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Premium Membership | CreateLK Academy</title><meta name="description"
-content="CreateLK Academy Premium Membership - 900 premium English MCQs for LKR 1,500 for 30 days.">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>CreateLK Academy | Learn English Online</title>
+
+<meta name="description"
+      content="CreateLK Academy - Learn English with free and premium interactive English courses, MCQs, grammar, vocabulary, speaking and more.">
 
 <style>
 
@@ -16,655 +27,1440 @@ html{
 }
 
 body{
-    background:#f4f7fc;
-    color:#263238;
-    line-height:1.7;
+    background:#f5f8fc;
+    color:#202124;
+    line-height:1.6;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
 
-nav{
-    background:#fff;
-    padding:15px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 4px 20px rgba(0,0,0,.06);
+/* =========================================
+   HEADER
+========================================= */
+
+header{
+    background:#1769ff;
+    color:white;
     position:sticky;
     top:0;
     z-index:1000;
+    box-shadow:0 3px 15px rgba(0,0,0,.12);
+}
+
+.nav{
+    max-width:1150px;
+    margin:auto;
+    min-height:68px;
+    padding:0 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
+    color:white;
+    text-decoration:none;
     font-size:22px;
     font-weight:800;
-    color:#1565c0;
 }
 
 .nav-links{
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:20px;
 }
 
 .nav-links a{
+    color:white;
     text-decoration:none;
-    color:#37474f;
     font-weight:600;
 }
 
-.dashboard{
-    background:#1565c0;
-    color:#fff!important;
-    padding:8px 15px;
-    border-radius:20px;
+.nav-links a:hover{
+    text-decoration:underline;
 }
 
-/* =========================
+.menu{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+
+/* =========================================
    HERO
-========================= */
+========================================= */
 
 .hero{
     background:
         linear-gradient(
             135deg,
-            #0d47a1,
-            #1565c0 50%,
-            #00897b
+            #1769ff,
+            #4b8dff
         );
 
-    color:#fff;
+    color:white;
+    padding:80px 20px;
+}
+
+.hero-inner{
+    max-width:1050px;
+    margin:auto;
     text-align:center;
-    padding:65px 20px;
 }
 
 .badge{
     display:inline-block;
-    background:rgba(255,255,255,.15);
-    border:1px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.18);
     padding:7px 16px;
     border-radius:30px;
-    font-size:14px;
-    margin-bottom:15px;
+    margin-bottom:18px;
+    font-weight:600;
 }
 
 .hero h1{
-    font-size:42px;
-    line-height:1.2;
-    margin-bottom:10px;
+    font-size:48px;
+    line-height:1.15;
+    margin-bottom:20px;
 }
 
 .hero p{
+    max-width:700px;
+    margin:auto;
+    font-size:18px;
     opacity:.95;
 }
 
-/* =========================
-   CONTAINER
-========================= */
-
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:50px 20px;
+.hero-buttons{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
 }
 
-/* =========================
-   CARDS
-========================= */
+.btn{
+    display:inline-block;
+    padding:14px 24px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:700;
+    transition:.2s;
+}
 
-.card{
-    background:#fff;
-    padding:32px;
+.btn-primary{
+    background:white;
+    color:#1769ff;
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.15);
+    color:white;
+    border:1px solid rgba(255,255,255,.5);
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+
+/* =========================================
+   GENERAL
+========================================= */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:0 20px;
+}
+
+.section{
+    padding:65px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:12px;
+    color:#1769ff;
+    font-size:32px;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:#666;
+    max-width:700px;
+    margin:0 auto 35px;
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats{
+    max-width:1000px;
+    margin:-35px auto 0;
+    position:relative;
+
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+    padding:0 20px;
+}
+
+.stat{
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+.stat-number{
+    font-size:30px;
+    font-weight:800;
+    color:#1769ff;
+}
+
+.stat-text{
+    color:#666;
+}
+
+
+/* =========================================
+   COURSE CARDS
+========================================= */
+
+.course-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+}
+
+.course{
+    background:white;
     border-radius:18px;
-    margin-bottom:22px;
-    box-shadow:0 6px 22px rgba(0,0,0,.06);
+    padding:25px;
+    box-shadow:0 7px 25px rgba(0,0,0,.07);
     border:1px solid #edf0f5;
 }
 
-.card h2{
-    color:#1565c0;
-    margin-bottom:12px;
+.course-icon{
+    font-size:38px;
+    margin-bottom:10px;
 }
 
-.card p{
-    color:#53636b;
-    margin-bottom:12px;
+.course h3{
+    margin-bottom:8px;
 }
 
-.card ul,
-.card ol{
-    margin:10px 0 15px 25px;
-    color:#53636b;
+.course p{
+    color:#666;
+    font-size:15px;
 }
 
-.card li{
-    margin-bottom:7px;
-}
-
-/* =========================
-   PRICE
-========================= */
-
-.price{
-    text-align:center;
-    border:2px solid #1565c0;
-    background:#e3f2fd;
-}
-
-.price h2{
-    font-size:25px;
-}
-
-.price h1{
-    font-size:42px;
-    color:#1565c0;
-    margin:5px 0;
-}
-
-.price-duration{
-    color:#53636b;
-}
-
-/* =========================
-   STATUS
-========================= */
-
-.status{
-    display:none;
-    padding:13px;
-    border-radius:10px;
-    margin:18px auto 0;
-    max-width:500px;
-    font-weight:700;
-}
-
-.status.active{
-    display:block;
-    background:#e8f7ed;
-    color:#176b35;
-}
-
-.status.free{
-    display:block;
-    background:#e8f5e9;
-    color:#00897b;
-}
-
-/* =========================
-   BUTTON
-========================= */
-
-.button{
-    display:inline-block;
+.course .btn{
     margin-top:18px;
-    background:#1565c0;
-    color:#fff;
-    padding:14px 30px;
-    border-radius:28px;
-    text-decoration:none;
-    font-weight:800;
-    border:0;
-    cursor:pointer;
-    font-size:16px;
-}
-
-.button:hover{
-    background:#0d47a1;
-}
-
-.secondary-button{
-    background:#fff;
-    color:#1565c0;
-    border:1px solid #1565c0;
-}
-
-.secondary-button:hover{
-    background:#eef5ff;
-}
-
-/* =========================
-   FREE COURSE
-========================= */
-
-.free-box{
-    background:#e8f5e9;
-    border:1px solid #b7dfc0;
-}
-
-.free-box h2{
-    color:#00897b;
-}
-
-/* =========================
-   IMPORTANT NOTICE
-========================= */
-
-.notice{
-    background:#fff8e1;
-    border:1px solid #ffe082;
-    color:#6d5600;
-}
-
-.notice strong{
-    color:#5d4700;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    background:#111827;
-    color:#9ca3af;
+    width:100%;
     text-align:center;
-    padding:35px 20px;
-    margin-top:30px;
 }
 
-footer strong{
-    color:#fff;
+
+/* =========================================
+   FREE COURSE
+========================================= */
+
+.free-section{
+    background:#eef8f1;
 }
 
-.links{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-    margin:18px 0;
+.free-card{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
+    text-align:center;
 }
 
-.links a{
-    color:#d1d5db;
-    text-decoration:none;
+.free-card h2{
+    color:#218838;
+    margin-bottom:10px;
+}
+
+.free-list{
+    list-style:none;
+    margin:20px 0;
+}
+
+.free-list li{
+    margin:7px 0;
+}
+
+
+/* =========================================
+   PREMIUM
+========================================= */
+
+.premium-section{
+    background:#f0f5ff;
+}
+
+.premium-card{
+    max-width:900px;
+    margin:auto;
+
+    background:white;
+    border-radius:22px;
+    padding:40px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+
+    text-align:center;
+}
+
+.premium-price{
+    font-size:42px;
+    font-weight:800;
+    color:#1769ff;
+    margin:10px 0;
+}
+
+.premium-duration{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.premium-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:10px;
+    text-align:left;
+
+    margin:25px 0;
+}
+
+.premium-item{
+    background:#f7f9fc;
+    padding:10px;
+    border-radius:9px;
     font-size:14px;
 }
 
-/* =========================
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+.feature{
+    background:white;
+    padding:22px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.feature-icon{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.feature p{
+    color:#666;
+    font-size:14px;
+}
+
+
+/* =========================================
+   HOW IT WORKS
+========================================= */
+
+.steps{
+    display:grid;
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+.step{
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.step-number{
+    width:42px;
+    height:42px;
+
+    margin:0 auto 12px;
+
+    border-radius:50%;
+
+    background:#1769ff;
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:800;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.cta{
+    background:#1769ff;
+    color:white;
+    text-align:center;
+    padding:65px 20px;
+}
+
+.cta h2{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.cta p{
+    max-width:650px;
+    margin:auto;
+    opacity:.95;
+}
+
+.cta .btn{
+    margin-top:25px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+    background:#111827;
+    color:#d1d5db;
+    padding:40px 20px;
+}
+
+.footer-inner{
+    max-width:1100px;
+    margin:auto;
+    text-align:center;
+}
+
+.footer-logo{
+    color:white;
+    font-size:22px;
+    font-weight:800;
+}
+
+.footer-links{
+    margin:20px 0;
+}
+
+.footer-links a{
+    color:#d1d5db;
+    text-decoration:none;
+    margin:0 8px;
+    font-size:14px;
+}
+
+.footer-links a:hover{
+    color:white;
+}
+
+.copyright{
+    color:#9ca3af;
+    font-size:13px;
+}
+
+
+/* =========================================
    MOBILE
-========================= */
+========================================= */
 
-@media(max-width:700px){
-
-    nav{
-        flex-direction:column;
-        gap:10px;
-        padding:14px;
-    }
+@media(max-width:800px){
 
     .nav-links{
-        justify-content:center;
-        flex-wrap:wrap;
+        display:none;
+        position:absolute;
+        top:68px;
+        left:0;
+        right:0;
+        background:#1769ff;
+
+        flex-direction:column;
+        padding:20px;
     }
 
-    .hero{
-        padding:55px 20px;
+    .nav-links.show{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
     }
 
     .hero h1{
-        font-size:34px;
-    }
-
-    .container{
-        padding:35px 15px;
-    }
-
-    .card{
-        padding:24px;
-    }
-
-    .price h1{
         font-size:36px;
     }
 
+    .stats{
+        grid-template-columns:1fr;
+        margin-top:20px;
+    }
+
+    .course-grid{
+        grid-template-columns:1fr;
+    }
+
+    .feature-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .steps{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .premium-grid{
+        grid-template-columns:1fr;
+    }
+
 }
 
-</style></head><body><!-- =========================
-     NAVIGATION
-========================= --><nav><div class="logo">
+@media(max-width:500px){
+
+    .hero{
+        padding:60px 20px;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .section{
+        padding:50px 0;
+    }
+
+    .section-title{
+        font-size:27px;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .premium-card{
+        padding:25px 18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+<div class="nav">
+
+<a
+href="/"
+class="logo">
+
 📚 CreateLK Academy
-</div><div class="nav-links"><a href="index.html">
-Home
-</a><a href="dashboard.html"
-class="dashboard">
-Dashboard
+
 </a>
 
-</div></nav><!-- =========================
+
+<div
+class="menu"
+onclick="toggleMenu()">
+
+☰
+
+</div>
+
+
+<nav
+id="navLinks"
+class="nav-links">
+
+<a href="/">
+Home
+</a>
+
+<a href="/about.html">
+About
+</a>
+
+<a href="/login.html">
+Login
+</a>
+
+<a href="/register.html">
+Create Account
+</a>
+
+<a href="/membership.html">
+Premium
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================================
      HERO
-========================= --><section class="hero"><div class="badge">
-⭐ Premium English Learning
-</div><h1>
-Premium Membership
-</h1><p>
-Learn English. Practice More. Improve Faster.
-</p></section><main class="container"><!-- =========================
-     PRICE
-========================= --><section class="card price"><h2>
-CreateLK Academy Premium
-</h2><h1>
-LKR 1,500
-</h1><p class="price-duration">
-30 Days Premium Access
-</p><div
-id="membershipStatus"
-class="status">
-</div><a
-href="payment.html"
-id="paymentButton"
-class="button">
+========================================= -->
 
-💳 Get Premium Access
+<section class="hero">
 
-</a></section><!-- =========================
-     WHAT YOU GET
-========================= --><section class="card"><h2>
-🎓 What You Get
-</h2><p>
-Premium membership unlocks all 9 premium
-English courses.
-</p><ul><li>✓ 9 premium English courses</li><li>✓ 900 premium MCQ questions</li><li>✓ Grammar practice</li><li>✓ Vocabulary practice</li><li>✓ Speaking practice</li><li>✓ Pronunciation practice</li><li>✓ Conversation practice</li><li>✓ Writing practice</li><li>✓ Listening practice</li><li>✓ Business English</li><li>✓ Advanced English</li><li>✓ Phone, tablet and computer access</li></ul><p>
-<strong>
-100 free MCQs + 900 premium MCQs =
-1,000 MCQs total.
-</strong>
-</p></section><!-- =========================
-     FREE COURSE
-========================= --><section class="card free-box"><h2>
-🌱 Beginner English — FREE FOREVER
-</h2><p>
-You do not need a premium membership to
-access the Beginner English course.
-</p><ul><li>✓ 100 English MCQs</li><li>✓ Free forever</li><li>✓ No payment required</li></ul><a
-href="beginner-english/index.html"
-class="button"
-style="background:#00897b;">
+<div class="hero-inner">
+
+<div class="badge">
+🌱 Learn English Online
+</div>
+
+
+<h1>
+Learn English.<br>
+Practice More.<br>
+Improve Faster.
+</h1>
+
+
+<p>
+
+Welcome to CreateLK Academy —
+an interactive English learning platform
+designed to help you improve grammar,
+vocabulary, speaking, pronunciation,
+conversation, writing and listening.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a
+href="/beginner-english.html"
+class="btn btn-primary">
 
 🌱 Start Free Course
 
-</a></section><!-- =========================
+</a>
+
+
+<a
+href="/register.html"
+class="btn btn-secondary">
+
+👤 Create Student Account
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     STATS
+========================================= -->
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-number">
+1,000+
+</div>
+
+<div class="stat-text">
+English MCQs
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+10
+</div>
+
+<div class="stat-text">
+Learning Categories
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+24/7
+</div>
+
+<div class="stat-text">
+Online Learning
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================
+     FREE COURSE
+========================================= -->
+
+<section
+class="section free-section">
+
+<div class="container">
+
+<h2 class="section-title">
+
+🌱 Beginner English — FREE FOREVER
+
+</h2>
+
+<p class="section-subtitle">
+
+Start learning English without paying anything.
+
+</p>
+
+
+<div class="free-card">
+
+<h2>
+100 Free English MCQs
+</h2>
+
+<p>
+
+The Beginner English course is completely free
+and remains free forever.
+
+</p>
+
+
+<ul class="free-list">
+
+<li>✓ 100 English MCQs</li>
+
+<li>✓ Beginner-level practice</li>
+
+<li>✓ Grammar and vocabulary</li>
+
+<li>✓ Instant practice</li>
+
+<li>✓ No payment required</li>
+
+<li>✓ Free forever</li>
+
+</ul>
+
+
+<a
+href="/beginner-english.html"
+class="btn btn-primary">
+
+🌱 Start Free Course
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     PREMIUM
+========================================= -->
+
+<section
+class="section premium-section">
+
+<div class="container">
+
+<h2 class="section-title">
+
+⭐ Premium English Learning
+
+</h2>
+
+<p class="section-subtitle">
+
+Unlock all 9 Premium English courses
+with 900 additional MCQs.
+
+</p>
+
+
+<div class="premium-card">
+
+<h2>
+CreateLK Academy Premium
+</h2>
+
+
+<div class="premium-price">
+LKR 1,500
+</div>
+
+
+<div class="premium-duration">
+30 Days Premium Access
+</div>
+
+
+<div class="premium-grid">
+
+<div class="premium-item">
+✓ 9 Premium English courses
+</div>
+
+<div class="premium-item">
+✓ 900 Premium MCQs
+</div>
+
+<div class="premium-item">
+✓ Grammar practice
+</div>
+
+<div class="premium-item">
+✓ Vocabulary practice
+</div>
+
+<div class="premium-item">
+✓ Speaking practice
+</div>
+
+<div class="premium-item">
+✓ Pronunciation practice
+</div>
+
+<div class="premium-item">
+✓ Conversation practice
+</div>
+
+<div class="premium-item">
+✓ Writing practice
+</div>
+
+<div class="premium-item">
+✓ Listening practice
+</div>
+
+<div class="premium-item">
+✓ Business English
+</div>
+
+<div class="premium-item">
+✓ Advanced English
+</div>
+
+<div class="premium-item">
+✓ Mobile & computer access
+</div>
+
+</div>
+
+
+<p>
+
+<strong>
+100 free MCQs + 900 premium MCQs
+= 1,000 MCQs total.
+</strong>
+
+</p>
+
+
+<a
+href="/membership.html"
+class="btn btn-primary">
+
+⭐ View Premium Membership
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     LEARNING CATEGORIES
+========================================= -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+
+📚 Learning Categories
+
+</h2>
+
+<p class="section-subtitle">
+
+Practice different areas of English
+and build your confidence step by step.
+
+</p>
+
+
+<div class="course-grid">
+
+
+<div class="course">
+
+<div class="course-icon">
+📖
+</div>
+
+<h3>
+Grammar
+</h3>
+
+<p>
+Improve your understanding of English grammar
+through interactive questions.
+</p>
+
+</div>
+
+
+<div class="course">
+
+<div class="course-icon">
+🧠
+</div>
+
+<h3>
+Vocabulary
+</h3>
+
+<p>
+Build your English vocabulary with practical
+words and exercises.
+</p>
+
+</div>
+
+
+<div class="course">
+
+<div class="course-icon">
+🗣️
+</div>
+
+<h3>
+Speaking
+</h3>
+
+<p>
+Practice useful English expressions
+for everyday communication.
+</p>
+
+</div>
+
+
+<div class="course">
+
+<div class="course-icon">
+🎙️
+</div>
+
+<h3>
+Pronunciation
+</h3>
+
+<p>
+Develop clearer English pronunciation
+and speaking confidence.
+</p>
+
+</div>
+
+
+<div class="course">
+
+<div class="course-icon">
+💬
+</div>
+
+<h3>
+Conversation
+</h3>
+
+<p>
+Learn practical English for real-world
+conversations.
+</p>
+
+</div>
+
+
+<div class="course">
+
+<div class="course-icon">
+✍️
+</div>
+
+<h3>
+Writing
+</h3>
+
+<p>
+Improve your ability to write clear
+and effective English.
+</p>
+
+</div>
+
+
+<div class="course">
+
+<div class="course-icon">
+🎧
+</div>
+
+<h3>
+Listening
+</h3>
+
+<p>
+Practice understanding spoken English
+in different situations.
+</p>
+
+</div>
+
+
+<div class="course">
+
+<div class="course-icon">
+💼
+</div>
+
+<h3>
+Business English
+</h3>
+
+<p>
+Learn English vocabulary and expressions
+for professional situations.
+</p>
+
+</div>
+
+
+<div class="course">
+
+<div class="course-icon">
+🚀
+</div>
+
+<h3>
+Advanced English
+</h3>
+
+<p>
+Challenge yourself with higher-level
+English practice.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     FEATURES
+========================================= -->
+
+<section
+class="section"
+style="background:#f0f3f8;">
+
+<div class="container">
+
+<h2 class="section-title">
+
+✨ Why CreateLK Academy?
+
+</h2>
+
+<p class="section-subtitle">
+
+A simple and practical way to practice English
+from your phone, tablet or computer.
+
+</p>
+
+
+<div class="feature-grid">
+
+
+<div class="feature">
+
+<div class="feature-icon">
+📱
+</div>
+
+<h3>
+Mobile Friendly
+</h3>
+
+<p>
+Learn comfortably from your smartphone.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+💻
+</div>
+
+<h3>
+Computer Access
+</h3>
+
+<p>
+Use the academy from your computer or tablet.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🎯
+</div>
+
+<h3>
+Practice Focused
+</h3>
+
+<p>
+Practice with interactive questions.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+📈
+</div>
+
+<h3>
+Improve Faster
+</h3>
+
+<p>
+Build your English skills step by step.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
      HOW IT WORKS
-========================= --><section class="card"><h2>
-🔐 How Membership Works
-</h2><ol><li>
-Create your CreateLK Academy student account.
-</li><li>
-Log in to your student dashboard.
-</li><li>
-Choose Premium Membership.
-</li><li>
-Click the PayHere payment button.
-</li><li>
-Complete the LKR 1,500 payment.
-</li><li>
-PayHere sends the payment notification
-to our secure server.
-</li><li>
-After successful verification,
-your premium membership is activated.
-</li><li>
-Return to your dashboard and access
-the 9 premium courses.
-</li></ol></section><!-- =========================
-     DURATION
-========================= --><section class="card"><h2>
-📅 Membership Duration
-</h2><p>
-Premium membership provides access for
-<strong>30 days</strong> from the date the
-membership is successfully activated.
-</p><p>
-After the membership expires, the 9 premium
-courses will become locked until the student
-renews the membership.
-</p></section><!-- =========================
-     ACCOUNT
-========================= --><section class="card"><h2>
-👤 Account Requirements
-</h2><p>
-A registered CreateLK Academy student account
-is required to purchase and use premium
-membership.
-</p><p>
-Membership access belongs to the individual
-student account and should not be shared with
-other users.
-</p></section><!-- =========================
-     PAYMENT
-========================= --><section class="card"><h2>
-💳 Payment & Activation
-</h2><p>
-Payments are processed securely through the
-available payment gateway.
-</p><p>
-Premium access is activated only after the
-payment has been successfully verified by
-CreateLK Academy.
-</p><p>
-Simply starting or cancelling a payment does
-not activate premium access.
-</p></section><!-- =========================
-     NOTICE
-========================= --><section class="card notice"><h2>
-⚠ Important
-</h2><p>
-<strong>
-Please make sure you are logged into the
-correct student account before making a
-premium payment.
-</strong>
-</p><p>
-Premium membership is connected to the student
-account used during checkout.
-</p></section><!-- =========================
-     REFUND
-========================= --><section class="card"><h2>
-↩️ Refunds & Cancellations
-</h2><p>
-Refund requests and cancellations are handled
-according to our Refund Policy.
-</p><a href="refund.html">
-View Refund Policy
-</a></section><!-- =========================
-     CONTACT
-========================= --><section class="card"><h2>
-❓ Questions?
-</h2><p>
-If you have questions about premium membership,
-please contact CreateLK Academy before making
-a purchase.
-</p><a href="contact.html">
-Contact CreateLK Academy
-</a></section></main><!-- =========================
+========================================= -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+
+🔐 How CreateLK Academy Works
+
+</h2>
+
+
+<p class="section-subtitle">
+
+Start learning in just a few simple steps.
+
+</p>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="step-number">
+1
+</div>
+
+<h3>
+Create Account
+</h3>
+
+<p>
+Register your CreateLK Academy student account.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+2
+</div>
+
+<h3>
+Start Learning
+</h3>
+
+<p>
+Access the free Beginner English course immediately.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+3
+</div>
+
+<h3>
+Upgrade
+</h3>
+
+<p>
+Choose Premium when you are ready for more courses.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+4
+</div>
+
+<h3>
+Improve
+</h3>
+
+<p>
+Practice regularly and build your English confidence.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     CTA
+========================================= -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+Ready to Improve Your English?
+</h2>
+
+<p>
+
+Start with our free Beginner English course
+or create your account and explore Premium learning.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a
+href="/beginner-english.html"
+class="btn btn-primary">
+
+🌱 Start Free Course
+
+</a>
+
+
+<a
+href="/register.html"
+class="btn btn-secondary">
+
+👤 Create Account
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
      FOOTER
-========================= --><footer><p>
-<strong>
+========================================= -->
+
+<footer>
+
+<div class="footer-inner">
+
+<div class="footer-logo">
 📚 CreateLK Academy
-</strong>
-</p><div class="links"><a href="index.html">
+</div>
+
+
+<div class="footer-links">
+
+<a href="/">
 Home
-</a><a href="about.html">
+</a>
+
+<a href="/about.html">
 About
-</a><a href="contact.html">
+</a>
+
+<a href="/contact.html">
 Contact
-</a><a href="terms.html">
+</a>
+
+<a href="/terms.html">
 Terms
-</a><a href="privacy.html">
+</a>
+
+<a href="/privacy.html">
 Privacy
-</a><a href="refund.html">
+</a>
+
+<a href="/refund-policy.html">
 Refund Policy
-</a><a href="membership.html">
+</a>
+
+<a href="/membership.html">
 Membership
-</a><a href="payment.html">
-Payment
-</a></div><p>
-© 2026 CreateLK Academy. All Rights Reserved.
-</p></footer><script>
+</a>
 
-"use strict";
+</div>
 
 
-/* =========================
-   GET STUDENT
-========================= */
+<div class="copyright">
 
-function getStudent(){
+© 2026 CreateLK Academy.
+All Rights Reserved.
 
-    const saved =
-        localStorage.getItem(
-            "createlk_student"
-        );
+</div>
 
-    if(!saved){
+</div>
 
-        return null;
-    }
+</footer>
 
-    try{
 
-        return JSON.parse(saved);
 
-    }catch(error){
+<script>
 
-        localStorage.removeItem(
-            "createlk_student"
-        );
+function toggleMenu(){
 
-        return null;
-    }
+    document
+        .getElementById("navLinks")
+        .classList
+        .toggle("show");
+
 }
 
-
-/* =========================
-   MEMBERSHIP STATUS
-========================= */
-
-function checkMembership(){
-
-    const student =
-        getStudent();
-
-    const status =
-        document.getElementById(
-            "membershipStatus"
-        );
-
-    const button =
-        document.getElementById(
-            "paymentButton"
-        );
+</script>
 
 
-    if(!student){
+</body>
 
-        status.textContent =
-            "🔐 Please log in before purchasing Premium.";
-
-        status.className =
-            "status free";
-
-
-        button.textContent =
-            "🔐 Login to Continue";
-
-        button.href =
-            "login.html";
-
-        return;
-    }
-
-
-    const membershipStatus =
-        String(
-            student.membership_status || ""
-        ).toLowerCase();
-
-
-    const expiry =
-        student.membership_expiry;
-
-
-    /* ACTIVE */
-
-    if(
-        membershipStatus === "active" &&
-        expiry &&
-        new Date(expiry) > new Date()
-    ){
-
-        status.textContent =
-            "✓ Your Premium Membership is Active until " +
-            formatDate(expiry);
-
-        status.className =
-            "status active";
-
-
-        button.textContent =
-            "📚 Open Dashboard";
-
-        button.href =
-            "dashboard.html";
-
-        return;
-    }
-
-
-    /* EXPIRED OR FREE */
-
-    status.textContent =
-        "🌱 Your account currently has no active Premium membership.";
-
-    status.className =
-        "status free";
-
-
-    button.textContent =
-        "💳 Pay LKR 1,500 with PayHere";
-
-    button.href =
-        "payment.html";
-}
-
-
-/* =========================
-   DATE
-========================= */
-
-function formatDate(dateString){
-
-    const date =
-        new Date(dateString);
-
-    if(
-        isNaN(
-            date.getTime()
-        )
-    ){
-
-        return dateString;
-    }
-
-    return date.toLocaleDateString(
-        "en-LK",
-        {
-            year:"numeric",
-            month:"long",
-            day:"numeric"
-        }
-    );
-}
-
-
-/* =========================
-   START
-========================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    checkMembership
-);
-
-</script></body>
 </html>
