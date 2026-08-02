@@ -23,7 +23,9 @@ color:#263238;
 line-height:1.6;
 }
 
-/* NAVIGATION */
+/* ==========================================
+   NAVIGATION
+========================================== */
 
 nav{
 background:#fff;
@@ -47,7 +49,7 @@ white-space:nowrap;
 nav ul{
 display:flex;
 list-style:none;
-gap:24px;
+gap:18px;
 align-items:center;
 }
 
@@ -68,7 +70,37 @@ padding:9px 18px;
 border-radius:22px;
 }
 
-/* HERO */
+.register-button{
+border:1px solid #1565c0;
+color:#1565c0 !important;
+padding:8px 16px;
+border-radius:22px;
+}
+
+.student-menu{
+display:none;
+align-items:center;
+gap:10px;
+}
+
+.student-name{
+font-weight:700;
+color:#1565c0;
+}
+
+.logout-button{
+border:0;
+background:#ef4444;
+color:#fff;
+padding:9px 15px;
+border-radius:20px;
+font-weight:700;
+cursor:pointer;
+}
+
+/* ==========================================
+   HERO
+========================================== */
 
 header{
 background:linear-gradient(
@@ -136,7 +168,15 @@ border:1px solid rgba(255,255,255,.7);
 color:#fff;
 }
 
-/* CONTAINER */
+.dashboard-button{
+display:none;
+background:#fff;
+color:#1565c0;
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
 
 .container{
 max-width:1200px;
@@ -159,7 +199,9 @@ color:#68757c;
 margin-top:5px;
 }
 
-/* ACCESS BOX */
+/* ==========================================
+   ACCESS BOX
+========================================== */
 
 .access-box{
 max-width:700px;
@@ -190,11 +232,13 @@ margin-top:20px;
 flex-wrap:wrap;
 }
 
-.access-buttons a{
+.access-buttons a,
+.access-buttons button{
 padding:12px 23px;
 border-radius:25px;
 text-decoration:none;
 font-weight:700;
+cursor:pointer;
 }
 
 .register-btn{
@@ -208,7 +252,15 @@ color:#1565c0;
 background:#fff;
 }
 
-/* COURSE GRID */
+.dashboard-btn{
+background:#00897b;
+color:#fff;
+border:0;
+}
+
+/* ==========================================
+   COURSE GRID
+========================================== */
 
 .grid{
 display:grid;
@@ -284,7 +336,9 @@ background:#e3f2fd;
 color:#1565c0;
 }
 
-/* LOCK BOX */
+/* ==========================================
+   LOCK BOX
+========================================== */
 
 .lock-box{
 margin:45px auto 0;
@@ -318,7 +372,9 @@ text-decoration:none;
 font-weight:700;
 }
 
-/* FEATURES */
+/* ==========================================
+   FEATURES
+========================================== */
 
 .features{
 display:grid;
@@ -350,7 +406,9 @@ font-size:14px;
 color:#68757c;
 }
 
-/* MEMBERSHIP */
+/* ==========================================
+   MEMBERSHIP
+========================================== */
 
 .subscription{
 margin-top:60px;
@@ -402,7 +460,9 @@ text-decoration:none;
 font-weight:800;
 }
 
-/* FOOTER */
+/* ==========================================
+   FOOTER
+========================================== */
 
 footer{
 background:#111827;
@@ -440,7 +500,9 @@ font-size:13px;
 margin-top:12px;
 }
 
-/* MOBILE */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media(max-width:700px){
 
@@ -451,7 +513,7 @@ gap:10px;
 }
 
 nav ul{
-gap:14px;
+gap:10px;
 flex-wrap:wrap;
 justify-content:center;
 }
@@ -484,9 +546,16 @@ font-size:27px;
 font-size:30px;
 }
 
+.student-menu{
+flex-wrap:wrap;
+justify-content:center;
 }
 
-</style></head><body><!-- NAVIGATION --><nav><div class="logo">
+}
+
+</style></head><body><!-- ==========================================
+     NAVIGATION
+========================================== --><nav><div class="logo">
 📚 CreateLK Academy
 </div><ul><li>
 <a href="index.html">
@@ -508,12 +577,36 @@ About
 <a href="contact.html">
 Contact
 </a>
-</li><li>
+</li><!-- BEFORE LOGIN --><li id="loginNav">
 <a href="login.html"
 class="login-button">
 Login
 </a>
-</li></ul></nav><!-- HERO --><header><div class="hero-content"><div class="badge">
+</li><li id="registerNav">
+<a href="register.html"
+class="register-button">
+Create Account
+</a>
+</li><!-- AFTER LOGIN --><li id="studentNav"
+class="student-menu"><span class="student-name"
+id="navStudentName">
+Student
+</span>
+
+<a href="dashboard.html"
+class="login-button">
+Dashboard
+</a>
+
+<button
+class="logout-button"
+onclick="logoutStudent()">
+Logout
+</button>
+
+</li></ul></nav><!-- ==========================================
+     HERO
+========================================== --><header><div class="hero-content"><div class="badge">
 🎓 English Learning Platform
 </div><h1>
 Master English With Confidence
@@ -529,32 +622,56 @@ Explore Courses
 
 <a
 href="register.html"
+id="heroRegister"
 class="hero-button secondary">
 Create Student Account
 </a>
 
-</div></div></header><main class="container"><!-- COURSES --><section id="courses"><div class="section-title"><h2>
+<a
+href="dashboard.html"
+id="heroDashboard"
+class="hero-button dashboard-button">
+Open Student Dashboard
+</a>
+
+</div></div></header><main class="container"><!-- ==========================================
+     COURSES
+========================================== --><section id="courses"><div class="section-title"><h2>
 📚 1,000 English MCQ Questions
 </h2><p>
 10 courses × 100 questions each
-</p></div><!-- STUDENT ACCESS --><div class="access-box"><h3>
+</p></div><!-- ==========================================
+     STUDENT ACCESS
+========================================== --><div class="access-box"><h3 id="accessTitle">
 🔐 Student Access
-</h3><p>
+</h3><p id="accessText">
 Create your student account or log in
 to access your learning dashboard.
-</p><div class="access-buttons"><a
+</p><div class="access-buttons"><!-- BEFORE LOGIN --><a
 href="register.html"
+id="accessRegister"
 class="register-btn">
 Create Account
 </a>
 
 <a
 href="login.html"
+id="accessLogin"
 class="login-btn">
 Student Login
 </a>
 
-</div></div><!-- COURSE CARDS --><div class="grid"><!-- FREE COURSE --><a
+<!-- AFTER LOGIN --><a
+href="dashboard.html"
+id="accessDashboard"
+class="dashboard-btn"
+style="display:none;">
+📚 Open Dashboard
+</a>
+
+</div></div><!-- ==========================================
+     COURSE CARDS
+========================================== --><div class="grid"><!-- FREE --><a
 class="card free-card"
 href="beginner-english/index.html">
 
@@ -567,8 +684,8 @@ Build your English foundation with
 100 interactive MCQ questions.
 </p><span class="tag free-tag">
 ✓ FREE • 100 MCQs
-</span></a><!-- PREMIUM COURSES --><a
-class="card"
+</span></a><!-- PREMIUM --><a
+class="card premium-card"
 href="login.html">
 
 <div class="card-icon">
@@ -581,7 +698,7 @@ essential English grammar.
 </p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
 </span></a><a
-class="card"
+class="card premium-card"
 href="login.html">
 
 <div class="card-icon">
@@ -594,7 +711,7 @@ Expand your vocabulary with
 </p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
 </span></a><a
-class="card"
+class="card premium-card"
 href="login.html">
 
 <div class="card-icon">
@@ -607,7 +724,7 @@ speaking skills with 100 MCQs.
 </p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
 </span></a><a
-class="card"
+class="card premium-card"
 href="login.html">
 
 <div class="card-icon">
@@ -620,7 +737,7 @@ through 100 MCQs.
 </p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
 </span></a><a
-class="card"
+class="card premium-card"
 href="login.html">
 
 <div class="card-icon">
@@ -633,7 +750,7 @@ conversation with 100 MCQs.
 </p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
 </span></a><a
-class="card"
+class="card premium-card"
 href="login.html">
 
 <div class="card-icon">
@@ -646,7 +763,7 @@ with 100 writing MCQs.
 </p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
 </span></a><a
-class="card"
+class="card premium-card"
 href="login.html">
 
 <div class="card-icon">
@@ -659,7 +776,7 @@ comprehension with 100 MCQs.
 </p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
 </span></a><a
-class="card"
+class="card premium-card"
 href="login.html">
 
 <div class="card-icon">
@@ -672,7 +789,7 @@ Learn professional English with
 </p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
 </span></a><a
-class="card"
+class="card premium-card"
 href="login.html">
 
 <div class="card-icon">
@@ -684,16 +801,24 @@ Challenge yourself with
 100 advanced English MCQs.
 </p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
-</span></a></div><!-- PROTECTION MESSAGE --><div class="lock-box"><h3>
+</span></a></div><!-- ==========================================
+     PROTECTION MESSAGE
+========================================== --><div class="lock-box"><h3>
 🔐 Premium Courses
-</h3><p>
+</h3><p id="premiumMessage">
 Premium courses are available to active
 members. Create your student account,
 complete the membership payment, and
 sign in to access your premium courses.
-</p><a href="register.html">
+</p><a
+href="register.html"
+id="premiumButton">
 Get Premium Membership
-</a></div></section><!-- FEATURES --><section><div class="features"><div class="feature"><div class="feature-icon">
+</a>
+
+</div></section><!-- ==========================================
+     FEATURES
+========================================== --><section><div class="features"><div class="feature"><div class="feature-icon">
 🎯
 </div><h3>
 Practice
@@ -717,7 +842,9 @@ Build your English skills step by step.
 Learn Anywhere
 </h3><p>
 Practice comfortably on phone or computer.
-</p></div></div></section><!-- MEMBERSHIP --><section
+</p></div></div></section><!-- ==========================================
+     MEMBERSHIP
+========================================== --><section
 id="membership"
 class="subscription"><h2>
 ⭐ Premium Membership
@@ -728,9 +855,25 @@ Get access to all 9 premium courses,
 including 900 premium MCQ questions.
 Membership access is activated after
 successful payment verification.
-</p><ul><li>✓ 9 Premium English Courses</li><li>✓ 900 Premium MCQ Questions</li><li>✓ Student Dashboard</li><li>✓ 30 Days Premium Access</li><li>✓ Access from phone or computer</li></ul><a href="register.html">
+</p><ul><li>
+✓ 9 Premium English Courses
+</li><li>
+✓ 900 Premium MCQ Questions
+</li><li>
+✓ Student Dashboard
+</li><li>
+✓ 30 Days Premium Access
+</li><li>
+✓ Access from phone or computer
+</li></ul><a
+href="register.html"
+id="membershipButton">
+
 Join Premium →
-</a></section></main><!-- FOOTER --><footer><p>
+
+</a></section></main><!-- ==========================================
+     FOOTER
+========================================== --><footer><p>
 <strong>
 📚 CreateLK Academy
 </strong>
@@ -758,4 +901,261 @@ Register
 1,000 MCQs • 10 Courses • Premium Learning
 </p><p class="footer-note">
 © 2026 CreateLK Academy. All Rights Reserved.
-</p></footer></body></html>
+</p></footer><!-- ==========================================
+     LOGIN STATE SCRIPT
+========================================== --><script>
+
+function getStudent(){
+
+    const saved =
+        localStorage.getItem(
+            "createlk_student"
+        );
+
+    if(!saved){
+        return null;
+    }
+
+    try{
+
+        return JSON.parse(saved);
+
+    }catch(error){
+
+        localStorage.removeItem(
+            "createlk_student"
+        );
+
+        return null;
+
+    }
+
+}
+
+
+/* ==========================================
+   UPDATE PAGE
+========================================== */
+
+function updateLoginState(){
+
+    const student =
+        getStudent();
+
+
+    const loginNav =
+        document.getElementById(
+            "loginNav"
+        );
+
+    const registerNav =
+        document.getElementById(
+            "registerNav"
+        );
+
+    const studentNav =
+        document.getElementById(
+            "studentNav"
+        );
+
+    const heroRegister =
+        document.getElementById(
+            "heroRegister"
+        );
+
+    const heroDashboard =
+        document.getElementById(
+            "heroDashboard"
+        );
+
+    const accessRegister =
+        document.getElementById(
+            "accessRegister"
+        );
+
+    const accessLogin =
+        document.getElementById(
+            "accessLogin"
+        );
+
+    const accessDashboard =
+        document.getElementById(
+            "accessDashboard"
+        );
+
+    const accessTitle =
+        document.getElementById(
+            "accessTitle"
+        );
+
+    const accessText =
+        document.getElementById(
+            "accessText"
+        );
+
+    const premiumMessage =
+        document.getElementById(
+            "premiumMessage"
+        );
+
+    const premiumButton =
+        document.getElementById(
+            "premiumButton"
+        );
+
+    const membershipButton =
+        document.getElementById(
+            "membershipButton"
+        );
+
+
+    /* ======================================
+       BEFORE LOGIN
+    ====================================== */
+
+    if(!student){
+
+        loginNav.style.display =
+            "list-item";
+
+        registerNav.style.display =
+            "list-item";
+
+        studentNav.style.display =
+            "none";
+
+        heroRegister.style.display =
+            "inline-block";
+
+        heroDashboard.style.display =
+            "none";
+
+        accessRegister.style.display =
+            "inline-block";
+
+        accessLogin.style.display =
+            "inline-block";
+
+        accessDashboard.style.display =
+            "none";
+
+        accessTitle.textContent =
+            "🔐 Student Access";
+
+        accessText.textContent =
+            "Create your student account or log in to access your learning dashboard.";
+
+        premiumMessage.textContent =
+            "Premium courses are available to active members. Create your student account, complete the membership payment, and sign in to access your premium courses.";
+
+        premiumButton.textContent =
+            "Get Premium Membership";
+
+        premiumButton.href =
+            "register.html";
+
+        membershipButton.textContent =
+            "Join Premium →";
+
+        membershipButton.href =
+            "register.html";
+
+        return;
+
+    }
+
+
+    /* ======================================
+       AFTER LOGIN
+    ====================================== */
+
+    loginNav.style.display =
+        "none";
+
+    registerNav.style.display =
+        "none";
+
+    studentNav.style.display =
+        "flex";
+
+    heroRegister.style.display =
+        "none";
+
+    heroDashboard.style.display =
+        "inline-block";
+
+    accessRegister.style.display =
+        "none";
+
+    accessLogin.style.display =
+        "none";
+
+    accessDashboard.style.display =
+        "inline-block";
+
+    accessTitle.textContent =
+        "👋 Welcome Back!";
+
+    accessText.textContent =
+        "Welcome " +
+        student.first_name +
+        "! Open your student dashboard to continue learning.";
+
+    premiumMessage.textContent =
+        "You are logged in. Open your student dashboard to check your membership and access available courses.";
+
+    premiumButton.textContent =
+        "Open Student Dashboard";
+
+    premiumButton.href =
+        "dashboard.html";
+
+    membershipButton.textContent =
+        "Open Student Dashboard →";
+
+    membershipButton.href =
+        "dashboard.html";
+
+
+    document.getElementById(
+        "navStudentName"
+    ).textContent =
+        "👤 " +
+        student.first_name;
+
+}
+
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+function logoutStudent(){
+
+    localStorage.removeItem(
+        "createlk_student"
+    );
+
+    updateLoginState();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ==========================================
+   RUN
+========================================== */
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+    updateLoginState();
+
+});
+
+</script></body><
