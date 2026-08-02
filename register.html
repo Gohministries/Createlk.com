@@ -1,7 +1,8 @@
 <!DOCTYPE html><html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Create Account | CreateLK Academy</title><style>
+<head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Create Account | CreateLK Academy</title><style>
 
 *{
     box-sizing:border-box;
@@ -24,6 +25,9 @@ body{
     overflow-x:hidden;
 }
 
+
+/* NAV */
+
 nav{
     width:100%;
     background:#fff;
@@ -38,6 +42,9 @@ nav{
     font-size:22px;
     font-weight:800;
 }
+
+
+/* MAIN */
 
 .container{
     width:100%;
@@ -55,6 +62,9 @@ nav{
     box-shadow:0 8px 25px rgba(0,0,0,.07);
 }
 
+
+/* HEADINGS */
+
 h1{
     color:#1565c0;
     text-align:center;
@@ -71,6 +81,9 @@ h1{
     margin-bottom:25px;
 }
 
+
+/* FORM */
+
 .form-group{
     width:100%;
     margin-bottom:18px;
@@ -83,6 +96,9 @@ label{
     font-weight:700;
     line-height:1.4;
 }
+
+
+/* INPUT */
 
 input{
     display:block;
@@ -102,17 +118,13 @@ input:focus{
     box-shadow:0 0 0 3px rgba(21,101,192,.08);
 }
 
-/*
-================================
-PASSWORD ROW
-================================
-*/
+
+/* PASSWORD ROW */
 
 .password-row{
     display:flex;
     width:100%;
     gap:8px;
-    align-items:stretch;
 }
 
 .password-row input{
@@ -120,9 +132,14 @@ PASSWORD ROW
     min-width:0;
 }
 
+
+/* SHOW / HIDE BUTTON */
+
 .password-toggle{
-    flex:0 0 65px;
+    flex:0 0 70px;
+    width:70px;
     height:50px;
+    padding:0;
     border:1px solid #ccd5dc;
     border-radius:10px;
     background:#fff;
@@ -130,81 +147,31 @@ PASSWORD ROW
     font-size:14px;
     font-weight:700;
     cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    white-space:nowrap;
 }
 
 .password-toggle:hover{
     background:#e3f2fd;
+    color:#0d47a1;
 }
 
-/*
-================================
-PASSWORD STRENGTH
-================================
-*/
+
+/* PASSWORD STRENGTH */
 
 .password-strength{
     width:100%;
-    min-height:20px;
-    margin-top:7px;
+    min-height:22px;
+    margin-top:8px;
     font-size:13px;
     font-weight:700;
     line-height:1.5;
 }
 
-/*
-================================
-PASSWORD SUGGESTION
-================================
-*/
 
-.password-help{
-    width:100%;
-    margin-top:8px;
-    padding:14px;
-    border-radius:10px;
-    background:#f8fafc;
-    border:1px solid #e7edf2;
-    color:#68757c;
-    font-size:13px;
-    line-height:1.6;
-}
-
-.password-help-title{
-    display:block;
-    color:#1565c0;
-    font-weight:800;
-    margin-bottom:4px;
-}
-
-.password-suggestion{
-    display:block;
-    width:100%;
-    overflow-wrap:anywhere;
-    word-break:break-word;
-    color:#455a64;
-}
-
-.use-suggestion{
-    display:block;
-    margin-top:9px;
-    padding:0;
-    border:0;
-    background:none;
-    color:#1565c0;
-    font-size:13px;
-    font-weight:800;
-    cursor:pointer;
-}
-
-.use-suggestion:hover{
-    text-decoration:underline;
-}
-
-/*
-================================
-REGISTER BUTTON
-================================
-*/
+/* REGISTER BUTTON */
 
 .register-button{
     display:block;
@@ -229,11 +196,8 @@ REGISTER BUTTON
     cursor:not-allowed;
 }
 
-/*
-================================
-MESSAGE
-================================
-*/
+
+/* MESSAGE */
 
 .message{
     width:100%;
@@ -246,11 +210,8 @@ MESSAGE
     overflow-wrap:anywhere;
 }
 
-/*
-================================
-LINKS
-================================
-*/
+
+/* LINKS */
 
 .links{
     width:100%;
@@ -271,11 +232,8 @@ LINKS
     text-decoration:underline;
 }
 
-/*
-================================
-SECURITY
-================================
-*/
+
+/* SECURITY */
 
 .security{
     width:100%;
@@ -289,11 +247,8 @@ SECURITY
     line-height:1.6;
 }
 
-/*
-================================
-FOOTER
-================================
-*/
+
+/* FOOTER */
 
 footer{
     width:100%;
@@ -308,11 +263,8 @@ footer strong{
     color:#fff;
 }
 
-/*
-================================
-MOBILE
-================================
-*/
+
+/* MOBILE */
 
 @media(max-width:480px){
 
@@ -333,22 +285,10 @@ MOBILE
         font-size:14px;
     }
 
-    .password-row{
-        gap:6px;
-    }
-
-    .password-toggle{
-        flex-basis:60px;
-        font-size:13px;
-    }
-
 }
 
-/*
-================================
-VERY SMALL PHONES
-================================
-*/
+
+/* VERY SMALL PHONE */
 
 @media(max-width:340px){
 
@@ -361,7 +301,6 @@ VERY SMALL PHONES
     }
 
     .password-toggle{
-        display:block;
         width:100%;
         margin-top:7px;
     }
@@ -374,7 +313,7 @@ VERY SMALL PHONES
 Create Student Account
 </h1><p class="subtitle">
 Create your account to access CreateLK Academy.
-</p><form id="registerForm"><div class="form-group"><label for="firstName">
+</p><form id="registerForm"><!-- FIRST NAME --><div class="form-group"><label for="firstName">
 First Name
 </label><input
 id="firstName"
@@ -385,7 +324,7 @@ required
 
 «»
 
-</div><div class="form-group"><label for="lastName">
+</div><!-- LAST NAME --><div class="form-group"><label for="lastName">
 Last Name
 </label><input
 id="lastName"
@@ -396,7 +335,7 @@ required
 
 «»
 
-</div><div class="form-group"><label for="email">
+</div><!-- EMAIL --><div class="form-group"><label for="email">
 Email Address
 </label><input
 id="email"
@@ -407,7 +346,7 @@ required
 
 «»
 
-</div><div class="form-group"><label for="phone">
+</div><!-- PHONE --><div class="form-group"><label for="phone">
 WhatsApp Number
 </label><input
 id="phone"
@@ -417,7 +356,7 @@ autocomplete="tel"
 
 «»
 
-</div><div class="form-group"><label for="password">
+</div><!-- PASSWORD --><div class="form-group"><label for="password">
 Password
 </label><div class="password-row"><input
 id="password"
@@ -441,29 +380,9 @@ Show
 
 </div><div
 id="passwordStrength"
-class="password-strength">
-</div><div class="password-help"><span class="password-help-title">
-🔐 Strong password suggestion
-</span><span
-id="passwordSuggestion"
-class="password-suggestion"
-
-«»
-
-Tap the button below to generate a secure password.
-</span>
-
-<button
-type="button"
-id="useSuggestion"
-class="use-suggestion"
-
-«»
-
-Use this suggestion
-</button>
-
-</div></div><div class="form-group"><label for="confirmPassword">
+class="password-strength"
+aria-live="polite">
+</div></div><!-- CONFIRM PASSWORD --><div class="form-group"><label for="confirmPassword">
 Confirm Password
 </label><div class="password-row"><input
 id="confirmPassword"
@@ -485,7 +404,7 @@ class="password-toggle"
 Show
 </button>
 
-</div></div><button
+</div></div><!-- CREATE ACCOUNT --><button
 id="registerButton"
 class="register-button"
 type="submit"
@@ -506,12 +425,11 @@ Already have an account? Sign in
 </a></div><div class="security">🔐 Your password is securely hashed
 before it is stored by the server.
 
-</div></div></main><footer><p>
-<strong>
+</div></div></main><footer><p><strong>
 📚 CreateLK Academy
-</strong>
-</p><p style="margin-top:8px;">
-© 2026 CreateLK Academy. All Rights Reserved.
+</strong></p><p style="margin-top:8px;">© 2026 CreateLK Academy.
+All Rights Reserved.
+
 </p></footer><script>
 
 const API =
@@ -536,12 +454,6 @@ document.getElementById("confirmPassword");
 const passwordStrength =
 document.getElementById("passwordStrength");
 
-const passwordSuggestion =
-document.getElementById("passwordSuggestion");
-
-const useSuggestion =
-document.getElementById("useSuggestion");
-
 const showPassword =
 document.getElementById("showPassword");
 
@@ -549,11 +461,7 @@ const showConfirmPassword =
 document.getElementById("showConfirmPassword");
 
 
-/*
-================================
-SHOW PASSWORD
-================================
-*/
+/* SHOW PASSWORD */
 
 showPassword.addEventListener(
 "click",
@@ -574,6 +482,8 @@ showPassword.textContent = "Show";
 });
 
 
+/* SHOW CONFIRM PASSWORD */
+
 showConfirmPassword.addEventListener(
 "click",
 function(){
@@ -593,63 +503,7 @@ showConfirmPassword.textContent = "Show";
 });
 
 
-/*
-================================
-GENERATE STRONG PASSWORD
-================================
-*/
-
-function generateStrongPassword(){
-
-const uppercase =
-"ABCDEFGHJKLMNPQRSTUVWXYZ";
-
-const lowercase =
-"abcdefghijkmnopqrstuvwxyz";
-
-const numbers =
-"23456789";
-
-const symbols =
-"!@#$%^&*";
-
-const all =
-uppercase +
-lowercase +
-numbers +
-symbols;
-
-const values =
-new Uint32Array(20);
-
-crypto.getRandomValues(values);
-
-
-let result =
-uppercase[values[0] % uppercase.length] +
-lowercase[values[1] % lowercase.length] +
-numbers[values[2] % numbers.length] +
-symbols[values[3] % symbols.length];
-
-
-for(let i=4;i<16;i++){
-
-result +=
-all[values[i] % all.length];
-
-}
-
-
-return result;
-
-}
-
-
-/*
-================================
-PASSWORD STRENGTH
-================================
-*/
+/* PASSWORD STRENGTH */
 
 function checkPasswordStrength(value){
 
@@ -660,7 +514,9 @@ return;
 
 }
 
+
 let score = 0;
+
 
 if(value.length >= 8)
 score++;
@@ -690,6 +546,7 @@ passwordStrength.style.color =
 "#c62828";
 
 }
+
 else if(score <= 4){
 
 passwordStrength.textContent =
@@ -699,6 +556,7 @@ passwordStrength.style.color =
 "#ef6c00";
 
 }
+
 else{
 
 passwordStrength.textContent =
@@ -723,52 +581,7 @@ passwordInput.value
 });
 
 
-/*
-================================
-USE SUGGESTION
-================================
-*/
-
-useSuggestion.addEventListener(
-"click",
-function(){
-
-const suggestion =
-generateStrongPassword();
-
-passwordInput.value =
-suggestion;
-
-confirmPasswordInput.value =
-suggestion;
-
-passwordInput.type =
-"text";
-
-confirmPasswordInput.type =
-"text";
-
-showPassword.textContent =
-"Hide";
-
-showConfirmPassword.textContent =
-"Hide";
-
-passwordSuggestion.textContent =
-suggestion;
-
-checkPasswordStrength(
-suggestion
-);
-
-});
-
-
-/*
-================================
-REGISTRATION
-================================
-*/
+/* REGISTRATION */
 
 registerForm.addEventListener(
 "submit",
@@ -814,6 +627,8 @@ const confirmPassword =
 confirmPasswordInput.value;
 
 
+/* PASSWORD MATCH */
+
 if(password !== confirmPassword){
 
 message.textContent =
@@ -827,6 +642,8 @@ return;
 }
 
 
+/* PASSWORD LENGTH */
+
 if(password.length < 8){
 
 message.textContent =
@@ -839,6 +656,8 @@ return;
 
 }
 
+
+/* PASSWORD REQUIREMENTS */
 
 if(
 !/[A-Z]/.test(password) ||
@@ -858,6 +677,8 @@ return;
 }
 
 
+/* SUBMIT */
+
 registerButton.disabled = true;
 
 registerButton.textContent =
@@ -876,6 +697,7 @@ const response =
 await fetch(
 API + "/register",
 {
+
 method:"POST",
 
 headers:{
