@@ -1,11 +1,11 @@
 <!DOCTYPE html><html lang="en">
 <head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0"><title>CreateLK Academy | Premium Payment</title><style>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"><title>CreateLK Academy | Premium Membership Payment</title><style>
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
     font-family:"Segoe UI",Arial,sans-serif;
 }
 
@@ -39,60 +39,56 @@ body{
     text-align:center;
     font-size:20px;
     font-weight:800;
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 .student{
     background:#f3f7ff;
-    padding:10px;
+    padding:9px;
     border-radius:10px;
-    margin-bottom:12px;
     text-align:center;
-    font-size:14px;
+    font-size:13px;
+    margin-bottom:10px;
 }
 
 .price{
     text-align:center;
+    color:#174ea6;
     font-size:27px;
     font-weight:800;
-    color:#174ea6;
 }
 
 .duration{
     text-align:center;
     color:#666;
     font-size:13px;
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 .bank{
     background:#f8fafc;
     border:1px solid #e1e6ed;
-    border-radius:12px;
-    padding:11px;
-    margin-bottom:12px;
+    border-radius:11px;
+    padding:10px;
     font-size:13px;
-    line-height:1.55;
+    line-height:1.5;
+    margin-bottom:10px;
 }
 
 .bank-title{
-    font-weight:800;
     font-size:15px;
-    margin-bottom:4px;
-}
-
-.bank b{
-    color:#222;
+    font-weight:800;
+    margin-bottom:3px;
 }
 
 .field{
-    margin-bottom:10px;
+    margin-bottom:9px;
 }
 
 label{
     display:block;
-    font-weight:700;
     font-size:13px;
+    font-weight:700;
     margin-bottom:5px;
 }
 
@@ -112,8 +108,7 @@ input[type="text"]:focus{
 .file-box{
     border:2px dashed #c8d2e2;
     border-radius:10px;
-    padding:10px;
-    text-align:center;
+    padding:9px;
     background:#fafcff;
 }
 
@@ -131,15 +126,14 @@ input[type="file"]{
 
 .submit{
     width:100%;
+    padding:12px;
     border:0;
     border-radius:10px;
-    padding:12px;
     background:#174ea6;
     color:#fff;
     font-size:15px;
     font-weight:800;
     cursor:pointer;
-    margin-top:5px;
 }
 
 .submit:disabled{
@@ -154,6 +148,7 @@ input[type="file"]{
     margin-bottom:9px;
     text-align:center;
     font-size:13px;
+    line-height:1.4;
 }
 
 .success{
@@ -171,7 +166,7 @@ input[type="file"]{
 .back{
     display:block;
     text-align:center;
-    margin-top:10px;
+    margin-top:9px;
     color:#174ea6;
     text-decoration:none;
     font-size:13px;
@@ -189,14 +184,13 @@ input[type="file"]{
     border-radius:50%;
 
     background:#25D366;
-    color:white;
+    color:#fff;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
     text-decoration:none;
-
     font-size:28px;
 
     box-shadow:0 5px 18px rgba(0,0,0,.25);
@@ -213,7 +207,7 @@ input[type="file"]{
 </div>
 
 <div class="student">
-    <b>👤 <span id="studentName">Student</span></b><br>
+    👤 <b id="studentName">Student</b><br>
     <span id="studentEmail"></span>
 </div>
 
@@ -251,7 +245,7 @@ input[type="file"]{
         <input
             type="text"
             id="reference"
-            placeholder="Enter bank deposit reference"
+            placeholder="Enter payment reference"
             required>
 
     </div>
@@ -273,7 +267,9 @@ input[type="file"]{
             <div
                 id="fileName"
                 class="file-name">
+
                 No receipt selected
+
             </div>
 
         </div>
@@ -300,11 +296,11 @@ input[type="file"]{
 </a>
 
 </div><!-- WHATSAPP --><a
-class="whatsapp"
 href="https://wa.me/94771190395"
+class="whatsapp"
 target="_blank"
 rel="noopener"
-aria-label="Chat on WhatsApp">
+aria-label="WhatsApp">
 
 💬
 
@@ -314,15 +310,15 @@ aria-label="Chat on WhatsApp">
 
 
 /* =====================================
-   API
+   NEW CLOUDFLARE WORKER
 ===================================== */
 
 const API_URL =
-"https://cool-resonance-7780.gateofheavensl1.workers.dev";
+"https://weathered-sunset-e3e6.gateofheavensl1.workers.dev";
 
 
 /* =====================================
-   STUDENT
+   GET STUDENT
 ===================================== */
 
 function getStudent(){
@@ -345,7 +341,9 @@ function getStudent(){
             student &&
             student.id
         ){
+
             return student;
+
         }
 
     }catch(error){
@@ -365,7 +363,7 @@ getStudent();
 
 
 /* =====================================
-   REQUIRE LOGIN
+   LOGIN CHECK
 ===================================== */
 
 if(!student){
@@ -377,7 +375,7 @@ if(!student){
 
 
 /* =====================================
-   STUDENT DETAILS
+   DISPLAY STUDENT
 ===================================== */
 
 if(student){
@@ -440,7 +438,7 @@ document.getElementById(
 
 
 /* =====================================
-   SHOW MESSAGE
+   MESSAGE
 ===================================== */
 
 function showMessage(
@@ -458,7 +456,7 @@ function showMessage(
 
 
 /* =====================================
-   FILE SELECTED
+   RECEIPT SELECTED
 ===================================== */
 
 receipt.addEventListener(
@@ -486,7 +484,7 @@ receipt.addEventListener(
 
 
 /* =====================================
-   PAYMENT SUBMIT
+   SUBMIT PAYMENT
 ===================================== */
 
 form.addEventListener(
@@ -506,15 +504,12 @@ form.addEventListener(
         }
 
 
-        const file =
-            receipt.files[0];
-
-
         const ref =
             reference.value.trim();
 
+        const file =
+            receipt.files[0];
 
-        /* VALIDATION */
 
         if(!ref){
 
@@ -555,7 +550,7 @@ form.addEventListener(
         }
 
 
-        const allowed = [
+        const allowedTypes = [
 
             "image/jpeg",
             "image/png",
@@ -566,13 +561,13 @@ form.addEventListener(
 
 
         if(
-            !allowed.includes(
+            !allowedTypes.includes(
                 file.type
             )
         ){
 
             showMessage(
-                "Please upload JPG, PNG, WEBP or PDF.",
+                "Receipt must be JPG, PNG, WEBP or PDF.",
                 "error"
             );
 
@@ -582,7 +577,7 @@ form.addEventListener(
 
 
         /* =================================
-           PREPARE FORM
+           FORM DATA
         ================================= */
 
         const formData =
@@ -591,7 +586,7 @@ form.addEventListener(
 
         formData.append(
             "student_id",
-            student.id
+            String(student.id)
         );
 
 
@@ -621,10 +616,11 @@ form.addEventListener(
             true;
 
         submitButton.textContent =
-            "Submitting...";
+            "Uploading receipt...";
+
 
         showMessage(
-            "Uploading your receipt...",
+            "Uploading your payment receipt. Please wait...",
             "success"
         );
 
@@ -656,12 +652,10 @@ form.addEventListener(
 
             }catch(error){
 
-                data = {
-                    success:false,
-                    message:
-                        text ||
-                        "Invalid server response."
-                };
+                throw new Error(
+                    text ||
+                    "Invalid server response."
+                );
 
             }
 
@@ -684,7 +678,7 @@ form.addEventListener(
             ================================= */
 
             showMessage(
-                "✓ Payment submitted successfully. Waiting for admin approval.",
+                "✓ Payment submitted successfully. Your payment is waiting for admin approval.",
                 "success"
             );
 
@@ -693,21 +687,11 @@ form.addEventListener(
                 "✓ Payment Submitted";
 
 
-            submitButton.disabled =
-                true;
-
-
             reference.disabled =
                 true;
 
             receipt.disabled =
                 true;
-
-
-            /*
-              Do NOT redirect immediately.
-              Student can see confirmation.
-            */
 
 
         }catch(error){
@@ -720,16 +704,10 @@ form.addEventListener(
 
             showMessage(
                 error.message ||
-                "Payment submission failed. Please try again.",
+                "Payment submission failed.",
                 "error"
             );
 
-
-            /*
-              IMPORTANT:
-              Restore submit button
-              after upload failure.
-            */
 
             submitButton.disabled =
                 false;
