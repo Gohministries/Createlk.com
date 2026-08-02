@@ -1,49 +1,130 @@
-<label for="password">
-Password
-</label>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<input
-id="password"
-type="password"
-placeholder="Create a strong password"
-autocomplete="new-password"
-minlength="8"
-required
->
+<title>Create Account | CreateLK Academy</title><meta name="description"
+content="Create your CreateLK Academy student account.">
 
-<div
-id="passwordStrength"
-style="
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+min-height:100vh;
+background:#f4f7fc;
+color:#263238;
+display:flex;
+flex-direction:column;
+}
+
+nav{
+background:#fff;
+padding:16px 6%;
+box-shadow:0 4px 20px rgba(0,0,0,.06);
+}
+
+.logo{
+font-size:23px;
+font-weight:800;
+color:#1565c0;
+}
+
+.container{
+width:100%;
+max-width:520px;
+margin:auto;
+padding:30px 20px;
+}
+
+.card{
+background:#fff;
+padding:32px;
+border-radius:20px;
+box-shadow:0 8px 28px rgba(0,0,0,.08);
+border:1px solid #edf0f5;
+}
+
+h1{
+text-align:center;
+color:#1565c0;
+margin-bottom:8px;
+font-size:30px;
+}
+
+.subtitle{
+text-align:center;
+color:#68757c;
+margin-bottom:25px;
+}
+
+label{
+display:block;
+font-weight:600;
+margin:15px 0 6px;
+}
+
+input{
+width:100%;
+padding:13px 15px;
+border:1px solid #ccd5dc;
+border-radius:10px;
+font-size:15px;
+outline:none;
+}
+
+input:focus{
+border-color:#1565c0;
+}
+
+.password-wrap{
+position:relative;
+}
+
+.password-wrap input{
+padding-right:70px;
+}
+
+.show-password{
+position:absolute;
+right:10px;
+top:50%;
+transform:translateY(-50%);
+border:0;
+background:none;
+color:#1565c0;
+font-weight:700;
+cursor:pointer;
+}
+
+.password-strength{
 margin-top:8px;
 font-size:13px;
 font-weight:600;
-">
-</div>
+min-height:20px;
+}
 
-<div
-style="
+.password-help{
 margin-top:8px;
 padding:12px;
 background:#f8fafc;
 border-radius:10px;
 font-size:13px;
 color:#68757c;
-">
+}
 
-<strong style="color:#1565c0;">
-Strong password suggestion:
-</strong>
+.password-help strong{
+color:#1565c0;
+}
 
-<span id="passwordSuggestion">
-Example: K7!mQ2#vL9@xP4
-</span>
+.suggestion{
+word-break:break-all;
+}
 
-<br>
-
-<button
-type="button"
-id="useSuggestion"
-style="
+.use-suggestion{
 margin-top:8px;
 border:0;
 background:none;
@@ -51,42 +132,354 @@ color:#1565c0;
 font-weight:700;
 cursor:pointer;
 padding:0;
-">
+}
 
-Use this suggestion
+.register-button{
+width:100%;
+margin-top:22px;
+padding:14px;
+border:0;
+border-radius:28px;
+background:#1565c0;
+color:#fff;
+font-size:16px;
+font-weight:800;
+cursor:pointer;
+}
 
+.register-button:hover{
+background:#0d47a1;
+}
+
+.register-button:disabled{
+background:#9eabb3;
+cursor:not-allowed;
+}
+
+.message{
+text-align:center;
+margin-top:16px;
+font-weight:600;
+font-size:14px;
+}
+
+.links{
+text-align:center;
+margin-top:22px;
+}
+
+.links a{
+display:block;
+margin-top:10px;
+color:#1565c0;
+text-decoration:none;
+font-weight:600;
+}
+
+.links a:hover{
+text-decoration:underline;
+}
+
+.security{
+margin-top:25px;
+padding:16px;
+background:#f8fafc;
+border-radius:12px;
+text-align:center;
+font-size:13px;
+color:#68757c;
+}
+
+footer{
+margin-top:auto;
+background:#111827;
+color:#9ca3af;
+text-align:center;
+padding:25px 20px;
+}
+
+footer strong{
+color:#fff;
+}
+
+@media(max-width:600px){
+
+.card{
+padding:24px 20px;
+}
+
+h1{
+font-size:27px;
+}
+
+}
+
+</style></head><body><nav><div class="logo">
+📚 CreateLK Academy
+</div></nav><main class="container"><div class="card"><h1>
+Create Student Account
+</h1><p class="subtitle">
+Create your account to access CreateLK Academy.
+</p><form id="registerForm"><label for="firstName">
+First Name
+</label><input
+id="firstName"
+type="text"
+placeholder="Enter your first name"
+autocomplete="given-name"
+required
+
+«»
+
+<label for="lastName">
+Last Name
+</label><input
+id="lastName"
+type="text"
+placeholder="Enter your last name"
+autocomplete="family-name"
+required
+
+«»
+
+<label for="email">
+Email Address
+</label><input
+id="email"
+type="email"
+placeholder="Enter your email"
+autocomplete="email"
+required
+
+«»
+
+<label for="phone">
+WhatsApp Number
+</label><input
+id="phone"
+type="tel"
+placeholder="+94 7XXXXXXXX"
+autocomplete="tel"
+
+«»
+
+<label for="password">
+Password
+</label><div class="password-wrap"><input
+id="password"
+type="password"
+placeholder="Create a strong password"
+autocomplete="new-password"
+minlength="8"
+required
+
+«»
+
+<button
+type="button"
+class="show-password"
+id="showPassword"
+
+«»
+
+Show
 </button>
 
-</div>
+</div><div
+id="passwordStrength"
+class="password-strength">
+</div><div class="password-help"><strong>
+Strong password suggestion:
+</strong><span
+id="passwordSuggestion"
+class="suggestion">
+Tap "Use this suggestion" to generate one.
+</span>
 
+<br><button
+type="button"
+id="useSuggestion"
+class="use-suggestion"
 
-<label for="confirmPassword">
+«»
+
+Use this suggestion
+</button>
+
+</div><label for="confirmPassword">
 Confirm Password
-</label>
-
-<input
+</label><div class="password-wrap"><input
 id="confirmPassword"
 type="password"
 placeholder="Enter your password again"
 autocomplete="new-password"
 minlength="8"
 required
->
 
-Then add this JavaScript before your existing "registerForm.addEventListener(...)":
+«»
+
+<button
+type="button"
+class="show-password"
+id="showConfirmPassword"
+
+«»
+
+Show
+</button>
+
+</div><button
+id="registerButton"
+class="register-button"
+type="submit"
+
+«»
+
+Create Account
+</button>
+
+<div
+id="message"
+class="message">
+</div></form><div class="links"><a href="login.html">
+Already have an account? Sign in
+</a><a href="index.html">
+← Back to Academy
+</a></div><div class="security">🔐 Your password is securely hashed
+before it is stored by the server.
+
+</div></div></main><footer><p><strong>
+📚 CreateLK Academy
+</strong></p><p style="margin-top:8px;">
+© 2026 CreateLK Academy. All Rights Reserved.
+</p></footer><script>
+
+/*
+==================================================
+CREATE LK ACADEMY — STUDENT REGISTRATION
+==================================================
+*/
+
+const API =
+"https://flat-queen-4e0b.gateofheavensl1.workers.dev";
+
+
+const registerForm =
+document.getElementById(
+"registerForm"
+);
+
+const registerButton =
+document.getElementById(
+"registerButton"
+);
+
+const message =
+document.getElementById(
+"message"
+);
 
 const passwordInput =
-document.getElementById("password");
+document.getElementById(
+"password"
+);
+
+const confirmPasswordInput =
+document.getElementById(
+"confirmPassword"
+);
 
 const passwordStrength =
-document.getElementById("passwordStrength");
+document.getElementById(
+"passwordStrength"
+);
 
 const passwordSuggestion =
-document.getElementById("passwordSuggestion");
+document.getElementById(
+"passwordSuggestion"
+);
 
 const useSuggestion =
-document.getElementById("useSuggestion");
+document.getElementById(
+"useSuggestion"
+);
 
+const showPassword =
+document.getElementById(
+"showPassword"
+);
+
+const showConfirmPassword =
+document.getElementById(
+"showConfirmPassword"
+);
+
+
+/*
+==================================================
+SHOW / HIDE PASSWORD
+==================================================
+*/
+
+showPassword.addEventListener(
+"click",
+function(){
+
+if(
+passwordInput.type === "password"
+){
+
+passwordInput.type =
+"text";
+
+showPassword.textContent =
+"Hide";
+
+}else{
+
+passwordInput.type =
+"password";
+
+showPassword.textContent =
+"Show";
+
+}
+
+});
+
+
+showConfirmPassword.addEventListener(
+"click",
+function(){
+
+if(
+confirmPasswordInput.type === "password"
+){
+
+confirmPasswordInput.type =
+"text";
+
+showConfirmPassword.textContent =
+"Hide";
+
+}else{
+
+confirmPasswordInput.type =
+"password";
+
+showConfirmPassword.textContent =
+"Show";
+
+}
+
+});
+
+
+/*
+==================================================
+GENERATE STRONG PASSWORD
+==================================================
+*/
 
 function generateStrongPassword(){
 
@@ -99,9 +492,11 @@ const chars =
 const array =
 new Uint32Array(16);
 
-crypto.getRandomValues(array);
+crypto.getRandomValues(
+array
+);
 
-let password = "";
+let result = "";
 
 for(
 let i = 0;
@@ -109,28 +504,39 @@ i < array.length;
 i++
 ){
 
-password +=
-chars[array[i] % chars.length];
+result +=
+chars[
+array[i] %
+chars.length
+];
 
 }
 
-return password;
+return result;
 
 }
 
 
-function checkPasswordStrength(password){
+/*
+==================================================
+PASSWORD STRENGTH
+==================================================
+*/
+
+function checkPasswordStrength(
+password
+){
 
 if(!password){
 
-passwordStrength.textContent = "";
+passwordStrength.textContent =
+"";
 
 return;
+
 }
 
-
 let score = 0;
-
 
 if(password.length >= 8)
 score++;
@@ -194,6 +600,12 @@ passwordInput.value
 );
 
 
+/*
+==================================================
+USE PASSWORD SUGGESTION
+==================================================
+*/
+
 useSuggestion.addEventListener(
 "click",
 function(){
@@ -204,8 +616,20 @@ generateStrongPassword();
 passwordInput.value =
 suggestion;
 
+confirmPasswordInput.value =
+suggestion;
+
 passwordInput.type =
 "text";
+
+confirmPasswordInput.type =
+"text";
+
+showPassword.textContent =
+"Hide";
+
+showConfirmPassword.textContent =
+"Hide";
 
 passwordSuggestion.textContent =
 suggestion;
@@ -214,9 +638,246 @@ checkPasswordStrength(
 suggestion
 );
 
+passwordInput.focus();
+
 }
 );
 
-The suggestion uses a mixture of uppercase letters, lowercase letters, numbers, and symbols, and generates a fresh random password when the student taps “Use this suggestion.”
 
-One important usability point: because the generated password is temporarily displayed after tapping the button, the student can copy it somewhere safe before submitting.
+/*
+==================================================
+REGISTRATION
+==================================================
+*/
+
+registerForm.addEventListener(
+"submit",
+async function(event){
+
+event.preventDefault();
+
+
+const firstName =
+document
+.getElementById(
+"firstName"
+)
+.value
+.trim();
+
+
+const lastName =
+document
+.getElementById(
+"lastName"
+)
+.value
+.trim();
+
+
+const email =
+document
+.getElementById(
+"email"
+)
+.value
+.trim()
+.toLowerCase();
+
+
+const phone =
+document
+.getElementById(
+"phone"
+)
+.value
+.trim();
+
+
+const password =
+passwordInput.value;
+
+
+const confirmPassword =
+confirmPasswordInput.value;
+
+
+if(
+password !==
+confirmPassword
+){
+
+message.textContent =
+"Passwords do not match.";
+
+message.style.color =
+"#c62828";
+
+return;
+
+}
+
+
+if(
+password.length < 8
+){
+
+message.textContent =
+"Password must contain at least 8 characters.";
+
+message.style.color =
+"#c62828";
+
+return;
+
+}
+
+
+if(
+!/[A-Z]/.test(password) ||
+!/[a-z]/.test(password) ||
+!/[0-9]/.test(password) ||
+!/[^A-Za-z0-9]/.test(password)
+){
+
+message.textContent =
+"Please use uppercase, lowercase, numbers and a symbol.";
+
+message.style.color =
+"#c62828";
+
+return;
+
+}
+
+
+registerButton.disabled =
+true;
+
+registerButton.textContent =
+"Creating account...";
+
+message.textContent =
+"Please wait...";
+
+message.style.color =
+"#1565c0";
+
+
+try{
+
+
+const response =
+await fetch(
+API + "/register",
+{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+first_name:
+firstName,
+
+last_name:
+lastName,
+
+email:
+email,
+
+phone:
+phone,
+
+password:
+password
+
+})
+
+}
+);
+
+
+let data;
+
+try{
+
+data =
+await response.json();
+
+}catch{
+
+throw new Error(
+"Invalid response from the server."
+);
+
+}
+
+
+if(
+!response.ok ||
+!data.success
+){
+
+throw new Error(
+data.message ||
+"Account creation failed."
+);
+
+}
+
+
+message.textContent =
+"Account created successfully!";
+
+message.style.color =
+"#00897b";
+
+
+/*
+Do not send or store the password
+in the browser.
+*/
+
+
+setTimeout(
+function(){
+
+window.location.href =
+"login.html";
+
+},
+1000
+);
+
+
+}
+catch(error){
+
+console.error(
+"Registration error:",
+error
+);
+
+message.textContent =
+error.message ||
+"Unable to create account.";
+
+message.style.color =
+"#c62828";
+
+registerButton.disabled =
+false;
+
+registerButton.textContent =
+"Create Account";
+
+}
+
+});
+
+</script></body></html>
