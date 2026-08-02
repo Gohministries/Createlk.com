@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Create Account | CreateLK Academy</title>
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Create Account | CreateLK Academy</title><meta name="description"
+content="Create your free CreateLK Academy student account.">
 
 <style>
 
@@ -19,7 +14,11 @@
 
 body{
     min-height:100vh;
-    background:linear-gradient(135deg,#eef4ff,#ffffff);
+    background:linear-gradient(
+        135deg,
+        #eef4ff,
+        #ffffff
+    );
     display:flex;
     justify-content:center;
     align-items:center;
@@ -51,13 +50,16 @@ body{
     margin:6px 0 25px;
 }
 
+.field{
+    margin-bottom:17px;
+}
+
 .row{
     display:flex;
     gap:12px;
 }
 
-.field{
-    margin-bottom:17px;
+.field-half{
     flex:1;
 }
 
@@ -78,7 +80,9 @@ input{
 
 input:focus{
     border-color:#174ea6;
-    box-shadow:0 0 0 3px rgba(23,78,166,.10);
+    box-shadow:
+        0 0 0 3px
+        rgba(23,78,166,.10);
 }
 
 .password-box{
@@ -121,6 +125,7 @@ input:focus{
 
 .register:disabled{
     opacity:.6;
+    cursor:not-allowed;
 }
 
 .message{
@@ -154,6 +159,16 @@ input:focus{
     text-decoration:none;
 }
 
+.note{
+    margin-top:18px;
+    padding:12px;
+    background:#f3f7ff;
+    border-radius:10px;
+    font-size:13px;
+    color:#52606d;
+    text-align:center;
+}
+
 @media(max-width:500px){
 
     .row{
@@ -166,160 +181,111 @@ input:focus{
     }
 }
 
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<div class="card">
-
-<div class="logo">
+</style></head><body><div class="container"><div class="card"><div class="logo">
 📚 CreateLK Academy
-</div>
-
-<div class="subtitle">
-Create your student account
-</div>
-
-<div id="message" class="message"></div>
-
-<form id="registerForm">
-
-<div class="row">
-
-<div class="field">
-
-<label>First Name</label>
-
-<input
+</div><div class="subtitle">
+Create your free student account
+</div><div id="message"
+class="message">
+</div><form id="registerForm"><div class="row"><div class="field field-half"><label for="firstName">
+First Name
+</label><input
 type="text"
 id="firstName"
 placeholder="First name"
+autocomplete="given-name"
+maxlength="50"
 required>
 
-</div>
-
-<div class="field">
-
-<label>Last Name</label>
-
-<input
+</div><div class="field field-half"><label for="lastName">
+Last Name
+</label><input
 type="text"
 id="lastName"
 placeholder="Last name"
+autocomplete="family-name"
+maxlength="50"
 required>
 
-</div>
-
-</div>
-
-<div class="field">
-
-<label>Email Address</label>
-
-<input
+</div></div><div class="field"><label for="email">
+Email Address
+</label><input
 type="email"
 id="email"
 placeholder="you@example.com"
+autocomplete="email"
+maxlength="150"
 required>
 
-</div>
-
-<div class="field">
-
-<label>WhatsApp Number</label>
-
-<input
+</div><div class="field"><label for="phone">
+WhatsApp Number
+</label><input
 type="tel"
 id="phone"
-placeholder="+94771234567">
+placeholder="+94771234567"
+autocomplete="tel"
+maxlength="20">
 
-</div>
-
-<div class="field">
-
-<label>Password</label>
-
-<div class="password-box">
-
-<input
+</div><div class="field"><label for="password">
+Password
+</label><div class="password-box"><input
 type="password"
 id="password"
 placeholder="Minimum 8 characters"
+autocomplete="new-password"
 minlength="8"
+maxlength="100"
 required>
 
 <button
 type="button"
 class="show"
-onclick="togglePassword('password',this)">
+data-target="password">
 Show
 </button>
 
-</div>
-
-<div id="strength" class="strength">
+</div><div id="strength"
+class="strength">
 Password strength: —
-</div>
-
-</div>
-
-<div class="field">
-
-<label>Confirm Password</label>
-
-<div class="password-box">
-
-<input
+</div></div><div class="field"><label for="confirmPassword">
+Confirm Password
+</label><div class="password-box"><input
 type="password"
 id="confirmPassword"
 placeholder="Enter password again"
+autocomplete="new-password"
 minlength="8"
+maxlength="100"
 required>
 
 <button
 type="button"
 class="show"
-onclick="togglePassword('confirmPassword',this)">
+data-target="confirmPassword">
 Show
 </button>
 
-</div>
-
-</div>
-
-<button
+</div></div><button
 type="submit"
 class="register"
 id="registerButton">
 
 Create Account
 
-</button>
-
-</form>
-
-<div class="login-link">
-
-Already have an account?
+</button></form><div class="note">
+🌱 Your account gives you access to
+Beginner English — <strong>100 MCQs FREE FOREVER.</strong>
+</div><div class="login-link">Already have an account?
 
 <a href="login.html">
 Login
-</a>
+</a></div></div></div><script>
 
-</div>
-
-</div>
-
-</div>
-
-<script>
+"use strict";
 
 const API_URL =
 "https://shy-fog-1588.gateofheavensl1.workers.dev";
+
 
 const form =
 document.getElementById("registerForm");
@@ -347,210 +313,291 @@ function showMessage(text,type){
     message.className =
         "message " + type;
 
-    message.style.display = "block";
+    message.style.display =
+        "block";
 }
 
 
-function togglePassword(id,btn){
+function setLoading(loading){
 
-    const input =
-        document.getElementById(id);
+    button.disabled =
+        loading;
 
-    if(input.type === "password"){
-
-        input.type = "text";
-        btn.textContent = "Hide";
-
-    }else{
-
-        input.type = "password";
-        btn.textContent = "Show";
-
-    }
+    button.textContent =
+        loading
+        ? "Creating Account..."
+        : "Create Account";
 }
 
 
-password.addEventListener(
-"input",
-function(){
+/* Password visibility */
 
-    const value = password.value;
+document
+.querySelectorAll(".show")
+.forEach(function(btn){
 
-    if(!value){
+    btn.addEventListener(
+        "click",
+        function(){
 
-        strength.textContent =
-            "Password strength: —";
+            const input =
+                document.getElementById(
+                    btn.dataset.target
+                );
 
-        return;
-    }
+            if(input.type === "password"){
 
-    let score = 0;
+                input.type = "text";
+                btn.textContent = "Hide";
 
-    if(value.length >= 8) score++;
-    if(/[A-Z]/.test(value)) score++;
-    if(/[a-z]/.test(value)) score++;
-    if(/[0-9]/.test(value)) score++;
-    if(/[^A-Za-z0-9]/.test(value)) score++;
+            }else{
 
-    if(score <= 2){
-
-        strength.textContent =
-            "Password strength: Weak";
-
-    }else if(score <= 4){
-
-        strength.textContent =
-            "Password strength: Medium";
-
-    }else{
-
-        strength.textContent =
-            "Password strength: Strong";
-
-    }
+                input.type = "password";
+                btn.textContent = "Show";
+            }
+        }
+    );
 
 });
 
 
-form.addEventListener(
-"submit",
-async function(event){
+/* Password strength */
 
-    event.preventDefault();
+password.addEventListener(
+    "input",
+    function(){
 
-    message.style.display = "none";
+        const value =
+            password.value;
 
-    const firstName =
-        document.getElementById("firstName")
-        .value.trim();
-
-    const lastName =
-        document.getElementById("lastName")
-        .value.trim();
-
-    const email =
-        document.getElementById("email")
-        .value.trim()
-        .toLowerCase();
-
-    const phone =
-        document.getElementById("phone")
-        .value.trim();
-
-    const passwordValue =
-        password.value;
-
-    const confirmValue =
-        confirmPassword.value;
-
-
-    if(passwordValue.length < 8){
-
-        showMessage(
-            "Password must contain at least 8 characters.",
-            "error"
-        );
-
-        return;
-    }
-
-
-    if(passwordValue !== confirmValue){
-
-        showMessage(
-            "Passwords do not match.",
-            "error"
-        );
-
-        return;
-    }
-
-
-    button.disabled = true;
-    button.textContent = "Creating Account...";
-
-
-    try{
-
-        const response =
-            await fetch(
-                API_URL + "/register",
-                {
-                    method:"POST",
-
-                    headers:{
-                        "Content-Type":
-                            "application/json"
-                    },
-
-                    body:JSON.stringify({
-
-                        first_name:firstName,
-                        last_name:lastName,
-                        email:email,
-                        phone:phone,
-                        password:passwordValue
-
-                    })
-                }
-            );
-
-
-        const data =
-            await response.json();
-
-
-        if(response.ok && data.success){
-
-            showMessage(
-                "Account created successfully! Redirecting to login...",
-                "success"
-            );
-
-            form.reset();
+        if(!value){
 
             strength.textContent =
                 "Password strength: —";
 
-            setTimeout(
-                function(){
+            return;
+        }
 
-                    window.location.href =
-                        "login.html";
+        let score = 0;
 
-                },
-                1500
-            );
+        if(value.length >= 8)
+            score++;
+
+        if(/[A-Z]/.test(value))
+            score++;
+
+        if(/[a-z]/.test(value))
+            score++;
+
+        if(/[0-9]/.test(value))
+            score++;
+
+        if(/[^A-Za-z0-9]/.test(value))
+            score++;
+
+
+        if(score <= 2){
+
+            strength.textContent =
+                "Password strength: Weak";
+
+        }else if(score <= 4){
+
+            strength.textContent =
+                "Password strength: Medium";
 
         }else{
 
+            strength.textContent =
+                "Password strength: Strong";
+        }
+    }
+);
+
+
+/* Registration */
+
+form.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+        message.style.display =
+            "none";
+
+
+        const firstName =
+            document
+            .getElementById("firstName")
+            .value
+            .trim();
+
+        const lastName =
+            document
+            .getElementById("lastName")
+            .value
+            .trim();
+
+        const email =
+            document
+            .getElementById("email")
+            .value
+            .trim()
+            .toLowerCase();
+
+        const phone =
+            document
+            .getElementById("phone")
+            .value
+            .trim();
+
+        const passwordValue =
+            password.value;
+
+        const confirmValue =
+            confirmPassword.value;
+
+
+        if(firstName.length < 2){
+
             showMessage(
-                data.message ||
-                "Registration failed.",
+                "Please enter your first name.",
                 "error"
             );
 
-            button.disabled = false;
-            button.textContent = "Create Account";
+            return;
         }
 
 
-    }catch(error){
+        if(lastName.length < 2){
 
-        console.error(error);
+            showMessage(
+                "Please enter your last name.",
+                "error"
+            );
 
-        showMessage(
-            "Unable to connect to the server. Please try again.",
-            "error"
-        );
+            return;
+        }
 
-        button.disabled = false;
-        button.textContent = "Create Account";
+
+        if(passwordValue.length < 8){
+
+            showMessage(
+                "Password must contain at least 8 characters.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        if(passwordValue !== confirmValue){
+
+            showMessage(
+                "Passwords do not match.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        setLoading(true);
+
+
+        try{
+
+            const response =
+                await fetch(
+                    API_URL + "/register",
+                    {
+                        method:"POST",
+
+                        headers:{
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:JSON.stringify({
+
+                            first_name:firstName,
+                            last_name:lastName,
+                            email:email,
+                            phone:phone,
+                            password:passwordValue
+
+                        })
+                    }
+                );
+
+
+            let data = {};
+
+            try{
+
+                data =
+                    await response.json();
+
+            }catch(jsonError){
+
+                data = {};
+            }
+
+
+            if(response.ok && data.success){
+
+                showMessage(
+                    "Account created successfully! Redirecting to login...",
+                    "success"
+                );
+
+                form.reset();
+
+                strength.textContent =
+                    "Password strength: —";
+
+
+                setTimeout(
+                    function(){
+
+                        window.location.href =
+                            "login.html";
+
+                    },
+                    1200
+                );
+
+                return;
+            }
+
+
+            showMessage(
+                data.message ||
+                "Registration failed. Please try again.",
+                "error"
+            );
+
+            setLoading(false);
+
+
+        }catch(error){
+
+            console.error(
+                "Registration Error:",
+                error
+            );
+
+            showMessage(
+                "Unable to connect to the server. Please check your internet connection.",
+                "error"
+            );
+
+            setLoading(false);
+        }
+
     }
+);
 
-});
-
-</script>
-
-</body>
+</script></body>
 </html>
