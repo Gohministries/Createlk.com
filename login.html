@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Student Login | CreateLK Academy</title>
-
-<meta name="description"
+<title>Student Login | CreateLK Academy</title><meta name="description"
 content="Sign in to your CreateLK Academy student account.">
 
 <style>
+
+/* ================================
+   RESET
+================================ */
 
 *{
 margin:0;
@@ -22,6 +17,11 @@ box-sizing:border-box;
 font-family:"Segoe UI",Arial,sans-serif;
 }
 
+
+/* ================================
+   PAGE
+================================ */
+
 body{
 min-height:100vh;
 background:#f4f7fc;
@@ -29,6 +29,11 @@ color:#263238;
 display:flex;
 flex-direction:column;
 }
+
+
+/* ================================
+   NAVIGATION
+================================ */
 
 nav{
 background:#fff;
@@ -42,14 +47,25 @@ font-weight:800;
 color:#1565c0;
 }
 
+
+/* ================================
+   CONTAINER
+================================ */
+
 .container{
 width:100%;
 max-width:500px;
 margin:auto;
-padding:30px 20px;
+padding:40px 20px;
 }
 
+
+/* ================================
+   CARD
+================================ */
+
 .card{
+width:100%;
 background:#fff;
 padding:32px;
 border-radius:20px;
@@ -57,28 +73,52 @@ box-shadow:0 8px 28px rgba(0,0,0,.08);
 border:1px solid #edf0f5;
 }
 
+
+/* ================================
+   HEADINGS
+================================ */
+
 h1{
 text-align:center;
 color:#1565c0;
 margin-bottom:8px;
 font-size:30px;
+line-height:1.25;
 }
 
 .subtitle{
 text-align:center;
 color:#68757c;
-margin-bottom:25px;
+margin-bottom:28px;
+line-height:1.6;
+}
+
+
+/* ================================
+   FORM
+================================ */
+
+form{
+width:100%;
 }
 
 label{
 display:block;
 font-weight:600;
-margin:16px 0 6px;
+margin:18px 0 7px;
+line-height:1.4;
 }
 
+
+/* ================================
+   INPUT
+================================ */
+
 input{
+display:block;
 width:100%;
-padding:14px;
+height:48px;
+padding:12px 14px;
 border:1px solid #ccd5dc;
 border-radius:10px;
 font-size:15px;
@@ -92,42 +132,55 @@ border-color:#1565c0;
 box-shadow:0 0 0 3px rgba(21,101,192,.08);
 }
 
-/* Password */
+
+/* ================================
+   PASSWORD FIELD
+================================ */
 
 .password-wrap{
 position:relative;
 width:100%;
+margin:0;
 }
 
 .password-wrap input{
-padding-right:75px;
+padding-right:72px;
 }
 
 .show-password{
 position:absolute;
-right:12px;
+right:8px;
 top:50%;
 transform:translateY(-50%);
+height:34px;
+min-width:52px;
+padding:5px 8px;
 border:0;
+border-radius:7px;
 background:transparent;
 color:#1565c0;
-font-weight:700;
 font-size:14px;
+font-weight:700;
 cursor:pointer;
-padding:6px;
 z-index:2;
 }
 
 .show-password:hover{
+background:#e3f2fd;
 color:#0d47a1;
 }
 
-/* Login button */
+
+/* ================================
+   LOGIN BUTTON
+================================ */
 
 .login-button{
+display:block;
 width:100%;
-margin-top:22px;
-padding:14px;
+height:48px;
+margin-top:24px;
+padding:12px 16px;
 border:0;
 border-radius:28px;
 background:#1565c0;
@@ -135,7 +188,6 @@ color:#fff;
 font-size:16px;
 font-weight:800;
 cursor:pointer;
-display:block;
 }
 
 .login-button:hover{
@@ -147,54 +199,76 @@ background:#9eabb3;
 cursor:not-allowed;
 }
 
-/* Message */
+
+/* ================================
+   MESSAGE
+================================ */
 
 .message{
-text-align:center;
+width:100%;
+min-height:22px;
 margin-top:16px;
+text-align:center;
 font-weight:600;
 font-size:14px;
-min-height:20px;
+line-height:1.5;
+word-break:break-word;
 }
 
-/* Account box */
+
+/* ================================
+   ACCOUNT BOX
+================================ */
 
 .account-box{
-margin-top:20px;
-padding:16px;
+width:100%;
+margin-top:16px;
+padding:15px;
 background:#e3f2fd;
 border-radius:12px;
 display:none;
 line-height:1.6;
+font-size:14px;
+word-break:break-word;
 }
 
 .account-box strong{
 color:#1565c0;
 }
 
-/* Links */
+
+/* ================================
+   LINKS
+================================ */
 
 .links{
+width:100%;
 text-align:center;
-margin-top:22px;
+margin-top:26px;
+padding-top:4px;
 }
 
 .links a{
 display:block;
-margin-top:10px;
+margin-top:12px;
 color:#1565c0;
 text-decoration:none;
 font-weight:600;
+line-height:1.5;
 }
 
 .links a:hover{
 text-decoration:underline;
 }
 
-/* Security */
+
+/* ================================
+   SECURITY
+================================ */
 
 .security{
-margin-top:25px;
+width:100%;
+margin-top:26px;
 padding:16px;
 background:#f8fafc;
 border-radius:12px;
@@ -204,7 +278,10 @@ color:#68757c;
 line-height:1.6;
 }
 
-/* Footer */
+
+/* ================================
+   FOOTER
+================================ */
 
 footer{
 margin-top:auto;
@@ -218,178 +295,149 @@ footer strong{
 color:#fff;
 }
 
-/* Mobile */
+
+/* ================================
+   MOBILE
+================================ */
 
 @media(max-width:600px){
+
+nav{
+padding:15px 20px;
+}
+
+.logo{
+font-size:20px;
+}
 
 .container{
 padding:25px 15px;
 }
 
 .card{
-padding:24px 20px;
+padding:25px 20px;
+border-radius:16px;
 }
 
 h1{
 font-size:27px;
 }
 
+.subtitle{
+font-size:14px;
+margin-bottom:24px;
 }
 
-</style>
+label{
+margin-top:16px;
+}
 
-</head>
+input{
+height:48px;
+font-size:16px;
+}
 
-<body>
+.login-button{
+height:50px;
+}
 
-<nav>
+}
 
-<div class="logo">
+
+/* ================================
+   VERY SMALL SCREENS
+================================ */
+
+@media(max-width:360px){
+
+.card{
+padding:22px 16px;
+}
+
+.logo{
+font-size:18px;
+}
+
+h1{
+font-size:24px;
+}
+
+.show-password{
+right:6px;
+}
+
+}
+
+</style></head><body><nav><div class="logo">
 📚 CreateLK Academy
-</div>
-
-</nav>
-
-
-<main class="container">
-
-<div class="card">
-
-<h1>
+</div></nav><main class="container"><div class="card"><h1>
 Student Login
-</h1>
-
-<p class="subtitle">
+</h1><p class="subtitle">
 Sign in to access your CreateLK Academy account.
-</p>
-
-
-<form id="loginForm">
-
-
-<!-- Email -->
-
-<label for="email">
+</p><form id="loginForm"><!-- EMAIL --><label for="email">
 Email Address
-</label>
-
-<input
+</label><input
 id="email"
 type="email"
 placeholder="Enter your email"
 autocomplete="email"
 required
->
 
+«»
 
-<!-- Password -->
-
-<label for="password">
+<!-- PASSWORD --><label for="password">
 Password
-</label>
-
-<div class="password-wrap">
-
-<input
+</label><div class="password-wrap"><input
 id="password"
 type="password"
 placeholder="Enter your password"
 autocomplete="current-password"
 required
->
+
+«»
 
 <button
 type="button"
 class="show-password"
 id="showPassword"
->
+aria-label="Show or hide password"
+
+«»
+
 Show
 </button>
 
-</div>
-
-
-<!-- Login -->
-
-<button
+</div><!-- LOGIN BUTTON --><button
 id="loginButton"
 class="login-button"
 type="submit"
->
+
+«»
+
 Login
 </button>
 
-
-<!-- Message -->
-
-<div
+<!-- MESSAGE --><div
 id="message"
-class="message">
-</div>
-
-
-<!-- Account information -->
-
-<div
+class="message"
+aria-live="polite">
+</div><!-- ACCOUNT INFORMATION --><div
 id="accountBox"
 class="account-box">
-</div>
-
-
-</form>
-
-
-<!-- Links -->
-
-<div class="links">
-
-<a href="register.html">
+</div></form><!-- LINKS --><div class="links"><a href="register.html">
 Create an account
-</a>
-
-<a href="forgot-password.html">
+</a><a href="forgot-password.html">
 Forgot your password?
-</a>
-
-<a href="index.html">
+</a><a href="index.html">
 ← Back to Academy
-</a>
-
-</div>
-
-
-<!-- Security -->
-
-<div class="security">
-
-🔐 Your login will be securely verified by
+</a></div><!-- SECURITY --><div class="security">🔐 Your login will be securely verified by
 the CreateLK Academy server.
 
-</div>
-
-</div>
-
-</main>
-
-
-<footer>
-
-<p>
-
-<strong>
+</div></div></main><footer><p><strong>
 📚 CreateLK Academy
-</strong>
-
-</p>
-
-<p style="margin-top:8px;">
+</strong></p><p style="margin-top:8px;">
 © 2026 CreateLK Academy. All Rights Reserved.
-</p>
-
-</footer>
-
-
-<script>
+</p></footer><script>
 
 /*
 ==================================================
@@ -501,6 +549,7 @@ accountBox.style.display =
 
 
 try{
+
 
 const response =
 await fetch(
@@ -679,8 +728,4 @@ return String(value)
 
 }
 
-</script>
-
-</body>
-
-</html>
+</script></body></html>
