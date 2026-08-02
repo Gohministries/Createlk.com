@@ -1,116 +1,93 @@
 <!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Create Account | CreateLK Academy</title><meta name="description"
+content="Create your CreateLK Academy student account.">
 
-<title>Create Account | CreateLK Academy</title><style>
+<style>
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
-}
-
-html,
-body{
-    width:100%;
-    min-height:100%;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
+    min-height:100vh;
     background:#f4f7fc;
     color:#263238;
-    font-family:Arial,"Segoe UI",sans-serif;
     display:flex;
     flex-direction:column;
-    overflow-x:hidden;
 }
 
-
-/* NAV */
-
 nav{
-    width:100%;
     background:#fff;
-    padding:16px 20px;
-    box-shadow:0 3px 15px rgba(0,0,0,.06);
+    padding:16px 6%;
+    box-shadow:0 4px 20px rgba(0,0,0,.06);
 }
 
 .logo{
-    max-width:600px;
-    margin:auto;
-    color:#1565c0;
-    font-size:22px;
+    font-size:23px;
     font-weight:800;
+    color:#1565c0;
 }
-
-
-/* MAIN */
 
 .container{
     width:100%;
-    max-width:600px;
-    margin:0 auto;
-    padding:30px 15px 40px;
+    max-width:520px;
+    margin:auto;
+    padding:35px 20px;
 }
 
 .card{
-    width:100%;
     background:#fff;
-    border:1px solid #e8edf2;
-    border-radius:18px;
-    padding:30px 25px;
-    box-shadow:0 8px 25px rgba(0,0,0,.07);
+    padding:32px;
+    border-radius:20px;
+    box-shadow:0 8px 28px rgba(0,0,0,.08);
+    border:1px solid #edf0f5;
 }
 
-
-/* HEADINGS */
-
 h1{
-    color:#1565c0;
     text-align:center;
-    font-size:29px;
-    line-height:1.3;
+    color:#1565c0;
     margin-bottom:8px;
+    font-size:30px;
+    line-height:1.25;
 }
 
 .subtitle{
-    color:#68757c;
     text-align:center;
-    font-size:15px;
+    color:#68757c;
+    margin-bottom:28px;
     line-height:1.6;
-    margin-bottom:25px;
 }
-
 
 /* FORM */
 
 .form-group{
-    width:100%;
     margin-bottom:18px;
 }
 
 label{
     display:block;
-    width:100%;
+    font-weight:600;
     margin-bottom:7px;
-    font-weight:700;
     line-height:1.4;
 }
-
 
 /* INPUT */
 
 input{
     display:block;
     width:100%;
-    height:50px;
-    padding:0 14px;
+    height:48px;
+    padding:12px 14px;
     border:1px solid #ccd5dc;
     border-radius:10px;
+    font-size:15px;
+    outline:none;
     background:#fff;
     color:#263238;
-    font-size:16px;
-    outline:none;
 }
 
 input:focus{
@@ -118,66 +95,109 @@ input:focus{
     box-shadow:0 0 0 3px rgba(21,101,192,.08);
 }
 
+/* PASSWORD */
 
-/* PASSWORD ROW */
-
-.password-row{
-    display:flex;
+.password-wrap{
+    position:relative;
     width:100%;
-    gap:8px;
 }
 
-.password-row input{
-    flex:1;
-    min-width:0;
+.password-wrap input{
+    padding-right:75px;
 }
 
-
-/* SHOW / HIDE BUTTON */
-
-.password-toggle{
-    flex:0 0 70px;
-    width:70px;
-    height:50px;
-    padding:0;
-    border:1px solid #ccd5dc;
-    border-radius:10px;
-    background:#fff;
+.show-password{
+    position:absolute;
+    right:8px;
+    top:50%;
+    transform:translateY(-50%);
+    height:34px;
+    min-width:52px;
+    padding:5px 8px;
+    border:0;
+    border-radius:7px;
+    background:transparent;
     color:#1565c0;
     font-size:14px;
     font-weight:700;
     cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    white-space:nowrap;
+    z-index:2;
 }
 
-.password-toggle:hover{
+.show-password:hover{
     background:#e3f2fd;
-    color:#0d47a1;
 }
-
 
 /* PASSWORD STRENGTH */
 
 .password-strength{
-    width:100%;
-    min-height:22px;
-    margin-top:8px;
+    min-height:20px;
+    margin-top:7px;
     font-size:13px;
     font-weight:700;
+    line-height:20px;
+}
+
+/* PASSWORD SUGGESTION */
+
+.password-suggestion{
+    margin-top:8px;
+    padding:12px;
+    background:#f8fafc;
+    border-radius:10px;
+    border:1px solid #edf0f5;
+}
+
+.suggestion-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:100%;
+}
+
+.suggestion-text{
+    flex:1;
+    min-width:0;
+    font-size:13px;
+    color:#68757c;
+    word-break:break-all;
     line-height:1.5;
 }
 
+.use-suggestion{
+    flex-shrink:0;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:36px;
+    padding:8px 12px;
+    border:0;
+    border-radius:8px;
+    background:#1565c0;
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+    white-space:nowrap;
+    line-height:1;
+}
+
+.use-suggestion:hover{
+    background:#0d47a1;
+}
+
+.use-suggestion:active{
+    transform:scale(.98);
+}
 
 /* REGISTER BUTTON */
 
 .register-button{
     display:block;
     width:100%;
-    height:50px;
-    margin-top:23px;
+    height:48px;
+    margin-top:4px;
+    padding:12px 16px;
     border:0;
     border-radius:28px;
     background:#1565c0;
@@ -196,35 +216,32 @@ input:focus{
     cursor:not-allowed;
 }
 
-
 /* MESSAGE */
 
 .message{
     width:100%;
     min-height:22px;
-    margin-top:15px;
+    margin-top:16px;
     text-align:center;
+    font-weight:600;
     font-size:14px;
-    font-weight:700;
     line-height:1.5;
-    overflow-wrap:anywhere;
+    word-break:break-word;
 }
-
 
 /* LINKS */
 
 .links{
-    width:100%;
-    margin-top:24px;
     text-align:center;
+    margin-top:24px;
 }
 
 .links a{
     display:block;
-    margin-top:11px;
+    margin-top:10px;
     color:#1565c0;
     text-decoration:none;
-    font-weight:700;
+    font-weight:600;
     line-height:1.5;
 }
 
@@ -232,86 +249,106 @@ input:focus{
     text-decoration:underline;
 }
 
-
 /* SECURITY */
 
 .security{
-    width:100%;
     margin-top:25px;
-    padding:15px;
-    border-radius:12px;
+    padding:16px;
     background:#f8fafc;
-    color:#68757c;
+    border-radius:12px;
     text-align:center;
     font-size:13px;
+    color:#68757c;
     line-height:1.6;
 }
-
 
 /* FOOTER */
 
 footer{
-    width:100%;
     margin-top:auto;
-    padding:25px 15px;
     background:#111827;
     color:#9ca3af;
     text-align:center;
+    padding:25px 20px;
 }
 
 footer strong{
     color:#fff;
 }
 
-
 /* MOBILE */
 
-@media(max-width:480px){
+@media(max-width:600px){
+
+    nav{
+        padding:15px 20px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
 
     .container{
-        padding:20px 10px 30px;
+        padding:25px 15px;
     }
 
     .card{
-        padding:24px 16px;
-        border-radius:15px;
+        padding:25px 20px;
+        border-radius:16px;
     }
 
     h1{
-        font-size:25px;
+        font-size:27px;
     }
 
     .subtitle{
         font-size:14px;
+        margin-bottom:25px;
+    }
+
+    input{
+        height:48px;
+        font-size:16px;
+    }
+
+    .suggestion-box{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .use-suggestion{
+        width:100%;
+        min-height:42px;
+    }
+
+    .register-button{
+        height:50px;
+    }
+}
+
+/* VERY SMALL */
+
+@media(max-width:360px){
+
+    .card{
+        padding:22px 16px;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    h1{
+        font-size:24px;
     }
 
 }
 
-
-/* VERY SMALL PHONE */
-
-@media(max-width:340px){
-
-    .password-row{
-        display:block;
-    }
-
-    .password-row input{
-        width:100%;
-    }
-
-    .password-toggle{
-        width:100%;
-        margin-top:7px;
-    }
-
-}
-
-</style></head><body><nav><div class="logo">
-📚 CreateLK Academy
-</div></nav><main class="container"><div class="card"><h1>
-Create Student Account
-</h1><p class="subtitle">
+</style></head><body><nav>
+    <div class="logo">
+        📚 CreateLK Academy
+    </div>
+</nav><main class="container"><div class="card"><h1>Create Student Account</h1><p class="subtitle">
 Create your account to access CreateLK Academy.
 </p><form id="registerForm"><!-- FIRST NAME --><div class="form-group"><label for="firstName">
 First Name
@@ -358,7 +395,7 @@ autocomplete="tel"
 
 </div><!-- PASSWORD --><div class="form-group"><label for="password">
 Password
-</label><div class="password-row"><input
+</label><div class="password-wrap"><input
 id="password"
 type="password"
 placeholder="Create a strong password"
@@ -370,8 +407,8 @@ required
 
 <button
 type="button"
+class="show-password"
 id="showPassword"
-class="password-toggle"
 
 «»
 
@@ -380,11 +417,24 @@ Show
 
 </div><div
 id="passwordStrength"
-class="password-strength"
-aria-live="polite">
-</div></div><!-- CONFIRM PASSWORD --><div class="form-group"><label for="confirmPassword">
+class="password-strength">
+</div><div class="password-suggestion"><div class="suggestion-box"><div
+id="passwordSuggestion"
+class="suggestion-text">
+Use the button to generate a secure password.
+</div><button
+type="button"
+id="useSuggestion"
+class="use-suggestion"
+
+«»
+
+Generate
+</button>
+
+</div></div></div><!-- CONFIRM PASSWORD --><div class="form-group"><label for="confirmPassword">
 Confirm Password
-</label><div class="password-row"><input
+</label><div class="password-wrap"><input
 id="confirmPassword"
 type="password"
 placeholder="Enter your password again"
@@ -396,15 +446,15 @@ required
 
 <button
 type="button"
+class="show-password"
 id="showConfirmPassword"
-class="password-toggle"
 
 «»
 
 Show
 </button>
 
-</div></div><!-- CREATE ACCOUNT --><button
+</div></div><!-- REGISTER --><button
 id="registerButton"
 class="register-button"
 type="submit"
@@ -422,19 +472,19 @@ aria-live="polite">
 Already have an account? Sign in
 </a><a href="index.html">
 ← Back to Academy
-</a></div><div class="security">🔐 Your password is securely hashed
+</a></div><div class="security">
+🔐 Your password is securely hashed
 before it is stored by the server.
-
-</div></div></main><footer><p><strong>
+</div></div></main><footer><p>
+<strong>
 📚 CreateLK Academy
-</strong></p><p style="margin-top:8px;">© 2026 CreateLK Academy.
-All Rights Reserved.
-
+</strong>
+</p><p style="margin-top:8px;">
+© 2026 CreateLK Academy. All Rights Reserved.
 </p></footer><script>
 
 const API =
 "https://flat-queen-4e0b.gateofheavensl1.workers.dev";
-
 
 const registerForm =
 document.getElementById("registerForm");
@@ -454,6 +504,12 @@ document.getElementById("confirmPassword");
 const passwordStrength =
 document.getElementById("passwordStrength");
 
+const passwordSuggestion =
+document.getElementById("passwordSuggestion");
+
+const useSuggestion =
+document.getElementById("useSuggestion");
+
 const showPassword =
 document.getElementById("showPassword");
 
@@ -461,111 +517,151 @@ const showConfirmPassword =
 document.getElementById("showConfirmPassword");
 
 
-/* SHOW PASSWORD */
+/* SHOW / HIDE PASSWORD */
 
-showPassword.addEventListener(
-"click",
-function(){
+showPassword.addEventListener("click", function(){
 
-if(passwordInput.type === "password"){
+    if(passwordInput.type === "password"){
 
-passwordInput.type = "text";
-showPassword.textContent = "Hide";
+        passwordInput.type = "text";
+        showPassword.textContent = "Hide";
 
-}else{
+    }else{
 
-passwordInput.type = "password";
-showPassword.textContent = "Show";
+        passwordInput.type = "password";
+        showPassword.textContent = "Show";
 
-}
+    }
 
 });
 
 
-/* SHOW CONFIRM PASSWORD */
+showConfirmPassword.addEventListener("click", function(){
 
-showConfirmPassword.addEventListener(
-"click",
-function(){
+    if(confirmPasswordInput.type === "password"){
 
-if(confirmPasswordInput.type === "password"){
+        confirmPasswordInput.type = "text";
+        showConfirmPassword.textContent = "Hide";
 
-confirmPasswordInput.type = "text";
-showConfirmPassword.textContent = "Hide";
+    }else{
 
-}else{
+        confirmPasswordInput.type = "password";
+        showConfirmPassword.textContent = "Show";
 
-confirmPasswordInput.type = "password";
-showConfirmPassword.textContent = "Show";
-
-}
+    }
 
 });
+
+
+/* GENERATE STRONG PASSWORD */
+
+function generateStrongPassword(){
+
+    const upper =
+        "ABCDEFGHJKLMNPQRSTUVWXYZ";
+
+    const lower =
+        "abcdefghijkmnopqrstuvwxyz";
+
+    const numbers =
+        "23456789";
+
+    const symbols =
+        "!@#$%^&*";
+
+    const all =
+        upper + lower + numbers + symbols;
+
+    const array =
+        new Uint32Array(16);
+
+    crypto.getRandomValues(array);
+
+    let result = "";
+
+    /* Guarantee all character types */
+
+    result += upper[array[0] % upper.length];
+    result += lower[array[1] % lower.length];
+    result += numbers[array[2] % numbers.length];
+    result += symbols[array[3] % symbols.length];
+
+    for(let i = 4; i < 16; i++){
+
+        result +=
+            all[array[i] % all.length];
+
+    }
+
+    /* Shuffle */
+
+    return result
+        .split("")
+        .sort(() => Math.random() - 0.5)
+        .join("");
+
+}
 
 
 /* PASSWORD STRENGTH */
 
 function checkPasswordStrength(value){
 
-if(!value){
+    if(!value){
 
-passwordStrength.textContent = "";
-return;
+        passwordStrength.textContent = "";
+        return;
 
-}
+    }
 
+    let score = 0;
 
-let score = 0;
+    if(value.length >= 8)
+        score++;
 
+    if(value.length >= 12)
+        score++;
 
-if(value.length >= 8)
-score++;
+    if(/[A-Z]/.test(value))
+        score++;
 
-if(value.length >= 12)
-score++;
+    if(/[a-z]/.test(value))
+        score++;
 
-if(/[A-Z]/.test(value))
-score++;
+    if(/[0-9]/.test(value))
+        score++;
 
-if(/[a-z]/.test(value))
-score++;
-
-if(/[0-9]/.test(value))
-score++;
-
-if(/[^A-Za-z0-9]/.test(value))
-score++;
+    if(/[^A-Za-z0-9]/.test(value))
+        score++;
 
 
-if(score <= 2){
+    if(score <= 2){
 
-passwordStrength.textContent =
-"Password strength: Weak";
+        passwordStrength.textContent =
+            "Password strength: Weak";
 
-passwordStrength.style.color =
-"#c62828";
+        passwordStrength.style.color =
+            "#c62828";
 
-}
+    }
+    else if(score <= 4){
 
-else if(score <= 4){
+        passwordStrength.textContent =
+            "Password strength: Medium";
 
-passwordStrength.textContent =
-"Password strength: Medium";
+        passwordStrength.style.color =
+            "#ef6c00";
 
-passwordStrength.style.color =
-"#ef6c00";
+    }
+    else{
 
-}
+        passwordStrength.textContent =
+            "Password strength: Strong";
 
-else{
+        passwordStrength.style.color =
+            "#00897b";
 
-passwordStrength.textContent =
-"Password strength: Strong";
-
-passwordStrength.style.color =
-"#00897b";
-
-}
+    }
 
 }
 
@@ -574,9 +670,48 @@ passwordInput.addEventListener(
 "input",
 function(){
 
-checkPasswordStrength(
-passwordInput.value
-);
+    checkPasswordStrength(
+        passwordInput.value
+    );
+
+});
+
+
+/* GENERATE BUTTON */
+
+useSuggestion.addEventListener(
+"click",
+function(){
+
+    const suggestion =
+        generateStrongPassword();
+
+    passwordInput.value =
+        suggestion;
+
+    confirmPasswordInput.value =
+        suggestion;
+
+    passwordSuggestion.textContent =
+        suggestion;
+
+    passwordInput.type =
+        "text";
+
+    confirmPasswordInput.type =
+        "text";
+
+    showPassword.textContent =
+        "Hide";
+
+    showConfirmPassword.textContent =
+        "Hide";
+
+    checkPasswordStrength(
+        suggestion
+    );
+
+    passwordInput.focus();
 
 });
 
@@ -587,206 +722,201 @@ registerForm.addEventListener(
 "submit",
 async function(event){
 
-event.preventDefault();
+    event.preventDefault();
 
+    const firstName =
+        document
+        .getElementById("firstName")
+        .value
+        .trim();
 
-const firstName =
-document
-.getElementById("firstName")
-.value
-.trim();
+    const lastName =
+        document
+        .getElementById("lastName")
+        .value
+        .trim();
 
+    const email =
+        document
+        .getElementById("email")
+        .value
+        .trim()
+        .toLowerCase();
 
-const lastName =
-document
-.getElementById("lastName")
-.value
-.trim();
+    const phone =
+        document
+        .getElementById("phone")
+        .value
+        .trim();
 
+    const password =
+        passwordInput.value;
 
-const email =
-document
-.getElementById("email")
-.value
-.trim()
-.toLowerCase();
+    const confirmPassword =
+        confirmPasswordInput.value;
 
 
-const phone =
-document
-.getElementById("phone")
-.value
-.trim();
+    if(password !== confirmPassword){
 
+        message.textContent =
+            "Passwords do not match.";
 
-const password =
-passwordInput.value;
+        message.style.color =
+            "#c62828";
 
+        return;
 
-const confirmPassword =
-confirmPasswordInput.value;
+    }
 
 
-/* PASSWORD MATCH */
+    if(password.length < 8){
 
-if(password !== confirmPassword){
+        message.textContent =
+            "Password must contain at least 8 characters.";
 
-message.textContent =
-"Passwords do not match.";
+        message.style.color =
+            "#c62828";
 
-message.style.color =
-"#c62828";
+        return;
 
-return;
+    }
 
-}
 
+    if(
+        !/[A-Z]/.test(password) ||
+        !/[a-z]/.test(password) ||
+        !/[0-9]/.test(password) ||
+        !/[^A-Za-z0-9]/.test(password)
+    ){
 
-/* PASSWORD LENGTH */
+        message.textContent =
+            "Use uppercase, lowercase, numbers and a symbol.";
 
-if(password.length < 8){
+        message.style.color =
+            "#c62828";
 
-message.textContent =
-"Password must contain at least 8 characters.";
+        return;
 
-message.style.color =
-"#c62828";
+    }
 
-return;
 
-}
+    registerButton.disabled =
+        true;
 
+    registerButton.textContent =
+        "Creating account...";
 
-/* PASSWORD REQUIREMENTS */
+    message.textContent =
+        "Please wait...";
 
-if(
-!/[A-Z]/.test(password) ||
-!/[a-z]/.test(password) ||
-!/[0-9]/.test(password) ||
-!/[^A-Za-z0-9]/.test(password)
-){
+    message.style.color =
+        "#1565c0";
 
-message.textContent =
-"Use uppercase, lowercase, numbers and a symbol.";
 
-message.style.color =
-"#c62828";
+    try{
 
-return;
+        const response =
+            await fetch(
+                API + "/register",
+                {
+                    method:"POST",
 
-}
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
 
+                    body:JSON.stringify({
 
-/* SUBMIT */
+                        first_name:
+                            firstName,
 
-registerButton.disabled = true;
+                        last_name:
+                            lastName,
 
-registerButton.textContent =
-"Creating account...";
+                        email:
+                            email,
 
-message.textContent =
-"Please wait...";
+                        phone:
+                            phone,
 
-message.style.color =
-"#1565c0";
+                        password:
+                            password
 
+                    })
+                }
+            );
 
-try{
 
-const response =
-await fetch(
-API + "/register",
-{
+        let data;
 
-method:"POST",
+        try{
 
-headers:{
-"Content-Type":
-"application/json"
-},
+            data =
+                await response.json();
 
-body:JSON.stringify({
+        }catch{
 
-first_name:firstName,
-last_name:lastName,
-email:email,
-phone:phone,
-password:password
+            throw new Error(
+                "Invalid response from the server."
+            );
 
-})
+        }
 
-});
 
+        if(
+            !response.ok ||
+            !data.success
+        ){
 
-let data;
+            throw new Error(
+                data.message ||
+                "Account creation failed."
+            );
 
-try{
+        }
 
-data =
-await response.json();
 
-}catch{
+        message.textContent =
+            "Account created successfully!";
 
-throw new Error(
-"Invalid response from the server."
-);
+        message.style.color =
+            "#00897b";
 
-}
 
+        setTimeout(
+            function(){
 
-if(
-!response.ok ||
-!data.success
-){
+                window.location.href =
+                    "login.html";
 
-throw new Error(
-data.message ||
-"Account creation failed."
-);
+            },
+            1000
+        );
 
-}
 
+    }
+    catch(error){
 
-message.textContent =
-"Account created successfully!";
+        console.error(
+            "Registration error:",
+            error
+        );
 
-message.style.color =
-"#00897b";
+        message.textContent =
+            error.message ||
+            "Unable to create account.";
 
+        message.style.color =
+            "#c62828";
 
-setTimeout(
-function(){
+        registerButton.disabled =
+            false;
 
-window.location.href =
-"login.html";
+        registerButton.textContent =
+            "Create Account";
 
-},
-1000
-);
-
-
-}
-catch(error){
-
-console.error(
-"Registration error:",
-error
-);
-
-message.textContent =
-error.message ||
-"Unable to create account.";
-
-message.style.color =
-"#c62828";
-
-registerButton.disabled =
-false;
-
-registerButton.textContent =
-"Create Account";
-
-}
+    }
 
 });
 
