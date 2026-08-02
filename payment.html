@@ -3,77 +3,104 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>CreateLK Academy | Premium Membership</title>
+<title>CreateLK Academy | Premium Payment</title>
 
 <style>
 
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
     font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
     min-height:100vh;
     background:linear-gradient(135deg,#eef4ff,#f8fbff);
-    display:flex;
-    align-items:center;
-    justify-content:center;
     padding:20px;
 }
 
 .container{
-    width:100%;
-    max-width:500px;
+    max-width:520px;
+    margin:30px auto;
 }
 
 .card{
     background:#fff;
     border-radius:22px;
-    padding:30px;
+    padding:28px;
     box-shadow:0 15px 45px rgba(0,0,0,.10);
 }
 
 .logo{
     text-align:center;
-    font-size:30px;
+    font-size:28px;
     font-weight:800;
     color:#1769ff;
-    margin-bottom:8px;
 }
 
 .subtitle{
     text-align:center;
     color:#666;
-    margin-bottom:25px;
+    margin:7px 0 25px;
 }
 
 .plan{
+    text-align:center;
     background:#f1f6ff;
     border:1px solid #dce8ff;
     border-radius:16px;
     padding:20px;
-    text-align:center;
-    margin-bottom:25px;
+    margin-bottom:22px;
 }
 
 .plan h2{
     color:#1769ff;
-    margin-bottom:8px;
+    font-size:21px;
 }
 
 .price{
     font-size:32px;
     font-weight:800;
-    color:#111;
+    margin-top:8px;
 }
 
 .duration{
     color:#666;
     margin-top:5px;
+}
+
+.bank{
+    background:#fafafa;
+    border:1px solid #ddd;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:22px;
+    line-height:1.8;
+}
+
+.bank h3{
+    color:#1769ff;
+    margin-bottom:10px;
+}
+
+.account{
+    font-size:20px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.copy{
+    display:inline-block;
+    margin-top:8px;
+    padding:7px 12px;
+    border:0;
+    border-radius:7px;
+    background:#1769ff;
+    color:white;
+    cursor:pointer;
 }
 
 .input-group{
@@ -87,24 +114,27 @@ label{
     color:#333;
 }
 
-input{
+input[type="email"],
+input[type="text"],
+input[type="file"]{
     width:100%;
-    padding:13px 14px;
-    border:1px solid #d5dbe5;
+    padding:13px;
+    border:1px solid #d4d9e2;
     border-radius:10px;
     font-size:15px;
-    outline:none;
+    background:white;
 }
 
 input:focus{
+    outline:none;
     border-color:#1769ff;
 }
 
-button{
+button.submit{
     width:100%;
     padding:15px;
-    border:none;
-    border-radius:12px;
+    border:0;
+    border-radius:11px;
     background:#1769ff;
     color:#fff;
     font-size:17px;
@@ -112,46 +142,41 @@ button{
     cursor:pointer;
 }
 
-button:disabled{
-    opacity:.65;
+button.submit:disabled{
+    opacity:.6;
     cursor:not-allowed;
 }
 
 .message{
     display:none;
-    margin-bottom:18px;
-    padding:13px;
+    margin-top:18px;
+    padding:14px;
     border-radius:10px;
-    font-size:14px;
     line-height:1.5;
+}
+
+.success{
+    background:#eaf8ee;
+    color:#176b2c;
 }
 
 .error{
     background:#fff0f0;
-    color:#c62828;
-    border:1px solid #ffcaca;
+    color:#b00020;
 }
 
-.loading{
-    display:none;
-    text-align:center;
-    margin-top:15px;
-    color:#1769ff;
-    font-weight:600;
-}
-
-.secure{
-    text-align:center;
-    margin-top:16px;
+.note{
+    margin-top:18px;
     color:#777;
     font-size:13px;
+    line-height:1.6;
 }
 
 .footer{
     text-align:center;
     margin-top:20px;
-    font-size:12px;
     color:#888;
+    font-size:12px;
 }
 
 </style>
@@ -172,9 +197,12 @@ button:disabled{
         ⭐ Premium Membership
     </div>
 
+
     <div class="plan">
 
-        <h2>CreateLK Academy Premium</h2>
+        <h2>
+            CreateLK Academy Premium
+        </h2>
 
         <div class="price">
             LKR 1,500
@@ -186,228 +214,335 @@ button:disabled{
 
     </div>
 
-    <div id="message" class="message"></div>
+
+    <div class="bank">
+
+        <h3>🏦 Bank Deposit Details</h3>
+
+        <div>
+            <b>Bank:</b>
+            People's Bank
+        </div>
+
+        <div>
+            <b>Branch:</b>
+            Udapussellawa
+        </div>
+
+        <div>
+            <b>Account Name:</b>
+            Thinarathnam Saththiyanadan
+        </div>
+
+        <div>
+            <b>Account Number:</b>
+        </div>
+
+        <div class="account">
+            292200280023178
+        </div>
+
+        <button
+            type="button"
+            class="copy"
+            onclick="copyAccount()">
+            Copy Account Number
+        </button>
+
+    </div>
+
 
     <form id="paymentForm">
 
         <div class="input-group">
-            <label>First Name</label>
-            <input
-                id="first_name"
-                type="text"
-                required
-                placeholder="Enter your first name">
-        </div>
 
-        <div class="input-group">
-            <label>Last Name</label>
-            <input
-                id="last_name"
-                type="text"
-                required
-                placeholder="Enter your last name">
-        </div>
+            <label for="email">
+                Registered Email
+            </label>
 
-        <div class="input-group">
-            <label>Registered Email</label>
             <input
-                id="email"
                 type="email"
+                id="email"
+                placeholder="Enter your CreateLK email"
                 required
-                placeholder="Enter your registered email">
+            >
+
         </div>
+
 
         <div class="input-group">
-            <label>Phone Number</label>
+
+            <label for="reference">
+                Transaction / Deposit Reference
+            </label>
+
             <input
-                id="phone"
-                type="tel"
+                type="text"
+                id="reference"
+                placeholder="Enter transaction reference"
                 required
-                placeholder="07XXXXXXXX">
+            >
+
         </div>
 
-        <button id="payButton" type="submit">
-            Continue to PayHere
+
+        <div class="input-group">
+
+            <label for="receipt">
+                Payment Slip
+            </label>
+
+            <input
+                type="file"
+                id="receipt"
+                accept="image/jpeg,image/png,image/webp,application/pdf"
+                required
+            >
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="submit"
+            id="submitButton">
+
+            Submit Payment for Verification
+
         </button>
 
     </form>
 
-    <div id="loading" class="loading">
-        Connecting to secure payment...
+
+    <div
+        id="message"
+        class="message">
     </div>
 
-    <div class="secure">
-        🔒 Secure payment powered by PayHere
+
+    <div class="note">
+
+        📌 Please make a deposit of LKR 1,500 to the
+        account above and upload your payment slip.
+        Your Premium membership will be activated
+        after admin verification.
+
     </div>
+
 
     <div class="footer">
+
         © 2026 CreateLK Academy
+
     </div>
 
 </div>
 
 </div>
+
 
 <script>
 
-const API_URL =
-"https://polished-wood-2146.gateofheavensl1.workers.dev";
+const API =
+"https://shrill-sound-2ee0.gateofheavensl1.workers.dev";
+
 
 const form =
 document.getElementById("paymentForm");
 
 const button =
-document.getElementById("payButton");
+document.getElementById("submitButton");
 
 const message =
 document.getElementById("message");
 
-const loading =
-document.getElementById("loading");
 
+function showMessage(
+    text,
+    type
+){
 
-function showError(text){
+    message.textContent =
+        text;
 
-    message.textContent = text;
+    message.className =
+        "message " + type;
 
-    message.className = "message error";
+    message.style.display =
+        "block";
 
-    message.style.display = "block";
 }
 
 
-form.addEventListener("submit", async function(e){
+function copyAccount(){
 
-    e.preventDefault();
+    navigator.clipboard.writeText(
+        "292200280023178"
+    );
 
-    message.style.display = "none";
+    alert(
+        "Account number copied."
+    );
 
-    button.disabled = true;
-
-    button.textContent = "Connecting...";
-
-    loading.style.display = "block";
-
-    const first_name =
-        document.getElementById("first_name").value.trim();
-
-    const last_name =
-        document.getElementById("last_name").value.trim();
-
-    const email =
-        document.getElementById("email").value.trim().toLowerCase();
-
-    const phone =
-        document.getElementById("phone").value.trim();
-
-    try{
-
-        const response = await fetch(
-            API_URL + "/create-payment",
-            {
-                method:"POST",
-
-                headers:{
-                    "Content-Type":"application/json"
-                },
-
-                body:JSON.stringify({
-                    first_name,
-                    last_name,
-                    email,
-                    phone
-                })
-            }
-        );
-
-        const data = await response.json();
-
-        if(!response.ok || !data.success){
-
-            throw new Error(
-                data.message ||
-                "Unable to create payment."
-            );
-        }
-
-        if(!data.gateway || !data.payment){
-
-            throw new Error(
-                "PayHere payment data is missing."
-            );
-        }
-
-        /*
-        ======================================
-        CREATE PAYHERE FORM
-        ======================================
-        */
-
-        const payhereForm =
-            document.createElement("form");
-
-        payhereForm.method = "POST";
-
-        payhereForm.action = data.gateway;
-
-        payhereForm.style.display = "none";
+}
 
 
-        /*
-        ======================================
-        ADD PAYMENT FIELDS
-        ======================================
-        */
+form.addEventListener(
+    "submit",
+    async function(event){
 
-        for(const key in data.payment){
-
-            const input =
-                document.createElement("input");
-
-            input.type = "hidden";
-
-            input.name = key;
-
-            input.value = String(
-                data.payment[key]
-            );
-
-            payhereForm.appendChild(input);
-        }
+        event.preventDefault();
 
 
-        document.body.appendChild(
-            payhereForm
-        );
-
-
-        loading.textContent =
-            "Redirecting to PayHere...";
-
-
-        payhereForm.submit();
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
-        loading.style.display = "none";
-
-        button.disabled = false;
+        button.disabled =
+            true;
 
         button.textContent =
-            "Continue to PayHere";
+            "Uploading payment slip...";
 
-        showError(
-            error.message ||
-            "Payment connection failed."
-        );
+        message.style.display =
+            "none";
+
+
+        const email =
+            document
+            .getElementById("email")
+            .value
+            .trim()
+            .toLowerCase();
+
+
+        const reference =
+            document
+            .getElementById("reference")
+            .value
+            .trim();
+
+
+        const receipt =
+            document
+            .getElementById("receipt")
+            .files[0];
+
+
+        if(!receipt){
+
+            showMessage(
+                "Please select your payment slip.",
+                "error"
+            );
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                "Submit Payment for Verification";
+
+            return;
+
+        }
+
+
+        if(receipt.size > 5 * 1024 * 1024){
+
+            showMessage(
+                "Payment slip must be smaller than 5 MB.",
+                "error"
+            );
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                "Submit Payment for Verification";
+
+            return;
+
+        }
+
+
+        try{
+
+            const formData =
+                new FormData();
+
+
+            formData.append(
+                "email",
+                email
+            );
+
+
+            formData.append(
+                "transaction_reference",
+                reference
+            );
+
+
+            formData.append(
+                "receipt",
+                receipt
+            );
+
+
+            const response =
+                await fetch(
+                    API +
+                    "/manual-payment",
+                    {
+                        method:"POST",
+                        body:formData
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if(
+                !response.ok ||
+                !data.success
+            ){
+
+                throw new Error(
+                    data.message ||
+                    "Payment submission failed."
+                );
+
+            }
+
+
+            showMessage(
+                "✅ Payment submitted successfully! Your payment slip has been received. Your Premium membership will be activated after admin verification.",
+                "success"
+            );
+
+
+            form.reset();
+
+        }
+        catch(error){
+
+            console.error(error);
+
+            showMessage(
+                error.message ||
+                "Unable to submit payment.",
+                "error"
+            );
+
+        }
+
+
+        button.disabled =
+            false;
+
+        button.textContent =
+            "Submit Payment for Verification";
 
     }
-
-});
+);
 
 </script>
 
