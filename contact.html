@@ -91,24 +91,36 @@ margin:14px 0
 
 .contact-box{
 background:#f8fafc;
-padding:20px;
+padding:22px;
 border-radius:14px;
 margin-top:18px
 }
 
-.whatsapp{
-display:inline-block;
-margin-top:12px;
-padding:12px 22px;
-border-radius:25px;
+.whatsapp-button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+margin-top:15px;
+padding:13px 24px;
+border-radius:28px;
 background:#00897b;
 color:#fff;
 text-decoration:none;
-font-weight:700
+font-weight:700;
+font-size:15px;
+box-shadow:0 5px 15px rgba(0,137,123,.20)
 }
 
-.whatsapp:hover{
-background:#00695c
+.whatsapp-button:hover{
+background:#00695c;
+transform:translateY(-1px)
+}
+
+.whatsapp-number{
+margin-top:12px;
+font-size:14px;
+color:#53636b
 }
 
 label{
@@ -179,6 +191,10 @@ padding:40px 15px
 padding:24px
 }
 
+.whatsapp-button{
+width:100%
+}
+
 }
 
 </style></head><body><nav><div class="logo">
@@ -230,14 +246,16 @@ gateofheavensl1@gmail.com
 <strong>💬 WhatsApp:</strong>
 077 119 0395
 </p><a
-class="whatsapp"
-href="https://wa.me/94771190395"
+class="whatsapp-button"
+href="https://wa.me/94771190395?text=Hello%20CreateLK%20Academy%2C%20I%20need%20support."
 target="_blank"
 rel="noopener noreferrer">
 
 💬 Chat with us on WhatsApp
 
-</a></div></div><div class="card"><h2>
+</a><p class="whatsapp-number">
+WhatsApp support: 077 119 0395
+</p></div></div><div class="card"><h2>
 🕐 Support
 </h2><p class="info">
 For questions about payments, memberships,
