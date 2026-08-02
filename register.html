@@ -1,9 +1,23 @@
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Create Account | CreateLK Academy</title><meta name="description"
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Create Account | CreateLK Academy</title>
+
+<meta name="description"
 content="Create your CreateLK Academy student account.">
 
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 *{
     margin:0;
@@ -12,6 +26,11 @@ content="Create your CreateLK Academy student account.">
     font-family:"Segoe UI",Arial,sans-serif;
 }
 
+
+/* =========================
+   BODY
+========================= */
+
 body{
     min-height:100vh;
     background:#f4f7fc;
@@ -19,6 +38,11 @@ body{
     display:flex;
     flex-direction:column;
 }
+
+
+/* =========================
+   NAVIGATION
+========================= */
 
 nav{
     background:#fff;
@@ -32,20 +56,36 @@ nav{
     color:#1565c0;
 }
 
+
+/* =========================
+   CONTAINER
+========================= */
+
 .container{
     width:100%;
     max-width:520px;
-    margin:auto;
+    margin:0 auto;
     padding:35px 20px;
 }
 
+
+/* =========================
+   CARD
+========================= */
+
 .card{
+    width:100%;
     background:#fff;
     padding:32px;
     border-radius:20px;
     box-shadow:0 8px 28px rgba(0,0,0,.08);
     border:1px solid #edf0f5;
 }
+
+
+/* =========================
+   TITLE
+========================= */
 
 h1{
     text-align:center;
@@ -62,20 +102,27 @@ h1{
     line-height:1.6;
 }
 
-/* FORM */
+
+/* =========================
+   FORM GROUP
+========================= */
 
 .form-group{
-    margin-bottom:18px;
+    width:100%;
+    margin-bottom:20px;
 }
 
 label{
     display:block;
-    font-weight:600;
+    font-weight:700;
     margin-bottom:7px;
     line-height:1.4;
 }
 
-/* INPUT */
+
+/* =========================
+   INPUTS
+========================= */
 
 input{
     display:block;
@@ -84,10 +131,14 @@ input{
     padding:12px 14px;
     border:1px solid #ccd5dc;
     border-radius:10px;
-    font-size:15px;
-    outline:none;
     background:#fff;
     color:#263238;
+    font-size:15px;
+    outline:none;
+}
+
+input::placeholder{
+    color:#8a949b;
 }
 
 input:focus{
@@ -95,7 +146,10 @@ input:focus{
     box-shadow:0 0 0 3px rgba(21,101,192,.08);
 }
 
-/* PASSWORD */
+
+/* =========================
+   PASSWORD WRAPPER
+========================= */
 
 .password-wrap{
     position:relative;
@@ -106,80 +160,141 @@ input:focus{
     padding-right:75px;
 }
 
+
+/* =========================
+   SHOW PASSWORD
+========================= */
+
 .show-password{
     position:absolute;
     right:8px;
     top:50%;
     transform:translateY(-50%);
+
     height:34px;
     min-width:52px;
+
     padding:5px 8px;
+
     border:0;
     border-radius:7px;
+
     background:transparent;
     color:#1565c0;
+
     font-size:14px;
     font-weight:700;
+
     cursor:pointer;
-    z-index:2;
+
+    z-index:5;
 }
 
 .show-password:hover{
     background:#e3f2fd;
+    color:#0d47a1;
 }
 
-/* PASSWORD STRENGTH */
+
+/* =========================
+   PASSWORD STRENGTH
+========================= */
 
 .password-strength{
     min-height:20px;
     margin-top:7px;
+
     font-size:13px;
     font-weight:700;
+
     line-height:20px;
 }
 
-/* PASSWORD SUGGESTION */
+
+/* =========================
+   PASSWORD SUGGESTION
+========================= */
 
 .password-suggestion{
+    width:100%;
+
     margin-top:8px;
     padding:12px;
+
     background:#f8fafc;
-    border-radius:10px;
+
     border:1px solid #edf0f5;
+
+    border-radius:10px;
 }
 
+
+/* =========================
+   SUGGESTION BOX
+========================= */
+
 .suggestion-box{
-    display:flex;
-    align-items:center;
-    gap:10px;
     width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
 }
+
+
+/* =========================
+   SUGGESTION TEXT
+========================= */
 
 .suggestion-text{
     flex:1;
     min-width:0;
-    font-size:13px;
+
     color:#68757c;
-    word-break:break-all;
+
+    font-size:13px;
+
     line-height:1.5;
+
+    word-break:break-all;
 }
+
+
+/* =========================
+   GENERATE BUTTON
+========================= */
 
 .use-suggestion{
     flex-shrink:0;
+
     display:inline-flex;
+
     align-items:center;
     justify-content:center;
-    min-height:36px;
-    padding:8px 12px;
+
+    height:38px;
+
+    padding:0 14px;
+
     border:0;
+
     border-radius:8px;
+
     background:#1565c0;
+
     color:#fff;
+
     font-size:13px;
+
     font-weight:700;
-    cursor:pointer;
-    white-space:nowrap;
+
     line-height:1;
+
+    white-space:nowrap;
+
+    cursor:pointer;
 }
 
 .use-suggestion:hover{
@@ -190,20 +305,35 @@ input:focus{
     transform:scale(.98);
 }
 
-/* REGISTER BUTTON */
+
+/* =========================
+   REGISTER BUTTON
+========================= */
 
 .register-button{
     display:block;
+
     width:100%;
-    height:48px;
-    margin-top:4px;
+    height:50px;
+
+    margin-top:2px;
+
     padding:12px 16px;
+
     border:0;
+
     border-radius:28px;
+
     background:#1565c0;
+
     color:#fff;
+
     font-size:16px;
+
     font-weight:800;
+
+    line-height:1;
+
     cursor:pointer;
 }
 
@@ -216,32 +346,53 @@ input:focus{
     cursor:not-allowed;
 }
 
-/* MESSAGE */
+
+/* =========================
+   MESSAGE
+========================= */
 
 .message{
     width:100%;
+
     min-height:22px;
+
     margin-top:16px;
+
     text-align:center;
-    font-weight:600;
+
     font-size:14px;
+
+    font-weight:600;
+
     line-height:1.5;
+
     word-break:break-word;
 }
 
-/* LINKS */
+
+/* =========================
+   LINKS
+========================= */
 
 .links{
+    width:100%;
+
     text-align:center;
-    margin-top:24px;
+
+    margin-top:25px;
 }
 
 .links a{
     display:block;
+
     margin-top:10px;
+
     color:#1565c0;
+
     text-decoration:none;
+
     font-weight:600;
+
     line-height:1.5;
 }
 
@@ -249,26 +400,45 @@ input:focus{
     text-decoration:underline;
 }
 
-/* SECURITY */
+
+/* =========================
+   SECURITY
+========================= */
 
 .security{
+    width:100%;
+
     margin-top:25px;
+
     padding:16px;
+
     background:#f8fafc;
+
     border-radius:12px;
+
     text-align:center;
+
     font-size:13px;
+
     color:#68757c;
+
     line-height:1.6;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     margin-top:auto;
+
     background:#111827;
+
     color:#9ca3af;
+
     text-align:center;
+
     padding:25px 20px;
 }
 
@@ -276,7 +446,10 @@ footer strong{
     color:#fff;
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
@@ -316,9 +489,13 @@ footer strong{
         align-items:stretch;
     }
 
+    .suggestion-text{
+        width:100%;
+    }
+
     .use-suggestion{
         width:100%;
-        min-height:42px;
+        height:42px;
     }
 
     .register-button{
@@ -326,7 +503,10 @@ footer strong{
     }
 }
 
-/* VERY SMALL */
+
+/* =========================
+   SMALL PHONES
+========================= */
 
 @media(max-width:360px){
 
@@ -344,147 +524,334 @@ footer strong{
 
 }
 
-</style></head><body><nav>
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
     <div class="logo">
         📚 CreateLK Academy
     </div>
-</nav><main class="container"><div class="card"><h1>Create Student Account</h1><p class="subtitle">
-Create your account to access CreateLK Academy.
-</p><form id="registerForm"><!-- FIRST NAME --><div class="form-group"><label for="firstName">
-First Name
-</label><input
-id="firstName"
-type="text"
-placeholder="Enter your first name"
-autocomplete="given-name"
-required
 
-«»
+</nav>
 
-</div><!-- LAST NAME --><div class="form-group"><label for="lastName">
-Last Name
-</label><input
-id="lastName"
-type="text"
-placeholder="Enter your last name"
-autocomplete="family-name"
-required
 
-«»
+<!-- =========================
+     MAIN
+========================= -->
 
-</div><!-- EMAIL --><div class="form-group"><label for="email">
-Email Address
-</label><input
-id="email"
-type="email"
-placeholder="Enter your email"
-autocomplete="email"
-required
+<main class="container">
 
-«»
+<div class="card">
 
-</div><!-- PHONE --><div class="form-group"><label for="phone">
-WhatsApp Number
-</label><input
-id="phone"
-type="tel"
-placeholder="+94 7XXXXXXXX"
-autocomplete="tel"
 
-«»
+<h1>
+    Create Student Account
+</h1>
 
-</div><!-- PASSWORD --><div class="form-group"><label for="password">
-Password
-</label><div class="password-wrap"><input
-id="password"
-type="password"
-placeholder="Create a strong password"
-autocomplete="new-password"
-minlength="8"
-required
 
-«»
+<p class="subtitle">
+    Create your account to access CreateLK Academy.
+</p>
+
+
+<form id="registerForm">
+
+
+<!-- =========================
+     FIRST NAME
+========================= -->
+
+<div class="form-group">
+
+<label for="firstName">
+    First Name
+</label>
+
+<input
+    id="firstName"
+    type="text"
+    placeholder="Enter your first name"
+    autocomplete="given-name"
+    required
+>
+
+</div>
+
+
+<!-- =========================
+     LAST NAME
+========================= -->
+
+<div class="form-group">
+
+<label for="lastName">
+    Last Name
+</label>
+
+<input
+    id="lastName"
+    type="text"
+    placeholder="Enter your last name"
+    autocomplete="family-name"
+    required
+>
+
+</div>
+
+
+<!-- =========================
+     EMAIL
+========================= -->
+
+<div class="form-group">
+
+<label for="email">
+    Email Address
+</label>
+
+<input
+    id="email"
+    type="email"
+    placeholder="Enter your email"
+    autocomplete="email"
+    required
+>
+
+</div>
+
+
+<!-- =========================
+     WHATSAPP
+========================= -->
+
+<div class="form-group">
+
+<label for="phone">
+    WhatsApp Number
+</label>
+
+<input
+    id="phone"
+    type="tel"
+    placeholder="+94 7XXXXXXXX"
+    autocomplete="tel"
+>
+
+</div>
+
+
+<!-- =========================
+     PASSWORD
+========================= -->
+
+<div class="form-group">
+
+<label for="password">
+    Password
+</label>
+
+
+<div class="password-wrap">
+
+<input
+    id="password"
+    type="password"
+    placeholder="Create a strong password"
+    autocomplete="new-password"
+    minlength="8"
+    required
+>
+
 
 <button
-type="button"
-class="show-password"
-id="showPassword"
-
-«»
-
-Show
+    type="button"
+    class="show-password"
+    id="showPassword"
+>
+    Show
 </button>
 
-</div><div
-id="passwordStrength"
-class="password-strength">
-</div><div class="password-suggestion"><div class="suggestion-box"><div
-id="passwordSuggestion"
-class="suggestion-text">
-Use the button to generate a secure password.
-</div><button
-type="button"
-id="useSuggestion"
-class="use-suggestion"
+</div>
 
-«»
-
-Generate
-</button>
-
-</div></div></div><!-- CONFIRM PASSWORD --><div class="form-group"><label for="confirmPassword">
-Confirm Password
-</label><div class="password-wrap"><input
-id="confirmPassword"
-type="password"
-placeholder="Enter your password again"
-autocomplete="new-password"
-minlength="8"
-required
-
-«»
-
-<button
-type="button"
-class="show-password"
-id="showConfirmPassword"
-
-«»
-
-Show
-</button>
-
-</div></div><!-- REGISTER --><button
-id="registerButton"
-class="register-button"
-type="submit"
-
-«»
-
-Create Account
-</button>
 
 <div
-id="message"
-class="message"
-aria-live="polite">
-</div></form><div class="links"><a href="login.html">
-Already have an account? Sign in
-</a><a href="index.html">
-← Back to Academy
-</a></div><div class="security">
+    id="passwordStrength"
+    class="password-strength">
+</div>
+
+
+<div class="password-suggestion">
+
+<div class="suggestion-box">
+
+
+<span
+    id="passwordSuggestion"
+    class="suggestion-text"
+>
+    Generate a secure password
+</span>
+
+
+<button
+    type="button"
+    id="useSuggestion"
+    class="use-suggestion"
+>
+    Generate
+</button>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     CONFIRM PASSWORD
+========================= -->
+
+<div class="form-group">
+
+<label for="confirmPassword">
+    Confirm Password
+</label>
+
+
+<div class="password-wrap">
+
+<input
+    id="confirmPassword"
+    type="password"
+    placeholder="Enter your password again"
+    autocomplete="new-password"
+    minlength="8"
+    required
+>
+
+
+<button
+    type="button"
+    class="show-password"
+    id="showConfirmPassword"
+>
+    Show
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     CREATE ACCOUNT
+========================= -->
+
+<button
+    id="registerButton"
+    class="register-button"
+    type="submit"
+>
+    Create Account
+</button>
+
+
+<div
+    id="message"
+    class="message"
+    aria-live="polite">
+</div>
+
+
+</form>
+
+
+<!-- =========================
+     LINKS
+========================= -->
+
+<div class="links">
+
+<a href="login.html">
+    Already have an account? Sign in
+</a>
+
+<a href="index.html">
+    ← Back to Academy
+</a>
+
+</div>
+
+
+<!-- =========================
+     SECURITY
+========================= -->
+
+<div class="security">
+
 🔐 Your password is securely hashed
 before it is stored by the server.
-</div></div></main><footer><p>
+
+</div>
+
+
+</div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<p>
+
 <strong>
-📚 CreateLK Academy
+    📚 CreateLK Academy
 </strong>
-</p><p style="margin-top:8px;">
-© 2026 CreateLK Academy. All Rights Reserved.
-</p></footer><script>
+
+</p>
+
+
+<p style="margin-top:8px;">
+
+© 2026 CreateLK Academy.
+All Rights Reserved.
+
+</p>
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   CREATE LK ACADEMY
+   STUDENT REGISTRATION
+========================================= */
+
+
+/* API */
 
 const API =
 "https://flat-queen-4e0b.gateofheavensl1.workers.dev";
+
+
+/* ELEMENTS */
 
 const registerForm =
 document.getElementById("registerForm");
@@ -517,50 +884,76 @@ const showConfirmPassword =
 document.getElementById("showConfirmPassword");
 
 
-/* SHOW / HIDE PASSWORD */
+/* =========================================
+   SHOW / HIDE PASSWORD
+========================================= */
 
-showPassword.addEventListener("click", function(){
+showPassword.addEventListener(
+    "click",
+    function(){
 
-    if(passwordInput.type === "password"){
+        if(
+            passwordInput.type === "password"
+        ){
 
-        passwordInput.type = "text";
-        showPassword.textContent = "Hide";
+            passwordInput.type =
+                "text";
 
-    }else{
+            showPassword.textContent =
+                "Hide";
 
-        passwordInput.type = "password";
-        showPassword.textContent = "Show";
+        }else{
 
-    }
+            passwordInput.type =
+                "password";
 
-});
+            showPassword.textContent =
+                "Show";
 
-
-showConfirmPassword.addEventListener("click", function(){
-
-    if(confirmPasswordInput.type === "password"){
-
-        confirmPasswordInput.type = "text";
-        showConfirmPassword.textContent = "Hide";
-
-    }else{
-
-        confirmPasswordInput.type = "password";
-        showConfirmPassword.textContent = "Show";
+        }
 
     }
+);
 
-});
+
+showConfirmPassword.addEventListener(
+    "click",
+    function(){
+
+        if(
+            confirmPasswordInput.type === "password"
+        ){
+
+            confirmPasswordInput.type =
+                "text";
+
+            showConfirmPassword.textContent =
+                "Hide";
+
+        }else{
+
+            confirmPasswordInput.type =
+                "password";
+
+            showConfirmPassword.textContent =
+                "Show";
+
+        }
+
+    }
+);
 
 
-/* GENERATE STRONG PASSWORD */
+/* =========================================
+   STRONG PASSWORD GENERATOR
+========================================= */
 
 function generateStrongPassword(){
 
-    const upper =
+    const uppercase =
         "ABCDEFGHJKLMNPQRSTUVWXYZ";
 
-    const lower =
+    const lowercase =
         "abcdefghijkmnopqrstuvwxyz";
 
     const numbers =
@@ -570,51 +963,128 @@ function generateStrongPassword(){
         "!@#$%^&*";
 
     const all =
-        upper + lower + numbers + symbols;
+        uppercase +
+        lowercase +
+        numbers +
+        symbols;
 
-    const array =
+
+    const randomValues =
         new Uint32Array(16);
 
-    crypto.getRandomValues(array);
+    crypto.getRandomValues(
+        randomValues
+    );
+
 
     let result = "";
 
-    /* Guarantee all character types */
 
-    result += upper[array[0] % upper.length];
-    result += lower[array[1] % lower.length];
-    result += numbers[array[2] % numbers.length];
-    result += symbols[array[3] % symbols.length];
+    /* Guarantee character types */
 
-    for(let i = 4; i < 16; i++){
+    result +=
+        uppercase[
+            randomValues[0] %
+            uppercase.length
+        ];
+
+    result +=
+        lowercase[
+            randomValues[1] %
+            lowercase.length
+        ];
+
+    result +=
+        numbers[
+            randomValues[2] %
+            numbers.length
+        ];
+
+    result +=
+        symbols[
+            randomValues[3] %
+            symbols.length
+        ];
+
+
+    /* Remaining characters */
+
+    for(
+        let i = 4;
+        i < 16;
+        i++
+    ){
 
         result +=
-            all[array[i] % all.length];
+            all[
+                randomValues[i] %
+                all.length
+            ];
 
     }
 
+
     /* Shuffle */
 
-    return result
-        .split("")
-        .sort(() => Math.random() - 0.5)
-        .join("");
+    const chars =
+        result.split("");
+
+
+    for(
+        let i = chars.length - 1;
+        i > 0;
+        i--
+    ){
+
+        const random =
+            new Uint32Array(1);
+
+        crypto.getRandomValues(
+            random
+        );
+
+        const j =
+            random[0] %
+            (i + 1);
+
+
+        [
+            chars[i],
+            chars[j]
+        ] =
+        [
+            chars[j],
+            chars[i]
+        ];
+
+    }
+
+
+    return chars.join("");
 
 }
 
 
-/* PASSWORD STRENGTH */
+/* =========================================
+   PASSWORD STRENGTH
+========================================= */
 
-function checkPasswordStrength(value){
+function checkPasswordStrength(
+    value
+){
 
     if(!value){
 
-        passwordStrength.textContent = "";
+        passwordStrength.textContent =
+            "";
+
         return;
 
     }
 
+
     let score = 0;
+
 
     if(value.length >= 8)
         score++;
@@ -644,6 +1114,7 @@ function checkPasswordStrength(value){
             "#c62828";
 
     }
+
     else if(score <= 4){
 
         passwordStrength.textContent =
@@ -653,6 +1124,7 @@ function checkPasswordStrength(value){
             "#ef6c00";
 
     }
+
     else{
 
         passwordStrength.textContent =
@@ -666,259 +1138,268 @@ function checkPasswordStrength(value){
 }
 
 
+/* LIVE STRENGTH */
+
 passwordInput.addEventListener(
-"input",
-function(){
+    "input",
+    function(){
 
-    checkPasswordStrength(
-        passwordInput.value
-    );
+        checkPasswordStrength(
+            passwordInput.value
+        );
 
-});
+    }
+);
 
 
-/* GENERATE BUTTON */
+/* =========================================
+   GENERATE PASSWORD
+========================================= */
 
 useSuggestion.addEventListener(
-"click",
-function(){
+    "click",
+    function(){
 
-    const suggestion =
-        generateStrongPassword();
-
-    passwordInput.value =
-        suggestion;
-
-    confirmPasswordInput.value =
-        suggestion;
-
-    passwordSuggestion.textContent =
-        suggestion;
-
-    passwordInput.type =
-        "text";
-
-    confirmPasswordInput.type =
-        "text";
-
-    showPassword.textContent =
-        "Hide";
-
-    showConfirmPassword.textContent =
-        "Hide";
-
-    checkPasswordStrength(
-        suggestion
-    );
-
-    passwordInput.focus();
-
-});
+        const generated =
+            generateStrongPassword();
 
 
-/* REGISTRATION */
+        passwordInput.value =
+            generated;
+
+        confirmPasswordInput.value =
+            generated;
+
+
+        passwordSuggestion.textContent =
+            generated;
+
+
+        passwordInput.type =
+            "text";
+
+        confirmPasswordInput.type =
+            "text";
+
+
+        showPassword.textContent =
+            "Hide";
+
+        showConfirmPassword.textContent =
+            "Hide";
+
+
+        checkPasswordStrength(
+            generated
+        );
+
+
+        passwordInput.focus();
+
+    }
+);
+
+
+/* =========================================
+   REGISTRATION
+========================================= */
 
 registerForm.addEventListener(
-"submit",
-async function(event){
+    "submit",
+    async function(event){
 
-    event.preventDefault();
-
-    const firstName =
-        document
-        .getElementById("firstName")
-        .value
-        .trim();
-
-    const lastName =
-        document
-        .getElementById("lastName")
-        .value
-        .trim();
-
-    const email =
-        document
-        .getElementById("email")
-        .value
-        .trim()
-        .toLowerCase();
-
-    const phone =
-        document
-        .getElementById("phone")
-        .value
-        .trim();
-
-    const password =
-        passwordInput.value;
-
-    const confirmPassword =
-        confirmPasswordInput.value;
+        event.preventDefault();
 
 
-    if(password !== confirmPassword){
+        const firstName =
+            document
+            .getElementById("firstName")
+            .value
+            .trim();
+
+
+        const lastName =
+            document
+            .getElementById("lastName")
+            .value
+            .trim();
+
+
+        const email =
+            document
+            .getElementById("email")
+            .value
+            .trim()
+            .toLowerCase();
+
+
+        const phone =
+            document
+            .getElementById("phone")
+            .value
+            .trim();
+
+
+        const password =
+            passwordInput.value;
+
+
+        const confirmPassword =
+            confirmPasswordInput.value;
+
+
+        /* PASSWORD MATCH */
+
+        if(
+            password !==
+            confirmPassword
+        ){
+
+            message.textContent =
+                "Passwords do not match.";
+
+            message.style.color =
+                "#c62828";
+
+            return;
+
+        }
+
+
+        /* PASSWORD LENGTH */
+
+        if(
+            password.length < 8
+        ){
+
+            message.textContent =
+                "Password must contain at least 8 characters.";
+
+            message.style.color =
+                "#c62828";
+
+            return;
+
+        }
+
+
+        /* PASSWORD REQUIREMENTS */
+
+        if(
+            !/[A-Z]/.test(password) ||
+            !/[a-z]/.test(password) ||
+            !/[0-9]/.test(password) ||
+            !/[^A-Za-z0-9]/.test(password)
+        ){
+
+            message.textContent =
+                "Use uppercase, lowercase, numbers and a symbol.";
+
+            message.style.color =
+                "#c62828";
+
+            return;
+
+        }
+
+
+        /* DISABLE BUTTON */
+
+        registerButton.disabled =
+            true;
+
+        registerButton.textContent =
+            "Creating account...";
+
 
         message.textContent =
-            "Passwords do not match.";
+            "Please wait...";
 
         message.style.color =
-            "#c62828";
+            "#1565c0";
 
-        return;
-
-    }
-
-
-    if(password.length < 8){
-
-        message.textContent =
-            "Password must contain at least 8 characters.";
-
-        message.style.color =
-            "#c62828";
-
-        return;
-
-    }
-
-
-    if(
-        !/[A-Z]/.test(password) ||
-        !/[a-z]/.test(password) ||
-        !/[0-9]/.test(password) ||
-        !/[^A-Za-z0-9]/.test(password)
-    ){
-
-        message.textContent =
-            "Use uppercase, lowercase, numbers and a symbol.";
-
-        message.style.color =
-            "#c62828";
-
-        return;
-
-    }
-
-
-    registerButton.disabled =
-        true;
-
-    registerButton.textContent =
-        "Creating account...";
-
-    message.textContent =
-        "Please wait...";
-
-    message.style.color =
-        "#1565c0";
-
-
-    try{
-
-        const response =
-            await fetch(
-                API + "/register",
-                {
-                    method:"POST",
-
-                    headers:{
-                        "Content-Type":
-                            "application/json"
-                    },
-
-                    body:JSON.stringify({
-
-                        first_name:
-                            firstName,
-
-                        last_name:
-                            lastName,
-
-                        email:
-                            email,
-
-                        phone:
-                            phone,
-
-                        password:
-                            password
-
-                    })
-                }
-            );
-
-
-        let data;
 
         try{
 
-            data =
-                await response.json();
+            const response =
+                await fetch(
+                    API + "/register",
+                    {
 
-        }catch{
+                        method:"POST",
 
-            throw new Error(
-                "Invalid response from the server."
-            );
+                        headers:{
+                            "Content-Type":
+                                "application/json"
+                        },
 
-        }
+                        body:
+                        JSON.stringify({
 
+                            first_name:
+                                firstName,
 
-        if(
-            !response.ok ||
-            !data.success
-        ){
+                            last_name:
+                                lastName,
 
-            throw new Error(
-                data.message ||
-                "Account creation failed."
-            );
+                            email:
+                                email,
 
-        }
+                            phone:
+                                phone,
 
+                            password:
+                                password
 
-        message.textContent =
-            "Account created successfully!";
+                        })
 
-        message.style.color =
-            "#00897b";
-
-
-        setTimeout(
-            function(){
-
-                window.location.href =
-                    "login.html";
-
-            },
-            1000
-        );
+                    }
+                );
 
 
-    }
-    catch(error){
+            let data;
 
-        console.error(
-            "Registration error:",
-            error
-        );
 
-        message.textContent =
-            error.message ||
-            "Unable to create account.";
+            try{
 
-        message.style.color =
-            "#c62828";
+                data =
+                    await response.json();
 
-        registerButton.disabled =
-            false;
+            }
 
-        registerButton.textContent =
-            "Create Account";
+            catch{
 
-    }
+                throw new Error(
+                    "Invalid response from the server."
+                );
 
-});
+            }
 
-</script></body>
-</html>
+
+            /* SERVER ERROR */
+
+            if(
+                !response.ok ||
+                !data.success
+            ){
+
+                throw new Error(
+                    data.message ||
+                    "Account creation failed."
+                );
+
+            }
+
+
+            /* SUCCESS */
+
+            message.textContent =
+                "Account created successfully!";
+
+            message.style.color =
+                "#00897b";
+
+
+            /* CLEAR PASSWORD */
+
+            passwo
