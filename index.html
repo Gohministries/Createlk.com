@@ -1,9 +1,10 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CreateLK Academy | English Learning Platform</title><meta name="description"
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>CreateLK Academy | English Learning Platform</title><meta name="description"
 content="CreateLK Academy - Learn English with 1,000 interactive MCQ questions across 10 learning categories.">
 
-<style>
+<meta name="robots" content="index, follow"><style>
 
 *{
 margin:0;
@@ -21,6 +22,8 @@ background:#f4f7fc;
 color:#263238;
 line-height:1.6;
 }
+
+/* NAVIGATION */
 
 nav{
 background:#fff;
@@ -44,7 +47,7 @@ white-space:nowrap;
 nav ul{
 display:flex;
 list-style:none;
-gap:25px;
+gap:24px;
 align-items:center;
 }
 
@@ -65,6 +68,8 @@ padding:9px 18px;
 border-radius:22px;
 }
 
+/* HERO */
+
 header{
 background:linear-gradient(
 135deg,
@@ -74,7 +79,7 @@ background:linear-gradient(
 );
 color:#fff;
 text-align:center;
-padding:85px 20px;
+padding:90px 20px;
 }
 
 .hero-content{
@@ -131,6 +136,8 @@ border:1px solid rgba(255,255,255,.7);
 color:#fff;
 }
 
+/* CONTAINER */
+
 .container{
 max-width:1200px;
 margin:auto;
@@ -151,6 +158,57 @@ color:#1565c0;
 color:#68757c;
 margin-top:5px;
 }
+
+/* ACCESS BOX */
+
+.access-box{
+max-width:700px;
+margin:0 auto 35px;
+background:#fff;
+padding:30px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 6px 20px rgba(0,0,0,.06);
+border:1px solid #edf0f5;
+}
+
+.access-box h3{
+color:#1565c0;
+margin-bottom:8px;
+}
+
+.access-box p{
+color:#68757c;
+font-size:14px;
+}
+
+.access-buttons{
+display:flex;
+justify-content:center;
+gap:12px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.access-buttons a{
+padding:12px 23px;
+border-radius:25px;
+text-decoration:none;
+font-weight:700;
+}
+
+.register-btn{
+background:#1565c0;
+color:#fff;
+}
+
+.login-btn{
+border:1px solid #1565c0;
+color:#1565c0;
+background:#fff;
+}
+
+/* COURSE GRID */
 
 .grid{
 display:grid;
@@ -226,52 +284,7 @@ background:#e3f2fd;
 color:#1565c0;
 }
 
-.access-box{
-max-width:700px;
-margin:0 auto 35px;
-background:#fff;
-padding:30px;
-border-radius:18px;
-text-align:center;
-box-shadow:0 6px 20px rgba(0,0,0,.06);
-border:1px solid #edf0f5;
-}
-
-.access-box h3{
-color:#1565c0;
-margin-bottom:8px;
-}
-
-.access-box p{
-color:#68757c;
-font-size:14px;
-}
-
-.access-buttons{
-display:flex;
-justify-content:center;
-gap:12px;
-margin-top:20px;
-flex-wrap:wrap;
-}
-
-.access-buttons a{
-padding:12px 23px;
-border-radius:25px;
-text-decoration:none;
-font-weight:700;
-}
-
-.register-btn{
-background:#1565c0;
-color:#fff;
-}
-
-.login-btn{
-border:1px solid #1565c0;
-color:#1565c0;
-background:#fff;
-}
+/* LOCK BOX */
 
 .lock-box{
 margin:45px auto 0;
@@ -305,6 +318,8 @@ text-decoration:none;
 font-weight:700;
 }
 
+/* FEATURES */
+
 .features{
 display:grid;
 grid-template-columns:
@@ -335,6 +350,8 @@ font-size:14px;
 color:#68757c;
 }
 
+/* MEMBERSHIP */
+
 .subscription{
 margin-top:60px;
 background:linear-gradient(
@@ -363,6 +380,17 @@ margin:auto;
 opacity:.92;
 }
 
+.subscription ul{
+list-style:none;
+margin:20px auto;
+max-width:500px;
+text-align:left;
+}
+
+.subscription li{
+margin:8px 0;
+}
+
 .subscription a{
 display:inline-block;
 margin-top:23px;
@@ -374,17 +402,45 @@ text-decoration:none;
 font-weight:800;
 }
 
+/* FOOTER */
+
 footer{
 background:#111827;
 color:#9ca3af;
 text-align:center;
-padding:35px 20px;
+padding:40px 20px;
 margin-top:60px;
 }
 
 footer strong{
 color:#fff;
 }
+
+.footer-links{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:16px;
+margin:20px 0;
+}
+
+.footer-links a{
+color:#d1d5db;
+text-decoration:none;
+font-size:14px;
+}
+
+.footer-links a:hover{
+color:#fff;
+text-decoration:underline;
+}
+
+.footer-note{
+font-size:13px;
+margin-top:12px;
+}
+
+/* MOBILE */
 
 @media(max-width:700px){
 
@@ -430,19 +486,34 @@ font-size:30px;
 
 }
 
-</style></head><body><nav><div class="logo">
+</style></head><body><!-- NAVIGATION --><nav><div class="logo">
 📚 CreateLK Academy
 </div><ul><li>
-<a href="index.html">Home</a>
+<a href="index.html">
+Home
+</a>
 </li><li>
-<a href="#courses">Courses</a>
+<a href="#courses">
+Courses
+</a>
 </li><li>
-<a href="#membership">Membership</a>
+<a href="#membership">
+Membership
+</a>
 </li><li>
-<a href="contact.html">Contact</a>
+<a href="about.html">
+About
+</a>
 </li><li>
-<a href="login.html" class="login-button">Login</a>
-</li></ul></nav><header><div class="hero-content"><div class="badge">
+<a href="contact.html">
+Contact
+</a>
+</li><li>
+<a href="login.html"
+class="login-button">
+Login
+</a>
+</li></ul></nav><!-- HERO --><header><div class="hero-content"><div class="badge">
 🎓 English Learning Platform
 </div><h1>
 Master English With Confidence
@@ -459,18 +530,18 @@ Explore Courses
 <a
 href="register.html"
 class="hero-button secondary">
-Create Account
+Create Student Account
 </a>
 
-</div></div></header><main class="container"><section id="courses"><div class="section-title"><h2>
+</div></div></header><main class="container"><!-- COURSES --><section id="courses"><div class="section-title"><h2>
 📚 1,000 English MCQ Questions
 </h2><p>
 10 courses × 100 questions each
-</p></div><div class="access-box"><h3>
+</p></div><!-- STUDENT ACCESS --><div class="access-box"><h3>
 🔐 Student Access
 </h3><p>
-Create an account or log in to check your
-membership and access your courses.
+Create your student account or log in
+to access your learning dashboard.
 </p><div class="access-buttons"><a
 href="register.html"
 class="register-btn">
@@ -483,7 +554,7 @@ class="login-btn">
 Student Login
 </a>
 
-</div></div><div class="grid"><!-- FREE --><a
+</div></div><!-- COURSE CARDS --><div class="grid"><!-- FREE COURSE --><a
 class="card free-card"
 href="beginner-english/index.html">
 
@@ -496,7 +567,7 @@ Build your English foundation with
 100 interactive MCQ questions.
 </p><span class="tag free-tag">
 ✓ FREE • 100 MCQs
-</span></a><!-- PREMIUM --><a
+</span></a><!-- PREMIUM COURSES --><a
 class="card"
 href="login.html">
 
@@ -613,16 +684,16 @@ Challenge yourself with
 100 advanced English MCQs.
 </p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
-</span></a></div><div class="lock-box"><h3>
+</span></a></div><!-- PROTECTION MESSAGE --><div class="lock-box"><h3>
 🔐 Premium Courses
 </h3><p>
 Premium courses are available to active
-members. Create an account, complete
-your membership payment, and sign in
-to access the premium learning area.
+members. Create your student account,
+complete the membership payment, and
+sign in to access your premium courses.
 </p><a href="register.html">
-Get Premium Access
-</a></div></section><section><div class="features"><div class="feature"><div class="feature-icon">
+Get Premium Membership
+</a></div></section><!-- FEATURES --><section><div class="features"><div class="feature"><div class="feature-icon">
 🎯
 </div><h3>
 Practice
@@ -646,7 +717,7 @@ Build your English skills step by step.
 Learn Anywhere
 </h3><p>
 Practice comfortably on phone or computer.
-</p></div></div></section><section
+</p></div></div></section><!-- MEMBERSHIP --><section
 id="membership"
 class="subscription"><h2>
 ⭐ Premium Membership
@@ -657,17 +728,34 @@ Get access to all 9 premium courses,
 including 900 premium MCQ questions.
 Membership access is activated after
 successful payment verification.
-</p><a href="register.html">
+</p><ul><li>✓ 9 Premium English Courses</li><li>✓ 900 Premium MCQ Questions</li><li>✓ Student Dashboard</li><li>✓ 30 Days Premium Access</li><li>✓ Access from phone or computer</li></ul><a href="register.html">
 Join Premium →
-</a></section></main><footer><p>
+</a></section></main><!-- FOOTER --><footer><p>
 <strong>
 📚 CreateLK Academy
 </strong>
 </p><p>
 Learn English. Practice More. Improve Faster.
-</p><p>
+</p><div class="footer-links"><a href="about.html">
+About Us
+</a><a href="contact.html">
+Contact Us
+</a><a href="terms.html">
+Terms & Conditions
+</a><a href="privacy.html">
+Privacy Policy
+</a><a href="refund.html">
+Refund Policy
+</a><a href="membership.html">
+Membership Policy
+</a><a href="payment.html">
+Payment Information
+</a><a href="login.html">
+Student Login
+</a><a href="register.html">
+Register
+</a></div><p>
 1,000 MCQs • 10 Courses • Premium Learning
-</p><p>
-© 2026 CreateLK Academy |
-All Rights Reserved
+</p><p class="footer-note">
+© 2026 CreateLK Academy. All Rights Reserved.
 </p></footer></body></html>
