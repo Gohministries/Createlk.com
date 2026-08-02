@@ -11,7 +11,7 @@
 <title>Premium Payment | CreateLK Academy</title>
 
 <meta name="description"
-      content="CreateLK Academy Premium manual payment and receipt submission.">
+      content="CreateLK Academy Premium manual bank payment.">
 
 <style>
 
@@ -22,35 +22,27 @@
 }
 
 body{
-    font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
+    font-family:"Segoe UI",Arial,sans-serif;
     background:#f4f7fb;
     color:#172033;
-    min-height:100vh;
+    line-height:1.6;
 }
 
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header{
-    background:#ffffff;
+    background:#fff;
     border-bottom:1px solid #e5e7eb;
 }
 
 .navbar{
-    max-width:1100px;
+    max-width:900px;
     margin:auto;
-
     padding:16px 20px;
-
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
@@ -67,38 +59,28 @@ header{
 .back{
     text-decoration:none;
     color:#173ea5;
-    font-weight:600;
+    font-weight:700;
 }
 
 
-/* =========================
-   CONTAINER
-========================= */
+/* MAIN */
 
 .container{
-    max-width:750px;
+    max-width:760px;
     margin:40px auto;
     padding:0 20px;
 }
 
-
-/* =========================
-   CARD
-========================= */
-
 .card{
-    background:#ffffff;
-
-    border-radius:20px;
-
-    padding:30px;
-
-    box-shadow:
-        0 15px 45px
-        rgba(0,0,0,.08);
-
+    background:#fff;
     border:1px solid #e5e7eb;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 15px 45px rgba(0,0,0,.08);
 }
+
+
+/* TITLE */
 
 .title{
     text-align:center;
@@ -112,25 +94,17 @@ header{
 
 .title p{
     color:#64748b;
-    margin-top:7px;
 }
 
 
-/* =========================
-   PREMIUM BOX
-========================= */
+/* PREMIUM */
 
 .premium{
     background:#eef3ff;
-
     border:1px solid #d5e0ff;
-
     border-radius:15px;
-
-    padding:20px;
-
+    padding:22px;
     text-align:center;
-
     margin-bottom:25px;
 }
 
@@ -139,11 +113,9 @@ header{
 }
 
 .price{
-    font-size:38px;
-    font-weight:800;
-
+    font-size:40px;
+    font-weight:900;
     color:#173ea5;
-
     margin:8px 0;
 }
 
@@ -153,45 +125,68 @@ header{
 }
 
 
-/* =========================
-   BANK DETAILS
-========================= */
+/* SECTION */
 
 .section-title{
     font-size:19px;
     font-weight:800;
-
-    margin-bottom:15px;
-
-    color:#172033;
+    margin-bottom:14px;
 }
+
+
+/* STUDENT */
+
+.student-box{
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:25px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:9px 0;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.row:last-child{
+    border-bottom:0;
+}
+
+.label{
+    color:#64748b;
+}
+
+.value{
+    font-weight:700;
+    text-align:right;
+    word-break:break-word;
+}
+
+
+/* BANK */
 
 .bank-box{
     background:#fafafa;
-
     border:1px solid #e5e7eb;
-
     border-radius:14px;
-
     padding:20px;
-
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
 .bank-row{
     display:flex;
-
     justify-content:space-between;
-
-    gap:20px;
-
+    gap:15px;
     padding:11px 0;
-
     border-bottom:1px solid #e5e7eb;
 }
 
 .bank-row:last-child{
-    border-bottom:none;
+    border-bottom:0;
 }
 
 .bank-label{
@@ -199,109 +194,44 @@ header{
 }
 
 .bank-value{
-    font-weight:700;
+    font-weight:800;
     text-align:right;
-    color:#172033;
 }
 
 
-/* =========================
-   WARNING
-========================= */
+/* NOTICE */
 
 .notice{
     background:#fff8e6;
-
     border:1px solid #f5d98b;
-
     border-radius:12px;
-
     padding:15px;
-
     margin-bottom:25px;
-
     color:#6b4e00;
-
-    font-size:14px;
 }
 
 
-/* =========================
-   STUDENT INFORMATION
-========================= */
-
-.student-box{
-    background:#f8fafc;
-
-    border:1px solid #e5e7eb;
-
-    border-radius:14px;
-
-    padding:18px;
-
-    margin-bottom:25px;
-}
-
-.student-row{
-    display:flex;
-    justify-content:space-between;
-
-    padding:7px 0;
-
-    gap:15px;
-}
-
-.student-label{
-    color:#64748b;
-}
-
-.student-value{
-    font-weight:700;
-    text-align:right;
-    word-break:break-word;
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
+/* BUTTONS */
 
 .button{
     width:100%;
-
     display:block;
-
     text-align:center;
-
     text-decoration:none;
-
-    border:none;
-
-    cursor:pointer;
-
-    padding:14px 20px;
-
+    padding:15px 20px;
     border-radius:10px;
-
-    font-size:16px;
-
     font-weight:800;
-
     margin-top:12px;
 }
 
 .whatsapp{
     background:#25D366;
-    color:white;
-}
-
-.whatsapp:hover{
-    opacity:.9;
+    color:#fff;
 }
 
 .dashboard{
     background:#173ea5;
-    color:white;
+    color:#fff;
 }
 
 .home{
@@ -310,66 +240,52 @@ header{
 }
 
 
-/* =========================
-   STEPS
-========================= */
+/* STEPS */
 
 .steps{
-    margin-top:30px;
+    margin:25px 0;
 }
 
 .step{
     display:flex;
-    gap:14px;
-
-    margin-bottom:18px;
+    gap:13px;
+    margin-bottom:17px;
 }
 
 .number{
     min-width:32px;
     height:32px;
-
     border-radius:50%;
-
     background:#173ea5;
-    color:white;
-
+    color:#fff;
     display:flex;
     align-items:center;
     justify-content:center;
-
     font-weight:800;
-}
-
-.step-text strong{
-    display:block;
-    margin-bottom:3px;
 }
 
 .step-text{
     color:#475569;
-    font-size:15px;
+    font-size:14px;
+}
+
+.step-text strong{
+    display:block;
+    color:#172033;
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
     text-align:center;
-
     padding:25px 20px;
-
     color:#64748b;
-
     font-size:13px;
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:600px){
 
@@ -381,18 +297,14 @@ footer{
         font-size:25px;
     }
 
-    .price{
-        font-size:34px;
-    }
-
-    .bank-row,
-    .student-row{
+    .row,
+    .bank-row{
         flex-direction:column;
         gap:3px;
     }
 
-    .bank-value,
-    .student-value{
+    .value,
+    .bank-value{
         text-align:left;
     }
 
@@ -406,26 +318,18 @@ footer{
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
-
 <header>
 
 <div class="navbar">
 
 <a href="index.html"
    class="logo">
-
 📚 CreateLK <span>Academy</span>
-
 </a>
 
-<a href="dashboard.html"
+<a href="index.html"
    class="back">
-
-← Dashboard
-
+← Home
 </a>
 
 </div>
@@ -433,10 +337,6 @@ footer{
 </header>
 
 
-
-<!-- =========================
-     MAIN
-========================= -->
 
 <main class="container">
 
@@ -450,16 +350,12 @@ footer{
 </h1>
 
 <p>
-Complete your membership payment manually.
+Complete your membership purchase manually.
 </p>
 
 </div>
 
 
-
-<!-- =========================
-     PREMIUM
-========================= -->
 
 <div class="premium">
 
@@ -468,98 +364,77 @@ CreateLK Academy Premium
 </h2>
 
 <div class="price">
-
 LKR 1,500
-
-<span>
-/ 30 Days
-</span>
-
+<span>/ 30 Days</span>
 </div>
 
 <p>
-Premium access for 30 days
+30 days of Premium access
 </p>
 
 </div>
 
 
 
-<!-- =========================
-     STUDENT
-========================= -->
-
-<div>
-
 <div class="section-title">
 👤 Student Information
 </div>
 
+
 <div class="student-box">
 
-<div class="student-row">
+<div class="row">
 
-<span class="student-label">
+<span class="label">
 Name
 </span>
 
-<span
-id="studentName"
-class="student-value">
+<span id="studentName"
+      class="value">
 Loading...
 </span>
 
 </div>
 
 
-<div class="student-row">
+<div class="row">
 
-<span class="student-label">
+<span class="label">
 Email
 </span>
 
-<span
-id="studentEmail"
-class="student-value">
+<span id="studentEmail"
+      class="value">
 Loading...
 </span>
 
 </div>
 
 
-<div class="student-row">
+<div class="row">
 
-<span class="student-label">
+<span class="label">
 Phone
 </span>
 
-<span
-id="studentPhone"
-class="student-value">
+<span id="studentPhone"
+      class="value">
 Loading...
 </span>
 
 </div>
 
-</div>
 
 </div>
 
 
-
-<!-- =========================
-     BANK DETAILS
-========================= -->
 
 <div class="section-title">
-
 🏦 Bank Deposit Details
-
 </div>
 
 
 <div class="bank-box">
-
 
 <div class="bank-row">
 
@@ -612,14 +487,9 @@ YOUR BRANCH
 
 </div>
 
-
 </div>
 
 
-
-<!-- =========================
-     NOTICE
-========================= -->
 
 <div class="notice">
 
@@ -627,23 +497,17 @@ YOUR BRANCH
 
 Please deposit exactly
 
-<strong>LKR 1,500</strong>
+<strong>LKR 1,500</strong>.
 
-and keep your payment receipt.
-
-After payment, send the receipt
-through WhatsApp for verification.
+After making the payment, keep your
+receipt and send it to us through
+WhatsApp for verification.
 
 </div>
 
 
 
-<!-- =========================
-     STEPS
-========================= -->
-
 <div class="steps">
-
 
 <div class="section-title">
 📋 How to Complete Payment
@@ -652,13 +516,11 @@ through WhatsApp for verification.
 
 <div class="step">
 
-<div class="number">
-1
-</div>
+<div class="number">1</div>
 
 <div class="step-text">
 
-<strong>Make the bank deposit</strong>
+<strong>Make the deposit</strong>
 
 Deposit LKR 1,500 to the bank account
 shown above.
@@ -670,13 +532,11 @@ shown above.
 
 <div class="step">
 
-<div class="number">
-2
-</div>
+<div class="number">2</div>
 
 <div class="step-text">
 
-<strong>Keep your receipt</strong>
+<strong>Keep the receipt</strong>
 
 Take a clear photo or screenshot
 of your payment receipt.
@@ -688,17 +548,13 @@ of your payment receipt.
 
 <div class="step">
 
-<div class="number">
-3
-</div>
+<div class="number">3</div>
 
 <div class="step-text">
 
 <strong>Send the receipt</strong>
 
-Send your payment receipt together
-with your student information through
-WhatsApp.
+Send your receipt through WhatsApp.
 
 </div>
 
@@ -707,29 +563,22 @@ WhatsApp.
 
 <div class="step">
 
-<div class="number">
-4
-</div>
+<div class="number">4</div>
 
 <div class="step-text">
 
 <strong>Wait for approval</strong>
 
-Our admin will verify your payment
-and activate your Premium membership.
+Admin will verify your payment and
+activate Premium access.
 
 </div>
 
 </div>
 
-
 </div>
 
 
-
-<!-- =========================
-     WHATSAPP
-========================= -->
 
 <a id="whatsappBtn"
    href="#"
@@ -738,7 +587,6 @@ and activate your Premium membership.
 📱 Send Payment Receipt via WhatsApp
 
 </a>
-
 
 
 <a href="dashboard.html"
@@ -763,21 +611,13 @@ and activate your Premium membership.
 
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
 
-© 2026 CreateLK Academy
+© 2026 CreateLK Academy. All Rights Reserved.
 
 </footer>
 
 
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
 
 <script>
 
@@ -786,34 +626,29 @@ and activate your Premium membership.
 
 /*
 ================================
-   YOUR WHATSAPP NUMBER
+YOUR WHATSAPP NUMBER
 ================================
 
-Use international format.
-
-Example Sri Lanka:
+Sri Lanka example:
 
 94771234567
 
-Do NOT use:
-+94
+Replace with your real number.
+
+Do NOT include:
++
 spaces
 -
 brackets
-
-Replace the number below.
 */
 
 const WHATSAPP_NUMBER =
 "947XXXXXXXXX";
 
 
-
-/*
-================================
+/* =========================
    GET STUDENT
-================================
-*/
+========================= */
 
 function getStudent(){
 
@@ -822,49 +657,35 @@ function getStudent(){
             "createlk_student"
         );
 
-
     if(!saved){
-
         return null;
-
     }
-
 
     try{
 
         const student =
             JSON.parse(saved);
 
-
-        if(
-            student &&
-            student.id
-        ){
-
+        if(student && student.id){
             return student;
-
         }
 
     }catch(error){
 
         console.error(
+            "Student data error:",
             error
         );
 
     }
 
-
     return null;
-
 }
 
 
-
-/*
-================================
-   PAGE LOAD
-================================
-*/
+/* =========================
+   LOAD PAYMENT PAGE
+========================= */
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -875,17 +696,15 @@ document.addEventListener(
 
 
         /*
-        ================================
-        NOT LOGGED IN
-        ================================
+        If student is not logged in,
+        send them to login.
         */
 
         if(!student){
 
             alert(
-                "Please register or login before purchasing Premium."
+                "Please login to continue with Premium membership."
             );
-
 
             window.location.href =
                 "login.html";
@@ -895,30 +714,24 @@ document.addEventListener(
         }
 
 
+        const firstName =
+            student.first_name || "";
 
-        /*
-        ================================
-        STUDENT INFORMATION
-        ================================
-        */
+        const lastName =
+            student.last_name || "";
 
         const fullName =
             (
-                student.first_name ||
-                ""
-            ) +
-            " " +
-            (
-                student.last_name ||
-                ""
-            );
+                firstName +
+                " " +
+                lastName
+            ).trim();
 
 
         document.getElementById(
             "studentName"
         ).textContent =
-            fullName.trim() ||
-            "Student";
+            fullName || "Student";
 
 
         document.getElementById(
@@ -935,18 +748,17 @@ document.addEventListener(
             "Not available";
 
 
-
         /*
-        ================================
+        =========================
         WHATSAPP MESSAGE
-        ================================
+        =========================
         */
 
         const message =
 
 `CreateLK Academy Premium Payment
 
-Student Name: ${fullName.trim() || "Student"}
+Student Name: ${fullName || "Student"}
 
 Student ID: ${student.id}
 
@@ -956,7 +768,7 @@ Phone: ${student.phone || "Not available"}
 
 Premium Plan: 30 Days
 
-Amount Paid: LKR 1,500
+Amount: LKR 1,500
 
 I have completed the bank deposit.
 
@@ -965,9 +777,7 @@ I am sending my payment receipt for verification.
 Please verify my payment and activate my Premium membership.`;
 
 
-
         const whatsappURL =
-
             "https://wa.me/" +
             WHATSAPP_NUMBER +
             "?text=" +
