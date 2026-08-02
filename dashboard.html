@@ -1,0 +1,949 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Student Dashboard | CreateLK Academy</title><meta name="description"
+content="CreateLK Academy student dashboard.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+    color:#263238;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    background:#fff;
+    padding:14px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 20px rgba(0,0,0,.07);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:800;
+    color:#1565c0;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.nav-name{
+    color:#1565c0;
+    font-weight:700;
+}
+
+.logout{
+    border:0;
+    background:#ef4444;
+    color:#fff;
+    padding:9px 15px;
+    border-radius:20px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.home{
+    text-decoration:none;
+    color:#1565c0;
+    font-weight:600;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:35px 20px;
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome{
+    background:
+        linear-gradient(
+            135deg,
+            #0d47a1,
+            #1565c0,
+            #00897b
+        );
+    color:#fff;
+    padding:35px;
+    border-radius:22px;
+    margin-bottom:25px;
+}
+
+.welcome h1{
+    font-size:32px;
+    margin-bottom:6px;
+}
+
+.welcome p{
+    opacity:.9;
+}
+
+/* =========================
+   PROFILE + MEMBERSHIP
+========================= */
+
+.top-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(2,1fr);
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.box{
+    background:#fff;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 6px 20px rgba(0,0,0,.06);
+}
+
+.box h2{
+    color:#1565c0;
+    margin-bottom:18px;
+    font-size:21px;
+}
+
+.profile-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:10px 0;
+    border-bottom:1px solid #edf0f5;
+}
+
+.profile-row:last-child{
+    border-bottom:0;
+}
+
+.profile-label{
+    color:#68757c;
+}
+
+.profile-value{
+    font-weight:600;
+    text-align:right;
+    word-break:break-word;
+}
+
+/* =========================
+   MEMBERSHIP
+========================= */
+
+.membership-status{
+    padding:13px;
+    border-radius:12px;
+    text-align:center;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.active{
+    background:#e8f7ed;
+    color:#176b35;
+}
+
+.free-status{
+    background:#e8f5e9;
+    color:#00897b;
+}
+
+.expired{
+    background:#fdeaea;
+    color:#a32121;
+}
+
+.membership-price{
+    text-align:center;
+    font-size:27px;
+    font-weight:800;
+    color:#1565c0;
+    margin:15px 0 5px;
+}
+
+.membership-note{
+    text-align:center;
+    color:#68757c;
+    font-size:14px;
+}
+
+.pay-button{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    background:#1565c0;
+    color:#fff;
+    padding:13px;
+    border-radius:11px;
+    font-weight:800;
+    margin-top:18px;
+}
+
+.pay-button:hover{
+    background:#0d47a1;
+}
+
+/* =========================
+   COURSES
+========================= */
+
+.courses-title{
+    margin-bottom:18px;
+}
+
+.courses-title h2{
+    color:#1565c0;
+}
+
+.courses-title p{
+    color:#68757c;
+}
+
+.course-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+}
+
+.course{
+    background:#fff;
+    padding:22px;
+    border-radius:17px;
+    box-shadow:0 6px 20px rgba(0,0,0,.06);
+    border:1px solid #edf0f5;
+    position:relative;
+}
+
+.course.free{
+    border-top:4px solid #00897b;
+}
+
+.course.premium{
+    border-top:4px solid #1565c0;
+}
+
+.course-icon{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.course h3{
+    margin-bottom:5px;
+}
+
+.course p{
+    color:#68757c;
+    font-size:14px;
+    min-height:43px;
+}
+
+.course-button{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    padding:10px;
+    border-radius:9px;
+    margin-top:15px;
+    font-weight:700;
+}
+
+.free-button{
+    background:#00897b;
+    color:#fff;
+}
+
+.premium-button{
+    background:#1565c0;
+    color:#fff;
+}
+
+.locked{
+    background:#eef2f7;
+    color:#68757c;
+    cursor:not-allowed;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    color:#7b8790;
+    padding:35px 20px;
+    margin-top:40px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    nav{
+        padding:13px 15px;
+        gap:10px;
+    }
+
+    .nav-right{
+        flex-wrap:wrap;
+        justify-content:flex-end;
+    }
+
+    .nav-name{
+        display:none;
+    }
+
+    .container{
+        padding:25px 15px;
+    }
+
+    .welcome{
+        padding:27px 22px;
+    }
+
+    .welcome h1{
+        font-size:26px;
+    }
+
+    .top-grid{
+        grid-template-columns:1fr;
+    }
+
+    .profile-row{
+        flex-direction:column;
+        gap:3px;
+    }
+
+    .profile-value{
+        text-align:left;
+    }
+
+}
+
+</style></head><body><!-- =========================
+     NAVIGATION
+========================= --><nav><div class="logo">
+📚 CreateLK Academy
+</div><div class="nav-right"><a href="index.html"
+class="home">
+Home
+</a>
+
+<span id="navName"
+class="nav-name">
+</span>
+
+<button
+id="logoutButton"
+class="logout">
+Logout
+</button>
+
+</div></nav><main class="container"><!-- =========================
+     WELCOME
+========================= --><section class="welcome"><h1>
+👋 Welcome, <span id="welcomeName">
+Student
+</span>!
+</h1><p>
+Welcome to your CreateLK Academy learning dashboard.
+</p></section><!-- =========================
+     PROFILE + MEMBERSHIP
+========================= --><div class="top-grid"><!-- PROFILE --><div class="box"><h2>
+👤 My Profile
+</h2><div class="profile-row"><span class="profile-label">
+First Name
+</span><span
+class="profile-value"
+id="firstName">
+
+</span></div><div class="profile-row"><span class="profile-label">
+Last Name
+</span><span
+class="profile-value"
+id="lastName">
+
+</span></div><div class="profile-row"><span class="profile-label">
+Email
+</span><span
+class="profile-value"
+id="email">
+
+</span></div><div class="profile-row"><span class="profile-label">
+WhatsApp
+</span><span
+class="profile-value"
+id="phone">
+
+</span></div></div><!-- MEMBERSHIP --><div class="box"><h2>
+⭐ Membership
+</h2><div
+id="membershipStatus"
+class="membership-status free-status">
+FREE ACCOUNT
+</div><div
+id="membershipPrice"
+class="membership-price">
+LKR 1,500
+</div><div
+id="membershipNote"
+class="membership-note">
+30 days premium access
+</div><a
+href="membership.html"
+id="membershipButton"
+class="pay-button">
+
+⭐ Get Premium Access
+
+</a></div></div><!-- =========================
+     COURSES
+========================= --><section><div class="courses-title"><h2>
+📚 My English Courses
+</h2><p>
+Beginner English is free forever.
+Premium courses require an active membership.
+</p></div><div class="course-grid"><!-- FREE COURSE --><div class="course free"><div class="course-icon">
+🌱
+</div><h3>
+Beginner English
+</h3><p>
+Build your English foundation with
+100 interactive MCQ questions.
+</p><a
+href="beginner-english/index.html"
+class="course-button free-button">
+
+✓ Start Course
+
+</a></div><!-- GRAMMAR --><div class="course premium"><div class="course-icon">
+📖
+</div><h3>
+Grammar
+</h3><p>
+100 essential English grammar MCQs.
+</p><a
+href="grammar/index.html"
+class="course-button premium-button"
+data-premium="true">
+
+🔒 Premium
+
+</a></div><!-- VOCABULARY --><div class="course premium"><div class="course-icon">
+📝
+</div><h3>
+Vocabulary
+</h3><p>
+Improve your English vocabulary.
+</p><a
+href="vocabulary/index.html"
+class="course-button premium-button"
+data-premium="true">
+
+🔒 Premium
+
+</a></div><!-- SPEAKING --><div class="course premium"><div class="course-icon">
+🗣️
+</div><h3>
+Speaking
+</h3><p>
+Practice practical English speaking skills.
+</p><a
+href="speaking/index.html"
+class="course-button premium-button"
+data-premium="true">
+
+🔒 Premium
+
+</a></div><!-- PRONUNCIATION --><div class="course premium"><div class="course-icon">
+🔊
+</div><h3>
+Pronunciation
+</h3><p>
+Learn English pronunciation through MCQs.
+</p><a
+href="pronunciation/index.html"
+class="course-button premium-button"
+data-premium="true">
+
+🔒 Premium
+
+</a></div><!-- CONVERSATION --><div class="course premium"><div class="course-icon">
+💬
+</div><h3>
+Conversation
+</h3><p>
+Practice everyday English conversations.
+</p><a
+href="conversation/index.html"
+class="course-button premium-button"
+data-premium="true">
+
+🔒 Premium
+
+</a></div><!-- WRITING --><div class="course premium"><div class="course-icon">
+✍️
+</div><h3>
+Writing
+</h3><p>
+Improve sentence construction and writing.
+</p><a
+href="writing/index.html"
+class="course-button premium-button"
+data-premium="true">
+
+🔒 Premium
+
+</a></div><!-- LISTENING --><div class="course premium"><div class="course-icon">
+🎧
+</div><h3>
+Listening
+</h3><p>
+Improve listening and comprehension.
+</p><a
+href="listening/index.html"
+class="course-button premium-button"
+data-premium="true">
+
+🔒 Premium
+
+</a></div><!-- BUSINESS --><div class="course premium"><div class="course-icon">
+💼
+</div><h3>
+Business English
+</h3><p>
+Learn professional English for work.
+</p><a
+href="business-english/index.html"
+class="course-button premium-button"
+data-premium="true">
+
+🔒 Premium
+
+</a></div><!-- ADVANCED --><div class="course premium"><div class="course-icon">
+🚀
+</div><h3>
+Advanced English
+</h3><p>
+Challenge yourself with advanced English MCQs.
+</p><a
+href="advanced-english/index.html"
+class="course-button premium-button"
+data-premium="true">
+
+🔒 Premium
+
+</a></div></div></section></main><footer><p>
+📚 <strong>CreateLK Academy</strong>
+</p><p>
+Learn English. Practice More. Improve Faster.
+</p><p>
+© 2026 CreateLK Academy
+</p></footer><script>
+
+"use strict";
+
+
+/* =========================
+   GET LOGGED-IN STUDENT
+========================= */
+
+function getStudent(){
+
+    const saved =
+        localStorage.getItem(
+            "createlk_student"
+        );
+
+    if(!saved){
+
+        window.location.replace(
+            "login.html"
+        );
+
+        return null;
+    }
+
+    try{
+
+        const student =
+            JSON.parse(saved);
+
+        if(!student ||
+           !student.id){
+
+            localStorage.removeItem(
+                "createlk_student"
+            );
+
+            window.location.replace(
+                "login.html"
+            );
+
+            return null;
+        }
+
+        return student;
+
+    }catch(error){
+
+        localStorage.removeItem(
+            "createlk_student"
+        );
+
+        window.location.replace(
+            "login.html"
+        );
+
+        return null;
+    }
+}
+
+
+/* =========================
+   DISPLAY STUDENT
+========================= */
+
+function displayStudent(){
+
+    const student =
+        getStudent();
+
+    if(!student){
+        return;
+    }
+
+
+    document.getElementById(
+        "welcomeName"
+    ).textContent =
+        student.first_name ||
+        "Student";
+
+
+    document.getElementById(
+        "navName"
+    ).textContent =
+        "👤 " +
+        (student.first_name ||
+        "Student");
+
+
+    document.getElementById(
+        "firstName"
+    ).textContent =
+        student.first_name || "-";
+
+
+    document.getElementById(
+        "lastName"
+    ).textContent =
+        student.last_name || "-";
+
+
+    document.getElementById(
+        "email"
+    ).textContent =
+        student.email || "-";
+
+
+    document.getElementById(
+        "phone"
+    ).textContent =
+        student.phone || "-";
+
+
+    updateMembership(
+        student
+    );
+}
+
+
+/* =========================
+   MEMBERSHIP
+========================= */
+
+function updateMembership(student){
+
+    const status =
+        document.getElementById(
+            "membershipStatus"
+        );
+
+    const price =
+        document.getElementById(
+            "membershipPrice"
+        );
+
+    const note =
+        document.getElementById(
+            "membershipNote"
+        );
+
+    const button =
+        document.getElementById(
+            "membershipButton"
+        );
+
+
+    const membershipStatus =
+        String(
+            student.membership_status ||
+            ""
+        ).toLowerCase();
+
+
+    const expiry =
+        student.membership_expiry;
+
+
+    /* ACTIVE */
+
+    if(
+        membershipStatus === "active" &&
+        expiry &&
+        new Date(expiry) > new Date()
+    ){
+
+        status.textContent =
+            "✓ PREMIUM ACTIVE";
+
+        status.className =
+            "membership-status active";
+
+
+        price.textContent =
+            "Premium";
+
+
+        note.textContent =
+            "Expires: " +
+            formatDate(expiry);
+
+
+        button.textContent =
+            "⭐ Membership Details";
+
+        button.href =
+            "membership.html";
+
+        return;
+    }
+
+
+    /* EXPIRED */
+
+    if(
+        membershipStatus === "active" &&
+        expiry &&
+        new Date(expiry) <= new Date()
+    ){
+
+        status.textContent =
+            "⚠ PREMIUM EXPIRED";
+
+        status.className =
+            "membership-status expired";
+
+
+        price.textContent =
+            "LKR 1,500";
+
+
+        note.textContent =
+            "Renew for another 30 days";
+
+
+        button.textContent =
+            "💳 Renew Premium";
+
+        button.href =
+            "membership.html";
+
+        return;
+    }
+
+
+    /* FREE */
+
+    status.textContent =
+        "🌱 FREE ACCOUNT";
+
+    status.className =
+        "membership-status free-status";
+
+
+    price.textContent =
+        "LKR 1,500";
+
+
+    note.textContent =
+        "30 days premium access";
+
+
+    button.textContent =
+        "⭐ Get Premium Access";
+
+    button.href =
+        "membership.html";
+}
+
+
+/* =========================
+   DATE FORMAT
+========================= */
+
+function formatDate(dateString){
+
+    const date =
+        new Date(dateString);
+
+    if(isNaN(date.getTime())){
+        return dateString;
+    }
+
+    return date.toLocaleDateString(
+        "en-LK",
+        {
+            year:"numeric",
+            month:"long",
+            day:"numeric"
+        }
+    );
+}
+
+
+/* =========================
+   PREMIUM COURSE SECURITY
+========================= */
+
+function setupPremiumCourses(){
+
+    const student =
+        getStudent();
+
+    if(!student){
+        return;
+    }
+
+
+    const status =
+        String(
+            student.membership_status ||
+            ""
+        ).toLowerCase();
+
+    const expiry =
+        student.membership_expiry;
+
+
+    const active =
+        status === "active" &&
+        expiry &&
+        new Date(expiry) > new Date();
+
+
+    document
+    .querySelectorAll(
+        "[data-premium='true']"
+    )
+    .forEach(function(link){
+
+        if(active){
+
+            link.textContent =
+                "▶ Start Course";
+
+            link.classList.remove(
+                "locked"
+            );
+
+        }else{
+
+            link.textContent =
+                "🔒 Unlock Premium";
+
+            link.classList.add(
+                "locked"
+            );
+
+            link.addEventListener(
+                "click",
+                function(event){
+
+                    event.preventDefault();
+
+                    window.location.href =
+                        "membership.html";
+                }
+            );
+        }
+
+    });
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+document
+.getElementById("logoutButton")
+.addEventListener(
+    "click",
+    function(){
+
+        localStorage.removeItem(
+            "createlk_student"
+        );
+
+        window.location.replace(
+            "index.html"
+        );
+    }
+);
+
+
+/* =========================
+   START
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        displayStudent();
+
+        setupPremiumCourses();
+
+    }
+);
+
+</script></body>
+</html>
