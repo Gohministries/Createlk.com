@@ -318,7 +318,6 @@ First Name
 
 <input
 id="firstName"
-name="first_name"
 type="text"
 placeholder="Your first name"
 autocomplete="given-name"
@@ -332,7 +331,6 @@ Last Name
 
 <input
 id="lastName"
-name="last_name"
 type="text"
 placeholder="Your last name"
 autocomplete="family-name"
@@ -346,7 +344,6 @@ Email Address
 
 <input
 id="email"
-name="email"
 type="email"
 placeholder="Your account email"
 autocomplete="email"
@@ -360,7 +357,6 @@ WhatsApp Number
 
 <input
 id="phone"
-name="phone"
 type="tel"
 placeholder="+94 7XXXXXXXX"
 autocomplete="tel"
@@ -421,7 +417,7 @@ Important:
 </strong>
 
 Your membership is activated only after
-PayHere successfully confirms the payment.
+PayHere successfully confirms the transaction.
 
 </div>
 
@@ -490,29 +486,17 @@ Your premium membership includes access to:
 
 <ul>
 
-<li>
-9 premium English courses
-</li>
+<li>9 premium English courses</li>
 
-<li>
-900 premium MCQ questions
-</li>
+<li>900 premium MCQ questions</li>
 
-<li>
-Grammar and vocabulary practice
-</li>
+<li>Grammar and vocabulary practice</li>
 
-<li>
-Speaking and conversation practice
-</li>
+<li>Speaking and conversation practice</li>
 
-<li>
-Writing and listening practice
-</li>
+<li>Writing and listening practice</li>
 
-<li>
-Business and advanced English practice
-</li>
+<li>Business and advanced English practice</li>
 
 </ul>
 
@@ -561,54 +545,34 @@ Contact CreateLK Academy
 <footer>
 
 <p>
-
 <strong>
 📚 CreateLK Academy
 </strong>
-
 </p>
 
 <p>
 Learn English. Practice More. Improve Faster.
 </p>
 
-
 <div class="links">
 
-<a href="index.html">
-Home
-</a>
+<a href="index.html">Home</a>
 
-<a href="about.html">
-About
-</a>
+<a href="about.html">About</a>
 
-<a href="contact.html">
-Contact
-</a>
+<a href="contact.html">Contact</a>
 
-<a href="terms.html">
-Terms
-</a>
+<a href="terms.html">Terms</a>
 
-<a href="privacy.html">
-Privacy
-</a>
+<a href="privacy.html">Privacy</a>
 
-<a href="refund.html">
-Refund Policy
-</a>
+<a href="refund.html">Refund Policy</a>
 
-<a href="membership.html">
-Membership
-</a>
+<a href="membership.html">Membership</a>
 
-<a href="payment.html">
-Payment
-</a>
+<a href="payment.html">Payment</a>
 
 </div>
-
 
 <p>
 © 2026 CreateLK Academy. All Rights Reserved.
@@ -619,33 +583,26 @@ Payment
 
 <script>
 
+// ==========================================================
+// PAYMENT API
+// ==========================================================
+
+const PAYMENT_API =
+"https://wispy-sunset-479c.gateofheavensl1.workers.dev/create-payment";
+
 
 // ==========================================================
 // ELEMENTS
 // ==========================================================
 
 const paymentForm =
-document.getElementById(
-"paymentForm"
-);
+document.getElementById("paymentForm");
 
 const payButton =
-document.getElementById(
-"payButton"
-);
+document.getElementById("payButton");
 
 const message =
-document.getElementById(
-"message"
-);
-
-
-// ==========================================================
-// NEW CLOUDFLARE WORKER
-// ==========================================================
-
-const PAYMENT_API =
-"https://holy-lab-d9d9.gateofheavensl1.workers.dev/create-payment";
+document.getElementById("message");
 
 
 // ==========================================================
@@ -660,42 +617,31 @@ event.preventDefault();
 
 
 // ----------------------------------------------------------
-// GET STUDENT INFORMATION
+// GET VALUES
 // ----------------------------------------------------------
 
 const firstName =
 document
-.getElementById(
-"firstName"
-)
+.getElementById("firstName")
 .value
 .trim();
-
 
 const lastName =
 document
-.getElementById(
-"lastName"
-)
+.getElementById("lastName")
 .value
 .trim();
 
-
 const email =
 document
-.getElementById(
-"email"
-)
+.getElementById("email")
 .value
 .trim()
 .toLowerCase();
 
-
 const phone =
 document
-.getElementById(
-"phone"
-)
+.getElementById("phone")
 .value
 .trim();
 
@@ -723,7 +669,7 @@ return;
 
 
 // ----------------------------------------------------------
-// DISABLE BUTTON
+// BUTTON
 // ----------------------------------------------------------
 
 payButton.disabled =
@@ -740,7 +686,7 @@ message.style.color =
 
 
 // ----------------------------------------------------------
-// SEND TO CLOUDFLARE WORKER
+// CALL CLOUDFLARE WORKER
 // ----------------------------------------------------------
 
 try{
@@ -750,16 +696,14 @@ await fetch(
 PAYMENT_API,
 {
 
-method:
-"POST",
+method:"POST",
 
 headers:{
 "Content-Type":
 "application/json"
 },
 
-body:
-JSON.stringify({
+body:JSON.stringify({
 
 first_name:
 firstName,
@@ -780,14 +724,12 @@ phone
 
 
 // ----------------------------------------------------------
-// CHECK SERVER RESPONSE
+// SERVER ERROR
 // ----------------------------------------------------------
 
-if(
-!response.ok
-){
+if(!response.ok){
 
-let errorMessage =
+let errorText =
 "Payment server error: " +
 response.status;
 
@@ -796,11 +738,9 @@ try{
 const errorData =
 await response.json();
 
-if(
-errorData.message
-){
+if(errorData.message){
 
-errorMessage =
+errorText =
 errorData.message;
 
 }
@@ -808,14 +748,14 @@ errorData.message;
 }catch(e){}
 
 throw new Error(
-errorMessage
+errorText
 );
 
 }
 
 
 // ----------------------------------------------------------
-// READ RESPONSE
+// RESPONSE
 // ----------------------------------------------------------
 
 const data =
@@ -823,7 +763,7 @@ await response.json();
 
 
 // ----------------------------------------------------------
-// PAYMENT CREATED
+// SUCCESS
 // ----------------------------------------------------------
 
 if(
@@ -837,13 +777,11 @@ data.payment;
 
 
 // ----------------------------------------------------------
-// CREATE PAYHERE FORM
+// PAYHERE FORM
 // ----------------------------------------------------------
 
 const payhereForm =
-document.createElement(
-"form"
-);
+document.createElement("form");
 
 payhereForm.method =
 "POST";
@@ -919,12 +857,11 @@ payment.custom_2
 
 
 // ----------------------------------------------------------
-// ADD FIELDS
+// ADD FORM FIELDS
 // ----------------------------------------------------------
 
-Object.entries(
-fields
-).forEach(
+Object.entries(fields)
+.forEach(
 ([name,value])=>{
 
 if(
@@ -937,9 +874,7 @@ return;
 }
 
 const input =
-document.createElement(
-"input"
-);
+document.createElement("input");
 
 input.type =
 "hidden";
@@ -948,14 +883,13 @@ input.name =
 name;
 
 input.value =
-value;
+String(value);
 
 payhereForm.appendChild(
 input
 );
 
-}
-);
+});
 
 
 // ----------------------------------------------------------
@@ -966,13 +900,11 @@ document.body.appendChild(
 payhereForm
 );
 
-
 message.textContent =
 "Opening PayHere Sandbox...";
 
 message.style.color =
 "#00897b";
-
 
 payhereForm.submit();
 
@@ -982,7 +914,7 @@ return;
 
 
 // ----------------------------------------------------------
-// PAYMENT ERROR
+// WORKER ERROR
 // ----------------------------------------------------------
 
 throw new Error(
@@ -992,12 +924,11 @@ data.message ||
 
 );
 
-
 }
 
 
 // ----------------------------------------------------------
-// CATCH ERROR
+// CATCH
 // ----------------------------------------------------------
 
 catch(error){
@@ -1007,19 +938,15 @@ console.error(
 error
 );
 
-
 message.textContent =
 error.message ||
 "Payment could not be started.";
 
-
 message.style.color =
 "#c62828";
 
-
 payButton.disabled =
 false;
-
 
 payButton.textContent =
 "Continue to Secure Payment";
