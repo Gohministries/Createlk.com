@@ -1,68 +1,336 @@
-<!DOCTYPE html><html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Contact | CreateLK Academy</title>
-<meta name="description" content="Contact CreateLK Academy for support, membership and English learning questions."><style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
-body{background:#f4f7fc;color:#263238;line-height:1.6}
-nav{background:#fff;padding:16px 6%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 20px rgba(0,0,0,.06)}
-.logo{font-size:22px;font-weight:800;color:#1565c0}
-nav ul{display:flex;list-style:none;gap:22px;flex-wrap:wrap}
-nav a{text-decoration:none;color:#37474f;font-weight:600}
-.container{max-width:900px;margin:auto;padding:60px 20px}
-.hero{text-align:center;margin-bottom:35px}
-.hero h1{font-size:38px;color:#1565c0}
-.hero p{color:#68757c;margin-top:8px}
-.card{background:#fff;padding:30px;border-radius:18px;box-shadow:0 6px 22px rgba(0,0,0,.06);margin-bottom:22px}
-.card h2{color:#1565c0;margin-bottom:12px}
-.info{margin:12px 0}
-label{display:block;font-weight:600;margin:14px 0 6px}
-input,textarea{width:100%;padding:13px;border:1px solid #ccd5dc;border-radius:10px;font-size:15px}
-textarea{min-height:140px;resize:vertical}
-button{margin-top:18px;padding:13px 25px;border:0;border-radius:25px;background:#1565c0;color:#fff;font-weight:700;cursor:pointer}
-footer{background:#111827;color:#9ca3af;text-align:center;padding:30px 20px;margin-top:50px}
-footer a{color:#fff;text-decoration:none;margin:0 7px}
-</style></head><body><nav>
-<div class="logo">📚 CreateLK Academy</div>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="index.html#courses">Courses</a></li>
-<li><a href="index.html#membership">Membership</a></li>
-<li><a href="register.html">Register</a></li>
-<li><a href="login.html">Login</a></li>
-</ul>
-</nav><main class="container"><div class="hero">
-<h1>Contact Us</h1>
-<p>We're here to help with your learning and membership questions.</p>
-</div><div class="card">
-<h2>📩 Get in Touch</h2><p class="info">
-If you have a question about your account, membership, payment or courses,
-please contact CreateLK Academy.
-</p><p class="info"><strong>📚 Academy:</strong> CreateLK Academy</p>
-<p class="info"><strong>📧 Email:</strong> gateofheavensl1@gmail.com</p>
-<p class="info"><strong>💬 Support:</strong> WhatsApp support available</p></div><div class="card">
-<h2>Send a Message</h2><form action="#" method="post"><label for="name">Your Name</label>
-<input id="name" name="name" type="text" required>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<label for="email">Email Address</label>
-<input id="email" name="email" type="email" required>
+<title>Contact | CreateLK Academy</title><meta name="description"
+content="Contact CreateLK Academy for support, membership, payment and English learning questions.">
 
-<label for="message">Message</label>
+<style>
 
-<textarea id="message" name="message" required></textarea><button type="submit">Send Message</button>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",Arial,sans-serif
+}
 
-</form><p style="margin-top:15px;color:#68757c;font-size:13px">
-The contact form will be connected to the Academy support system later.
-</p></div></main><footer>
-<p><strong>📚 CreateLK Academy</strong></p>
-<p>Learn English. Practice More. Improve Faster.</p>
-<p style="margin-top:10px">
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-<a href="privacy.html">Privacy</a>
-<a href="terms.html">Terms</a>
-<a href="refund.html">Refund Policy</a>
-</p>
-<p style="margin-top:12px">© 2026 CreateLK Academy | All Rights Reserved</p>
-</footer></body>
-</html>
+body{
+background:#f4f7fc;
+color:#263238;
+line-height:1.6
+}
+
+nav{
+background:#fff;
+padding:16px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 4px 20px rgba(0,0,0,.06)
+}
+
+.logo{
+font-size:22px;
+font-weight:800;
+color:#1565c0
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:22px;
+flex-wrap:wrap
+}
+
+nav a{
+text-decoration:none;
+color:#37474f;
+font-weight:600
+}
+
+nav a:hover{
+color:#1565c0
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:60px 20px
+}
+
+.hero{
+text-align:center;
+margin-bottom:35px
+}
+
+.hero h1{
+font-size:38px;
+color:#1565c0
+}
+
+.hero p{
+color:#68757c;
+margin-top:8px
+}
+
+.card{
+background:#fff;
+padding:30px;
+border-radius:18px;
+box-shadow:0 6px 22px rgba(0,0,0,.06);
+margin-bottom:22px
+}
+
+.card h2{
+color:#1565c0;
+margin-bottom:12px
+}
+
+.info{
+margin:14px 0
+}
+
+.contact-box{
+background:#f8fafc;
+padding:20px;
+border-radius:14px;
+margin-top:18px
+}
+
+.whatsapp{
+display:inline-block;
+margin-top:12px;
+padding:12px 22px;
+border-radius:25px;
+background:#00897b;
+color:#fff;
+text-decoration:none;
+font-weight:700
+}
+
+.whatsapp:hover{
+background:#00695c
+}
+
+label{
+display:block;
+font-weight:600;
+margin:14px 0 6px
+}
+
+input,
+textarea{
+width:100%;
+padding:13px;
+border:1px solid #ccd5dc;
+border-radius:10px;
+font-size:15px
+}
+
+textarea{
+min-height:140px;
+resize:vertical
+}
+
+button{
+margin-top:18px;
+padding:13px 25px;
+border:0;
+border-radius:25px;
+background:#1565c0;
+color:#fff;
+font-weight:700;
+cursor:pointer
+}
+
+footer{
+background:#111827;
+color:#9ca3af;
+text-align:center;
+padding:30px 20px;
+margin-top:50px
+}
+
+footer a{
+color:#fff;
+text-decoration:none;
+margin:0 7px
+}
+
+footer a:hover{
+text-decoration:underline
+}
+
+@media(max-width:700px){
+
+nav{
+flex-direction:column;
+gap:10px
+}
+
+.hero h1{
+font-size:32px
+}
+
+.container{
+padding:40px 15px
+}
+
+.card{
+padding:24px
+}
+
+}
+
+</style></head><body><nav><div class="logo">
+📚 CreateLK Academy
+</div><ul><li>
+<a href="index.html">
+Home
+</a>
+</li><li>
+<a href="index.html#courses">
+Courses
+</a>
+</li><li>
+<a href="index.html#membership">
+Membership
+</a>
+</li><li>
+<a href="about.html">
+About
+</a>
+</li><li>
+<a href="register.html">
+Register
+</a>
+</li><li>
+<a href="login.html">
+Login
+</a>
+</li></ul></nav><main class="container"><div class="hero"><h1>
+Contact Us
+</h1><p>
+We're here to help with your learning and membership questions.
+</p></div><div class="card"><h2>
+📩 Get in Touch
+</h2><p class="info">
+If you have a question about your account,
+membership, payment or courses, please contact
+CreateLK Academy.
+</p><div class="contact-box"><p class="info">
+<strong>📚 Academy:</strong>
+CreateLK Academy
+</p><p class="info">
+<strong>🌐 Website:</strong>
+createlk.com
+</p><p class="info">
+<strong>📧 Email:</strong>
+gateofheavensl1@gmail.com
+</p><p class="info">
+<strong>💬 WhatsApp:</strong>
+077 119 0395
+</p><a
+class="whatsapp"
+href="https://wa.me/94771190395"
+target="_blank"
+rel="noopener noreferrer">
+
+💬 Chat with us on WhatsApp
+
+</a></div></div><div class="card"><h2>
+🕐 Support
+</h2><p class="info">
+For questions about payments, memberships,
+accounts or courses, please contact us using
+WhatsApp or email.
+</p><p class="info">
+We will respond as soon as reasonably possible.
+</p></div><div class="card"><h2>
+📝 Send a Message
+</h2><form
+action="#"
+method="post"
+onsubmit="return showMessage()"><label for="name">
+Your Name
+</label><input
+id="name"
+name="name"
+type="text"
+placeholder="Your name"
+required
+
+«»
+
+<label for="email">
+Email Address
+</label><input
+id="email"
+name="email"
+type="email"
+placeholder="Your email address"
+required
+
+«»
+
+<label for="message">
+Message
+</label><textarea
+id="message"
+name="message"
+placeholder="How can we help you?"
+required>
+</textarea><button type="submit">
+Send Message
+</button></form><p
+id="formMessage"
+style="margin-top:15px;color:#00897b;font-size:13px">
+</p><p
+style="margin-top:15px;color:#68757c;font-size:13px">For immediate support, please use our
+WhatsApp number above.
+
+</p></div><div class="card"><h2>
+💳 Payment & Membership Support
+</h2><p class="info">
+If you have completed a premium membership
+payment and have a problem accessing your
+account, please contact us with the email
+address used for your CreateLK Academy account.
+</p><p class="info">
+Please do not send passwords or other
+confidential login information.
+</p></div></main><footer><p>
+<strong>
+📚 CreateLK Academy
+</strong>
+</p><p>
+Learn English. Practice More. Improve Faster.
+</p><p style="margin-top:10px"><a href="about.html">
+About
+</a><a href="contact.html">
+Contact
+</a><a href="privacy.html">
+Privacy
+</a><a href="terms.html">
+Terms
+</a><a href="refund.html">
+Refund Policy
+</a><a href="membership.html">
+Membership
+</a><a href="payment.html">
+Payment
+</a></p><p style="margin-top:12px">
+© 2026 CreateLK Academy | All Rights Reserved
+</p></footer><script>
+
+function showMessage(){
+
+document.getElementById(
+"formMessage"
+).textContent =
+"Thank you. For immediate support, please contact us on WhatsApp.";
+
+return false;
+
+}
+
+</script></body></html>
