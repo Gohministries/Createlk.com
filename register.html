@@ -485,7 +485,7 @@ Password
 <input
 id="password"
 type="password"
-placeholder="Create a strong password"
+placeholder="Create a password"
 autocomplete="new-password"
 minlength="8"
 required
@@ -609,11 +609,6 @@ CREATE LK ACADEMY — STUDENT REGISTRATION
 ==================================================
 */
 
-/*
-IMPORTANT:
-This is the NEW active Worker URL.
-*/
-
 const API =
 "https://green-mountain-7f08.gateofheavensl1.workers.dev";
 
@@ -706,36 +701,25 @@ return;
 
 }
 
-let score = 0;
-
-if(value.length >= 8)
-score++;
-
-if(value.length >= 12)
-score++;
-
-if(/[A-Z]/.test(value))
-score++;
-
-if(/[a-z]/.test(value))
-score++;
-
-if(/[0-9]/.test(value))
-score++;
-
-if(/[^A-Za-z0-9]/.test(value))
-score++;
-
-if(score <= 2){
+if(value.length < 8){
 
 passwordStrength.textContent =
-"Password strength: Weak";
+"Password strength: Too short";
 
 passwordStrength.style.color =
 "#c62828";
 
 }
-else if(score <= 4){
+else if(value.length < 10){
+
+passwordStrength.textContent =
+"Password strength: Weak";
+
+passwordStrength.style.color =
+"#ef6c00";
+
+}
+else if(value.length < 12){
 
 passwordStrength.textContent =
 "Password strength: Medium";
@@ -813,7 +797,9 @@ confirmPasswordInput.value;
 
 
 /*
+==================================================
 VALIDATION
+==================================================
 */
 
 if(
@@ -826,21 +812,6 @@ if(
 
 message.textContent =
 "Please complete all required fields.";
-
-message.style.color =
-"#c62828";
-
-return;
-
-}
-
-
-if(
-password !== confirmPassword
-){
-
-message.textContent =
-"Passwords do not match.";
 
 message.style.color =
 "#c62828";
@@ -866,14 +837,11 @@ return;
 
 
 if(
-!/[A-Z]/.test(password) ||
-!/[a-z]/.test(password) ||
-!/[0-9]/.test(password) ||
-!/[^A-Za-z0-9]/.test(password)
+password !== confirmPassword
 ){
 
 message.textContent =
-"Please use uppercase, lowercase, numbers and a symbol.";
+"Passwords do not match.";
 
 message.style.color =
 "#c62828";
