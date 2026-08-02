@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
+<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>CreateLK Academy | English MCQ Learning</title>
-
-<meta name="description"
-content="CreateLK Academy - Learn English with 1000 interactive MCQ questions.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CreateLK Academy | English Learning Platform</title><meta name="description"
+content="CreateLK Academy - Learn English with 1,000 interactive MCQ questions across 10 learning categories.">
 
 <style>
 
@@ -54,7 +44,7 @@ white-space:nowrap;
 nav ul{
 display:flex;
 list-style:none;
-gap:28px;
+gap:25px;
 align-items:center;
 }
 
@@ -68,6 +58,13 @@ nav a:hover{
 color:#1565c0;
 }
 
+.login-button{
+background:#1565c0;
+color:#fff !important;
+padding:9px 18px;
+border-radius:22px;
+}
+
 header{
 background:linear-gradient(
 135deg,
@@ -75,7 +72,7 @@ background:linear-gradient(
 #1565c0 50%,
 #00897b
 );
-color:white;
+color:#fff;
 text-align:center;
 padding:85px 20px;
 }
@@ -229,15 +226,11 @@ background:#e3f2fd;
 color:#1565c0;
 }
 
-.locked{
-cursor:pointer;
-}
-
 .access-box{
 max-width:700px;
 margin:0 auto 35px;
 background:#fff;
-padding:25px;
+padding:30px;
 border-radius:18px;
 text-align:center;
 box-shadow:0 6px 20px rgba(0,0,0,.06);
@@ -254,58 +247,37 @@ color:#68757c;
 font-size:14px;
 }
 
-.access-form{
+.access-buttons{
 display:flex;
 justify-content:center;
-gap:8px;
-margin-top:18px;
+gap:12px;
+margin-top:20px;
 flex-wrap:wrap;
 }
 
-.access-form input{
-padding:12px 15px;
-border:1px solid #ccd5dc;
+.access-buttons a{
+padding:12px 23px;
 border-radius:25px;
-width:280px;
-font-size:15px;
-}
-
-.access-form button{
-padding:12px 22px;
-border:0;
-border-radius:25px;
-background:#1565c0;
-color:white;
+text-decoration:none;
 font-weight:700;
-cursor:pointer;
 }
 
-.access-form button:hover{
-background:#0d47a1;
+.register-btn{
+background:#1565c0;
+color:#fff;
 }
 
-#accessMessage{
-margin-top:15px;
-font-weight:600;
-}
-
-.unlock{
-border:2px solid #00897b;
-}
-
-.unlock:before{
-background:#00897b;
-}
-
-.unlock .card-icon{
-color:#00897b;
+.login-btn{
+border:1px solid #1565c0;
+color:#1565c0;
+background:#fff;
 }
 
 .lock-box{
 margin:45px auto 0;
 max-width:700px;
 background:#fff;
-padding:25px;
+padding:28px;
 border-radius:18px;
 text-align:center;
 box-shadow:0 6px 20px rgba(0,0,0,.06);
@@ -423,7 +395,7 @@ gap:10px;
 }
 
 nav ul{
-gap:18px;
+gap:14px;
 flex-wrap:wrap;
 justify-content:center;
 }
@@ -458,814 +430,244 @@ font-size:30px;
 
 }
 
-</style>
-
-</head>
-
-<body>
-
-<nav>
-
-<div class="logo">
+</style></head><body><nav><div class="logo">
 📚 CreateLK Academy
-</div>
-
-<ul>
-
-<li>
-<a href="index.html">
-Home
-</a>
-</li>
-
-<li>
-<a href="#courses">
-Courses
-</a>
-</li>
-
-<li>
-<a href="#membership">
-Membership
-</a>
-</li>
-
-<li>
-<a href="contact.html">
-Contact
-</a>
-</li>
-
-</ul>
-
-</nav>
-
-<header>
-
-<div class="hero-content">
-
-<div class="badge">
+</div><ul><li>
+<a href="index.html">Home</a>
+</li><li>
+<a href="#courses">Courses</a>
+</li><li>
+<a href="#membership">Membership</a>
+</li><li>
+<a href="contact.html">Contact</a>
+</li><li>
+<a href="login.html" class="login-button">Login</a>
+</li></ul></nav><header><div class="hero-content"><div class="badge">
 🎓 English Learning Platform
-</div>
-
-<h1>
+</div><h1>
 Master English With Confidence
-</h1>
-
-<p>
+</h1><p>
 Practice English with 1,000 carefully
 prepared MCQ questions across 10
 different learning categories.
-</p>
-
-<div class="hero-buttons">
-
-<a
+</p><div class="hero-buttons"><a
 href="#courses"
 class="hero-button primary">
 Explore Courses
 </a>
 
 <a
-href="payment.html"
+href="register.html"
 class="hero-button secondary">
-Get Premium Access
+Create Account
 </a>
 
-</div>
-
-</div>
-
-</header>
-
-<main class="container">
-
-<section id="courses">
-
-<div class="section-title">
-
-<h2>
+</div></div></header><main class="container"><section id="courses"><div class="section-title"><h2>
 📚 1,000 English MCQ Questions
-</h2>
-
-<p>
+</h2><p>
 10 courses × 100 questions each
-</p>
-
-</div>
-
-<!-- PREMIUM ACCESS LOGIN -->
-
-<div class="access-box">
-
-<h3>
-🔐 Check Your Premium Access
-</h3>
-
-<p>
-Enter the email address you used when making your payment.
-</p>
-
-<div class="access-form">
-
-<input
-id="studentEmail"
-type="email"
-placeholder="Your payment email"
-autocomplete="email"
->
-
-<button
-id="checkAccessBtn"
-onclick="checkPremiumAccess()">
-Check Access
-</button>
-
-</div>
-
-<div id="accessMessage"></div>
-
-</div>
-
-<div class="grid">
-
-<!-- FREE -->
+</p></div><div class="access-box"><h3>
+🔐 Student Access
+</h3><p>
+Create an account or log in to check your
+membership and access your courses.
+</p><div class="access-buttons"><a
+href="register.html"
+class="register-btn">
+Create Account
+</a>
 
 <a
+href="login.html"
+class="login-btn">
+Student Login
+</a>
+
+</div></div><div class="grid"><!-- FREE --><a
 class="card free-card"
 href="beginner-english/index.html">
 
 <div class="card-icon">
 🌱
-</div>
-
-<h3>
+</div><h3>
 Beginner English
-</h3>
-
-<p>
+</h3><p>
 Build your English foundation with
 100 interactive MCQ questions.
-</p>
-
-<span class="tag free-tag">
+</p><span class="tag free-tag">
 ✓ FREE • 100 MCQs
-</span>
-
-</a>
-
-
-<!-- PREMIUM 1 -->
-
-<a
-class="card premium-card"
-data-course="grammar"
-href="payment.html">
+</span></a><!-- PREMIUM --><a
+class="card"
+href="login.html">
 
 <div class="card-icon">
 🔒
-</div>
-
-<h3>
+</div><h3>
 Grammar
-</h3>
-
-<p>
+</h3><p>
 100 MCQ questions covering
 essential English grammar.
-</p>
-
-<span class="tag premium-tag">
+</p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
-</span>
-
-</a>
-
-
-<!-- PREMIUM 2 -->
-
-<a
-class="card premium-card"
-data-course="vocabulary"
-href="payment.html">
+</span></a><a
+class="card"
+href="login.html">
 
 <div class="card-icon">
 🔒
-</div>
-
-<h3>
+</div><h3>
 Vocabulary
-</h3>
-
-<p>
+</h3><p>
 Expand your vocabulary with
 100 carefully selected questions.
-</p>
-
-<span class="tag premium-tag">
+</p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
-</span>
-
-</a>
-
-
-<!-- PREMIUM 3 -->
-
-<a
-class="card premium-card"
-data-course="speaking"
-href="payment.html">
+</span></a><a
+class="card"
+href="login.html">
 
 <div class="card-icon">
 🔒
-</div>
-
-<h3>
+</div><h3>
 Speaking
-</h3>
-
-<p>
+</h3><p>
 Practice practical English
 speaking skills with 100 MCQs.
-</p>
-
-<span class="tag premium-tag">
+</p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
-</span>
-
-</a>
-
-
-<!-- PREMIUM 4 -->
-
-<a
-class="card premium-card"
-data-course="pronunciation"
-href="payment.html">
+</span></a><a
+class="card"
+href="login.html">
 
 <div class="card-icon">
 🔒
-</div>
-
-<h3>
+</div><h3>
 Pronunciation
-</h3>
-
-<p>
+</h3><p>
 Learn pronunciation concepts
-through 100 MCQ questions.
-</p>
-
-<span class="tag premium-tag">
+through 100 MCQs.
+</p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
-</span>
-
-</a>
-
-
-<!-- PREMIUM 5 -->
-
-<a
-class="card premium-card"
-data-course="conversation"
-href="payment.html">
+</span></a><a
+class="card"
+href="login.html">
 
 <div class="card-icon">
 🔒
-</div>
-
-<h3>
+</div><h3>
 Conversation
-</h3>
-
-<p>
+</h3><p>
 Practice everyday English
 conversation with 100 MCQs.
-</p>
-
-<span class="tag premium-tag">
+</p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
-</span>
-
-</a>
-
-
-<!-- PREMIUM 6 -->
-
-<a
-class="card premium-card"
-data-course="writing"
-href="payment.html">
+</span></a><a
+class="card"
+href="login.html">
 
 <div class="card-icon">
 🔒
-</div>
-
-<h3>
+</div><h3>
 Writing
-</h3>
-
-<p>
+</h3><p>
 Improve sentence construction
 with 100 writing MCQs.
-</p>
-
-<span class="tag premium-tag">
+</p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
-</span>
-
-</a>
-
-
-<!-- PREMIUM 7 -->
-
-<a
-class="card premium-card"
-data-course="listening"
-href="payment.html">
+</span></a><a
+class="card"
+href="login.html">
 
 <div class="card-icon">
 🔒
-</div>
-
-<h3>
+</div><h3>
 Listening
-</h3>
-
-<p>
+</h3><p>
 Improve English listening and
 comprehension with 100 MCQs.
-</p>
-
-<span class="tag premium-tag">
+</p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
-</span>
-
-</a>
-
-
-<!-- PREMIUM 8 -->
-
-<a
-class="card premium-card"
-data-course="business"
-href="payment.html">
+</span></a><a
+class="card"
+href="login.html">
 
 <div class="card-icon">
 🔒
-</div>
-
-<h3>
+</div><h3>
 Business English
-</h3>
-
-<p>
+</h3><p>
 Learn professional English with
-100 workplace MCQ questions.
-</p>
-
-<span class="tag premium-tag">
+100 workplace MCQs.
+</p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
-</span>
-
-</a>
-
-
-<!-- PREMIUM 9 -->
-
-<a
-class="card premium-card"
-data-course="advanced"
-href="payment.html">
+</span></a><a
+class="card"
+href="login.html">
 
 <div class="card-icon">
 🔒
-</div>
-
-<h3>
+</div><h3>
 Advanced English
-</h3>
-
-<p>
+</h3><p>
 Challenge yourself with
 100 advanced English MCQs.
-</p>
-
-<span class="tag premium-tag">
+</p><span class="tag premium-tag">
 🔒 PREMIUM • 100 MCQs
-</span>
-
-</a>
-
-</div>
-
-
-<div class="lock-box" id="lockBox">
-
-<h3>
-🔐 Premium Courses Are Protected
-</h3>
-
-<p>
-Enter your payment email above.
-After your payment is approved,
-all 9 premium courses will unlock
-for the active 30-day membership.
-</p>
-
-<a href="payment.html">
-Apply for Premium Membership
-</a>
-
-</div>
-
-</section>
-
-
-<section>
-
-<div class="features">
-
-<div class="feature">
-
-<div class="feature-icon">
+</span></a></div><div class="lock-box"><h3>
+🔐 Premium Courses
+</h3><p>
+Premium courses are available to active
+members. Create an account, complete
+your membership payment, and sign in
+to access the premium learning area.
+</p><a href="register.html">
+Get Premium Access
+</a></div></section><section><div class="features"><div class="feature"><div class="feature-icon">
 🎯
-</div>
-
-<h3>
+</div><h3>
 Practice
-</h3>
-
-<p>
+</h3><p>
 Practice with focused English MCQ questions.
-</p>
-
-</div>
-
-<div class="feature">
-
-<div class="feature-icon">
+</p></div><div class="feature"><div class="feature-icon">
 📚
-</div>
-
-<h3>
+</div><h3>
 1,000 MCQs
-</h3>
-
-<p>
+</h3><p>
 10 learning categories with 100 questions each.
-</p>
-
-</div>
-
-<div class="feature">
-
-<div class="feature-icon">
+</p></div><div class="feature"><div class="feature-icon">
 📈
-</div>
-
-<h3>
+</div><h3>
 Improve
-</h3>
-
-<p>
+</h3><p>
 Build your English skills step by step.
-</p>
-
-</div>
-
-<div class="feature">
-
-<div class="feature-icon">
+</p></div><div class="feature"><div class="feature-icon">
 📱
-</div>
-
-<h3>
+</div><h3>
 Learn Anywhere
-</h3>
-
-<p>
+</h3><p>
 Practice comfortably on phone or computer.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section
+</p></div></div></section><section
 id="membership"
-class="subscription">
-
-<h2>
+class="subscription"><h2>
 ⭐ Premium Membership
-</h2>
-
-<h1>
+</h2><h1>
 LKR 1,500 / 30 Days
-</h1>
-
-<p>
+</h1><p>
 Get access to all 9 premium courses,
 including 900 premium MCQ questions.
-Your membership becomes active after
-administrator approval of your payment.
-</p>
-
-<a href="payment.html">
-Apply for Premium →
-</a>
-
-</section>
-
-</main>
-
-
-<footer>
-
-<p>
+Membership access is activated after
+successful payment verification.
+</p><a href="register.html">
+Join Premium →
+</a></section></main><footer><p>
 <strong>
 📚 CreateLK Academy
 </strong>
-</p>
-
-<p>
+</p><p>
 Learn English. Practice More. Improve Faster.
-</p>
-
-<p>
+</p><p>
 1,000 MCQs • 10 Courses • Premium Learning
-</p>
-
-<p>
+</p><p>
 © 2026 CreateLK Academy |
 All Rights Reserved
-</p>
-
-</footer>
-
-
-<script>
-
-const ADMIN_API =
-"https://admin3.gateofheavensl1.workers.dev";
-
-
-async function checkPremiumAccess(){
-
-const email =
-document
-.getElementById("studentEmail")
-.value
-.trim()
-.toLowerCase();
-
-const message =
-document
-.getElementById("accessMessage");
-
-const button =
-document
-.getElementById("checkAccessBtn");
-
-if(!email){
-
-message.textContent =
-"Please enter your payment email.";
-
-message.style.color =
-"#c62828";
-
-return;
-}
-
-button.disabled = true;
-
-button.textContent =
-"Checking...";
-
-message.textContent =
-"Checking your membership...";
-
-message.style.color =
-"#1565c0";
-
-try{
-
-const response =
-await fetch(
-ADMIN_API +
-"/api/access?email=" +
-encodeURIComponent(email)
-);
-
-const data =
-await response.json();
-
-if(
-data.success &&
-data.active === true
-){
-
-unlockPremiumCourses(
-data.expires_at
-);
-
-message.textContent =
-"✅ Premium access is active until " +
-formatDate(data.expires_at);
-
-message.style.color =
-"#00897b";
-
-}else{
-
-lockPremiumCourses();
-
-message.textContent =
-data.message ||
-"Premium access is not active. Please wait for payment approval.";
-
-message.style.color =
-"#c62828";
-
-}
-
-}catch(error){
-
-message.textContent =
-"Unable to check membership right now.";
-
-message.style.color =
-"#c62828";
-
-}
-
-button.disabled = false;
-
-button.textContent =
-"Check Access";
-
-}
-
-
-function unlockPremiumCourses(expiresAt){
-
-const courses =
-document.querySelectorAll(
-".premium-card"
-);
-
-courses.forEach(card=>{
-
-card.classList.add("unlock");
-
-const course =
-card.dataset.course;
-
-card.href =
-getCourseUrl(course);
-
-const icon =
-card.querySelector(".card-icon");
-
-if(icon){
-icon.textContent = "🔓";
-}
-
-const tag =
-card.querySelector(".premium-tag");
-
-if(tag){
-tag.textContent =
-"✓ PREMIUM • UNLOCKED";
-}
-
-});
-
-const lockBox =
-document.getElementById(
-"lockBox"
-);
-
-lockBox.innerHTML = `
-
-<h3>
-🎉 Premium Access Unlocked!
-</h3>
-
-<p>
-All 9 premium courses are now available.
-Your membership is active until
-<strong>${formatDate(expiresAt)}</strong>.
-</p>
-
-`;
-
-}
-
-
-function lockPremiumCourses(){
-
-const courses =
-document.querySelectorAll(
-".premium-card"
-);
-
-courses.forEach(card=>{
-
-card.classList.remove("unlock");
-
-card.href =
-"payment.html";
-
-const icon =
-card.querySelector(".card-icon");
-
-if(icon){
-icon.textContent = "🔒";
-}
-
-const tag =
-card.querySelector(".premium-tag");
-
-if(tag){
-tag.textContent =
-"🔒 PREMIUM • 100 MCQs";
-}
-
-});
-
-}
-
-
-function getCourseUrl(course){
-
-const urls = {
-
-grammar:
-"grammar/index.html",
-
-vocabulary:
-"vocabulary/index.html",
-
-speaking:
-"speaking/index.html",
-
-pronunciation:
-"pronunciation/index.html",
-
-conversation:
-"conversation/index.html",
-
-writing:
-"writing/index.html",
-
-listening:
-"listening/index.html",
-
-business:
-"business-english/index.html",
-
-advanced:
-"advanced-english/index.html"
-
-};
-
-return urls[course] ||
-"payment.html";
-
-}
-
-
-function formatDate(value){
-
-if(!value){
-return "";
-}
-
-const date =
-new Date(value);
-
-if(isNaN(date.getTime())){
-return value;
-}
-
-return date.toLocaleDateString(
-undefined,
-{
-year:"numeric",
-month:"long",
-day:"numeric"
-}
-);
-
-}
-
-</script>
-
-</body>
-
-</html>
+</p></footer></body></html>
