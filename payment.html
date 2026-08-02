@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>CreateLK Academy | Premium Membership</title>
-
-<meta name="description"
-      content="CreateLK Academy Premium Membership - LKR 1,500 for 30 days.">
 
 <style>
 
@@ -104,7 +98,6 @@ input{
 
 input:focus{
     border-color:#1769ff;
-    box-shadow:0 0 0 3px rgba(23,105,255,.10);
 }
 
 button{
@@ -117,10 +110,6 @@ button{
     font-size:17px;
     font-weight:700;
     cursor:pointer;
-}
-
-button:hover{
-    background:#0d55d9;
 }
 
 button:disabled{
@@ -141,12 +130,6 @@ button:disabled{
     background:#fff0f0;
     color:#c62828;
     border:1px solid #ffcaca;
-}
-
-.success{
-    background:#effaf2;
-    color:#218838;
-    border:1px solid #c8efd0;
 }
 
 .loading{
@@ -189,12 +172,9 @@ button:disabled{
         ⭐ Premium Membership
     </div>
 
-
     <div class="plan">
 
-        <h2>
-            CreateLK Academy Premium
-        </h2>
+        <h2>CreateLK Academy Premium</h2>
 
         <div class="price">
             LKR 1,500
@@ -206,133 +186,72 @@ button:disabled{
 
     </div>
 
-
-    <div id="message"
-         class="message">
-    </div>
-
+    <div id="message" class="message"></div>
 
     <form id="paymentForm">
 
-
         <div class="input-group">
-
-            <label for="first_name">
-                First Name
-            </label>
-
+            <label>First Name</label>
             <input
-                type="text"
                 id="first_name"
-                name="first_name"
-                placeholder="Enter your first name"
-                required
-            >
-
-        </div>
-
-
-        <div class="input-group">
-
-            <label for="last_name">
-                Last Name
-            </label>
-
-            <input
                 type="text"
+                required
+                placeholder="Enter your first name">
+        </div>
+
+        <div class="input-group">
+            <label>Last Name</label>
+            <input
                 id="last_name"
-                name="last_name"
-                placeholder="Enter your last name"
+                type="text"
                 required
-            >
-
+                placeholder="Enter your last name">
         </div>
 
-
         <div class="input-group">
-
-            <label for="email">
-                Registered Email
-            </label>
-
+            <label>Registered Email</label>
             <input
-                type="email"
                 id="email"
-                name="email"
-                placeholder="Enter your registered email"
+                type="email"
                 required
-            >
-
+                placeholder="Enter your registered email">
         </div>
-
 
         <div class="input-group">
-
-            <label for="phone">
-                Phone Number
-            </label>
-
+            <label>Phone Number</label>
             <input
-                type="tel"
                 id="phone"
-                name="phone"
-                placeholder="07XXXXXXXX"
+                type="tel"
                 required
-            >
-
+                placeholder="07XXXXXXXX">
         </div>
 
-
-        <button
-            type="submit"
-            id="payButton">
-
+        <button id="payButton" type="submit">
             Continue to PayHere
-
         </button>
 
     </form>
 
-
-    <div id="loading"
-         class="loading">
-
+    <div id="loading" class="loading">
         Connecting to secure payment...
-
     </div>
-
 
     <div class="secure">
-
         🔒 Secure payment powered by PayHere
-
     </div>
-
 
     <div class="footer">
-
         © 2026 CreateLK Academy
-
     </div>
 
 </div>
 
 </div>
-
 
 <script>
 
-/* ==========================================
-   YOUR CURRENT CLOUDFLARE WORKER
-========================================== */
-
 const API_URL =
 "https://polished-wood-2146.gateofheavensl1.workers.dev";
-
-
-/* ==========================================
-   ELEMENTS
-========================================== */
 
 const form =
 document.getElementById("paymentForm");
@@ -347,246 +266,150 @@ const loading =
 document.getElementById("loading");
 
 
-/* ==========================================
-   SHOW ERROR
-========================================== */
-
 function showError(text){
 
-    message.textContent =
-        text;
+    message.textContent = text;
 
-    message.className =
-        "message error";
+    message.className = "message error";
 
-    message.style.display =
-        "block";
+    message.style.display = "block";
 }
 
 
-/* ==========================================
-   FORM SUBMIT
-========================================== */
+form.addEventListener("submit", async function(e){
 
-form.addEventListener(
-    "submit",
-    async function(event){
+    e.preventDefault();
 
-        event.preventDefault();
+    message.style.display = "none";
 
+    button.disabled = true;
 
-        message.style.display =
-            "none";
+    button.textContent = "Connecting...";
 
-        button.disabled =
-            true;
+    loading.style.display = "block";
 
-        button.textContent =
-            "Connecting...";
+    const first_name =
+        document.getElementById("first_name").value.trim();
 
-        loading.style.display =
-            "block";
+    const last_name =
+        document.getElementById("last_name").value.trim();
 
+    const email =
+        document.getElementById("email").value.trim().toLowerCase();
 
-        /* ==============================
-           GET FORM DATA
-        ============================== */
+    const phone =
+        document.getElementById("phone").value.trim();
 
-        const firstName =
-            document
-            .getElementById("first_name")
-            .value
-            .trim();
+    try{
 
-        const lastName =
-            document
-            .getElementById("last_name")
-            .value
-            .trim();
+        const response = await fetch(
+            API_URL + "/create-payment",
+            {
+                method:"POST",
 
-        const email =
-            document
-            .getElementById("email")
-            .value
-            .trim()
-            .toLowerCase();
+                headers:{
+                    "Content-Type":"application/json"
+                },
 
-        const phone =
-            document
-            .getElementById("phone")
-            .value
-            .trim();
-
-
-        try{
-
-            /* ==============================
-               SEND REQUEST TO WORKER
-            ============================== */
-
-            const response =
-                await fetch(
-                    API_URL +
-                    "/create-payment",
-                    {
-                        method:"POST",
-
-                        headers:{
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body:JSON.stringify({
-
-                            first_name:
-                                firstName,
-
-                            last_name:
-                                lastName,
-
-                            email:
-                                email,
-
-                            phone:
-                                phone
-
-                        })
-                    }
-                );
-
-
-            /* ==============================
-               READ RESPONSE
-            ============================== */
-
-            const data =
-                await response.json();
-
-
-            /* ==============================
-               WORKER ERROR
-            ============================== */
-
-            if(
-                !response.ok ||
-                !data.success
-            ){
-
-                throw new Error(
-                    data.message ||
-                    "Payment request failed."
-                );
-
+                body:JSON.stringify({
+                    first_name,
+                    last_name,
+                    email,
+                    phone
+                })
             }
+        );
 
+        const data = await response.json();
 
-            /* ==============================
-               CHECK PAYMENT DATA
-            ============================== */
+        if(!response.ok || !data.success){
 
-            if(
-                !data.gateway ||
-                !data.payment
-            ){
-
-                throw new Error(
-                    "Payment information was not returned by the server."
-                );
-
-            }
-
-
-            /* ==============================
-               CREATE PAYHERE FORM
-            ============================== */
-
-            const payhereForm =
-                document.createElement("form");
-
-            payhereForm.method =
-                "POST";
-
-            payhereForm.action =
-                data.gateway;
-
-            payhereForm.style.display =
-                "none";
-
-
-            /* ==============================
-               ADD PAYHERE PARAMETERS
-            ============================== */
-
-            Object.keys(
-                data.payment
-            ).forEach(function(key){
-
-                const input =
-                    document.createElement("input");
-
-                input.type =
-                    "hidden";
-
-                input.name =
-                    key;
-
-                input.value =
-                    data.payment[key];
-
-                payhereForm.appendChild(
-                    input
-                );
-
-            });
-
-
-            document.body.appendChild(
-                payhereForm
+            throw new Error(
+                data.message ||
+                "Unable to create payment."
             );
-
-
-            /* ==============================
-               REDIRECT TO PAYHERE
-            ============================== */
-
-            loading.textContent =
-                "Redirecting to PayHere...";
-
-            payhereForm.submit();
-
         }
 
-        catch(error){
+        if(!data.gateway || !data.payment){
 
-            console.error(
-                "PAYMENT ERROR:",
-                error
+            throw new Error(
+                "PayHere payment data is missing."
             );
-
-
-            loading.style.display =
-                "none";
-
-
-            button.disabled =
-                false;
-
-            button.textContent =
-                "Continue to PayHere";
-
-
-            showError(
-                error.message ||
-                "Failed to connect to payment server."
-            );
-
         }
+
+        /*
+        ======================================
+        CREATE PAYHERE FORM
+        ======================================
+        */
+
+        const payhereForm =
+            document.createElement("form");
+
+        payhereForm.method = "POST";
+
+        payhereForm.action = data.gateway;
+
+        payhereForm.style.display = "none";
+
+
+        /*
+        ======================================
+        ADD PAYMENT FIELDS
+        ======================================
+        */
+
+        for(const key in data.payment){
+
+            const input =
+                document.createElement("input");
+
+            input.type = "hidden";
+
+            input.name = key;
+
+            input.value = String(
+                data.payment[key]
+            );
+
+            payhereForm.appendChild(input);
+        }
+
+
+        document.body.appendChild(
+            payhereForm
+        );
+
+
+        loading.textContent =
+            "Redirecting to PayHere...";
+
+
+        payhereForm.submit();
 
     }
-);
+
+    catch(error){
+
+        console.error(error);
+
+        loading.style.display = "none";
+
+        button.disabled = false;
+
+        button.textContent =
+            "Continue to PayHere";
+
+        showError(
+            error.message ||
+            "Payment connection failed."
+        );
+
+    }
+
+});
 
 </script>
 
 </body>
-
 </html>
