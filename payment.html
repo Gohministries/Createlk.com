@@ -711,14 +711,12 @@ message.style.color =
 try{
 
 
-/*
-==================================================
-NEW CLOUDFLARE WORKER
-==================================================
-*/
+//========================================
+// NEW CLOUDFLARE WORKER
+//========================================
 
 const PAYMENT_API =
-"https://tiny-sound-4907.gateofheavensl1.workers.dev/create-payment";
+"https://fragrant-violet-042a.gateofheavensl1.workers.dev/create-payment";
 
 
 const response =
@@ -770,12 +768,6 @@ response.status
 const data =
 await response.json();
 
-
-/*
-==================================================
-PAYMENT RESPONSE
-==================================================
-*/
 
 if(
 data.success &&
