@@ -1,509 +1,320 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>CreateLK Academy | Premium Payment</title><style>
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"><title>CreateLK Academy | Premium Payment</title><style>
 
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
     font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
     min-height:100vh;
-
-    background:
-    linear-gradient(
-        135deg,
-        #eef4ff,
-        #ffffff
-    );
-
-    padding:20px;
-}
-
-.container{
-    width:100%;
-    max-width:500px;
-    margin:auto;
+    background:linear-gradient(135deg,#eef4ff,#ffffff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:12px;
 }
 
 .card{
-    background:#ffffff;
-
-    padding:28px;
-
-    border-radius:20px;
-
-    box-shadow:
-    0 10px 35px
-    rgba(0,0,0,.10);
+    width:100%;
+    max-width:430px;
+    background:#fff;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 8px 30px rgba(0,0,0,.10);
 }
 
 .logo{
     text-align:center;
-
     color:#174ea6;
-
-    font-size:25px;
-
+    font-size:22px;
     font-weight:800;
-
-    margin-bottom:8px;
+    margin-bottom:4px;
 }
 
 .title{
     text-align:center;
-
-    font-size:22px;
-
+    font-size:20px;
     font-weight:800;
-
-    margin-bottom:22px;
+    margin-bottom:12px;
 }
 
 .student{
-    background:#f4f7fb;
-
-    border-radius:12px;
-
-    padding:15px;
-
-    margin-bottom:18px;
-
-    line-height:1.7;
+    background:#f3f7ff;
+    padding:10px;
+    border-radius:10px;
+    margin-bottom:12px;
+    text-align:center;
+    font-size:14px;
 }
 
 .price{
     text-align:center;
-
-    background:#174ea6;
-
-    color:#ffffff;
-
-    border-radius:14px;
-
-    padding:18px;
-
-    margin-bottom:20px;
+    font-size:27px;
+    font-weight:800;
+    color:#174ea6;
 }
 
-.price strong{
-    display:block;
-
-    font-size:28px;
-
-    margin-top:5px;
-}
-
-.bank{
-    background:#fff8e6;
-
-    border:1px solid #f1d98b;
-
-    border-radius:14px;
-
-    padding:18px;
-
-    margin-bottom:20px;
-}
-
-.bank h3{
+.duration{
+    text-align:center;
+    color:#666;
+    font-size:13px;
     margin-bottom:12px;
 }
 
-.bank p{
-    margin:8px 0;
+.bank{
+    background:#f8fafc;
+    border:1px solid #e1e6ed;
+    border-radius:12px;
+    padding:11px;
+    margin-bottom:12px;
+    font-size:13px;
+    line-height:1.55;
+}
 
-    line-height:1.5;
+.bank-title{
+    font-weight:800;
+    font-size:15px;
+    margin-bottom:4px;
+}
+
+.bank b{
+    color:#222;
+}
+
+.field{
+    margin-bottom:10px;
 }
 
 label{
     display:block;
-
     font-weight:700;
-
-    margin:
-    15px 0 7px;
+    font-size:13px;
+    margin-bottom:5px;
 }
 
-input[type="text"],
-input[type="file"]{
-
-    display:block;
-
+input[type="text"]{
     width:100%;
-
-    padding:13px;
-
-    border:
-    1px solid #d5d9e0;
-
-    border-radius:10px;
-
-    font-size:15px;
-
-    background:#ffffff;
-}
-
-input:focus{
-
+    padding:11px;
+    border:1px solid #ccd3dd;
+    border-radius:9px;
+    font-size:14px;
     outline:none;
+}
 
+input[type="text"]:focus{
     border-color:#174ea6;
-
-    box-shadow:
-    0 0 0 3px
-    rgba(23,78,166,.10);
 }
 
+.file-box{
+    border:2px dashed #c8d2e2;
+    border-radius:10px;
+    padding:10px;
+    text-align:center;
+    background:#fafcff;
+}
 
-/* =========================
-   SUBMIT BUTTON
-========================= */
-
-.submit-button{
-
-    display:block !important;
-
+input[type="file"]{
     width:100%;
+    font-size:13px;
+}
 
-    min-height:52px;
+.file-name{
+    margin-top:5px;
+    font-size:12px;
+    color:#555;
+    word-break:break-word;
+}
 
-    margin-top:22px;
-
-    padding:15px 18px;
-
-    border:none;
-
-    border-radius:12px;
-
+.submit{
+    width:100%;
+    border:0;
+    border-radius:10px;
+    padding:12px;
     background:#174ea6;
-
-    color:#ffffff;
-
-    font-size:16px;
-
-    font-weight:700;
-
+    color:#fff;
+    font-size:15px;
+    font-weight:800;
     cursor:pointer;
-
-    position:relative;
-
-    z-index:10;
-
-    visibility:visible !important;
-
-    opacity:1;
-
+    margin-top:5px;
 }
 
-.submit-button:hover{
-
-    background:#123d84;
-
-}
-
-.submit-button:disabled{
-
-    opacity:.6;
-
+.submit:disabled{
+    opacity:.65;
     cursor:not-allowed;
-
 }
-
-
-/* =========================
-   MESSAGE
-========================= */
 
 .message{
-
     display:none;
-
-    margin-top:18px;
-
-    padding:14px;
-
-    border-radius:10px;
-
+    padding:9px;
+    border-radius:8px;
+    margin-bottom:9px;
     text-align:center;
-
-    line-height:1.5;
-
-    font-size:14px;
-
+    font-size:13px;
 }
 
-.message.success{
-
+.success{
     display:block;
-
     background:#e8f7ed;
-
     color:#176b35;
-
 }
 
-.message.error{
-
+.error{
     display:block;
-
     background:#fdeaea;
-
     color:#a32121;
-
 }
-
-
-/* =========================
-   BACK BUTTON
-========================= */
 
 .back{
-
     display:block;
-
     text-align:center;
-
-    margin-top:20px;
-
-    padding-bottom:60px;
-
+    margin-top:10px;
     color:#174ea6;
-
     text-decoration:none;
-
+    font-size:13px;
     font-weight:600;
-
 }
 
-
-/* =========================
-   WHATSAPP CHAT
-========================= */
-
-.whatsapp-chat{
-
+.whatsapp{
     position:fixed;
+    right:16px;
+    bottom:16px;
 
-    right:18px;
+    width:54px;
+    height:54px;
 
-    bottom:18px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:7px;
-
-    padding:12px 18px;
+    border-radius:50%;
 
     background:#25D366;
+    color:white;
 
-    color:#ffffff;
-
-    border-radius:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
     text-decoration:none;
 
-    font-size:15px;
+    font-size:28px;
 
-    font-weight:700;
+    box-shadow:0 5px 18px rgba(0,0,0,.25);
 
-    box-shadow:
-    0 5px 18px
-    rgba(0,0,0,.25);
-
-    z-index:99999;
-
-    transition:
-    transform .2s ease;
-
+    z-index:9999;
 }
 
-.whatsapp-chat:hover{
+</style></head><body><div class="card"><div class="logo">
+    📚 CreateLK Academy
+</div>
 
-    transform:scale(1.05);
+<div class="title">
+    ⭐ Premium Membership
+</div>
 
-}
+<div class="student">
+    <b>👤 <span id="studentName">Student</span></b><br>
+    <span id="studentEmail"></span>
+</div>
 
-.whatsapp-icon{
+<div class="price">
+    LKR 1,500
+</div>
 
-    font-size:22px;
+<div class="duration">
+    30 Days Premium Access
+</div>
 
-    line-height:1;
+<div id="message" class="message"></div>
 
-}
+<div class="bank">
 
+    <div class="bank-title">
+        🏦 Bank Deposit Details
+    </div>
 
-@media(max-width:600px){
+    <b>Bank:</b> People's Bank<br>
+    <b>Branch:</b> Udapussellawa<br>
+    <b>Account No:</b> 292200280023178<br>
+    <b>Account Name:</b> Thinarathnam Saththiyanadan
 
-    body{
+</div>
 
-        padding:14px;
+<form id="paymentForm">
 
-    }
+    <div class="field">
 
-    .card{
+        <label for="reference">
+            Payment Reference
+        </label>
 
-        padding:22px 18px;
+        <input
+            type="text"
+            id="reference"
+            placeholder="Enter bank deposit reference"
+            required>
 
-    }
+    </div>
 
-    .whatsapp-chat{
+    <div class="field">
 
-        right:14px;
+        <label for="receipt">
+            Upload Payment Receipt
+        </label>
 
-        bottom:14px;
+        <div class="file-box">
 
-        padding:11px 16px;
+            <input
+                type="file"
+                id="receipt"
+                accept="image/jpeg,image/png,image/webp,application/pdf"
+                required>
 
-    }
+            <div
+                id="fileName"
+                class="file-name">
+                No receipt selected
+            </div>
 
-}
+        </div>
 
-</style></head><body><div class="container"><div class="card"><!-- =========================
-     LOGO
-========================= --><div class="logo">📚 CreateLK Academy
+    </div>
 
-</div><!-- =========================
-     TITLE
-========================= --><div class="title">⭐ Premium Membership
+    <button
+        type="submit"
+        id="submitButton"
+        class="submit">
 
-</div><!-- =========================
-     STUDENT
-========================= --><div class="student">👤
+        Submit Payment for Approval
 
-<strong id="studentName">
-Student
-</strong><br><span id="studentEmail">
-</span></div><!-- =========================
-     PRICE
-========================= --><div class="price">LKR 1,500
+    </button>
 
-<strong>
-30 Days Premium Access
-</strong></div><!-- =========================
-     BANK DETAILS
-========================= --><div class="bank"><h3>
-🏦 Bank Deposit Details
-</h3><p><strong>
-Bank:
-</strong>People's Bank
+</form>
 
-</p><p><strong>
-Branch:
-</strong>Udapussellawa
+<a
+    href="dashboard.html"
+    class="back">
 
-</p><p><strong>
-Account No:
-</strong>292200280023178
+    ← Back to Dashboard
 
-</p><p><strong>
-Account Name:
-</strong>Thinarathnam Saththiyanadan
+</a>
 
-</p></div><!-- =========================
-     PAYMENT FORM
-========================= --><form
-id="paymentForm"
-enctype="multipart/form-data"
-><label for="reference">Payment Reference
-
-</label><input
-
-type="text"
-
-id="reference"
-
-placeholder=
-"Enter bank transaction/reference number"
-
-autocomplete="off"
-
-required
-
-«»
-
-<label for="receipt">Upload Payment Receipt
-
-</label><input
-
-type="file"
-
-id="receipt"
-
-accept=
-"image/jpeg,image/png,image/webp,application/pdf"
-
-required
-
-«»
-
-<!-- =========================
-     SUBMIT
-========================= --><button
-
-type="submit"
-
-class="submit-button"
-
-id="submitButton"
-
-«»
-
-💳 Submit Payment for Approval
-
-</button></form><!-- =========================
-     MESSAGE
-========================= --><divid="message"
-
-class="message"
-
-«»
-
-</div><!-- =========================
-     BACK
-========================= --><a
-
-href="dashboard.html"
-
-class="back"
-
-«»
-
-← Back to Dashboard
-
-</a></div></div><!-- =========================
-     WHATSAPP CHAT
-========================= --><a
-
-href=
-"https://wa.me/94771190395?text=Hello%20CreateLK%20Academy%2C%20I%20need%20help%20with%20Premium%20Membership%20payment."
-
+</div><!-- WHATSAPP --><a
+class="whatsapp"
+href="https://wa.me/94771190395"
 target="_blank"
+rel="noopener"
+aria-label="Chat on WhatsApp">
 
-rel="noopener noreferrer"
-
-class="whatsapp-chat"
-
-«»
-
-<span class="whatsapp-icon">
 💬
-</span><span>
-Chat
-</span></a><script>
+
+</a><script>
 
 "use strict";
 
 
 /* =====================================
-   CLOUDFLARE WORKER
+   API
 ===================================== */
 
 const API_URL =
@@ -511,7 +322,7 @@ const API_URL =
 
 
 /* =====================================
-   GET STUDENT
+   STUDENT
 ===================================== */
 
 function getStudent(){
@@ -521,88 +332,74 @@ function getStudent(){
             "createlk_student"
         );
 
-
     if(!saved){
-
-        window.location.href =
-            "login.html";
-
         return null;
-
     }
-
 
     try{
 
         const student =
             JSON.parse(saved);
 
-
         if(
-            !student ||
-            !student.id
+            student &&
+            student.id
         ){
-
-            window.location.href =
-                "login.html";
-
-            return null;
-
+            return student;
         }
 
-
-        return student;
-
-    }
-
-    catch(error){
+    }catch(error){
 
         localStorage.removeItem(
             "createlk_student"
         );
 
-
-        window.location.href =
-            "login.html";
-
-        return null;
-
     }
+
+    return null;
+}
+
+
+const student =
+getStudent();
+
+
+/* =====================================
+   REQUIRE LOGIN
+===================================== */
+
+if(!student){
+
+    window.location.href =
+        "login.html";
 
 }
 
 
 /* =====================================
-   LOAD STUDENT
+   STUDENT DETAILS
 ===================================== */
-
-const student =
-getStudent();
-
 
 if(student){
 
     document.getElementById(
         "studentName"
     ).textContent =
-
         (
             student.first_name ||
             "Student"
         ) +
-
         " " +
-
         (
             student.last_name ||
             ""
         );
 
-
     document.getElementById(
         "studentEmail"
     ).textContent =
-        student.email || "";
+        student.email ||
+        "";
 
 }
 
@@ -616,7 +413,22 @@ document.getElementById(
     "paymentForm"
 );
 
-const button =
+const reference =
+document.getElementById(
+    "reference"
+);
+
+const receipt =
+document.getElementById(
+    "receipt"
+);
+
+const fileName =
+document.getElementById(
+    "fileName"
+);
+
+const submitButton =
 document.getElementById(
     "submitButton"
 );
@@ -628,7 +440,7 @@ document.getElementById(
 
 
 /* =====================================
-   MESSAGE
+   SHOW MESSAGE
 ===================================== */
 
 function showMessage(
@@ -646,7 +458,35 @@ function showMessage(
 
 
 /* =====================================
-   PAYMENT SUBMISSION
+   FILE SELECTED
+===================================== */
+
+receipt.addEventListener(
+    "change",
+    function(){
+
+        if(
+            receipt.files &&
+            receipt.files.length > 0
+        ){
+
+            fileName.textContent =
+                "✓ " +
+                receipt.files[0].name;
+
+        }else{
+
+            fileName.textContent =
+                "No receipt selected";
+
+        }
+
+    }
+);
+
+
+/* =====================================
+   PAYMENT SUBMIT
 ===================================== */
 
 form.addEventListener(
@@ -666,35 +506,21 @@ form.addEventListener(
         }
 
 
-        const reference =
-            document
-            .getElementById(
-                "reference"
-            )
-            .value
-            .trim();
+        const file =
+            receipt.files[0];
 
 
-        const receipt =
-            document
-            .getElementById(
-                "receipt"
-            )
-            .files[0];
+        const ref =
+            reference.value.trim();
 
 
-        /* =========================
-           VALIDATE REFERENCE
-        ========================= */
+        /* VALIDATION */
 
-        if(!reference){
+        if(!ref){
 
             showMessage(
-
                 "Please enter your payment reference.",
-
                 "error"
-
             );
 
             return;
@@ -702,40 +528,26 @@ form.addEventListener(
         }
 
 
-        /* =========================
-           VALIDATE RECEIPT
-        ========================= */
-
-        if(!receipt){
+        if(!file){
 
             showMessage(
-
                 "Please upload your payment receipt.",
-
                 "error"
-
             );
 
             return;
 
         }
 
-
-        /* =========================
-           FILE SIZE
-        ========================= */
 
         if(
-            receipt.size >
+            file.size >
             5 * 1024 * 1024
         ){
 
             showMessage(
-
                 "Receipt must be smaller than 5 MB.",
-
                 "error"
-
             );
 
             return;
@@ -743,35 +555,25 @@ form.addEventListener(
         }
 
 
-        /* =========================
-           FILE TYPE
-        ========================= */
-
-        const allowedTypes = [
+        const allowed = [
 
             "image/jpeg",
-
             "image/png",
-
             "image/webp",
-
             "application/pdf"
 
         ];
 
 
         if(
-            !allowedTypes.includes(
-                receipt.type
+            !allowed.includes(
+                file.type
             )
         ){
 
             showMessage(
-
                 "Please upload JPG, PNG, WEBP or PDF.",
-
                 "error"
-
             );
 
             return;
@@ -779,92 +581,66 @@ form.addEventListener(
         }
 
 
-        /* =========================
-           DISABLE BUTTON
-        ========================= */
+        /* =================================
+           PREPARE FORM
+        ================================= */
 
-        button.disabled =
+        const formData =
+            new FormData();
+
+
+        formData.append(
+            "student_id",
+            student.id
+        );
+
+
+        formData.append(
+            "amount",
+            "1500"
+        );
+
+
+        formData.append(
+            "payment_reference",
+            ref
+        );
+
+
+        formData.append(
+            "receipt",
+            file
+        );
+
+
+        /* =================================
+           LOADING
+        ================================= */
+
+        submitButton.disabled =
             true;
 
-        button.textContent =
-            "Uploading receipt...";
+        submitButton.textContent =
+            "Submitting...";
+
+        showMessage(
+            "Uploading your receipt...",
+            "success"
+        );
 
 
         try{
 
-
-            /* =========================
-               FORM DATA
-            ========================= */
-
-            const formData =
-                new FormData();
-
-
-            formData.append(
-
-                "student_id",
-
-                String(
-                    student.id
-                )
-
-            );
-
-
-            formData.append(
-
-                "amount",
-
-                "1500"
-
-            );
-
-
-            formData.append(
-
-                "payment_reference",
-
-                reference
-
-            );
-
-
-            formData.append(
-
-                "receipt",
-
-                receipt
-
-            );
-
-
-            /* =========================
-               WORKER API
-            ========================= */
-
             const response =
                 await fetch(
-
                     API_URL +
                     "/api/premium/payment",
-
                     {
-
-                        method:
-                            "POST",
-
-                        body:
-                            formData
-
+                        method:"POST",
+                        body:formData
                     }
-
                 );
 
-
-            /* =========================
-               RESPONSE TEXT
-            ========================= */
 
             const text =
                 await response.text();
@@ -878,101 +654,63 @@ form.addEventListener(
                 data =
                     JSON.parse(text);
 
-            }
+            }catch(error){
 
-            catch(error){
-
-                showMessage(
-
-                    "Server response: " +
-                    text,
-
-                    "error"
-
-                );
-
-
-                button.disabled =
-                    false;
-
-
-                button.textContent =
-                    "💳 Submit Payment for Approval";
-
-
-                return;
+                data = {
+                    success:false,
+                    message:
+                        text ||
+                        "Invalid server response."
+                };
 
             }
 
-
-            /* =========================
-               API ERROR
-            ========================= */
 
             if(
                 !response.ok ||
                 data.success !== true
             ){
 
-                showMessage(
-
+                throw new Error(
                     data.message ||
-                    "Payment submission failed.",
-
-                    "error"
-
+                    "Payment submission failed."
                 );
-
-
-                button.disabled =
-                    false;
-
-
-                button.textContent =
-                    "💳 Submit Payment for Approval";
-
-
-                return;
 
             }
 
 
-            /* =========================
+            /* =================================
                SUCCESS
-            ========================= */
+            ================================= */
 
             showMessage(
-
-                "✅ Payment submitted successfully. Your payment is waiting for admin approval.",
-
+                "✓ Payment submitted successfully. Waiting for admin approval.",
                 "success"
-
             );
 
 
-            button.textContent =
-                "✅ Payment Submitted";
+            submitButton.textContent =
+                "✓ Payment Submitted";
 
 
-            button.disabled =
+            submitButton.disabled =
                 true;
 
 
-            document.getElementById(
-                "reference"
-            ).disabled =
+            reference.disabled =
+                true;
+
+            receipt.disabled =
                 true;
 
 
-            document.getElementById(
-                "receipt"
-            ).disabled =
-                true;
+            /*
+              Do NOT redirect immediately.
+              Student can see confirmation.
+            */
 
 
-        }
-
-        catch(error){
+        }catch(error){
 
             console.error(
                 "PAYMENT ERROR:",
@@ -981,25 +719,28 @@ form.addEventListener(
 
 
             showMessage(
-
-                "Could not connect to CreateLK Academy payment server.",
-
+                error.message ||
+                "Payment submission failed. Please try again.",
                 "error"
-
             );
 
 
-            button.disabled =
+            /*
+              IMPORTANT:
+              Restore submit button
+              after upload failure.
+            */
+
+            submitButton.disabled =
                 false;
 
-
-            button.textContent =
-                "💳 Submit Payment for Approval";
+            submitButton.textContent =
+                "Submit Payment for Approval";
 
         }
 
     }
-
 );
 
-</script></body></html>
+</script></body>
+</html>
