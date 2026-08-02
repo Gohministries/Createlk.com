@@ -1,13 +1,10 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Student Login | CreateLK Academy</title><meta name="description"
-content="Sign in to your CreateLK Academy student account.">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Student Login | CreateLK Academy</title><meta name="description"
+content="Login to your CreateLK Academy student account.">
 
 <style>
-
-/* ================================
-   RESET
-================================ */
 
 *{
     margin:0;
@@ -16,777 +13,552 @@ content="Sign in to your CreateLK Academy student account.">
     font-family:"Segoe UI",Arial,sans-serif;
 }
 
-
-/* ================================
-   PAGE
-================================ */
-
 body{
     min-height:100vh;
-    background:#f4f7fc;
-    color:#263238;
+    background:linear-gradient(135deg,#eef4ff,#ffffff);
     display:flex;
-    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
 }
-
-
-/* ================================
-   NAVIGATION
-================================ */
-
-nav{
-    background:#fff;
-    padding:16px 6%;
-    box-shadow:0 4px 20px rgba(0,0,0,.06);
-}
-
-.logo{
-    font-size:23px;
-    font-weight:800;
-    color:#1565c0;
-}
-
-
-/* ================================
-   MAIN
-================================ */
 
 .container{
     width:100%;
-    max-width:500px;
-    margin:0 auto;
-    padding:40px 20px;
-    flex:1;
-    display:flex;
-    align-items:center;
+    max-width:430px;
 }
-
-
-/* ================================
-   CARD
-================================ */
 
 .card{
-    width:100%;
-    background:#fff;
-    padding:32px;
+    background:#ffffff;
+    padding:35px 28px;
     border-radius:20px;
-    box-shadow:0 8px 28px rgba(0,0,0,.08);
-    border:1px solid #edf0f5;
+    box-shadow:0 10px 35px rgba(0,0,0,.10);
 }
 
-
-/* ================================
-   HEADINGS
-================================ */
-
-h1{
+.logo{
     text-align:center;
-    color:#1565c0;
-    margin-bottom:8px;
     font-size:30px;
-    line-height:1.25;
+    font-weight:800;
+    color:#174ea6;
+    margin-bottom:7px;
 }
 
 .subtitle{
     text-align:center;
-    color:#68757c;
+    color:#666;
     margin-bottom:28px;
-    line-height:1.6;
 }
 
-
-/* ================================
-   FORM
-================================ */
-
-form{
-    width:100%;
+.field{
+    margin-bottom:18px;
 }
 
 label{
     display:block;
     font-weight:600;
-    margin:18px 0 7px;
-    line-height:1.4;
+    color:#333;
+    margin-bottom:7px;
 }
 
-
-/* ================================
-   INPUTS
-================================ */
-
 input{
-    display:block;
     width:100%;
-    height:48px;
-    padding:12px 14px;
-    border:1px solid #ccd5dc;
+    padding:14px;
+    border:1px solid #d5d9e0;
     border-radius:10px;
     font-size:15px;
     outline:none;
-    background:#fff;
-    color:#263238;
 }
 
 input:focus{
-    border-color:#1565c0;
-    box-shadow:0 0 0 3px rgba(21,101,192,.08);
+    border-color:#174ea6;
+    box-shadow:0 0 0 3px rgba(23,78,166,.10);
 }
 
-
-/* ================================
-   PASSWORD
-================================ */
-
-.password-wrap{
+.password-box{
     position:relative;
-    width:100%;
 }
 
-.password-wrap input{
-    padding-right:82px;
+.password-box input{
+    padding-right:70px;
 }
 
-.show-password{
+.show-btn{
     position:absolute;
-    right:8px;
+    right:10px;
     top:50%;
     transform:translateY(-50%);
-    height:34px;
-    min-width:52px;
-    padding:5px 8px;
     border:0;
-    border-radius:7px;
-    background:transparent;
-    color:#1565c0;
-    font-size:14px;
-    font-weight:700;
+    background:none;
+    color:#174ea6;
+    font-weight:600;
     cursor:pointer;
-    z-index:2;
 }
-
-.show-password:hover{
-    background:#e3f2fd;
-    color:#0d47a1;
-}
-
-
-/* ================================
-   LOGIN BUTTON
-================================ */
 
 .login-button{
-    display:block;
     width:100%;
-    height:48px;
-    margin-top:24px;
-    padding:12px 16px;
+    padding:14px;
     border:0;
-    border-radius:28px;
-    background:#1565c0;
-    color:#fff;
+    border-radius:11px;
+    background:#174ea6;
+    color:#ffffff;
     font-size:16px;
-    font-weight:800;
+    font-weight:700;
     cursor:pointer;
+    margin-top:5px;
 }
 
 .login-button:hover{
-    background:#0d47a1;
+    background:#123d82;
 }
 
 .login-button:disabled{
-    background:#9eabb3;
+    opacity:.6;
     cursor:not-allowed;
 }
 
-
-/* ================================
-   MESSAGE
-================================ */
-
 .message{
-    width:100%;
-    min-height:22px;
-    margin-top:16px;
-    text-align:center;
-    font-weight:600;
-    font-size:14px;
-    line-height:1.5;
-    word-break:break-word;
-}
-
-
-/* ================================
-   ACCOUNT BOX
-================================ */
-
-.account-box{
-    width:100%;
-    margin-top:16px;
-    padding:15px;
-    background:#e3f2fd;
-    border-radius:12px;
     display:none;
-    line-height:1.6;
+    padding:12px;
+    border-radius:9px;
+    margin-bottom:18px;
+    text-align:center;
     font-size:14px;
-    word-break:break-word;
 }
 
-.account-box strong{
-    color:#1565c0;
+.success{
+    background:#e8f7ed;
+    color:#176b35;
 }
 
+.error{
+    background:#fdeaea;
+    color:#a32121;
+}
 
-/* ================================
-   LINKS
-================================ */
-
-.links{
-    width:100%;
+.register-link{
     text-align:center;
-    margin-top:26px;
+    margin-top:22px;
+    color:#666;
 }
 
-.links a{
-    display:block;
-    margin-top:12px;
-    color:#1565c0;
+.register-link a{
+    color:#174ea6;
+    font-weight:700;
     text-decoration:none;
-    font-weight:600;
-    line-height:1.5;
 }
 
-.links a:hover{
-    text-decoration:underline;
-}
-
-
-/* ================================
-   SECURITY
-================================ */
-
-.security{
-    width:100%;
-    margin-top:26px;
-    padding:16px;
-    background:#f8fafc;
+.student-box{
+    display:none;
+    margin-top:20px;
+    padding:18px;
     border-radius:12px;
-    text-align:center;
-    font-size:13px;
-    color:#68757c;
-    line-height:1.6;
+    background:#f3f7ff;
 }
 
-
-/* ================================
-   FOOTER
-================================ */
-
-footer{
-    background:#111827;
-    color:#9ca3af;
-    text-align:center;
-    padding:25px 20px;
+.student-box h3{
+    color:#174ea6;
+    margin-bottom:10px;
 }
 
-footer strong{
+.student-box p{
+    margin:6px 0;
+    color:#444;
+}
+
+.logout-button{
+    margin-top:14px;
+    width:100%;
+    padding:11px;
+    border:0;
+    border-radius:9px;
+    background:#555;
     color:#fff;
+    cursor:pointer;
 }
 
+</style></head><body><div class="container"><div class="card"><div class="logo">
+📚 CreateLK Academy
+</div><div class="subtitle">
+Student Login
+</div><div id="message"
+class="message">
+</div><form id="loginForm"><div class="field"><label for="email">
+Email Address
+</label><input
+type="email"
+id="email"
+placeholder="you@example.com"
+autocomplete="email"
+required>
 
-/* ================================
-   MOBILE
-================================ */
+</div><div class="field"><label for="password">
+Password
+</label><div class="password-box"><input
+type="password"
+id="password"
+placeholder="Enter your password"
+autocomplete="current-password"
+required>
 
-@media(max-width:600px){
+<button
+type="button"
+class="show-btn"
+onclick="togglePassword()">
 
-    nav{
-        padding:15px 20px;
-    }
+Show
 
-    .logo{
-        font-size:20px;
-    }
+</button></div></div><button
+type="submit"
+class="login-button"
+id="loginButton">
 
-    .container{
-        padding:25px 15px;
-        align-items:flex-start;
-    }
+Login
 
-    .card{
-        padding:25px 20px;
-        border-radius:16px;
-    }
+</button></form><div id="studentBox"
+class="student-box"><h3>
+Welcome! 👋
+</h3><p>
+<strong>Name:</strong>
+<span id="studentName"></span>
+</p><p>
+<strong>Email:</strong>
+<span id="studentEmail"></span>
+</p><p>
+<strong>WhatsApp:</strong>
+<span id="studentPhone"></span>
+</p><p>
+<strong>Student ID:</strong>
+<span id="studentId"></span>
+</p><button
+class="logout-button"
+onclick="logout()">
 
-    h1{
-        font-size:27px;
-    }
+Logout
 
-    .subtitle{
-        font-size:14px;
-        margin-bottom:24px;
-    }
+</button></div><div class="register-link">Don't have an account?
 
-    label{
-        margin-top:16px;
-    }
+<a href="register.html">
+Create Account
+</a></div></div></div><script>
 
-    input{
-        height:48px;
-        font-size:16px;
-    }
+/* ==========================================
+   CLOUDFLARE WORKER API
+========================================== */
 
-    .login-button{
-        height:50px;
-    }
-}
-
-
-/* ================================
-   VERY SMALL SCREENS
-================================ */
-
-@media(max-width:360px){
-
-    .card{
-        padding:22px 16px;
-    }
-
-    .logo{
-        font-size:18px;
-    }
-
-    h1{
-        font-size:24px;
-    }
-
-    .show-password{
-        right:6px;
-    }
-}
-
-</style></head><body><nav>
-    <div class="logo">
-        📚 CreateLK Academy
-    </div>
-</nav><main class="container"><div class="card">
-
-    <h1>
-        Student Login
-    </h1>
-
-    <p class="subtitle">
-        Sign in to access your CreateLK Academy account.
-    </p>
+const API_URL =
+"https://shy-fog-1588.gateofheavensl1.workers.dev";
 
 
-    <form id="loginForm">
+/* ==========================================
+   ELEMENTS
+========================================== */
 
-        <!-- EMAIL -->
-
-        <label for="email">
-            Email Address
-        </label>
-
-        <input
-            id="email"
-            type="email"
-            placeholder="Enter your email"
-            autocomplete="email"
-            required
-        >
-
-
-        <!-- PASSWORD -->
-
-        <label for="password">
-            Password
-        </label>
-
-        <div class="password-wrap">
-
-            <input
-                id="password"
-                type="password"
-                placeholder="Enter your password"
-                autocomplete="current-password"
-                required
-            >
-
-            <button
-                type="button"
-                class="show-password"
-                id="showPassword"
-                aria-label="Show or hide password"
-            >
-                Show
-            </button>
-
-        </div>
-
-
-        <!-- LOGIN BUTTON -->
-
-        <button
-            id="loginButton"
-            class="login-button"
-            type="submit"
-        >
-            Login
-        </button>
-
-
-        <!-- MESSAGE -->
-
-        <div
-            id="message"
-            class="message"
-            aria-live="polite"
-        ></div>
-
-
-        <!-- ACCOUNT INFORMATION -->
-
-        <div
-            id="accountBox"
-            class="account-box"
-        ></div>
-
-    </form>
-
-
-    <!-- LINKS -->
-
-    <div class="links">
-
-        <a href="register.html">
-            Create an account
-        </a>
-
-        <a href="forgot-password.html">
-            Forgot your password?
-        </a>
-
-        <a href="index.html">
-            ← Back to Academy
-        </a>
-
-    </div>
-
-
-    <!-- SECURITY -->
-
-    <div class="security">
-        🔐 Your login will be securely verified by
-        the CreateLK Academy server.
-    </div>
-
-</div>
-
-</main><footer><p>
-    <strong>
-        📚 CreateLK Academy
-    </strong>
-</p>
-
-<p style="margin-top:8px;">
-    © 2026 CreateLK Academy. All Rights Reserved.
-</p>
-
-</footer><script>
-
-/*
-==================================================
-CREATE LK ACADEMY — STUDENT LOGIN
-==================================================
-*/
-
-const API =
-"https://flat-queen-4e0b.gateofheavensl1.workers.dev";
-
-
-const loginForm =
+const form =
 document.getElementById("loginForm");
-
-const loginButton =
-document.getElementById("loginButton");
 
 const message =
 document.getElementById("message");
 
-const password =
-document.getElementById("password");
+const button =
+document.getElementById("loginButton");
 
-const showPassword =
-document.getElementById("showPassword");
-
-const accountBox =
-document.getElementById("accountBox");
+const studentBox =
+document.getElementById("studentBox");
 
 
-/*
-==================================================
-SHOW / HIDE PASSWORD
-==================================================
-*/
+/* ==========================================
+   SHOW MESSAGE
+========================================== */
 
-showPassword.addEventListener(
-    "click",
-    function(){
+function showMessage(text,type){
 
-        if(password.type === "password"){
+    message.textContent = text;
 
-            password.type = "text";
-            showPassword.textContent = "Hide";
+    message.className =
+        "message " + type;
 
-        }else{
+    message.style.display =
+        "block";
 
-            password.type = "password";
-            showPassword.textContent = "Show";
+}
 
-        }
+
+/* ==========================================
+   SHOW / HIDE PASSWORD
+========================================== */
+
+function togglePassword(){
+
+    const input =
+        document.getElementById("password");
+
+    const button =
+        document.querySelector(".show-btn");
+
+    if(input.type === "password"){
+
+        input.type = "text";
+
+        button.textContent =
+            "Hide";
+
+    }else{
+
+        input.type = "password";
+
+        button.textContent =
+            "Show";
 
     }
-);
+
+}
 
 
-/*
-==================================================
-LOGIN
-==================================================
-*/
+/* ==========================================
+   LOGIN
+========================================== */
 
-loginForm.addEventListener(
-    "submit",
-    async function(event){
+form.addEventListener(
+"submit",
+async function(event){
 
-        event.preventDefault();
+    event.preventDefault();
 
-
-        const email =
-        document
-        .getElementById("email")
-        .value
-        .trim()
-        .toLowerCase();
-
-
-        const passwordValue =
-        password.value;
-
-
-        if(!email || !passwordValue){
-
-            message.textContent =
-            "Please enter your email and password.";
-
-            message.style.color =
-            "#c62828";
-
-            return;
-
-        }
-
-
-        loginButton.disabled = true;
-
-        loginButton.textContent =
-        "Signing in...";
-
-        message.textContent =
-        "Verifying your account...";
-
-        message.style.color =
-        "#1565c0";
-
-        accountBox.style.display =
+    message.style.display =
         "none";
 
 
-        try{
+    const email =
+        document.getElementById(
+            "email"
+        ).value.trim().toLowerCase();
 
-            const response =
+
+    const password =
+        document.getElementById(
+            "password"
+        ).value;
+
+
+    if(!email || !password){
+
+        showMessage(
+            "Please enter your email and password.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "Logging in...";
+
+
+    try{
+
+        const response =
             await fetch(
-                API + "/login",
+                API_URL + "/login",
                 {
                     method:"POST",
 
                     headers:{
                         "Content-Type":
-                        "application/json"
+                            "application/json"
                     },
 
                     body:JSON.stringify({
 
                         email:email,
 
-                        password:passwordValue
+                        password:password
 
                     })
+
                 }
             );
 
 
-            let data;
+        const data =
+            await response.json();
 
 
-            try{
+        if(response.ok && data.success){
 
-                data =
-                await response.json();
-
-            }catch{
-
-                throw new Error(
-                    "Invalid response from the server."
-                );
-
-            }
-
-
-            /*
-            ==========================================
-            LOGIN ERROR
-            ==========================================
-            */
-
-            if(
-                !response.ok ||
-                !data.success
-            ){
-
-                throw new Error(
-                    data.message ||
-                    "Invalid email or password."
-                );
-
-            }
-
-
-            /*
-            ==========================================
-            SAVE LOGIN INFORMATION
-            ==========================================
-            */
-
-            const student =
-            data.student;
-
-            const premium =
-            data.premium;
-
-
-            /*
-            Never store the password.
-            */
-
-            sessionStorage.setItem(
-                "createLK_student",
-                JSON.stringify(student)
+            showMessage(
+                "Login successful!",
+                "success"
             );
 
 
-            sessionStorage.setItem(
-                "createLK_premium",
-                JSON.stringify(premium)
+            /* --------------------------------
+               SAVE STUDENT INFORMATION
+            -------------------------------- */
+
+            localStorage.setItem(
+                "createlk_student",
+                JSON.stringify(
+                    data.student
+                )
             );
 
 
-            /*
-            ==========================================
-            SUCCESS
-            ==========================================
-            */
+            /* --------------------------------
+               DISPLAY STUDENT
+            -------------------------------- */
 
-            message.textContent =
-            "Login successful!";
+            document.getElementById(
+                "studentName"
+            ).textContent =
+                data.student.first_name +
+                " " +
+                data.student.last_name;
 
-            message.style.color =
-            "#00897b";
+
+            document.getElementById(
+                "studentEmail"
+            ).textContent =
+                data.student.email;
 
 
-            if(student){
+            document.getElementById(
+                "studentPhone"
+            ).textContent =
+                data.student.phone ||
+                "Not provided";
 
-                accountBox.innerHTML =
-                `
-                    <strong>
-                        Welcome,
-                        ${escapeHtml(student.first_name)}!
-                    </strong>
 
-                    <br>
+            document.getElementById(
+                "studentId"
+            ).textContent =
+                data.student.id;
 
-                    Your account has been verified.
-                `;
 
-                accountBox.style.display =
+            form.style.display =
+                "none";
+
+
+            studentBox.style.display =
                 "block";
 
-            }
 
+        }else{
 
-            /*
-            ==========================================
-            REDIRECT
-            ==========================================
-            */
-
-            setTimeout(
-                function(){
-
-                    window.location.href =
-                    "index.html";
-
-                },
-                1000
+            showMessage(
+                data.message ||
+                "Invalid email or password.",
+                "error"
             );
 
         }
-        catch(error){
-
-            console.error(
-                "Login error:",
-                error
-            );
 
 
-            message.textContent =
-            error.message ||
-            "Unable to login.";
+    }catch(error){
 
-            message.style.color =
-            "#c62828";
+        console.error(error);
 
-
-            loginButton.disabled =
-            false;
-
-            loginButton.textContent =
-            "Login";
-
-        }
+        showMessage(
+            "Unable to connect to the server. Please check your internet connection.",
+            "error"
+        );
 
     }
-);
 
 
-/*
-==================================================
-SAFE HTML TEXT
-==================================================
-*/
+    button.disabled = false;
 
-function escapeHtml(value){
+    button.textContent =
+        "Login";
 
-    return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+});
+
+
+/* ==========================================
+   CHECK EXISTING LOGIN
+========================================== */
+
+window.addEventListener(
+"DOMContentLoaded",
+function(){
+
+    const saved =
+        localStorage.getItem(
+            "createlk_student"
+        );
+
+
+    if(!saved){
+        return;
+    }
+
+
+    try{
+
+        const student =
+            JSON.parse(saved);
+
+
+        document.getElementById(
+            "studentName"
+        ).textContent =
+            student.first_name +
+            " " +
+            student.last_name;
+
+
+        document.getElementById(
+            "studentEmail"
+        ).textContent =
+            student.email;
+
+
+        document.getElementById(
+            "studentPhone"
+        ).textContent =
+            student.phone ||
+            "Not provided";
+
+
+        document.getElementById(
+            "studentId"
+        ).textContent =
+            student.id;
+
+
+        form.style.display =
+            "none";
+
+
+        studentBox.style.display =
+            "block";
+
+
+    }catch(error){
+
+        localStorage.removeItem(
+            "createlk_student"
+        );
+
+    }
+
+});
+
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+function logout(){
+
+    localStorage.removeItem(
+        "createlk_student"
+    );
+
+    location.reload();
 
 }
 
-</script></body>
-</html>
+</script></body></html>
