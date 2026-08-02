@@ -1,5 +1,3 @@
-<!-- //........ START ........ -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,245 +6,169 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0">
 
-<title>
-Premium Payment | CreateLK Academy
-</title>
+<title>CreateLK Academy | Premium Membership</title>
 
 <meta name="description"
-content="Purchase CreateLK Academy Premium Membership for 30 days.">
+      content="CreateLK Academy Premium Membership - LKR 1,500 for 30 days.">
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:"Segoe UI",Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
-background:#f4f7fc;
-color:#263238;
-line-height:1.7;
+    min-height:100vh;
+    background:linear-gradient(135deg,#eef4ff,#f8fbff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
 }
 
-nav{
-background:#fff;
-padding:16px 6%;
-box-shadow:0 4px 20px rgba(0,0,0,.06);
+.container{
+    width:100%;
+    max-width:500px;
+}
+
+.card{
+    background:#fff;
+    border-radius:22px;
+    padding:30px;
+    box-shadow:0 15px 45px rgba(0,0,0,.10);
 }
 
 .logo{
-font-size:23px;
-font-weight:800;
-color:#1565c0;
+    text-align:center;
+    font-size:30px;
+    font-weight:800;
+    color:#1769ff;
+    margin-bottom:8px;
 }
 
-.hero{
-background:linear-gradient(
-135deg,
-#0d47a1,
-#1565c0 50%,
-#00897b
-);
-color:#fff;
-text-align:center;
-padding:65px 20px;
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
 }
 
-.hero h1{
-font-size:40px;
-margin-bottom:10px;
+.plan{
+    background:#f1f6ff;
+    border:1px solid #dce8ff;
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
+    margin-bottom:25px;
 }
 
-.hero p{
-opacity:.95;
-}
-
-.container{
-max-width:850px;
-margin:auto;
-padding:45px 20px;
-}
-
-.card{
-background:#fff;
-padding:30px;
-border-radius:18px;
-margin-bottom:22px;
-box-shadow:0 6px 22px rgba(0,0,0,.06);
-border:1px solid #edf0f5;
-}
-
-.card h2{
-color:#1565c0;
-margin-bottom:10px;
-}
-
-.card p{
-color:#53636b;
-margin-bottom:12px;
-}
-
-.price-card{
-text-align:center;
-border:2px solid #1565c0;
-background:#e3f2fd;
+.plan h2{
+    color:#1769ff;
+    margin-bottom:8px;
 }
 
 .price{
-font-size:42px;
-font-weight:800;
-color:#1565c0;
-margin:5px 0;
+    font-size:32px;
+    font-weight:800;
+    color:#111;
 }
 
 .duration{
-color:#53636b;
+    color:#666;
+    margin-top:5px;
 }
 
-form{
-margin-top:20px;
+.input-group{
+    margin-bottom:17px;
 }
 
 label{
-display:block;
-font-weight:600;
-margin:15px 0 6px;
+    display:block;
+    font-weight:600;
+    margin-bottom:7px;
+    color:#333;
 }
 
 input{
-width:100%;
-padding:13px 15px;
-border:1px solid #ccd5dc;
-border-radius:10px;
-font-size:15px;
-outline:none;
+    width:100%;
+    padding:13px 14px;
+    border:1px solid #d5dbe5;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
 }
 
 input:focus{
-border-color:#1565c0;
+    border-color:#1769ff;
+    box-shadow:0 0 0 3px rgba(23,105,255,.10);
 }
 
-.checkbox{
-display:flex;
-align-items:flex-start;
-gap:9px;
-margin-top:18px;
-font-size:13px;
-color:#68757c;
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#1769ff;
+    color:#fff;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
 }
 
-.checkbox input{
-width:auto;
-margin-top:5px;
+button:hover{
+    background:#0d55d9;
 }
 
-.pay-button{
-width:100%;
-margin-top:20px;
-padding:14px;
-border:0;
-border-radius:28px;
-background:#1565c0;
-color:#fff;
-font-size:16px;
-font-weight:800;
-cursor:pointer;
-}
-
-.pay-button:hover{
-background:#0d47a1;
-}
-
-.pay-button:disabled{
-background:#9eabb3;
-cursor:not-allowed;
+button:disabled{
+    opacity:.65;
+    cursor:not-allowed;
 }
 
 .message{
-text-align:center;
-margin-top:15px;
-font-weight:600;
+    display:none;
+    margin-bottom:18px;
+    padding:13px;
+    border-radius:10px;
+    font-size:14px;
+    line-height:1.5;
 }
 
-.info{
-background:#f8fafc;
-padding:18px;
-border-radius:12px;
-margin-top:15px;
-font-size:14px;
-color:#53636b;
+.error{
+    background:#fff0f0;
+    color:#c62828;
+    border:1px solid #ffcaca;
 }
 
-.security{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-margin-top:20px;
+.success{
+    background:#effaf2;
+    color:#218838;
+    border:1px solid #c8efd0;
 }
 
-.security div{
-background:#f8fafc;
-padding:18px;
-border-radius:12px;
-text-align:center;
+.loading{
+    display:none;
+    text-align:center;
+    margin-top:15px;
+    color:#1769ff;
+    font-weight:600;
 }
 
-.security strong{
-display:block;
-color:#1565c0;
-margin-bottom:5px;
+.secure{
+    text-align:center;
+    margin-top:16px;
+    color:#777;
+    font-size:13px;
 }
 
-footer{
-background:#111827;
-color:#9ca3af;
-text-align:center;
-padding:35px 20px;
-margin-top:30px;
-}
-
-footer strong{
-color:#fff;
-}
-
-.links{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:15px;
-margin:18px 0;
-}
-
-.links a{
-color:#d1d5db;
-text-decoration:none;
-font-size:14px;
-}
-
-.links a:hover{
-color:#fff;
-text-decoration:underline;
-}
-
-@media(max-width:700px){
-
-.hero h1{
-font-size:32px;
-}
-
-.container{
-padding:35px 15px;
-}
-
-.card{
-padding:24px;
-}
-
+.footer{
+    text-align:center;
+    margin-top:20px;
+    font-size:12px;
+    color:#888;
 }
 
 </style>
@@ -255,710 +177,416 @@ padding:24px;
 
 <body>
 
-<nav>
+<div class="container">
 
-<div class="logo">
-📚 CreateLK Academy
-</div>
+<div class="card">
 
-</nav>
+    <div class="logo">
+        📚 CreateLK Academy
+    </div>
 
+    <div class="subtitle">
+        ⭐ Premium Membership
+    </div>
 
-<section class="hero">
 
-<h1>
-⭐ Premium Membership
-</h1>
+    <div class="plan">
 
-<p>
-Complete your membership purchase securely.
-</p>
+        <h2>
+            CreateLK Academy Premium
+        </h2>
 
-</section>
+        <div class="price">
+            LKR 1,500
+        </div>
 
+        <div class="duration">
+            30 days of premium access
+        </div>
 
-<main class="container">
+    </div>
 
 
-<section class="card price-card">
+    <div id="message"
+         class="message">
+    </div>
 
-<h2>
-CreateLK Academy Premium
-</h2>
 
-<div class="price">
-LKR 1,500
-</div>
+    <form id="paymentForm">
 
-<p class="duration">
-30 days of premium access
-</p>
 
-</section>
+        <div class="input-group">
 
+            <label for="first_name">
+                First Name
+            </label>
 
-<section class="card">
+            <input
+                type="text"
+                id="first_name"
+                name="first_name"
+                placeholder="Enter your first name"
+                required
+            >
 
-<h2>
-👤 Student Information
-</h2>
+        </div>
 
-<p>
-Enter the same information associated with
-your CreateLK Academy account.
-</p>
 
+        <div class="input-group">
 
-<form id="paymentForm">
+            <label for="last_name">
+                Last Name
+            </label>
 
+            <input
+                type="text"
+                id="last_name"
+                name="last_name"
+                placeholder="Enter your last name"
+                required
+            >
 
-<label for="firstName">
-First Name
-</label>
+        </div>
 
-<input
-id="firstName"
-type="text"
-placeholder="Your first name"
-autocomplete="given-name"
-required
->
 
+        <div class="input-group">
 
-<label for="lastName">
-Last Name
-</label>
+            <label for="email">
+                Registered Email
+            </label>
 
-<input
-id="lastName"
-type="text"
-placeholder="Your last name"
-autocomplete="family-name"
-required
->
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your registered email"
+                required
+            >
 
+        </div>
 
-<label for="email">
-Email Address
-</label>
 
-<input
-id="email"
-type="email"
-placeholder="Your account email"
-autocomplete="email"
-required
->
+        <div class="input-group">
 
+            <label for="phone">
+                Phone Number
+            </label>
 
-<label for="phone">
-WhatsApp Number
-</label>
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="07XXXXXXXX"
+                required
+            >
 
-<input
-id="phone"
-type="tel"
-placeholder="+94 7XXXXXXXX"
-autocomplete="tel"
-required
->
+        </div>
 
 
-<div class="checkbox">
+        <button
+            type="submit"
+            id="payButton">
 
-<input
-id="terms"
-type="checkbox"
-required
->
+            Continue to PayHere
 
-<label for="terms">
+        </button>
 
-I agree to the
+    </form>
 
-<a href="terms.html">
-Terms & Conditions
-</a>
 
-and
+    <div id="loading"
+         class="loading">
 
-<a href="privacy.html">
-Privacy Policy
-</a>.
+        Connecting to secure payment...
 
-</label>
+    </div>
 
-</div>
 
+    <div class="secure">
 
-<button
-id="payButton"
-class="pay-button"
-type="submit"
->
+        🔒 Secure payment powered by PayHere
 
-Continue to Secure Payment
+    </div>
 
-</button>
 
+    <div class="footer">
 
-<div
-id="message"
-class="message">
-</div>
+        © 2026 CreateLK Academy
 
-</form>
-
-
-<div class="info">
-
-<strong>
-Important:
-</strong>
-
-Your membership is activated only after
-PayHere successfully confirms the transaction.
-
-</div>
-
-</section>
-
-
-<section class="card">
-
-<h2>
-🔐 Secure Payment
-</h2>
-
-<p>
-Payments are processed through the official
-PayHere Sandbox payment gateway during testing.
-</p>
-
-<div class="security">
-
-<div>
-
-<strong>
-💳 PayHere
-</strong>
-
-Secure online payment processing.
-
-</div>
-
-
-<div>
-
-<strong>
-🔒 Protected
-</strong>
-
-Your payment information is handled by PayHere.
-
-</div>
-
-
-<div>
-
-<strong>
-📚 Membership
-</strong>
-
-30-day premium course access.
+    </div>
 
 </div>
 
 </div>
-
-</section>
-
-
-<section class="card">
-
-<h2>
-📖 What You Receive
-</h2>
-
-<p>
-Your premium membership includes access to:
-</p>
-
-<ul>
-
-<li>9 premium English courses</li>
-
-<li>900 premium MCQ questions</li>
-
-<li>Grammar and vocabulary practice</li>
-
-<li>Speaking and conversation practice</li>
-
-<li>Writing and listening practice</li>
-
-<li>Business and advanced English practice</li>
-
-</ul>
-
-</section>
-
-
-<section class="card">
-
-<h2>
-↩️ Refund Information
-</h2>
-
-<p>
-Please review our Refund Policy before
-completing your purchase.
-</p>
-
-<a href="refund.html">
-View Refund Policy
-</a>
-
-</section>
-
-
-<section class="card">
-
-<h2>
-❓ Need Help?
-</h2>
-
-<p>
-If you have questions before making a payment,
-please contact us.
-</p>
-
-<a href="contact.html">
-Contact CreateLK Academy
-</a>
-
-</section>
-
-
-</main>
-
-
-<footer>
-
-<p>
-<strong>
-📚 CreateLK Academy
-</strong>
-</p>
-
-<p>
-Learn English. Practice More. Improve Faster.
-</p>
-
-<div class="links">
-
-<a href="index.html">Home</a>
-
-<a href="about.html">About</a>
-
-<a href="contact.html">Contact</a>
-
-<a href="terms.html">Terms</a>
-
-<a href="privacy.html">Privacy</a>
-
-<a href="refund.html">Refund Policy</a>
-
-<a href="membership.html">Membership</a>
-
-<a href="payment.html">Payment</a>
-
-</div>
-
-<p>
-© 2026 CreateLK Academy. All Rights Reserved.
-</p>
-
-</footer>
 
 
 <script>
 
-// ==========================================================
-// PAYMENT API
-// ==========================================================
+/* ==========================================
+   YOUR CURRENT CLOUDFLARE WORKER
+========================================== */
 
-const PAYMENT_API =
-"https://wispy-sunset-479c.gateofheavensl1.workers.dev/create-payment";
+const API_URL =
+"https://polished-wood-2146.gateofheavensl1.workers.dev";
 
 
-// ==========================================================
-// ELEMENTS
-// ==========================================================
+/* ==========================================
+   ELEMENTS
+========================================== */
 
-const paymentForm =
+const form =
 document.getElementById("paymentForm");
 
-const payButton =
+const button =
 document.getElementById("payButton");
 
 const message =
 document.getElementById("message");
 
-
-// ==========================================================
-// PAYMENT FORM
-// ==========================================================
-
-paymentForm.addEventListener(
-"submit",
-async function(event){
-
-event.preventDefault();
+const loading =
+document.getElementById("loading");
 
 
-// ----------------------------------------------------------
-// GET VALUES
-// ----------------------------------------------------------
+/* ==========================================
+   SHOW ERROR
+========================================== */
 
-const firstName =
-document
-.getElementById("firstName")
-.value
-.trim();
+function showError(text){
 
-const lastName =
-document
-.getElementById("lastName")
-.value
-.trim();
+    message.textContent =
+        text;
 
-const email =
-document
-.getElementById("email")
-.value
-.trim()
-.toLowerCase();
+    message.className =
+        "message error";
 
-const phone =
-document
-.getElementById("phone")
-.value
-.trim();
-
-
-// ----------------------------------------------------------
-// VALIDATION
-// ----------------------------------------------------------
-
-if(
-!firstName ||
-!lastName ||
-!email ||
-!phone
-){
-
-message.textContent =
-"Please complete all required fields.";
-
-message.style.color =
-"#c62828";
-
-return;
-
+    message.style.display =
+        "block";
 }
 
 
-// ----------------------------------------------------------
-// BUTTON
-// ----------------------------------------------------------
+/* ==========================================
+   FORM SUBMIT
+========================================== */
 
-payButton.disabled =
-true;
+form.addEventListener(
+    "submit",
+    async function(event){
 
-payButton.textContent =
-"Connecting to PayHere...";
-
-message.textContent =
-"Please wait...";
-
-message.style.color =
-"#1565c0";
+        event.preventDefault();
 
 
-// ----------------------------------------------------------
-// CALL CLOUDFLARE WORKER
-// ----------------------------------------------------------
+        message.style.display =
+            "none";
 
-try{
+        button.disabled =
+            true;
 
-const response =
-await fetch(
-PAYMENT_API,
-{
+        button.textContent =
+            "Connecting...";
 
-method:"POST",
+        loading.style.display =
+            "block";
 
-headers:{
-"Content-Type":
-"application/json"
-},
 
-body:JSON.stringify({
+        /* ==============================
+           GET FORM DATA
+        ============================== */
 
-first_name:
-firstName,
+        const firstName =
+            document
+            .getElementById("first_name")
+            .value
+            .trim();
 
-last_name:
-lastName,
+        const lastName =
+            document
+            .getElementById("last_name")
+            .value
+            .trim();
 
-email:
-email,
+        const email =
+            document
+            .getElementById("email")
+            .value
+            .trim()
+            .toLowerCase();
 
-phone:
-phone
+        const phone =
+            document
+            .getElementById("phone")
+            .value
+            .trim();
 
-})
 
-}
+        try{
+
+            /* ==============================
+               SEND REQUEST TO WORKER
+            ============================== */
+
+            const response =
+                await fetch(
+                    API_URL +
+                    "/create-payment",
+                    {
+                        method:"POST",
+
+                        headers:{
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:JSON.stringify({
+
+                            first_name:
+                                firstName,
+
+                            last_name:
+                                lastName,
+
+                            email:
+                                email,
+
+                            phone:
+                                phone
+
+                        })
+                    }
+                );
+
+
+            /* ==============================
+               READ RESPONSE
+            ============================== */
+
+            const data =
+                await response.json();
+
+
+            /* ==============================
+               WORKER ERROR
+            ============================== */
+
+            if(
+                !response.ok ||
+                !data.success
+            ){
+
+                throw new Error(
+                    data.message ||
+                    "Payment request failed."
+                );
+
+            }
+
+
+            /* ==============================
+               CHECK PAYMENT DATA
+            ============================== */
+
+            if(
+                !data.gateway ||
+                !data.payment
+            ){
+
+                throw new Error(
+                    "Payment information was not returned by the server."
+                );
+
+            }
+
+
+            /* ==============================
+               CREATE PAYHERE FORM
+            ============================== */
+
+            const payhereForm =
+                document.createElement("form");
+
+            payhereForm.method =
+                "POST";
+
+            payhereForm.action =
+                data.gateway;
+
+            payhereForm.style.display =
+                "none";
+
+
+            /* ==============================
+               ADD PAYHERE PARAMETERS
+            ============================== */
+
+            Object.keys(
+                data.payment
+            ).forEach(function(key){
+
+                const input =
+                    document.createElement("input");
+
+                input.type =
+                    "hidden";
+
+                input.name =
+                    key;
+
+                input.value =
+                    data.payment[key];
+
+                payhereForm.appendChild(
+                    input
+                );
+
+            });
+
+
+            document.body.appendChild(
+                payhereForm
+            );
+
+
+            /* ==============================
+               REDIRECT TO PAYHERE
+            ============================== */
+
+            loading.textContent =
+                "Redirecting to PayHere...";
+
+            payhereForm.submit();
+
+        }
+
+        catch(error){
+
+            console.error(
+                "PAYMENT ERROR:",
+                error
+            );
+
+
+            loading.style.display =
+                "none";
+
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                "Continue to PayHere";
+
+
+            showError(
+                error.message ||
+                "Failed to connect to payment server."
+            );
+
+        }
+
+    }
 );
-
-
-// ----------------------------------------------------------
-// SERVER ERROR
-// ----------------------------------------------------------
-
-if(!response.ok){
-
-let errorText =
-"Payment server error: " +
-response.status;
-
-try{
-
-const errorData =
-await response.json();
-
-if(errorData.message){
-
-errorText =
-errorData.message;
-
-}
-
-}catch(e){}
-
-throw new Error(
-errorText
-);
-
-}
-
-
-// ----------------------------------------------------------
-// RESPONSE
-// ----------------------------------------------------------
-
-const data =
-await response.json();
-
-
-// ----------------------------------------------------------
-// SUCCESS
-// ----------------------------------------------------------
-
-if(
-data.success &&
-data.gateway &&
-data.payment
-){
-
-const payment =
-data.payment;
-
-
-// ----------------------------------------------------------
-// PAYHERE FORM
-// ----------------------------------------------------------
-
-const payhereForm =
-document.createElement("form");
-
-payhereForm.method =
-"POST";
-
-payhereForm.action =
-data.gateway;
-
-payhereForm.style.display =
-"none";
-
-
-// ----------------------------------------------------------
-// PAYHERE FIELDS
-// ----------------------------------------------------------
-
-const fields = {
-
-merchant_id:
-payment.merchant_id,
-
-return_url:
-payment.return_url,
-
-cancel_url:
-payment.cancel_url,
-
-notify_url:
-payment.notify_url,
-
-first_name:
-payment.first_name,
-
-last_name:
-payment.last_name,
-
-email:
-payment.email,
-
-phone:
-payment.phone,
-
-address:
-payment.address,
-
-city:
-payment.city,
-
-country:
-payment.country,
-
-order_id:
-payment.order_id,
-
-items:
-payment.items,
-
-currency:
-payment.currency,
-
-amount:
-payment.amount,
-
-hash:
-payment.hash,
-
-custom_1:
-payment.custom_1,
-
-custom_2:
-payment.custom_2
-
-};
-
-
-// ----------------------------------------------------------
-// ADD FORM FIELDS
-// ----------------------------------------------------------
-
-Object.entries(fields)
-.forEach(
-([name,value])=>{
-
-if(
-value === undefined ||
-value === null
-){
-
-return;
-
-}
-
-const input =
-document.createElement("input");
-
-input.type =
-"hidden";
-
-input.name =
-name;
-
-input.value =
-String(value);
-
-payhereForm.appendChild(
-input
-);
-
-});
-
-
-// ----------------------------------------------------------
-// SUBMIT
-// ----------------------------------------------------------
-
-document.body.appendChild(
-payhereForm
-);
-
-message.textContent =
-"Opening PayHere Sandbox...";
-
-message.style.color =
-"#00897b";
-
-payhereForm.submit();
-
-return;
-
-}
-
-
-// ----------------------------------------------------------
-// WORKER ERROR
-// ----------------------------------------------------------
-
-throw new Error(
-
-data.message ||
-"Payment could not be created."
-
-);
-
-}
-
-
-// ----------------------------------------------------------
-// CATCH
-// ----------------------------------------------------------
-
-catch(error){
-
-console.error(
-"PAYMENT ERROR:",
-error
-);
-
-message.textContent =
-error.message ||
-"Payment could not be started.";
-
-message.style.color =
-"#c62828";
-
-payButton.disabled =
-false;
-
-payButton.textContent =
-"Continue to Secure Payment";
-
-}
-
-});
 
 </script>
 
 </body>
 
 </html>
-
-<!-- //........ END ........ -->
