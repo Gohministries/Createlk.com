@@ -6,12 +6,9 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
-<title>Premium Membership Payment | CreateLK Academy</title>
-
-<meta name="description"
-      content="CreateLK Academy Premium Membership payment page.">
+<title>Premium Payment | CreateLK Academy</title>
 
 <style>
 
@@ -23,641 +20,273 @@
 }
 
 body{
-    background:#f4f7fb;
-    color:#172033;
     min-height:100vh;
+    background:#f4f7ff;
+    padding:20px;
 }
 
-/* HEADER */
-
-header{
-    background:#ffffff;
-    border-bottom:1px solid #e5e7eb;
-    padding:18px 20px;
+.container{
+    max-width:600px;
+    margin:30px auto;
 }
 
-.header-inner{
-    max-width:900px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+.card{
+    background:#fff;
+    padding:28px;
+    border-radius:20px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
 }
 
 .logo{
-    font-size:22px;
+    text-align:center;
+    font-size:25px;
     font-weight:800;
-    color:#166534;
-}
-
-.back{
-    text-decoration:none;
-    color:#166534;
-    font-weight:600;
-}
-
-/* CONTAINER */
-
-.container{
-    width:92%;
-    max-width:760px;
-    margin:35px auto;
-}
-
-/* CARD */
-
-.card{
-    background:#ffffff;
-    border-radius:18px;
-    padding:28px;
-    box-shadow:0 10px 35px rgba(0,0,0,.08);
-    margin-bottom:22px;
-}
-
-/* TITLE */
-
-h1{
-    font-size:28px;
+    color:#174ea6;
     margin-bottom:8px;
 }
 
 .subtitle{
-    color:#64748b;
+    text-align:center;
+    color:#667085;
     margin-bottom:25px;
 }
-
-/* PRICE */
 
 .price{
     text-align:center;
-    background:#f0fdf4;
-    border:1px solid #bbf7d0;
+    background:#fff8e8;
+    padding:20px;
     border-radius:15px;
-    padding:22px;
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
-.price strong{
-    display:block;
-    font-size:34px;
-    color:#166534;
+.price h2{
+    color:#c47a00;
+    font-size:30px;
 }
-
-.price span{
-    color:#64748b;
-}
-
-/* SECTION */
-
-.section-title{
-    font-size:19px;
-    font-weight:800;
-    margin-bottom:15px;
-}
-
-/* STUDENT */
-
-.student-box{
-    background:#eff6ff;
-    border:1px solid #bfdbfe;
-    border-radius:12px;
-    padding:15px;
-    margin-bottom:25px;
-    line-height:1.7;
-}
-
-/* BANK */
 
 .bank{
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    border-radius:14px;
+    background:#f4f7ff;
     padding:20px;
-    margin-bottom:25px;
+    border-radius:14px;
+    margin-bottom:22px;
 }
 
-.bank-row{
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
-    padding:12px 0;
-    border-bottom:1px solid #e5e7eb;
+.bank h3{
+    margin-bottom:14px;
+    color:#174ea6;
 }
 
-.bank-row:last-child{
-    border-bottom:none;
+.bank p{
+    margin:8px 0;
+    line-height:1.5;
 }
 
-.bank-label{
-    color:#64748b;
+.field{
+    margin-bottom:18px;
 }
-
-.bank-value{
-    font-weight:700;
-    text-align:right;
-}
-
-/* NOTICE */
-
-.notice{
-    background:#fff7ed;
-    border:1px solid #fed7aa;
-    color:#9a3412;
-    border-radius:12px;
-    padding:15px;
-    margin-bottom:25px;
-    line-height:1.6;
-}
-
-/* FORM */
 
 label{
     display:block;
     font-weight:700;
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
 input{
     width:100%;
-    padding:14px;
-    border:1px solid #cbd5e1;
+    padding:13px;
+    border:1px solid #d5d9e0;
     border-radius:10px;
-    font-size:16px;
-    outline:none;
-    margin-bottom:18px;
+    font-size:15px;
 }
 
-input:focus{
-    border-color:#166534;
-}
-
-input[type="file"]{
-    background:#f8fafc;
-}
-
-/* BUTTON */
-
-button{
+.submit{
     width:100%;
-    border:none;
-    border-radius:12px;
-    padding:16px;
-    background:#166534;
-    color:white;
-    font-size:17px;
-    font-weight:800;
+    padding:14px;
+    border:0;
+    border-radius:11px;
+    background:#174ea6;
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
     cursor:pointer;
 }
 
-button:hover{
-    background:#14532d;
-}
-
-button:disabled{
+.submit:disabled{
     opacity:.6;
-    cursor:not-allowed;
 }
-
-/* MESSAGE */
 
 .message{
     display:none;
-    padding:15px;
-    border-radius:12px;
-    margin-bottom:20px;
-    line-height:1.6;
+    padding:13px;
+    border-radius:10px;
+    margin-bottom:18px;
+    text-align:center;
 }
 
 .success{
-    background:#ecfdf5;
-    border:1px solid #a7f3d0;
-    color:#065f46;
+    background:#e8f7ed;
+    color:#176b35;
 }
 
 .error{
-    background:#fef2f2;
-    border:1px solid #fecaca;
-    color:#991b1b;
+    background:#fdeaea;
+    color:#a32121;
 }
 
-/* LOADING */
-
-.loading{
-    display:none;
+.back{
     text-align:center;
-    margin-top:15px;
-    color:#64748b;
+    margin-top:18px;
 }
 
-/* FOOTER */
-
-footer{
-    text-align:center;
-    color:#64748b;
-    font-size:14px;
-    padding:30px 15px;
+.back a{
+    color:#174ea6;
+    text-decoration:none;
+    font-weight:600;
 }
 
-/* MOBILE */
-
-@media(max-width:600px){
-
-    .card{
-        padding:20px;
-    }
-
-    h1{
-        font-size:24px;
-    }
-
-    .bank-row{
-        flex-direction:column;
-        gap:4px;
-    }
-
-    .bank-value{
-        text-align:left;
-    }
-
+.student{
+    background:#eef4ff;
+    color:#174ea6;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:20px;
 }
 
 </style>
 
 </head>
 
-
 <body>
 
+<div class="container">
 
-<!-- =====================================
-     HEADER
-===================================== -->
-
-<header>
-
-<div class="header-inner">
+<div class="card">
 
 <div class="logo">
 📚 CreateLK Academy
 </div>
 
-<a
-    class="back"
-    href="index.html">
+<div class="subtitle">
+⭐ Premium Membership
+</div>
 
-← Back
 
-</a>
+<div
+    class="student"
+    id="studentInfo">
+
+Loading student...
 
 </div>
 
-</header>
-
-
-
-<!-- =====================================
-     MAIN
-===================================== -->
-
-<div class="container">
-
-
-<div class="card">
-
-
-<h1>
-⭐ Premium Membership
-</h1>
-
-
-<p class="subtitle">
-
-Complete your membership payment securely.
-
-</p>
-
-
-
-<!-- PRICE -->
 
 <div class="price">
 
-<strong>
+<h2>
 LKR 1,500
-</strong>
+</h2>
 
-<span>
+<p>
 30 Days Premium Access
-</span>
+</p>
 
 </div>
-
-
-
-<!-- STUDENT -->
-
-<div
-    id="studentBox"
-    class="student-box">
-
-Loading student information...
-
-</div>
-
-
-
-<!-- MESSAGE -->
-
-<div
-    id="message"
-    class="message">
-
-</div>
-
-
-
-<!-- =====================================
-     BANK DETAILS
-===================================== -->
-
-<div class="section-title">
-
-🏦 Step 1 — Make Bank Deposit
-
-</div>
-
 
 
 <div class="bank">
 
+<h3>
+🏦 Bank Deposit Details
+</h3>
 
-<div class="bank-row">
-
-<div class="bank-label">
-Bank
-</div>
-
-<div class="bank-value">
+<p>
+<strong>Bank:</strong>
 People's Bank
-</div>
+</p>
 
-</div>
-
-
-
-<div class="bank-row">
-
-<div class="bank-label">
-Branch
-</div>
-
-<div class="bank-value">
+<p>
+<strong>Branch:</strong>
 Udapussellawa
-</div>
+</p>
 
-</div>
-
-
-
-<div class="bank-row">
-
-<div class="bank-label">
-Account Name
-</div>
-
-<div class="bank-value">
-Thinarathnam Saththiyanadan
-</div>
-
-</div>
-
-
-
-<div class="bank-row">
-
-<div class="bank-label">
-Account No.
-</div>
-
-<div class="bank-value">
+<p>
+<strong>Account No:</strong>
 292200280023178
-</div>
+</p>
+
+<p>
+<strong>Account Name:</strong>
+Thinarathnam Saththiyanadan
+</p>
 
 </div>
 
 
-
-<div class="bank-row">
-
-<div class="bank-label">
-Amount
-</div>
-
-<div class="bank-value">
-LKR 1,500
-</div>
-
+<div
+    id="message"
+    class="message">
 </div>
 
 
-</div>
+<form
+    id="paymentForm">
 
 
+<div class="field">
 
-<!-- NOTICE -->
-
-<div class="notice">
-
-<strong>Important:</strong>
-
-<br><br>
-
-Please deposit exactly
-
-<strong>LKR 1,500</strong>
-
-to the People's Bank account above.
-
-<br><br>
-
-After making the payment, keep your bank receipt or payment confirmation.
-
-<br><br>
-
-Your Premium membership will be activated after the administrator verifies your payment.
-
-</div>
-
-
-
-<!-- =====================================
-     SUBMISSION
-===================================== -->
-
-<div class="section-title">
-
-🧾 Step 2 — Submit Payment
-
-</div>
-
-
-
-<form id="paymentForm">
-
-
-
-<label for="paymentReference">
-
-Payment Reference / Transaction ID
-
+<label>
+Payment Reference
 </label>
-
 
 <input
     type="text"
     id="paymentReference"
     name="payment_reference"
-    placeholder="Enter your transaction reference"
-    autocomplete="off"
-    required
->
+    placeholder="Enter bank transaction/reference number"
+    required>
+
+</div>
 
 
+<div class="field">
 
-<label for="receipt">
-
+<label>
 Upload Payment Receipt
-
 </label>
-
 
 <input
     type="file"
     id="receipt"
     name="receipt"
-    accept=".jpg,.jpeg,.png,.webp,.pdf"
-    required
->
+    accept="image/jpeg,image/png,image/webp,application/pdf"
+    required>
 
-
-<p
-    style="
-    font-size:13px;
-    color:#64748b;
-    margin-top:-8px;
-    margin-bottom:20px;
-    ">
-
-JPG, PNG, WEBP or PDF.
-Maximum 5 MB.
-
-</p>
-
+</div>
 
 
 <button
     type="submit"
-    id="submitBtn">
+    class="submit"
+    id="submitButton">
 
-Submit Payment
+Submit Payment for Approval
 
 </button>
-
-
-
-<div
-    id="loading"
-    class="loading">
-
-⏳ Uploading payment receipt...
-
-</div>
-
-
 
 </form>
 
 
-</div>
+<div class="back">
 
-
-
-<!-- =====================================
-     WHAT HAPPENS NEXT
-===================================== -->
-
-<div class="card">
-
-
-<div class="section-title">
-
-⭐ What happens next?
+<a href="dashboard.html">
+← Back to Dashboard
+</a>
 
 </div>
 
-
-<p
-    style="
-    line-height:1.8;
-    color:#475569;
-    ">
-
-1. You make a bank deposit of
-<strong>LKR 1,500</strong>.
-
-<br>
-
-2. Upload your payment receipt.
-
-<br>
-
-3. Your payment is saved as
-<strong>Pending</strong>.
-
-<br>
-
-4. The administrator checks your payment.
-
-<br>
-
-5. After approval, Premium becomes
-<strong>Active</strong>.
-
-<br>
-
-6. You receive
-<strong>30 days</strong>
-of Premium access.
-
-</p>
-
-
 </div>
 
-
-
 </div>
-
-
-
-<!-- =====================================
-     FOOTER
-===================================== -->
-
-<footer>
-
-📚 CreateLK Academy
-
-<br>
-
-Learn English. Practice More. Improve Faster.
-
-<br><br>
-
-© 2026 CreateLK Academy. All Rights Reserved.
-
-</footer>
-
 
 
 <script>
@@ -665,18 +294,34 @@ Learn English. Practice More. Improve Faster.
 "use strict";
 
 
-/* =========================================
-   CLOUDFLARE WORKER API
-========================================= */
-
 const API_URL =
 "https://cool-resonance-7780.gateofheavensl1.workers.dev";
 
 
+const form =
+document.getElementById(
+    "paymentForm"
+);
 
-/* =========================================
+const message =
+document.getElementById(
+    "message"
+);
+
+const button =
+document.getElementById(
+    "submitButton"
+);
+
+const studentInfo =
+document.getElementById(
+    "studentInfo"
+);
+
+
+/* =====================================
    GET STUDENT
-========================================= */
+===================================== */
 
 function getStudent(){
 
@@ -685,19 +330,18 @@ function getStudent(){
             "createlk_student"
         );
 
-
     if(!saved){
 
+        window.location.href =
+            "login.html";
+
         return null;
-
     }
-
 
     try{
 
         const student =
             JSON.parse(saved);
-
 
         if(
             student &&
@@ -705,243 +349,94 @@ function getStudent(){
         ){
 
             return student;
-
         }
 
-    }
-
-    catch(error){
+    }catch(error){
 
         localStorage.removeItem(
             "createlk_student"
         );
-
     }
 
+    window.location.href =
+        "login.html";
 
     return null;
-
 }
 
 
+const student =
+getStudent();
 
-/* =========================================
-   ESCAPE HTML
-========================================= */
 
-function escapeHTML(value){
+if(student){
 
-    return String(value)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
+    studentInfo.innerHTML =
+        "👤 <strong>" +
+        (
+            student.first_name ||
+            "Student"
+        ) +
+        "</strong><br>" +
+        (
+            student.email ||
+            ""
         );
 
 }
 
 
-
-/* =========================================
-   LOAD STUDENT
-========================================= */
-
-function loadStudent(){
-
-    const student =
-        getStudent();
-
-
-    const box =
-        document.getElementById(
-            "studentBox"
-        );
-
-
-    if(!student){
-
-        box.innerHTML = `
-
-            <strong>
-            ⚠️ Please log in first.
-            </strong>
-
-            <br>
-
-            You must have a CreateLK Academy
-            student account before purchasing Premium.
-
-            <br><br>
-
-            <a
-                href="login.html"
-                style="
-                color:#166534;
-                font-weight:700;
-                ">
-
-                Go to Login
-
-            </a>
-
-        `;
-
-
-        document.getElementById(
-            "paymentForm"
-        ).style.display =
-            "none";
-
-
-        return;
-
-    }
-
-
-
-    box.innerHTML = `
-
-        <strong>
-        👤 Student Information
-        </strong>
-
-        <br>
-
-        Name:
-        ${escapeHTML(
-            (student.first_name || "") +
-            " " +
-            (student.last_name || "")
-        )}
-
-        <br>
-
-        Email:
-        ${escapeHTML(
-            student.email || ""
-        )}
-
-        <br>
-
-        Student ID:
-        ${escapeHTML(
-            String(student.id)
-        )}
-
-    `;
-
-}
-
-
-
-/* =========================================
-   SHOW MESSAGE
-========================================= */
+/* =====================================
+   MESSAGE
+===================================== */
 
 function showMessage(
     text,
     type
 ){
 
-    const message =
-        document.getElementById(
-            "message"
-        );
-
-
     message.textContent =
         text;
-
 
     message.className =
         "message " + type;
 
-
     message.style.display =
         "block";
-
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
 
 }
 
 
-
-/* =========================================
+/* =====================================
    SUBMIT PAYMENT
-========================================= */
+===================================== */
 
-document
-.getElementById(
-    "paymentForm"
-)
-.addEventListener(
+form.addEventListener(
     "submit",
     async function(event){
 
         event.preventDefault();
 
 
-        const student =
-            getStudent();
-
-
         if(!student){
 
-            showMessage(
-                "Please log in before submitting your payment.",
-                "error"
-            );
-
             return;
-
         }
 
 
-
-        const reference =
-            document
-            .getElementById(
-                "paymentReference"
-            )
-            .value
-            .trim();
-
-
-
         const receipt =
-            document
-            .getElementById(
+            document.getElementById(
                 "receipt"
-            )
-            .files[0];
+            ).files[0];
 
 
+        const paymentReference =
+            document.getElementById(
+                "paymentReference"
+            ).value.trim();
 
-        if(!reference){
+
+        if(!paymentReference){
 
             showMessage(
                 "Please enter your payment reference.",
@@ -949,9 +444,7 @@ document
             );
 
             return;
-
         }
-
 
 
         if(!receipt){
@@ -962,12 +455,8 @@ document
             );
 
             return;
-
         }
 
-
-
-        /* FILE SIZE */
 
         if(
             receipt.size >
@@ -980,237 +469,127 @@ document
             );
 
             return;
-
         }
-
-
-
-        /* FILE TYPE */
-
-        const allowedTypes = [
-
-            "image/jpeg",
-            "image/png",
-            "image/webp",
-            "application/pdf"
-
-        ];
-
-
-
-        if(
-            !allowedTypes.includes(
-                receipt.type
-            )
-        ){
-
-            showMessage(
-                "Please upload JPG, PNG, WEBP or PDF.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-
-        /* FORM DATA */
-
-        const formData =
-            new FormData();
-
-
-
-        formData.append(
-            "student_id",
-            student.id
-        );
-
-
-
-        formData.append(
-            "amount",
-            "1500"
-        );
-
-
-
-        formData.append(
-            "payment_reference",
-            reference
-        );
-
-
-
-        formData.append(
-            "receipt",
-            receipt
-        );
-
-
-
-        /* BUTTON */
-
-        const button =
-            document.getElementById(
-                "submitBtn"
-            );
-
-
-        const loading =
-            document.getElementById(
-                "loading"
-            );
-
 
 
         button.disabled =
             true;
 
-
         button.textContent =
-            "Uploading...";
-
-
-        loading.style.display =
-            "block";
-
+            "Uploading Receipt...";
 
 
         try{
 
+            const formData =
+                new FormData();
+
+
+            formData.append(
+                "student_id",
+                student.id
+            );
+
+
+            formData.append(
+                "amount",
+                "1500"
+            );
+
+
+            formData.append(
+                "payment_reference",
+                paymentReference
+            );
+
+
+            formData.append(
+                "receipt",
+                receipt
+            );
+
+
             const response =
                 await fetch(
-
                     API_URL +
                     "/api/premium/payment",
-
                     {
                         method:"POST",
                         body:formData
                     }
-
                 );
 
 
-
-            let data;
-
-
-            try{
-
-                data =
-                    await response.json();
-
-            }
-
-            catch(error){
-
-                throw new Error(
-                    "The server returned an invalid response."
-                );
-
-            }
+            const data =
+                await response.json();
 
 
+            if(!response.ok ||
+               data.success !== true){
 
-            if(
-                !response.ok ||
-                !data.success
-            ){
-
-                throw new Error(
+                showMessage(
                     data.message ||
-                    "Payment submission failed."
+                    "Payment submission failed.",
+                    "error"
                 );
 
+                button.disabled =
+                    false;
+
+                button.textContent =
+                    "Submit Payment for Approval";
+
+                return;
             }
 
-
-
-            /* SUCCESS */
 
             showMessage(
-
-                "✅ Payment submitted successfully! Your payment is now waiting for administrator approval. Premium access will be activated after your payment is approved.",
-
+                "Payment submitted successfully! Your Premium membership is waiting for admin approval.",
                 "success"
-
             );
-
-
-
-            document
-            .getElementById(
-                "paymentForm"
-            )
-            .reset();
-
 
 
             button.textContent =
-                "Payment Submitted";
+                "Payment Submitted ✓";
 
 
+            button.disabled =
+                true;
 
-        }
 
-        catch(error){
+            setTimeout(
+                function(){
 
-            console.error(
-                "Payment error:",
-                error
+                    window.location.href =
+                        "dashboard.html";
+
+                },
+                2500
             );
 
 
+        }catch(error){
+
+            console.error(error);
+
             showMessage(
-
-                "❌ " +
-                error.message,
-
+                "Could not connect to the payment server.",
                 "error"
-
             );
 
 
             button.disabled =
                 false;
 
-
             button.textContent =
-                "Submit Payment";
+                "Submit Payment for Approval";
 
         }
-
-        finally{
-
-            loading.style.display =
-                "none";
-
-        }
-
-    }
-);
-
-
-
-/* =========================================
-   PAGE START
-========================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
-
-        loadStudent();
 
     }
 );
 
 </script>
 
-
 </body>
-
 </html>
