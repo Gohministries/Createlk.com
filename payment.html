@@ -263,6 +263,7 @@ padding:24px;
 
 </nav>
 
+
 <section class="hero">
 
 <h1>
@@ -275,7 +276,9 @@ Complete your membership purchase securely.
 
 </section>
 
+
 <main class="container">
+
 
 <section class="card price-card">
 
@@ -418,8 +421,7 @@ Important:
 </strong>
 
 Your membership is activated only after
-the payment provider successfully confirms
-the transaction.
+PayHere successfully confirms the payment.
 
 </div>
 
@@ -433,8 +435,8 @@ the transaction.
 </h2>
 
 <p>
-Payments will be processed through the official
-payment gateway connected to CreateLK Academy.
+Payments are processed through the official
+PayHere Sandbox payment gateway during testing.
 </p>
 
 <div class="security">
@@ -442,7 +444,7 @@ payment gateway connected to CreateLK Academy.
 <div>
 
 <strong>
-💳 Payment Gateway
+💳 PayHere
 </strong>
 
 Secure online payment processing.
@@ -456,8 +458,7 @@ Secure online payment processing.
 🔒 Protected
 </strong>
 
-Payment information is handled by the
-payment provider.
+Your payment information is handled by PayHere.
 
 </div>
 
@@ -553,6 +554,7 @@ Contact CreateLK Academy
 
 </section>
 
+
 </main>
 
 
@@ -617,6 +619,11 @@ Payment
 
 <script>
 
+
+// ==========================================================
+// ELEMENTS
+// ==========================================================
+
 const paymentForm =
 document.getElementById(
 "paymentForm"
@@ -633,12 +640,28 @@ document.getElementById(
 );
 
 
+// ==========================================================
+// NEW CLOUDFLARE WORKER
+// ==========================================================
+
+const PAYMENT_API =
+"https://holy-lab-d9d9.gateofheavensl1.workers.dev/create-payment";
+
+
+// ==========================================================
+// PAYMENT FORM
+// ==========================================================
+
 paymentForm.addEventListener(
 "submit",
 async function(event){
 
 event.preventDefault();
 
+
+// ----------------------------------------------------------
+// GET STUDENT INFORMATION
+// ----------------------------------------------------------
 
 const firstName =
 document
@@ -677,6 +700,10 @@ document
 .trim();
 
 
+// ----------------------------------------------------------
+// VALIDATION
+// ----------------------------------------------------------
+
 if(
 !firstName ||
 !lastName ||
@@ -695,6 +722,10 @@ return;
 }
 
 
+// ----------------------------------------------------------
+// DISABLE BUTTON
+// ----------------------------------------------------------
+
 payButton.disabled =
 true;
 
@@ -708,16 +739,11 @@ message.style.color =
 "#1565c0";
 
 
+// ----------------------------------------------------------
+// SEND TO CLOUDFLARE WORKER
+// ----------------------------------------------------------
+
 try{
-
-
-//========================================
-// NEW CLOUDFLARE WORKER
-//========================================
-
-const PAYMENT_API =
-"https://fragrant-violet-042a.gateofheavensl1.workers.dev/create-payment";
-
 
 const response =
 await fetch(
@@ -753,21 +779,52 @@ phone
 );
 
 
+// ----------------------------------------------------------
+// CHECK SERVER RESPONSE
+// ----------------------------------------------------------
+
 if(
 !response.ok
 ){
 
-throw new Error(
+let errorMessage =
 "Payment server error: " +
-response.status
+response.status;
+
+try{
+
+const errorData =
+await response.json();
+
+if(
+errorData.message
+){
+
+errorMessage =
+errorData.message;
+
+}
+
+}catch(e){}
+
+throw new Error(
+errorMessage
 );
 
 }
 
 
+// ----------------------------------------------------------
+// READ RESPONSE
+// ----------------------------------------------------------
+
 const data =
 await response.json();
 
+
+// ----------------------------------------------------------
+// PAYMENT CREATED
+// ----------------------------------------------------------
 
 if(
 data.success &&
@@ -779,11 +836,14 @@ const payment =
 data.payment;
 
 
+// ----------------------------------------------------------
+// CREATE PAYHERE FORM
+// ----------------------------------------------------------
+
 const payhereForm =
 document.createElement(
 "form"
 );
-
 
 payhereForm.method =
 "POST";
@@ -794,6 +854,10 @@ data.gateway;
 payhereForm.style.display =
 "none";
 
+
+// ----------------------------------------------------------
+// PAYHERE FIELDS
+// ----------------------------------------------------------
 
 const fields = {
 
@@ -843,15 +907,34 @@ amount:
 payment.amount,
 
 hash:
-payment.hash
+payment.hash,
+
+custom_1:
+payment.custom_1,
+
+custom_2:
+payment.custom_2
 
 };
 
+
+// ----------------------------------------------------------
+// ADD FIELDS
+// ----------------------------------------------------------
 
 Object.entries(
 fields
 ).forEach(
 ([name,value])=>{
+
+if(
+value === undefined ||
+value === null
+){
+
+return;
+
+}
 
 const input =
 document.createElement(
@@ -875,6 +958,10 @@ input
 );
 
 
+// ----------------------------------------------------------
+// SUBMIT
+// ----------------------------------------------------------
+
 document.body.appendChild(
 payhereForm
 );
@@ -894,28 +981,45 @@ return;
 }
 
 
+// ----------------------------------------------------------
+// PAYMENT ERROR
+// ----------------------------------------------------------
+
 throw new Error(
+
 data.message ||
 "Payment could not be created."
+
 );
 
 
 }
+
+
+// ----------------------------------------------------------
+// CATCH ERROR
+// ----------------------------------------------------------
+
 catch(error){
 
 console.error(
+"PAYMENT ERROR:",
 error
 );
+
 
 message.textContent =
 error.message ||
 "Payment could not be started.";
 
+
 message.style.color =
 "#c62828";
 
+
 payButton.disabled =
 false;
+
 
 payButton.textContent =
 "Continue to Secure Payment";
