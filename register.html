@@ -1,1010 +1,564 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html><html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Create Account | CreateLK Academy</title>
-
-<meta name="description"
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Create Account | CreateLK Academy</title><meta name="description"
 content="Create your CreateLK Academy student account.">
 
 <style>
-
-/* ================================
-   RESET
-================================ */
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:"Segoe UI",Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
 }
-
-/* ================================
-   PAGE
-================================ */
 
 body{
-min-height:100vh;
-background:#f4f7fc;
-color:#263238;
-display:flex;
-flex-direction:column;
+    min-height:100vh;
+    background:linear-gradient(135deg,#eef4ff,#ffffff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
 }
 
-/* ================================
-   NAVIGATION
-================================ */
+.container{
+    width:100%;
+    max-width:480px;
+}
 
-nav{
-background:#fff;
-padding:16px 6%;
-box-shadow:0 4px 20px rgba(0,0,0,.06);
+.card{
+    background:#fff;
+    padding:32px 26px;
+    border-radius:20px;
+    box-shadow:0 10px 35px rgba(0,0,0,.10);
 }
 
 .logo{
-font-size:23px;
-font-weight:800;
-color:#1565c0;
-}
-
-/* ================================
-   CONTAINER
-================================ */
-
-.container{
-width:100%;
-max-width:520px;
-margin:auto;
-padding:35px 20px;
-}
-
-/* ================================
-   CARD
-================================ */
-
-.card{
-width:100%;
-background:#fff;
-padding:32px;
-border-radius:20px;
-box-shadow:0 8px 28px rgba(0,0,0,.08);
-border:1px solid #edf0f5;
-}
-
-/* ================================
-   HEADINGS
-================================ */
-
-h1{
-text-align:center;
-color:#1565c0;
-margin-bottom:8px;
-font-size:30px;
-line-height:1.3;
+    text-align:center;
+    font-size:30px;
+    font-weight:800;
+    color:#174ea6;
+    margin-bottom:5px;
 }
 
 .subtitle{
-text-align:center;
-color:#68757c;
-margin-bottom:25px;
-line-height:1.6;
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
 }
 
-/* ================================
-   FORM
-================================ */
+.row{
+    display:flex;
+    gap:12px;
+}
 
-form{
-width:100%;
+.field{
+    margin-bottom:17px;
+    flex:1;
 }
 
 label{
-display:block;
-font-weight:600;
-margin:18px 0 7px;
-line-height:1.4;
+    display:block;
+    font-weight:600;
+    margin-bottom:7px;
+    color:#333;
 }
 
-/* ================================
-   INPUT
-================================ */
-
 input{
-display:block;
-width:100%;
-height:48px;
-padding:12px 14px;
-border:1px solid #ccd5dc;
-border-radius:10px;
-font-size:15px;
-outline:none;
-background:#fff;
-color:#263238;
+    width:100%;
+    padding:13px 14px;
+    border:1px solid #d5d9e0;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+    transition:.2s;
 }
 
 input:focus{
-border-color:#1565c0;
-box-shadow:0 0 0 3px rgba(21,101,192,.08);
+    border-color:#174ea6;
+    box-shadow:0 0 0 3px rgba(23,78,166,.10);
 }
 
-/* ================================
-   PASSWORD
-================================ */
-
-.password-wrap{
-position:relative;
-width:100%;
+.password-box{
+    position:relative;
 }
 
-.password-wrap input{
-padding-right:75px;
+.password-box input{
+    padding-right:70px;
 }
 
-.show-password{
-position:absolute;
-right:8px;
-top:50%;
-transform:translateY(-50%);
-height:34px;
-min-width:52px;
-padding:5px 8px;
-border:0;
-border-radius:7px;
-background:transparent;
-color:#1565c0;
-font-size:14px;
-font-weight:700;
-cursor:pointer;
-z-index:2;
+.show-btn{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    border:0;
+    background:none;
+    color:#174ea6;
+    font-weight:600;
+    cursor:pointer;
 }
 
-.show-password:hover{
-background:#e3f2fd;
-color:#0d47a1;
+.strength{
+    font-size:13px;
+    margin-top:6px;
+    color:#777;
 }
 
-/* ================================
-   PASSWORD STRENGTH
-================================ */
-
-.password-strength{
-min-height:22px;
-margin-top:8px;
-font-size:13px;
-font-weight:600;
-line-height:1.5;
+button.register{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:11px;
+    background:#174ea6;
+    color:white;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    margin-top:5px;
 }
 
-/* ================================
-   REGISTER BUTTON
-================================ */
-
-.register-button{
-display:block;
-width:100%;
-height:48px;
-margin-top:24px;
-padding:12px 16px;
-border:0;
-border-radius:28px;
-background:#1565c0;
-color:#fff;
-font-size:16px;
-font-weight:800;
-cursor:pointer;
+button.register:hover{
+    background:#123d82;
 }
 
-.register-button:hover{
-background:#0d47a1;
+button.register:disabled{
+    opacity:.6;
+    cursor:not-allowed;
 }
-
-.register-button:disabled{
-background:#9eabb3;
-cursor:not-allowed;
-}
-
-/* ================================
-   MESSAGE
-================================ */
 
 .message{
-width:100%;
-min-height:22px;
-margin-top:16px;
-text-align:center;
-font-weight:600;
-font-size:14px;
-line-height:1.5;
-word-break:break-word;
+    display:none;
+    padding:12px;
+    border-radius:9px;
+    margin-bottom:17px;
+    font-size:14px;
+    text-align:center;
 }
 
-/* ================================
-   LINKS
-================================ */
-
-.links{
-width:100%;
-text-align:center;
-margin-top:25px;
+.success{
+    background:#e8f7ed;
+    color:#176b35;
 }
 
-.links a{
-display:block;
-margin-top:12px;
-color:#1565c0;
-text-decoration:none;
-font-weight:600;
-line-height:1.5;
+.error{
+    background:#fdeaea;
+    color:#a32121;
 }
 
-.links a:hover{
-text-decoration:underline;
+.login-link{
+    text-align:center;
+    margin-top:20px;
+    color:#666;
 }
 
-/* ================================
-   SECURITY
-================================ */
-
-.security{
-width:100%;
-margin-top:25px;
-padding:16px;
-background:#f8fafc;
-border-radius:12px;
-text-align:center;
-font-size:13px;
-color:#68757c;
-line-height:1.6;
+.login-link a{
+    color:#174ea6;
+    font-weight:700;
+    text-decoration:none;
 }
 
-/* ================================
-   FOOTER
-================================ */
+@media(max-width:500px){
+    .row{
+        flex-direction:column;
+        gap:0;
+    }
 
-footer{
-margin-top:auto;
-background:#111827;
-color:#9ca3af;
-text-align:center;
-padding:25px 20px;
+    .card{
+        padding:27px 20px;
+    }
 }
-
-footer strong{
-color:#fff;
-}
-
-/* ================================
-   WHATSAPP SUPPORT
-================================ */
-
-.whatsapp-support{
-position:fixed;
-right:20px;
-bottom:20px;
-z-index:9999;
-}
-
-.whatsapp-support a{
-display:flex;
-align-items:center;
-gap:10px;
-padding:13px 18px;
-background:#25D366;
-color:#fff;
-text-decoration:none;
-border-radius:50px;
-font-size:14px;
-font-weight:800;
-box-shadow:0 6px 20px rgba(0,0,0,.20);
-transition:transform .2s ease,
-            box-shadow .2s ease;
-}
-
-.whatsapp-support a:hover{
-transform:translateY(-3px);
-box-shadow:0 9px 25px rgba(0,0,0,.25);
-}
-
-.whatsapp-icon{
-font-size:22px;
-line-height:1;
-}
-
-/* ================================
-   MOBILE
-================================ */
-
-@media(max-width:600px){
-
-nav{
-padding:15px 20px;
-}
-
-.logo{
-font-size:20px;
-}
-
-.container{
-padding:25px 15px;
-}
-
-.card{
-padding:25px 20px;
-border-radius:16px;
-}
-
-h1{
-font-size:27px;
-}
-
-.subtitle{
-font-size:14px;
-margin-bottom:23px;
-}
-
-input{
-height:48px;
-font-size:16px;
-}
-
-.register-button{
-height:50px;
-}
-
-.whatsapp-support{
-right:15px;
-bottom:15px;
-}
-
-.whatsapp-support a{
-width:52px;
-height:52px;
-padding:0;
-justify-content:center;
-border-radius:50%;
-}
-
-.whatsapp-support .support-text{
-display:none;
-}
-
-.whatsapp-icon{
-font-size:24px;
-}
-
-}
-
-/* ================================
-   VERY SMALL SCREENS
-================================ */
-
-@media(max-width:360px){
-
-.card{
-padding:22px 16px;
-}
-
-.logo{
-font-size:18px;
-}
-
-h1{
-font-size:24px;
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<nav>
-
-<div class="logo">
+</style></head><body><div class="container"><div class="card"><div class="logo">
 📚 CreateLK Academy
-</div>
-
-</nav>
-
-<main class="container">
-
-<div class="card">
-
-<h1>
-Create Student Account
-</h1>
-
-<p class="subtitle">
-Create your account to access CreateLK Academy.
-</p>
-
-<form id="registerForm">
-
-<label for="firstName">
-First Name
-</label>
-
+</div><div class="subtitle">
+Create your student account
+</div><div id="message" class="message"></div><form id="registerForm"><div class="row"><div class="field">
+<label for="firstName">First Name</label>
 <input
+type="text"
 id="firstName"
-type="text"
-placeholder="Enter your first name"
-autocomplete="given-name"
-required
->
-
-<label for="lastName">
-Last Name
-</label>
-
+placeholder="First name"
+required>
+</div><div class="field">
+<label for="lastName">Last Name</label>
 <input
+type="text"
 id="lastName"
-type="text"
-placeholder="Enter your last name"
-autocomplete="family-name"
-required
->
-
-<label for="email">
-Email Address
-</label>
-
+placeholder="Last name"
+required>
+</div></div><div class="field">
+<label for="email">Email Address</label>
 <input
-id="email"
 type="email"
-placeholder="Enter your email"
-autocomplete="email"
-required
->
-
-<label for="phone">
-WhatsApp Number
-</label>
-
+id="email"
+placeholder="you@example.com"
+required>
+</div><div class="field">
+<label for="phone">WhatsApp Number</label>
 <input
-id="phone"
 type="tel"
-placeholder="+94 7XXXXXXXX"
-autocomplete="tel"
->
-
-<label for="password">
+id="phone"
+placeholder="+94771234567">
+</div><div class="field"><label for="password">
 Password
-</label>
-
-<div class="password-wrap">
-
-<input
+</label><div class="password-box"><input
+type="password"
 id="password"
-type="password"
-placeholder="Create a password"
-autocomplete="new-password"
-minlength="8"
+placeholder="Minimum 8 characters"
 required
->
+minlength="8">
 
 <button
 type="button"
-class="show-password"
-id="showPassword">
+class="show-btn"
+onclick="togglePassword('password',this)">
 Show
 </button>
 
-</div>
-
-<div
-id="passwordStrength"
-class="password-strength">
-</div>
-
-<label for="confirmPassword">
+</div><div id="strength" class="strength">
+Password strength: —
+</div></div><div class="field"><label for="confirmPassword">
 Confirm Password
-</label>
-
-<div class="password-wrap">
-
-<input
-id="confirmPassword"
+</label><div class="password-box"><input
 type="password"
-placeholder="Enter your password again"
-autocomplete="new-password"
-minlength="8"
+id="confirmPassword"
+placeholder="Enter password again"
 required
->
+minlength="8">
 
 <button
 type="button"
-class="show-password"
-id="showConfirmPassword">
+class="show-btn"
+onclick="togglePassword('confirmPassword',this)">
 Show
 </button>
 
-</div>
+</div></div><button
+type="submit"
+class="register"
+id="registerButton">
 
-<button
-id="registerButton"
-class="register-button"
-type="submit">
 Create Account
-</button>
 
-<div
-id="message"
-class="message"
-aria-live="polite">
-</div>
+</button></form><div class="login-link">
+Already have an account?
+<a href="login.html">Login</a>
+</div></div>
+</div><script>
 
-</form>
+/* ==========================================
+   CLOUDFLARE WORKER API
+========================================== */
 
-<div class="links">
+const API_URL =
+"https://shy-fog-1588.gateofheavensl1.workers.dev";
 
-<a href="login.html">
-Already have an account? Sign in
-</a>
 
-<a href="index.html">
-← Back to Academy
-</a>
+/* ==========================================
+   ELEMENTS
+========================================== */
 
-</div>
-
-<div class="security">
-
-🔐 Your password is securely hashed
-before it is stored by the server.
-
-</div>
-
-</div>
-
-</main>
-
-<footer>
-
-<p>
-<strong>
-📚 CreateLK Academy
-</strong>
-</p>
-
-<p style="margin-top:8px;">
-© 2026 CreateLK Academy. All Rights Reserved.
-</p>
-
-</footer>
-
-<div class="whatsapp-support">
-
-<a
-href="https://wa.me/94771190395?text=Hello%20CreateLK%20Academy%20Support"
-target="_blank"
-rel="noopener noreferrer"
-aria-label="WhatsApp Support">
-
-<span class="whatsapp-icon">
-💬
-</span>
-
-<span class="support-text">
-WhatsApp Support
-</span>
-
-</a>
-
-</div>
-
-<script>
-
-/*
-==================================================
-CREATE LK ACADEMY — STUDENT REGISTRATION
-==================================================
-*/
-
-const API =
-"https://green-mountain-7f08.gateofheavensl1.workers.dev";
-
-const registerForm =
+const form =
 document.getElementById("registerForm");
-
-const registerButton =
-document.getElementById("registerButton");
 
 const message =
 document.getElementById("message");
 
-const passwordInput =
+const button =
+document.getElementById("registerButton");
+
+const password =
 document.getElementById("password");
 
-const confirmPasswordInput =
+const confirmPassword =
 document.getElementById("confirmPassword");
 
-const passwordStrength =
-document.getElementById("passwordStrength");
-
-const showPassword =
-document.getElementById("showPassword");
-
-const showConfirmPassword =
-document.getElementById("showConfirmPassword");
+const strength =
+document.getElementById("strength");
 
 
-/*
-==================================================
-SHOW / HIDE PASSWORD
-==================================================
-*/
+/* ==========================================
+   SHOW MESSAGE
+========================================== */
 
-showPassword.addEventListener(
-"click",
-function(){
+function showMessage(text,type){
 
-if(passwordInput.type === "password"){
+    message.textContent = text;
 
-passwordInput.type = "text";
+    message.className =
+        "message " + type;
 
-showPassword.textContent = "Hide";
-
-}else{
-
-passwordInput.type = "password";
-
-showPassword.textContent = "Show";
-
-}
-
-});
-
-
-showConfirmPassword.addEventListener(
-"click",
-function(){
-
-if(confirmPasswordInput.type === "password"){
-
-confirmPasswordInput.type = "text";
-
-showConfirmPassword.textContent = "Hide";
-
-}else{
-
-confirmPasswordInput.type = "password";
-
-showConfirmPassword.textContent = "Show";
-
-}
-
-});
-
-
-/*
-==================================================
-PASSWORD STRENGTH
-==================================================
-*/
-
-function checkPasswordStrength(value){
-
-if(!value){
-
-passwordStrength.textContent = "";
-
-return;
-
-}
-
-if(value.length < 8){
-
-passwordStrength.textContent =
-"Password strength: Too short";
-
-passwordStrength.style.color =
-"#c62828";
-
-}
-else if(value.length < 10){
-
-passwordStrength.textContent =
-"Password strength: Weak";
-
-passwordStrength.style.color =
-"#ef6c00";
-
-}
-else if(value.length < 12){
-
-passwordStrength.textContent =
-"Password strength: Medium";
-
-passwordStrength.style.color =
-"#ef6c00";
-
-}
-else{
-
-passwordStrength.textContent =
-"Password strength: Strong";
-
-passwordStrength.style.color =
-"#00897b";
-
-}
+    message.style.display =
+        "block";
 
 }
 
 
-passwordInput.addEventListener(
+/* ==========================================
+   PASSWORD SHOW / HIDE
+========================================== */
+
+function togglePassword(id,btn){
+
+    const input =
+        document.getElementById(id);
+
+    if(input.type === "password"){
+
+        input.type = "text";
+
+        btn.textContent = "Hide";
+
+    }else{
+
+        input.type = "password";
+
+        btn.textContent = "Show";
+
+    }
+
+}
+
+
+/* ==========================================
+   PASSWORD STRENGTH
+========================================== */
+
+password.addEventListener(
 "input",
 function(){
 
-checkPasswordStrength(
-passwordInput.value
-);
+    const value =
+        password.value;
+
+    if(!value){
+
+        strength.textContent =
+            "Password strength: —";
+
+        return;
+
+    }
+
+    let score = 0;
+
+    if(value.length >= 8)
+        score++;
+
+    if(/[A-Z]/.test(value))
+        score++;
+
+    if(/[a-z]/.test(value))
+        score++;
+
+    if(/[0-9]/.test(value))
+        score++;
+
+    if(/[^A-Za-z0-9]/.test(value))
+        score++;
+
+    if(score <= 2){
+
+        strength.textContent =
+            "Password strength: Weak";
+
+    }else if(score <= 4){
+
+        strength.textContent =
+            "Password strength: Medium";
+
+    }else{
+
+        strength.textContent =
+            "Password strength: Strong";
+
+    }
 
 });
 
 
-/*
-==================================================
-REGISTRATION
-==================================================
-*/
+/* ==========================================
+   REGISTER
+========================================== */
 
-registerForm.addEventListener(
+form.addEventListener(
 "submit",
 async function(event){
 
-event.preventDefault();
+    event.preventDefault();
 
-const firstName =
-document
-.getElementById("firstName")
-.value
-.trim();
-
-const lastName =
-document
-.getElementById("lastName")
-.value
-.trim();
-
-const email =
-document
-.getElementById("email")
-.value
-.trim()
-.toLowerCase();
-
-const phone =
-document
-.getElementById("phone")
-.value
-.trim();
-
-const password =
-passwordInput.value;
-
-const confirmPassword =
-confirmPasswordInput.value;
+    message.style.display =
+        "none";
 
 
-/*
-==================================================
-VALIDATION
-==================================================
-*/
+    const firstName =
+        document.getElementById(
+            "firstName"
+        ).value.trim();
 
-if(
-!firstName ||
-!lastName ||
-!email ||
-!password ||
-!confirmPassword
-){
+    const lastName =
+        document.getElementById(
+            "lastName"
+        ).value.trim();
 
-message.textContent =
-"Please complete all required fields.";
+    const email =
+        document.getElementById(
+            "email"
+        ).value.trim().toLowerCase();
 
-message.style.color =
-"#c62828";
+    const phone =
+        document.getElementById(
+            "phone"
+        ).value.trim();
 
-return;
+    const passwordValue =
+        password.value;
 
-}
-
-
-if(
-password.length < 8
-){
-
-message.textContent =
-"Password must contain at least 8 characters.";
-
-message.style.color =
-"#c62828";
-
-return;
-
-}
+    const confirmValue =
+        confirmPassword.value;
 
 
-if(
-password !== confirmPassword
-){
+    /* --------------------------------------
+       PASSWORD CHECK
+    -------------------------------------- */
 
-message.textContent =
-"Passwords do not match.";
+    if(passwordValue.length < 8){
 
-message.style.color =
-"#c62828";
+        showMessage(
+            "Password must contain at least 8 characters.",
+            "error"
+        );
 
-return;
+        return;
 
-}
-
-
-/*
-==================================================
-SUBMIT
-==================================================
-*/
-
-registerButton.disabled =
-true;
-
-registerButton.textContent =
-"Creating Account...";
-
-message.textContent =
-"Creating your student account...";
-
-message.style.color =
-"#1565c0";
+    }
 
 
-try{
+    if(passwordValue !== confirmValue){
 
-const response =
-await fetch(
-API + "/register",
-{
+        showMessage(
+            "Passwords do not match.",
+            "error"
+        );
 
-method:"POST",
+        return;
 
-headers:{
-"Content-Type":
-"application/json"
-},
+    }
 
-body:JSON.stringify({
 
-first_name:
-firstName,
+    /* --------------------------------------
+       BUTTON
+    -------------------------------------- */
 
-last_name:
-lastName,
+    button.disabled = true;
 
-email:
-email,
+    button.textContent =
+        "Creating Account...";
 
-phone:
-phone,
 
-password:
-password
+    try{
 
-})
+        /* ----------------------------------
+           SEND TO CLOUDFLARE WORKER
+        ---------------------------------- */
+
+        const response =
+            await fetch(
+                API_URL + "/register",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:JSON.stringify({
+
+                        first_name:
+                            firstName,
+
+                        last_name:
+                            lastName,
+
+                        email:
+                            email,
+
+                        phone:
+                            phone,
+
+                        password:
+                            passwordValue
+
+                    })
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        /* ----------------------------------
+           SUCCESS
+        ---------------------------------- */
+
+        if(response.ok && data.success){
+
+            showMessage(
+                "Account created successfully! Student ID: " +
+                data.student_id,
+                "success"
+            );
+
+            form.reset();
+
+            strength.textContent =
+                "Password strength: —";
+
+
+            /* Optional redirect */
+
+            setTimeout(
+                function(){
+
+                    window.location.href =
+                        "login.html";
+
+                },
+                1800
+            );
+
+        }else{
+
+            showMessage(
+                data.message ||
+                "Registration failed.",
+                "error"
+            );
+
+        }
+
+
+    }catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "Unable to connect to the server. Please try again.",
+            "error"
+        );
+
+    }
+
+
+    button.disabled = false;
+
+    button.textContent =
+        "Create Account";
 
 });
 
-
-let data;
-
-try{
-
-data =
-await response.json();
-
-}catch{
-
-throw new Error(
-"Invalid response from the server."
-);
-
-}
-
-
-/*
-==================================================
-SERVER ERROR
-==================================================
-*/
-
-if(
-!response.ok ||
-!data.success
-){
-
-throw new Error(
-data.message ||
-"Account creation failed."
-);
-
-}
-
-
-/*
-==================================================
-SUCCESS
-==================================================
-*/
-
-message.textContent =
-"Account created successfully!";
-
-message.style.color =
-"#00897b";
-
-registerButton.textContent =
-"Account Created";
-
-
-passwordInput.value =
-"";
-
-confirmPasswordInput.value =
-"";
-
-passwordStrength.textContent =
-"";
-
-
-setTimeout(
-function(){
-
-window.location.href =
-"login.html";
-
-},
-1200
-);
-
-
-}
-catch(error){
-
-console.error(
-"Registration error:",
-error
-);
-
-message.textContent =
-error.message ||
-"Unable to create account.";
-
-message.style.color =
-"#c62828";
-
-registerButton.disabled =
-false;
-
-registerButton.textContent =
-"Create Account";
-
-}
-
-});
-
-</script>
-
-</body>
-
+</script></body>
 </html>
