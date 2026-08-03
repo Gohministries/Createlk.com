@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>Student Login | CreateLK Academy</title>
-<meta name="description" content="Login to your CreateLK Academy student account.">
+
+<meta name="description"
+content="Login to your CreateLK Academy student account.">
+
+<meta name="theme-color" content="#174ea6">
 
 <style>
-*{box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
+
+*{
+box-sizing:border-box;
+font-family:"Segoe UI",Arial,sans-serif;
+}
 
 body{
 margin:0;
@@ -17,7 +27,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 padding:20px;
-color:#172033
+color:#172033;
 }
 
 .card{
@@ -26,7 +36,7 @@ max-width:420px;
 background:#fff;
 padding:28px;
 border-radius:20px;
-box-shadow:0 8px 30px #00000012
+box-shadow:0 8px 30px #00000012;
 }
 
 .logo{
@@ -34,21 +44,21 @@ text-align:center;
 font-size:23px;
 font-weight:800;
 color:#174ea6;
-margin-bottom:8px
+margin-bottom:8px;
 }
 
 .subtitle{
 text-align:center;
 color:#667085;
 font-size:14px;
-margin-bottom:25px
+margin-bottom:25px;
 }
 
 label{
 display:block;
 font-size:14px;
 font-weight:700;
-margin:14px 0 6px
+margin:14px 0 6px;
 }
 
 input{
@@ -57,12 +67,12 @@ padding:13px;
 border:1px solid #d0d5dd;
 border-radius:10px;
 font-size:15px;
-outline:none
+outline:none;
 }
 
 input:focus{
 border-color:#174ea6;
-box-shadow:0 0 0 3px #174ea61a
+box-shadow:0 0 0 3px #174ea61a;
 }
 
 button{
@@ -75,11 +85,12 @@ background:#174ea6;
 color:#fff;
 font-size:15px;
 font-weight:800;
-cursor:pointer
+cursor:pointer;
 }
 
 button:disabled{
-opacity:.6
+opacity:.6;
+cursor:not-allowed;
 }
 
 .message{
@@ -88,87 +99,152 @@ margin-top:15px;
 padding:12px;
 border-radius:10px;
 font-size:14px;
-text-align:center
+text-align:center;
 }
 
 .error{
 display:block;
 background:#fef3f2;
-color:#b42318
+color:#b42318;
 }
 
 .success{
 display:block;
 background:#e8f7ed;
-color:#176b35
+color:#176b35;
 }
 
 .links{
 text-align:center;
 margin-top:20px;
-font-size:14px
+font-size:14px;
+line-height:1.7;
 }
 
 .links a{
 color:#174ea6;
 font-weight:700;
-text-decoration:none
+text-decoration:none;
 }
+
+.links a:hover{
+text-decoration:underline;
+}
+
+.security{
+margin-top:22px;
+padding:12px;
+background:#f5f8ff;
+border-radius:10px;
+text-align:center;
+font-size:12px;
+color:#667085;
+line-height:1.5;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="card">
 
-<div class="logo">📚 CreateLK Academy</div>
+<div class="logo">
+📚 CreateLK Academy
+</div>
 
 <div class="subtitle">
 🔐 Student Login
 </div>
 
+
 <form id="loginForm">
 
-<label>Email Address</label>
+<label for="email">
+Email Address
+</label>
 
 <input
 type="email"
 id="email"
 placeholder="Enter your email"
 autocomplete="email"
-required>
+required
+>
 
-<label>Password</label>
+
+<label for="password">
+Password
+</label>
 
 <input
 type="password"
 id="password"
 placeholder="Enter your password"
 autocomplete="current-password"
-required>
+required
+>
 
-<button id="loginBtn" type="submit">
+
+<button
+id="loginBtn"
+type="submit"
+>
 🔐 Login
 </button>
 
 </form>
 
-<div id="message" class="message"></div>
+
+<div
+id="message"
+class="message">
+</div>
+
 
 <div class="links">
+
 Don't have an account?
-<a href="register.html">Create Account</a>
-<br><br>
-<a href="index.html">← Back to Home</a>
+
+<a href="register.html">
+Create Account
+</a>
+
+<br>
+
+<a href="index.html">
+← Back to Home
+</a>
+
+</div>
+
+
+<div class="security">
+🔒 Your account information is securely processed.
+<br>
+📚 Continue learning with CreateLK Academy.
 </div>
 
 </div>
+
 
 <script>
+
 "use strict";
+
+
+/* ===============================
+   LOGIN API
+=============================== */
 
 const API =
 "https://login.gateofheavensl1.workers.dev";
+
+
+/* ===============================
+   ELEMENTS
+=============================== */
 
 const form =
 document.getElementById("loginForm");
@@ -186,104 +262,205 @@ const message =
 document.getElementById("message");
 
 
-form.addEventListener("submit",async function(e){
+/* ===============================
+   LOGIN
+=============================== */
+
+form.addEventListener(
+"submit",
+async function(e){
 
 e.preventDefault();
 
-const emailValue=email.value.trim().toLowerCase();
-const passwordValue=password.value;
 
-if(!emailValue || !passwordValue){
-showMessage("Please enter your email and password.","error");
+const emailValue =
+email.value
+.trim()
+.toLowerCase();
+
+const passwordValue =
+password.value;
+
+
+if(
+!emailValue ||
+!passwordValue
+){
+
+showMessage(
+"Please enter your email and password.",
+"error"
+);
+
 return;
+
 }
 
-button.disabled=true;
-button.textContent="⏳ Logging in...";
 
-message.className="message";
-message.style.display="none";
+button.disabled=true;
+
+button.textContent=
+"⏳ Logging in...";
+
+message.className=
+"message";
+
+message.style.display=
+"none";
+
 
 try{
 
-const response=await fetch(API,{
+
+/* ===============================
+   SEND LOGIN REQUEST
+=============================== */
+
+const response =
+await fetch(
+API + "/login",
+{
 method:"POST",
+
 headers:{
-"Content-Type":"application/json"
+"Content-Type":
+"application/json"
 },
+
 body:JSON.stringify({
-action:"login",
-email:emailValue,
-password:passwordValue
+
+email:
+emailValue,
+
+password:
+passwordValue
+
 })
+
 });
 
-const data=await response.json();
 
-if(!response.ok || !data.success){
+/* ===============================
+   READ RESPONSE
+=============================== */
+
+const data =
+await response.json();
+
+
+if(
+!response.ok ||
+!data.success
+){
 
 throw new Error(
-data.message || "Login failed. Please check your details."
+data.message ||
+"Login failed. Please check your details."
 );
 
 }
 
 
-/*
-Save student information.
+/* ===============================
+   STUDENT DATA
+=============================== */
 
-The dashboard and Free AI page
-use this same localStorage key.
-*/
+if(
+!data.student
+){
 
-if(data.student){
+throw new Error(
+"Student information was not returned."
+);
+
+}
+
+
+/* ===============================
+   SAVE SESSION
+=============================== */
 
 localStorage.setItem(
 "createlk_student",
-JSON.stringify(data.student)
+JSON.stringify(
+data.student
+)
 );
 
-}else{
 
-throw new Error(
-"Login successful, but student information was not returned."
-);
-
-}
+/* ===============================
+   SUCCESS
+=============================== */
 
 showMessage(
 "✅ Login successful. Opening dashboard...",
 "success"
 );
 
-setTimeout(function(){
 
-window.location.href="dashboard.html";
+/* ===============================
+   REDIRECT
+=============================== */
 
-},700);
+setTimeout(
+function(){
+
+window.location.href=
+"dashboard.html";
+
+},
+700
+);
+
 
 }catch(error){
 
+console.error(
+"Login error:",
+error
+);
+
+
 showMessage(
-"❌ "+error.message,
+"❌ " +
+(
+error.message ||
+"Unable to login."
+),
 "error"
 );
 
+
 button.disabled=false;
-button.textContent="🔐 Login";
+
+button.textContent=
+"🔐 Login";
 
 }
 
 });
 
 
-function showMessage(text,type){
+/* ===============================
+   MESSAGE
+=============================== */
 
-message.textContent=text;
-message.className="message "+type;
-message.style.display="block";
+function showMessage(
+text,
+type
+){
+
+message.textContent=
+text;
+
+message.className=
+"message " + type;
+
+message.style.display=
+"block";
 
 }
+
 </script>
 
 </body>
