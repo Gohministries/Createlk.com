@@ -14,17 +14,19 @@ body{
     min-height:100vh;
     background:#f5f8ff;
     color:#172033;
+    line-height:1.5;
 }
 
 header{
     background:#174ea6;
     color:#fff;
-    padding:18px 20px;
+    padding:16px 20px;
 }
 
 .header-inner{
-    max-width:1000px;
+    max-width:1100px;
     margin:auto;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -48,7 +50,7 @@ header{
 
 .container{
     width:100%;
-    max-width:1000px;
+    max-width:1100px;
     margin:auto;
     padding:25px 18px 50px;
 }
@@ -58,23 +60,22 @@ header{
     padding:25px;
     border-radius:18px;
     box-shadow:0 5px 20px rgba(0,0,0,.07);
-    margin-bottom:22px;
+    margin-bottom:20px;
 }
 
 .welcome h1{
-    font-size:27px;
-    margin-bottom:7px;
+    font-size:28px;
+    margin-bottom:6px;
 }
 
 .welcome p{
     color:#667085;
-    line-height:1.6;
 }
 
 .status{
     display:inline-block;
-    margin-top:15px;
-    padding:8px 13px;
+    margin-top:14px;
+    padding:8px 14px;
     border-radius:20px;
     background:#eef4ff;
     color:#174ea6;
@@ -83,16 +84,102 @@ header{
 }
 
 .member-box{
-    margin-top:20px;
+    margin-top:15px;
     background:#e8f7ed;
     color:#176b35;
-    padding:15px;
+    padding:14px;
     border-radius:12px;
     font-weight:600;
-    display:none;
 }
 
-.grid{
+.section-title{
+    margin:25px 0 15px;
+    font-size:23px;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+}
+
+.stat-card{
+    background:#fff;
+    padding:20px;
+    border-radius:16px;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+}
+
+.stat-icon{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.stat-card h3{
+    font-size:17px;
+    margin-bottom:5px;
+}
+
+.stat-number{
+    font-size:25px;
+    font-weight:800;
+    color:#174ea6;
+}
+
+.progress-bar{
+    width:100%;
+    height:10px;
+    background:#e6eaf0;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#174ea6;
+    border-radius:20px;
+    transition:width .5s ease;
+}
+
+.progress-label{
+    margin-top:6px;
+    font-size:13px;
+    color:#667085;
+}
+
+.ai-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+}
+
+.ai-card{
+    background:#fff;
+    padding:20px;
+    border-radius:16px;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+}
+
+.ai-card h3{
+    margin-bottom:7px;
+}
+
+.ai-count{
+    font-size:24px;
+    font-weight:800;
+    color:#174ea6;
+}
+
+.ai-note{
+    color:#667085;
+    font-size:13px;
+}
+
+.cards{
     display:grid;
     grid-template-columns:
         repeat(auto-fit,minmax(280px,1fr));
@@ -117,8 +204,7 @@ header{
 
 .card p{
     color:#667085;
-    line-height:1.6;
-    margin-bottom:18px;
+    margin-bottom:16px;
 }
 
 .features{
@@ -127,7 +213,7 @@ header{
 }
 
 .features li{
-    margin:9px 0;
+    margin:8px 0;
 }
 
 .free{
@@ -139,7 +225,7 @@ header{
 }
 
 .ai{
-    border-top:5px solid #7c3aed;
+    border-top:5px solid #7c4dff;
 }
 
 .button{
@@ -150,6 +236,7 @@ header{
     border-radius:10px;
     text-decoration:none;
     font-weight:700;
+    border:0;
     cursor:pointer;
 }
 
@@ -164,12 +251,24 @@ header{
 }
 
 .ai-button{
-    background:#7c3aed;
+    background:#7c4dff;
     color:#fff;
 }
 
-.ai-button.locked{
-    background:#667085;
+.loading{
+    text-align:center;
+    padding:20px;
+    color:#667085;
+}
+
+.error-box{
+    display:none;
+    margin-top:15px;
+    background:#fff0f0;
+    color:#a61b1b;
+    padding:12px;
+    border-radius:10px;
+    font-size:14px;
 }
 
 .footer{
@@ -181,19 +280,21 @@ header{
 
 @media(max-width:600px){
 
+    .container{
+        padding:20px 14px 40px;
+    }
+
+    .welcome{
+        padding:20px;
+    }
+
     .welcome h1{
         font-size:24px;
     }
 
-    .card{
-        padding:20px;
-    }
-
 }
 
-</style></head><body><!-- =========================
-     HEADER
-========================= --><header><div class="header-inner"><div class="logo">
+</style></head><body><header><div class="header-inner"><div class="logo">
 📚 CreateLK Academy
 </div><button
 class="logout"
@@ -201,73 +302,157 @@ id="logoutBtn">
 
 Logout
 
-</button></div></header><div class="container"><!-- =========================
-     WELCOME
-========================= --><div class="welcome"><h1 id="welcomeTitle">
-Welcome, Student!
+</button></div></header><div class="container"><!-- WELCOME --><div class="welcome"><h1 id="welcomeTitle">
+Welcome, Student! 👋
 </h1><p>
 Continue learning English and improve your skills step by step.
 </p><div
     class="status"
-    id="membershipStatus">🌱 Free Member
+    id="membershipStatus">Loading membership...
 
 </div><div
     class="member-box"
-    id="premiumBox">⭐ Premium membership is active.
+    id="premiumBox"
+    style="display:none;">⭐ Premium membership is active.
 
 <br><span id="expiryText"></span>
 
-</div></div><!-- =========================
-     COURSE GRID
-========================= --><div class="grid"><!-- =========================
-     FREE COURSE
-========================= --><div class="card free"><div class="card-icon">
+</div><div
+    class="error-box"
+    id="errorBox">Unable to load your latest learning information.
+
+</div></div><!-- =====================================
+     LEARNING PROGRESS
+===================================== --><h2 class="section-title">
+📊 My Learning Progress
+</h2><div
+    id="progressLoading"
+    class="loading">Loading your progress...
+
+</div><div
+    class="stats-grid"
+    id="progressGrid"
+    style="display:none;"><div class="stat-card"><div class="stat-icon">
+🌱
+</div><h3>
+Free English
+</h3><div
+    class="stat-number"
+    id="freeProgressNumber">0 / 100
+
+</div><div class="progress-bar"><div
+    class="progress-fill"
+    id="freeProgressBar"></div></div><div
+    class="progress-label"
+    id="freeProgressLabel">0% completed
+
+</div></div><div class="stat-card"><div class="stat-icon">
+⭐
+</div><h3>
+Premium English
+</h3><div
+    class="stat-number"
+    id="premiumProgressNumber">0 / 900
+
+</div><div class="progress-bar"><div
+    class="progress-fill"
+    id="premiumProgressBar"></div></div><div
+    class="progress-label"
+    id="premiumProgressLabel">0% completed
+
+</div></div><div class="stat-card"><div class="stat-icon">
+🎯
+</div><h3>
+Correct Answers
+</h3><div
+    class="stat-number"
+    id="correctAnswers">0
+
+</div><div class="progress-label">
+Keep practising to improve your score.
+</div></div></div><!-- =====================================
+     AI USAGE
+===================================== --><h2 class="section-title">
+🤖 AI Tutor Usage
+</h2><div class="ai-grid"><div class="ai-card"><h3>
+🌱 Free AI
+</h3><div
+    class="ai-count"
+    id="freeAIUsage">0 / 20
+
+</div><div class="ai-note">
+Questions used today
+</div><div class="progress-bar"><div
+    class="progress-fill"
+    id="freeAIBar"></div></div></div><div class="ai-card"><h3>
+⭐ Premium AI
+</h3><div
+    class="ai-count"
+    id="premiumAIUsage">0 / 100
+
+</div><div class="ai-note">
+Questions used today
+</div><div class="progress-bar"><div
+    class="progress-fill"
+    id="premiumAIBar"></div></div></div></div><!-- =====================================
+     COURSES
+===================================== --><h2 class="section-title">
+📚 Continue Learning
+</h2><div class="cards"><!-- FREE --><div class="card free"><div class="card-icon">
 🌱
 </div><h2>
 Beginner English — FREE FOREVER
 </h2><p>
 Start learning English without paying anything.
-</p><ul class="features"><li>✓ 100 Free English MCQs</li><li>✓ Beginner Grammar</li><li>✓ Vocabulary Practice</li><li>✓ Instant Practice</li><li>✓ Free Forever</li></ul><a
+</p><ul class="features"><li>✓ 100 Free English MCQs</li>
+<li>✓ Beginner Grammar</li>
+<li>✓ Vocabulary Practice</li>
+<li>✓ Instant Practice</li>
+<li>✓ Free Forever</li></ul><a
 href="free-course.html"
 class="button free-button">
 
 🌱 Start Free Course
 
-</a></div><!-- =========================
-     PREMIUM COURSES
-========================= --><div class="card premium"><div class="card-icon">
+</a></div><!-- PREMIUM --><div class="card premium"><div class="card-icon">
 ⭐
 </div><h2>
 Premium English Learning
 </h2><p>
 Unlock all 9 Premium English courses with 900 additional MCQs.
-</p><ul class="features"><li>✓ 900 Premium MCQs</li><li>✓ Grammar</li><li>✓ Vocabulary</li><li>✓ Speaking</li><li>✓ Pronunciation</li><li>✓ Conversation</li><li>✓ Writing</li><li>✓ Listening</li><li>✓ Business English</li><li>✓ Advanced English</li></ul><a
-href="payment.html"
+</p><ul class="features"><li>✓ 900 Premium MCQs</li>
+<li>✓ Grammar</li>
+<li>✓ Vocabulary</li>
+<li>✓ Speaking</li>
+<li>✓ Pronunciation</li>
+<li>✓ Conversation</li>
+<li>✓ Writing</li>
+<li>✓ Listening</li>
+<li>✓ Business English</li>
+<li>✓ Advanced English</li></ul><a
+href="premium-course.html"
 id="premiumButton"
 class="button premium-button">
 
-⭐ Upgrade to Premium — LKR 1,500
+⭐ Open Premium Courses
 
-</a></div><!-- =========================
-     CREATE LK AI
-========================= --><div class="card ai"><div class="card-icon">
+</a></div><!-- AI --><div class="card ai"><div class="card-icon">
 🤖
 </div><h2>
 CreateLK AI English Tutor
 </h2><p>
-Practise English with your AI tutor. Ask questions,
-improve grammar, learn vocabulary, correct sentences
-and practise conversation.
-</p><ul class="features"><li>✓ AI English Tutor</li><li>✓ Grammar Help</li><li>✓ Vocabulary</li><li>✓ Writing Correction</li><li>✓ Conversation Practice</li><li>✓ English Explanations</li></ul><a
-href="payment.html"
-id="aiButton"
-class="button ai-button locked">
+Practise English with your AI tutor. Improve grammar, vocabulary, writing and conversation.
+</p><ul class="features"><li>✓ Grammar Help</li>
+<li>✓ Vocabulary</li>
+<li>✓ Writing Correction</li>
+<li>✓ Conversation Practice</li>
+<li>✓ English Explanations</li></ul><a
+href="ai.html"
+class="button ai-button">
 
-🔒 Unlock CreateLK AI
+🤖 Open CreateLK AI
 
-</a></div></div><!-- =========================
-     FOOTER
-========================= --><div class="footer">📚 CreateLK Academy
+</a></div></div><div class="footer">📚 CreateLK Academy
 
 <br><br>
 
@@ -278,8 +463,12 @@ class="button ai-button locked">
 "use strict";
 
 
+const PROGRESS_WORKER =
+    "https://progress.gateofheavensl1.workers.dev";
+
+
 /* =====================================
-   GET LOGGED-IN STUDENT
+   GET STUDENT
 ===================================== */
 
 function getStudent(){
@@ -288,7 +477,6 @@ function getStudent(){
         localStorage.getItem(
             "createlk_student"
         );
-
 
     if(!saved){
 
@@ -299,31 +487,30 @@ function getStudent(){
 
     }
 
-
     try{
 
         const student =
             JSON.parse(saved);
 
-
         if(
             student &&
-            student.id
+            student.id &&
+            student.email
         ){
 
             return student;
 
         }
 
-
     }catch(error){
 
-        localStorage.removeItem(
-            "createlk_student"
-        );
+        console.error(error);
 
     }
 
+    localStorage.removeItem(
+        "createlk_student"
+    );
 
     window.location.href =
         "login.html";
@@ -334,244 +521,396 @@ function getStudent(){
 
 
 /* =====================================
-   CHECK PREMIUM
+   PERCENTAGE
 ===================================== */
 
-function isPremium(student){
+function percentage(
+    value,
+    total
+){
 
-    if(!student){
-
-        return false;
-
+    if(!total || total <= 0){
+        return 0;
     }
 
-
-    if(
-        student.membership_status !==
-        "active"
-    ){
-
-        return false;
-
-    }
-
-
-    if(
-        !student.membership_expiry
-    ){
-
-        return false;
-
-    }
-
-
-    const expiry =
-        new Date(
-            student.membership_expiry
-        );
-
-
-    if(
-        Number.isNaN(
-            expiry.getTime()
+    return Math.min(
+        100,
+        Math.max(
+            0,
+            Math.round(
+                (value / total) * 100
+            )
         )
-    ){
-
-        return false;
-
-    }
-
-
-    return expiry > new Date();
+    );
 
 }
 
 
 /* =====================================
-   LOAD DASHBOARD
+   LOAD PROGRESS
 ===================================== */
 
-function loadDashboard(){
+async function loadProgress(){
 
     const student =
         getStudent();
 
-
     if(!student){
-
         return;
-
     }
 
 
-    const welcomeTitle =
-        document.getElementById(
+    try{
+
+        const response =
+            await fetch(
+                PROGRESS_WORKER +
+                "/progress",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+                            student_email:
+                                student.email
+                        })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(!data.success){
+
+            throw new Error(
+                data.message ||
+                "Unable to load progress."
+            );
+
+        }
+
+
+        /* =================================
+           NAME
+        ================================= */
+
+        document
+        .getElementById(
             "welcomeTitle"
-        );
+        )
+        .textContent =
+            "Welcome, " +
+            (
+                data.student.first_name ||
+                "Student"
+            ) +
+            "! 👋";
 
 
-    const membershipStatus =
-        document.getElementById(
-            "membershipStatus"
-        );
+        /* =================================
+           MEMBERSHIP
+        ================================= */
 
+        const membershipStatus =
+            document.getElementById(
+                "membershipStatus"
+            );
 
-    const premiumButton =
-        document.getElementById(
-            "premiumButton"
-        );
+        const premiumBox =
+            document.getElementById(
+                "premiumBox"
+            );
 
-
-    const aiButton =
-        document.getElementById(
-            "aiButton"
-        );
-
-
-    const premiumBox =
-        document.getElementById(
-            "premiumBox"
-        );
-
-
-    const expiryText =
-        document.getElementById(
-            "expiryText"
-        );
-
-
-    /* =========================
-       NAME
-    ========================= */
-
-    const name =
-        student.first_name ||
-        "Student";
-
-
-    welcomeTitle.textContent =
-        "Welcome, " +
-        name +
-        "!";
-
-
-    /* =========================
-       PREMIUM ACTIVE
-    ========================= */
-
-    if(
-        isPremium(student)
-    ){
-
-        /* MEMBERSHIP */
-
-        membershipStatus.textContent =
-            "⭐ Premium Active";
-
-
-        membershipStatus.style.background =
-            "#e8f7ed";
-
-
-        membershipStatus.style.color =
-            "#176b35";
-
-
-        /* PREMIUM BOX */
-
-        premiumBox.style.display =
-            "block";
+        const expiryText =
+            document.getElementById(
+                "expiryText"
+            );
 
 
         if(
-            student.membership_expiry
+            data.student.membership_status ===
+            "active" &&
+            data.student.membership_expiry
         ){
 
-            const date =
+            membershipStatus.textContent =
+                "⭐ Premium Active";
+
+            membershipStatus.style.background =
+                "#e8f7ed";
+
+            membershipStatus.style.color =
+                "#176b35";
+
+            premiumBox.style.display =
+                "block";
+
+
+            const expiry =
                 new Date(
-                    student.membership_expiry
+                    data.student.membership_expiry
                 );
 
 
             expiryText.textContent =
                 "Premium expires: " +
-                date.toLocaleDateString();
+                expiry.toLocaleDateString();
+
+        }else{
+
+            membershipStatus.textContent =
+                "🌱 Free Member";
+
+            premiumBox.style.display =
+                "none";
 
         }
 
 
-        /* PREMIUM COURSES */
+        /* =================================
+           COURSE PROGRESS
+        ================================= */
 
-        premiumButton.href =
-            "premium-course.html";
-
-
-        premiumButton.textContent =
-            "⭐ Open Premium Courses";
-
-
-        /* AI */
-
-        aiButton.href =
-            "ai.html";
+        let freeCompleted = 0;
+        let premiumCompleted = 0;
+        let correctTotal = 0;
 
 
-        aiButton.textContent =
-            "🤖 Open CreateLK AI";
+        const courses =
+            data.courses || [];
 
 
-        aiButton.classList.remove(
-            "locked"
+        courses.forEach(
+            function(course){
+
+                const completed =
+                    Number(
+                        course.completed_questions ||
+                        0
+                    );
+
+                const correct =
+                    Number(
+                        course.correct_answers ||
+                        0
+                    );
+
+
+                correctTotal += correct;
+
+
+                const name =
+                    String(
+                        course.course ||
+                        ""
+                    )
+                    .toLowerCase();
+
+
+                if(
+                    name.includes("free") ||
+                    name.includes("beginner")
+                ){
+
+                    freeCompleted +=
+                        completed;
+
+                }else{
+
+                    premiumCompleted +=
+                        completed;
+
+                }
+
+            }
         );
 
-    }
+
+        const freePercent =
+            percentage(
+                freeCompleted,
+                100
+            );
 
 
-    /* =========================
-       FREE MEMBER
-    ========================= */
-
-    else{
-
-        membershipStatus.textContent =
-            "🌱 Free Member";
+        const premiumPercent =
+            percentage(
+                premiumCompleted,
+                900
+            );
 
 
-        membershipStatus.style.background =
-            "#eef4ff";
+        document
+        .getElementById(
+            "freeProgressNumber"
+        )
+        .textContent =
+            freeCompleted +
+            " / 100";
 
 
-        membershipStatus.style.color =
-            "#174ea6";
+        document
+        .getElementById(
+            "freeProgressBar"
+        )
+        .style.width =
+            freePercent +
+            "%";
 
 
-        premiumBox.style.display =
+        document
+        .getElementById(
+            "freeProgressLabel"
+        )
+        .textContent =
+            freePercent +
+            "% completed";
+
+
+        document
+        .getElementById(
+            "premiumProgressNumber"
+        )
+        .textContent =
+            premiumCompleted +
+            " / 900";
+
+
+        document
+        .getElementById(
+            "premiumProgressBar"
+        )
+        .style.width =
+            premiumPercent +
+            "%";
+
+
+        document
+        .getElementById(
+            "premiumProgressLabel"
+        )
+        .textContent =
+            premiumPercent +
+            "% completed";
+
+
+        document
+        .getElementById(
+            "correctAnswers"
+        )
+        .textContent =
+            correctTotal;
+
+
+        /* =================================
+           AI USAGE
+        ================================= */
+
+        const freeUsed =
+            Number(
+                data.ai?.free?.used ||
+                0
+            );
+
+
+        const premiumUsed =
+            Number(
+                data.ai?.premium?.used ||
+                0
+            );
+
+
+        document
+        .getElementById(
+            "freeAIUsage"
+        )
+        .textContent =
+            freeUsed +
+            " / 20";
+
+
+        document
+        .getElementById(
+            "premiumAIUsage"
+        )
+        .textContent =
+            premiumUsed +
+            " / 100";
+
+
+        document
+        .getElementById(
+            "freeAIBar"
+        )
+        .style.width =
+            percentage(
+                freeUsed,
+                20
+            ) +
+            "%";
+
+
+        document
+        .getElementById(
+            "premiumAIBar"
+        )
+        .style.width =
+            percentage(
+                premiumUsed,
+                100
+            ) +
+            "%";
+
+
+        /* =================================
+           SHOW PROGRESS
+        ================================= */
+
+        document
+        .getElementById(
+            "progressLoading"
+        )
+        .style.display =
             "none";
 
 
-        /* PREMIUM PAYMENT */
-
-        premiumButton.href =
-            "payment.html";
-
-
-        premiumButton.textContent =
-            "⭐ Upgrade to Premium — LKR 1,500";
+        document
+        .getElementById(
+            "progressGrid"
+        )
+        .style.display =
+            "grid";
 
 
-        /* AI PAYMENT */
+    }catch(error){
 
-        aiButton.href =
-            "payment.html";
-
-
-        aiButton.textContent =
-            "🔒 Unlock CreateLK AI";
-
-
-        aiButton.classList.add(
-            "locked"
+        console.error(
+            "Progress error:",
+            error
         );
+
+
+        document
+        .getElementById(
+            "progressLoading"
+        )
+        .style.display =
+            "none";
+
+
+        document
+        .getElementById(
+            "errorBox"
+        )
+        .style.display =
+            "block";
 
     }
 
@@ -583,7 +922,9 @@ function loadDashboard(){
 ===================================== */
 
 document
-.getElementById("logoutBtn")
+.getElementById(
+    "logoutBtn"
+)
 .addEventListener(
     "click",
     function(){
@@ -591,7 +932,6 @@ document
         localStorage.removeItem(
             "createlk_student"
         );
-
 
         window.location.href =
             "index.html";
@@ -606,7 +946,7 @@ document
 
 document.addEventListener(
     "DOMContentLoaded",
-    loadDashboard
+    loadProgress
 );
 
 </script></body></html>
