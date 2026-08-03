@@ -1,7 +1,17 @@
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Premium Payment | CreateLK Academy</title><meta name="description"
-content="CreateLK Academy Premium - LKR 1,500 for 30 days. Pay securely by PayHere or Bank Deposit.">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Premium Payment | CreateLK Academy</title>
+
+<meta name="description"
+      content="CreateLK Academy Premium Membership - LKR 1,500 for 30 days. Pay securely by PayHere or Bank Deposit.">
 
 <style>
 
@@ -19,6 +29,8 @@ body{
     line-height:1.6;
 }
 
+/* HEADER */
+
 header{
     background:#1769ff;
     color:white;
@@ -33,7 +45,6 @@ header{
     margin:auto;
     min-height:68px;
     padding:0 20px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -57,14 +68,25 @@ header{
     font-weight:600;
 }
 
+.nav-links a:hover{
+    text-decoration:underline;
+}
+
 .menu{
     display:none;
     font-size:28px;
     cursor:pointer;
 }
 
+/* HERO */
+
 .hero{
-    background:linear-gradient(135deg,#1769ff,#4b8dff);
+    background:linear-gradient(
+        135deg,
+        #1769ff,
+        #4b8dff
+    );
+
     color:white;
     text-align:center;
     padding:55px 20px;
@@ -78,6 +100,8 @@ header{
 .hero p{
     opacity:.95;
 }
+
+/* CONTAINER */
 
 .container{
     max-width:900px;
@@ -93,17 +117,7 @@ header{
     margin-bottom:25px;
 }
 
-.section{
-    border:1px solid #e5eaf2;
-    border-radius:16px;
-    padding:25px;
-    margin-top:22px;
-}
-
-.section h2{
-    color:#1769ff;
-    margin-bottom:10px;
-}
+/* PREMIUM */
 
 .price{
     font-size:42px;
@@ -118,12 +132,30 @@ header{
     color:#666;
 }
 
+/* SECTION */
+
+.section{
+    border:1px solid #e5eaf2;
+    border-radius:16px;
+    padding:25px;
+    margin-top:22px;
+}
+
+.section h2{
+    color:#1769ff;
+    margin-bottom:10px;
+}
+
+/* NOTE */
+
 .note{
     background:#eef5ff;
     border-radius:12px;
     padding:16px;
     margin-top:15px;
 }
+
+/* BUTTON */
 
 .button{
     width:100%;
@@ -146,10 +178,16 @@ header{
     color:white;
 }
 
+.button:hover{
+    opacity:.92;
+}
+
 .button:disabled{
     opacity:.6;
     cursor:not-allowed;
 }
+
+/* BANK DETAILS */
 
 .bank-details{
     background:#f8fafc;
@@ -178,6 +216,8 @@ header{
     text-align:right;
 }
 
+/* FORM */
+
 input,
 input[type="file"]{
     width:100%;
@@ -188,11 +228,19 @@ input[type="file"]{
     background:white;
 }
 
+input:focus{
+    outline:none;
+    border-color:#1769ff;
+    box-shadow:0 0 0 3px rgba(23,105,255,.1);
+}
+
 label{
     display:block;
     font-weight:700;
     margin-top:16px;
 }
+
+/* MESSAGE */
 
 .message{
     display:none;
@@ -200,6 +248,7 @@ label{
     border-radius:10px;
     margin-top:15px;
     font-weight:600;
+    word-break:break-word;
 }
 
 .success{
@@ -214,6 +263,14 @@ label{
     color:#991b1b;
 }
 
+.info{
+    display:block;
+    background:#eef5ff;
+    color:#1e40af;
+}
+
+/* LOADING */
+
 .loading{
     display:none;
     text-align:center;
@@ -221,6 +278,8 @@ label{
     color:#1769ff;
     font-weight:700;
 }
+
+/* SECURITY */
 
 .security-grid{
     display:grid;
@@ -246,6 +305,8 @@ label{
     font-size:14px;
 }
 
+/* BACK */
+
 .back{
     display:block;
     text-align:center;
@@ -254,6 +315,8 @@ label{
     text-decoration:none;
     font-weight:700;
 }
+
+/* FOOTER */
 
 footer{
     background:#111827;
@@ -278,6 +341,12 @@ footer{
     margin:0 8px;
     font-size:14px;
 }
+
+.footer-links a:hover{
+    color:white;
+}
+
+/* MOBILE */
 
 @media(max-width:700px){
 
@@ -316,127 +385,468 @@ footer{
     .detail strong{
         text-align:left;
     }
+
 }
 
-</style></head><body><header><div class="nav"><a href="/" class="logo">
-📚 CreateLK Academy
-</a><div class="menu" onclick="toggleMenu()">☰</div><nav id="navLinks" class="nav-links"><a href="/">Home</a>
-<a href="/about.html">About</a>
-<a href="/membership.html">Membership</a>
+</style>
 
-</nav></div></header><section class="hero"><h1>💳 Premium Payment</h1><p>
-Secure your 30-day CreateLK Academy Premium membership.
-</p></section><main class="container"><div class="card"><h2 style="text-align:center;">
-⭐ CreateLK Academy Premium
-</h2><div class="price">
-LKR 1,500
-</div><div class="duration">
-30 Days Premium Access
-</div><!-- PAYHERE --><div class="section"><h2>💳 PayHere</h2><p>
-Pay securely online using PayHere.
-</p><div class="note"><strong>Secure Online Payment</strong>
+</head>
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="nav">
+
+<a href="/" class="logo">
+📚 CreateLK Academy
+</a>
+
+<div
+    class="menu"
+    onclick="toggleMenu()">
+    ☰
+</div>
+
+<nav
+    id="navLinks"
+    class="nav-links">
+
+<a href="/">
+Home
+</a>
+
+<a href="/about.html">
+About
+</a>
+
+<a href="/membership.html">
+Membership
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<h1>
+💳 Premium Payment
+</h1>
 
 <p>
-Your payment will be verified by the CreateLK Academy server.
-After successful verification, your Premium membership
-will be activated automatically for 30 days.
-</p></div><button
-class="button payhere-button"
-onclick="startPayHere()">
+Secure your 30-day CreateLK Academy Premium membership.
+</p>
+
+</section>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+
+<div class="card">
+
+
+<h2 style="text-align:center;">
+⭐ CreateLK Academy Premium
+</h2>
+
+
+<div class="price">
+LKR 1,500
+</div>
+
+
+<div class="duration">
+30 Days Premium Access
+</div>
+
+
+<!-- =========================
+     PAYHERE
+========================= -->
+
+<div class="section">
+
+<h2>
+💳 PayHere
+</h2>
+
+<p>
+Pay securely online using PayHere.
+</p>
+
+
+<div class="note">
+
+<strong>
+Secure Online Payment
+</strong>
+
+<p>
+PayHere payments will be verified by
+the CreateLK Academy server.
+Premium access will be activated
+after successful payment verification.
+</p>
+
+</div>
+
+
+<button
+    type="button"
+    id="payhereButton"
+    class="button payhere-button"
+    onclick="startPayHere()">
 
 💳 Pay LKR 1,500 with PayHere
 
-</button><div id="payhereMessage"
-class="message">
-</div></div><!-- BANK PAYMENT --><div class="section"><h2>🏦 Bank Deposit</h2><p>
-You can also pay by bank deposit and submit your receipt
-for manual verification.
-</p><div class="bank-details"><div class="detail">
-<span>Bank</span>
-<strong>People's Bank</strong>
-</div><div class="detail">
-<span>Branch</span>
-<strong>Udapussellawa</strong>
-</div><div class="detail">
-<span>Account No</span>
-<strong>292200280023178</strong>
-</div><div class="detail">
-<span>Account Name</span>
-<strong>Thinarathnam Sathiyanadan</strong>
-</div><div class="detail">
-<span>Amount</span>
-<strong>LKR 1,500</strong>
-</div></div><p>
-After making the bank deposit, enter your payment reference
-and upload the receipt.
-</p><form id="bankForm"><label for="studentId">
+</button>
+
+
+<div
+    id="payhereMessage"
+    class="message">
+</div>
+
+</div>
+
+
+<!-- =========================
+     BANK PAYMENT
+========================= -->
+
+<div class="section">
+
+<h2>
+🏦 Bank Deposit
+</h2>
+
+<p>
+You can also pay by bank deposit and
+submit your receipt for manual verification.
+</p>
+
+
+<!-- BANK DETAILS -->
+
+<div class="bank-details">
+
+
+<div class="detail">
+
+<span>
+Bank
+</span>
+
+<strong>
+People's Bank
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<span>
+Branch
+</span>
+
+<strong>
+Udapussellawa
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<span>
+Account No
+</span>
+
+<strong>
+292200280023178
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<span>
+Account Name
+</span>
+
+<strong>
+Thinarathnam Sathiyanadan
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<span>
+Amount
+</span>
+
+<strong>
+LKR 1,500
+</strong>
+
+</div>
+
+
+</div>
+
+
+<p>
+After making the bank deposit, enter your
+Student ID, payment reference and upload
+your payment receipt.
+</p>
+
+
+<!-- BANK FORM -->
+
+<form id="bankForm">
+
+
+<label for="studentId">
 Student ID
-</label><input
-type="number"
-id="studentId"
-name="student_id"
-placeholder="Enter your student ID"
-required>
+</label>
+
+<input
+    type="number"
+    id="studentId"
+    name="student_id"
+    placeholder="Enter your Student ID"
+    min="1"
+    required>
+
 
 <label for="reference">
 Payment Reference
-</label><input
-type="text"
-id="reference"
-name="payment_reference"
-placeholder="Enter payment reference"
-required>
+</label>
+
+<input
+    type="text"
+    id="reference"
+    name="payment_reference"
+    placeholder="Enter payment reference"
+    maxlength="100"
+    required>
+
 
 <label for="receipt">
 Upload Payment Receipt
-</label><input
-type="file"
-id="receipt"
-name="receipt"
-accept="image/jpeg,image/png,image/webp,application/pdf"
-required>
+</label>
+
+<input
+    type="file"
+    id="receipt"
+    name="receipt"
+    accept="image/jpeg,image/png,image/webp,application/pdf"
+    required>
+
 
 <button
-type="submit"
-id="bankButton"
-class="button bank-button">
+    type="submit"
+    id="bankButton"
+    class="button bank-button">
 
 🏦 Submit Bank Payment
 
-</button><div
-id="bankLoading"
-class="loading">⏳ Uploading receipt securely...
+</button>
 
-</div><div
-id="bankMessage"
-class="message">
-</div></form></div><div class="note"><strong>Manual verification</strong>
+
+<div
+    id="bankLoading"
+    class="loading">
+
+⏳ Uploading receipt securely...
+
+</div>
+
+
+<div
+    id="bankMessage"
+    class="message">
+</div>
+
+
+</form>
+
+</div>
+
+
+<!-- =========================
+     MANUAL VERIFICATION
+========================= -->
+
+<div class="note">
+
+<strong>
+Manual verification
+</strong>
 
 <p>
-Your bank payment will remain pending until it is reviewed
-and approved by CreateLK Academy.
-Premium access will be activated after payment verification.
-</p></div></div><!-- SECURITY --><div class="security-grid"><div class="security"><div class="security-icon">🔐</div><h3>Secure</h3><p>
-Payment information is processed securely.
-</p></div><div class="security"><div class="security-icon">☁️</div><h3>Cloudflare</h3><p>
-Payments and receipts are handled by the
-CreateLK Academy server.
-</p></div><div class="security"><div class="security-icon">📚</div><h3>30 Days</h3><p>
-Premium access is valid for 30 days.
-</p></div></div><a href="/membership.html" class="back">
-← Back to Premium Membership
-</a></main><footer><div class="footer-logo">
-📚 CreateLK Academy
-</div><div class="footer-links"><a href="/">Home</a>
-<a href="/about.html">About</a>
-<a href="/contact.html">Contact</a>
-<a href="/membership.html">Membership</a>
-<a href="/privacy.html">Privacy</a>
-<a href="/refund.html">Refund Policy</a>
+Your bank payment will remain pending until
+it is reviewed and approved by CreateLK Academy.
+Premium access will be activated after
+payment verification.
+</p>
 
-</div><div>
-© 2026 CreateLK Academy. All Rights Reserved.
-</div></footer><script>
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     SECURITY
+========================= -->
+
+<div class="security-grid">
+
+
+<div class="security">
+
+<div class="security-icon">
+🔐
+</div>
+
+<h3>
+Secure
+</h3>
+
+<p>
+Payment information is processed securely.
+</p>
+
+</div>
+
+
+<div class="security">
+
+<div class="security-icon">
+☁️
+</div>
+
+<h3>
+Cloudflare
+</h3>
+
+<p>
+Payments and receipts are handled by
+the CreateLK Academy server.
+</p>
+
+</div>
+
+
+<div class="security">
+
+<div class="security-icon">
+📚
+</div>
+
+<h3>
+30 Days
+</h3>
+
+<p>
+Premium access is valid for 30 days.
+</p>
+
+</div>
+
+
+</div>
+
+
+<a
+    href="/membership.html"
+    class="back">
+
+← Back to Premium Membership
+
+</a>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="footer-logo">
+📚 CreateLK Academy
+</div>
+
+
+<div class="footer-links">
+
+<a href="/">
+Home
+</a>
+
+<a href="/about.html">
+About
+</a>
+
+<a href="/contact.html">
+Contact
+</a>
+
+<a href="/membership.html">
+Membership
+</a>
+
+<a href="/privacy.html">
+Privacy
+</a>
+
+<a href="/refund.html">
+Refund Policy
+</a>
+
+</div>
+
+
+<div>
+© 2026 CreateLK Academy.
+All Rights Reserved.
+</div>
+
+</footer>
+
+
+<script>
+
+/* ========================================
+   MOBILE MENU
+======================================== */
 
 function toggleMenu(){
 
@@ -448,209 +858,365 @@ function toggleMenu(){
 }
 
 
-/* =========================================
+/* ========================================
    BANK PAYMENT WORKER
-   ========================================= */
+======================================== */
+
+/*
+Your current Bank Payment Worker
+*/
 
 const BANK_PAYMENT_WORKER =
 "https://bankpayment.gateofheavensl1.workers.dev/bank-payment";
 
 
+/* ========================================
+   BANK PAYMENT FORM
+======================================== */
+
 document
 .getElementById("bankForm")
-.addEventListener("submit", async function(e){
+.addEventListener(
+    "submit",
+    async function(e){
 
-    e.preventDefault();
-
-    const button =
-        document.getElementById("bankButton");
-
-    const loading =
-        document.getElementById("bankLoading");
-
-    const message =
-        document.getElementById("bankMessage");
-
-    message.className = "message";
-    message.textContent = "";
-
-    const studentId =
-        document
-        .getElementById("studentId")
-        .value
-        .trim();
-
-    const reference =
-        document
-        .getElementById("reference")
-        .value
-        .trim();
-
-    const receipt =
-        document
-        .getElementById("receipt")
-        .files[0];
+        e.preventDefault();
 
 
-    if(!studentId){
-
-        message.className =
-            "message error";
-
-        message.textContent =
-            "Please enter your Student ID.";
-
-        return;
-    }
-
-
-    if(!reference){
-
-        message.className =
-            "message error";
-
-        message.textContent =
-            "Please enter your payment reference.";
-
-        return;
-    }
-
-
-    if(!receipt){
-
-        message.className =
-            "message error";
-
-        message.textContent =
-            "Please select your payment receipt.";
-
-        return;
-    }
-
-
-    if(receipt.size > 10 * 1024 * 1024){
-
-        message.className =
-            "message error";
-
-        message.textContent =
-            "Receipt must be smaller than 10 MB.";
-
-        return;
-    }
-
-
-    const formData =
-        new FormData();
-
-    formData.append(
-        "student_id",
-        studentId
-    );
-
-    formData.append(
-        "payment_reference",
-        reference
-    );
-
-    formData.append(
-        "receipt",
-        receipt
-    );
-
-
-    button.disabled = true;
-
-    loading.style.display = "block";
-
-
-    try{
-
-        const response =
-            await fetch(
-                BANK_PAYMENT_WORKER,
-                {
-                    method:"POST",
-                    body:formData
-                }
+        const button =
+            document.getElementById(
+                "bankButton"
             );
 
 
-        const data =
-            await response.json()
-            .catch(() => ({
-                success:false,
-                message:
-                    "Invalid server response."
-            }));
+        const loading =
+            document.getElementById(
+                "bankLoading"
+            );
 
 
-        if(
-            response.ok &&
-            data.success
-        ){
+        const message =
+            document.getElementById(
+                "bankMessage"
+            );
 
-            message.className =
-                "message success";
 
-            message.textContent =
-                data.message ||
-                "Bank payment submitted successfully.";
+        message.className =
+            "message";
 
+        message.textContent =
+            "";
+
+
+        const studentId =
             document
-            .getElementById("bankForm")
-            .reset();
+            .getElementById(
+                "studentId"
+            )
+            .value
+            .trim();
 
-        }else{
+
+        const reference =
+            document
+            .getElementById(
+                "reference"
+            )
+            .value
+            .trim();
+
+
+        const receipt =
+            document
+            .getElementById(
+                "receipt"
+            )
+            .files[0];
+
+
+        /* ================================
+           VALIDATE STUDENT ID
+        ================================= */
+
+        if(!studentId){
 
             message.className =
                 "message error";
 
             message.textContent =
-                data.message ||
-                "Bank payment could not be submitted.";
+                "Please enter your Student ID.";
+
+            return;
+        }
+
+
+        /* ================================
+           VALIDATE REFERENCE
+        ================================= */
+
+        if(!reference){
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                "Please enter your payment reference.";
+
+            return;
+        }
+
+
+        /* ================================
+           VALIDATE RECEIPT
+        ================================= */
+
+        if(!receipt){
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                "Please select your payment receipt.";
+
+            return;
+        }
+
+
+        /* ================================
+           SIZE LIMIT
+        ================================= */
+
+        if(
+            receipt.size >
+            10 * 1024 * 1024
+        ){
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                "Receipt must be smaller than 10 MB.";
+
+            return;
+        }
+
+
+        /* ================================
+           FILE TYPE
+        ================================= */
+
+        const allowedTypes = [
+
+            "image/jpeg",
+            "image/png",
+            "image/webp",
+            "application/pdf"
+
+        ];
+
+
+        if(
+            receipt.type &&
+            !allowedTypes.includes(
+                receipt.type
+            )
+        ){
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                "Only JPG, PNG, WEBP or PDF receipts are allowed.";
+
+            return;
+        }
+
+
+        /* ================================
+           FORM DATA
+        ================================= */
+
+        const formData =
+            new FormData();
+
+
+        formData.append(
+            "student_id",
+            studentId
+        );
+
+
+        formData.append(
+            "payment_reference",
+            reference
+        );
+
+
+        formData.append(
+            "receipt",
+            receipt
+        );
+
+
+        /* ================================
+           DISABLE BUTTON
+        ================================= */
+
+        button.disabled =
+            true;
+
+
+        loading.style.display =
+            "block";
+
+
+        try{
+
+
+            /* ============================
+               SEND TO CLOUDFLARE WORKER
+            ============================ */
+
+            const response =
+                await fetch(
+                    BANK_PAYMENT_WORKER,
+                    {
+                        method:"POST",
+                        body:formData
+                    }
+                );
+
+
+            /* ============================
+               READ RESPONSE
+            ============================ */
+
+            const data =
+                await response
+                .json()
+                .catch(
+                    () => ({
+                        success:false,
+                        message:
+                            "Invalid response from server."
+                    })
+                );
+
+
+            console.log(
+                "Bank payment response:",
+                data
+            );
+
+
+            /* ============================
+               SUCCESS
+            ============================ */
+
+            if(
+                response.ok &&
+                data.success
+            ){
+
+                message.className =
+                    "message success";
+
+
+                message.innerHTML =
+                    "✅ " +
+                    (
+                        data.message ||
+                        "Bank payment submitted successfully."
+                    ) +
+                    "<br><br>" +
+                    "Payment Status: <strong>Pending Verification</strong>";
+
+
+                document
+                .getElementById(
+                    "bankForm"
+                )
+                .reset();
+
+            }
+
+
+            /* ============================
+               ERROR
+            ============================ */
+
+            else{
+
+                message.className =
+                    "message error";
+
+
+                message.textContent =
+                    data.message ||
+                    "Bank payment could not be submitted.";
+
+            }
+
 
         }
 
-    }catch(error){
+        catch(error){
 
-        console.error(error);
+            console.error(
+                "Bank payment error:",
+                error
+            );
 
-        message.className =
-            "message error";
 
-        message.textContent =
-            "Unable to connect to the bank payment server. Please try again.";
+            message.className =
+                "message error";
 
-    }finally{
 
-        button.disabled = false;
+            message.textContent =
+                "Unable to connect to the bank payment server. Please try again.";
 
-        loading.style.display = "none";
+        }
+
+
+        finally{
+
+            button.disabled =
+                false;
+
+
+            loading.style.display =
+                "none";
+
+        }
 
     }
+);
 
-});
 
-
-/* =========================================
+/* ========================================
    PAYHERE
-   ========================================= */
+======================================== */
 
-async function startPayHere(){
+function startPayHere(){
 
     const message =
         document.getElementById(
             "payhereMessage"
         );
 
+
     message.className =
-        "message error";
+        "message info";
+
 
     message.textContent =
-        "PayHere requires a logged-in student account. Please use your account payment page.";
+        "PayHere online payment is being prepared. Please use Bank Deposit below if you want to submit your payment now.";
 
 }
 
-</script></body>
+</script>
+
+
+</body>
+
 </html>
