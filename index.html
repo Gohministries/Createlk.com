@@ -1,1109 +1,219 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>CreateLK Academy | Learn English Online</title><meta name="description"
-content="CreateLK Academy helps students improve English grammar, vocabulary, speaking, writing, pronunciation and communication through free and premium online courses and AI English tutoring.">
-
-<meta name="keywords"
-content="Learn English, English courses, English MCQ, English grammar, English vocabulary, AI English Tutor, Sri Lanka">
-
-<meta name="robots"
-content="index, follow">
-
-<meta name="theme-color"
-content="#174ea6">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CreateLK Academy | Learn English Online</title>
+<meta name="description" content="Learn English with CreateLK Academy. Free English course, Premium courses and AI English Tutor.">
 
 <style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#f5f8ff;color:#172033;line-height:1.6}
+header{background:#174ea6;color:white;position:sticky;top:0;z-index:10}
+.head{max-width:1100px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:20px;font-weight:bold}
+nav{display:flex;gap:8px}
+nav a{color:white;text-decoration:none;padding:8px 11px;border-radius:8px;font-size:14px}
+nav a:hover{background:#ffffff22}
+.hero{text-align:center;padding:65px 20px 50px;max-width:900px;margin:auto}
+.hero h1{font-size:clamp(34px,7vw,54px);color:#174ea6;line-height:1.15}
+.hero h1 span{color:#f5a623}
+.hero p{max-width:700px;margin:18px auto 28px;color:#667085;font-size:17px}
+.buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:10px;text-decoration:none;font-weight:bold}
+.green{background:#20a464;color:white}
+.gold{background:#f5a623;color:white}
+.blue{background:#174ea6;color:white}
+.purple{background:#6b4eff;color:white}
+.section{max-width:1100px;margin:auto;padding:25px 20px 55px}
+.title{text-align:center;font-size:29px;margin-bottom:10px}
+.sub{text-align:center;color:#667085;max-width:700px;margin:0 auto 28px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:white;padding:25px;border-radius:18px;box-shadow:0 7px 25px #0000000d;text-align:center}
+.card h2{margin:8px 0}
+.card p{color:#667085;margin-bottom:16px}
+.icon{font-size:42px}
+.card ul{text-align:left;list-style:none;margin:15px auto 20px;max-width:280px}
+.card li{margin:7px 0}
+.free{border-top:5px solid #20a464}
+.premium{border-top:5px solid #f5a623}
+.ai{border-top:5px solid #6b4eff}
+.info{background:white;border-radius:18px;padding:30px;text-align:center;box-shadow:0 7px 25px #0000000d}
+.price{font-size:35px;font-weight:bold;color:#174ea6;margin:10px}
+footer{background:#172033;color:white;text-align:center;padding:30px 20px}
+footer a{color:white;margin:0 8px;text-decoration:none;font-size:14px}
+
+@media(max-width:650px){
+ nav{display:none}
+ .hero{padding:50px 18px}
+ .hero p{font-size:16px}
+ .buttons{flex-direction:column;align-items:center}
+ .btn{width:100%;max-width:330px;text-align:center}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="head">
+<div class="logo">📚 CreateLK Academy</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="membership.html">Premium</a>
+<a href="contact.html">Contact</a>
+</nav>
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+<h1>Learn English.<br><span>Build Your Future.</span></h1>
+
+<p>
+Improve your English grammar, vocabulary, speaking,
+pronunciation, writing and communication skills step by step.
+</p>
+
+<div class="buttons">
+<a href="free-course.html" class="btn green">🌱 Start Free Course</a>
+<a href="membership.html" class="btn gold">⭐ Explore Premium</a>
+<a href="free-ai.html" class="btn purple">🤖 Try AI Tutor</a>
+</div>
+</section>
+
+<section class="section">
+<h2 class="title">📚 Learn English Your Way</h2>
+
+<p class="sub">
+Start learning for free. Upgrade to Premium when you are ready
+for advanced English courses.
+</p>
+
+<div class="cards">
+
+<div class="card free">
+<div class="icon">🌱</div>
+<h2>Beginner English</h2>
+<p>Free English learning for everyone.</p>
+
+<ul>
+<li>✓ 100 Free MCQs</li>
+<li>✓ Beginner Grammar</li>
+<li>✓ Vocabulary Practice</li>
+<li>✓ Instant Practice</li>
+<li>✓ Free Forever</li>
+</ul>
+
+<a href="free-course.html" class="btn green">
+🌱 Start Free Course
+</a>
+</div>
+
+<div class="card premium">
+<div class="icon">⭐</div>
+<h2>Premium English</h2>
+<p>Unlock 900 additional MCQs and 9 Premium courses.</p>
+
+<ul>
+<li>✓ Grammar</li>
+<li>✓ Vocabulary</li>
+<li>✓ Speaking</li>
+<li>✓ Pronunciation</li>
+<li>✓ Conversation</li>
+<li>✓ Writing</li>
+<li>✓ Listening</li>
+<li>✓ Business English</li>
+<li>✓ Advanced English</li>
+</ul>
+
+<a href="membership.html" class="btn gold">
+⭐ Explore Premium
+</a>
+</div>
+
+<div class="card ai">
+<div class="icon">🤖</div>
+<h2>CreateLK AI Tutor</h2>
+<p>
+Practise English with AI. Ask questions, correct sentences
+and improve your communication.
+</p>
+
+<ul>
+<li>✓ Grammar Help</li>
+<li>✓ Vocabulary</li>
+<li>✓ Writing Correction</li>
+<li>✓ Conversation Practice</li>
+<li>✓ English Explanations</li>
+</ul>
+
+<a href="free-ai.html" class="btn purple">
+🤖 Try AI Tutor
+</a>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="info">
+<h2>⭐ CreateLK Premium</h2>
+
+<div class="price">LKR 1,500</div>
+
+<p class="sub">
+30 days of Premium English learning with 900 additional MCQs
+and 9 learning courses.
+</p>
+
+<p>
+📚 900 MCQs &nbsp; • &nbsp;
+🎯 9 Courses &nbsp; • &nbsp;
+📅 30 Days
+</p>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Segoe UI",Arial,sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    min-height:100vh;
-    background:#f5f8ff;
-    color:#172033;
-    line-height:1.6;
-}
-
-a{
-    text-decoration:none;
-}
-
-button{
-    font-family:inherit;
-}
-
-/* =====================================
-   HEADER
-===================================== */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:#174ea6;
-    color:#fff;
-    box-shadow:0 3px 18px rgba(0,0,0,.14);
-}
-
-.header-inner{
-    width:100%;
-    max-width:1150px;
-    margin:auto;
-    padding:14px 20px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-
-.logo{
-    color:#fff;
-    font-size:21px;
-    font-weight:800;
-    white-space:nowrap;
-}
-
-nav{
-    display:flex;
-    align-items:center;
-    gap:4px;
-}
-
-nav a{
-    color:#fff;
-    padding:9px 11px;
-    border-radius:8px;
-    font-size:14px;
-    font-weight:600;
-    transition:.2s;
-}
-
-nav a:hover{
-    background:rgba(255,255,255,.14);
-}
-
-.nav-register{
-    background:#f5a623;
-}
-
-.nav-register:hover{
-    background:#d98d0c;
-}
-
-.menu-button{
-    display:none;
-    border:0;
-    background:transparent;
-    color:#fff;
-    font-size:27px;
-    cursor:pointer;
-}
-
-/* =====================================
-   HERO
-===================================== */
-
-.hero{
-    position:relative;
-    overflow:hidden;
-    background:
-        linear-gradient(
-            135deg,
-            #eef5ff 0%,
-            #ffffff 55%,
-            #fff8e9 100%
-        );
-}
-
-.hero-inner{
-    width:100%;
-    max-width:1150px;
-    margin:auto;
-    padding:75px 20px 70px;
-
-    display:grid;
-    grid-template-columns:
-        minmax(0,1.25fr)
-        minmax(280px,.75fr);
-
-    align-items:center;
-    gap:45px;
-}
-
-.hero-content h1{
-    font-size:clamp(38px,6vw,62px);
-    line-height:1.08;
-    color:#174ea6;
-    margin-bottom:20px;
-}
-
-.hero-content h1 span{
-    color:#f5a623;
-}
-
-.hero-content p{
-    max-width:680px;
-    color:#667085;
-    font-size:18px;
-    margin-bottom:28px;
-}
-
-.hero-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-}
-
-.button{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:7px;
-    min-height:48px;
-    padding:12px 21px;
-    border-radius:11px;
-    font-weight:750;
-    transition:.2s;
-}
-
-.button:hover{
-    transform:translateY(-2px);
-}
-
-.primary-button{
-    background:#174ea6;
-    color:#fff;
-}
-
-.primary-button:hover{
-    background:#123d82;
-}
-
-.free-button{
-    background:#20a464;
-    color:#fff;
-}
-
-.free-button:hover{
-    background:#17834e;
-}
-
-.premium-button{
-    background:#f5a623;
-    color:#fff;
-}
-
-.premium-button:hover{
-    background:#d98d0c;
-}
-
-.outline-button{
-    border:2px solid #174ea6;
-    color:#174ea6;
-    background:#fff;
-}
-
-.outline-button:hover{
-    background:#eef4ff;
-}
-
-.hero-card{
-    background:#fff;
-    border-radius:25px;
-    padding:30px;
-    box-shadow:0 15px 45px rgba(23,78,166,.13);
-    border:1px solid #e7edf7;
-}
-
-.hero-card-icon{
-    font-size:55px;
-    margin-bottom:10px;
-}
-
-.hero-card h2{
-    color:#174ea6;
-    margin-bottom:8px;
-}
-
-.hero-card p{
-    color:#667085;
-    margin-bottom:18px;
-}
-
-.hero-check{
-    list-style:none;
-}
-
-.hero-check li{
-    margin:10px 0;
-    font-weight:600;
-}
-
-/* =====================================
-   STATS
-===================================== */
-
-.stats{
-    width:100%;
-    max-width:1050px;
-    margin:-25px auto 0;
-    padding:0 20px;
-    position:relative;
-    z-index:2;
-}
-
-.stats-grid{
-    background:#fff;
-    border-radius:18px;
-    padding:20px;
-
-    display:grid;
-    grid-template-columns:
-        repeat(4,1fr);
-
-    box-shadow:0 8px 30px rgba(0,0,0,.08);
-}
-
-.stat{
-    text-align:center;
-    padding:10px;
-    border-right:1px solid #e6eaf0;
-}
-
-.stat:last-child{
-    border-right:0;
-}
-
-.stat-number{
-    color:#174ea6;
-    font-size:27px;
-    font-weight:850;
-}
-
-.stat-label{
-    color:#667085;
-    font-size:14px;
-}
-
-/* =====================================
-   GENERAL SECTION
-===================================== */
-
-.section{
-    width:100%;
-    max-width:1150px;
-    margin:auto;
-    padding:75px 20px;
-}
-
-.section-title{
-    text-align:center;
-    color:#172033;
-    font-size:32px;
-    margin-bottom:9px;
-}
-
-.section-subtitle{
-    max-width:720px;
-    margin:0 auto 35px;
-    text-align:center;
-    color:#667085;
-}
-
-/* =====================================
-   COURSE CARDS
-===================================== */
-
-.cards{
-    display:grid;
-    grid-template-columns:
-        repeat(2,minmax(0,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#fff;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 7px 28px rgba(0,0,0,.07);
-    transition:.2s;
-}
-
-.card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 12px 35px rgba(0,0,0,.10);
-}
-
-.free-card{
-    border-top:5px solid #20a464;
-}
-
-.premium-card{
-    border-top:5px solid #f5a623;
-}
-
-.card-icon{
-    font-size:48px;
-    margin-bottom:8px;
-}
-
-.card h3{
-    font-size:24px;
-    margin-bottom:8px;
-}
-
-.card-description{
-    color:#667085;
-    margin-bottom:20px;
-}
-
-.features{
-    list-style:none;
-    margin-bottom:23px;
-}
-
-.features li{
-    margin:9px 0;
-    color:#344054;
-}
-
-.card .button{
-    width:100%;
-}
-
-/* =====================================
-   AI SECTION
-===================================== */
-
-.ai-section{
-    background:
-        linear-gradient(
-            135deg,
-            #174ea6,
-            #2563b9
-        );
-    color:#fff;
-}
-
-.ai-box{
-    width:100%;
-    max-width:1050px;
-    margin:auto;
-    padding:45px 35px;
-
-    display:grid;
-    grid-template-columns:
-        100px minmax(0,1fr) auto;
-
-    align-items:center;
-    gap:25px;
-
-    background:rgba(255,255,255,.09);
-    border:1px solid rgba(255,255,255,.18);
-    border-radius:22px;
-}
-
-.ai-icon{
-    width:85px;
-    height:85px;
-    border-radius:22px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#fff;
-    font-size:48px;
-}
-
-.ai-content h2{
-    font-size:30px;
-    margin-bottom:8px;
-}
-
-.ai-content p{
-    color:#dce8ff;
-}
-
-.ai-features{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px 15px;
-    margin-top:14px;
-    font-size:14px;
-}
-
-.ai-button{
-    background:#fff;
-    color:#174ea6;
-    white-space:nowrap;
-}
-
-/* =====================================
-   MEMBERSHIP
-===================================== */
-
-.membership{
-    background:#fff;
-    border-radius:22px;
-    padding:40px 25px;
-    text-align:center;
-    box-shadow:0 8px 30px rgba(0,0,0,.07);
-}
-
-.price{
-    color:#174ea6;
-    font-size:42px;
-    font-weight:850;
-    margin:10px 0;
-}
-
-.price span{
-    color:#667085;
-    font-size:16px;
-    font-weight:500;
-}
-
-.membership-description{
-    max-width:680px;
-    margin:0 auto 24px;
-    color:#667085;
-}
-
-.trust-grid{
-    max-width:800px;
-    margin:30px auto 0;
-
-    display:grid;
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:12px;
-}
-
-.trust-item{
-    padding:16px 10px;
-    background:#f5f8ff;
-    border-radius:12px;
-    font-size:14px;
-    font-weight:700;
-}
-
-/* =====================================
-   HOW IT WORKS
-===================================== */
-
-.steps{
-    display:grid;
-    grid-template-columns:
-        repeat(5,1fr);
-    gap:15px;
-}
-
-.step{
-    background:#fff;
-    padding:25px 15px;
-    text-align:center;
-    border-radius:17px;
-    box-shadow:0 6px 22px rgba(0,0,0,.06);
-}
-
-.step-number{
-    width:48px;
-    height:48px;
-    margin:0 auto 12px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-    background:#eef4ff;
-    color:#174ea6;
-    font-size:20px;
-    font-weight:800;
-}
-
-.step h3{
-    margin-bottom:5px;
-    font-size:17px;
-}
-
-.step p{
-    color:#667085;
-    font-size:13px;
-}
-
-/* =====================================
-   WHY CREATE LK
-===================================== */
-
-.why-grid{
-    display:grid;
-    grid-template-columns:
-        repeat(3,1fr);
-    gap:20px;
-}
-
-.why-card{
-    background:#fff;
-    border-radius:18px;
-    padding:28px;
-    text-align:center;
-    box-shadow:0 6px 24px rgba(0,0,0,.06);
-}
-
-.why-icon{
-    font-size:43px;
-    margin-bottom:10px;
-}
-
-.why-card h3{
-    margin-bottom:8px;
-}
-
-.why-card p{
-    color:#667085;
-    font-size:14px;
-}
-
-/* =====================================
-   FINAL CTA
-===================================== */
-
-.final-cta{
-    background:#fff;
-    text-align:center;
-    border-radius:22px;
-    padding:45px 20px;
-    box-shadow:0 8px 30px rgba(0,0,0,.07);
-}
-
-.final-cta h2{
-    color:#174ea6;
-    font-size:30px;
-    margin-bottom:10px;
-}
-
-.final-cta p{
-    color:#667085;
-    margin-bottom:22px;
-}
-
-/* =====================================
-   FOOTER
-===================================== */
-
-footer{
-    background:#172033;
-    color:#fff;
-    padding:40px 20px 25px;
-}
-
-.footer-inner{
-    width:100%;
-    max-width:1150px;
-    margin:auto;
-    text-align:center;
-}
-
-.footer-logo{
-    font-size:21px;
-    font-weight:800;
-    margin-bottom:8px;
-}
-
-.footer-tagline{
-    color:#c8d0dc;
-}
-
-.footer-links{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px 20px;
-    margin:22px 0;
-}
-
-.footer-links a{
-    color:#fff;
-    font-size:14px;
-}
-
-.footer-links a:hover{
-    text-decoration:underline;
-}
-
-.footer-divider{
-    height:1px;
-    background:rgba(255,255,255,.12);
-    margin:20px 0;
-}
-
-.copyright{
-    color:#aeb8c7;
-    font-size:13px;
-}
-
-/* =====================================
-   MOBILE
-===================================== */
-
-@media(max-width:900px){
-
-    .hero-inner{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
-
-    .hero-content p{
-        margin-left:auto;
-        margin-right:auto;
-    }
-
-    .hero-buttons{
-        justify-content:center;
-    }
-
-    .ai-box{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
-
-    .ai-icon{
-        margin:auto;
-    }
-
-    .ai-features{
-        justify-content:center;
-    }
-
-    .ai-button{
-        margin:auto;
-    }
-
-    .steps{
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-}
-
-@media(max-width:800px){
-
-    .menu-button{
-        display:block;
-    }
-
-    nav{
-        display:none;
-        width:100%;
-        flex-direction:column;
-        align-items:stretch;
-    }
-
-    nav.active{
-        display:flex;
-    }
-
-    nav a{
-        text-align:center;
-    }
-
-    .header-inner{
-        flex-wrap:wrap;
-    }
-
-    .stats-grid{
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .stat:nth-child(2){
-        border-right:0;
-    }
-
-    .stat:nth-child(1),
-    .stat:nth-child(2){
-        border-bottom:1px solid #e6eaf0;
-    }
-
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    .trust-grid{
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .why-grid{
-        grid-template-columns:1fr;
-    }
-
-}
-
-@media(max-width:550px){
-
-    .header-inner{
-        padding:13px 15px;
-    }
-
-    .logo{
-        font-size:18px;
-    }
-
-    .hero-inner{
-        padding:55px 16px 60px;
-    }
-
-    .hero-content h1{
-        font-size:39px;
-    }
-
-    .hero-content p{
-        font-size:16px;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-    }
-
-    .hero-buttons .button{
-        width:100%;
-    }
-
-    .stats{
-        padding:0 12px;
-    }
-
-    .section{
-        padding:55px 15px;
-    }
-
-    .section-title{
-        font-size:27px;
-    }
-
-    .stats-grid{
-        padding:10px;
-    }
-
-    .stat{
-        padding:12px 5px;
-    }
-
-    .stat-number{
-        font-size:23px;
-    }
-
-    .card{
-        padding:24px 20px;
-    }
-
-    .ai-box{
-        padding:30px 20px;
-    }
-
-    .ai-content h2{
-        font-size:25px;
-    }
-
-    .trust-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .steps{
-        grid-template-columns:1fr;
-    }
-
-    .price{
-        font-size:36px;
-    }
-
-}
-
-</style></head><body><!-- =====================================
-     HEADER
-===================================== --><header><div class="header-inner"><a
-href="index.html"
-class="logo">
-
-📚 CreateLK Academy
-
-</a><button
-type="button"
-class="menu-button"
-id="menuButton"
-aria-label="Open menu">
-
-☰
-
-</button><nav id="mainNav"><a href="index.html">
-🏠 Home
-</a><a href="#courses">
-📚 Courses
-</a><a href="#ai">
-🤖 AI Tutor
-</a><a href="membership.html">
-⭐ Membership
-</a><a href="about.html">
-📖 About
-</a><a href="contact.html">
-📞 Contact
-</a><a href="login.html">
-🔐 Login
-</a><a
-href="register.html"
-class="nav-register">
-
-📝 Register
-
-</a></nav></div></header><!-- =====================================
-     HERO
-===================================== --><main><section class="hero"><div class="hero-inner"><div class="hero-content"><h1>Learn English.
 <br>
 
-<span>Build Your Future.</span>
+<a href="membership.html" class="btn gold">
+⭐ View Premium Details
+</a>
+</div>
+</section>
 
-</h1><p>Improve your English grammar, vocabulary,
-speaking, pronunciation, writing and
-communication skills through simple,
-interactive online learning.
+<section class="section">
+<h2 class="title">🚀 Start Learning Today</h2>
 
-</p><div class="hero-buttons"><a
-href="register.html"
-class="button primary-button">
+<p class="sub">
+No complicated process. Explore the free course first,
+try the AI Tutor, or discover Premium learning.
+</p>
 
-📝 Start Learning Free
+<div class="buttons">
+<a href="free-course.html" class="btn green">🌱 Learn Free</a>
+<a href="membership.html" class="btn gold">⭐ Go Premium</a>
+<a href="free-ai.html" class="btn purple">🤖 Try AI</a>
+</div>
+</section>
 
-</a><a
-href="membership.html"
-class="button premium-button">
+</main>
 
-⭐ Explore Premium
+<footer>
+<strong>📚 CreateLK Academy</strong>
+<p>Learn English. Build Your Future.</p>
+<br>
 
-</a><a
-href="login.html"
-class="button outline-button">
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy</a>
+<a href="refund.html">Refund</a>
 
-🔐 Student Login
+<p style="margin-top:15px;color:#b8c0cc">
+© 2026 CreateLK Academy. All Rights Reserved.
+</p>
+</footer>
 
-</a></div></div><div class="hero-card"><div class="hero-card-icon">
-🎓
-</div><h2>
-Learn at Your Own Pace
-</h2><p>
-Start free and upgrade when you are ready.
-</p><ul class="hero-check"><li>✓ Free English learning</li><li>✓ Interactive MCQ practice</li><li>✓ Progress tracking</li><li>✓ AI English Tutor</li><li>✓ Premium courses</li></ul></div></div></section><!-- =====================================
-     STATS
-===================================== --><section class="stats"><div class="stats-grid"><div class="stat"><div class="stat-number">
-100+
-</div><div class="stat-label">
-Free MCQs
-</div></div><div class="stat"><div class="stat-number">
-900+
-</div><div class="stat-label">
-Premium MCQs
-</div></div><div class="stat"><div class="stat-number">
-10
-</div><div class="stat-label">
-Learning Areas
-</div></div><div class="stat"><div class="stat-number">
-🤖 AI
-</div><div class="stat-label">
-English Tutor
-</div></div></div></section><!-- =====================================
-     COURSES
-===================================== --><section
-    class="section"
-    id="courses"><h2 class="section-title">📚 Learn English Online
-
-</h2><p class="section-subtitle">Start with our free course or unlock
-advanced English learning with Premium.
-
-</p><div class="cards"><!-- FREE --><div class="card free-card"><div class="card-icon">
-🌱
-</div><h3>
-Beginner English
-</h3><p class="card-description">A completely free way to start
-improving your English.
-
-</p><ul class="features"><li>✓ 100 Free English MCQs</li><li>✓ Beginner Grammar</li><li>✓ Vocabulary Practice</li><li>✓ Instant Practice</li><li>✓ Progress Tracking</li><li>✓ Free Forever</li></ul><a
-href="register.html"
-class="button free-button">
-
-🌱 Start Free Course
-
-</a></div><!-- PREMIUM --><div class="card premium-card"><div class="card-icon">
-⭐
-</div><h3>
-Premium English Learning
-</h3><p class="card-description">Unlock 900 additional MCQs and
-advanced English learning areas.
-
-</p><ul class="features"><li>✓ 900 Premium MCQs</li><li>✓ Grammar</li><li>✓ Vocabulary</li><li>✓ Speaking</li><li>✓ Pronunciation</li><li>✓ Conversation</li><li>✓ Writing</li><li>✓ Listening</li><li>✓ Business English</li><li>✓ Advanced English</li></ul><a
-href="membership.html"
-class="button premium-button">
-
-⭐ View Premium Membership
-
-</a></div></div></section><!-- =====================================
-     AI TUTOR
-===================================== --><section
-    class="section ai-section"
-    id="ai"><div class="ai-box"><div class="ai-icon">
-🤖
-</div><div class="ai-content"><h2>
-CreateLK AI English Tutor
-</h2><p>Practise English with your AI tutor.
-Ask questions, correct sentences,
-learn vocabulary and practise conversation.
-
-</p><div class="ai-features"><span>✓ Grammar Help</span>
-
-<span>✓ Vocabulary</span>
-
-<span>✓ Writing Correction</span>
-
-<span>✓ Conversation</span>
-
-<span>✓ English Explanations</span>
-
-</div></div><a
-href="free-ai.html"
-class="button ai-button">
-
-🤖 Try Free AI
-
-</a></div></section><!-- =====================================
-     MEMBERSHIP
-===================================== --><section class="section"><div class="membership"><h2>
-⭐ CreateLK Academy Premium
-</h2><div class="price">LKR 1,500
-
-<span>
-/ 30 Days
-</span></div><p class="membership-description">Unlock 900 additional English MCQs and
-Premium learning courses for 30 days.
-
-</p><a
-href="membership.html"
-class="button premium-button">
-
-⭐ View Membership Details
-
-</a><div class="trust-grid"><div class="trust-item">
-📚 Premium Courses
-</div><div class="trust-item">
-📝 900 MCQs
-</div><div class="trust-item">
-📅 30 Days
-</div><div class="trust-item">
-📞 Support
-</div></div></div></section><!-- =====================================
-     HOW IT WORKS
-===================================== --><section class="section"><h2 class="section-title">🚀 How CreateLK Academy Works
-
-</h2><p class="section-subtitle">Start learning in just a few simple steps.
-
-</p><div class="steps"><div class="step"><div class="step-number">
-1
-</div><h3>
-Create Account
-</h3><p>
-Register for your free student account.
-</p></div><div class="step"><div class="step-number">
-2
-</div><h3>
-Start Learning
-</h3><p>
-Begin the free English course.
-</p></div><div class="step"><div class="step-number">
-3
-</div><h3>
-Practise
-</h3><p>
-Answer interactive English questions.
-</p></div><div class="step"><div class="step-number">
-4
-</div><h3>
-Track Progress
-</h3><p>
-See your learning progress and results.
-</p></div><div class="step"><div class="step-number">
-5
-</div><h3>
-Improve
-</h3><p>
-Build confidence through regular practice.
-</p></div></div></section><!-- =====================================
-     WHY CREATE LK
-===================================== --><section class="section"><h2 class="section-title">💙 Why Choose CreateLK Academy?
-
-</h2><p class="section-subtitle">A simple learning platform designed to help
-students improve English step by step.
-
-</p><div class="why-grid"><div class="why-card"><div class="why-icon">
-📖
-</div><h3>
-Learn
-</h3><p>Study grammar, vocabulary,
-communication and English skills.
-
-</p></div><div class="why-card"><div class="why-icon">
-🎯
-</div><h3>
-Practise
-</h3><p>Use interactive MCQs and
-AI-assisted English practice.
-
-</p></div><div class="why-card"><div class="why-icon">
-📈
-</div><h3>
-Track Progress
-</h3><p>Monitor your learning progress
-and continue improving.
-
-</p></div></div></section><!-- =====================================
-     FINAL CTA
-===================================== --><section class="section"><div class="final-cta"><h2>
-Ready to Improve Your English?
-</h2><p>Create your free account and start learning
-English today.
-
-</p><div class="hero-buttons"><a
-href="register.html"
-class="button primary-button">
-
-📝 Create Free Account
-
-</a><a
-href="free-ai.html"
-class="button free-button">
-
-🤖 Try Free AI Tutor
-
-</a></div></div></section></main><!-- =====================================
-     FOOTER
-===================================== --><footer><div class="footer-inner"><div class="footer-logo">📚 CreateLK Academy
-
-</div><p class="footer-tagline">Learn English. Build Your Future.
-
-</p><div class="footer-links"><a href="index.html">
-Home
-</a><a href="about.html">
-About
-</a><a href="membership.html">
-Membership
-</a><a href="contact.htm
+</body>
+</html>
