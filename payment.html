@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html><html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>Premium Payment | CreateLK Academy</title>
-
-<meta name="description"
-      content="CreateLK Academy Premium - LKR 1,500 for 30 days. Pay securely by PayHere or Bank Deposit.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Premium Membership & Payment | CreateLK Academy</title><meta name="description"
+content="CreateLK Academy Premium Membership - LKR 1,500 for 30 days. Pay by PayHere or Bank Deposit.">
 
 <style>
 
@@ -29,6 +20,8 @@ body{
     line-height:1.6;
 }
 
+/* HEADER */
+
 header{
     background:#1769ff;
     color:white;
@@ -40,8 +33,8 @@ header{
 
 .nav{
     max-width:1150px;
-    margin:auto;
     min-height:68px;
+    margin:auto;
     padding:0 20px;
 
     display:flex;
@@ -58,7 +51,6 @@ header{
 
 .nav-links{
     display:flex;
-    align-items:center;
     gap:20px;
 }
 
@@ -78,20 +70,17 @@ header{
     cursor:pointer;
 }
 
-.hero{
-    background:linear-gradient(
-        135deg,
-        #1769ff,
-        #4b8dff
-    );
+/* HERO */
 
+.hero{
+    background:linear-gradient(135deg,#1769ff,#4b8dff);
     color:white;
     text-align:center;
-    padding:55px 20px;
+    padding:60px 20px;
 }
 
 .hero h1{
-    font-size:38px;
+    font-size:40px;
     margin-bottom:10px;
 }
 
@@ -99,8 +88,10 @@ header{
     opacity:.95;
 }
 
+/* MAIN */
+
 .container{
-    max-width:900px;
+    max-width:950px;
     margin:auto;
     padding:40px 20px 60px;
 }
@@ -110,80 +101,111 @@ header{
     border-radius:22px;
     padding:35px 25px;
     box-shadow:0 10px 35px rgba(0,0,0,.08);
-    margin-bottom:25px;
 }
 
-.title{
+/* MEMBERSHIP */
+
+.membership{
     text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    background:#fff4d6;
+    color:#9a6700;
+    padding:8px 16px;
+    border-radius:30px;
+    font-weight:700;
+    margin-bottom:12px;
 }
 
 .price{
-    font-size:42px;
+    font-size:46px;
     font-weight:800;
     color:#1769ff;
-    text-align:center;
-    margin:10px 0;
+    margin:8px 0;
 }
 
 .duration{
-    text-align:center;
     color:#666;
+    margin-bottom:20px;
 }
 
-.section{
-    border:1px solid #e5eaf2;
-    border-radius:16px;
-    padding:25px;
-    margin-top:22px;
+.description{
+    max-width:700px;
+    margin:0 auto 25px;
+    color:#555;
 }
 
-.section h2{
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin:25px auto;
+    max-width:750px;
+    text-align:left;
+}
+
+.feature{
+    background:#f7f9fc;
+    padding:13px 15px;
+    border-radius:10px;
+    border:1px solid #edf0f5;
+}
+
+.feature strong{
     color:#1769ff;
-    margin-bottom:10px;
 }
 
-.note{
+/* PAYMENT SECTION */
+
+.payment-section{
+    border:1px solid #e5eaf2;
+    border-radius:18px;
+    padding:25px;
+    margin-top:30px;
+}
+
+.payment-section h2{
+    color:#1769ff;
+    margin-bottom:8px;
+}
+
+.payment-note{
     background:#eef5ff;
     border-radius:12px;
     padding:16px;
     margin-top:15px;
 }
 
-.button{
+/* PAYHERE */
+
+.payhere-button{
     width:100%;
     border:0;
     padding:15px;
     border-radius:12px;
+    background:#1769ff;
+    color:white;
     font-size:16px;
     font-weight:800;
     cursor:pointer;
     margin-top:15px;
 }
 
-.payhere-button{
-    background:#1769ff;
-    color:white;
-}
-
-.bank-button{
-    background:#15803d;
-    color:white;
-}
-
-.button:hover{
+.payhere-button:hover{
     opacity:.92;
 }
 
-.button:disabled{
-    opacity:.6;
-    cursor:not-allowed;
-}
+/* BANK */
 
 .bank-details{
     background:#f8fafc;
     border-radius:12px;
     padding:18px;
-    margin:18px 0;
+    margin:20px 0;
 }
 
 .detail{
@@ -231,6 +253,31 @@ input[type="file"]{
     padding:10px;
 }
 
+.bank-button{
+    width:100%;
+    border:0;
+    padding:15px;
+    border-radius:12px;
+    background:#15803d;
+    color:white;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.bank-button:hover{
+    opacity:.92;
+}
+
+.bank-button:disabled,
+.payhere-button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+/* MESSAGES */
+
 .message{
     display:none;
     padding:14px;
@@ -260,38 +307,46 @@ input[type="file"]{
     font-weight:700;
 }
 
-.security-grid{
+/* INFO */
+
+.info-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:15px;
     margin-top:25px;
 }
 
-.security{
+.info{
     background:white;
-    border-radius:15px;
     padding:20px;
+    border-radius:15px;
     text-align:center;
     box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
-.security-icon{
-    font-size:28px;
+.info-icon{
+    font-size:30px;
 }
 
-.security p{
+.info p{
     color:#666;
     font-size:14px;
 }
 
-.back{
-    display:block;
+/* FREE COURSE */
+
+.free-link{
     text-align:center;
-    margin:30px 0;
-    color:#1769ff;
-    text-decoration:none;
-    font-weight:700;
+    margin-top:25px;
 }
+
+.free-link a{
+    color:#1769ff;
+    font-weight:700;
+    text-decoration:none;
+}
+
+/* FOOTER */
 
 footer{
     background:#111827;
@@ -316,6 +371,13 @@ footer{
     margin:0 8px;
     font-size:14px;
 }
+
+.copyright{
+    color:#9ca3af;
+    font-size:13px;
+}
+
+/* MOBILE */
 
 @media(max-width:700px){
 
@@ -342,7 +404,11 @@ footer{
         font-size:30px;
     }
 
-    .security-grid{
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .info-grid{
         grid-template-columns:1fr;
     }
 
@@ -357,366 +423,197 @@ footer{
 
 }
 
-</style>
-
-</head>
-
-<body>
-
-<header>
-
-<div class="nav">
-
-<a href="/" class="logo">
+</style></head><body><!-- HEADER --><header><div class="nav"><a href="/" class="logo">
 📚 CreateLK Academy
-</a>
-
-<div class="menu"
-     onclick="toggleMenu()">
+</a><div class="menu" onclick="toggleMenu()">
 ☰
-</div>
+</div><nav id="navLinks" class="nav-links"><a href="/">Home</a>
 
-<nav id="navLinks"
-     class="nav-links">
+<a href="/about.html">About</a>
 
-<a href="/">Home</a>
+<a href="/membership.html">Membership</a>
 
-<a href="/about.html">
-About
-</a>
-
-<a href="/membership.html">
-Membership
-</a>
-
-</nav>
-
-</div>
-
-</header>
-
-
-<section class="hero">
-
-<h1>
-💳 Premium Payment
-</h1>
-
-<p>
-Secure your 30-day CreateLK Academy Premium membership.
-</p>
-
-</section>
-
-
-<main class="container">
-
-
-<div class="card">
-
-<h2 class="title">
-⭐ CreateLK Academy Premium
-</h2>
-
-<div class="price">
+</nav></div></header><!-- HERO --><section class="hero"><h1>
+⭐ Premium Membership
+</h1><p>
+Unlock 900 additional English MCQs and premium learning courses.
+</p></section><!-- MAIN --><main class="container"><div class="card membership"><div class="badge">
+⭐ PREMIUM MEMBERSHIP
+</div><h2>
+CreateLK Academy Premium
+</h2><div class="price">
 LKR 1,500
-</div>
-
-<div class="duration">
+</div><div class="duration">
 30 Days Premium Access
-</div>
+</div><p class="description">Get access to the Premium English learning section
+with 900 additional MCQs across multiple English
+learning categories.
 
-
-<!-- PAYHERE -->
-
-<div class="section">
-
-<h2>
+</p><!-- FEATURES --><div class="features"><div class="feature">
+✓ <strong>900</strong> Premium English MCQs
+</div><div class="feature">
+✓ <strong>9</strong> Premium Courses
+</div><div class="feature">
+✓ Grammar Practice
+</div><div class="feature">
+✓ Vocabulary Practice
+</div><div class="feature">
+✓ Speaking Practice
+</div><div class="feature">
+✓ Pronunciation Practice
+</div><div class="feature">
+✓ Conversation Practice
+</div><div class="feature">
+✓ Writing Practice
+</div><div class="feature">
+✓ Listening Practice
+</div><div class="feature">
+✓ Business English
+</div><div class="feature">
+✓ Advanced English
+</div><div class="feature">
+✓ Mobile & Computer Access
+</div></div><!-- PAYMENT --><div class="payment-section"><h2>
+💳 Choose Your Payment Method
+</h2><p>
+Premium membership costs <strong>LKR 1,500</strong>
+for 30 days.
+</p><!-- PAYHERE --><div class="payment-section"><h2>
 💳 PayHere
-</h2>
-
-<p>
+</h2><p>
 Pay securely online using PayHere.
-</p>
-
-<div class="note">
-
-<strong>
+</p><div class="payment-note"><strong>
 Secure Online Payment
-</strong>
-
-<p>
+</strong><p>
 PayHere payments are verified by the
 CreateLK Academy server.
-</p>
-
-</div>
-
-<button
+</p></div><button
 type="button"
-class="button payhere-button"
+id="payhereButton"
+class="payhere-button"
 onclick="startPayHere()">
 
 💳 Pay LKR 1,500 with PayHere
 
-</button>
-
-<div id="payhereMessage"
-     class="message">
-</div>
-
-</div>
-
-
-<!-- BANK PAYMENT -->
-
-<div class="section">
-
-<h2>
+</button><div id="payhereMessage"
+class="message">
+</div></div><!-- BANK PAYMENT --><div class="payment-section"><h2>
 🏦 Bank Deposit
-</h2>
-
-<p>
+</h2><p>
 You can also pay by bank deposit and submit
 your receipt for manual verification.
-</p>
+</p><div class="bank-details"><div class="detail"><span>Bank</span>
 
+<strong>
+People's Bank
+</strong></div><div class="detail"><span>Branch</span>
 
-<div class="bank-details">
+<strong>
+Udapussellawa
+</strong></div><div class="detail"><span>Account No</span>
 
-<div class="detail">
-<span>Bank</span>
-<strong>People's Bank</strong>
-</div>
+<strong>
+292200280023178
+</strong></div><div class="detail"><span>Account Name</span>
 
-<div class="detail">
-<span>Branch</span>
-<strong>Udapussellawa</strong>
-</div>
+<strong>
+Thinarathnam Sathiyanadan
+</strong></div><div class="detail"><span>Amount</span>
 
-<div class="detail">
-<span>Account No</span>
-<strong>292200280023178</strong>
-</div>
-
-<div class="detail">
-<span>Account Name</span>
-<strong>Thinarathnam Sathiyanadan</strong>
-</div>
-
-<div class="detail">
-<span>Amount</span>
-<strong>LKR 1,500</strong>
-</div>
-
-</div>
-
-
-<p>
+<strong>
+LKR 1,500
+</strong></div></div><p>
 After making the bank deposit, enter your
 Student ID, payment reference and upload
 your payment receipt.
-</p>
-
-
-<form id="bankForm">
-
-
-<label for="studentId">
+</p><form id="bankForm"><label for="studentId">
 Student ID
-</label>
-
-<input
+</label><input
 type="number"
 id="studentId"
 name="student_id"
 placeholder="Enter your Student ID"
+min="1"
 required>
-
 
 <label for="reference">
 Payment Reference
-</label>
-
-<input
+</label><input
 type="text"
 id="reference"
 name="payment_reference"
 placeholder="Enter your bank payment reference"
 required>
 
-
 <label for="receipt">
 Upload Payment Receipt
-</label>
-
-<input
+</label><input
 type="file"
 id="receipt"
 name="receipt"
 accept="image/jpeg,image/png,image/webp,application/pdf"
 required>
 
-
 <button
 type="submit"
 id="bankButton"
-class="button bank-button">
+class="bank-button">
 
 🏦 Submit Bank Payment
 
-</button>
+</button><div id="bankLoading"
+class="loading">⏳ Uploading receipt securely...
 
-
-<div id="bankLoading"
-     class="loading">
-
-⏳ Uploading receipt securely...
-
-</div>
-
-
-<div id="bankMessage"
-     class="message">
-</div>
-
-
-</form>
-
-</div>
-
-
-<div class="note">
-
-<strong>
-Manual verification
-</strong>
-
-<p>
-Your bank payment will remain pending until it
+</div><div id="bankMessage"
+class="message">
+</div></form></div><!-- MANUAL VERIFICATION --><div class="payment-note"><strong>
+🔎 Manual verification
+</strong><p>Your bank payment will remain pending until it
 is reviewed and approved by CreateLK Academy.
+
 Premium access will be activated after payment
 verification.
-</p>
 
-</div>
-
-</div>
-
-
-<!-- SECURITY -->
-
-<div class="security-grid">
-
-
-<div class="security">
-
-<div class="security-icon">
+</p></div></div></div><!-- INFORMATION --><div class="info-grid"><div class="info"><div class="info-icon">
 🔐
-</div>
-
-<h3>
-Secure
-</h3>
-
-<p>
+</div><h3>
+Secure Payment
+</h3><p>
 Payment information is processed securely.
-</p>
-
-</div>
-
-
-<div class="security">
-
-<div class="security-icon">
-☁️
-</div>
-
-<h3>
-Cloudflare
-</h3>
-
-<p>
-Payments and receipts are handled by the
-CreateLK Academy server.
-</p>
-
-</div>
-
-
-<div class="security">
-
-<div class="security-icon">
-📚
-</div>
-
-<h3>
+</p></div><div class="info"><div class="info-icon">
+⏱️
+</div><h3>
 30 Days
-</h3>
+</h3><p>
+Premium access is valid for 30 days
+after successful payment approval.
+</p></div><div class="info"><div class="info-icon">
+📚
+</div><h3>
+1,000 MCQs
+</h3><p>
+100 free MCQs plus 900 Premium MCQs.
+</p></div></div><div class="free-link">Want to start learning for free?
 
-<p>
-Premium access is valid for 30 days.
-</p>
-
-</div>
-
-
-</div>
-
-
-<a href="/membership.html"
-   class="back">
-
-← Back to Premium Membership
-
-</a>
-
-
-</main>
-
-
-<footer>
-
-<div class="footer-logo">
+<a href="/beginner-english.html">
+Start Free Course
+</a></div></main><!-- FOOTER --><footer><div class="footer-logo">
 📚 CreateLK Academy
-</div>
+</div><div class="footer-links"><a href="/">Home</a>
 
-<div class="footer-links">
+<a href="/about.html">About</a>
 
-<a href="/">
-Home
-</a>
+<a href="/contact.html">Contact</a>
 
-<a href="/about.html">
-About
-</a>
+<a href="/membership.html">Membership</a>
 
-<a href="/contact.html">
-Contact
-</a>
+<a href="/privacy.html">Privacy</a>
 
-<a href="/membership.html">
-Membership
-</a>
+<a href="/refund.html">Refund Policy</a>
 
-<a href="/privacy.html">
-Privacy
-</a>
+</div><div class="copyright">© 2026 CreateLK Academy. All Rights Reserved.
 
-<a href="/refund.html">
-Refund Policy
-</a>
-
-</div>
-
-<div>
-© 2026 CreateLK Academy. All Rights Reserved.
-</div>
-
-</footer>
-
-
-<script>
+</div></footer><script>
 
 /* =========================================
    MOBILE MENU
@@ -803,6 +700,7 @@ async function(e){
             "Please enter your Student ID.";
 
         return;
+
     }
 
 
@@ -815,6 +713,7 @@ async function(e){
             "Please enter your payment reference.";
 
         return;
+
     }
 
 
@@ -827,13 +726,11 @@ async function(e){
             "Please select your payment receipt.";
 
         return;
+
     }
 
 
-    if(
-        receipt.size >
-        10 * 1024 * 1024
-    ){
+    if(receipt.size > 10 * 1024 * 1024){
 
         message.className =
             "message error";
@@ -842,6 +739,7 @@ async function(e){
             "Receipt must be smaller than 10 MB.";
 
         return;
+
     }
 
 
@@ -871,11 +769,9 @@ async function(e){
 
     /* LOADING */
 
-    button.disabled =
-        true;
+    button.disabled = true;
 
-    loading.style.display =
-        "block";
+    loading.style.display = "block";
 
 
     try{
@@ -885,7 +781,8 @@ async function(e){
                 BANK_PAYMENT_WORKER,
                 {
                     method:"POST",
-                    body:formData
+                    body:formData,
+                    mode:"cors"
                 }
             );
 
@@ -902,13 +799,18 @@ async function(e){
             data =
                 JSON.parse(text);
 
-        }catch{
+        }
+
+        catch{
 
             data = {
+
                 success:false,
+
                 message:
                     text ||
                     "Invalid server response."
+
             };
 
         }
@@ -934,8 +836,8 @@ async function(e){
                 )
                 .reset();
 
-
         }
+
 
         /* SERVER ERROR */
 
@@ -957,7 +859,10 @@ async function(e){
         }
 
 
-    }catch(error){
+    }
+
+
+    catch(error){
 
         console.error(
             "Bank payment connection error:",
@@ -1009,9 +914,5 @@ function startPayHere(){
 
 }
 
-</script>
-
-
-</body>
-
+</script></body>
 </html>
