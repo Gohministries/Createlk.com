@@ -1,0 +1,852 @@
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    const path = url.pathname;
+
+    // CORS
+    if (request.method === "OPTIONS") {
+      return new Response(null, {
+        headers: corsHeaders()
+      });
+    }
+
+    try {
+      // Basic API
+      if (path === "/") {
+        return json({
+          success: true,
+          message: "CreateLK Academy API is running."
+        });
+      }
+
+      // Student login
+      if (path === "/login" && request.method === "POST") {
+        return await login(request, env);
+      }
+
+      // Student registration
+      if (path === "/register" && request.method === "POST") {
+        return await register(request, env);
+      }
+
+      // Create PayHere checkout
+      if (path === "/create-payhere" && request.method === "POST") {
+        return await createPayHere(request, env);
+      }
+
+      // PayHere server notification
+      if (path === "/payhere-notify" && request.method === "POST") {
+        return await payHereNotify(request, env);
+      }
+
+      // Bank payment + receipt
+      if (path === "/bank-payment" && request.method === "POST") {
+        return await bankPayment(request, env);
+      }
+
+      // Check membership
+      if (path === "/membership" && request.method === "GET") {
+        return await membership(request, env);
+      }
+
+      return json(
+        {
+          success: false,
+          message: "Route not found."
+        },
+        404
+      );
+
+    } catch (error) {
+      console.error("Worker error:", error);
+
+      return json(
+        {
+          success: false,
+          message: "Server error.",
+          error: error.message
+        },
+        500
+      );
+    }
+  }
+};
+
+
+/* =========================================
+   CORS
+========================================= */
+
+function corsHeaders() {
+  return {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Content-Type": "application/json"
+  };
+}
+
+
+/* =========================================
+   JSON RESPONSE
+========================================= */
+
+function json(data, status = 200) {
+  return new Response(
+    JSON.stringify(data),
+    {
+      status,
+      headers: corsHeaders()
+    }
+  );
+}
+
+
+/* =========================================
+   MD5
+========================================= */
+
+async function md5(text) {
+
+  const data =
+    new TextEncoder().encode(text);
+
+  const hash =
+    await crypto.subtle.digest(
+      "MD5",
+      data
+    );
+
+  return [...new Uint8Array(hash)]
+    .map(
+      b => b.toString(16).padStart(2, "0")
+    )
+    .join("");
+}
+
+
+/* =========================================
+   REGISTER
+========================================= */
+
+async function register(request, env) {
+
+  const body =
+    await request.json();
+
+  const first_name =
+    String(body.first_name || "").trim();
+
+  const last_name =
+    String(body.last_name || "").trim();
+
+  const email =
+    String(body.email || "")
+      .trim()
+      .toLowerCase();
+
+  const phone =
+    String(body.phone || "").trim();
+
+  const password =
+    String(body.password || "");
+
+  if (
+    !first_name ||
+    !last_name ||
+    !email ||
+    !phone ||
+    !password
+  ) {
+    return json(
+      {
+        success: false,
+        message: "Please complete all required fields."
+      },
+      400
+    );
+  }
+
+  const existing =
+    await env.DB
+      .prepare(
+        "SELECT id FROM students WHERE email = ?"
+      )
+      .bind(email)
+      .first();
+
+  if (existing) {
+    return json(
+      {
+        success: false,
+        message: "An account with this email already exists."
+      },
+      409
+    );
+  }
+
+  const passwordHash =
+    await md5(password);
+
+  const result =
+    await env.DB
+      .prepare(`
+        INSERT INTO students
+        (
+          first_name,
+          last_name,
+          email,
+          phone,
+          password_hash,
+          membership_status
+        )
+        VALUES (?, ?, ?, ?, ?, 'inactive')
+      `)
+      .bind(
+        first_name,
+        last_name,
+        email,
+        phone,
+        passwordHash
+      )
+      .run();
+
+  return json({
+    success: true,
+    message: "Account created successfully.",
+    student_id: result.meta.last_row_id
+  });
+}
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+async function login(request, env) {
+
+  const body =
+    await request.json();
+
+  const email =
+    String(body.email || "")
+      .trim()
+      .toLowerCase();
+
+  const password =
+    String(body.password || "");
+
+  if (!email || !password) {
+    return json(
+      {
+        success: false,
+        message: "Email and password are required."
+      },
+      400
+    );
+  }
+
+  const passwordHash =
+    await md5(password);
+
+  const student =
+    await env.DB
+      .prepare(`
+        SELECT
+          id,
+          first_name,
+          last_name,
+          email,
+          phone,
+          membership_status,
+          membership_expiry
+        FROM students
+        WHERE email = ?
+        AND password_hash = ?
+      `)
+      .bind(
+        email,
+        passwordHash
+      )
+      .first();
+
+  if (!student) {
+    return json(
+      {
+        success: false,
+        message: "Invalid email or password."
+      },
+      401
+    );
+  }
+
+  return json({
+    success: true,
+    message: "Login successful.",
+    student
+  });
+}
+
+
+/* =========================================
+   CREATE PAYHERE CHECKOUT
+========================================= */
+
+async function createPayHere(request, env) {
+
+  const body =
+    await request.json();
+
+  const studentId =
+    Number(body.student_id);
+
+  if (!studentId) {
+    return json(
+      {
+        success: false,
+        message: "Student ID is required."
+      },
+      400
+    );
+  }
+
+  const student =
+    await env.DB
+      .prepare(`
+        SELECT
+          id,
+          first_name,
+          last_name,
+          email,
+          phone
+        FROM students
+        WHERE id = ?
+      `)
+      .bind(studentId)
+      .first();
+
+  if (!student) {
+    return json(
+      {
+        success: false,
+        message: "Student not found."
+      },
+      404
+    );
+  }
+
+  const orderId =
+    "CLA-" +
+    Date.now() +
+    "-" +
+    studentId;
+
+  const amount =
+    "1500.00";
+
+  const currency =
+    "LKR";
+
+  const merchantId =
+    env.PAYHERE_MERCHANT_ID;
+
+  const merchantSecret =
+    env.PAYHERE_MERCHANT_SECRET;
+
+  if (
+    !merchantId ||
+    !merchantSecret
+  ) {
+    return json(
+      {
+        success: false,
+        message: "PayHere configuration is missing."
+      },
+      500
+    );
+  }
+
+  const hashedSecret =
+    (
+      await md5(merchantSecret)
+    ).toUpperCase();
+
+  const hash =
+    (
+      await md5(
+        merchantId +
+        orderId +
+        amount +
+        currency +
+        hashedSecret
+      )
+    ).toUpperCase();
+
+  await env.DB
+    .prepare(`
+      INSERT INTO payments
+      (
+        student_id,
+        payment_method,
+        amount,
+        order_id,
+        status
+      )
+      VALUES (?, 'payhere', ?, ?, 'pending')
+    `)
+    .bind(
+      studentId,
+      1500,
+      orderId
+    )
+    .run();
+
+  return json({
+    success: true,
+
+    payment: {
+      merchant_id: merchantId,
+
+      return_url:
+        "https://createlk.com/payment.html?status=return",
+
+      cancel_url:
+        "https://createlk.com/payment.html?status=cancel",
+
+      notify_url:
+        "https://weathered-hill-53af.gateofheavensl1.workers.dev/payhere-notify",
+
+      first_name:
+        student.first_name,
+
+      last_name:
+        student.last_name,
+
+      email:
+        student.email,
+
+      phone:
+        student.phone,
+
+      address:
+        "Sri Lanka",
+
+      city:
+        "Sri Lanka",
+
+      country:
+        "Sri Lanka",
+
+      order_id:
+        orderId,
+
+      items:
+        "CreateLK Academy Premium - 30 Days",
+
+      currency,
+
+      amount,
+
+      hash
+    }
+  });
+}
+
+
+/* =========================================
+   PAYHERE NOTIFICATION
+========================================= */
+
+async function payHereNotify(request, env) {
+
+  const form =
+    await request.formData();
+
+  const merchantId =
+    String(
+      form.get("merchant_id") || ""
+    );
+
+  const orderId =
+    String(
+      form.get("order_id") || ""
+    );
+
+  const paymentId =
+    String(
+      form.get("payment_id") || ""
+    );
+
+  const payhereAmount =
+    String(
+      form.get("payhere_amount") || ""
+    );
+
+  const currency =
+    String(
+      form.get("payhere_currency") || ""
+    );
+
+  const statusCode =
+    String(
+      form.get("status_code") || ""
+    );
+
+  const receivedSignature =
+    String(
+      form.get("md5sig") || ""
+    );
+
+  if (
+    merchantId !==
+    env.PAYHERE_MERCHANT_ID
+  ) {
+    return new Response(
+      "Invalid merchant",
+      { status: 400 }
+    );
+  }
+
+  const hashedSecret =
+    (
+      await md5(
+        env.PAYHERE_MERCHANT_SECRET
+      )
+    ).toUpperCase();
+
+  const localSignature =
+    (
+      await md5(
+        merchantId +
+        orderId +
+        payhereAmount +
+        currency +
+        statusCode +
+        hashedSecret
+      )
+    ).toUpperCase();
+
+  if (
+    localSignature !==
+    receivedSignature
+  ) {
+    console.error(
+      "Invalid PayHere signature"
+    );
+
+    return new Response(
+      "Invalid signature",
+      { status: 400 }
+    );
+  }
+
+  const payment =
+    await env.DB
+      .prepare(`
+        SELECT *
+        FROM payments
+        WHERE order_id = ?
+      `)
+      .bind(orderId)
+      .first();
+
+  if (!payment) {
+    return new Response(
+      "Payment not found",
+      { status: 404 }
+    );
+  }
+
+  /*
+    PayHere status 2 = successful
+  */
+
+  if (statusCode === "2") {
+
+    const now =
+      new Date();
+
+    const expiry =
+      new Date(now);
+
+    expiry.setDate(
+      expiry.getDate() + 30
+    );
+
+    await env.DB
+      .prepare(`
+        UPDATE payments
+        SET
+          status = 'paid',
+          payhere_payment_id = ?,
+          verified_at = CURRENT_TIMESTAMP
+        WHERE order_id = ?
+      `)
+      .bind(
+        paymentId,
+        orderId
+      )
+      .run();
+
+    await env.DB
+      .prepare(`
+        UPDATE students
+        SET
+          membership_status = 'active',
+          membership_expiry = ?
+        WHERE id = ?
+      `)
+      .bind(
+        expiry.toISOString(),
+        payment.student_id
+      )
+      .run();
+
+    console.log(
+      "Premium activated:",
+      payment.student_id
+    );
+
+  } else {
+
+    await env.DB
+      .prepare(`
+        UPDATE payments
+        SET
+          status = ?
+        WHERE order_id = ?
+      `)
+      .bind(
+        "failed",
+        orderId
+      )
+      .run();
+  }
+
+  return new Response(
+    "OK",
+    { status: 200 }
+  );
+}
+
+
+/* =========================================
+   BANK PAYMENT
+========================================= */
+
+async function bankPayment(request, env) {
+
+  const form =
+    await request.formData();
+
+  const studentId =
+    Number(
+      form.get("student_id")
+    );
+
+  const reference =
+    String(
+      form.get("payment_reference") || ""
+    ).trim();
+
+  const receipt =
+    form.get("receipt");
+
+  if (!studentId) {
+    return json(
+      {
+        success: false,
+        message: "Student ID is required."
+      },
+      400
+    );
+  }
+
+  if (!reference) {
+    return json(
+      {
+        success: false,
+        message: "Payment reference is required."
+      },
+      400
+    );
+  }
+
+  if (
+    !receipt ||
+    typeof receipt.arrayBuffer !==
+      "function"
+  ) {
+    return json(
+      {
+        success: false,
+        message: "Please upload your payment receipt."
+      },
+      400
+    );
+  }
+
+  if (
+    receipt.size >
+    5 * 1024 * 1024
+  ) {
+    return json(
+      {
+        success: false,
+        message: "Receipt must be smaller than 5 MB."
+      },
+      400
+    );
+  }
+
+  const student =
+    await env.DB
+      .prepare(
+        "SELECT id FROM students WHERE id = ?"
+      )
+      .bind(studentId)
+      .first();
+
+  if (!student) {
+    return json(
+      {
+        success: false,
+        message: "Student not found."
+      },
+      404
+    );
+  }
+
+  const safeName =
+    String(
+      receipt.name ||
+      "receipt"
+    )
+      .replace(
+        /[^a-zA-Z0-9._-]/g,
+        "_"
+      );
+
+  const receiptKey =
+    "receipts/" +
+    studentId +
+    "/" +
+    Date.now() +
+    "-" +
+    safeName;
+
+  await env.RECEIPT.put(
+    receiptKey,
+    await receipt.arrayBuffer(),
+    {
+      httpMetadata: {
+        contentType:
+          receipt.type ||
+          "application/octet-stream"
+      }
+    }
+  );
+
+  await env.DB
+    .prepare(`
+      INSERT INTO payments
+      (
+        student_id,
+        payment_method,
+        amount,
+        payment_reference,
+        receipt_key,
+        status
+      )
+      VALUES
+      (?, 'bank', 1500, ?, ?, 'pending')
+    `)
+    .bind(
+      studentId,
+      reference,
+      receiptKey
+    )
+    .run();
+
+  return json({
+    success: true,
+    message:
+      "Bank payment submitted successfully. Your payment will be reviewed before Premium access is activated."
+  });
+}
+
+
+/* =========================================
+   MEMBERSHIP
+========================================= */
+
+async function membership(request, env) {
+
+  const url =
+    new URL(request.url);
+
+  const studentId =
+    Number(
+      url.searchParams.get(
+        "student_id"
+      )
+    );
+
+  if (!studentId) {
+    return json(
+      {
+        success: false,
+        message: "Student ID is required."
+      },
+      400
+    );
+  }
+
+  const student =
+    await env.DB
+      .prepare(`
+        SELECT
+          id,
+          first_name,
+          last_name,
+          email,
+          membership_status,
+          membership_expiry
+        FROM students
+        WHERE id = ?
+      `)
+      .bind(studentId)
+      .first();
+
+  if (!student) {
+    return json(
+      {
+        success: false,
+        message: "Student not found."
+      },
+      404
+    );
+  }
+
+  let active = false;
+
+  if (
+    student.membership_status ===
+      "active" &&
+    student.membership_expiry
+  ) {
+
+    active =
+      new Date(
+        student.membership_expiry
+      ) > new Date();
+  }
+
+  return json({
+    success: true,
+
+    active,
+
+    student
+  });
+}
