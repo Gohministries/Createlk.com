@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>CreateLK Academy | Learn English Online</title>
-
-<meta name="description"
-      content="CreateLK Academy - Learn English online with free and premium English courses, MCQ practice, grammar, vocabulary, speaking, pronunciation and more.">
+<title>CreateLK Academy | Learn English Online</title><meta name="description"
+content="CreateLK Academy - Learn English online with a free English course, AI English Tutor, MCQ practice and Premium English courses.">
 
 <meta name="robots"
-      content="index, follow">
+content="index, follow">
 
 <style>
 
@@ -36,9 +27,9 @@ body{
     line-height:1.6;
 }
 
-/* ===============================
+/* =========================
    HEADER
-=============================== */
+========================= */
 
 header{
     background:#174ea6;
@@ -53,12 +44,12 @@ header{
     width:100%;
     max-width:1100px;
     margin:auto;
-    padding:16px 20px;
+    padding:15px 20px;
 
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:20px;
+    gap:15px;
 }
 
 .logo{
@@ -74,7 +65,7 @@ nav{
     align-items:center;
     justify-content:center;
     flex-wrap:wrap;
-    gap:5px;
+    gap:4px;
 }
 
 nav a{
@@ -96,25 +87,35 @@ nav a:hover{
     border:0;
     background:transparent;
     color:#fff;
-    font-size:25px;
+    font-size:26px;
     cursor:pointer;
 }
 
-/* ===============================
+/* =========================
    HERO
-=============================== */
+========================= */
 
 .hero{
-    width:100%;
     max-width:1100px;
     margin:auto;
-    padding:70px 20px 60px;
+    padding:75px 20px 65px;
     text-align:center;
 }
 
+.hero-badge{
+    display:inline-block;
+    background:#e8f7ed;
+    color:#176b35;
+    padding:7px 14px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
 .hero h1{
-    font-size:clamp(32px,6vw,52px);
-    line-height:1.15;
+    font-size:clamp(34px,6vw,55px);
+    line-height:1.12;
     color:#174ea6;
     margin-bottom:18px;
 }
@@ -124,7 +125,7 @@ nav a:hover{
 }
 
 .hero p{
-    max-width:700px;
+    max-width:720px;
     margin:0 auto 28px;
     color:#667085;
     font-size:18px;
@@ -133,14 +134,13 @@ nav a:hover{
 .hero-buttons{
     display:flex;
     justify-content:center;
-    align-items:center;
     flex-wrap:wrap;
     gap:12px;
 }
 
-/* ===============================
+/* =========================
    BUTTONS
-=============================== */
+========================= */
 
 .button{
     display:inline-block;
@@ -182,9 +182,18 @@ nav a:hover{
     background:#d98d0c;
 }
 
-/* ===============================
-   SECTION
-=============================== */
+.ai-button{
+    background:#7c3aed;
+    color:#fff;
+}
+
+.ai-button:hover{
+    background:#6425c5;
+}
+
+/* =========================
+   SECTIONS
+========================= */
 
 .section{
     width:100%;
@@ -203,13 +212,13 @@ nav a:hover{
 .section-subtitle{
     text-align:center;
     color:#667085;
-    max-width:700px;
+    max-width:720px;
     margin:0 auto 30px;
 }
 
-/* ===============================
+/* =========================
    CARDS
-=============================== */
+========================= */
 
 .cards{
     display:grid;
@@ -252,6 +261,10 @@ nav a:hover{
     border-top:5px solid #20a464;
 }
 
+.ai-card{
+    border-top:5px solid #7c3aed;
+}
+
 .premium-card{
     border-top:5px solid #f5a623;
 }
@@ -268,9 +281,48 @@ nav a:hover{
     font-size:15px;
 }
 
-/* ===============================
+/* =========================
+   AI SECTION
+========================= */
+
+.ai-section{
+    background:#fff;
+    border-radius:20px;
+    padding:35px 25px;
+    box-shadow:0 7px 25px rgba(0,0,0,.07);
+    text-align:center;
+    border-top:5px solid #7c3aed;
+}
+
+.ai-title{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.ai-description{
+    max-width:680px;
+    margin:0 auto 22px;
+    color:#667085;
+}
+
+.ai-features{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(180px,1fr));
+    gap:12px;
+    margin:25px 0;
+}
+
+.ai-feature{
+    background:#f6f1ff;
+    padding:15px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+/* =========================
    MEMBERSHIP
-=============================== */
+========================= */
 
 .membership{
     background:#fff;
@@ -308,9 +360,31 @@ nav a:hover{
     font-weight:600;
 }
 
-/* ===============================
+/* =========================
+   WHY SECTION
+========================= */
+
+.why-number{
+    width:55px;
+    height:55px;
+    margin:0 auto 12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#eef4ff;
+    color:#174ea6;
+
+    border-radius:50%;
+
+    font-size:22px;
+    font-weight:800;
+}
+
+/* =========================
    FOOTER
-=============================== */
+========================= */
 
 footer{
     background:#172033;
@@ -356,9 +430,9 @@ footer{
     line-height:1.6;
 }
 
-/* ===============================
+/* =========================
    MOBILE
-=============================== */
+========================= */
 
 @media(max-width:800px){
 
@@ -383,8 +457,9 @@ footer{
 
     nav a{
         text-align:center;
-        padding:10px;
+        padding:11px;
     }
+
 }
 
 @media(max-width:500px){
@@ -411,530 +486,224 @@ footer{
         text-align:center;
     }
 
+    .ai-title{
+        font-size:25px;
+    }
+
 }
 
-</style>
-
-</head>
-
-<body>
-
-
-<!-- =====================================
+</style></head><body><!-- =========================
      HEADER
-===================================== -->
-
-<header>
-
-<div class="header-inner">
-
-<a
-    href="index.html"
-    class="logo">
+========================= --><header><div class="header-inner"><a
+href="index.html"
+class="logo">
 
 📚 CreateLK Academy
 
-</a>
-
-
-<button
-    class="menu-button"
-    id="menuButton"
-    type="button">
+</a><button
+class="menu-button"
+id="menuButton"
+type="button"
+aria-label="Open navigation">
 
 ☰
 
-</button>
-
-
-<nav id="mainNav">
-
-<a href="index.html">
+</button><nav id="mainNav"><a href="index.html">
 🏠 Home
-</a>
-
-<a href="about.html">
+</a><a href="about.html">
 📖 About
-</a>
-
-<a href="membership.html">
+</a><a href="membership.html">
 ⭐ Membership
-</a>
-
-<a href="contact.html">
+</a><a href="contact.html">
 📞 Contact
-</a>
-
-<a href="login.html">
+</a><a href="login.html">
 🔐 Login
-</a>
-
-<a href="register.html">
+</a><a href="register.html">
 📝 Register
-</a>
-
-</nav>
-
-</div>
-
-</header>
-
-
-<!-- =====================================
+</a></nav></div></header><main><!-- =========================
      HERO
-===================================== -->
+========================= --><section class="hero"><div class="hero-badge">🌱 Free Learning • 🤖 AI Tutor • ⭐ Premium
 
-<main>
-
-<section class="hero">
-
-<h1>
-
-Learn English.
+</div><h1>Learn English.
 <br>
 
 <span>Build Your Future.</span>
 
-</h1>
+</h1><p>Learn English step by step with interactive
+MCQs, grammar practice, vocabulary, AI tutoring
+and Premium English courses.
 
-
-<p>
-
-Welcome to CreateLK Academy — an online English
-learning platform designed to help you improve
-your grammar, vocabulary, speaking, pronunciation,
-writing and communication skills.
-
-</p>
-
-
-<div class="hero-buttons">
-
-
-<a
-    href="register.html"
-    class="button primary-button">
+</p><div class="hero-buttons"><a
+href="register.html"
+class="button primary-button">
 
 📝 Create Free Account
 
-</a>
+</a><a
+href="free-ai.html"
+class="button ai-button">
 
+🤖 Try Free AI
 
-<a
-    href="membership.html"
-    class="button premium-button">
+</a><a
+href="membership.html"
+class="button premium-button">
 
 ⭐ Explore Premium
 
-</a>
+</a></div></section><!-- =========================
+     LEARNING OPTIONS
+========================= --><section class="section"><h2 class="section-title">📚 Start Learning
 
+</h2><p class="section-subtitle">Choose the learning option that is right for you.
 
-<a
-    href="login.html"
-    class="button free-button">
-
-🔐 Student Login
-
-</a>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================
-     COURSES
-===================================== -->
-
-<section class="section">
-
-<h2 class="section-title">
-
-📚 Learn English Online
-
-</h2>
-
-
-<p class="section-subtitle">
-
-Start with our free English course or explore
-our Premium Membership.
-
-</p>
-
-
-<div class="cards">
-
-
-<!-- FREE COURSE -->
-
-<div class="card free-card">
-
-<div class="card-icon">
+</p><div class="cards"><!-- FREE --><div class="card free-card"><div class="card-icon">
 🌱
-</div>
-
-
-<h3>
+</div><h3>
 Beginner English
-</h3>
-
-
-<p>
+</h3><p>
 Start learning English completely free.
-</p>
+</p><ul class="features"><li>✓ 100 Free English MCQs</li><li>✓ Beginner Grammar</li><li>✓ Vocabulary Practice</li><li>✓ Instant Practice</li><li>✓ Free Forever</li></ul><a
+href="register.html"
+class="button free-button">
 
+🌱 Start Free Learning
 
-<ul class="features">
+</a></div><!-- AI --><div class="card ai-card"><div class="card-icon">
+🤖
+</div><h3>
+Free AI English Tutor
+</h3><p>Practise English with your AI tutor
+and get instant explanations.
 
-<li>✓ 100 Free English MCQs</li>
+</p><ul class="features"><li>✓ Grammar Help</li><li>✓ Vocabulary</li><li>✓ Sentence Correction</li><li>✓ Writing Help</li><li>✓ Conversation Practice</li><li>✓ English Explanations</li></ul><a
+href="register.html"
+class="button ai-button">
 
-<li>✓ Beginner Grammar</li>
+🤖 Try Free AI
 
-<li>✓ Vocabulary Practice</li>
-
-<li>✓ Instant Practice</li>
-
-<li>✓ Free Forever</li>
-
-</ul>
-
-
-<a
-    href="register.html"
-    class="button free-button">
-
-🌱 Start Learning Free
-
-</a>
-
-</div>
-
-
-<!-- PREMIUM COURSE -->
-
-<div class="card premium-card">
-
-<div class="card-icon">
+</a></div><!-- PREMIUM --><div class="card premium-card"><div class="card-icon">
 ⭐
-</div>
-
-
-<h3>
+</div><h3>
 Premium English Learning
-</h3>
-
-
-<p>
-
-Unlock 900 additional Premium MCQs
+</h3><p>Unlock 900 additional Premium MCQs
 and advanced English learning content.
 
-</p>
-
-
-<ul class="features">
-
-<li>✓ 900 Premium MCQs</li>
-
-<li>✓ Grammar</li>
-
-<li>✓ Vocabulary</li>
-
-<li>✓ Speaking</li>
-
-<li>✓ Pronunciation</li>
-
-<li>✓ Conversation</li>
-
-<li>✓ Writing</li>
-
-<li>✓ Listening</li>
-
-<li>✓ Business English</li>
-
-<li>✓ Advanced English</li>
-
-</ul>
-
-
-<!-- CORRECT PREMIUM NAVIGATION -->
-
-<a
-    href="membership.html"
-    class="button premium-button">
+</p><ul class="features"><li>✓ 900 Premium MCQs</li><li>✓ Grammar</li><li>✓ Vocabulary</li><li>✓ Speaking</li><li>✓ Pronunciation</li><li>✓ Conversation</li><li>✓ Writing</li><li>✓ Listening</li><li>✓ Business English</li><li>✓ Advanced English</li></ul><a
+href="membership.html"
+class="button premium-button">
 
 ⭐ View Premium Membership
 
-</a>
+</a></div></div></section><!-- =========================
+     FREE AI
+========================= --><section class="section"><div class="ai-section"><div class="card-icon">
+🤖
+</div><h2 class="ai-title">CreateLK AI English Tutor
 
-</div>
+</h2><p class="ai-description">Practise English with your AI tutor.
+Ask questions, correct sentences,
+learn vocabulary and practise conversation.
 
+</p><div class="ai-features"><div class="ai-feature">
+📖 Grammar Help
+</div><div class="ai-feature">
+📚 Vocabulary
+</div><div class="ai-feature">
+✍️ Writing Correction
+</div><div class="ai-feature">
+💬 Conversation
+</div><div class="ai-feature">
+🎯 English Practice
+</div><div class="ai-feature">
+🌍 Simple Explanations
+</div></div><a
+href="register.html"
+class="button ai-button">
 
-</div>
+🤖 Create Free Account & Try AI
 
-</section>
+</a></div></section><!-- =========================
+     PREMIUM
+========================= --><section class="section"><div class="membership"><h2>⭐ CreateLK Academy Premium
 
-
-<!-- =====================================
-     PREMIUM MEMBERSHIP
-===================================== -->
-
-<section class="section">
-
-<div class="membership">
-
-
-<h2>
-
-⭐ CreateLK Academy Premium
-
-</h2>
-
-
-<div class="price">
-
-LKR 1,500
+</h2><div class="price">LKR 1,500
 
 <span>
-/ 30 Days
-</span>
+ / 30 Days
+</span></div><p class="section-subtitle">Get access to 900 additional English MCQs
+and Premium English courses for 30 days.
 
-</div>
-
-
-<p class="section-subtitle">
-
-Get access to 900 additional English MCQs
-and Premium learning courses for 30 days.
-
-</p>
-
-
-<!-- GO TO MEMBERSHIP INFORMATION FIRST -->
-
-<a
-    href="membership.html"
-    class="button premium-button">
+</p><a
+href="membership.html"
+class="button premium-button">
 
 ⭐ View Membership Details
 
-</a>
-
-
-<div class="trust">
-
-
-<div class="trust-item">
-📚 Premium Courses
-</div>
-
-
-<div class="trust-item">
+</a><div class="trust"><div class="trust-item">
+📚 9 Premium Courses
+</div><div class="trust-item">
 📝 900 MCQs
-</div>
-
-
-<div class="trust-item">
+</div><div class="trust-item">
 📅 30 Days Access
-</div>
-
-
-<div class="trust-item">
+</div><div class="trust-item">
 📞 Student Support
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================
+</div></div></div></section><!-- =========================
      WHY CREATE LK
-===================================== -->
+========================= --><section class="section"><h2 class="section-title">Why Choose CreateLK Academy?
 
-<section class="section">
+</h2><p class="section-subtitle">A simple learning platform designed to help
+you improve English through regular practice.
 
-<h2 class="section-title">
-
-Why Choose CreateLK Academy?
-
-</h2>
-
-
-<p class="section-subtitle">
-
-A simple online learning platform designed
-to help students improve English step by step.
-
-</p>
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<div class="card-icon">
-📖
-</div>
-
-<h3>
+</p><div class="cards"><div class="card"><div class="why-number">
+1
+</div><h3>
 Learn
-</h3>
+</h3><p>Study grammar, vocabulary and
+communication skills step by step.
 
-<p>
-
-Study grammar, vocabulary and
-communication skills.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-🎯
-</div>
-
-<h3>
+</p></div><div class="card"><div class="why-number">
+2
+</div><h3>
 Practice
-</h3>
+</h3><p>Practise through interactive MCQs
+and AI-powered English activities.
 
-<p>
-
-Practice through interactive multiple-choice
-questions.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-🚀
-</div>
-
-<h3>
+</p></div><div class="card"><div class="why-number">
+3
+</div><h3>
 Improve
-</h3>
+</h3><p>Build confidence and improve your
+English through consistent practice.
 
-<p>
-
-Build confidence and improve your English
-through regular practice.
-
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-</main>
-
-
-<!-- =====================================
+</p></div></div></section></main><!-- =========================
      FOOTER
-===================================== -->
+========================= --><footer><div class="footer-inner"><div class="footer-logo">📚 CreateLK Academy
 
-<footer>
+</div><p>Learn English. Build Your Future.
 
-<div class="footer-inner">
-
-
-<div class="footer-logo">
-
-📚 CreateLK Academy
-
-</div>
-
-
-<p>
-
-Learn English. Build Your Future.
-
-</p>
-
-
-<div class="footer-links">
-
-
-<a href="index.html">
+</p><div class="footer-links"><a href="index.html">
 Home
-</a>
-
-
-<a href="about.html">
+</a><a href="about.html">
 About
-</a>
-
-
-<a href="membership.html">
+</a><a href="membership.html">
 Membership
-</a>
-
-
-<a href="contact.html">
+</a><a href="contact.html">
 Contact
-</a>
-
-
-<a href="login.html">
+</a><a href="login.html">
 Login
-</a>
-
-
-<a href="register.html">
+</a><a href="register.html">
 Register
-</a>
-
-
-<a href="privacy.html">
+</a><a href="privacy.html">
 Privacy Policy
-</a>
-
-
-<a href="refund.html">
+</a><a href="refund.html">
 Refund Policy
-</a>
+</a></div><div class="copyright">© 2026 CreateLK Academy. All Rights Reserved.
 
-
-</div>
-
-
-<div class="copyright">
-
-© 2026 CreateLK Academy. All Rights Reserved.
-
-<br>
-
-This website provides online English
+<br>This website provides online English
 learning services and educational content.
 
-</div>
-
-
-</div>
-
-</footer>
-
-
-<!-- =====================================
-     JAVASCRIPT
-===================================== -->
-
-<script>
+</div></div></footer><script>
 
 "use strict";
 
@@ -986,9 +755,4 @@ navLinks.forEach(
     }
 );
 
-</script>
-
-
-</body>
-
-</html>
+</script></body></html>
