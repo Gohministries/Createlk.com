@@ -4,36 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Free AI English Tutor | CreateLK Academy</title>
-<meta name="description" content="Practice English with the free CreateLK AI English Tutor.">
+<meta name="description" content="Free AI English Tutor by CreateLK Academy.">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Segoe UI,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,"Segoe UI",sans-serif}
 body{background:#f5f8ff;color:#172033;min-height:100vh}
-header{background:#174ea6;color:#fff;padding:15px 18px;position:sticky;top:0;z-index:5}
-.head{max-width:900px;margin:auto;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;font-size:19px}
-.menu{color:#fff;text-decoration:none;font-size:14px;font-weight:bold}
-main{max-width:850px;margin:auto;padding:25px 15px 50px}
-.hero{text-align:center;margin:15px 0 25px}
-.hero h1{font-size:32px;color:#174ea6;margin-bottom:8px}
-.hero p{color:#667085;font-size:15px}
-.card{background:#fff;border-radius:18px;padding:20px;box-shadow:0 6px 25px #00000012}
-.info{background:#f5f3ff;color:#4f46a5;padding:13px;border-radius:12px;margin-bottom:18px;font-size:14px}
-#chat{min-height:280px;max-height:450px;overflow:auto;margin-bottom:15px}
-.msg{padding:12px 14px;border-radius:14px;margin:10px 0;max-width:88%;white-space:pre-wrap;line-height:1.55}
-.user{background:#174ea6;color:#fff;margin-left:auto}
-.ai{background:#eef4ff;color:#172033}
-.form{display:flex;gap:9px}
-textarea{flex:1;resize:none;border:1px solid #d0d5dd;border-radius:12px;padding:13px;font-size:15px;min-height:55px;outline:none}
+header{background:#174ea6;color:white;padding:14px 18px;position:sticky;top:0}
+.head{max-width:850px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:19px;font-weight:800}
+.menu{color:white;text-decoration:none;font-weight:700;font-size:14px}
+main{max-width:850px;margin:auto;padding:25px 15px 45px}
+.hero{text-align:center;margin:10px 0 22px}
+.hero h1{color:#174ea6;font-size:30px;margin-bottom:7px}
+.hero p{color:#667085;font-size:14px}
+.card{background:white;border-radius:18px;padding:20px;box-shadow:0 6px 25px #0001}
+.info{background:#f5f3ff;color:#4f46a5;padding:13px;border-radius:12px;margin-bottom:15px;font-size:14px;line-height:1.5}
+#chat{height:360px;overflow:auto;margin-bottom:14px}
+.msg{padding:11px 14px;border-radius:14px;margin:9px 0;max-width:88%;white-space:pre-wrap;line-height:1.5}
+.user{background:#174ea6;color:white;margin-left:auto}
+.ai{background:#eef4ff}
+.form{display:flex;gap:8px}
+textarea{flex:1;resize:none;border:1px solid #d0d5dd;border-radius:11px;padding:12px;font-size:15px;min-height:54px;outline:0}
 textarea:focus{border-color:#174ea6}
-button{border:0;border-radius:12px;background:#174ea6;color:#fff;padding:0 20px;font-weight:800;cursor:pointer}
-button:disabled{opacity:.6}
-.limit{text-align:center;color:#667085;font-size:13px;margin-top:12px}
-footer{text-align:center;color:#667085;font-size:13px;padding:20px}
+button{border:0;border-radius:11px;background:#174ea6;color:white;padding:0 20px;font-weight:800}
+button:disabled{opacity:.55}
+.limit{text-align:center;color:#667085;font-size:13px;margin-top:10px}
+footer{text-align:center;color:#667085;font-size:13px;padding:20px;line-height:1.6}
 @media(max-width:550px){
-.hero h1{font-size:27px}
-.form{align-items:stretch}
-button{padding:0 15px}
+.hero h1{font-size:26px}
+.form{flex-direction:column}
+button{height:48px}
 .msg{max-width:95%}
 }
 </style>
@@ -52,21 +52,22 @@ button{padding:0 15px}
 
 <section class="hero">
 <h1>🤖 Free AI English Tutor</h1>
-<p>Ask questions, practise English and improve your skills.</p>
+<p>Practise English with AI — no account required.</p>
 </section>
 
 <div class="card">
 
 <div class="info">
 🌱 <b>Free AI Learning</b><br>
-No registration, login or email required. Start practising immediately.
+No registration, login or email required.
+Your daily free usage is automatically limited.
 </div>
 
 <div id="chat">
 <div class="msg ai">
 👋 Hello! I'm your CreateLK AI English Tutor.
 
-Ask me anything about English grammar, vocabulary, writing, pronunciation or conversation.
+Ask me about grammar, vocabulary, writing, pronunciation or conversation.
 </div>
 </div>
 
@@ -74,16 +75,12 @@ Ask me anything about English grammar, vocabulary, writing, pronunciation or con
 <textarea id="question"
 placeholder="Ask your English question..."
 maxlength="1000"></textarea>
-
 <button id="send">Send</button>
 </div>
 
-<div class="limit" id="limit">
-Checking today's free AI usage...
-</div>
+<div class="limit" id="limit">Checking today's usage...</div>
 
 </div>
-
 </main>
 
 <footer>
@@ -95,222 +92,139 @@ Learn English. Build Your Future.<br><br>
 <script>
 "use strict";
 
-/* ==============================
-   CONFIG
-============================== */
-
 const API="https://free.gateofheavensl1.workers.dev";
-
-/* Anonymous browser ID.
-   No email or login required.
-*/
-let deviceId=localStorage.getItem("createlk_ai_device");
-
-if(!deviceId){
-    deviceId=
-        crypto.randomUUID ?
-        crypto.randomUUID() :
-        "ai-"+Date.now()+"-"+Math.random().toString(36).slice(2);
-
-    localStorage.setItem(
-        "createlk_ai_device",
-        deviceId
-    );
-}
-
-/* ==============================
-   ELEMENTS
-============================== */
 
 const chat=document.getElementById("chat");
 const question=document.getElementById("question");
 const send=document.getElementById("send");
 const limit=document.getElementById("limit");
 
-/* ==============================
-   MESSAGE
-============================== */
+let deviceId=localStorage.getItem("createlk_ai_device");
 
-function addMessage(text,type){
-
-    const div=document.createElement("div");
-
-    div.className="msg "+type;
-
-    div.textContent=text;
-
-    chat.appendChild(div);
-
-    chat.scrollTop=chat.scrollHeight;
-
-    return div;
+if(!deviceId){
+ deviceId=crypto.randomUUID?
+ crypto.randomUUID():
+ "ai-"+Date.now()+"-"+Math.random().toString(36).slice(2);
+ localStorage.setItem("createlk_ai_device",deviceId);
 }
 
-/* ==============================
-   USAGE
-============================== */
-
-async function checkUsage(){
-
-    try{
-
-        const res=await fetch(
-            API+"/usage?device_id="+
-            encodeURIComponent(deviceId)
-        );
-
-        const data=await res.json();
-
-        if(data.limit!==undefined){
-
-            const used=Number(data.used)||0;
-            const max=Number(data.limit)||10;
-
-            limit.textContent=
-                "🌱 Free AI: "+
-                used+" / "+max+
-                " questions used today";
-
-            if(used>=max){
-
-                send.disabled=true;
-
-                limit.textContent=
-                    "⏳ Your free AI limit has been reached for today. Please try again tomorrow.";
-
-            }
-
-        }
-
-    }catch(e){
-
-        limit.textContent=
-            "🌱 Free AI available";
-
-    }
+function message(text,type){
+ const div=document.createElement("div");
+ div.className="msg "+type;
+ div.textContent=text;
+ chat.appendChild(div);
+ chat.scrollTop=chat.scrollHeight;
+ return div;
 }
 
-/* ==============================
-   SEND QUESTION
-============================== */
+async function usage(){
 
-async function askAI(){
+ try{
+  const r=await fetch(
+   API+"/api/usage?device_id="+
+   encodeURIComponent(deviceId)
+  );
 
-    const text=question.value.trim();
+  const d=await r.json();
 
-    if(!text)return;
+  const used=Number(d.used)||0;
+  const max=Number(d.limit)||10;
 
-    if(text.length<2){
+  limit.textContent=
+   "🌱 Free AI: "+used+" / "+max+
+   " questions today";
 
-        alert("Please enter a question.");
+  if(used>=max){
+   send.disabled=true;
+   limit.textContent=
+    "⏳ Today's free AI limit has been reached. Please try again tomorrow.";
+  }
 
-        return;
-    }
-
-    send.disabled=true;
-
-    question.disabled=true;
-
-    addMessage(text,"user");
-
-    question.value="";
-
-    const loading=
-        addMessage(
-            "🤖 Thinking...",
-            "ai"
-        );
-
-    try{
-
-        const response=await fetch(
-            API+"/ask",
-            {
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body:JSON.stringify({
-                    question:text,
-                    device_id:deviceId
-                })
-            }
-        );
-
-        const data=await response.json();
-
-        loading.remove();
-
-        if(!response.ok || data.success===false){
-
-            addMessage(
-                data.message ||
-                "Sorry, I could not answer right now.",
-                "ai"
-            );
-
-        }else{
-
-            addMessage(
-                data.answer ||
-                data.response ||
-                data.result ||
-                "No answer received.",
-                "ai"
-            );
-
-        }
-
-        checkUsage();
-
-    }catch(error){
-
-        loading.remove();
-
-        addMessage(
-            "⚠️ Connection error. Please try again.",
-            "ai"
-        );
-
-    }
-
-    question.disabled=false;
-
-    if(!send.disabled)
-        send.disabled=false;
-
-    question.focus();
+ }catch(e){
+  limit.textContent="🌱 Free AI available";
+ }
 }
 
-/* ==============================
-   EVENTS
-============================== */
+async function ask(){
 
-send.addEventListener(
-    "click",
-    askAI
-);
+ const text=question.value.trim();
 
-question.addEventListener(
-    "keydown",
-    function(e){
+ if(!text)return;
 
-        if(
-            e.key==="Enter" &&
-            !e.shiftKey
-        ){
+ if(text.length<2){
+  alert("Please enter a question.");
+  return;
+ }
 
-            e.preventDefault();
+ send.disabled=true;
+ question.disabled=true;
 
-            askAI();
+ message(text,"user");
+ question.value="";
 
-        }
+ const loading=message("🤖 Thinking...","ai");
 
-    }
-);
+ try{
 
-checkUsage();
+  const r=await fetch(API+"/api/chat",{
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({
+    question:text,
+    device_id:deviceId
+   })
+  });
 
+  const d=await r.json();
+
+  loading.remove();
+
+  if(!r.ok||d.success===false){
+
+   message(
+    d.message||"Sorry, I could not answer right now.",
+    "ai"
+   );
+
+  }else{
+
+   message(
+    d.answer||"No answer received.",
+    "ai"
+   );
+  }
+
+  await usage();
+
+ }catch(e){
+
+  loading.remove();
+
+  message(
+   "⚠️ AI connection error. Please try again.",
+   "ai"
+  );
+
+  send.disabled=false;
+ }
+
+ question.disabled=false;
+
+ if(!send.disabled)send.disabled=false;
+
+ question.focus();
+}
+
+send.onclick=ask;
+
+question.onkeydown=e=>{
+ if(e.key==="Enter"&&!e.shiftKey){
+  e.preventDefault();
+  ask();
+ }
+};
+
+usage();
 </script>
 
 </body>
