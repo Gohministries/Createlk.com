@@ -1,231 +1,588 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Free AI English Tutor | CreateLK Academy</title>
-<meta name="description" content="Free AI English Tutor by CreateLK Academy.">
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>CreateLK Academy | Learn English Online</title><meta name="description"
+content="CreateLK Academy provides online English learning, AI English practice and Premium English courses.">
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,"Segoe UI",sans-serif}
-body{background:#f5f8ff;color:#172033;min-height:100vh}
-header{background:#174ea6;color:white;padding:14px 18px;position:sticky;top:0}
-.head{max-width:850px;margin:auto;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:19px;font-weight:800}
-.menu{color:white;text-decoration:none;font-weight:700;font-size:14px}
-main{max-width:850px;margin:auto;padding:25px 15px 45px}
-.hero{text-align:center;margin:10px 0 22px}
-.hero h1{color:#174ea6;font-size:30px;margin-bottom:7px}
-.hero p{color:#667085;font-size:14px}
-.card{background:white;border-radius:18px;padding:20px;box-shadow:0 6px 25px #0001}
-.info{background:#f5f3ff;color:#4f46a5;padding:13px;border-radius:12px;margin-bottom:15px;font-size:14px;line-height:1.5}
-#chat{height:360px;overflow:auto;margin-bottom:14px}
-.msg{padding:11px 14px;border-radius:14px;margin:9px 0;max-width:88%;white-space:pre-wrap;line-height:1.5}
-.user{background:#174ea6;color:white;margin-left:auto}
-.ai{background:#eef4ff}
-.form{display:flex;gap:8px}
-textarea{flex:1;resize:none;border:1px solid #d0d5dd;border-radius:11px;padding:12px;font-size:15px;min-height:54px;outline:0}
-textarea:focus{border-color:#174ea6}
-button{border:0;border-radius:11px;background:#174ea6;color:white;padding:0 20px;font-weight:800}
-button:disabled{opacity:.55}
-.limit{text-align:center;color:#667085;font-size:13px;margin-top:10px}
-footer{text-align:center;color:#667085;font-size:13px;padding:20px;line-height:1.6}
-@media(max-width:550px){
-.hero h1{font-size:26px}
-.form{flex-direction:column}
-button{height:48px}
-.msg{max-width:95%}
+<meta name="theme-color" content="#174ea6"><style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:"Segoe UI",Arial,sans-serif
 }
-</style>
-</head>
 
-<body>
+body{
+background:#f5f8ff;
+color:#172033;
+min-height:100vh
+}
 
-<header>
-<div class="head">
-<div class="logo">📚 CreateLK Academy</div>
-<a class="menu" href="index.html">🏠 Home</a>
-</div>
-</header>
+/* ================= HEADER ================= */
 
-<main>
+header{
+background:#174ea6;
+color:#fff;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 3px 15px #0002
+}
 
-<section class="hero">
-<h1>🤖 Free AI English Tutor</h1>
-<p>Practise English with AI — no account required.</p>
-</section>
+.nav{
+max-width:1100px;
+margin:auto;
+padding:13px 18px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+position:relative
+}
 
-<div class="card">
+.logo{
+font-size:19px;
+font-weight:800;
+white-space:nowrap
+}
 
-<div class="info">
-🌱 <b>Free AI Learning</b><br>
-No registration, login or email required.
-Your daily free usage is automatically limited.
-</div>
+/* ================= MENU ================= */
 
-<div id="chat">
-<div class="msg ai">
-👋 Hello! I'm your CreateLK AI English Tutor.
+.menu{
+display:flex;
+align-items:center;
+gap:5px;
+flex-wrap:wrap;
+justify-content:flex-end
+}
 
-Ask me about grammar, vocabulary, writing, pronunciation or conversation.
-</div>
-</div>
+.menu a{
+color:#fff;
+text-decoration:none;
+font-size:13px;
+font-weight:700;
+padding:9px 10px;
+border-radius:8px;
+transition:.2s;
+white-space:nowrap
+}
 
-<div class="form">
-<textarea id="question"
-placeholder="Ask your English question..."
-maxlength="1000"></textarea>
-<button id="send">Send</button>
-</div>
+.menu a:hover{
+background:#ffffff20
+}
 
-<div class="limit" id="limit">Checking today's usage...</div>
+/* MOBILE MENU BUTTON */
 
-</div>
-</main>
+.menuButton{
+display:none;
+background:#ffffff18;
+border:1px solid #ffffff40;
+color:#fff;
+padding:9px 12px;
+border-radius:8px;
+font-size:14px;
+font-weight:800;
+cursor:pointer
+}
 
-<footer>
-📚 CreateLK Academy<br>
+/* ================= MAIN ================= */
+
+main{
+max-width:1100px;
+margin:auto;
+padding:35px 16px 55px
+}
+
+.hero{
+background:#fff;
+border-radius:22px;
+padding:42px 25px;
+text-align:center;
+box-shadow:0 8px 30px #00000010
+}
+
+.hero h1{
+font-size:34px;
+color:#174ea6;
+margin-bottom:10px
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+color:#667085;
+line-height:1.7;
+font-size:15px
+}
+
+.buttons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+max-width:650px;
+margin:28px auto 0
+}
+
+.btn{
+display:block;
+padding:15px;
+border-radius:11px;
+text-decoration:none;
+font-weight:800;
+font-size:15px
+}
+
+.free{
+background:#20a464;
+color:#fff
+}
+
+.premium{
+background:#f5a623;
+color:#fff
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+margin-top:25px
+}
+
+.section h2{
+font-size:23px;
+margin-bottom:14px
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px
+}
+
+.card{
+background:#fff;
+padding:20px;
+border-radius:16px;
+box-shadow:0 5px 22px #0000000d
+}
+
+.card h3{
+font-size:17px;
+margin-bottom:7px
+}
+
+.card p{
+color:#667085;
+font-size:13px;
+line-height:1.6
+}
+
+.card a{
+display:inline-block;
+margin-top:12px;
+color:#174ea6;
+font-weight:800;
+font-size:13px;
+text-decoration:none
+}
+
+.card a:hover{
+text-decoration:underline
+}
+
+/* ================= INFO ================= */
+
+.info{
+background:#fff;
+padding:22px;
+border-radius:16px;
+margin-top:25px;
+box-shadow:0 5px 22px #0000000d
+}
+
+.info h2{
+font-size:21px
+}
+
+.info p{
+color:#667085;
+font-size:14px;
+line-height:1.7;
+margin-top:8px
+}
+
+.links{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+margin-top:15px
+}
+
+.links a{
+background:#eef4ff;
+color:#174ea6;
+padding:13px 8px;
+border-radius:10px;
+text-align:center;
+text-decoration:none;
+font-size:13px;
+font-weight:800
+}
+
+.links a:hover{
+background:#dce9ff
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+text-align:center;
+color:#667085;
+font-size:13px;
+padding:25px 15px;
+line-height:1.8
+}
+
+footer a{
+color:#174ea6;
+text-decoration:none
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsapp{
+position:fixed;
+right:18px;
+bottom:18px;
+width:56px;
+height:56px;
+border-radius:50%;
+background:#25d366;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:27px;
+box-shadow:0 5px 20px #0004;
+z-index:2000
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+.menuButton{
+display:block
+}
+
+.menu{
+display:none;
+position:absolute;
+top:62px;
+right:15px;
+left:15px;
+background:#174ea6;
+padding:10px;
+border-radius:14px;
+box-shadow:0 8px 25px #0004;
+flex-direction:column;
+align-items:stretch;
+gap:3px
+}
+
+.menu.open{
+display:flex
+}
+
+.menu a{
+display:block;
+width:100%;
+padding:12px 14px;
+border-radius:9px
+}
+
+.grid{
+grid-template-columns:1fr 1fr
+}
+
+}
+
+@media(max-width:600px){
+
+.nav{
+padding:12px 15px
+}
+
+.logo{
+font-size:17px
+}
+
+.hero{
+padding:32px 18px
+}
+
+.hero h1{
+font-size:27px
+}
+
+.buttons{
+grid-template-columns:1fr
+}
+
+.grid{
+grid-template-columns:1fr
+}
+
+.links{
+grid-template-columns:1fr 1fr
+}
+
+}
+
+/* VERY SMALL PHONES */
+
+@media(max-width:380px){
+
+.links{
+grid-template-columns:1fr
+}
+
+}
+
+</style></head><body><!-- ================= HEADER ================= --><header><nav class="nav"><div class="logo">
+📚 CreateLK Academy
+</div><button
+class="menuButton"
+id="menuButton"
+type="button"
+aria-label="Open navigation menu"
+aria-expanded="false">
+
+☰ Menu
+
+</button><div
+class="menu"
+id="mainMenu"><a href="index.html">
+🏠 Home
+</a><a href="about.html">
+ℹ️ About
+</a><a href="free-course.html">
+🌱 Free Learning
+</a><a href="https://free.gateofheavensl1.workers.dev/">
+🤖 Free AI Tutor
+</a><a href="https://ai-mcq.gateofheavensl1.workers.dev/">
+📝 AI MCQs
+</a><a href="login.html">
+🔐 Student Login
+</a><a href="contact.html">
+📞 Contact
+</a></div></nav></header><!-- ================= MAIN ================= --><main><section class="hero"><h1>
+📚 Learn English. Build Your Future.
+</h1><p>
+CreateLK Academy helps students improve English
+through structured lessons, interactive MCQ practice,
+AI-powered learning and Premium English courses.
+</p><div class="buttons"><a
+class="btn free"
+href="free-course.html">
+
+🌱 Start Free Learning
+
+</a><a
+class="btn premium"
+href="login.html?next=payment.html">
+
+⭐ Premium — LKR 1,500
+
+</a></div></section><!-- ================= SERVICES ================= --><section class="section"><h2>
+📚 Our Learning Services
+</h2><div class="grid"><div class="card"><h3>
+🌱 Free English Learning
+</h3><p>
+Build your English foundation with grammar,
+vocabulary and practical MCQ exercises.
+</p><a href="free-course.html">
+Start Free Learning →
+</a></div><div class="card"><h3>
+🤖 AI English Tutor
+</h3><p>
+Practise grammar, vocabulary, writing,
+pronunciation and English conversation with AI.
+</p><a href="https://free.gateofheavensl1.workers.dev/">
+Open Free AI Tutor →
+</a></div><div class="card"><h3>
+📝 AI MCQ Generator
+</h3><p>
+Generate personalised English multiple-choice
+questions for additional practice.
+Free users can practise up to 10 questions per day,
+while Premium members can access up to 100 per day.
+</p><a href="https://ai-mcq.gateofheavensl1.workers.dev/">
+Practice AI MCQs →
+</a></div><div class="card"><h3>
+⭐ Premium English
+</h3><p>
+Access additional English courses and
+advanced learning materials with Premium membership.
+LKR 1,500 for 30 days.
+</p><a href="login.html?next=payment.html">
+View Premium →
+</a></div><div class="card"><h3>
+👤 Student Account
+</h3><p>
+Registered students can log in to access
+their dashboard and membership information.
+</p><a href="login.html">
+Student Login →
+</a></div><div class="card"><h3>
+📞 Customer Support
+</h3><p>
+Have a question about our courses,
+membership or payment? Contact us.
+</p><a href="contact.html">
+Contact Us →
+</a></div></div></section><!-- ================= PREMIUM ================= --><section class="info"><h2>
+⭐ Premium Membership
+</h2><p>
+Get access to additional English learning
+resources for <b>LKR 1,500 for 30 days</b>.
+Premium members can also receive the higher
+AI MCQ daily limit of up to
+<b>100 questions per day</b>.
+</p><div class="links"><a href="login.html?next=payment.html">
+💳 Membership
+</a><a href="terms.html">
+📄 Terms
+</a><a href="privacy.html">
+🔒 Privacy
+</a><a href="refund.html">
+↩️ Refund Policy
+</a></div></section><!-- ================= ABOUT ================= --><section class="info"><h2>
+🏢 About CreateLK Academy
+</h2><p>
+CreateLK Academy is an online English learning
+platform designed to help learners develop
+practical English skills through structured
+courses, practice questions and AI-powered
+learning tools.
+</p><div class="links"><a href="about.html">
+ℹ️ About Us
+</a><a href="contact.html">
+📞 Contact Us
+</a><a href="login.html">
+🔐 Login
+</a><a href="register.html">
+✍️ Register
+</a></div></section></main><!-- ================= FOOTER ================= --><footer>📚 <b>CreateLK Academy</b><br>
+
 Learn English. Build Your Future.<br><br>
+
+<a href="about.html">
+About
+</a>
+·<a href="contact.html">
+Contact
+</a>
+·<a href="privacy.html">
+Privacy
+</a>
+·<a href="terms.html">
+Terms
+</a>
+·<a href="refund.html">
+Refunds
+</a><br><br>
+
 © 2026 CreateLK Academy. All Rights Reserved.
-</footer>
 
-<script>
-"use strict";
+</footer><!-- ================= WHATSAPP ================= --><a
+class="whatsapp"
+href="https://wa.me/94771190395"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Contact CreateLK Academy on WhatsApp">
 
-const API="https://free.gateofheavensl1.workers.dev";
+💬
 
-const chat=document.getElementById("chat");
-const question=document.getElementById("question");
-const send=document.getElementById("send");
-const limit=document.getElementById("limit");
+</a><!-- ================= MENU SCRIPT ================= --><script>
 
-let deviceId=localStorage.getItem("createlk_ai_device");
+const menuButton =
+document.getElementById("menuButton");
 
-if(!deviceId){
- deviceId=crypto.randomUUID?
- crypto.randomUUID():
- "ai-"+Date.now()+"-"+Math.random().toString(36).slice(2);
- localStorage.setItem("createlk_ai_device",deviceId);
+const mainMenu =
+document.getElementById("mainMenu");
+
+
+menuButton.addEventListener(
+"click",
+function(){
+
+const isOpen =
+mainMenu.classList.toggle("open");
+
+menuButton.setAttribute(
+"aria-expanded",
+isOpen ? "true" : "false"
+);
+
+menuButton.textContent =
+isOpen ? "✕ Close" : "☰ Menu";
+
+}
+);
+
+
+/* Close menu after selecting a link */
+
+mainMenu
+.querySelectorAll("a")
+.forEach(function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+mainMenu.classList.remove("open");
+
+menuButton.setAttribute(
+"aria-expanded",
+"false"
+);
+
+menuButton.textContent =
+"☰ Menu";
+
+}
+);
+
+});
+
+
+/* Close menu when clicking outside */
+
+document.addEventListener(
+"click",
+function(event){
+
+if(
+!mainMenu.contains(event.target) &&
+!menuButton.contains(event.target)
+){
+
+mainMenu.classList.remove("open");
+
+menuButton.setAttribute(
+"aria-expanded",
+"false"
+);
+
+menuButton.textContent =
+"☰ Menu";
+
 }
 
-function message(text,type){
- const div=document.createElement("div");
- div.className="msg "+type;
- div.textContent=text;
- chat.appendChild(div);
- chat.scrollTop=chat.scrollHeight;
- return div;
-}
+});
 
-async function usage(){
-
- try{
-  const r=await fetch(
-   API+"/api/usage?device_id="+
-   encodeURIComponent(deviceId)
-  );
-
-  const d=await r.json();
-
-  const used=Number(d.used)||0;
-  const max=Number(d.limit)||10;
-
-  limit.textContent=
-   "🌱 Free AI: "+used+" / "+max+
-   " questions today";
-
-  if(used>=max){
-   send.disabled=true;
-   limit.textContent=
-    "⏳ Today's free AI limit has been reached. Please try again tomorrow.";
-  }
-
- }catch(e){
-  limit.textContent="🌱 Free AI available";
- }
-}
-
-async function ask(){
-
- const text=question.value.trim();
-
- if(!text)return;
-
- if(text.length<2){
-  alert("Please enter a question.");
-  return;
- }
-
- send.disabled=true;
- question.disabled=true;
-
- message(text,"user");
- question.value="";
-
- const loading=message("🤖 Thinking...","ai");
-
- try{
-
-  const r=await fetch(API+"/api/chat",{
-   method:"POST",
-   headers:{"Content-Type":"application/json"},
-   body:JSON.stringify({
-    question:text,
-    device_id:deviceId
-   })
-  });
-
-  const d=await r.json();
-
-  loading.remove();
-
-  if(!r.ok||d.success===false){
-
-   message(
-    d.message||"Sorry, I could not answer right now.",
-    "ai"
-   );
-
-  }else{
-
-   message(
-    d.answer||"No answer received.",
-    "ai"
-   );
-  }
-
-  await usage();
-
- }catch(e){
-
-  loading.remove();
-
-  message(
-   "⚠️ AI connection error. Please try again.",
-   "ai"
-  );
-
-  send.disabled=false;
- }
-
- question.disabled=false;
-
- if(!send.disabled)send.disabled=false;
-
- question.focus();
-}
-
-send.onclick=ask;
-
-question.onkeydown=e=>{
- if(e.key==="Enter"&&!e.shiftKey){
-  e.preventDefault();
-  ask();
- }
-};
-
-usage();
-</script>
-
-</body>
+</script></body>
 </html>
