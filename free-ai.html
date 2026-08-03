@@ -1,0 +1,606 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Free AI English Tutor | CreateLK Academy</title><meta name="description"
+content="Free AI English Tutor for CreateLK Academy students.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#f5f8ff;
+    color:#172033;
+}
+
+header{
+    background:#174ea6;
+    color:#fff;
+    padding:18px 20px;
+}
+
+.header-inner{
+    max-width:900px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:800;
+}
+
+.back{
+    color:#174ea6;
+    text-decoration:none;
+    font-weight:700;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:25px 15px 50px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:22px;
+}
+
+.robot{
+    font-size:55px;
+}
+
+.hero h1{
+    margin:8px 0;
+    font-size:30px;
+}
+
+.hero p{
+    color:#667085;
+    line-height:1.6;
+}
+
+.card{
+    background:#fff;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    margin-bottom:18px;
+}
+
+.student{
+    background:#eef4ff;
+    color:#174ea6;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:18px;
+    font-weight:600;
+}
+
+label{
+    display:block;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+textarea{
+    width:100%;
+    min-height:140px;
+    resize:vertical;
+    padding:14px;
+    border:1px solid #d5dbe7;
+    border-radius:12px;
+    font-size:16px;
+    outline:none;
+}
+
+textarea:focus{
+    border-color:#174ea6;
+}
+
+button{
+    width:100%;
+    border:0;
+    background:#20a464;
+    color:#fff;
+    padding:14px;
+    border-radius:11px;
+    margin-top:14px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+button:disabled{
+    opacity:.55;
+    cursor:not-allowed;
+}
+
+.status{
+    display:none;
+    padding:13px;
+    border-radius:11px;
+    margin-bottom:15px;
+    line-height:1.5;
+}
+
+.status.error{
+    display:block;
+    background:#fef3f2;
+    color:#b42318;
+}
+
+.status.success{
+    display:block;
+    background:#ecfdf3;
+    color:#027a48;
+}
+
+.loading{
+    display:none;
+    text-align:center;
+    color:#667085;
+    padding:15px;
+}
+
+.answer{
+    display:none;
+}
+
+.answer-text{
+    white-space:pre-wrap;
+    line-height:1.75;
+    font-size:16px;
+}
+
+.examples{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.example{
+    background:#f8fafc;
+    padding:14px;
+    border-radius:12px;
+    cursor:pointer;
+    line-height:1.5;
+}
+
+.example:hover{
+    background:#eef4ff;
+}
+
+footer{
+    text-align:center;
+    color:#777;
+    font-size:14px;
+    padding:25px;
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:25px;
+    }
+
+    .examples{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style></head><body><header><div class="header-inner"><div class="logo">
+📚 CreateLK Academy
+</div></div></header><div class="container"><div class="hero"><div class="robot">
+🤖
+</div><h1>
+Free AI English Tutor
+</h1><p>
+Ask questions and practise English with CreateLK Academy AI.
+</p></div><div class="card"><div
+    class="student"
+    id="studentBox">🌱 Free AI is available to you.
+
+</div><div
+    class="status"
+    id="status">
+</div><label for="question">
+Your English Question
+</label><textarea
+    id="question"
+    placeholder="Example: Explain the difference between 'is', 'am' and 'are'."
+></textarea><button
+id="askButton"
+type="button"
+onclick="askFreeAI()">
+
+🤖 Ask Free AI
+
+</button><div
+    class="loading"
+    id="loading">⏳ CreateLK AI is thinking...
+
+</div></div><div
+    class="card answer"
+    id="answerCard"><h2>
+🤖 AI Answer
+</h2><br><div
+    class="answer-text"
+    id="answer">
+</div></div><div class="card"><h2>
+💡 Try asking
+</h2><br><div class="examples"><div
+    class="example"
+    onclick="useQuestion('Explain the difference between is, am and are.')">📖 Explain is, am and are
+
+</div><div
+    class="example"
+    onclick="useQuestion('Give me 10 beginner English vocabulary words with meanings.')">📚 Give me vocabulary
+
+</div><div
+    class="example"
+    onclick="useQuestion('Correct this sentence: She go to school every day.')">✍️ Correct my sentence
+
+</div><div
+    class="example"
+    onclick="useQuestion('Teach me five simple English sentences for daily conversation.')">💬 Daily conversation
+
+</div></div></div><a
+href="dashboard.html"
+class="back">
+
+← Back to Dashboard
+
+</a></div><footer>📚 CreateLK Academy
+
+<br><br>
+
+© 2026 CreateLK Academy. All Rights Reserved.
+
+</footer><script>
+
+"use strict";
+
+
+const FREE_AI_WORKER =
+    "https://free.gateofheavensl1.workers.dev";
+
+
+const question =
+    document.getElementById(
+        "question"
+    );
+
+
+const askButton =
+    document.getElementById(
+        "askButton"
+    );
+
+
+const loading =
+    document.getElementById(
+        "loading"
+    );
+
+
+const statusBox =
+    document.getElementById(
+        "status"
+    );
+
+
+const answerCard =
+    document.getElementById(
+        "answerCard"
+    );
+
+
+const answer =
+    document.getElementById(
+        "answer"
+    );
+
+
+/* =========================
+   CHECK LOGIN
+========================= */
+
+function getStudent(){
+
+    const saved =
+        localStorage.getItem(
+            "createlk_student"
+        );
+
+
+    if(!saved){
+
+        window.location.href =
+            "login.html";
+
+        return null;
+
+    }
+
+
+    try{
+
+        const student =
+            JSON.parse(saved);
+
+
+        if(
+            student &&
+            student.id
+        ){
+
+            return student;
+
+        }
+
+    }catch(error){
+
+        localStorage.removeItem(
+            "createlk_student"
+        );
+
+    }
+
+
+    window.location.href =
+        "login.html";
+
+    return null;
+
+}
+
+
+/* =========================
+   LOAD STUDENT
+========================= */
+
+function loadStudent(){
+
+    const student =
+        getStudent();
+
+
+    if(!student){
+
+        return;
+
+    }
+
+
+    const name =
+        student.first_name ||
+        "Student";
+
+
+    document.getElementById(
+        "studentBox"
+    ).textContent =
+        "🌱 Free AI is available for " +
+        name +
+        ".";
+
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+function showStatus(
+    message,
+    type
+){
+
+    statusBox.className =
+        "status " + type;
+
+
+    statusBox.textContent =
+        message;
+
+}
+
+
+/* =========================
+   ASK FREE AI
+========================= */
+
+async function askFreeAI(){
+
+    const text =
+        question.value.trim();
+
+
+    answerCard.style.display =
+        "none";
+
+
+    statusBox.className =
+        "status";
+
+
+    if(!text){
+
+        showStatus(
+            "Please enter an English question.",
+            "error"
+        );
+
+        question.focus();
+
+        return;
+
+    }
+
+
+    if(text.length > 2000){
+
+        showStatus(
+            "Please keep your question under 2,000 characters.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    askButton.disabled =
+        true;
+
+
+    loading.style.display =
+        "block";
+
+
+    try{
+
+        const response =
+            await fetch(
+                FREE_AI_WORKER +
+                "/chat",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:JSON.stringify({
+                        message:text
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(
+            !response.ok ||
+            !data.success
+        ){
+
+            showStatus(
+                data.message ||
+                "Free AI could not answer your question.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        answer.textContent =
+            data.answer ||
+            "No answer received.";
+
+
+        answerCard.style.display =
+            "block";
+
+
+        showStatus(
+            "✅ CreateLK Free AI answered your question.",
+            "success"
+        );
+
+
+        answerCard.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        showStatus(
+            "Unable to connect to CreateLK Free AI. Please try again.",
+            "error"
+        );
+
+    }
+    finally{
+
+        askButton.disabled =
+            false;
+
+
+        loading.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* =========================
+   EXAMPLE QUESTIONS
+========================= */
+
+function useQuestion(text){
+
+    question.value =
+        text;
+
+
+    question.focus();
+
+}
+
+
+/* =========================
+   ENTER KEY
+========================= */
+
+question.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Enter" &&
+            event.shiftKey === false
+        ){
+
+            event.preventDefault();
+
+            askFreeAI();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   START
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadStudent
+);
+
+</script></body></html>
