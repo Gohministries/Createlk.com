@@ -1,9 +1,13 @@
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Free AI English Tutor | CreateLK Academy</title><meta name="description"
-content="Free AI English Tutor from CreateLK Academy. Practise English grammar, vocabulary, writing, pronunciation and conversation with AI.">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width,initial-scale=1">
 
-<meta name="theme-color" content="#174ea6"><style>
+<title>CreateLK Academy | Learn English Online</title><meta name="description"
+content="CreateLK Academy - English learning, Free AI Tutor, AI MCQs and Premium English courses.">
+
+<meta name="theme-color"
+content="#174ea6">
+
+<style>
 
 *{
 box-sizing:border-box;
@@ -32,21 +36,23 @@ box-shadow:0 3px 15px #0002;
 .nav{
 max-width:1100px;
 margin:auto;
-padding:13px 16px;
+padding:13px 18px;
 display:flex;
-align-items:center;
 justify-content:space-between;
+align-items:center;
 gap:15px;
 }
 
 .logo{
 font-size:19px;
 font-weight:800;
+white-space:nowrap;
 }
 
 .menu{
 display:flex;
-gap:5px;
+gap:4px;
+align-items:center;
 flex-wrap:wrap;
 }
 
@@ -57,150 +63,196 @@ font-size:13px;
 font-weight:700;
 padding:9px 10px;
 border-radius:8px;
+white-space:nowrap;
 }
 
 .menu a:hover{
 background:#ffffff20;
 }
 
-.menuButton{
+.menuBtn{
 display:none;
-background:#ffffff18;
-border:1px solid #ffffff40;
+background:#ffffff12;
+border:1px solid #ffffff55;
 color:#fff;
-padding:9px 12px;
+padding:7px 11px;
 border-radius:8px;
-font-size:14px;
-font-weight:800;
+font-size:20px;
 cursor:pointer;
+}
+
+/* ================= MOBILE MENU ================= */
+
+.mobile{
+display:none;
+background:#174ea6;
+padding:8px 15px 15px;
+}
+
+.mobile.open{
+display:block;
+}
+
+.mobile a{
+display:block;
+color:#fff;
+text-decoration:none;
+padding:12px;
+font-size:14px;
+font-weight:700;
+border-radius:8px;
+}
+
+.mobile a:hover{
+background:#ffffff18;
 }
 
 /* ================= MAIN ================= */
 
 main{
-max-width:900px;
+max-width:1050px;
 margin:auto;
 padding:30px 15px 55px;
 }
 
+/* ================= HERO ================= */
+
 .hero{
+background:#fff;
+border-radius:22px;
+padding:45px 22px;
 text-align:center;
-margin:10px 0 25px;
+box-shadow:0 8px 30px #0001;
 }
 
 .hero h1{
-font-size:32px;
 color:#174ea6;
-margin-bottom:8px;
+font-size:34px;
+margin-bottom:12px;
 }
 
 .hero p{
+max-width:700px;
+margin:auto;
 color:#667085;
+line-height:1.7;
 font-size:15px;
-line-height:1.6;
 }
 
-/* ================= CARD ================= */
+/* ================= BUTTONS ================= */
+
+.buttons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+max-width:700px;
+margin:25px auto 0;
+}
+
+.btn{
+display:block;
+padding:15px;
+border-radius:11px;
+text-decoration:none;
+font-weight:800;
+font-size:15px;
+}
+
+.free{
+background:#20a464;
+color:#fff;
+}
+
+.premium{
+background:#f5a623;
+color:#fff;
+}
+
+.btn:hover{
+opacity:.92;
+}
+
+/* ================= CARDS ================= */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:25px;
+}
 
 .card{
 background:#fff;
-border-radius:20px;
 padding:20px;
-box-shadow:0 8px 30px #00000012;
+border-radius:16px;
+box-shadow:0 5px 22px #0001;
 }
 
-.info{
-background:#eef4ff;
-color:#174ea6;
-padding:14px;
-border-radius:12px;
-margin-bottom:18px;
+.card h3{
+margin-bottom:8px;
+font-size:17px;
+}
+
+.card p{
 font-size:14px;
+color:#667085;
 line-height:1.6;
 }
 
-/* ================= CHAT ================= */
-
-#chat{
-height:390px;
-overflow-y:auto;
-padding:5px;
-margin-bottom:15px;
-scroll-behavior:smooth;
-}
-
-.msg{
-padding:12px 14px;
-border-radius:14px;
-margin:10px 0;
-max-width:88%;
-white-space:pre-wrap;
-line-height:1.55;
-font-size:14px;
-}
-
-.user{
-background:#174ea6;
-color:#fff;
-margin-left:auto;
-}
-
-.ai{
-background:#eef4ff;
-color:#172033;
-}
-
-/* ================= INPUT ================= */
-
-.form{
-display:flex;
-gap:9px;
-}
-
-textarea{
-flex:1;
-resize:none;
-border:1px solid #d0d5dd;
-border-radius:12px;
-padding:13px;
-font-size:15px;
-min-height:58px;
-outline:none;
-}
-
-textarea:focus{
-border-color:#174ea6;
-box-shadow:0 0 0 3px #174ea61a;
-}
-
-button{
-border:0;
-border-radius:12px;
-background:#174ea6;
-color:#fff;
-padding:0 20px;
-font-weight:800;
-cursor:pointer;
-}
-
-button:disabled{
-opacity:.6;
-cursor:not-allowed;
-}
-
-/* ================= LIMIT ================= */
-
-.limit{
-text-align:center;
-color:#667085;
-font-size:13px;
+.card a{
+display:inline-block;
 margin-top:12px;
-line-height:1.5;
+color:#174ea6;
+font-weight:800;
+text-decoration:none;
+font-size:13px;
 }
 
-.limit.reached{
-color:#b42318;
+.card a:hover{
+text-decoration:underline;
+}
+
+/* ================= INFO ================= */
+
+.info{
+background:#fff;
+padding:22px;
+border-radius:16px;
+margin-top:20px;
+box-shadow:0 5px 22px #0001;
+}
+
+.info h2{
+font-size:21px;
+margin-bottom:8px;
+}
+
+.info p{
+font-size:14px;
+color:#667085;
+line-height:1.7;
+}
+
+.links{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+margin-top:15px;
+}
+
+.links a{
+background:#eef4ff;
+color:#174ea6;
+padding:12px;
+text-align:center;
+border-radius:9px;
+text-decoration:none;
+font-size:13px;
 font-weight:700;
+}
+
+.links a:hover{
+background:#dce9ff;
 }
 
 /* ================= FOOTER ================= */
@@ -208,8 +260,8 @@ font-weight:700;
 footer{
 text-align:center;
 color:#667085;
+padding:30px 15px;
 font-size:13px;
-padding:25px 15px;
 line-height:1.8;
 }
 
@@ -220,7 +272,7 @@ text-decoration:none;
 
 /* ================= WHATSAPP ================= */
 
-.whatsapp{
+.wa{
 position:fixed;
 right:18px;
 bottom:18px;
@@ -229,71 +281,78 @@ height:56px;
 border-radius:50%;
 background:#25d366;
 color:#fff;
+text-decoration:none;
 display:flex;
 align-items:center;
 justify-content:center;
-text-decoration:none;
 font-size:27px;
 box-shadow:0 5px 20px #0004;
 z-index:2000;
 }
 
-/* ================= MOBILE MENU ================= */
-
-@media(max-width:850px){
-
-.menuButton{
-display:block;
+.wa:hover{
+transform:scale(1.05);
 }
 
-.menu{
-display:none;
-position:absolute;
-top:62px;
-left:15px;
-right:15px;
-background:#174ea6;
-padding:10px;
-border-radius:14px;
-box-shadow:0 8px 25px #0004;
-flex-direction:column;
-gap:3px;
-}
+/* ================= TABLET ================= */
 
-.menu.open{
-display:flex;
-}
+@media(max-width:1000px){
 
 .menu a{
-display:block;
-width:100%;
-padding:12px 14px;
+font-size:12px;
+padding:8px;
+}
+
+.grid{
+grid-template-columns:1fr 1fr;
 }
 
 }
 
 /* ================= MOBILE ================= */
 
+@media(max-width:750px){
+
+.menu{
+display:none;
+}
+
+.menuBtn{
+display:block;
+}
+
+.buttons{
+grid-template-columns:1fr;
+}
+
+.grid{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+/* ================= SMALL MOBILE ================= */
+
 @media(max-width:600px){
+
+.hero{
+padding:35px 18px;
+}
 
 .hero h1{
 font-size:27px;
 }
 
-#chat{
-height:340px;
+.hero p{
+font-size:14px;
 }
 
-.form{
-align-items:stretch;
+.grid{
+grid-template-columns:1fr;
 }
 
-button{
-padding:0 15px;
-}
-
-.msg{
-max-width:95%;
+.links{
+grid-template-columns:1fr 1fr;
 }
 
 .logo{
@@ -302,215 +361,247 @@ font-size:17px;
 
 }
 
+/* ================= VERY SMALL ================= */
+
+@media(max-width:380px){
+
+.links{
+grid-template-columns:1fr;
+}
+
+}
+
 </style></head><body><!-- ================= HEADER ================= --><header><nav class="nav"><div class="logo">
 📚 CreateLK Academy
-</div><button
-class="menuButton"
-id="menuButton"
-type="button"
-aria-expanded="false">
-
-☰ Menu
-
-</button><div
-class="menu"
-id="mainMenu"><a href="index.html">
+</div><div class="menu"><a href="index.html">
 🏠 Home
-</a><a href="about.html">
-ℹ️ About
 </a><a href="free-ai.html">
-🤖 Free AI Tutor
-</a><a href="https://ai-mcq.gateofheavensl1.workers.dev/">
+🤖 AI Tutor
+</a><a href="ai-mcq.html">
 📝 AI MCQs
+</a><a href="membership.html">
+⭐ Premium
 </a><a href="login.html">
-🔐 Student Login
+🔐 Login
 </a><a href="contact.html">
 📞 Contact
-</a></div></nav></header><!-- ================= MAIN ================= --><main><section class="hero"><h1>
+</a></div><button
+class="menuBtn"
+id="mb"
+type="button"
+aria-label="Open menu"
+aria-expanded="false">
+
+☰
+
+</button></nav><div
+class="mobile"
+id="mm"><a href="index.html">
+🏠 Home
+</a><a href="free-ai.html">
 🤖 Free AI English Tutor
-</h1><p>
-Practise English grammar, vocabulary, writing,
-pronunciation and conversation with AI.
-</p></section><div class="card"><div class="info">🌱 <b>Free AI Learning</b><br>
+</a><a href="ai-mcq.html">
+📝 AI MCQs
+</a><a href="membership.html">
+⭐ Premium Membership
+</a><a href="login.html">
+🔐 Student Login
+</a><a href="register.html">
+✍️ Create Account
+</a><a href="payment.html">
+💳 Payment
+</a><a href="dashboard.html">
+👤 Dashboard
+</a><a href="contact.html">
+📞 Contact
+</a></div></header><!-- ================= MAIN ================= --><main><section class="hero"><h1>
+📚 Learn English. Build Your Future.
+</h1><p>Learn English through structured lessons,
+AI-powered practice, MCQs and Premium
+learning resources.
 
-No registration, login or email required.
-Free users can ask up to <b>10 questions per day</b>.
+</p><div class="buttons"><!-- DIRECTLY TO EXISTING FREE AI PAGE --><a
+class="btn free"
+href="free-ai.html"
+title="Start Free AI English Learning">
 
-</div><!-- ================= CHAT ================= --><div id="chat"><div class="msg ai">👋 Hello! I'm your CreateLK AI English Tutor.
+🌱 Start Free Learning
 
-Ask me anything about:
+</a><a
+class="btn premium"
+href="login.html?next=payment.html"
+title="Premium Membership">
 
-• Grammar
-• Vocabulary
-• Writing
-• Pronunciation
-• Conversation
-• English practice
+⭐ Premium — LKR 1,500 / 30 Days
 
-How can I help you today?
+</a></div></section><!-- ================= SERVICES ================= --><div class="grid"><div class="card"><h3>
+🌱 Free AI Learning
+</h3><p>
+Practise English grammar, vocabulary,
+writing and conversation with our
+free AI English tutor.
+</p><a href="free-ai.html">
+Start Free Learning →
+</a></div><div class="card"><h3>
+🤖 AI English Tutor
+</h3><p>
+Ask English questions and practise
+with your AI English tutor.
+</p><a href="free-ai.html">
+Open AI Tutor →
+</a></div><div class="card"><h3>
+📝 AI MCQs
+</h3><p>
+Generate personalised English
+multiple-choice questions with AI.
+</p><a href="ai-mcq.html">
+Practice AI MCQs →
+</a></div><div class="card"><h3>
+⭐ Premium
+</h3><p>
+Access Premium English learning
+resources for 30 days.
+</p><a href="membership.html">
+View Membership →
+</a></div><div class="card"><h3>
+👤 Student Dashboard
+</h3><p>
+View your account and Premium
+membership status.
+</p><a href="dashboard.html">
+Open Dashboard →
+</a></div><div class="card"><h3>
+📞 Support
+</h3><p>
+Need help with learning,
+membership or payment?
+</p><a href="contact.html">
+Contact Us →
+</a></div></div><!-- ================= PREMIUM ================= --><section class="info"><h2>
+⭐ Premium Membership
+</h2><p>Premium English membership costs
+<b>LKR 1,500 for 30 days</b>.
 
-</div></div><!-- ================= QUESTION FORM ================= --><div class="form"><textarea
-id="question"
-maxlength="1000"
-placeholder="Ask your English question..."
-aria-label="Ask your English question"></textarea><button
-id="send"
-type="button">
+Premium students can access additional
+English learning resources and higher
+AI-MCQ usage.
 
-Send
+</p><div class="links"><a href="membership.html">
+⭐ Membership
+</a><a href="payment.html">
+💳 Payment
+</a><a href="terms.html">
+📄 Terms
+</a><a href="refund.html">
+↩️ Refund
+</a></div></section><!-- ================= ABOUT ================= --><section class="info"><h2>
+📚 CreateLK Academy
+</h2><p>CreateLK Academy helps learners improve
+their English through practical learning,
+AI-powered practice and structured
+Premium resources.
 
-</button></div><div
-class="limit"
-id="limit">Checking today's free AI usage...
+</p><div class="links"><a href="about.html">
+ℹ️ About
+</a><a href="contact.html">
+📞 Contact
+</a><a href="privacy.html">
+🔒 Privacy
+</a><a href="terms.html">
+📄 Terms
+</a></div></section></main><!-- ================= FOOTER ================= --><footer>📚 <b>CreateLK Academy</b>
 
-</div></div></main><!-- ================= FOOTER ================= --><footer>📚 <b>CreateLK Academy</b><br>
-
-Learn English. Build Your Future.<br><br>
-
-<a href="about.html">About</a>
-·
-<a href="contact.html">Contact</a>
-·
-<a href="privacy.html">Privacy</a>
-·
-<a href="terms.html">Terms</a>
+<br>Learn English. Build Your Future.
 
 <br><br>
 
-© 2026 CreateLK Academy. All Rights Reserved.
+<a href="about.html">
+About
+</a>·
+
+<a href="contact.html">
+Contact
+</a>·
+
+<a href="privacy.html">
+Privacy
+</a>·
+
+<a href="terms.html">
+Terms
+</a>·
+
+<a href="refund.html">
+Refunds
+</a><br><br>
+
+© 2026 CreateLK Academy.
+All Rights Reserved.
 
 </footer><!-- ================= WHATSAPP ================= --><a
-class="whatsapp"
+class="wa"
 href="https://wa.me/94771190395"
 target="_blank"
 rel="noopener noreferrer"
 title="Contact CreateLK Academy on WhatsApp"
-aria-label="Contact CreateLK Academy on WhatsApp">
+aria-label="WhatsApp">
 
 💬
 
-</a><script>
+</a><!-- ================= MENU SCRIPT ================= --><script>
 
-"use strict";
+const mb =
+document.getElementById("mb");
 
-
-/* =================================
-   CONFIGURATION
-================================= */
-
-const API =
-"https://free.gateofheavensl1.workers.dev";
-
-const FREE_LIMIT = 10;
+const mm =
+document.getElementById("mm");
 
 
-/* =================================
-   DEVICE ID
-================================= */
-
-let deviceId =
-localStorage.getItem(
-"createlk_ai_device"
-);
-
-
-if(!deviceId){
-
-if(
-window.crypto &&
-typeof crypto.randomUUID === "function"
-){
-
-deviceId =
-crypto.randomUUID();
-
-}else{
-
-deviceId =
-"ai-" +
-Date.now() +
-"-" +
-Math.random()
-.toString(36)
-.substring(2);
-
-}
-
-localStorage.setItem(
-"createlk_ai_device",
-deviceId
-);
-
-}
-
-
-/* =================================
-   ELEMENTS
-================================= */
-
-const chat =
-document.getElementById("chat");
-
-const question =
-document.getElementById("question");
-
-const send =
-document.getElementById("send");
-
-const limit =
-document.getElementById("limit");
-
-const menuButton =
-document.getElementById("menuButton");
-
-const mainMenu =
-document.getElementById("mainMenu");
-
-
-/* =================================
-   MOBILE MENU
-================================= */
-
-menuButton.addEventListener(
+mb.addEventListener(
 "click",
 function(){
 
 const open =
-mainMenu.classList.toggle("open");
+mm.classList.toggle("open");
 
-menuButton.setAttribute(
-"aria-expanded",
-open ? "true" : "false"
-);
 
-menuButton.textContent =
+mb.textContent =
 open
 ?
-"✕ Close"
+"✕"
 :
-"☰ Menu";
+"☰";
 
-}
+
+mb.setAttribute(
+"aria-expanded",
+open
+?
+"true"
+:
+"false"
 );
 
+});
 
-mainMenu
-.querySelectorAll("a")
+
+/* Close menu after selecting a link */
+
+mm.querySelectorAll("a")
 .forEach(function(link){
 
 link.addEventListener(
 "click",
 function(){
 
-mainMenu.classList.remove("open");
+mm.classList.remove("open");
 
-menuButton.setAttribute(
+mb.textContent="☰";
+
+mb.setAttribute(
 "aria-expanded",
 "false"
 );
-
-menuButton.textContent =
-"☰ Menu";
 
 }
 );
@@ -518,383 +609,28 @@ menuButton.textContent =
 });
 
 
-/* =================================
-   ADD CHAT MESSAGE
-================================= */
+/* Close menu when clicking outside */
 
-function addMessage(
-text,
-type
-){
-
-const div =
-document.createElement("div");
-
-div.className =
-"msg " + type;
-
-div.textContent =
-text;
-
-chat.appendChild(div);
-
-chat.scrollTop =
-chat.scrollHeight;
-
-return div;
-
-}
-
-
-/* =================================
-   CHECK USAGE
-================================= */
-
-async function checkUsage(){
-
-try{
-
-const response =
-await fetch(
-API +
-"/usage?device_id=" +
-encodeURIComponent(deviceId),
-{
-method:"GET",
-cache:"no-store"
-}
-);
-
-
-const contentType =
-response.headers
-.get("content-type") || "";
-
-
-if(
-!contentType.includes(
-"application/json"
-)
-){
-
-throw new Error(
-"Invalid usage response."
-);
-
-}
-
-
-const data =
-await response.json();
-
-
-const used =
-Number(
-data.used ??
-data.question_count ??
-data.questions ??
-0
-);
-
-
-const max =
-Number(
-data.limit ??
-FREE_LIMIT
-);
-
-
-if(used >= max){
-
-limit.className =
-"limit reached";
-
-limit.textContent =
-"⏳ Daily limit reached: " +
-used +
-" / " +
-max +
-". Please try again tomorrow.";
-
-send.disabled=true;
-
-}else{
-
-limit.className =
-"limit";
-
-limit.textContent =
-"🌱 Free AI: " +
-used +
-" / " +
-max +
-" questions used today";
-
-}
-
-}catch(error){
-
-console.error(
-"Usage check error:",
-error
-);
-
-limit.className =
-"limit";
-
-limit.textContent =
-"🌱 Free AI — " +
-FREE_LIMIT +
-" questions available each day.";
-
-}
-
-}
-
-
-/* =================================
-   ASK AI
-================================= */
-
-async function askAI(){
-
-const text =
-question.value.trim();
-
-
-if(!text){
-
-question.focus();
-
-return;
-
-}
-
-
-if(text.length < 2){
-
-addMessage(
-"⚠️ Please enter a complete question.",
-"ai"
-);
-
-return;
-
-}
-
-
-if(text.length > 1000){
-
-addMessage(
-"⚠️ Your question is too long. Please keep it under 1000 characters.",
-"ai"
-);
-
-return;
-
-}
-
-
-send.disabled=true;
-
-question.disabled=true;
-
-
-addMessage(
-text,
-"user"
-);
-
-
-question.value="";
-
-
-const loading =
-addMessage(
-"🤖 Thinking...",
-"ai"
-);
-
-
-try{
-
-
-const response =
-await fetch(
-API + "/ask",
-{
-method:"POST",
-
-headers:{
-"Content-Type":
-"application/json"
-},
-
-body:JSON.stringify({
-
-question:text,
-
-device_id:deviceId
-
-})
-
-}
-);
-
-
-const contentType =
-response.headers
-.get("content-type") || "";
-
-
-let data;
-
-
-if(
-contentType.includes(
-"application/json"
-)
-){
-
-data =
-await response.json();
-
-}else{
-
-const serverText =
-await response.text();
-
-throw new Error(
-serverText ||
-"Unexpected server response."
-);
-
-}
-
-
-loading.remove();
-
-
-if(
-!response.ok ||
-data.success === false
-){
-
-addMessage(
-data.message ||
-"⚠️ Sorry, I could not answer right now.",
-"ai"
-);
-
-}else{
-
-const answer =
-data.answer ||
-data.response ||
-data.result;
-
-
-if(answer){
-
-addMessage(
-answer,
-"ai"
-);
-
-}else{
-
-addMessage(
-"⚠️ The AI did not return an answer.",
-"ai"
-);
-
-}
-
-}
-
-
-await checkUsage();
-
-
-}catch(error){
-
-console.error(
-"AI request error:",
-error
-);
-
-
-loading.remove();
-
-
-addMessage(
-"⚠️ Unable to connect to the Free AI service. Please try again.",
-"ai"
-);
-
-
-/*
-Allow retry after connection errors.
-*/
-
-send.disabled=false;
-
-}
-
-
-question.disabled=false;
-
-if(
-!limit.classList.contains("reached")
-){
-
-send.disabled=false;
-
-}
-
-question.focus();
-
-}
-
-
-/* =================================
-   SEND BUTTON
-================================= */
-
-send.addEventListener(
+document.addEventListener(
 "click",
-askAI
-);
-
-
-/* =================================
-   ENTER TO SEND
-================================ */
-
-question.addEventListener(
-"keydown",
 function(event){
 
 if(
-event.key === "Enter" &&
-!event.shiftKey
+!mm.contains(event.target) &&
+!mb.contains(event.target)
 ){
 
-event.preventDefault();
+mm.classList.remove("open");
 
-askAI();
+mb.textContent="☰";
 
-}
-
-}
+mb.setAttribute(
+"aria-expanded",
+"false"
 );
 
+}
 
-/* =================================
-   INITIAL USAGE CHECK
-================================ */
+});
 
-checkUsage();
-
-</script></body>
-</html>
+</script></body></html>
