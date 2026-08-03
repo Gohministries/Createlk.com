@@ -7,7 +7,7 @@
 <title>CreateLK Academy | Learn English Online</title>
 
 <meta name="description"
-content="CreateLK Academy provides online English learning, AI English practice and Premium English courses.">
+content="CreateLK Academy provides online English learning, AI English practice, AI MCQs and Premium English courses.">
 
 <meta name="theme-color" content="#174ea6">
 
@@ -19,40 +19,44 @@ padding:0;
 font-family:"Segoe UI",Arial,sans-serif
 }
 
+html{scroll-behavior:smooth}
+
 body{
 background:#f5f8ff;
 color:#172033;
 min-height:100vh
 }
 
+/* HEADER */
+
 header{
 background:#174ea6;
 color:#fff;
 position:sticky;
 top:0;
-z-index:100
+z-index:1000;
+box-shadow:0 3px 18px #0002
 }
 
 .nav{
-max-width:1100px;
+max-width:1150px;
 margin:auto;
-padding:14px 18px;
+padding:13px 18px;
 display:flex;
 align-items:center;
-justify-content:space-between;
-gap:15px
+justify-content:space-between
 }
 
 .logo{
-font-size:19px;
-font-weight:800
+font-size:20px;
+font-weight:800;
+white-space:nowrap
 }
 
 .menu{
 display:flex;
-gap:8px;
-flex-wrap:wrap;
-justify-content:flex-end
+align-items:center;
+gap:4px
 }
 
 .menu a{
@@ -60,36 +64,78 @@ color:#fff;
 text-decoration:none;
 font-size:13px;
 font-weight:700;
-padding:8px 10px;
+padding:9px 10px;
 border-radius:8px
 }
 
 .menu a:hover{
-background:#ffffff20
+background:#ffffff1c
 }
 
-main{
-max-width:1100px;
-margin:auto;
-padding:35px 16px 55px
+.menu-btn{
+display:none;
+background:none;
+border:1px solid #ffffff55;
+color:#fff;
+font-size:22px;
+padding:6px 10px;
+border-radius:8px;
+cursor:pointer
 }
+
+/* MOBILE MENU */
+
+.mobile-menu{
+display:none;
+background:#174ea6;
+border-top:1px solid #ffffff20;
+padding:8px 15px 15px
+}
+
+.mobile-menu a{
+display:block;
+color:#fff;
+text-decoration:none;
+font-weight:700;
+font-size:14px;
+padding:12px;
+border-radius:8px
+}
+
+.mobile-menu a:hover{
+background:#ffffff18
+}
+
+.mobile-menu.open{
+display:block
+}
+
+/* MAIN */
+
+main{
+max-width:1150px;
+margin:auto;
+padding:32px 16px 55px
+}
+
+/* HERO */
 
 .hero{
 background:#fff;
 border-radius:22px;
-padding:42px 25px;
+padding:45px 25px;
 text-align:center;
 box-shadow:0 8px 30px #00000010
 }
 
 .hero h1{
-font-size:34px;
+font-size:35px;
 color:#174ea6;
-margin-bottom:10px
+margin-bottom:12px
 }
 
 .hero p{
-max-width:700px;
+max-width:720px;
 margin:auto;
 color:#667085;
 line-height:1.7;
@@ -100,17 +146,22 @@ font-size:15px
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:14px;
-max-width:650px;
+max-width:700px;
 margin:28px auto 0
 }
 
 .btn{
 display:block;
-padding:15px;
+padding:15px 12px;
 border-radius:11px;
 text-decoration:none;
 font-weight:800;
-font-size:15px
+font-size:15px;
+transition:.2s
+}
+
+.btn:hover{
+transform:translateY(-2px)
 }
 
 .free{
@@ -123,54 +174,69 @@ background:#f5a623;
 color:#fff
 }
 
+/* SERVICES */
+
 .section{
-margin-top:25px
+margin-top:30px
 }
 
 .section h2{
 font-size:23px;
-margin-bottom:14px
+margin-bottom:15px
 }
 
 .grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:15px
+gap:16px
 }
 
 .card{
 background:#fff;
-padding:20px;
-border-radius:16px;
-box-shadow:0 5px 22px #0000000d
+padding:21px;
+border-radius:17px;
+box-shadow:0 5px 22px #0000000d;
+transition:.2s
+}
+
+.card:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 28px #00000014
 }
 
 .card h3{
 font-size:17px;
-margin-bottom:7px
+margin-bottom:8px
 }
 
 .card p{
 color:#667085;
 font-size:13px;
-line-height:1.6
+line-height:1.65
 }
 
 .card a{
 display:inline-block;
-margin-top:12px;
+margin-top:13px;
 color:#174ea6;
 font-weight:800;
 font-size:13px;
 text-decoration:none
 }
 
+/* INFORMATION */
+
 .info{
 background:#fff;
-padding:22px;
-border-radius:16px;
+padding:24px;
+border-radius:17px;
 margin-top:25px;
 box-shadow:0 5px 22px #0000000d
+}
+
+.info h2{
+font-size:21px;
+margin-bottom:4px
 }
 
 .info p{
@@ -180,11 +246,18 @@ line-height:1.7;
 margin-top:8px
 }
 
+.price{
+font-size:18px;
+font-weight:800;
+color:#174ea6;
+margin-top:12px
+}
+
 .links{
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:10px;
-margin-top:15px
+margin-top:17px
 }
 
 .links a{
@@ -198,20 +271,33 @@ font-size:13px;
 font-weight:800
 }
 
+.links a:hover{
+background:#e0eaff
+}
+
+/* FOOTER */
+
 footer{
 text-align:center;
 color:#667085;
 font-size:13px;
-padding:25px 15px;
+padding:28px 15px;
 line-height:1.8
 }
+
+footer a{
+color:#174ea6;
+text-decoration:none
+}
+
+/* WHATSAPP */
 
 .whatsapp{
 position:fixed;
 right:18px;
 bottom:18px;
-width:56px;
-height:56px;
+width:57px;
+height:57px;
 border-radius:50%;
 background:#25d366;
 color:#fff;
@@ -219,15 +305,63 @@ display:flex;
 align-items:center;
 justify-content:center;
 text-decoration:none;
-font-size:27px;
+font-size:28px;
 box-shadow:0 5px 20px #0004;
-z-index:200
+z-index:2000
 }
 
-@media(max-width:800px){
+.whatsapp:hover{
+transform:scale(1.06)
+}
+
+/* TABLET */
+
+@media(max-width:950px){
 
 .menu{
 display:none
+}
+
+.menu-btn{
+display:block
+}
+
+.grid{
+grid-template-columns:1fr 1fr
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.nav{
+padding:12px 15px
+}
+
+.logo{
+font-size:17px
+}
+
+main{
+padding:22px 14px 45px
+}
+
+.hero{
+padding:32px 18px
+}
+
+.hero h1{
+font-size:27px
+}
+
+.hero p{
+font-size:14px
+}
+
+.buttons{
+grid-template-columns:1fr
 }
 
 .grid{
@@ -238,28 +372,22 @@ grid-template-columns:1fr
 grid-template-columns:1fr 1fr
 }
 
+.card{
+padding:19px
 }
 
-@media(max-width:600px){
-
-.hero{
-padding:32px 18px
 }
 
-.hero h1{
-font-size:27px
-}
+/* SMALL PHONE */
 
-.buttons{
+@media(max-width:380px){
+
+.links{
 grid-template-columns:1fr
 }
 
-.links{
-grid-template-columns:1fr 1fr
-}
-
-.logo{
-font-size:17px
+.hero h1{
+font-size:24px
 }
 
 }
@@ -267,6 +395,8 @@ font-size:17px
 </head>
 
 <body>
+
+<!-- HEADER -->
 
 <header>
 
@@ -279,27 +409,67 @@ font-size:17px
 <div class="menu">
 
 <a href="index.html">🏠 Home</a>
-
 <a href="about.html">ℹ️ About</a>
-
 <a href="free-course.html">🌱 Free Learning</a>
-
 <a href="free-ai.html">🤖 AI Tutor</a>
-
 <a href="ai-mcq.html">📝 AI MCQs</a>
-
-<a href="login.html">🔐 Student Login</a>
-
+<a href="login.html">🔐 Login</a>
 <a href="contact.html">📞 Contact</a>
 
 </div>
 
+<button
+class="menu-btn"
+id="menuBtn"
+aria-label="Open menu"
+aria-expanded="false">
+☰
+</button>
+
 </nav>
+
+<!-- MOBILE NAVIGATION -->
+
+<div
+class="mobile-menu"
+id="mobileMenu">
+
+<a href="index.html">🏠 Home</a>
+
+<a href="about.html">ℹ️ About Us</a>
+
+<a href="free-course.html">🌱 Free Learning</a>
+
+<a href="free-ai.html">🤖 AI English Tutor</a>
+
+<a href="ai-mcq.html">📝 AI MCQ Generator</a>
+
+<a href="payment.html">
+⭐ Premium — LKR 1,500 / 30 Days
+</a>
+
+<a href="login.html">🔐 Student Login</a>
+
+<a href="register.html">✍️ Create Account</a>
+
+<a href="contact.html">📞 Contact Us</a>
+
+<a href="privacy.html">🔒 Privacy Policy</a>
+
+<a href="terms.html">📄 Terms & Conditions</a>
+
+<a href="refund.html">↩️ Refund & Cancellation</a>
+
+</div>
 
 </header>
 
 
+<!-- MAIN -->
+
 <main>
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -308,9 +478,9 @@ font-size:17px
 </h1>
 
 <p>
-CreateLK Academy helps students improve English
-through structured lessons, interactive MCQ practice,
-AI-powered learning and Premium English courses.
+CreateLK Academy helps learners improve their English
+through structured courses, interactive practice,
+AI-powered learning and Premium English resources.
 </p>
 
 <div class="buttons">
@@ -324,13 +494,15 @@ href="free-course.html">
 <a
 class="btn premium"
 href="login.html?next=payment.html">
-⭐ Premium — LKR 1,500
+⭐ Premium — LKR 1,500 / 30 Days
 </a>
 
 </div>
 
 </section>
 
+
+<!-- SERVICES -->
 
 <section class="section">
 
@@ -340,13 +512,16 @@ href="login.html?next=payment.html">
 
 <div class="grid">
 
+
 <div class="card">
 
-<h3>🌱 Free English Learning</h3>
+<h3>
+🌱 Free English Learning
+</h3>
 
 <p>
 Build your English foundation with grammar,
-vocabulary and practical MCQ exercises.
+vocabulary and practical English exercises.
 </p>
 
 <a href="free-course.html">
@@ -358,7 +533,9 @@ Start Free Learning →
 
 <div class="card">
 
-<h3>🤖 AI English Tutor</h3>
+<h3>
+🤖 AI English Tutor
+</h3>
 
 <p>
 Practise grammar, vocabulary, writing,
@@ -374,7 +551,9 @@ Open AI Tutor →
 
 <div class="card">
 
-<h3>📝 AI MCQ Generator</h3>
+<h3>
+📝 AI MCQ Generator
+</h3>
 
 <p>
 Generate personalised English multiple-choice
@@ -390,11 +569,13 @@ Practice AI MCQs →
 
 <div class="card">
 
-<h3>⭐ Premium English</h3>
+<h3>
+⭐ Premium English
+</h3>
 
 <p>
 Access additional English courses and
-advanced learning materials with Premium membership.
+advanced learning resources with Premium membership.
 </p>
 
 <a href="payment.html">
@@ -406,11 +587,13 @@ View Premium →
 
 <div class="card">
 
-<h3>👤 Student Account</h3>
+<h3>
+👤 Student Account
+</h3>
 
 <p>
-Registered students can log in to access
-their dashboard and membership information.
+Registered students can access their dashboard,
+membership information and learning progress.
 </p>
 
 <a href="login.html">
@@ -422,11 +605,13 @@ Student Login →
 
 <div class="card">
 
-<h3>📞 Customer Support</h3>
+<h3>
+📞 Customer Support
+</h3>
 
 <p>
-Have a question about our courses,
-membership or payment? Contact us.
+Have questions about our courses, membership
+or payment? Contact CreateLK Academy.
 </p>
 
 <a href="contact.html">
@@ -440,17 +625,23 @@ Contact Us →
 </section>
 
 
+<!-- PREMIUM -->
+
 <section class="info">
 
 <h2>
 ⭐ Premium Membership
 </h2>
 
+<div class="price">
+LKR 1,500 for 30 Days
+</div>
+
 <p>
-Get access to additional English learning
-resources for <b>LKR 1,500 for 30 days</b>.
-Payment is processed securely through our
-available payment options.
+Get 30 days of access to Premium English
+learning resources, including advanced grammar,
+vocabulary, speaking, pronunciation, conversation,
+writing, listening and Business English materials.
 </p>
 
 <div class="links">
@@ -476,6 +667,8 @@ available payment options.
 </section>
 
 
+<!-- ABOUT -->
+
 <section class="info">
 
 <h2>
@@ -484,10 +677,9 @@ available payment options.
 
 <p>
 CreateLK Academy is an online English learning
-platform designed to help learners develop
-practical English skills through structured
-courses, practice questions and AI-powered
-learning tools.
+platform designed to help learners develop practical
+English skills through structured courses, practice
+questions and AI-powered learning tools.
 </p>
 
 <div class="links">
@@ -515,9 +707,12 @@ learning tools.
 </main>
 
 
+<!-- FOOTER -->
+
 <footer>
 
 📚 <b>CreateLK Academy</b><br>
+
 Learn English. Build Your Future.<br><br>
 
 <a href="about.html">About</a> ·
@@ -531,6 +726,8 @@ Learn English. Build Your Future.<br><br>
 </footer>
 
 
+<!-- WHATSAPP -->
+
 <a
 class="whatsapp"
 href="https://wa.me/94771190395"
@@ -540,6 +737,82 @@ aria-label="Contact CreateLK Academy on WhatsApp">
 💬
 </a>
 
+
+<script>
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const mobileMenu =
+document.getElementById("mobileMenu");
+
+
+menuBtn.addEventListener(
+"click",
+function(){
+
+const open =
+mobileMenu.classList.toggle("open");
+
+menuBtn.setAttribute(
+"aria-expanded",
+open
+);
+
+menuBtn.textContent =
+open ? "✕" : "☰";
+
+}
+);
+
+
+mobileMenu
+.querySelectorAll("a")
+.forEach(function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+mobileMenu.classList.remove("open");
+
+menuBtn.textContent="☰";
+
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
+
+}
+);
+
+});
+
+
+document.addEventListener(
+"click",
+function(e){
+
+if(
+!mobileMenu.contains(e.target) &&
+!menuBtn.contains(e.target)
+){
+
+mobileMenu.classList.remove("open");
+
+menuBtn.textContent="☰";
+
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
+
+}
+
+}
+);
+
+</script>
 
 </body>
 </html>
