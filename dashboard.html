@@ -179,7 +179,21 @@ header{
     font-size:14px;
 }
 
-</style></head><body><header><div class="header-inner"><div class="logo">
+@media(max-width:600px){
+
+    .welcome h1{
+        font-size:24px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+}
+
+</style></head><body><!-- =========================
+     HEADER
+========================= --><header><div class="header-inner"><div class="logo">
 📚 CreateLK Academy
 </div><button
 class="logout"
@@ -203,7 +217,9 @@ Continue learning English and improve your skills step by step.
 
 <br><span id="expiryText"></span>
 
-</div></div><div class="grid"><!-- =========================
+</div></div><!-- =========================
+     COURSE GRID
+========================= --><div class="grid"><!-- =========================
      FREE COURSE
 ========================= --><div class="card free"><div class="card-icon">
 🌱
@@ -233,14 +249,15 @@ class="button premium-button">
 ⭐ Upgrade to Premium — LKR 1,500
 
 </a></div><!-- =========================
-     AI TUTOR
+     CREATE LK AI
 ========================= --><div class="card ai"><div class="card-icon">
 🤖
 </div><h2>
 CreateLK AI English Tutor
 </h2><p>
-Practise English with your AI tutor. Ask questions, improve grammar,
-learn vocabulary, correct sentences and practise conversation.
+Practise English with your AI tutor. Ask questions,
+improve grammar, learn vocabulary, correct sentences
+and practise conversation.
 </p><ul class="features"><li>✓ AI English Tutor</li><li>✓ Grammar Help</li><li>✓ Vocabulary</li><li>✓ Writing Correction</li><li>✓ Conversation Practice</li><li>✓ English Explanations</li></ul><a
 href="payment.html"
 id="aiButton"
@@ -248,7 +265,9 @@ class="button ai-button locked">
 
 🔒 Unlock CreateLK AI
 
-</a></div></div><div class="footer">📚 CreateLK Academy
+</a></div></div><!-- =========================
+     FOOTER
+========================= --><div class="footer">📚 CreateLK Academy
 
 <br><br>
 
@@ -270,12 +289,14 @@ function getStudent(){
             "createlk_student"
         );
 
+
     if(!saved){
 
         window.location.href =
             "login.html";
 
         return null;
+
     }
 
 
@@ -291,6 +312,7 @@ function getStudent(){
         ){
 
             return student;
+
         }
 
 
@@ -307,6 +329,7 @@ function getStudent(){
         "login.html";
 
     return null;
+
 }
 
 
@@ -319,6 +342,7 @@ function isPremium(student){
     if(!student){
 
         return false;
+
     }
 
 
@@ -328,6 +352,7 @@ function isPremium(student){
     ){
 
         return false;
+
     }
 
 
@@ -336,6 +361,7 @@ function isPremium(student){
     ){
 
         return false;
+
     }
 
 
@@ -345,12 +371,18 @@ function isPremium(student){
         );
 
 
-    return (
-        !Number.isNaN(
+    if(
+        Number.isNaN(
             expiry.getTime()
-        ) &&
-        expiry > new Date()
-    );
+        )
+    ){
+
+        return false;
+
+    }
+
+
+    return expiry > new Date();
 
 }
 
@@ -368,6 +400,7 @@ function loadDashboard(){
     if(!student){
 
         return;
+
     }
 
 
@@ -408,7 +441,7 @@ function loadDashboard(){
 
 
     /* =========================
-       STUDENT NAME
+       NAME
     ========================= */
 
     const name =
@@ -430,6 +463,8 @@ function loadDashboard(){
         isPremium(student)
     ){
 
+        /* MEMBERSHIP */
+
         membershipStatus.textContent =
             "⭐ Premium Active";
 
@@ -440,16 +475,6 @@ function loadDashboard(){
 
         membershipStatus.style.color =
             "#176b35";
-
-
-        /* PREMIUM COURSE */
-
-        premiumButton.href =
-            "premium-course.html";
-
-
-        premiumButton.textContent =
-            "⭐ Open Premium Courses";
 
 
         /* PREMIUM BOX */
@@ -475,9 +500,17 @@ function loadDashboard(){
         }
 
 
-        /* =========================
-           AI BUTTON
-        ========================= */
+        /* PREMIUM COURSES */
+
+        premiumButton.href =
+            "premium-course.html";
+
+
+        premiumButton.textContent =
+            "⭐ Open Premium Courses";
+
+
+        /* AI */
 
         aiButton.href =
             "ai.html";
@@ -495,7 +528,7 @@ function loadDashboard(){
 
 
     /* =========================
-       NOT PREMIUM
+       FREE MEMBER
     ========================= */
 
     else{
@@ -512,6 +545,12 @@ function loadDashboard(){
             "#174ea6";
 
 
+        premiumBox.style.display =
+            "none";
+
+
+        /* PREMIUM PAYMENT */
+
         premiumButton.href =
             "payment.html";
 
@@ -519,6 +558,8 @@ function loadDashboard(){
         premiumButton.textContent =
             "⭐ Upgrade to Premium — LKR 1,500";
 
+
+        /* AI PAYMENT */
 
         aiButton.href =
             "payment.html";
