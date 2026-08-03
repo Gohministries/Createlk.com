@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Payment Approval | CreateLK Academy</title>
+<title>Admin Payment Approval | CreateLK Academy</title>
 
 <style>
 
@@ -38,10 +38,11 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:15px;
 }
 
 .logo{
-    font-size:21px;
+    font-size:20px;
     font-weight:800;
 }
 
@@ -53,7 +54,7 @@ header{
 
 h1{
     text-align:center;
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
 .subtitle{
@@ -62,19 +63,17 @@ h1{
     margin-bottom:30px;
 }
 
-.login-card,
-.payment-card{
-    background:white;
-    border-radius:18px;
-    padding:25px;
-    box-shadow:0 8px 30px rgba(0,0,0,.07);
-    margin-bottom:20px;
-}
-
 .login-card{
     max-width:500px;
-    margin-left:auto;
-    margin-right:auto;
+    margin:20px auto;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+.login-card h2{
+    margin-bottom:15px;
 }
 
 label{
@@ -93,11 +92,6 @@ textarea{
     font-size:16px;
 }
 
-textarea{
-    min-height:80px;
-    resize:vertical;
-}
-
 button{
     border:0;
     border-radius:10px;
@@ -107,6 +101,11 @@ button{
     cursor:pointer;
 }
 
+button:disabled{
+    opacity:.55;
+    cursor:not-allowed;
+}
+
 .login-button{
     width:100%;
     margin-top:20px;
@@ -114,38 +113,44 @@ button{
     color:white;
 }
 
-.approve{
-    background:#15803d;
-    color:white;
-}
-
-.reject{
-    background:#dc2626;
-    color:white;
-}
-
-.receipt{
-    background:#475569;
-    color:white;
-}
-
-button:disabled{
-    opacity:.5;
-    cursor:not-allowed;
+.logout{
+    background:white;
+    color:#174ea6;
 }
 
 .payment-grid{
     display:grid;
     grid-template-columns:
-        repeat(auto-fit,minmax(300px,1fr));
+        repeat(auto-fit,minmax(320px,1fr));
     gap:20px;
 }
 
-.detail{
+.payment-card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
+}
+
+.payment-header{
     display:flex;
     justify-content:space-between;
-    gap:15px;
-    padding:9px 0;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.status{
+    background:#fff4d6;
+    color:#946200;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:800;
+}
+
+.detail{
+    padding:10px 0;
     border-bottom:1px solid #edf0f4;
 }
 
@@ -153,76 +158,99 @@ button:disabled{
     border-bottom:0;
 }
 
-.detail span{
+.detail-label{
+    display:block;
     color:#667085;
+    font-size:13px;
+    margin-bottom:3px;
+}
+
+.detail-value{
+    display:block;
+    font-weight:700;
+    word-break:break-word;
 }
 
 .actions{
     display:flex;
-    gap:10px;
     flex-wrap:wrap;
+    gap:10px;
     margin-top:20px;
 }
 
-.status{
-    display:inline-block;
-    padding:6px 12px;
-    border-radius:20px;
-    background:#fff4d6;
-    color:#946200;
-    font-weight:800;
-    font-size:13px;
+.receipt-button{
+    background:#475569;
+    color:white;
+}
+
+.approve-button{
+    background:#15803d;
+    color:white;
+}
+
+.reject-button{
+    background:#dc2626;
+    color:white;
+}
+
+.refresh-button{
+    background:#174ea6;
+    color:white;
+    margin-bottom:20px;
 }
 
 .message{
+    display:none;
     padding:14px;
     border-radius:10px;
     margin:15px 0;
-    display:none;
     font-weight:700;
 }
 
-.success{
+.message.success{
     display:block;
     background:#dcfce7;
     color:#166534;
 }
 
-.error{
+.message.error{
     display:block;
     background:#fee2e2;
     color:#991b1b;
 }
 
 .loading{
+    background:white;
+    padding:35px;
+    border-radius:18px;
     text-align:center;
-    padding:30px;
     color:#667085;
 }
 
 .empty{
     background:white;
     padding:35px;
-    text-align:center;
     border-radius:18px;
+    text-align:center;
     color:#667085;
 }
 
-.logout{
-    background:#fff;
-    color:#174ea6;
+.admin-content{
+    display:none;
 }
 
 @media(max-width:600px){
 
     .header-inner{
         flex-direction:column;
-        gap:12px;
     }
 
-    .detail{
+    .actions{
         flex-direction:column;
-        gap:2px;
+    }
+
+    .actions button{
+        width:100%;
     }
 
 }
@@ -232,6 +260,7 @@ button:disabled{
 </head>
 
 <body>
+
 
 <header>
 
@@ -256,12 +285,13 @@ Logout
 
 <main class="container">
 
+
 <h1>
-🏦 Bank Payment Approval
+🏦 Payment Approval
 </h1>
 
 <p class="subtitle">
-Review bank deposits and activate Premium membership.
+Review bank payments and activate Premium membership.
 </p>
 
 
@@ -275,14 +305,14 @@ Review bank deposits and activate Premium membership.
 🔐 Admin Login
 </h2>
 
-<label>
-Admin Key
+<label for="adminKey">
+ADMIN KEY
 </label>
 
 <input
     type="password"
     id="adminKey"
-    placeholder="Enter ADMIN_KEY">
+    placeholder="Enter your admin key">
 
 <button
     class="login-button"
@@ -304,7 +334,7 @@ Admin Key
 
 <div
     id="adminContent"
-    style="display:none;">
+    class="admin-content">
 
 <div
     id="pageMessage"
@@ -312,17 +342,23 @@ Admin Key
 </div>
 
 
+<button
+    class="refresh-button"
+    onclick="loadPayments()">
+
+🔄 Refresh Payments
+
+</button>
+
+
 <div
     id="payments"
     class="payment-grid">
 
-<div class="loading">
-⏳ Loading payments...
 </div>
 
 </div>
 
-</div>
 
 </main>
 
@@ -337,11 +373,10 @@ Admin Key
 ===================================== */
 
 const APPROVE_WORKER =
-"https://approve.gateofheavensl1.workers.dev";
+    "https://approve.gateofheavensl1.workers.dev";
 
 
-let ADMIN_KEY =
-"";
+let ADMIN_KEY = "";
 
 
 /* =====================================
@@ -350,16 +385,19 @@ let ADMIN_KEY =
 
 async function login(){
 
-    const key =
-        document
-        .getElementById("adminKey")
-        .value
-        .trim();
-
+    const input =
+        document.getElementById(
+            "adminKey"
+        );
 
     const message =
-        document
-        .getElementById("loginMessage");
+        document.getElementById(
+            "loginMessage"
+        );
+
+
+    const key =
+        input.value.trim();
 
 
     if(!key){
@@ -368,15 +406,14 @@ async function login(){
             "message error";
 
         message.textContent =
-            "Please enter the admin key.";
+            "Please enter your admin key.";
 
         return;
 
     }
 
 
-    ADMIN_KEY =
-        key;
+    ADMIN_KEY = key;
 
 
     try{
@@ -397,17 +434,22 @@ async function login(){
         if(
             response.ok &&
             data.success &&
-            data.database
+            data.database &&
+            data.admin_key
         ){
 
             document
-                .getElementById("loginCard")
+                .getElementById(
+                    "loginCard"
+                )
                 .style.display =
                 "none";
 
 
             document
-                .getElementById("adminContent")
+                .getElementById(
+                    "adminContent"
+                )
                 .style.display =
                 "block";
 
@@ -417,11 +459,13 @@ async function login(){
         }
         else{
 
+            ADMIN_KEY = "";
+
             message.className =
                 "message error";
 
             message.textContent =
-                "Approval Worker is not available.";
+                "Approval Worker is not configured correctly.";
 
         }
 
@@ -429,6 +473,8 @@ async function login(){
     catch(error){
 
         console.error(error);
+
+        ADMIN_KEY = "";
 
         message.className =
             "message error";
@@ -442,7 +488,7 @@ async function login(){
 
 
 /* =====================================
-   LOAD PAYMENTS
+   LOAD PENDING PAYMENTS
 ===================================== */
 
 async function loadPayments(){
@@ -454,7 +500,11 @@ async function loadPayments(){
 
 
     container.innerHTML =
-        '<div class="loading">⏳ Loading pending payments...</div>';
+        `
+        <div class="loading">
+            ⏳ Loading pending payments...
+        </div>
+        `;
 
 
     try{
@@ -464,6 +514,8 @@ async function loadPayments(){
                 APPROVE_WORKER +
                 "/payments?status=pending",
                 {
+                    method:"GET",
+
                     headers:{
                         "Authorization":
                             "Bearer " +
@@ -477,7 +529,10 @@ async function loadPayments(){
             await response.json();
 
 
-        if(!response.ok || !data.success){
+        if(
+            !response.ok ||
+            !data.success
+        ){
 
             throw new Error(
                 data.message ||
@@ -491,10 +546,16 @@ async function loadPayments(){
             data.payments || [];
 
 
-        if(payments.length === 0){
+        if(
+            payments.length === 0
+        ){
 
             container.innerHTML =
-                '<div class="empty">✅ No pending payments.</div>';
+                `
+                <div class="empty">
+                    ✅ No pending payments.
+                </div>
+                `;
 
             return;
 
@@ -503,7 +564,9 @@ async function loadPayments(){
 
         container.innerHTML =
             payments
-            .map(paymentCard)
+            .map(
+                createPaymentCard
+            )
             .join("");
 
 
@@ -513,9 +576,13 @@ async function loadPayments(){
         console.error(error);
 
         container.innerHTML =
-            `<div class="message error">
-                ${escapeHtml(error.message)}
-            </div>`;
+            `
+            <div class="message error">
+                ${escapeHtml(
+                    error.message
+                )}
+            </div>
+            `;
 
     }
 
@@ -526,17 +593,19 @@ async function loadPayments(){
    PAYMENT CARD
 ===================================== */
 
-function paymentCard(payment){
+function createPaymentCard(payment){
+
+    const amount =
+        Number(
+            payment.amount || 0
+        ).toLocaleString();
+
 
     return `
 
     <div class="payment-card">
 
-        <div style="display:flex;
-                    justify-content:space-between;
-                    gap:10px;
-                    align-items:center;
-                    margin-bottom:15px;">
+        <div class="payment-header">
 
             <h2>
                 Payment #${payment.id}
@@ -551,90 +620,88 @@ function paymentCard(payment){
 
         <div class="detail">
 
-            <span>
+            <span class="detail-label">
                 Student Email
             </span>
 
-            <strong>
+            <span class="detail-value">
                 ${escapeHtml(
                     payment.student_email || "-"
                 )}
-            </strong>
+            </span>
 
         </div>
 
 
         <div class="detail">
 
-            <span>
+            <span class="detail-label">
                 Sender Name
             </span>
 
-            <strong>
+            <span class="detail-value">
                 ${escapeHtml(
                     payment.sender_name || "-"
                 )}
-            </strong>
+            </span>
 
         </div>
 
 
         <div class="detail">
 
-            <span>
+            <span class="detail-label">
                 Sender Bank
             </span>
 
-            <strong>
+            <span class="detail-value">
                 ${escapeHtml(
                     payment.sender_bank || "-"
                 )}
-            </strong>
+            </span>
 
         </div>
 
 
         <div class="detail">
 
-            <span>
+            <span class="detail-label">
                 Sender Account
             </span>
 
-            <strong>
+            <span class="detail-value">
                 ${escapeHtml(
                     payment.sender_account || "-"
                 )}
-            </strong>
+            </span>
 
         </div>
 
 
         <div class="detail">
 
-            <span>
+            <span class="detail-label">
                 Amount
             </span>
 
-            <strong>
-                LKR ${Number(
-                    payment.amount || 0
-                ).toLocaleString()}
-            </strong>
+            <span class="detail-value">
+                LKR ${amount}
+            </span>
 
         </div>
 
 
         <div class="detail">
 
-            <span>
+            <span class="detail-label">
                 Submitted
             </span>
 
-            <strong>
+            <span class="detail-value">
                 ${escapeHtml(
                     payment.created_at || "-"
                 )}
-            </strong>
+            </span>
 
         </div>
 
@@ -642,26 +709,32 @@ function paymentCard(payment){
         <div class="actions">
 
             <button
-                class="receipt"
-                onclick="viewReceipt(${payment.id})">
+                class="receipt-button"
+                onclick="viewReceipt(
+                    ${payment.id}
+                )">
 
-                🧾 View Receipt
-
-            </button>
-
-
-            <button
-                class="approve"
-                onclick="approvePayment(${payment.id})">
-
-                ✅ Approve & Activate 30 Days
+                🧾 View Slip
 
             </button>
 
 
             <button
-                class="reject"
-                onclick="rejectPayment(${payment.id})">
+                class="approve-button"
+                onclick="approvePayment(
+                    ${payment.id}
+                )">
+
+                ✅ Approve — Activate 30 Days
+
+            </button>
+
+
+            <button
+                class="reject-button"
+                onclick="rejectPayment(
+                    ${payment.id}
+                )">
 
                 ❌ Reject
 
@@ -680,35 +753,87 @@ function paymentCard(payment){
    VIEW RECEIPT
 ===================================== */
 
-function viewReceipt(id){
+async function viewReceipt(id){
 
-    const url =
-        APPROVE_WORKER +
-        "/receipt/" +
-        id;
+    try{
 
-    window.open(
-        url,
-        "_blank"
-    );
+        const response =
+            await fetch(
+                APPROVE_WORKER +
+                "/receipt/" +
+                id,
+                {
+                    method:"GET",
+
+                    headers:{
+                        "Authorization":
+                            "Bearer " +
+                            ADMIN_KEY
+                    }
+                }
+            );
+
+
+        if(!response.ok){
+
+            const text =
+                await response.text();
+
+            throw new Error(
+                text ||
+                "Unable to open receipt."
+            );
+
+        }
+
+
+        const blob =
+            await response.blob();
+
+
+        const url =
+            URL.createObjectURL(
+                blob
+            );
+
+
+        window.open(
+            url,
+            "_blank"
+        );
+
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Unable to view receipt:\n\n" +
+            error.message
+        );
+
+    }
 
 }
 
 
 /* =====================================
-   APPROVE
+   APPROVE PAYMENT
 ===================================== */
 
 async function approvePayment(id){
 
-    if(
-        !confirm(
-            "Approve this payment and activate Premium for 30 days?"
-        )
-    ){
+    const confirmed =
+        confirm(
+            "Approve this payment?\n\n" +
+            "Premium access will be activated " +
+            "for 30 days."
+        );
 
+
+    if(!confirmed){
         return;
-
     }
 
 
@@ -730,9 +855,10 @@ async function approvePayment(id){
                             ADMIN_KEY
                     },
 
-                    body:JSON.stringify({
-                        payment_id:id
-                    })
+                    body:
+                        JSON.stringify({
+                            payment_id:id
+                        })
                 }
             );
 
@@ -746,22 +872,21 @@ async function approvePayment(id){
             !data.success
         ){
 
-            alert(
+            throw new Error(
                 data.message ||
-                "Approval failed."
+                "Payment approval failed."
             );
-
-            return;
 
         }
 
 
         alert(
-            "✅ Payment approved!\n\n" +
+            "✅ Payment approved successfully!\n\n" +
             "Student: " +
             data.student_email +
             "\n\n" +
-            "Premium active until:\n" +
+            "Premium status: ACTIVE\n" +
+            "Expiry: " +
             data.membership_expiry
         );
 
@@ -775,7 +900,8 @@ async function approvePayment(id){
         console.error(error);
 
         alert(
-            "Unable to connect to Approval Worker."
+            "❌ Approval failed:\n\n" +
+            error.message
         );
 
     }
@@ -784,21 +910,19 @@ async function approvePayment(id){
 
 
 /* =====================================
-   REJECT
+   REJECT PAYMENT
 ===================================== */
 
 async function rejectPayment(id){
 
     const note =
         prompt(
-            "Reason for rejection:"
+            "Enter the reason for rejection:"
         );
 
 
     if(note === null){
-
         return;
-
     }
 
 
@@ -820,10 +944,12 @@ async function rejectPayment(id){
                             ADMIN_KEY
                     },
 
-                    body:JSON.stringify({
-                        payment_id:id,
-                        admin_note:note
-                    })
+                    body:
+                        JSON.stringify({
+                            payment_id:id,
+                            admin_note:
+                                note.trim()
+                        })
                 }
             );
 
@@ -837,12 +963,10 @@ async function rejectPayment(id){
             !data.success
         ){
 
-            alert(
+            throw new Error(
                 data.message ||
-                "Rejection failed."
+                "Payment rejection failed."
             );
-
-            return;
 
         }
 
@@ -861,7 +985,8 @@ async function rejectPayment(id){
         console.error(error);
 
         alert(
-            "Unable to connect to Approval Worker."
+            "❌ Rejection failed:\n\n" +
+            error.message
         );
 
     }
@@ -875,8 +1000,7 @@ async function rejectPayment(id){
 
 function logout(){
 
-    ADMIN_KEY =
-        "";
+    ADMIN_KEY = "";
 
     location.reload();
 
@@ -884,17 +1008,32 @@ function logout(){
 
 
 /* =====================================
-   HTML ESCAPE
+   ESCAPE HTML
 ===================================== */
 
 function escapeHtml(value){
 
     return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
