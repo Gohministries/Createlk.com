@@ -1,7 +1,10 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Premium Payment | CreateLK Academy</title><meta name="description" content="CreateLK Academy Premium Membership - LKR 1,500 for 30 days."><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Premium Payment | CreateLK Academy</title><meta name="description"
+content="CreateLK Academy Premium Membership payment page.">
+
+<style>
 *{
     margin:0;
     padding:0;
@@ -12,7 +15,7 @@
 body{
     min-height:100vh;
     background:#f5f8fc;
-    color:#202124;
+    color:#172033;
     line-height:1.6;
 }
 
@@ -26,7 +29,7 @@ header{
 }
 
 .nav{
-    max-width:1150px;
+    max-width:1100px;
     margin:auto;
     min-height:68px;
     padding:0 20px;
@@ -44,7 +47,7 @@ header{
 
 .nav-links{
     display:flex;
-    gap:20px;
+    gap:18px;
 }
 
 .nav-links a{
@@ -68,11 +71,11 @@ header{
 
 .hero h1{
     font-size:38px;
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
 .container{
-    max-width:900px;
+    max-width:850px;
     margin:auto;
     padding:40px 20px 60px;
 }
@@ -98,14 +101,14 @@ header{
 
 .duration{
     text-align:center;
-    color:#666;
+    color:#667085;
 }
 
 .section{
     border:1px solid #e5eaf2;
     border-radius:16px;
     padding:25px;
-    margin-top:22px;
+    margin-top:25px;
 }
 
 .section h2{
@@ -118,32 +121,6 @@ header{
     border-radius:12px;
     padding:16px;
     margin-top:15px;
-}
-
-.button{
-    width:100%;
-    border:0;
-    padding:15px;
-    border-radius:12px;
-    font-size:16px;
-    font-weight:800;
-    cursor:pointer;
-    margin-top:15px;
-}
-
-.payhere-button{
-    background:#1769ff;
-    color:white;
-}
-
-.bank-button{
-    background:#15803d;
-    color:white;
-}
-
-.button:disabled{
-    opacity:.6;
-    cursor:not-allowed;
 }
 
 .bank-details{
@@ -198,6 +175,27 @@ input[type="file"]{
     padding:10px;
 }
 
+.button{
+    width:100%;
+    border:0;
+    padding:15px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.bank-button{
+    background:#15803d;
+    color:white;
+}
+
+.button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
 .message{
     display:none;
     padding:14px;
@@ -247,7 +245,7 @@ input[type="file"]{
 }
 
 .security p{
-    color:#666;
+    color:#667085;
     font-size:14px;
 }
 
@@ -331,32 +329,17 @@ footer{
 <a href="membership.html">Membership</a>
 <a href="contact.html">Contact</a>
 </nav></div>
-</header><section class="hero">
-<h1>💳 Premium Payment</h1>
-<p>Secure your 30-day CreateLK Academy Premium membership.</p>
-</section><main class="container"><div class="card"><h2 class="title">
+</header><section class="hero"><h1>💳 Premium Payment</h1><p>
+Secure your 30-day CreateLK Academy Premium membership.
+</p></section><main class="container"><div class="card"><h2 class="title">
 ⭐ CreateLK Academy Premium
 </h2><div class="price">
 LKR 1,500
 </div><div class="duration">
 30 Days Premium Access
-</div><!-- PAYHERE --><div class="section"><h2>💳 PayHere</h2><p>
-Pay securely online using PayHere.
-</p><div class="note">
-<strong>Secure Online Payment</strong>
-<p>
-PayHere payments will be verified by the CreateLK Academy server.
-</p>
-</div><button
-type="button"
-class="button payhere-button"
-onclick="startPayHere()">
-
-💳 Pay LKR 1,500 with PayHere
-
-</button><div id="payhereMessage" class="message"></div></div><!-- BANK PAYMENT --><div class="section"><h2>🏦 Bank Deposit</h2><p>
-You can also pay by bank deposit and submit your receipt
-for manual verification.
+</div><div class="section"><h2>🏦 Bank Deposit</h2><p>
+Make a bank deposit and upload your receipt for
+manual verification.
 </p><div class="bank-details"><div class="detail">
 <span>Bank</span>
 <strong>People's Bank</strong>
@@ -372,19 +355,19 @@ for manual verification.
 </div><div class="detail">
 <span>Amount</span>
 <strong>LKR 1,500</strong>
-</div></div><div class="note"><strong>After making the deposit</strong>
+</div></div><div class="note"><strong>📌 Payment Instructions</strong>
 
 <p>
-Enter the name of the person who made the bank payment,
-the sender's bank account number, and upload the payment receipt.
+After making the deposit, enter the name of the
+person who made the payment and the sender's bank
+account number. Then upload the payment receipt.
 </p></div><form id="bankForm"><label for="senderName">
 Sender Name
 </label><input
 type="text"
 id="senderName"
 name="sender_name"
-placeholder="Enter the name used for the bank payment"
-autocomplete="name"
+placeholder="Enter sender's full name"
 required>
 
 <label for="senderAccount">
@@ -393,10 +376,9 @@ Sender Bank Account Number
 type="text"
 id="senderAccount"
 name="sender_account"
-placeholder="Enter the account number used to send the payment"
-inputmode="numeric"
-autocomplete="off"
-required>
+placeholder="Enter sender's bank account number"
+required
+autocomplete="off">
 
 <label for="receipt">
 Upload Payment Receipt
@@ -416,36 +398,37 @@ class="button bank-button">
 
 </button><div id="bankLoading" class="loading">
 ⏳ Uploading receipt securely...
-</div><div id="bankMessage" class="message"></div></form></div><div class="note"><strong>Manual verification</strong>
+</div><div id="bankMessage" class="message">
+</div></form></div><div class="note"><strong>⏳ Manual Verification</strong>
 
 <p>
-Your bank payment will remain pending until it is reviewed
-and approved by CreateLK Academy. Premium access will be
-activated after payment verification.
+Your payment will remain pending until it is reviewed
+and approved. Premium access will be activated after
+successful verification.
 </p></div></div><div class="security-grid"><div class="security">
 <div class="security-icon">🔐</div>
 <h3>Secure</h3>
-<p>Payment information is processed securely.</p>
+<p>Your payment receipt is securely processed.</p>
 </div><div class="security">
 <div class="security-icon">☁️</div>
 <h3>Cloudflare</h3>
-<p>Receipts are securely stored by the server.</p>
+<p>Receipts are securely stored on the server.</p>
 </div><div class="security">
 <div class="security-icon">📅</div>
 <h3>30 Days</h3>
 <p>Premium access is valid for 30 days.</p>
 </div></div><a href="membership.html" class="back">
 ← Back to Premium Membership
-</a></main><footer><div class="footer-logo">
+</a></div></main><footer><div class="footer-logo">
 📚 CreateLK Academy
-</div><div class="footer-links"><a href="index.html">Home</a>
+</div><div class="footer-links">
+<a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 <a href="membership.html">Membership</a>
 <a href="payment.html">Payment</a>
 <a href="privacy.html">Privacy</a>
 <a href="refund.html">Refund Policy</a>
-
 </div><div>
 © 2026 CreateLK Academy. All Rights Reserved.
 </div></footer><script>
@@ -459,14 +442,8 @@ function toggleMenu(){
 
 }
 
-
-/* =====================================
-   BANK PAYMENT WORKER
-===================================== */
-
 const BANK_PAYMENT_WORKER =
 "https://bankpayment.gateofheavensl1.workers.dev/bank-payment";
-
 
 document
 .getElementById("bankForm")
@@ -482,9 +459,6 @@ document
 
     const message =
         document.getElementById("bankMessage");
-
-    message.className = "message";
-    message.textContent = "";
 
     const senderName =
         document
@@ -503,50 +477,44 @@ document
         .getElementById("receipt")
         .files[0];
 
+    message.className = "message";
+    message.textContent = "";
 
     if(!senderName){
 
         message.className = "message error";
-
         message.textContent =
             "Please enter the sender name.";
 
         return;
     }
 
-
     if(!senderAccount){
 
         message.className = "message error";
-
         message.textContent =
             "Please enter the sender bank account number.";
 
         return;
     }
 
-
     if(!receipt){
 
         message.className = "message error";
-
         message.textContent =
             "Please select your payment receipt.";
 
         return;
     }
 
-
     if(receipt.size > 10 * 1024 * 1024){
 
         message.className = "message error";
-
         message.textContent =
             "Receipt must be smaller than 10 MB.";
 
         return;
     }
-
 
     const formData = new FormData();
 
@@ -565,26 +533,21 @@ document
         receipt
     );
 
-
     button.disabled = true;
     loading.style.display = "block";
 
-
     try{
 
-        const response =
-            await fetch(
-                BANK_PAYMENT_WORKER,
-                {
-                    method:"POST",
-                    body:formData
-                }
-            );
-
+        const response = await fetch(
+            BANK_PAYMENT_WORKER,
+            {
+                method:"POST",
+                body:formData
+            }
+        );
 
         const text =
             await response.text();
-
 
         let data;
 
@@ -602,7 +565,6 @@ document
             };
 
         }
-
 
         if(response.ok && data.success){
 
@@ -627,18 +589,16 @@ document
                 "Bank payment could not be submitted.";
 
             console.error(
-                "Bank payment server response:",
+                "Server response:",
                 response.status,
                 data
             );
-
         }
-
 
     }catch(error){
 
         console.error(
-            "Bank payment connection error:",
+            "Connection error:",
             error
         );
 
@@ -648,10 +608,7 @@ document
         message.textContent =
             "Unable to connect to the bank payment server. Please try again.";
 
-    }
-
-
-    finally{
+    }finally{
 
         button.disabled = false;
         loading.style.display = "none";
@@ -659,26 +616,6 @@ document
     }
 
 });
-
-
-/* =====================================
-   PAYHERE
-===================================== */
-
-function startPayHere(){
-
-    const message =
-        document.getElementById(
-            "payhereMessage"
-        );
-
-    message.className =
-        "message error";
-
-    message.textContent =
-        "PayHere online payment is not connected yet. Please use Bank Deposit for manual verification.";
-
-}
 
 </script></body>
 </html>
