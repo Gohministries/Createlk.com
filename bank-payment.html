@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CreateLK Academy | Bank Payment</title>
+
+<meta
+  name="description"
+  content="CreateLK Academy bank payment and receipt submission page."
+>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#f5f8fc;
+    color:#202124;
+    line-height:1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:#1769ff;
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav{
+    max-width:1150px;
+    margin:auto;
+    min-height:68px;
+    padding:0 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    color:white;
+    text-decoration:none;
+    font-size:21px;
+    font-weight:800;
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.menu{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    background:
+        linear-gradient(
+            135deg,
+            #1769ff,
+            #4b8dff
+        );
+
+    color:white;
+    text-align:center;
+    padding:55px 20px;
+}
+
+.hero h1{
+    font-size:36px;
+    margin-bottom:8px;
+}
+
+.hero p{
+    opacity:.95;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:35px 20px 60px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:22px;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.07);
+}
+
+.card h2{
+    margin-bottom:8px;
+}
+
+.subtitle{
+    color:#667085;
+    margin-bottom:20px;
+}
+
+/* =========================
+   PRICE
+========================= */
+
+.price-box{
+    background:#eef5ff;
+    border-radius:16px;
+    padding:25px;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.price{
+    font-size:38px;
+    font-weight:800;
+    color:#1769ff;
+    margin:5px 0;
+}
+
+/* =========================
+   STUDENT
+========================= */
+
+.student-box{
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:25px;
+}
+
+.student-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:7px 0;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.student-row:last-child{
+    border-bottom:0;
+}
+
+.student-row strong{
+    color:#475467;
+}
+
+/* =========================
+   BANK
+========================= */
+
+.bank{
+    border-top:5px solid #20a464;
+}
+
+.bank-details{
+    background:#f7faf8;
+    border-radius:14px;
+    padding:18px;
+    margin:18px 0;
+}
+
+.bank-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:9px 0;
+    border-bottom:1px solid #e5ebe7;
+}
+
+.bank-row:last-child{
+    border-bottom:0;
+}
+
+.bank-row strong{
+    color:#344054;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form-group{
+    margin-top:18px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:700;
+    margin-bottom:7px;
+}
+
+.form-group input{
+    width:100%;
+    padding:14px;
+    border:1px solid #d5d9e0;
+    border-radius:10px;
+    font-size:15px;
+    background:white;
+}
+
+.form-group input:focus{
+    outline:none;
+    border-color:#1769ff;
+    box-shadow:0 0 0 3px rgba(23,105,255,.1);
+}
+
+.file-info{
+    margin-top:7px;
+    color:#667085;
+    font-size:13px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.submit-button{
+    width:100%;
+    margin-top:22px;
+    padding:15px;
+
+    border:0;
+    border-radius:11px;
+
+    background:#20a464;
+    color:white;
+
+    font-size:16px;
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+.submit-button:hover{
+    background:#17864f;
+}
+
+.submit-button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message{
+    display:none;
+    margin-top:18px;
+    padding:14px;
+    border-radius:10px;
+    text-align:center;
+    font-weight:700;
+}
+
+.success{
+    display:block;
+    background:#e8f7ed;
+    color:#176b35;
+}
+
+.error{
+    display:block;
+    background:#fdeaea;
+    color:#a32121;
+}
+
+.loading{
+    display:block;
+    background:#eef5ff;
+    color:#1769ff;
+}
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice{
+    background:#fff8e5;
+    color:#765500;
+
+    border-radius:12px;
+    padding:15px;
+
+    margin-top:20px;
+}
+
+.security{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:25px;
+}
+
+.security-box{
+    background:white;
+    border-radius:15px;
+    padding:18px;
+    text-align:center;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.05);
+}
+
+.security-icon{
+    font-size:28px;
+    margin-bottom:6px;
+}
+
+.security-box strong{
+    display:block;
+    margin-bottom:4px;
+}
+
+.security-box span{
+    color:#667085;
+    font-size:13px;
+}
+
+/* =========================
+   BACK
+========================= */
+
+.back{
+    text-align:center;
+    margin-top:28px;
+}
+
+.back a{
+    color:#1769ff;
+    text-decoration:none;
+    font-weight:700;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#111827;
+    color:#d1d5db;
+    text-align:center;
+    padding:35px 20px;
+}
+
+.footer-logo{
+    color:white;
+    font-size:21px;
+    font-weight:800;
+}
+
+.footer-links{
+    margin:18px 0;
+}
+
+.footer-links a{
+    color:#d1d5db;
+    text-decoration:none;
+    margin:0 8px;
+    font-size:14px;
+}
+
+.copyright{
+    color:#9ca3af;
+    font-size:13px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+
+        position:absolute;
+        top:68px;
+        left:0;
+        right:0;
+
+        background:#1769ff;
+
+        flex-direction:column;
+        padding:20px;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero h1{
+        font-size:29px;
+    }
+
+    .card{
+        padding:22px 18px;
+    }
+
+    .student-row,
+    .bank-row{
+        flex-direction:column;
+        gap:2px;
+    }
+
+    .security{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="nav">
+
+<a href="/" class="logo">
+📚 CreateLK Academy
+</a>
+
+<div
+    class="menu"
+    onclick="toggleMenu()"
+>
+☰
+</div>
+
+<nav
+    id="navLinks"
+    class="nav-links"
+>
+
+<a href="/">Home</a>
+
+<a href="/about.html">About</a>
+
+<a href="/membership.html">Membership</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<h1>
+🏦 Bank Payment
+</h1>
+
+<p>
+Securely submit your CreateLK Academy Premium payment.
+</p>
+
+</section>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+
+<!-- PRICE -->
+
+<div class="price-box">
+
+<div>
+⭐ CreateLK Academy Premium
+</div>
+
+<div class="price">
+LKR 1,500
+</div>
+
+<div>
+30 Days Premium Access
+</div>
+
+</div>
+
+
+<!-- STUDENT -->
+
+<div class="card">
+
+<h2>
+👤 Student Information
+</h2>
+
+<p class="subtitle">
+Payment will be connected to your CreateLK Academy account.
+</p>
+
+<div
+    id="studentBox"
+    class="student-box"
+>
+
+<div class="student-row">
+<strong>Name</strong>
+<span id="studentName">Loading...</span>
+</div>
+
+<div class="student-row">
+<strong>Email</strong>
+<span id="studentEmail">Loading...</span>
+</div>
+
+<div class="student-row">
+<strong>Student ID</strong>
+<span id="studentId">Loading...</span>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- BANK PAYMENT -->
+
+<div class="card bank">
+
+<h2>
+🏦 Bank Deposit
+</h2>
+
+<p class="subtitle">
+Make a bank deposit of LKR 1,500 using the account below.
+</p>
+
+
+<!-- BANK DETAILS -->
+
+<div class="bank-details">
+
+<div class="bank-row">
+<strong>Bank</strong>
+<span>People's Bank</span>
+</div>
+
+<div class="bank-row">
+<strong>Branch</strong>
+<span>Udapussellawa</span>
+</div>
+
+<div class="bank-row">
+<strong>Account No</strong>
+<span>292200280023178</span>
+</div>
+
+<div class="bank-row">
+<strong>Account Name</strong>
+<span>Thinarathnam Sathiyanadan</span>
+</div>
+
+<div class="bank-row">
+<strong>Amount</strong>
+<span><strong>LKR 1,500</strong></span>
+</div>
+
+</div>
+
+
+<p>
+After completing your bank deposit, enter the payment reference and upload your receipt below.
+</p>
+
+
+<!-- FORM -->
+
+<form id="bankForm">
+
+
+<div class="form-group">
+
+<label for="reference">
+Payment Reference
+</label>
+
+<input
+    type="text"
+    id="reference"
+    name="reference"
+    placeholder="Enter your bank payment reference"
+    autocomplete="off"
+    required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="receipt">
+Upload Payment Receipt
+</label>
+
+<input
+    type="file"
+    id="receipt"
+    name="receipt"
+    accept="image/jpeg,image/png,image/webp,application/pdf"
+    required
+>
+
+<div class="file-info">
+JPG, PNG, WEBP or PDF • Maximum 10 MB
+</div>
+
+</div>
+
+
+<button
+    type="submit"
+    id="submitButton"
+    class="submit-button"
+>
+🏦 Submit Bank Payment
+</button>
+
+
+</form>
+
+
+<div
+    id="message"
+    class="message"
+></div>
+
+
+<div class="notice">
+
+<strong>Manual verification:</strong>
+
+Your receipt will be securely stored and reviewed by CreateLK Academy.
+
+Premium membership will be activated only after your payment has been verified.
+
+</div>
+
+</div>
+
+
+<!-- SECURITY -->
+
+<div class="security">
+
+<div class="security-box">
+
+<div class="security-icon">
+🔐
+</div>
+
+<strong>
+Secure
+</strong>
+
+<span>
+Your payment receipt is processed securely.
+</span>
+
+</div>
+
+
+<div class="security-box">
+
+<div class="security-icon">
+☁️
+</div>
+
+<strong>
+Cloudflare
+</strong>
+
+<span>
+Payment data is handled by the CreateLK Academy server.
+</span>
+
+</div>
+
+
+<div class="security-box">
+
+<div class="security-icon">
+📚
+</div>
+
+<strong>
+30 Days
+</strong>
+
+<span>
+Premium access is valid for 30 days after approval.
+</span>
+
+</div>
+
+</div>
+
+
+<!-- BACK -->
+
+<div class="back">
+
+<a href="/membership.html">
+← Back to Premium Membership
+</a>
+
+</div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="footer-logo">
+📚 CreateLK Academy
+</div>
+
+<div class="footer-links">
+
+<a href="/">Home</a>
+
+<a href="/about.html">About</a>
+
+<a href="/contact.html">Contact</a>
+
+<a href="/membership.html">Membership</a>
+
+<a href="/privacy.html">Privacy</a>
+
+<a href="/refund.html">Refund Policy</a>
+
+</div>
+
+<div class="copyright">
+© 2026 CreateLK Academy. All Rights Reserved.
+</div>
+
+</footer>
+
+
+<script>
+
+"use strict";
+
+
+/* =========================================
+   BANK PAYMENT WORKER
+========================================= */
+
+const BANK_API =
+"https://bankpayment.gateofheavensl1.workers.dev";
+
+
+/* =========================================
+   MENU
+========================================= */
+
+function toggleMenu(){
+
+    document
+        .getElementById("navLinks")
+        .classList
+        .toggle("show");
+
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+function showMessage(
+    text,
+    type
+){
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+    message.textContent =
+        text;
+
+    message.className =
+        "message " + type;
+
+}
+
+
+/* =========================================
+   GET LOGGED-IN STUDENT
+========================================= */
+
+function getStudent(){
+
+    const saved =
+        localStorage.getItem(
+            "createlk_student"
+        );
+
+    if(!saved){
+
+        window.location.href =
+            "login.html";
+
+        return null;
+    }
+
+
+    try{
+
+        const student =
+            JSON.parse(saved);
+
+
+        if(
+            student &&
+            student.id
+        ){
+
+            return student;
+
+        }
+
+    }catch(error){
+
+        console.error(
+            "Student data error:",
+            error
+        );
+
+    }
+
+
+    localStorage.removeItem(
+        "createlk_student"
+    );
+
+
+    window.location.href =
+        "login.html";
+
+    return null;
+}
+
+
+/* =========================================
+   LOAD STUDENT
+========================================= */
+
+function loadStudent(){
+
+    const student =
+        getStudent();
+
+    if(!student){
+        return;
+    }
+
+
+    document
+        .getElementById("studentName")
+        .textContent =
+            (
+                student.first_name ||
+                ""
+            ) +
+            " " +
+            (
+                student.last_name ||
+                ""
+            );
+
+
+    document
+        .getElementById("studentEmail")
+        .textContent =
+            student.email ||
+            "";
+
+
+    document
+        .getElementById("studentId")
+        .textContent =
+            student.id ||
+            "";
+
+}
+
+
+/* =========================================
+   BANK PAYMENT
+========================================= */
+
+document
+.getElementById("bankForm")
+.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        const student =
+            getStudent();
+
+        if(!student){
+            return;
+        }
+
+
+        const reference =
+            document
+            .getElementById(
+                "reference"
+            )
+            .value
+            .trim();
+
+
+        const receipt =
+            document
+            .getElementById(
+                "receipt"
+            )
+            .files[0];
+
+
+        const button =
+            document
+            .getElementById(
+                "submitButton"
+            );
+
+
+        if(!reference){
+
+            showMessage(
+                "Please enter your payment reference.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        if(!receipt){
+
+            showMessage(
+                "Please upload your payment receipt.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        if(
+            receipt.size >
+            10 * 1024 * 1024
+        ){
+
+            showMessage(
+                "Receipt must be smaller than 10 MB.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        const allowedTypes = [
+
+            "image/jpeg",
+            "image/png",
+            "image/webp",
+            "application/pdf"
+
+        ];
+
+
+        if(
+            receipt.type &&
+            !allowedTypes.includes(
+                receipt.type
+            )
+        ){
+
+            showMessage(
+                "Only JPG, PNG, WEBP or PDF receipts are allowed.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        button.disabled =
+            true;
+
+
+        button.textContent =
+            "⏳ Uploading receipt...";
+
+
+        showMessage(
+            "Uploading your payment receipt securely...",
+            "loading"
+        );
+
+
+        try{
+
+            const formData =
+                new FormData();
+
+
+            /*
+             * These names must match
+             * the Worker.
+             */
+
+            formData.append(
+                "student_id",
+                String(student.id)
+            );
+
+
+            formData.append(
+                "email",
+                student.email || ""
+            );
+
+
+            formData.append(
+                "payment_reference",
+                reference
+            );
+
+
+            formData.append(
+                "amount",
+                "1500"
+            );
+
+
+            formData.append(
+                "receipt",
+                receipt
+            );
+
+
+            const response =
+                await fetch(
+                    BANK_API +
+                    "/bank-payment",
+                    {
+                        method:"POST",
+                        body:formData
+                    }
+                );
+
+
+            const text =
+                await response.text();
+
+
+            let data;
+
+
+            try{
+
+                data =
+                    JSON.parse(text);
+
+            }catch(error){
+
+                console.error(
+                    "Invalid server response:",
+                    text
+                );
+
+                throw new Error(
+                    "Server returned an invalid response."
+                );
+
+            }
+
+
+            if(
+                !response.ok ||
+                data.success !== true
+            ){
+
+                throw new Error(
+                    data.message ||
+                    "Bank payment submission failed."
+                );
+
+            }
+
+
+            showMessage(
+                data.message ||
+                "Bank payment submitted successfully. Your payment is pending verification.",
+                "success"
+            );
+
+
+            document
+                .getElementById(
+                    "bankForm"
+                )
+                .reset();
+
+
+        }catch(error){
+
+            console.error(
+                "Bank payment error:",
+                error
+            );
+
+
+            showMessage(
+                error.message ||
+                "Unable to submit your bank payment.",
+                "error"
+            );
+
+        }
+
+
+        button.disabled =
+            false;
+
+
+        button.textContent =
+            "🏦 Submit Bank Payment";
+
+    }
+);
+
+
+/* =========================================
+   START
+========================================= */
+
+loadStudent();
+
+</script>
+
+</body>
+</html>
