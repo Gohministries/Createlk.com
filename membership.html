@@ -140,13 +140,9 @@ header{
 
 .features{
     display:grid;
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:12px;
-
     margin:25px 0;
-
     text-align:left;
 }
 
@@ -164,14 +160,42 @@ header{
 .payment-note{
     background:#eef5ff;
     border-radius:14px;
-    padding:18px;
+    padding:20px;
     margin:25px 0;
     color:#334155;
 }
 
 .payment-note h3{
     color:#1769ff;
-    margin-bottom:7px;
+    margin-bottom:8px;
+}
+
+.payment-options{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:18px;
+}
+
+.option{
+    background:white;
+    border:1px solid #dbe5f5;
+    border-radius:12px;
+    padding:16px;
+}
+
+.option-icon{
+    font-size:30px;
+    margin-bottom:5px;
+}
+
+.option h4{
+    margin-bottom:5px;
+}
+
+.option p{
+    color:#667085;
+    font-size:14px;
 }
 
 .button{
@@ -209,8 +233,7 @@ header{
     margin:25px auto 0;
 
     display:grid;
-    grid-template-columns:
-        repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
     gap:15px;
 }
@@ -274,16 +297,12 @@ footer{
 
     .nav-links{
         display:none;
-
         position:absolute;
         top:68px;
         left:0;
         right:0;
-
         background:#1769ff;
-
         flex-direction:column;
-
         padding:20px;
     }
 
@@ -300,6 +319,10 @@ footer{
     }
 
     .features{
+        grid-template-columns:1fr;
+    }
+
+    .payment-options{
         grid-template-columns:1fr;
     }
 
@@ -329,40 +352,24 @@ footer{
 
 }
 
-</style></head><body><!-- =========================================
-     HEADER
-========================================= --><header><div class="nav"><a
-href="/"
-class="logo">
-
+</style></head><body><header><div class="nav"><a href="/" class="logo">
 📚 CreateLK Academy
-
 </a><div
-class="menu"
-onclick="toggleMenu()">☰
+    class="menu"
+    onclick="toggleMenu()">☰
 
-</div><nav
-id="navLinks"
-class="nav-links"><a href="/">
+</div><nav id="navLinks" class="nav-links"><a href="/">
 Home
 </a><a href="/about.html">
 About
 </a><a href="/membership.html">
 Membership
-</a><a href="/login.html">
-Login
-</a><a href="/register.html">
-Create Account
-</a></nav></div></header><!-- =========================================
-     HERO
-========================================= --><section class="hero"><h1>
+</a></nav></div></header><section class="hero"><h1>
 ⭐ Premium English Membership
 </h1><p>
-Unlock advanced English learning content
-and practice with hundreds of additional MCQs.
-</p></section><!-- =========================================
-     MEMBERSHIP CARD
-========================================= --><main class="container"><div class="card"><div class="badge">
+Unlock 900 additional English MCQs
+and premium learning courses.
+</p></section><main class="container"><div class="card"><div class="badge">
 ⭐ PREMIUM MEMBERSHIP
 </div><h2>
 CreateLK Academy Premium
@@ -370,11 +377,11 @@ CreateLK Academy Premium
 LKR 1,500
 </div><div class="duration">
 30 Days Premium Access
-</div><p class="description">Get access to the complete Premium English
-learning section with 900 additional MCQs
-across multiple English learning categories.
+</div><p class="description">Get access to the Premium English learning
+section with 900 additional MCQs across
+multiple English learning categories.
 
-</p><!-- FEATURES --><div class="features"><div class="feature">
+</p><div class="features"><div class="feature">
 ✓ <strong>900</strong> Premium English MCQs
 </div><div class="feature">
 ✓ <strong>9</strong> Premium Courses
@@ -398,54 +405,55 @@ across multiple English learning categories.
 ✓ Advanced English
 </div><div class="feature">
 ✓ Mobile & Computer Access
-</div></div><!-- PAYMENT INFORMATION --><div class="payment-note"><h3>
-💳 Payment Options
-</h3><p>You can pay securely through the available
-payment options on our payment page.
-
-</p><p><strong>
-PayHere and Bank Deposit
-</strong>
-options are available.</p></div><!-- PAYMENT BUTTON --><a
+</div></div><div class="payment-note"><h3>
+💳 Choose Your Payment Method
+</h3><p>
+Premium membership costs <strong>LKR 1,500</strong>
+for 30 days.
+</p><div class="payment-options"><div class="option"><div class="option-icon">
+💳
+</div><h4>
+PayHere
+</h4><p>
+Secure online payment through PayHere.
+</p></div><div class="option"><div class="option-icon">
+🏦
+</div><h4>
+Bank Deposit
+</h4><p>
+Deposit to our bank account and upload
+your payment receipt for verification.
+</p></div></div></div><a
 href="/payment.html"
 class="button payment-button">
 
-💳 Continue to Payment — LKR 1,500
+💳 Continue to Payment
 
-</a><div class="free-link">Already have an account?
-
-<a href="/login.html">
-Login here
-</a></div><div class="free-link">Want to start for free?
+</a><div class="free-link">Want to start learning for free?
 
 <a href="/beginner-english.html">
-Start the Free Course
-</a></div></div><!-- =========================================
-     INFORMATION
-========================================= --><div class="info-grid"><div class="info"><div class="info-icon">
+Start Free Course
+</a></div></div><div class="info-grid"><div class="info"><div class="info-icon">
 🔐
 </div><h3>
 Secure Payment
 </h3><p>
-Choose an available payment method
+Choose PayHere or Bank Deposit
 on the payment page.
 </p></div><div class="info"><div class="info-icon">
 ⏱️
 </div><h3>
 30 Days
 </h3><p>
-Premium access remains active
-for 30 days after approval.
+Premium access is valid for 30 days
+after successful payment approval.
 </p></div><div class="info"><div class="info-icon">
 📚
 </div><h3>
 1,000 MCQs
 </h3><p>
-100 free MCQs plus 900 Premium MCQs
-across the Academy.
-</p></div></div></main><!-- =========================================
-     FOOTER
-========================================= --><footer><div class="footer-logo">
+100 free MCQs plus 900 Premium MCQs.
+</p></div></div></main><footer><div class="footer-logo">
 📚 CreateLK Academy
 </div><div class="footer-links"><a href="/">
 Home
@@ -461,10 +469,6 @@ Payment
 Privacy
 </a><a href="/refund.html">
 Refund Policy
-</a><a href="/login.html">
-Login
-</a><a href="/register.html">
-Register
 </a></div><div class="copyright">© 2026 CreateLK Academy.
 All Rights Reserved.
 
