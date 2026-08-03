@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Student Dashboard | CreateLK Academy</title>
-
-<style>
+<title>Student Dashboard | CreateLK Academy</title><style>
 
 *{
     margin:0;
@@ -34,7 +25,6 @@ header{
 .header-inner{
     max-width:1000px;
     margin:auto;
-
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -78,6 +68,7 @@ header{
 
 .welcome p{
     color:#667085;
+    line-height:1.6;
 }
 
 .status{
@@ -91,11 +82,20 @@ header{
     font-weight:700;
 }
 
+.member-box{
+    margin-top:20px;
+    background:#e8f7ed;
+    color:#176b35;
+    padding:15px;
+    border-radius:12px;
+    font-weight:600;
+    display:none;
+}
+
 .grid{
     display:grid;
     grid-template-columns:
         repeat(auto-fit,minmax(280px,1fr));
-
     gap:20px;
 }
 
@@ -103,10 +103,7 @@ header{
     background:#fff;
     border-radius:18px;
     padding:25px;
-
-    box-shadow:
-        0 5px 20px
-        rgba(0,0,0,.07);
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
 }
 
 .card-icon{
@@ -141,6 +138,10 @@ header{
     border-top:5px solid #f5a623;
 }
 
+.ai{
+    border-top:5px solid #7c3aed;
+}
+
 .button{
     display:block;
     width:100%;
@@ -149,6 +150,7 @@ header{
     border-radius:10px;
     text-decoration:none;
     font-weight:700;
+    cursor:pointer;
 }
 
 .free-button{
@@ -161,14 +163,13 @@ header{
     color:#fff;
 }
 
-.member-box{
-    margin-top:20px;
-    background:#e8f7ed;
-    color:#176b35;
-    padding:15px;
-    border-radius:12px;
-    font-weight:600;
-    display:none;
+.ai-button{
+    background:#7c3aed;
+    color:#fff;
+}
+
+.ai-button.locked{
+    background:#667085;
 }
 
 .footer{
@@ -178,181 +179,82 @@ header{
     font-size:14px;
 }
 
-</style>
-
-</head>
-
-<body>
-
-<header>
-
-<div class="header-inner">
-
-<div class="logo">
+</style></head><body><header><div class="header-inner"><div class="logo">
 📚 CreateLK Academy
-</div>
-
-<button
-    class="logout"
-    id="logoutBtn">
+</div><button
+class="logout"
+id="logoutBtn">
 
 Logout
 
-</button>
-
-</div>
-
-</header>
-
-
-<div class="container">
-
-
-<div class="welcome">
-
-<h1 id="welcomeTitle">
+</button></div></header><div class="container"><!-- =========================
+     WELCOME
+========================= --><div class="welcome"><h1 id="welcomeTitle">
 Welcome, Student!
-</h1>
-
-<p>
+</h1><p>
 Continue learning English and improve your skills step by step.
-</p>
-
-<div
+</p><div
     class="status"
-    id="membershipStatus">
+    id="membershipStatus">🌱 Free Member
 
-🌱 Free Member
-
-</div>
-
-<div
+</div><div
     class="member-box"
-    id="premiumBox">
+    id="premiumBox">⭐ Premium membership is active.
 
-⭐ Premium membership is active.
+<br><span id="expiryText"></span>
 
-<br>
-
-<span id="expiryText"></span>
-
-</div>
-
-</div>
-
-
-<div class="grid">
-
-
-<!-- FREE COURSE -->
-
-<div class="card free">
-
-<div class="card-icon">
+</div></div><div class="grid"><!-- =========================
+     FREE COURSE
+========================= --><div class="card free"><div class="card-icon">
 🌱
-</div>
-
-<h2>
+</div><h2>
 Beginner English — FREE FOREVER
-</h2>
-
-<p>
+</h2><p>
 Start learning English without paying anything.
-</p>
-
-<ul class="features">
-
-<li>✓ 100 Free English MCQs</li>
-
-<li>✓ Beginner Grammar</li>
-
-<li>✓ Vocabulary Practice</li>
-
-<li>✓ Instant Practice</li>
-
-<li>✓ Free Forever</li>
-
-</ul>
-
-<a
-    href="free-course.html"
-    class="button free-button">
+</p><ul class="features"><li>✓ 100 Free English MCQs</li><li>✓ Beginner Grammar</li><li>✓ Vocabulary Practice</li><li>✓ Instant Practice</li><li>✓ Free Forever</li></ul><a
+href="free-course.html"
+class="button free-button">
 
 🌱 Start Free Course
 
-</a>
-
-</div>
-
-
-<!-- PREMIUM -->
-
-<div class="card premium">
-
-<div class="card-icon">
+</a></div><!-- =========================
+     PREMIUM COURSES
+========================= --><div class="card premium"><div class="card-icon">
 ⭐
-</div>
-
-<h2>
+</div><h2>
 Premium English Learning
-</h2>
-
-<p>
+</h2><p>
 Unlock all 9 Premium English courses with 900 additional MCQs.
-</p>
-
-<ul class="features">
-
-<li>✓ 900 Premium MCQs</li>
-
-<li>✓ Grammar</li>
-
-<li>✓ Vocabulary</li>
-
-<li>✓ Speaking</li>
-
-<li>✓ Pronunciation</li>
-
-<li>✓ Conversation</li>
-
-<li>✓ Writing</li>
-
-<li>✓ Listening</li>
-
-<li>✓ Business English</li>
-
-<li>✓ Advanced English</li>
-
-</ul>
-
-<a
-    href="payment.html"
-    id="premiumButton"
-    class="button premium-button">
+</p><ul class="features"><li>✓ 900 Premium MCQs</li><li>✓ Grammar</li><li>✓ Vocabulary</li><li>✓ Speaking</li><li>✓ Pronunciation</li><li>✓ Conversation</li><li>✓ Writing</li><li>✓ Listening</li><li>✓ Business English</li><li>✓ Advanced English</li></ul><a
+href="payment.html"
+id="premiumButton"
+class="button premium-button">
 
 ⭐ Upgrade to Premium — LKR 1,500
 
-</a>
+</a></div><!-- =========================
+     AI TUTOR
+========================= --><div class="card ai"><div class="card-icon">
+🤖
+</div><h2>
+CreateLK AI English Tutor
+</h2><p>
+Practise English with your AI tutor. Ask questions, improve grammar,
+learn vocabulary, correct sentences and practise conversation.
+</p><ul class="features"><li>✓ AI English Tutor</li><li>✓ Grammar Help</li><li>✓ Vocabulary</li><li>✓ Writing Correction</li><li>✓ Conversation Practice</li><li>✓ English Explanations</li></ul><a
+href="payment.html"
+id="aiButton"
+class="button ai-button locked">
 
-</div>
+🔒 Unlock CreateLK AI
 
-</div>
-
-
-<div class="footer">
-
-📚 CreateLK Academy
+</a></div></div><div class="footer">📚 CreateLK Academy
 
 <br><br>
 
 © 2026 CreateLK Academy. All Rights Reserved.
 
-</div>
-
-</div>
-
-
-<script>
+</div></div><script>
 
 "use strict";
 
@@ -376,10 +278,12 @@ function getStudent(){
         return null;
     }
 
+
     try{
 
         const student =
             JSON.parse(saved);
+
 
         if(
             student &&
@@ -389,6 +293,7 @@ function getStudent(){
             return student;
         }
 
+
     }catch(error){
 
         localStorage.removeItem(
@@ -396,6 +301,7 @@ function getStudent(){
         );
 
     }
+
 
     window.location.href =
         "login.html";
@@ -411,8 +317,10 @@ function getStudent(){
 function isPremium(student){
 
     if(!student){
+
         return false;
     }
+
 
     if(
         student.membership_status !==
@@ -422,6 +330,7 @@ function isPremium(student){
         return false;
     }
 
+
     if(
         !student.membership_expiry
     ){
@@ -429,12 +338,20 @@ function isPremium(student){
         return false;
     }
 
+
     const expiry =
         new Date(
             student.membership_expiry
         );
 
-    return expiry > new Date();
+
+    return (
+        !Number.isNaN(
+            expiry.getTime()
+        ) &&
+        expiry > new Date()
+    );
+
 }
 
 
@@ -447,7 +364,9 @@ function loadDashboard(){
     const student =
         getStudent();
 
+
     if(!student){
+
         return;
     }
 
@@ -457,20 +376,30 @@ function loadDashboard(){
             "welcomeTitle"
         );
 
+
     const membershipStatus =
         document.getElementById(
             "membershipStatus"
         );
+
 
     const premiumButton =
         document.getElementById(
             "premiumButton"
         );
 
+
+    const aiButton =
+        document.getElementById(
+            "aiButton"
+        );
+
+
     const premiumBox =
         document.getElementById(
             "premiumBox"
         );
+
 
     const expiryText =
         document.getElementById(
@@ -478,19 +407,24 @@ function loadDashboard(){
         );
 
 
-    /* NAME */
+    /* =========================
+       STUDENT NAME
+    ========================= */
 
     const name =
         student.first_name ||
         "Student";
 
+
     welcomeTitle.textContent =
-        "Welcome, " + name + "!";
+        "Welcome, " +
+        name +
+        "!";
 
 
-    /* =================================
-       PREMIUM MEMBER
-    ================================= */
+    /* =========================
+       PREMIUM ACTIVE
+    ========================= */
 
     if(
         isPremium(student)
@@ -499,30 +433,40 @@ function loadDashboard(){
         membershipStatus.textContent =
             "⭐ Premium Active";
 
+
         membershipStatus.style.background =
             "#e8f7ed";
+
 
         membershipStatus.style.color =
             "#176b35";
 
 
+        /* PREMIUM COURSE */
+
         premiumButton.href =
             "premium-course.html";
+
 
         premiumButton.textContent =
             "⭐ Open Premium Courses";
 
 
+        /* PREMIUM BOX */
+
         premiumBox.style.display =
             "block";
 
 
-        if(student.membership_expiry){
+        if(
+            student.membership_expiry
+        ){
 
             const date =
                 new Date(
                     student.membership_expiry
                 );
+
 
             expiryText.textContent =
                 "Premium expires: " +
@@ -530,23 +474,63 @@ function loadDashboard(){
 
         }
 
+
+        /* =========================
+           AI BUTTON
+        ========================= */
+
+        aiButton.href =
+            "ai.html";
+
+
+        aiButton.textContent =
+            "🤖 Open CreateLK AI";
+
+
+        aiButton.classList.remove(
+            "locked"
+        );
+
     }
 
 
-    /* =================================
+    /* =========================
        NOT PREMIUM
-    ================================= */
+    ========================= */
 
     else{
 
         membershipStatus.textContent =
             "🌱 Free Member";
 
+
+        membershipStatus.style.background =
+            "#eef4ff";
+
+
+        membershipStatus.style.color =
+            "#174ea6";
+
+
         premiumButton.href =
             "payment.html";
 
+
         premiumButton.textContent =
             "⭐ Upgrade to Premium — LKR 1,500";
+
+
+        aiButton.href =
+            "payment.html";
+
+
+        aiButton.textContent =
+            "🔒 Unlock CreateLK AI";
+
+
+        aiButton.classList.add(
+            "locked"
+        );
 
     }
 
@@ -567,6 +551,7 @@ document
             "createlk_student"
         );
 
+
         window.location.href =
             "index.html";
 
@@ -574,15 +559,13 @@ document
 );
 
 
-/* START */
+/* =====================================
+   START
+===================================== */
 
 document.addEventListener(
     "DOMContentLoaded",
     loadDashboard
 );
 
-</script>
-
-</body>
-
-</html>
+</script></body></html>
