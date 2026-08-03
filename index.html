@@ -8,9 +8,19 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Student Login | CreateLK Academy</title>
+<title>CreateLK Academy | Learn English Online</title>
+
+<meta name="description"
+      content="CreateLK Academy - Learn English online with free and premium English courses, MCQ practice, grammar, vocabulary, speaking, pronunciation and more.">
+
+<meta name="robots"
+      content="index, follow">
 
 <style>
+
+/* =====================================
+   RESET
+===================================== */
 
 *{
     margin:0;
@@ -19,7 +29,13 @@
     font-family:"Segoe UI",Arial,sans-serif;
 }
 
+
+/* =====================================
+   BODY
+===================================== */
+
 body{
+
     min-height:100vh;
 
     background:
@@ -29,203 +45,644 @@ body{
             #ffffff
         );
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    color:#172033;
 
-    padding:20px;
+    line-height:1.6;
 }
 
-.container{
-    width:100%;
-    max-width:430px;
-}
 
-.card{
-    background:#ffffff;
+/* =====================================
+   HEADER
+===================================== */
 
-    padding:35px 28px;
-
-    border-radius:20px;
-
-    box-shadow:
-        0 10px 35px
-        rgba(0,0,0,.10);
-}
-
-.logo{
-    text-align:center;
-
-    font-size:29px;
-    font-weight:800;
-
-    color:#174ea6;
-}
-
-.subtitle{
-    text-align:center;
-
-    color:#666;
-
-    margin:
-        6px 0 28px;
-}
-
-.field{
-    margin-bottom:18px;
-}
-
-label{
-    display:block;
-
-    font-weight:600;
-
-    margin-bottom:7px;
-}
-
-input{
-    width:100%;
-
-    padding:14px;
-
-    border:
-        1px solid #d5d9e0;
-
-    border-radius:10px;
-
-    font-size:15px;
-
-    outline:none;
-}
-
-input:focus{
-    border-color:#174ea6;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(23,78,166,.10);
-}
-
-.password-box{
-    position:relative;
-}
-
-.password-box input{
-    padding-right:65px;
-}
-
-.show{
-    position:absolute;
-
-    right:10px;
-    top:50%;
-
-    transform:
-        translateY(-50%);
-
-    border:0;
-
-    background:none;
-
-    color:#174ea6;
-
-    font-weight:600;
-
-    cursor:pointer;
-}
-
-.login-button{
-    width:100%;
-
-    padding:14px;
-
-    border:0;
-
-    border-radius:11px;
+header{
 
     background:#174ea6;
 
     color:#ffffff;
 
-    font-size:16px;
+    position:sticky;
 
-    font-weight:700;
+    top:0;
+
+    z-index:1000;
+
+    box-shadow:
+        0 3px 15px
+        rgba(0,0,0,.12);
+}
+
+
+.header-inner{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:16px 20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+
+/* =====================================
+   LOGO
+===================================== */
+
+.logo{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-size:21px;
+
+    font-weight:800;
+
+    white-space:nowrap;
+}
+
+
+/* =====================================
+   NAVIGATION
+===================================== */
+
+nav{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:5px;
+}
+
+
+nav a{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    padding:8px 11px;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.2s;
+}
+
+
+nav a:hover{
+
+    background:
+        rgba(255,255,255,.15);
+}
+
+
+/* =====================================
+   MOBILE MENU BUTTON
+===================================== */
+
+.menu-button{
+
+    display:none;
+
+    border:0;
+
+    background:transparent;
+
+    color:#ffffff;
+
+    font-size:25px;
 
     cursor:pointer;
 }
 
-.login-button:disabled{
-    opacity:.6;
 
-    cursor:not-allowed;
+/* =====================================
+   HERO
+===================================== */
+
+.hero{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:
+        70px 20px
+        60px;
+
+    text-align:center;
 }
 
-.message{
-    display:none;
 
-    padding:12px;
+.hero h1{
 
-    border-radius:9px;
+    font-size:
+        clamp(
+            32px,
+            6vw,
+            52px
+        );
+
+    line-height:1.15;
+
+    color:#174ea6;
 
     margin-bottom:18px;
-
-    text-align:center;
-
-    font-size:14px;
-
-    line-height:1.5;
 }
 
-.success{
-    background:#e8f7ed;
-    color:#176b35;
+
+.hero h1 span{
+
+    color:#f5a623;
 }
 
-.error{
-    background:#fdeaea;
-    color:#a32121;
+
+.hero p{
+
+    max-width:700px;
+
+    margin:
+        0 auto 28px;
+
+    color:#667085;
+
+    font-size:18px;
 }
 
-.loading{
-    display:none;
 
-    text-align:center;
+/* =====================================
+   HERO BUTTONS
+===================================== */
 
-    color:#174ea6;
+.hero-buttons{
 
-    font-weight:600;
+    display:flex;
 
-    margin-top:15px;
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
 }
 
-.register-link{
-    text-align:center;
 
-    margin-top:22px;
+.button{
 
-    color:#666;
-}
+    display:inline-block;
 
-.register-link a{
-    color:#174ea6;
+    padding:
+        13px 22px;
+
+    border-radius:10px;
+
+    text-decoration:none;
 
     font-weight:700;
 
-    text-decoration:none;
+    transition:.2s;
 }
 
-.home-link{
+
+.primary-button{
+
+    background:#174ea6;
+
+    color:#ffffff;
+}
+
+
+.primary-button:hover{
+
+    background:#123d82;
+}
+
+
+.secondary-button{
+
+    background:#20a464;
+
+    color:#ffffff;
+}
+
+
+.secondary-button:hover{
+
+    background:#17834e;
+}
+
+
+/* =====================================
+   SECTION
+===================================== */
+
+.section{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:
+        25px 20px
+        60px;
+}
+
+
+.section-title{
+
     text-align:center;
 
-    margin-top:15px;
+    font-size:30px;
+
+    color:#172033;
+
+    margin-bottom:10px;
 }
 
-.home-link a{
-    color:#68757c;
+
+.section-subtitle{
+
+    text-align:center;
+
+    color:#667085;
+
+    max-width:650px;
+
+    margin:
+        0 auto 30px;
+}
+
+
+/* =====================================
+   CARDS
+===================================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px,1fr)
+        );
+
+    gap:20px;
+}
+
+
+.card{
+
+    background:#ffffff;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 7px 25px
+        rgba(0,0,0,.07);
+
+    text-align:center;
+
+    transition:.2s;
+}
+
+
+.card:hover{
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.10);
+}
+
+
+.card-icon{
+
+    font-size:43px;
+
+    margin-bottom:10px;
+}
+
+
+.card h3{
+
+    font-size:21px;
+
+    margin-bottom:9px;
+}
+
+
+.card p{
+
+    color:#667085;
+
+    font-size:15px;
+
+    margin-bottom:18px;
+}
+
+
+/* =====================================
+   FREE / PREMIUM
+===================================== */
+
+.free-card{
+
+    border-top:
+        5px solid #20a464;
+}
+
+
+.premium-card{
+
+    border-top:
+        5px solid #f5a623;
+}
+
+
+/* =====================================
+   COURSE FEATURES
+===================================== */
+
+.features{
+
+    list-style:none;
+
+    text-align:left;
+
+    max-width:300px;
+
+    margin:
+        0 auto 20px;
+}
+
+
+.features li{
+
+    margin:8px 0;
+
+    font-size:15px;
+}
+
+
+/* =====================================
+   MEMBERSHIP SECTION
+===================================== */
+
+.membership{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:35px 25px;
+
+    box-shadow:
+        0 7px 25px
+        rgba(0,0,0,.07);
+
+    text-align:center;
+}
+
+
+.price{
+
+    font-size:36px;
+
+    font-weight:800;
+
+    color:#174ea6;
+
+    margin:12px 0;
+}
+
+
+.price span{
+
+    font-size:15px;
+
+    color:#667085;
+
+    font-weight:500;
+}
+
+
+/* =====================================
+   TRUST SECTION
+===================================== */
+
+.trust{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(200px,1fr)
+        );
+
+    gap:15px;
+
+    margin-top:25px;
+}
+
+
+.trust-item{
+
+    background:#f5f8ff;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    font-weight:600;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer{
+
+    background:#172033;
+
+    color:#ffffff;
+
+    margin-top:30px;
+
+    padding:
+        35px 20px;
+}
+
+
+.footer-inner{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    text-align:center;
+}
+
+
+.footer-logo{
+
+    font-size:20px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+}
+
+
+.footer-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:10px 18px;
+
+    margin:
+        15px 0 20px;
+}
+
+
+.footer-links a{
+
+    color:#ffffff;
 
     text-decoration:none;
 
     font-size:14px;
+}
+
+
+.footer-links a:hover{
+
+    text-decoration:underline;
+}
+
+
+.copyright{
+
+    color:#b8c0cc;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media(max-width:800px){
+
+    .header-inner{
+
+        flex-wrap:wrap;
+    }
+
+    .menu-button{
+
+        display:block;
+    }
+
+    nav{
+
+        display:none;
+
+        width:100%;
+
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    nav.active{
+
+        display:flex;
+    }
+
+    nav a{
+
+        text-align:center;
+
+        padding:10px;
+    }
+
+}
+
+
+@media(max-width:500px){
+
+    .hero{
+
+        padding:
+            50px 18px
+            45px;
+    }
+
+    .hero p{
+
+        font-size:16px;
+    }
+
+    .section{
+
+        padding:
+            20px 15px
+            45px;
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+    }
+
+    .button{
+
+        width:100%;
+
+        max-width:330px;
+
+        text-align:center;
+    }
+
 }
 
 </style>
@@ -236,123 +693,523 @@ input:focus{
 <body>
 
 
-<div class="container">
+<!-- =====================================
+     HEADER
+===================================== -->
+
+<header>
+
+<div class="header-inner">
+
+
+<a
+    href="index.html"
+    class="logo">
+
+📚 CreateLK Academy
+
+</a>
+
+
+<button
+    class="menu-button"
+    id="menuButton"
+    type="button"
+    aria-label="Open menu">
+
+☰
+
+</button>
+
+
+<nav id="mainNav">
+
+<a href="index.html">
+🏠 Home
+</a>
+
+<a href="about.html">
+📖 About
+</a>
+
+<a href="membership.html">
+⭐ Membership
+</a>
+
+<a href="contact.html">
+📞 Contact
+</a>
+
+<a href="login.html">
+🔐 Login
+</a>
+
+<a href="register.html">
+📝 Register
+</a>
+
+</nav>
+
+
+</div>
+
+</header>
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<main>
+
+
+<section class="hero">
+
+<h1>
+
+Learn English.
+<br>
+
+<span>Build Your Future.</span>
+
+</h1>
+
+
+<p>
+
+Welcome to CreateLK Academy — an online English
+learning platform designed to help you improve
+your grammar, vocabulary, speaking, pronunciation,
+writing and communication skills.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a
+    href="register.html"
+    class="button primary-button">
+
+📝 Create Free Account
+
+</a>
+
+
+<a
+    href="membership.html"
+    class="button secondary-button">
+
+⭐ Explore Premium
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =====================================
+     COURSES
+===================================== -->
+
+<section class="section">
+
+<h2 class="section-title">
+
+📚 Learn English Online
+
+</h2>
+
+
+<p class="section-subtitle">
+
+Start with our free English course or unlock
+additional learning content with Premium Membership.
+
+</p>
+
+
+<div class="cards">
+
+
+<!-- FREE -->
+
+<div class="card free-card">
+
+<div class="card-icon">
+🌱
+</div>
+
+
+<h3>
+
+Beginner English
+
+</h3>
+
+
+<p>
+
+Start learning English completely free.
+
+</p>
+
+
+<ul class="features">
+
+<li>✓ 100 Free English MCQs</li>
+
+<li>✓ Beginner Grammar</li>
+
+<li>✓ Vocabulary Practice</li>
+
+<li>✓ Instant Practice</li>
+
+<li>✓ Free Forever</li>
+
+</ul>
+
+
+<a
+    href="register.html"
+    class="button secondary-button">
+
+🌱 Start Learning Free
+
+</a>
+
+</div>
+
+
+<!-- PREMIUM -->
+
+<div class="card premium-card">
+
+<div class="card-icon">
+⭐
+</div>
+
+
+<h3>
+
+Premium English Learning
+
+</h3>
+
+
+<p>
+
+Unlock additional English learning courses
+and 900 Premium MCQs.
+
+</p>
+
+
+<ul class="features">
+
+<li>✓ Grammar</li>
+
+<li>✓ Vocabulary</li>
+
+<li>✓ Speaking</li>
+
+<li>✓ Pronunciation</li>
+
+<li>✓ Conversation</li>
+
+<li>✓ Writing</li>
+
+<li>✓ Listening</li>
+
+<li>✓ Business English</li>
+
+<li>✓ Advanced English</li>
+
+</ul>
+
+
+<a
+    href="membership.html"
+    class="button primary-button">
+
+⭐ View Premium Membership
+
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================
+     MEMBERSHIP
+===================================== -->
+
+<section class="section">
+
+<div class="membership">
+
+
+<h2>
+
+⭐ Premium Membership
+
+</h2>
+
+
+<p class="section-subtitle">
+
+Get access to additional English learning
+content for 30 days.
+
+</p>
+
+
+<div class="price">
+
+LKR 1,500
+
+<span>
+/ 30 Days
+</span>
+
+</div>
+
+
+<a
+    href="membership.html"
+    class="button primary-button">
+
+View Membership Details
+
+</a>
+
+
+<div class="trust">
+
+
+<div class="trust-item">
+
+🔒 Secure Payment
+
+</div>
+
+
+<div class="trust-item">
+
+📚 English Learning
+
+</div>
+
+
+<div class="trust-item">
+
+📅 30-Day Access
+
+</div>
+
+
+<div class="trust-item">
+
+📞 Student Support
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================
+     ABOUT / INFORMATION
+===================================== -->
+
+<section class="section">
+
+<h2 class="section-title">
+
+Why CreateLK Academy?
+
+</h2>
+
+
+<p class="section-subtitle">
+
+A simple online learning platform for students
+who want to improve their English skills step by step.
+
+</p>
+
+
+<div class="cards">
+
 
 <div class="card">
 
+<div class="card-icon">
+📖
+</div>
 
-<div class="logo">
+<h3>
+Learn
+</h3>
+
+<p>
+
+Study English grammar, vocabulary and
+communication skills.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+🎯
+</div>
+
+<h3>
+Practice
+</h3>
+
+<p>
+
+Practice with interactive multiple-choice
+questions and learning activities.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+🚀
+</div>
+
+<h3>
+Improve
+</h3>
+
+<p>
+
+Build confidence and improve your English
+skills through regular practice.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+<div class="footer-inner">
+
+
+<div class="footer-logo">
+
 📚 CreateLK Academy
-</div>
-
-
-<div class="subtitle">
-Student Login
-</div>
-
-
-<div
-    id="message"
-    class="message">
-</div>
-
-
-<form id="loginForm">
-
-
-<div class="field">
-
-<label for="email">
-Email Address
-</label>
-
-<input
-    type="email"
-    id="email"
-    placeholder="you@example.com"
-    autocomplete="email"
-    required>
 
 </div>
 
 
-<div class="field">
+<p>
 
-<label for="password">
-Password
-</label>
+Learn English. Build Your Future.
 
-
-<div class="password-box">
-
-<input
-    type="password"
-    id="password"
-    placeholder="Enter your password"
-    autocomplete="current-password"
-    required>
+</p>
 
 
-<button
-    type="button"
-    class="show"
-    id="showPassword">
+<div class="footer-links">
 
-Show
-
-</button>
-
-</div>
-
-</div>
-
-
-<button
-    type="submit"
-    class="login-button"
-    id="loginButton">
-
-Login
-
-</button>
-
-</form>
-
-
-<div
-    id="loading"
-    class="loading">
-
-Opening your dashboard...
-
-</div>
-
-
-<div class="register-link">
-
-Don't have an account?
-
-<a href="register.html">
-Create Account
-</a>
-
-</div>
-
-
-<div class="home-link">
 
 <a href="index.html">
-← Back to CreateLK Academy
+Home
 </a>
 
+
+<a href="about.html">
+About
+</a>
+
+
+<a href="membership.html">
+Membership
+</a>
+
+
+<a href="contact.html">
+Contact
+</a>
+
+
+<a href="login.html">
+Login
+</a>
+
+
+<a href="register.html">
+Register
+</a>
+
+
+<a href="privacy.html">
+Privacy Policy
+</a>
+
+
+<a href="refund.html">
+Refund Policy
+</a>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 CreateLK Academy.
+All Rights Reserved.
+
+<br>
+
+This website provides online English
+learning services and educational content.
+
 </div>
 
 
 </div>
 
-</div>
+</footer>
 
 
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
 
 <script>
 
@@ -360,442 +1217,56 @@ Create Account
 
 
 /* =====================================
-   CLOUDFLARE WORKER
+   MOBILE MENU
 ===================================== */
 
-const API_URL =
-"https://cool-resonance-7780.gateofheavensl1.workers.dev";
+const menuButton =
+    document.getElementById(
+        "menuButton"
+    );
 
 
-/* =====================================
-   ELEMENTS
-===================================== */
-
-const form =
-document.getElementById(
-    "loginForm"
-);
-
-const message =
-document.getElementById(
-    "message"
-);
-
-const button =
-document.getElementById(
-    "loginButton"
-);
-
-const loading =
-document.getElementById(
-    "loading"
-);
-
-const password =
-document.getElementById(
-    "password"
-);
-
-const showPassword =
-document.getElementById(
-    "showPassword"
-);
+const mainNav =
+    document.getElementById(
+        "mainNav"
+    );
 
 
-/* =====================================
-   MESSAGE
-===================================== */
-
-function showMessage(
-    text,
-    type
-){
-
-    message.textContent =
-        text;
-
-    message.className =
-        "message " + type;
-
-    message.style.display =
-        "block";
-
-}
-
-
-/* =====================================
-   LOADING
-===================================== */
-
-function setLoading(
-    state
-){
-
-    button.disabled =
-        state;
-
-    button.textContent =
-        state
-        ? "Logging in..."
-        : "Login";
-
-}
-
-
-/* =====================================
-   SHOW PASSWORD
-===================================== */
-
-showPassword.addEventListener(
+menuButton.addEventListener(
     "click",
     function(){
 
-        if(
-            password.type ===
-            "password"
-        ){
-
-            password.type =
-                "text";
-
-            showPassword.textContent =
-                "Hide";
-
-        }
-
-        else{
-
-            password.type =
-                "password";
-
-            showPassword.textContent =
-                "Show";
-
-        }
+        mainNav.classList.toggle(
+            "active"
+        );
 
     }
 );
 
 
 /* =====================================
-   LOGIN
+   CLOSE MENU AFTER LINK CLICK
 ===================================== */
 
-form.addEventListener(
-    "submit",
-    async function(event){
-
-        event.preventDefault();
-
-
-        message.style.display =
-            "none";
+const navLinks =
+    mainNav.querySelectorAll(
+        "a"
+    );
 
 
-        const email =
-            document
-            .getElementById("email")
-            .value
-            .trim()
-            .toLowerCase();
+navLinks.forEach(
+    function(link){
 
+        link.addEventListener(
+            "click",
+            function(){
 
-        const passwordValue =
-            password.value;
-
-
-        if(
-            !email ||
-            !passwordValue
-        ){
-
-            showMessage(
-                "Please enter your email and password.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        setLoading(true);
-
-
-        try{
-
-            /* =========================
-               SEND LOGIN REQUEST
-            ========================= */
-
-            const response =
-                await fetch(
-                    API_URL + "/login",
-                    {
-                        method:"POST",
-
-                        headers:{
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body:
-                        JSON.stringify({
-
-                            email:
-                                email,
-
-                            password:
-                                passwordValue
-
-                        })
-                    }
+                mainNav.classList.remove(
+                    "active"
                 );
-
-
-            /* =========================
-               READ RESPONSE
-            ========================= */
-
-            const text =
-                await response.text();
-
-
-            let data;
-
-
-            try{
-
-                data =
-                    JSON.parse(text);
 
             }
-
-            catch(error){
-
-                console.error(
-                    "Invalid JSON:",
-                    text
-                );
-
-                showMessage(
-                    "Server returned an invalid response.",
-                    "error"
-                );
-
-                setLoading(false);
-
-                return;
-
-            }
-
-
-            /* =========================
-               HTTP ERROR
-            ========================= */
-
-            if(
-                !response.ok
-            ){
-
-                showMessage(
-                    data.message ||
-                    "Login failed. Server error " +
-                    response.status,
-                    "error"
-                );
-
-                setLoading(false);
-
-                return;
-
-            }
-
-
-            /* =========================
-               API ERROR
-            ========================= */
-
-            if(
-                data.success !== true
-            ){
-
-                showMessage(
-                    data.message ||
-                    "Invalid email or password.",
-                    "error"
-                );
-
-                setLoading(false);
-
-                return;
-
-            }
-
-
-            /* =========================
-               STUDENT CHECK
-            ========================= */
-
-            if(
-                !data.student ||
-                !data.student.id
-            ){
-
-                console.error(
-                    "Student missing:",
-                    data
-                );
-
-                showMessage(
-                    "Login successful, but student information was not returned.",
-                    "error"
-                );
-
-                setLoading(false);
-
-                return;
-
-            }
-
-
-            /* =========================
-               BUILD STUDENT OBJECT
-            ========================= */
-
-            const student = {
-
-                id:
-                    data.student.id,
-
-                first_name:
-                    data.student.first_name ||
-                    "",
-
-                last_name:
-                    data.student.last_name ||
-                    "",
-
-                email:
-                    data.student.email ||
-                    email,
-
-                phone:
-                    data.student.phone ||
-                    "",
-
-                membership_status:
-                    data.student.membership_status ||
-                    "inactive",
-
-                membership_expiry:
-                    data.student.membership_expiry ||
-                    null
-
-            };
-
-
-            /* =========================
-               REMOVE OLD LOGIN DATA
-            ========================= */
-
-            localStorage.removeItem(
-                "createlk_student"
-            );
-
-
-            /* =========================
-               SAVE NEW LOGIN
-            ========================= */
-
-            localStorage.setItem(
-                "createlk_student",
-                JSON.stringify(student)
-            );
-
-
-            /* =========================
-               VERIFY STORAGE
-            ========================= */
-
-            const saved =
-                localStorage.getItem(
-                    "createlk_student"
-                );
-
-
-            if(!saved){
-
-                showMessage(
-                    "Login succeeded, but your browser could not save the login session.",
-                    "error"
-                );
-
-                setLoading(false);
-
-                return;
-
-            }
-
-
-            console.log(
-                "CreateLK student saved:",
-                student
-            );
-
-
-            /* =========================
-               SUCCESS
-            ========================= */
-
-            showMessage(
-                "Login successful!",
-                "success"
-            );
-
-
-            loading.style.display =
-                "block";
-
-
-            form.style.display =
-                "none";
-
-
-            /* =========================
-               DASHBOARD
-            ========================= */
-
-            setTimeout(
-                function(){
-
-                    window.location.href =
-                        "dashboard.html";
-
-                },
-                700
-            );
-
-
-        }
-
-        catch(error){
-
-            console.error(
-                "LOGIN ERROR:",
-                error
-            );
-
-
-            showMessage(
-                "Could not connect to CreateLK Academy server.",
-                "error"
-            );
-
-
-            setLoading(false);
-
-        }
+        );
 
     }
 );
