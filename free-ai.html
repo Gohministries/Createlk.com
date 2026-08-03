@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en">
 <head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>CreateLK Academy | Learn English Online</title><meta name="description"
-content="CreateLK Academy provides online English learning, AI English practice and Premium English courses.">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Free AI English Tutor | CreateLK Academy</title><meta name="description"
+content="Free AI English Tutor from CreateLK Academy. Practise English grammar, vocabulary, writing, pronunciation and conversation with AI.">
 
 <meta name="theme-color" content="#174ea6"><style>
 
@@ -9,13 +9,13 @@ content="CreateLK Academy provides online English learning, AI English practice 
 box-sizing:border-box;
 margin:0;
 padding:0;
-font-family:"Segoe UI",Arial,sans-serif
+font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
 background:#f5f8ff;
 color:#172033;
-min-height:100vh
+min-height:100vh;
 }
 
 /* ================= HEADER ================= */
@@ -26,34 +26,28 @@ color:#fff;
 position:sticky;
 top:0;
 z-index:1000;
-box-shadow:0 3px 15px #0002
+box-shadow:0 3px 15px #0002;
 }
 
 .nav{
 max-width:1100px;
 margin:auto;
-padding:13px 18px;
+padding:13px 16px;
 display:flex;
 align-items:center;
 justify-content:space-between;
 gap:15px;
-position:relative
 }
 
 .logo{
 font-size:19px;
 font-weight:800;
-white-space:nowrap
 }
-
-/* ================= MENU ================= */
 
 .menu{
 display:flex;
-align-items:center;
 gap:5px;
 flex-wrap:wrap;
-justify-content:flex-end
 }
 
 .menu a{
@@ -63,15 +57,11 @@ font-size:13px;
 font-weight:700;
 padding:9px 10px;
 border-radius:8px;
-transition:.2s;
-white-space:nowrap
 }
 
 .menu a:hover{
-background:#ffffff20
+background:#ffffff20;
 }
-
-/* MOBILE MENU BUTTON */
 
 .menuButton{
 display:none;
@@ -82,155 +72,135 @@ padding:9px 12px;
 border-radius:8px;
 font-size:14px;
 font-weight:800;
-cursor:pointer
+cursor:pointer;
 }
 
 /* ================= MAIN ================= */
 
 main{
-max-width:1100px;
+max-width:900px;
 margin:auto;
-padding:35px 16px 55px
+padding:30px 15px 55px;
 }
 
 .hero{
-background:#fff;
-border-radius:22px;
-padding:42px 25px;
 text-align:center;
-box-shadow:0 8px 30px #00000010
+margin:10px 0 25px;
 }
 
 .hero h1{
-font-size:34px;
+font-size:32px;
 color:#174ea6;
-margin-bottom:10px
+margin-bottom:8px;
 }
 
 .hero p{
-max-width:700px;
-margin:auto;
 color:#667085;
-line-height:1.7;
-font-size:15px
+font-size:15px;
+line-height:1.6;
 }
 
-.buttons{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-max-width:650px;
-margin:28px auto 0
-}
-
-.btn{
-display:block;
-padding:15px;
-border-radius:11px;
-text-decoration:none;
-font-weight:800;
-font-size:15px
-}
-
-.free{
-background:#20a464;
-color:#fff
-}
-
-.premium{
-background:#f5a623;
-color:#fff
-}
-
-/* ================= SECTIONS ================= */
-
-.section{
-margin-top:25px
-}
-
-.section h2{
-font-size:23px;
-margin-bottom:14px
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px
-}
+/* ================= CARD ================= */
 
 .card{
 background:#fff;
+border-radius:20px;
 padding:20px;
-border-radius:16px;
-box-shadow:0 5px 22px #0000000d
+box-shadow:0 8px 30px #00000012;
 }
-
-.card h3{
-font-size:17px;
-margin-bottom:7px
-}
-
-.card p{
-color:#667085;
-font-size:13px;
-line-height:1.6
-}
-
-.card a{
-display:inline-block;
-margin-top:12px;
-color:#174ea6;
-font-weight:800;
-font-size:13px;
-text-decoration:none
-}
-
-.card a:hover{
-text-decoration:underline
-}
-
-/* ================= INFO ================= */
 
 .info{
-background:#fff;
-padding:22px;
-border-radius:16px;
-margin-top:25px;
-box-shadow:0 5px 22px #0000000d
-}
-
-.info h2{
-font-size:21px
-}
-
-.info p{
-color:#667085;
-font-size:14px;
-line-height:1.7;
-margin-top:8px
-}
-
-.links{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
-margin-top:15px
-}
-
-.links a{
 background:#eef4ff;
 color:#174ea6;
-padding:13px 8px;
-border-radius:10px;
-text-align:center;
-text-decoration:none;
-font-size:13px;
-font-weight:800
+padding:14px;
+border-radius:12px;
+margin-bottom:18px;
+font-size:14px;
+line-height:1.6;
 }
 
-.links a:hover{
-background:#dce9ff
+/* ================= CHAT ================= */
+
+#chat{
+height:390px;
+overflow-y:auto;
+padding:5px;
+margin-bottom:15px;
+scroll-behavior:smooth;
+}
+
+.msg{
+padding:12px 14px;
+border-radius:14px;
+margin:10px 0;
+max-width:88%;
+white-space:pre-wrap;
+line-height:1.55;
+font-size:14px;
+}
+
+.user{
+background:#174ea6;
+color:#fff;
+margin-left:auto;
+}
+
+.ai{
+background:#eef4ff;
+color:#172033;
+}
+
+/* ================= INPUT ================= */
+
+.form{
+display:flex;
+gap:9px;
+}
+
+textarea{
+flex:1;
+resize:none;
+border:1px solid #d0d5dd;
+border-radius:12px;
+padding:13px;
+font-size:15px;
+min-height:58px;
+outline:none;
+}
+
+textarea:focus{
+border-color:#174ea6;
+box-shadow:0 0 0 3px #174ea61a;
+}
+
+button{
+border:0;
+border-radius:12px;
+background:#174ea6;
+color:#fff;
+padding:0 20px;
+font-weight:800;
+cursor:pointer;
+}
+
+button:disabled{
+opacity:.6;
+cursor:not-allowed;
+}
+
+/* ================= LIMIT ================= */
+
+.limit{
+text-align:center;
+color:#667085;
+font-size:13px;
+margin-top:12px;
+line-height:1.5;
+}
+
+.limit.reached{
+color:#b42318;
+font-weight:700;
 }
 
 /* ================= FOOTER ================= */
@@ -240,12 +210,12 @@ text-align:center;
 color:#667085;
 font-size:13px;
 padding:25px 15px;
-line-height:1.8
+line-height:1.8;
 }
 
 footer a{
 color:#174ea6;
-text-decoration:none
+text-decoration:none;
 }
 
 /* ================= WHATSAPP ================= */
@@ -265,87 +235,69 @@ justify-content:center;
 text-decoration:none;
 font-size:27px;
 box-shadow:0 5px 20px #0004;
-z-index:2000
+z-index:2000;
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE MENU ================= */
 
 @media(max-width:850px){
 
 .menuButton{
-display:block
+display:block;
 }
 
 .menu{
 display:none;
 position:absolute;
 top:62px;
-right:15px;
 left:15px;
+right:15px;
 background:#174ea6;
 padding:10px;
 border-radius:14px;
 box-shadow:0 8px 25px #0004;
 flex-direction:column;
-align-items:stretch;
-gap:3px
+gap:3px;
 }
 
 .menu.open{
-display:flex
+display:flex;
 }
 
 .menu a{
 display:block;
 width:100%;
 padding:12px 14px;
-border-radius:9px
-}
-
-.grid{
-grid-template-columns:1fr 1fr
 }
 
 }
+
+/* ================= MOBILE ================= */
 
 @media(max-width:600px){
 
-.nav{
-padding:12px 15px
+.hero h1{
+font-size:27px;
+}
+
+#chat{
+height:340px;
+}
+
+.form{
+align-items:stretch;
+}
+
+button{
+padding:0 15px;
+}
+
+.msg{
+max-width:95%;
 }
 
 .logo{
-font-size:17px
-}
-
-.hero{
-padding:32px 18px
-}
-
-.hero h1{
-font-size:27px
-}
-
-.buttons{
-grid-template-columns:1fr
-}
-
-.grid{
-grid-template-columns:1fr
-}
-
-.links{
-grid-template-columns:1fr 1fr
-}
-
-}
-
-/* VERY SMALL PHONES */
-
-@media(max-width:380px){
-
-.links{
-grid-template-columns:1fr
+font-size:17px;
 }
 
 }
@@ -356,7 +308,6 @@ grid-template-columns:1fr
 class="menuButton"
 id="menuButton"
 type="button"
-aria-label="Open navigation menu"
 aria-expanded="false">
 
 ☰ Menu
@@ -367,9 +318,7 @@ id="mainMenu"><a href="index.html">
 🏠 Home
 </a><a href="about.html">
 ℹ️ About
-</a><a href="free-course.html">
-🌱 Free Learning
-</a><a href="https://free.gateofheavensl1.workers.dev/">
+</a><a href="free-ai.html">
 🤖 Free AI Tutor
 </a><a href="https://ai-mcq.gateofheavensl1.workers.dev/">
 📝 AI MCQs
@@ -378,121 +327,55 @@ id="mainMenu"><a href="index.html">
 </a><a href="contact.html">
 📞 Contact
 </a></div></nav></header><!-- ================= MAIN ================= --><main><section class="hero"><h1>
-📚 Learn English. Build Your Future.
+🤖 Free AI English Tutor
 </h1><p>
-CreateLK Academy helps students improve English
-through structured lessons, interactive MCQ practice,
-AI-powered learning and Premium English courses.
-</p><div class="buttons"><a
-class="btn free"
-href="free-course.html">
+Practise English grammar, vocabulary, writing,
+pronunciation and conversation with AI.
+</p></section><div class="card"><div class="info">🌱 <b>Free AI Learning</b><br>
 
-🌱 Start Free Learning
+No registration, login or email required.
+Free users can ask up to <b>10 questions per day</b>.
 
-</a><a
-class="btn premium"
-href="login.html?next=payment.html">
+</div><!-- ================= CHAT ================= --><div id="chat"><div class="msg ai">👋 Hello! I'm your CreateLK AI English Tutor.
 
-⭐ Premium — LKR 1,500
+Ask me anything about:
 
-</a></div></section><!-- ================= SERVICES ================= --><section class="section"><h2>
-📚 Our Learning Services
-</h2><div class="grid"><div class="card"><h3>
-🌱 Free English Learning
-</h3><p>
-Build your English foundation with grammar,
-vocabulary and practical MCQ exercises.
-</p><a href="free-course.html">
-Start Free Learning →
-</a></div><div class="card"><h3>
-🤖 AI English Tutor
-</h3><p>
-Practise grammar, vocabulary, writing,
-pronunciation and English conversation with AI.
-</p><a href="https://free.gateofheavensl1.workers.dev/">
-Open Free AI Tutor →
-</a></div><div class="card"><h3>
-📝 AI MCQ Generator
-</h3><p>
-Generate personalised English multiple-choice
-questions for additional practice.
-Free users can practise up to 10 questions per day,
-while Premium members can access up to 100 per day.
-</p><a href="https://ai-mcq.gateofheavensl1.workers.dev/">
-Practice AI MCQs →
-</a></div><div class="card"><h3>
-⭐ Premium English
-</h3><p>
-Access additional English courses and
-advanced learning materials with Premium membership.
-LKR 1,500 for 30 days.
-</p><a href="login.html?next=payment.html">
-View Premium →
-</a></div><div class="card"><h3>
-👤 Student Account
-</h3><p>
-Registered students can log in to access
-their dashboard and membership information.
-</p><a href="login.html">
-Student Login →
-</a></div><div class="card"><h3>
-📞 Customer Support
-</h3><p>
-Have a question about our courses,
-membership or payment? Contact us.
-</p><a href="contact.html">
-Contact Us →
-</a></div></div></section><!-- ================= PREMIUM ================= --><section class="info"><h2>
-⭐ Premium Membership
-</h2><p>
-Get access to additional English learning
-resources for <b>LKR 1,500 for 30 days</b>.
-Premium members can also receive the higher
-AI MCQ daily limit of up to
-<b>100 questions per day</b>.
-</p><div class="links"><a href="login.html?next=payment.html">
-💳 Membership
-</a><a href="terms.html">
-📄 Terms
-</a><a href="privacy.html">
-🔒 Privacy
-</a><a href="refund.html">
-↩️ Refund Policy
-</a></div></section><!-- ================= ABOUT ================= --><section class="info"><h2>
-🏢 About CreateLK Academy
-</h2><p>
-CreateLK Academy is an online English learning
-platform designed to help learners develop
-practical English skills through structured
-courses, practice questions and AI-powered
-learning tools.
-</p><div class="links"><a href="about.html">
-ℹ️ About Us
-</a><a href="contact.html">
-📞 Contact Us
-</a><a href="login.html">
-🔐 Login
-</a><a href="register.html">
-✍️ Register
-</a></div></section></main><!-- ================= FOOTER ================= --><footer>📚 <b>CreateLK Academy</b><br>
+• Grammar
+• Vocabulary
+• Writing
+• Pronunciation
+• Conversation
+• English practice
+
+How can I help you today?
+
+</div></div><!-- ================= QUESTION FORM ================= --><div class="form"><textarea
+id="question"
+maxlength="1000"
+placeholder="Ask your English question..."
+aria-label="Ask your English question"></textarea><button
+id="send"
+type="button">
+
+Send
+
+</button></div><div
+class="limit"
+id="limit">Checking today's free AI usage...
+
+</div></div></main><!-- ================= FOOTER ================= --><footer>📚 <b>CreateLK Academy</b><br>
 
 Learn English. Build Your Future.<br><br>
 
-<a href="about.html">
-About
-</a>
-·<a href="contact.html">
-Contact
-</a>
-·<a href="privacy.html">
-Privacy
-</a>
-·<a href="terms.html">
-Terms
-</a>
-·<a href="refund.html">
-Refunds
-</a><br><br>
+<a href="about.html">About</a>
+·
+<a href="contact.html">Contact</a>
+·
+<a href="privacy.html">Privacy</a>
+·
+<a href="terms.html">Terms</a>
+
+<br><br>
 
 © 2026 CreateLK Academy. All Rights Reserved.
 
@@ -501,11 +384,81 @@ class="whatsapp"
 href="https://wa.me/94771190395"
 target="_blank"
 rel="noopener noreferrer"
+title="Contact CreateLK Academy on WhatsApp"
 aria-label="Contact CreateLK Academy on WhatsApp">
 
 💬
 
-</a><!-- ================= MENU SCRIPT ================= --><script>
+</a><script>
+
+"use strict";
+
+
+/* =================================
+   CONFIGURATION
+================================= */
+
+const API =
+"https://free.gateofheavensl1.workers.dev";
+
+const FREE_LIMIT = 10;
+
+
+/* =================================
+   DEVICE ID
+================================= */
+
+let deviceId =
+localStorage.getItem(
+"createlk_ai_device"
+);
+
+
+if(!deviceId){
+
+if(
+window.crypto &&
+typeof crypto.randomUUID === "function"
+){
+
+deviceId =
+crypto.randomUUID();
+
+}else{
+
+deviceId =
+"ai-" +
+Date.now() +
+"-" +
+Math.random()
+.toString(36)
+.substring(2);
+
+}
+
+localStorage.setItem(
+"createlk_ai_device",
+deviceId
+);
+
+}
+
+
+/* =================================
+   ELEMENTS
+================================= */
+
+const chat =
+document.getElementById("chat");
+
+const question =
+document.getElementById("question");
+
+const send =
+document.getElementById("send");
+
+const limit =
+document.getElementById("limit");
 
 const menuButton =
 document.getElementById("menuButton");
@@ -514,26 +467,32 @@ const mainMenu =
 document.getElementById("mainMenu");
 
 
+/* =================================
+   MOBILE MENU
+================================= */
+
 menuButton.addEventListener(
 "click",
 function(){
 
-const isOpen =
+const open =
 mainMenu.classList.toggle("open");
 
 menuButton.setAttribute(
 "aria-expanded",
-isOpen ? "true" : "false"
+open ? "true" : "false"
 );
 
 menuButton.textContent =
-isOpen ? "✕ Close" : "☰ Menu";
+open
+?
+"✕ Close"
+:
+"☰ Menu";
 
 }
 );
 
-
-/* Close menu after selecting a link */
 
 mainMenu
 .querySelectorAll("a")
@@ -559,30 +518,383 @@ menuButton.textContent =
 });
 
 
-/* Close menu when clicking outside */
+/* =================================
+   ADD CHAT MESSAGE
+================================= */
 
-document.addEventListener(
-"click",
-function(event){
-
-if(
-!mainMenu.contains(event.target) &&
-!menuButton.contains(event.target)
+function addMessage(
+text,
+type
 ){
 
-mainMenu.classList.remove("open");
+const div =
+document.createElement("div");
 
-menuButton.setAttribute(
-"aria-expanded",
-"false"
-);
+div.className =
+"msg " + type;
 
-menuButton.textContent =
-"☰ Menu";
+div.textContent =
+text;
+
+chat.appendChild(div);
+
+chat.scrollTop =
+chat.scrollHeight;
+
+return div;
 
 }
 
-});
+
+/* =================================
+   CHECK USAGE
+================================= */
+
+async function checkUsage(){
+
+try{
+
+const response =
+await fetch(
+API +
+"/usage?device_id=" +
+encodeURIComponent(deviceId),
+{
+method:"GET",
+cache:"no-store"
+}
+);
+
+
+const contentType =
+response.headers
+.get("content-type") || "";
+
+
+if(
+!contentType.includes(
+"application/json"
+)
+){
+
+throw new Error(
+"Invalid usage response."
+);
+
+}
+
+
+const data =
+await response.json();
+
+
+const used =
+Number(
+data.used ??
+data.question_count ??
+data.questions ??
+0
+);
+
+
+const max =
+Number(
+data.limit ??
+FREE_LIMIT
+);
+
+
+if(used >= max){
+
+limit.className =
+"limit reached";
+
+limit.textContent =
+"⏳ Daily limit reached: " +
+used +
+" / " +
+max +
+". Please try again tomorrow.";
+
+send.disabled=true;
+
+}else{
+
+limit.className =
+"limit";
+
+limit.textContent =
+"🌱 Free AI: " +
+used +
+" / " +
+max +
+" questions used today";
+
+}
+
+}catch(error){
+
+console.error(
+"Usage check error:",
+error
+);
+
+limit.className =
+"limit";
+
+limit.textContent =
+"🌱 Free AI — " +
+FREE_LIMIT +
+" questions available each day.";
+
+}
+
+}
+
+
+/* =================================
+   ASK AI
+================================= */
+
+async function askAI(){
+
+const text =
+question.value.trim();
+
+
+if(!text){
+
+question.focus();
+
+return;
+
+}
+
+
+if(text.length < 2){
+
+addMessage(
+"⚠️ Please enter a complete question.",
+"ai"
+);
+
+return;
+
+}
+
+
+if(text.length > 1000){
+
+addMessage(
+"⚠️ Your question is too long. Please keep it under 1000 characters.",
+"ai"
+);
+
+return;
+
+}
+
+
+send.disabled=true;
+
+question.disabled=true;
+
+
+addMessage(
+text,
+"user"
+);
+
+
+question.value="";
+
+
+const loading =
+addMessage(
+"🤖 Thinking...",
+"ai"
+);
+
+
+try{
+
+
+const response =
+await fetch(
+API + "/ask",
+{
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+question:text,
+
+device_id:deviceId
+
+})
+
+}
+);
+
+
+const contentType =
+response.headers
+.get("content-type") || "";
+
+
+let data;
+
+
+if(
+contentType.includes(
+"application/json"
+)
+){
+
+data =
+await response.json();
+
+}else{
+
+const serverText =
+await response.text();
+
+throw new Error(
+serverText ||
+"Unexpected server response."
+);
+
+}
+
+
+loading.remove();
+
+
+if(
+!response.ok ||
+data.success === false
+){
+
+addMessage(
+data.message ||
+"⚠️ Sorry, I could not answer right now.",
+"ai"
+);
+
+}else{
+
+const answer =
+data.answer ||
+data.response ||
+data.result;
+
+
+if(answer){
+
+addMessage(
+answer,
+"ai"
+);
+
+}else{
+
+addMessage(
+"⚠️ The AI did not return an answer.",
+"ai"
+);
+
+}
+
+}
+
+
+await checkUsage();
+
+
+}catch(error){
+
+console.error(
+"AI request error:",
+error
+);
+
+
+loading.remove();
+
+
+addMessage(
+"⚠️ Unable to connect to the Free AI service. Please try again.",
+"ai"
+);
+
+
+/*
+Allow retry after connection errors.
+*/
+
+send.disabled=false;
+
+}
+
+
+question.disabled=false;
+
+if(
+!limit.classList.contains("reached")
+){
+
+send.disabled=false;
+
+}
+
+question.focus();
+
+}
+
+
+/* =================================
+   SEND BUTTON
+================================= */
+
+send.addEventListener(
+"click",
+askAI
+);
+
+
+/* =================================
+   ENTER TO SEND
+================================ */
+
+question.addEventListener(
+"keydown",
+function(event){
+
+if(
+event.key === "Enter" &&
+!event.shiftKey
+){
+
+event.preventDefault();
+
+askAI();
+
+}
+
+}
+);
+
+
+/* =================================
+   INITIAL USAGE CHECK
+================================ */
+
+checkUsage();
 
 </script></body>
 </html>
