@@ -2,7 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Premium Payment | CreateLK Academy</title><meta name="description"
-content="CreateLK Academy Premium - LKR 1,500 for 30 days. Pay by bank deposit and submit your receipt for manual verification.">
+content="CreateLK Academy Premium - LKR 1,500 for 30 days. Bank payment and receipt verification.">
 
 <style>
 *{
@@ -12,10 +12,6 @@ content="CreateLK Academy Premium - LKR 1,500 for 30 days. Pay by bank deposit a
     font-family:"Segoe UI",Arial,sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
     min-height:100vh;
     background:#f5f8fc;
@@ -23,7 +19,6 @@ body{
     line-height:1.6;
 }
 
-/* HEADER */
 header{
     background:#1769ff;
     color:white;
@@ -34,7 +29,7 @@ header{
 }
 
 .nav{
-    max-width:1150px;
+    max-width:1100px;
     margin:auto;
     min-height:68px;
     padding:0 20px;
@@ -50,6 +45,12 @@ header{
     font-weight:800;
 }
 
+.menu{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
 .nav-links{
     display:flex;
     align-items:center;
@@ -62,45 +63,28 @@ header{
     font-weight:600;
 }
 
-.nav-links a:hover{
-    text-decoration:underline;
-}
-
-.menu{
-    display:none;
-    font-size:28px;
-    cursor:pointer;
-}
-
-/* HERO */
 .hero{
     background:linear-gradient(135deg,#1769ff,#4b8dff);
     color:white;
     text-align:center;
-    padding:55px 20px;
+    padding:50px 20px;
 }
 
 .hero h1{
     font-size:38px;
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
-.hero p{
-    opacity:.95;
-}
-
-/* CONTAINER */
 .container{
-    max-width:900px;
+    max-width:850px;
     margin:auto;
-    padding:40px 20px 60px;
+    padding:35px 20px 60px;
 }
 
-/* CARD */
 .card{
     background:white;
     border-radius:22px;
-    padding:35px 25px;
+    padding:30px 25px;
     box-shadow:0 10px 35px rgba(0,0,0,.08);
 }
 
@@ -113,28 +97,27 @@ header{
     font-weight:800;
     color:#1769ff;
     text-align:center;
-    margin:10px 0;
+    margin:8px 0;
 }
 
 .duration{
     text-align:center;
-    color:#666;
+    color:#667085;
+    margin-bottom:25px;
 }
 
-/* SECTION */
 .section{
     border:1px solid #e5eaf2;
     border-radius:16px;
     padding:25px;
-    margin-top:22px;
+    margin-top:20px;
 }
 
 .section h2{
     color:#1769ff;
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
-/* BANK DETAILS */
 .bank-details{
     background:#f8fafc;
     border-radius:12px;
@@ -145,7 +128,7 @@ header{
 .detail{
     display:flex;
     justify-content:space-between;
-    gap:20px;
+    gap:15px;
     padding:9px 0;
     border-bottom:1px solid #e5e7eb;
 }
@@ -162,23 +145,17 @@ header{
     text-align:right;
 }
 
-/* NOTE */
-.note{
+.instructions{
     background:#eef5ff;
     border-radius:12px;
     padding:16px;
-    margin-top:18px;
+    margin:18px 0;
 }
 
-.note strong{
-    color:#1769ff;
-}
-
-/* FORM */
 label{
     display:block;
     font-weight:700;
-    margin-top:18px;
+    margin-top:16px;
 }
 
 input{
@@ -194,14 +171,12 @@ input{
 input:focus{
     outline:none;
     border-color:#1769ff;
-    box-shadow:0 0 0 3px rgba(23,105,255,.10);
 }
 
 input[type="file"]{
     padding:10px;
 }
 
-/* BUTTON */
 .button{
     width:100%;
     border:0;
@@ -218,16 +193,19 @@ input[type="file"]{
     color:white;
 }
 
-.bank-button:hover{
-    background:#166534;
-}
-
 .button:disabled{
     opacity:.6;
     cursor:not-allowed;
 }
 
-/* MESSAGE */
+.loading{
+    display:none;
+    text-align:center;
+    margin-top:12px;
+    color:#1769ff;
+    font-weight:700;
+}
+
 .message{
     display:none;
     padding:14px;
@@ -249,15 +227,6 @@ input[type="file"]{
     color:#991b1b;
 }
 
-.loading{
-    display:none;
-    text-align:center;
-    margin-top:12px;
-    color:#1769ff;
-    font-weight:700;
-}
-
-/* SECURITY */
 .security-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -282,7 +251,6 @@ input[type="file"]{
     font-size:14px;
 }
 
-/* BACK */
 .back{
     display:block;
     text-align:center;
@@ -292,7 +260,6 @@ input[type="file"]{
     font-weight:700;
 }
 
-/* FOOTER */
 footer{
     background:#111827;
     color:#d1d5db;
@@ -317,11 +284,6 @@ footer{
     font-size:14px;
 }
 
-.footer-links a:hover{
-    color:white;
-}
-
-/* MOBILE */
 @media(max-width:700px){
 
     .nav-links{
@@ -347,10 +309,6 @@ footer{
         font-size:30px;
     }
 
-    .security-grid{
-        grid-template-columns:1fr;
-    }
-
     .detail{
         flex-direction:column;
         gap:2px;
@@ -359,36 +317,31 @@ footer{
     .detail strong{
         text-align:left;
     }
+
+    .security-grid{
+        grid-template-columns:1fr;
+    }
 }
 </style></head><body><header>
-<div class="nav"><a href="/" class="logo">
+<div class="nav"><a href="index.html" class="logo">
 📚 CreateLK Academy
-</a><div class="menu" onclick="toggleMenu()">
-☰
-</div><nav id="navLinks" class="nav-links"><a href="/">
-Home
-</a><a href="/about.html">
-About
-</a><a href="/membership.html">
-Membership
-</a><a href="/contact.html">
-Contact
-</a></nav></div>
-</header><section class="hero"><h1>
-💳 Premium Payment
-</h1><p>
-Secure your 30-day CreateLK Academy Premium membership.
-</p></section><main class="container"><div class="card"><h2 class="title">
+</a><div class="menu" onclick="toggleMenu()">☰</div><nav id="navLinks" class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="membership.html">Membership</a>
+<a href="contact.html">Contact</a>
+</nav></div>
+</header><section class="hero">
+<h1>💳 Premium Payment</h1>
+<p>Secure your 30-day CreateLK Academy Premium membership.</p>
+</section><main class="container"><div class="card"><h2 class="title">
 ⭐ CreateLK Academy Premium
 </h2><div class="price">
 LKR 1,500
 </div><div class="duration">
 30 Days Premium Access
-</div><!-- BANK PAYMENT --><div class="section"><h2>
-🏦 Bank Deposit
-</h2><p>
-Make a bank deposit and upload your receipt
-for manual verification.
+</div><div class="section"><h2>🏦 Bank Deposit</h2><p>
+Make a bank deposit and upload your receipt for manual verification.
 </p><div class="bank-details"><div class="detail">
 <span>Bank</span>
 <strong>People's Bank</strong>
@@ -404,24 +357,21 @@ for manual verification.
 </div><div class="detail">
 <span>Amount</span>
 <strong>LKR 1,500</strong>
-</div></div><div class="note"><strong>
-📌 Payment Instructions
-</strong><p>
-After making the deposit, enter the name of
-the person who made the payment and the
-sender's bank account number. Then upload
-the payment receipt.
+</div></div><div class="instructions"><strong>📌 Payment Instructions</strong>
+
+<p>
+After making the deposit, enter the name of the person
+who made the payment and the sender's bank account number.
+Then upload the payment receipt.
 </p></div><form id="bankForm"><label for="senderName">
 Sender Name
 </label><input
 type="text"
 id="senderName"
 name="sender_name"
-placeholder="Name of person who made the deposit"
-autocomplete="name"
+placeholder="Enter the name of the person who made the payment"
 required
-
-«»
+autocomplete="name">
 
 <label for="senderAccount">
 Sender Bank Account Number
@@ -429,12 +379,9 @@ Sender Bank Account Number
 type="text"
 id="senderAccount"
 name="sender_account"
-placeholder="Bank account number used for the deposit"
-inputmode="numeric"
-autocomplete="off"
+placeholder="Enter sender's bank account number"
 required
-
-«»
+autocomplete="off">
 
 <label for="receipt">
 Upload Payment Receipt
@@ -443,9 +390,7 @@ type="file"
 id="receipt"
 name="receipt"
 accept="image/jpeg,image/png,image/webp,application/pdf"
-required
-
-«»
+required>
 
 <button
 type="submit"
@@ -454,68 +399,40 @@ class="button bank-button">
 
 🏦 Submit Bank Payment
 
-</button><div
-id="bankLoading"
-class="loading">⏳ Uploading receipt securely...
+</button><div id="bankLoading" class="loading">
+⏳ Uploading receipt securely...
+</div><div id="bankMessage" class="message"></div></form></div><div class="instructions"><strong>⏳ Manual Verification</strong>
 
-</div><div
-id="bankMessage"
-class="message">
-</div></form></div><!-- MANUAL VERIFICATION --><div class="note"><strong>
-⏳ Manual Verification
-</strong><p>
-Your payment will remain pending until it is
-reviewed and approved by CreateLK Academy.
-Premium access will be activated after
-successful verification.
-</p></div></div><!-- SECURITY --><div class="security-grid"><div class="security"><div class="security-icon">
-🔐
-</div><h3>
-Secure
-</h3><p>
-Your payment receipt is securely processed.
-</p></div><div class="security"><div class="security-icon">
-☁️
-</div><h3>
-Cloudflare
-</h3><p>
-Receipts are securely stored on the server.
-</p></div><div class="security"><div class="security-icon">
-📅
-</div><h3>
-30 Days
-</h3><p>
-Premium access is valid for 30 days.
-</p></div></div><a
-href="/membership.html"
-class="back">
-
+<p>
+Your payment will remain pending until it is reviewed and approved.
+Premium access will be activated after successful verification.
+</p></div></div><div class="security-grid"><div class="security">
+<div class="security-icon">🔐</div>
+<h3>Secure</h3>
+<p>Your payment receipt is securely processed.</p>
+</div><div class="security">
+<div class="security-icon">☁️</div>
+<h3>Cloudflare</h3>
+<p>Receipts are securely stored on the server.</p>
+</div><div class="security">
+<div class="security-icon">📅</div>
+<h3>30 Days</h3>
+<p>Premium access is valid for 30 days.</p>
+</div></div><a href="membership.html" class="back">
 ← Back to Premium Membership
-
 </a></main><footer><div class="footer-logo">
 📚 CreateLK Academy
-</div><div class="footer-links"><a href="/">
-Home
-</a><a href="/about.html">
-About
-</a><a href="/contact.html">
-Contact
-</a><a href="/membership.html">
-Membership
-</a><a href="/payment.html">
-Payment
-</a><a href="/privacy.html">
-Privacy
-</a><a href="/refund.html">
-Refund Policy
-</a></div><div>
+</div><div class="footer-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="membership.html">Membership</a>
+<a href="payment.html">Payment</a>
+<a href="privacy.html">Privacy</a>
+<a href="refund.html">Refund Policy</a>
+</div><div>
 © 2026 CreateLK Academy. All Rights Reserved.
 </div></footer><script>
-
-"use strict";
-
-
-/* MOBILE MENU */
 
 function toggleMenu(){
 
@@ -527,7 +444,9 @@ function toggleMenu(){
 }
 
 
-/* BANK PAYMENT WORKER */
+/* =========================================
+   BANK PAYMENT WORKER
+========================================= */
 
 const BANK_PAYMENT_WORKER =
 "https://bankpayment.gateofheavensl1.workers.dev/bank-payment";
@@ -535,69 +454,45 @@ const BANK_PAYMENT_WORKER =
 
 document
 .getElementById("bankForm")
-.addEventListener(
-"submit",
-async function(e){
+.addEventListener("submit", async function(e){
 
     e.preventDefault();
 
-
     const button =
-        document.getElementById(
-            "bankButton"
-        );
+        document.getElementById("bankButton");
 
     const loading =
-        document.getElementById(
-            "bankLoading"
-        );
+        document.getElementById("bankLoading");
 
     const message =
-        document.getElementById(
-            "bankMessage"
-        );
+        document.getElementById("bankMessage");
 
+    message.className = "message";
+    message.textContent = "";
 
     const senderName =
         document
-        .getElementById(
-            "senderName"
-        )
+        .getElementById("senderName")
         .value
         .trim();
-
 
     const senderAccount =
         document
-        .getElementById(
-            "senderAccount"
-        )
+        .getElementById("senderAccount")
         .value
         .trim();
 
-
     const receipt =
         document
-        .getElementById(
-            "receipt"
-        )
+        .getElementById("receipt")
         .files[0];
-
-
-    message.className =
-        "message";
-
-    message.textContent =
-        "";
 
 
     /* VALIDATION */
 
     if(!senderName){
 
-        message.className =
-            "message error";
-
+        message.className = "message error";
         message.textContent =
             "Please enter the sender name.";
 
@@ -607,9 +502,7 @@ async function(e){
 
     if(!senderAccount){
 
-        message.className =
-            "message error";
-
+        message.className = "message error";
         message.textContent =
             "Please enter the sender bank account number.";
 
@@ -619,24 +512,17 @@ async function(e){
 
     if(!receipt){
 
-        message.className =
-            "message error";
-
+        message.className = "message error";
         message.textContent =
-            "Please upload your payment receipt.";
+            "Please select your payment receipt.";
 
         return;
     }
 
 
-    if(
-        receipt.size >
-        10 * 1024 * 1024
-    ){
+    if(receipt.size > 10 * 1024 * 1024){
 
-        message.className =
-            "message error";
-
+        message.className = "message error";
         message.textContent =
             "Receipt must be smaller than 10 MB.";
 
@@ -646,21 +532,27 @@ async function(e){
 
     /* FORM DATA */
 
-    const formData =
-        new FormData();
-
+    const formData = new FormData();
 
     formData.append(
         "sender_name",
         senderName
     );
 
+    formData.append(
+        "sender_bank",
+        "People's Bank"
+    );
 
     formData.append(
         "sender_account",
         senderAccount
     );
 
+    formData.append(
+        "amount",
+        "1500"
+    );
 
     formData.append(
         "receipt",
@@ -668,13 +560,8 @@ async function(e){
     );
 
 
-    /* LOADING */
-
-    button.disabled =
-        true;
-
-    loading.style.display =
-        "block";
+    button.disabled = true;
+    loading.style.display = "block";
 
 
     try{
@@ -698,8 +585,7 @@ async function(e){
 
         try{
 
-            data =
-                JSON.parse(text);
+            data = JSON.parse(text);
 
         }catch{
 
@@ -713,12 +599,7 @@ async function(e){
         }
 
 
-        /* SUCCESS */
-
-        if(
-            response.ok &&
-            data.success
-        ){
+        if(response.ok && data.success){
 
             message.className =
                 "message success";
@@ -728,17 +609,10 @@ async function(e){
                 "Bank payment submitted successfully. Your payment is pending verification.";
 
             document
-                .getElementById(
-                    "bankForm"
-                )
+                .getElementById("bankForm")
                 .reset();
 
-        }
-
-
-        /* SERVER ERROR */
-
-        else{
+        }else{
 
             message.className =
                 "message error";
@@ -763,10 +637,8 @@ async function(e){
             error
         );
 
-
         message.className =
             "message error";
-
 
         message.textContent =
             "Unable to connect to the bank payment server. Please try again.";
@@ -776,11 +648,8 @@ async function(e){
 
     finally{
 
-        button.disabled =
-            false;
-
-        loading.style.display =
-            "none";
+        button.disabled = false;
+        loading.style.display = "none";
 
     }
 
