@@ -1,0 +1,775 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>Free AI English Tutor | CreateLK Academy</title><meta name="description"
+content="Practise English for free with the CreateLK Academy AI English Tutor.">
+
+<meta name="theme-color"
+content="#174ea6">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+background:#f5f8ff;
+color:#172033;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+/* ================= HEADER ================= */
+
+header{
+background:#174ea6;
+color:#fff;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 3px 15px #0002;
+}
+
+.nav{
+max-width:1050px;
+margin:auto;
+padding:13px 16px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+}
+
+.logo{
+font-size:18px;
+font-weight:800;
+white-space:nowrap;
+}
+
+.home{
+color:#fff;
+text-decoration:none;
+font-size:14px;
+font-weight:700;
+padding:9px 11px;
+border-radius:8px;
+}
+
+.home:hover{
+background:#ffffff20;
+}
+
+/* ================= MAIN ================= */
+
+main{
+width:100%;
+max-width:850px;
+margin:auto;
+padding:25px 15px 45px;
+flex:1;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+text-align:center;
+margin:10px 0 22px;
+}
+
+.hero h1{
+font-size:30px;
+color:#174ea6;
+margin-bottom:8px;
+}
+
+.hero p{
+color:#667085;
+font-size:14px;
+line-height:1.6;
+}
+
+/* ================= CARD ================= */
+
+.card{
+background:#fff;
+border-radius:18px;
+padding:20px;
+box-shadow:0 7px 28px #00000012;
+}
+
+/* ================= INFO ================= */
+
+.info{
+background:#f5f3ff;
+color:#4f46a5;
+padding:13px;
+border-radius:12px;
+margin-bottom:18px;
+font-size:14px;
+line-height:1.5;
+}
+
+/* ================= CHAT ================= */
+
+#chat{
+height:360px;
+overflow-y:auto;
+padding:5px 2px;
+margin-bottom:15px;
+scroll-behavior:smooth;
+}
+
+.msg{
+padding:12px 14px;
+border-radius:14px;
+margin:10px 0;
+max-width:88%;
+white-space:pre-wrap;
+line-height:1.55;
+font-size:14px;
+word-wrap:break-word;
+}
+
+.user{
+background:#174ea6;
+color:#fff;
+margin-left:auto;
+border-bottom-right-radius:4px;
+}
+
+.ai{
+background:#eef4ff;
+color:#172033;
+border-bottom-left-radius:4px;
+}
+
+/* ================= INPUT ================= */
+
+.form{
+display:flex;
+gap:9px;
+align-items:stretch;
+}
+
+textarea{
+flex:1;
+resize:none;
+border:1px solid #d0d5dd;
+border-radius:12px;
+padding:13px;
+font-size:15px;
+min-height:56px;
+max-height:150px;
+outline:none;
+line-height:1.5;
+}
+
+textarea:focus{
+border-color:#174ea6;
+box-shadow:0 0 0 3px #174ea61a;
+}
+
+button{
+border:0;
+border-radius:12px;
+background:#174ea6;
+color:#fff;
+padding:0 20px;
+font-weight:800;
+font-size:14px;
+cursor:pointer;
+min-width:80px;
+}
+
+button:hover{
+background:#123d85;
+}
+
+button:disabled{
+opacity:.6;
+cursor:not-allowed;
+}
+
+/* ================= USAGE ================= */
+
+.limit{
+text-align:center;
+color:#667085;
+font-size:13px;
+margin-top:12px;
+line-height:1.5;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+text-align:center;
+color:#667085;
+font-size:13px;
+padding:20px 15px;
+line-height:1.8;
+}
+
+footer a{
+color:#174ea6;
+text-decoration:none;
+font-weight:700;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+.hero h1{
+font-size:26px;
+}
+
+.card{
+padding:15px;
+}
+
+#chat{
+height:330px;
+}
+
+.form{
+gap:7px;
+}
+
+textarea{
+font-size:14px;
+}
+
+button{
+padding:0 15px;
+min-width:70px;
+}
+
+.msg{
+max-width:95%;
+font-size:14px;
+}
+
+.logo{
+font-size:16px;
+}
+
+}
+
+</style></head><body><!-- ================= HEADER ================= --><header><nav class="nav"><div class="logo">
+📚 CreateLK Academy
+</div><a
+class="home"
+href="index.html">
+
+🏠 Home
+
+</a></nav></header><!-- ================= MAIN ================= --><main><section class="hero"><h1>
+🤖 Free AI English Tutor
+</h1><p>
+Ask questions, practise English and improve
+your grammar, vocabulary, writing and conversation.
+</p></section><div class="card"><!-- ================= FREE INFO ================= --><div class="info">🌱 <b>Free AI Learning</b>
+
+<br>No registration or email required.
+
+You can ask up to <b>10 questions per day</b>
+for free.
+
+</div><!-- ================= CHAT ================= --><div id="chat"><div class="msg ai">👋 Hello! I'm your CreateLK AI English Tutor.
+
+Ask me anything about:
+
+• English grammar
+• Vocabulary
+• Writing
+• Pronunciation
+• Conversation
+• Sentence correction
+
+How can I help you today?
+
+</div></div><!-- ================= FORM ================= --><div class="form"><textarea
+id="question"
+placeholder="Ask your English question..."
+maxlength="1000"
+aria-label="English question"></textarea><button
+id="send"
+type="button">
+
+Send
+
+</button></div><!-- ================= USAGE ================= --><div
+class="limit"
+id="limit">Checking today's free AI usage...
+
+</div></div></main><!-- ================= FOOTER ================= --><footer>📚 <b>CreateLK Academy</b>
+
+<br>Learn English. Build Your Future.
+
+<br><br>
+
+<a href="index.html">
+Home
+</a>
+&nbsp;·&nbsp;<a href="ai-mcq.html">
+AI MCQs
+</a>
+&nbsp;·&nbsp;<a href="membership.html">
+Premium
+</a>
+&nbsp;·&nbsp;<a href="login.html">
+Login
+</a><br><br>
+
+© 2026 CreateLK Academy.
+All Rights Reserved.
+
+</footer><script>
+
+"use strict";
+
+
+/* ==========================================
+   CREATELK FREE AI WORKER
+========================================== */
+
+const API =
+"https://free.gateofheavensl1.workers.dev";
+
+
+/* ==========================================
+   FREE DAILY LIMIT
+========================================== */
+
+const FREE_LIMIT = 10;
+
+
+/* ==========================================
+   DEVICE ID
+========================================== */
+
+let deviceId =
+localStorage.getItem(
+"createlk_ai_device"
+);
+
+
+if(!deviceId){
+
+if(
+window.crypto &&
+typeof crypto.randomUUID === "function"
+){
+
+deviceId =
+crypto.randomUUID();
+
+}else{
+
+deviceId =
+"ai-" +
+Date.now() +
+"-" +
+Math.random()
+.toString(36)
+.slice(2);
+
+}
+
+localStorage.setItem(
+"createlk_ai_device",
+deviceId
+);
+
+}
+
+
+/* ==========================================
+   ELEMENTS
+========================================== */
+
+const chat =
+document.getElementById("chat");
+
+const question =
+document.getElementById("question");
+
+const send =
+document.getElementById("send");
+
+const limit =
+document.getElementById("limit");
+
+
+/* ==========================================
+   ADD MESSAGE
+========================================== */
+
+function addMessage(
+text,
+type
+){
+
+const div =
+document.createElement("div");
+
+div.className =
+"msg " + type;
+
+div.textContent =
+text;
+
+chat.appendChild(div);
+
+chat.scrollTop =
+chat.scrollHeight;
+
+return div;
+
+}
+
+
+/* ==========================================
+   CHECK USAGE
+========================================== */
+
+async function checkUsage(){
+
+try{
+
+const response =
+await fetch(
+API +
+"/usage?device_id=" +
+encodeURIComponent(deviceId)
+);
+
+
+const data =
+await response.json();
+
+
+const used =
+Number(data.used) || 0;
+
+
+const max =
+Number(data.limit) ||
+FREE_LIMIT;
+
+
+limit.textContent =
+"🌱 Free AI: " +
+used +
+" / " +
+max +
+" questions used today";
+
+
+if(used >= max){
+
+send.disabled =
+true;
+
+question.disabled =
+true;
+
+limit.textContent =
+"⏳ Your 10 free AI questions for today have been used. Please try again tomorrow.";
+
+}
+
+}catch(error){
+
+console.log(
+"Usage check:",
+error
+);
+
+limit.textContent =
+"🌱 Free AI — 10 questions available per day";
+
+}
+
+}
+
+
+/* ==========================================
+   ASK AI
+========================================== */
+
+async function askAI(){
+
+const text =
+question.value.trim();
+
+
+if(!text){
+
+return;
+
+}
+
+
+if(text.length < 2){
+
+addMessage(
+"Please enter a longer English question.",
+"ai"
+);
+
+return;
+
+}
+
+
+/* Disable */
+
+send.disabled =
+true;
+
+question.disabled =
+true;
+
+
+/* User */
+
+addMessage(
+text,
+"user"
+);
+
+
+question.value =
+"";
+
+
+/* Loading */
+
+const loading =
+addMessage(
+"🤖 Thinking...",
+"ai"
+);
+
+
+try{
+
+
+/* ==========================================
+   SEND REQUEST
+========================================== */
+
+const response =
+await fetch(
+API + "/ask",
+{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+question:
+text,
+
+device_id:
+deviceId
+
+})
+
+}
+);
+
+
+/* ==========================================
+   RESPONSE
+========================================== */
+
+const contentType =
+response.headers
+.get("content-type") || "";
+
+
+let data;
+
+
+if(
+contentType.includes(
+"application/json"
+)
+){
+
+data =
+await response.json();
+
+}else{
+
+const raw =
+await response.text();
+
+throw new Error(
+raw ||
+"Server returned an invalid response."
+);
+
+}
+
+
+loading.remove();
+
+
+/* ==========================================
+   LIMIT REACHED
+========================================== */
+
+if(
+response.status === 429 ||
+data.limit_reached === true
+){
+
+addMessage(
+data.message ||
+"⏳ Your free daily limit has been reached. Please try again tomorrow.",
+"ai"
+);
+
+send.disabled =
+true;
+
+question.disabled =
+true;
+
+await checkUsage();
+
+return;
+
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+if(
+!response.ok ||
+data.success === false
+){
+
+addMessage(
+data.message ||
+"⚠️ Sorry, I could not answer your question.",
+"ai"
+);
+
+}else{
+
+
+/* ==========================================
+   AI ANSWER
+========================================== */
+
+const answer =
+data.answer ||
+data.response ||
+data.result ||
+data.message ||
+"No answer received.";
+
+
+addMessage(
+answer,
+"ai"
+);
+
+}
+
+
+/* Update usage */
+
+await checkUsage();
+
+
+}catch(error){
+
+console.error(
+"AI error:",
+error
+);
+
+
+loading.remove();
+
+
+addMessage(
+"⚠️ Connection error. Please check your internet connection and try again.",
+"ai"
+);
+
+}
+
+
+/* Re-enable */
+
+if(
+!send.disabled
+){
+
+send.disabled =
+false;
+
+}
+
+question.disabled =
+false;
+
+question.focus();
+
+}
+
+
+/* ==========================================
+   EVENTS
+========================================== */
+
+send.addEventListener(
+"click",
+askAI
+);
+
+
+question.addEventListener(
+"keydown",
+function(event){
+
+if(
+event.key === "Enter" &&
+!event.shiftKey
+){
+
+event.preventDefault();
+
+askAI();
+
+}
+
+});
+
+
+/* ==========================================
+   INITIAL USAGE CHECK
+========================================== */
+
+checkUsage();
+
+</script></body></html>
