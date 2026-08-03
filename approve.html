@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Payment Approval | CreateLK Academy</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+    background:#f5f8fc;
+    color:#172033;
+    min-height:100vh;
+}
+
+header{
+    background:#174ea6;
+    color:white;
+    padding:18px 20px;
+    box-shadow:0 3px 15px rgba(0,0,0,.15);
+}
+
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:800;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:35px 20px 60px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#667085;
+    margin-bottom:30px;
+}
+
+.login-card,
+.payment-card{
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
+    margin-bottom:20px;
+}
+
+.login-card{
+    max-width:500px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+label{
+    display:block;
+    font-weight:700;
+    margin-top:15px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:13px;
+    margin-top:7px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    font-size:16px;
+}
+
+textarea{
+    min-height:80px;
+    resize:vertical;
+}
+
+button{
+    border:0;
+    border-radius:10px;
+    padding:13px 18px;
+    font-size:15px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.login-button{
+    width:100%;
+    margin-top:20px;
+    background:#174ea6;
+    color:white;
+}
+
+.approve{
+    background:#15803d;
+    color:white;
+}
+
+.reject{
+    background:#dc2626;
+    color:white;
+}
+
+.receipt{
+    background:#475569;
+    color:white;
+}
+
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+.payment-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.detail{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:9px 0;
+    border-bottom:1px solid #edf0f4;
+}
+
+.detail:last-child{
+    border-bottom:0;
+}
+
+.detail span{
+    color:#667085;
+}
+
+.actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.status{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    background:#fff4d6;
+    color:#946200;
+    font-weight:800;
+    font-size:13px;
+}
+
+.message{
+    padding:14px;
+    border-radius:10px;
+    margin:15px 0;
+    display:none;
+    font-weight:700;
+}
+
+.success{
+    display:block;
+    background:#dcfce7;
+    color:#166534;
+}
+
+.error{
+    display:block;
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.loading{
+    text-align:center;
+    padding:30px;
+    color:#667085;
+}
+
+.empty{
+    background:white;
+    padding:35px;
+    text-align:center;
+    border-radius:18px;
+    color:#667085;
+}
+
+.logout{
+    background:#fff;
+    color:#174ea6;
+}
+
+@media(max-width:600px){
+
+    .header-inner{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .detail{
+        flex-direction:column;
+        gap:2px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header-inner">
+
+<div class="logo">
+📚 CreateLK Academy — Admin
+</div>
+
+<button
+    class="logout"
+    onclick="logout()">
+
+Logout
+
+</button>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+<h1>
+🏦 Bank Payment Approval
+</h1>
+
+<p class="subtitle">
+Review bank deposits and activate Premium membership.
+</p>
+
+
+<!-- LOGIN -->
+
+<div
+    id="loginCard"
+    class="login-card">
+
+<h2>
+🔐 Admin Login
+</h2>
+
+<label>
+Admin Key
+</label>
+
+<input
+    type="password"
+    id="adminKey"
+    placeholder="Enter ADMIN_KEY">
+
+<button
+    class="login-button"
+    onclick="login()">
+
+🔐 Login
+
+</button>
+
+<div
+    id="loginMessage"
+    class="message">
+</div>
+
+</div>
+
+
+<!-- ADMIN CONTENT -->
+
+<div
+    id="adminContent"
+    style="display:none;">
+
+<div
+    id="pageMessage"
+    class="message">
+</div>
+
+
+<div
+    id="payments"
+    class="payment-grid">
+
+<div class="loading">
+⏳ Loading payments...
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+
+<script>
+
+"use strict";
+
+
+/* =====================================
+   CONFIGURATION
+===================================== */
+
+const APPROVE_WORKER =
+"https://approve.gateofheavensl1.workers.dev";
+
+
+let ADMIN_KEY =
+"";
+
+
+/* =====================================
+   LOGIN
+===================================== */
+
+async function login(){
+
+    const key =
+        document
+        .getElementById("adminKey")
+        .value
+        .trim();
+
+
+    const message =
+        document
+        .getElementById("loginMessage");
+
+
+    if(!key){
+
+        message.className =
+            "message error";
+
+        message.textContent =
+            "Please enter the admin key.";
+
+        return;
+
+    }
+
+
+    ADMIN_KEY =
+        key;
+
+
+    try{
+
+        const response =
+            await fetch(
+                APPROVE_WORKER + "/",
+                {
+                    method:"GET"
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(
+            response.ok &&
+            data.success &&
+            data.database
+        ){
+
+            document
+                .getElementById("loginCard")
+                .style.display =
+                "none";
+
+
+            document
+                .getElementById("adminContent")
+                .style.display =
+                "block";
+
+
+            loadPayments();
+
+        }
+        else{
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                "Approval Worker is not available.";
+
+        }
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        message.className =
+            "message error";
+
+        message.textContent =
+            "Unable to connect to Approval Worker.";
+
+    }
+
+}
+
+
+/* =====================================
+   LOAD PAYMENTS
+===================================== */
+
+async function loadPayments(){
+
+    const container =
+        document.getElementById(
+            "payments"
+        );
+
+
+    container.innerHTML =
+        '<div class="loading">⏳ Loading pending payments...</div>';
+
+
+    try{
+
+        const response =
+            await fetch(
+                APPROVE_WORKER +
+                "/payments?status=pending",
+                {
+                    headers:{
+                        "Authorization":
+                            "Bearer " +
+                            ADMIN_KEY
+                    }
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(!response.ok || !data.success){
+
+            throw new Error(
+                data.message ||
+                "Could not load payments."
+            );
+
+        }
+
+
+        const payments =
+            data.payments || [];
+
+
+        if(payments.length === 0){
+
+            container.innerHTML =
+                '<div class="empty">✅ No pending payments.</div>';
+
+            return;
+
+        }
+
+
+        container.innerHTML =
+            payments
+            .map(paymentCard)
+            .join("");
+
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        container.innerHTML =
+            `<div class="message error">
+                ${escapeHtml(error.message)}
+            </div>`;
+
+    }
+
+}
+
+
+/* =====================================
+   PAYMENT CARD
+===================================== */
+
+function paymentCard(payment){
+
+    return `
+
+    <div class="payment-card">
+
+        <div style="display:flex;
+                    justify-content:space-between;
+                    gap:10px;
+                    align-items:center;
+                    margin-bottom:15px;">
+
+            <h2>
+                Payment #${payment.id}
+            </h2>
+
+            <span class="status">
+                PENDING
+            </span>
+
+        </div>
+
+
+        <div class="detail">
+
+            <span>
+                Student Email
+            </span>
+
+            <strong>
+                ${escapeHtml(
+                    payment.student_email || "-"
+                )}
+            </strong>
+
+        </div>
+
+
+        <div class="detail">
+
+            <span>
+                Sender Name
+            </span>
+
+            <strong>
+                ${escapeHtml(
+                    payment.sender_name || "-"
+                )}
+            </strong>
+
+        </div>
+
+
+        <div class="detail">
+
+            <span>
+                Sender Bank
+            </span>
+
+            <strong>
+                ${escapeHtml(
+                    payment.sender_bank || "-"
+                )}
+            </strong>
+
+        </div>
+
+
+        <div class="detail">
+
+            <span>
+                Sender Account
+            </span>
+
+            <strong>
+                ${escapeHtml(
+                    payment.sender_account || "-"
+                )}
+            </strong>
+
+        </div>
+
+
+        <div class="detail">
+
+            <span>
+                Amount
+            </span>
+
+            <strong>
+                LKR ${Number(
+                    payment.amount || 0
+                ).toLocaleString()}
+            </strong>
+
+        </div>
+
+
+        <div class="detail">
+
+            <span>
+                Submitted
+            </span>
+
+            <strong>
+                ${escapeHtml(
+                    payment.created_at || "-"
+                )}
+            </strong>
+
+        </div>
+
+
+        <div class="actions">
+
+            <button
+                class="receipt"
+                onclick="viewReceipt(${payment.id})">
+
+                🧾 View Receipt
+
+            </button>
+
+
+            <button
+                class="approve"
+                onclick="approvePayment(${payment.id})">
+
+                ✅ Approve & Activate 30 Days
+
+            </button>
+
+
+            <button
+                class="reject"
+                onclick="rejectPayment(${payment.id})">
+
+                ❌ Reject
+
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =====================================
+   VIEW RECEIPT
+===================================== */
+
+function viewReceipt(id){
+
+    const url =
+        APPROVE_WORKER +
+        "/receipt/" +
+        id;
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================
+   APPROVE
+===================================== */
+
+async function approvePayment(id){
+
+    if(
+        !confirm(
+            "Approve this payment and activate Premium for 30 days?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        const response =
+            await fetch(
+                APPROVE_WORKER +
+                "/approve",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json",
+
+                        "Authorization":
+                            "Bearer " +
+                            ADMIN_KEY
+                    },
+
+                    body:JSON.stringify({
+                        payment_id:id
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(
+            !response.ok ||
+            !data.success
+        ){
+
+            alert(
+                data.message ||
+                "Approval failed."
+            );
+
+            return;
+
+        }
+
+
+        alert(
+            "✅ Payment approved!\n\n" +
+            "Student: " +
+            data.student_email +
+            "\n\n" +
+            "Premium active until:\n" +
+            data.membership_expiry
+        );
+
+
+        loadPayments();
+
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Unable to connect to Approval Worker."
+        );
+
+    }
+
+}
+
+
+/* =====================================
+   REJECT
+===================================== */
+
+async function rejectPayment(id){
+
+    const note =
+        prompt(
+            "Reason for rejection:"
+        );
+
+
+    if(note === null){
+
+        return;
+
+    }
+
+
+    try{
+
+        const response =
+            await fetch(
+                APPROVE_WORKER +
+                "/reject",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json",
+
+                        "Authorization":
+                            "Bearer " +
+                            ADMIN_KEY
+                    },
+
+                    body:JSON.stringify({
+                        payment_id:id,
+                        admin_note:note
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(
+            !response.ok ||
+            !data.success
+        ){
+
+            alert(
+                data.message ||
+                "Rejection failed."
+            );
+
+            return;
+
+        }
+
+
+        alert(
+            "❌ Payment rejected."
+        );
+
+
+        loadPayments();
+
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Unable to connect to Approval Worker."
+        );
+
+    }
+
+}
+
+
+/* =====================================
+   LOGOUT
+===================================== */
+
+function logout(){
+
+    ADMIN_KEY =
+        "";
+
+    location.reload();
+
+}
+
+
+/* =====================================
+   HTML ESCAPE
+===================================== */
+
+function escapeHtml(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+</body>
+
+</html>
