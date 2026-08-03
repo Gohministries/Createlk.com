@@ -3,56 +3,105 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    // CORS
     if (request.method === "OPTIONS") {
       return new Response(null, {
+        status: 204,
         headers: corsHeaders()
       });
     }
 
     try {
-      // Basic API
-      if (path === "/") {
+      // =========================================
+      // API STATUS
+      // =========================================
+      if (path === "/" && request.method === "GET") {
         return json({
           success: true,
-          message: "CreateLK Academy API is running."
+          message: "CreateLK Academy API is running.",
+          services: {
+            database: !!env.DB,
+            receipt_storage: !!env.RECEIPT,
+            workers_ai: !!env.AI
+          }
         });
       }
 
-      // Student login
-      if (path === "/login" && request.method === "POST") {
-        return await login(request, env);
-      }
-
-      // Student registration
+      // =========================================
+      // REGISTER
+      // =========================================
       if (path === "/register" && request.method === "POST") {
         return await register(request, env);
       }
 
-      // Create PayHere checkout
-      if (path === "/create-payhere" && request.method === "POST") {
+      // =========================================
+      // LOGIN
+      // =========================================
+      if (path === "/login" && request.method === "POST") {
+        return await login(request, env);
+      }
+
+      // =========================================
+      // PAYHERE CREATE
+      // Supports:
+      // /payhere/create
+      // /create-payhere
+      // =========================================
+      if (
+        (path === "/payhere/create" ||
+          path === "/create-payhere") &&
+        request.method === "POST"
+      ) {
         return await createPayHere(request, env);
       }
 
-      // PayHere server notification
-      if (path === "/payhere-notify" && request.method === "POST") {
+      // =========================================
+      // PAYHERE NOTIFICATION
+      // =========================================
+      if (
+        path === "/payhere-notify" &&
+        request.method === "POST"
+      ) {
         return await payHereNotify(request, env);
       }
 
-      // Bank payment + receipt
-      if (path === "/bank-payment" && request.method === "POST") {
+      // =========================================
+      // BANK PAYMENT
+      // =========================================
+      if (
+        path === "/bank-payment" &&
+        request.method === "POST"
+      ) {
         return await bankPayment(request, env);
       }
 
-      // Check membership
-      if (path === "/membership" && request.method === "GET") {
+      // =========================================
+      // MEMBERSHIP
+      // =========================================
+      if (
+        path === "/membership" &&
+        request.method === "GET"
+      ) {
         return await membership(request, env);
       }
 
+      // =========================================
+      // AI
+      // =========================================
+      if (
+        path === "/ai" &&
+        request.method === "POST"
+      ) {
+        return await ai(request, env);
+      }
+
+      // =========================================
+      // 404
+      // =========================================
       return json(
         {
           success: false,
-          message: "Route not found."
+          message: "Route not found.",
+          path
         },
         404
       );
@@ -64,7 +113,7 @@ export default {
         {
           success: false,
           message: "Server error.",
-          error: error.message
+          error: error?.message || "Unknown error"
         },
         500
       );
@@ -73,23 +122,26 @@ export default {
 };
 
 
-/* =========================================
-   CORS
-========================================= */
+// =========================================
+// CORS
+// =========================================
 
 function corsHeaders() {
   return {
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
-    "Content-Type": "application/json"
+    "Access-Control-Allow-Methods":
+      "GET, POST, OPTIONS",
+    "Access-Control-Allow-Headers":
+      "Content-Type",
+    "Content-Type":
+      "application/json"
   };
 }
 
 
-/* =========================================
-   JSON RESPONSE
-========================================= */
+// =========================================
+// JSON
+// =========================================
 
 function json(data, status = 200) {
   return new Response(
@@ -102,12 +154,11 @@ function json(data, status = 200) {
 }
 
 
-/* =========================================
-   MD5
-========================================= */
+// =========================================
+// MD5
+// =========================================
 
 async function md5(text) {
-
   const data =
     new TextEncoder().encode(text);
 
@@ -119,15 +170,17 @@ async function md5(text) {
 
   return [...new Uint8Array(hash)]
     .map(
-      b => b.toString(16).padStart(2, "0")
+      b =>
+        b.toString(16)
+         .padStart(2, "0")
     )
     .join("");
 }
 
 
-/* =========================================
-   REGISTER
-========================================= */
+// =========================================
+// REGISTER
+// =========================================
 
 async function register(request, env) {
 
@@ -135,21 +188,31 @@ async function register(request, env) {
     await request.json();
 
   const first_name =
-    String(body.first_name || "").trim();
+    String(
+      body.first_name || ""
+    ).trim();
 
   const last_name =
-    String(body.last_name || "").trim();
+    String(
+      body.last_name || ""
+    ).trim();
 
   const email =
-    String(body.email || "")
+    String(
+      body.email || ""
+    )
       .trim()
       .toLowerCase();
 
   const phone =
-    String(body.phone || "").trim();
+    String(
+      body.phone || ""
+    ).trim();
 
   const password =
-    String(body.password || "");
+    String(
+      body.password || ""
+    );
 
   if (
     !first_name ||
@@ -161,7 +224,8 @@ async function register(request, env) {
     return json(
       {
         success: false,
-        message: "Please complete all required fields."
+        message:
+          "Please complete all required fields."
       },
       400
     );
@@ -170,7 +234,9 @@ async function register(request, env) {
   const existing =
     await env.DB
       .prepare(
-        "SELECT id FROM students WHERE email = ?"
+        `SELECT id
+         FROM students
+         WHERE email = ?`
       )
       .bind(email)
       .first();
@@ -179,7 +245,8 @@ async function register(request, env) {
     return json(
       {
         success: false,
-        message: "An account with this email already exists."
+        message:
+          "An account with this email already exists."
       },
       409
     );
@@ -200,7 +267,8 @@ async function register(request, env) {
           password_hash,
           membership_status
         )
-        VALUES (?, ?, ?, ?, ?, 'inactive')
+        VALUES
+        (?, ?, ?, ?, ?, 'inactive')
       `)
       .bind(
         first_name,
@@ -213,15 +281,17 @@ async function register(request, env) {
 
   return json({
     success: true,
-    message: "Account created successfully.",
-    student_id: result.meta.last_row_id
+    message:
+      "Account created successfully.",
+    student_id:
+      result.meta.last_row_id
   });
 }
 
 
-/* =========================================
-   LOGIN
-========================================= */
+// =========================================
+// LOGIN
+// =========================================
 
 async function login(request, env) {
 
@@ -229,18 +299,23 @@ async function login(request, env) {
     await request.json();
 
   const email =
-    String(body.email || "")
+    String(
+      body.email || ""
+    )
       .trim()
       .toLowerCase();
 
   const password =
-    String(body.password || "");
+    String(
+      body.password || ""
+    );
 
   if (!email || !password) {
     return json(
       {
         success: false,
-        message: "Email and password are required."
+        message:
+          "Email and password are required."
       },
       400
     );
@@ -274,23 +349,47 @@ async function login(request, env) {
     return json(
       {
         success: false,
-        message: "Invalid email or password."
+        message:
+          "Invalid email or password."
       },
       401
     );
   }
 
+  // Automatically mark expired memberships inactive
+  if (
+    student.membership_status === "active" &&
+    student.membership_expiry &&
+    new Date(
+      student.membership_expiry
+    ) <= new Date()
+  ) {
+
+    await env.DB
+      .prepare(`
+        UPDATE students
+        SET membership_status = 'inactive'
+        WHERE id = ?
+      `)
+      .bind(student.id)
+      .run();
+
+    student.membership_status =
+      "inactive";
+  }
+
   return json({
     success: true,
-    message: "Login successful.",
+    message:
+      "Login successful.",
     student
   });
 }
 
 
-/* =========================================
-   CREATE PAYHERE CHECKOUT
-========================================= */
+// =========================================
+// CREATE PAYHERE
+// =========================================
 
 async function createPayHere(request, env) {
 
@@ -298,13 +397,16 @@ async function createPayHere(request, env) {
     await request.json();
 
   const studentId =
-    Number(body.student_id);
+    Number(
+      body.student_id
+    );
 
   if (!studentId) {
     return json(
       {
         success: false,
-        message: "Student ID is required."
+        message:
+          "Student ID is required."
       },
       400
     );
@@ -329,9 +431,30 @@ async function createPayHere(request, env) {
     return json(
       {
         success: false,
-        message: "Student not found."
+        message:
+          "Student not found."
       },
       404
+    );
+  }
+
+  const merchantId =
+    env.PAYHERE_MERCHANT_ID;
+
+  const merchantSecret =
+    env.PAYHERE_MERCHANT_SECRET;
+
+  if (
+    !merchantId ||
+    !merchantSecret
+  ) {
+    return json(
+      {
+        success: false,
+        message:
+          "PayHere configuration is missing."
+      },
+      500
     );
   }
 
@@ -347,28 +470,11 @@ async function createPayHere(request, env) {
   const currency =
     "LKR";
 
-  const merchantId =
-    env.PAYHERE_MERCHANT_ID;
-
-  const merchantSecret =
-    env.PAYHERE_MERCHANT_SECRET;
-
-  if (
-    !merchantId ||
-    !merchantSecret
-  ) {
-    return json(
-      {
-        success: false,
-        message: "PayHere configuration is missing."
-      },
-      500
-    );
-  }
-
   const hashedSecret =
     (
-      await md5(merchantSecret)
+      await md5(
+        merchantSecret
+      )
     ).toUpperCase();
 
   const hash =
@@ -392,7 +498,8 @@ async function createPayHere(request, env) {
         order_id,
         status
       )
-      VALUES (?, 'payhere', ?, ?, 'pending')
+      VALUES
+      (?, 'payhere', ?, ?, 'pending')
     `)
     .bind(
       studentId,
@@ -401,11 +508,17 @@ async function createPayHere(request, env) {
     )
     .run();
 
+  /*
+   * Your frontend can use these values
+   * to submit the PayHere checkout form.
+   */
+
   return json({
     success: true,
 
     payment: {
-      merchant_id: merchantId,
+      merchant_id:
+        merchantId,
 
       return_url:
         "https://createlk.com/payment.html?status=return",
@@ -414,7 +527,7 @@ async function createPayHere(request, env) {
         "https://createlk.com/payment.html?status=cancel",
 
       notify_url:
-        "https://weathered-hill-53af.gateofheavensl1.workers.dev/payhere-notify",
+        "https://square-term-22bf.gateofheavensl1.workers.dev/payhere-notify",
 
       first_name:
         student.first_name,
@@ -443,58 +556,78 @@ async function createPayHere(request, env) {
       items:
         "CreateLK Academy Premium - 30 Days",
 
-      currency,
+      currency:
+        currency,
 
-      amount,
+      amount:
+        amount,
 
-      hash
+      hash:
+        hash
     }
   });
 }
 
 
-/* =========================================
-   PAYHERE NOTIFICATION
-========================================= */
+// =========================================
+// PAYHERE NOTIFICATION
+// =========================================
 
-async function payHereNotify(request, env) {
+async function payHereNotify(
+  request,
+  env
+) {
 
   const form =
     await request.formData();
 
   const merchantId =
     String(
-      form.get("merchant_id") || ""
+      form.get(
+        "merchant_id"
+      ) || ""
     );
 
   const orderId =
     String(
-      form.get("order_id") || ""
+      form.get(
+        "order_id"
+      ) || ""
     );
 
   const paymentId =
     String(
-      form.get("payment_id") || ""
+      form.get(
+        "payment_id"
+      ) || ""
     );
 
   const payhereAmount =
     String(
-      form.get("payhere_amount") || ""
+      form.get(
+        "payhere_amount"
+      ) || ""
     );
 
   const currency =
     String(
-      form.get("payhere_currency") || ""
+      form.get(
+        "payhere_currency"
+      ) || ""
     );
 
   const statusCode =
     String(
-      form.get("status_code") || ""
+      form.get(
+        "status_code"
+      ) || ""
     );
 
   const receivedSignature =
     String(
-      form.get("md5sig") || ""
+      form.get(
+        "md5sig"
+      ) || ""
     );
 
   if (
@@ -530,10 +663,6 @@ async function payHereNotify(request, env) {
     localSignature !==
     receivedSignature
   ) {
-    console.error(
-      "Invalid PayHere signature"
-    );
-
     return new Response(
       "Invalid signature",
       { status: 400 }
@@ -557,17 +686,11 @@ async function payHereNotify(request, env) {
     );
   }
 
-  /*
-    PayHere status 2 = successful
-  */
-
+  // PayHere status 2 = successful
   if (statusCode === "2") {
 
-    const now =
-      new Date();
-
     const expiry =
-      new Date(now);
+      new Date();
 
     expiry.setDate(
       expiry.getDate() + 30
@@ -579,7 +702,8 @@ async function payHereNotify(request, env) {
         SET
           status = 'paid',
           payhere_payment_id = ?,
-          verified_at = CURRENT_TIMESTAMP
+          verified_at =
+            CURRENT_TIMESTAMP
         WHERE order_id = ?
       `)
       .bind(
@@ -612,8 +736,7 @@ async function payHereNotify(request, env) {
     await env.DB
       .prepare(`
         UPDATE payments
-        SET
-          status = ?
+        SET status = ?
         WHERE order_id = ?
       `)
       .bind(
@@ -630,33 +753,47 @@ async function payHereNotify(request, env) {
 }
 
 
-/* =========================================
-   BANK PAYMENT
-========================================= */
+// =========================================
+// BANK PAYMENT
+// =========================================
 
-async function bankPayment(request, env) {
+async function bankPayment(
+  request,
+  env
+) {
 
   const form =
     await request.formData();
 
   const studentId =
     Number(
-      form.get("student_id")
+      form.get(
+        "student_id"
+      )
     );
 
   const reference =
     String(
-      form.get("payment_reference") || ""
+      form.get(
+        "payment_reference"
+      ) ||
+      form.get(
+        "reference"
+      ) ||
+      ""
     ).trim();
 
   const receipt =
-    form.get("receipt");
+    form.get(
+      "receipt"
+    );
 
   if (!studentId) {
     return json(
       {
         success: false,
-        message: "Student ID is required."
+        message:
+          "Student ID is required."
       },
       400
     );
@@ -666,7 +803,8 @@ async function bankPayment(request, env) {
     return json(
       {
         success: false,
-        message: "Payment reference is required."
+        message:
+          "Payment reference is required."
       },
       400
     );
@@ -680,20 +818,23 @@ async function bankPayment(request, env) {
     return json(
       {
         success: false,
-        message: "Please upload your payment receipt."
+        message:
+          "Please upload your payment receipt."
       },
       400
     );
   }
 
+  // Maximum 10 MB
   if (
     receipt.size >
-    5 * 1024 * 1024
+    10 * 1024 * 1024
   ) {
     return json(
       {
         success: false,
-        message: "Receipt must be smaller than 5 MB."
+        message:
+          "Receipt must be smaller than 10 MB."
       },
       400
     );
@@ -701,9 +842,11 @@ async function bankPayment(request, env) {
 
   const student =
     await env.DB
-      .prepare(
-        "SELECT id FROM students WHERE id = ?"
-      )
+      .prepare(`
+        SELECT id
+        FROM students
+        WHERE id = ?
+      `)
       .bind(studentId)
       .first();
 
@@ -711,7 +854,8 @@ async function bankPayment(request, env) {
     return json(
       {
         success: false,
-        message: "Student not found."
+        message:
+          "Student not found."
       },
       404
     );
@@ -735,6 +879,7 @@ async function bankPayment(request, env) {
     "-" +
     safeName;
 
+  // Upload to R2
   await env.RECEIPT.put(
     receiptKey,
     await receipt.arrayBuffer(),
@@ -747,6 +892,7 @@ async function bankPayment(request, env) {
     }
   );
 
+  // Save payment in D1
   await env.DB
     .prepare(`
       INSERT INTO payments
@@ -776,11 +922,14 @@ async function bankPayment(request, env) {
 }
 
 
-/* =========================================
-   MEMBERSHIP
-========================================= */
+// =========================================
+// MEMBERSHIP
+// =========================================
 
-async function membership(request, env) {
+async function membership(
+  request,
+  env
+) {
 
   const url =
     new URL(request.url);
@@ -796,7 +945,8 @@ async function membership(request, env) {
     return json(
       {
         success: false,
-        message: "Student ID is required."
+        message:
+          "Student ID is required."
       },
       400
     );
@@ -822,7 +972,8 @@ async function membership(request, env) {
     return json(
       {
         success: false,
-        message: "Student not found."
+        message:
+          "Student not found."
       },
       404
     );
@@ -840,13 +991,159 @@ async function membership(request, env) {
       new Date(
         student.membership_expiry
       ) > new Date();
+
+    // Automatically expire membership
+    if (!active) {
+
+      await env.DB
+        .prepare(`
+          UPDATE students
+          SET membership_status =
+            'inactive'
+          WHERE id = ?
+        `)
+        .bind(studentId)
+        .run();
+
+      student.membership_status =
+        "inactive";
+    }
   }
 
   return json({
     success: true,
-
     active,
-
     student
+  });
+}
+
+
+// =========================================
+// WORKERS AI
+// =========================================
+
+async function ai(
+  request,
+  env
+) {
+
+  if (!env.AI) {
+    return json(
+      {
+        success: false,
+        message:
+          "Workers AI binding is not available."
+      },
+      500
+    );
+  }
+
+  const body =
+    await request.json();
+
+  const prompt =
+    String(
+      body.prompt || ""
+    ).trim();
+
+  if (!prompt) {
+    return json(
+      {
+        success: false,
+        message:
+          "Prompt is required."
+      },
+      400
+    );
+  }
+
+  /*
+   * Basic membership protection.
+   * Free users should not use premium AI
+   * unless you intentionally allow it.
+   */
+
+  const studentId =
+    Number(
+      body.student_id
+    );
+
+  if (!studentId) {
+    return json(
+      {
+        success: false,
+        message:
+          "Student ID is required."
+      },
+      400
+    );
+  }
+
+  const student =
+    await env.DB
+      .prepare(`
+        SELECT
+          id,
+          membership_status,
+          membership_expiry
+        FROM students
+        WHERE id = ?
+      `)
+      .bind(studentId)
+      .first();
+
+  if (!student) {
+    return json(
+      {
+        success: false,
+        message:
+          "Student not found."
+      },
+      404
+    );
+  }
+
+  const active =
+    student.membership_status ===
+      "active" &&
+    student.membership_expiry &&
+    new Date(
+      student.membership_expiry
+    ) > new Date();
+
+  if (!active) {
+    return json(
+      {
+        success: false,
+        message:
+          "Active Premium membership is required for this AI feature."
+      },
+      403
+    );
+  }
+
+  const result =
+    await env.AI.run(
+      "@cf/meta/llama-3.1-8b-instruct",
+      {
+        messages: [
+          {
+            role: "system",
+            content:
+              "You are CreateLK Academy's English learning assistant. Help students learn English clearly and practically."
+          },
+          {
+            role: "user",
+            content: prompt
+          }
+        ]
+      }
+    );
+
+  return json({
+    success: true,
+    response:
+      result?.response ||
+      result
   });
 }
