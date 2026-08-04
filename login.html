@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>Student Login | CreateLK Academy</title>
-
-<meta name="description"
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Student Login | CreateLK Academy</title><meta name="description"
 content="Login to your CreateLK Academy student account.">
 
-<meta name="theme-color" content="#174ea6">
-
-<style>
+<meta name="theme-color" content="#174ea6"><style>
 
 *{
 box-sizing:border-box;
@@ -186,125 +177,56 @@ color:#667085;
 font-size:13px;
 }
 
-</style>
-
-</head>
-
-<body>
-
-<header>
-
-<div class="nav">
-
-<div class="logo">
+</style></head><body><header><div class="nav"><div class="logo">
 📚 CreateLK Academy
-</div>
-
-<a class="home" href="index.html">
+</div><a class="home" href="index.html">
 🏠 Home
-</a>
-
-</div>
-
-</header>
-
-
-<div class="container">
-
-<div class="card">
-
-<div class="icon">
+</a></div></header><div class="container"><div class="card"><div class="icon">
 🔐
-</div>
-
-<h1>
+</div><h1>
 Student Login
-</h1>
-
-<p class="subtitle">
+</h1><p class="subtitle">
 Login to continue your English learning journey.
-</p>
-
-
-<div id="status" class="status"></div>
-
-
-<form id="loginForm">
-
-<div class="field">
-
-<label for="email">
+</p><div id="status" class="status"></div><form id="loginForm"><div class="field"><label for="email">
 Email Address
-</label>
-
-<input
+</label><input
 type="email"
 id="email"
 placeholder="Enter your email"
 autocomplete="email"
 required
->
 
-</div>
+«»
 
-
-<div class="field">
-
-<label for="password">
+</div><div class="field"><label for="password">
 Password
-</label>
-
-<input
+</label><input
 type="password"
 id="password"
 placeholder="Enter your password"
 autocomplete="current-password"
 required
->
 
-</div>
+«»
 
-
-<button
+</div><button
 type="submit"
 id="loginButton"
->
+
+«»
+
 🔐 Login
 </button>
 
-</form>
-
-
-<div class="register">
-
-Don't have an account?
+</form><div class="register">Don't have an account?
 
 <a href="register.html">
 ✍️ Create Account
-</a>
-
-</div>
-
-
-<a class="back" href="index.html">
+</a></div><a class="back" href="index.html">
 ← Back to Home
-</a>
+</a><div class="security">🔒 Your account information is securely processed.
 
-
-<div class="security">
-
-🔒 Your account information is securely processed.
-
-</div>
-
-</div>
-
-</div>
-
-
-<footer>
-
-📚 <b>CreateLK Academy</b> —
+</div></div></div><footer>📚 <b>CreateLK Academy</b> —
 Learn English. Build Your Future.
 
 <br><br>
@@ -312,10 +234,7 @@ Learn English. Build Your Future.
 © 2026 CreateLK Academy.
 All Rights Reserved.
 
-</footer>
-
-
-<script>
+</footer><script>
 
 const API =
 "https://login.gateofheavensl1.workers.dev";
@@ -339,6 +258,9 @@ statusBox.className =
 statusBox.textContent =
 message;
 
+statusBox.style.display =
+"block";
+
 }
 
 
@@ -361,10 +283,10 @@ document.getElementById("password")
 .value;
 
 
-button.disabled=true;
+button.disabled = true;
 
-button.textContent=
-"Logging in...";
+button.textContent =
+"⏳ Logging in...";
 
 
 try{
@@ -389,8 +311,21 @@ password:password
 });
 
 
-const data =
+let data;
+
+try{
+
+data =
 await response.json();
+
+}
+catch(jsonError){
+
+throw new Error(
+"Invalid response from login server."
+);
+
+}
 
 
 if(
@@ -400,13 +335,13 @@ if(
 
 showStatus(
 data.message ||
-"Login failed.",
+"Login failed. Please check your email and password.",
 "error"
 );
 
-button.disabled=false;
+button.disabled = false;
 
-button.textContent=
+button.textContent =
 "🔐 Login";
 
 return;
@@ -421,56 +356,74 @@ LOGIN SUCCESS
 */
 
 showStatus(
-"✅ Login successful. Redirecting to payment...",
+"✅ Login successful! Redirecting to payment...",
 "success"
 );
 
 
 /*
-Save logged-in student
+====================================
+SAVE STUDENT INFORMATION
+====================================
 */
+
+if(data.user){
 
 localStorage.setItem(
 "createlk_user",
 JSON.stringify(data.user)
 );
 
+}
+
 
 /*
-Redirect to payment
+Save email separately so payment.html
+can automatically identify the student.
 */
 
-setTimeout(
-function(){
-
-window.location.href =
-"payment.html";
-
-},
-800
+localStorage.setItem(
+"createlk_student_email",
+email
 );
+
+
+/*
+====================================
+REDIRECT TO PAYMENT PAGE
+====================================
+*/
+
+setTimeout(function(){
+
+window.location.replace(
+"payment.html"
+);
+
+},800);
 
 
 }
 catch(error){
 
-console.error(error);
+console.error(
+"Login error:",
+error
+);
 
 showStatus(
 "❌ Unable to connect to CreateLK Academy. Please try again.",
 "error"
 );
 
-button.disabled=false;
+button.disabled = false;
 
-button.textContent=
+button.textContent =
 "🔐 Login";
 
 }
 
 });
 
-</script>
-
-</body>
+</script></body>
 </html>
