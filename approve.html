@@ -1,0 +1,491 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Payment Approval | CreateLK Academy</title><style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Arial}
+body{background:#f5f8fc;color:#172033}
+header{background:#174ea6;color:white;padding:18px}
+.header{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:20px}
+.container{max-width:1100px;margin:auto;padding:30px 18px}
+.login{max-width:480px;margin:30px auto;background:white;padding:25px;border-radius:18px;box-shadow:0 5px 25px #0001}
+input{width:100%;padding:13px;margin:10px 0;border:1px solid #ccc;border-radius:9px;font-size:16px}
+button{border:0;border-radius:9px;padding:12px 16px;font-weight:800;cursor:pointer}
+.loginBtn,.refresh{background:#174ea6;color:white}
+.logout{background:white;color:#174ea6}
+.content{display:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.card{background:white;padding:22px;border-radius:18px;box-shadow:0 5px 25px #0001}
+.head{display:flex;justify-content:space-between;margin-bottom:15px}
+.status{background:#fff4d6;color:#946200;padding:5px 10px;border-radius:20px;font-size:12px;font-weight:800}
+.detail{padding:9px 0;border-bottom:1px solid #eee}
+.label{display:block;color:#667085;font-size:13px}
+.value{font-weight:700;word-break:break-word}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.view{background:#475569;color:white}
+.approve{background:#15803d;color:white}
+.reject{background:#dc2626;color:white}
+.error{background:#fee2e2;color:#991b1b;padding:12px;border-radius:9px;margin-top:12px}
+.success{background:#dcfce7;color:#166534;padding:12px;border-radius:9px;margin-top:12px}
+.loading,.empty{text-align:center;background:white;padding:30px;border-radius:15px;color:#667085}
+@media(max-width:600px){
+.header{flex-direction:column;gap:10px}
+.actions{flex-direction:column}
+.actions button{width:100%}
+}
+</style></head><body><header>
+<div class="header">
+<div class="logo">📚 CreateLK Academy — Admin</div>
+<button class="logout" onclick="logout()">Logout</button>
+</div>
+</header><main class="container"><div id="loginBox" class="login">
+<h2>🔐 Admin Login</h2><input
+id="adminKey"
+type="password"
+placeholder="Enter admin key"
+autocomplete="current-password">
+
+<button
+class="loginBtn"
+style="width:100%"
+onclick="login()">
+🔐 Login
+</button>
+
+<div id="loginMsg"></div>
+</div><div id="content" class="content"><button class="refresh" onclick="loadPayments()">
+🔄 Refresh Payments
+</button><div id="payments" style="margin-top:20px"></div></div></main><script>
+"use strict";
+
+const WORKER =
+"https://approve.gateofheavensl1.workers.dev";
+
+let ADMIN_KEY="";
+
+
+function authHeaders(){
+return {
+"Authorization":"Bearer "+ADMIN_KEY
+};
+}
+
+
+/* LOGIN */
+
+async function login(){
+
+const key=document
+.getElementById("adminKey")
+.value.trim();
+
+const msg=document.getElementById("loginMsg");
+
+if(!key){
+msg.className="error";
+msg.textContent="Please enter your admin key.";
+return;
+}
+
+ADMIN_KEY=key;
+
+msg.className="";
+msg.textContent="Checking admin key...";
+
+try{
+
+/*
+IMPORTANT:
+Actually test the key against the protected
+payments endpoint.
+*/
+
+const response=await fetch(
+WORKER+"/payments?status=pending",
+{
+method:"GET",
+headers:authHeaders()
+}
+);
+
+const data=await response.json();
+
+if(
+response.status===401 ||
+response.status===403
+){
+
+ADMIN_KEY="";
+
+msg.className="error";
+msg.textContent="❌ Unauthorized. Please check your admin key.";
+return;
+}
+
+if(!response.ok || !data.success){
+
+throw new Error(
+data.message || "Unable to verify admin key."
+);
+}
+
+document
+.getElementById("loginBox")
+.style.display="none";
+
+document
+.getElementById("content")
+.style.display="block";
+
+showPayments(data.payments || []);
+
+}catch(error){
+
+ADMIN_KEY="";
+
+msg.className="error";
+msg.textContent="❌ "+error.message;
+
+}
+
+}
+
+
+/* LOAD PAYMENTS */
+
+async function loadPayments(){
+
+const box=document.getElementById("payments");
+
+box.innerHTML=
+`<div class="loading">⏳ Loading payments...</div>`;
+
+try{
+
+const response=await fetch(
+WORKER+"/payments?status=pending",
+{
+headers:authHeaders()
+}
+);
+
+const data=await response.json();
+
+if(response.status===401 || response.status===403){
+throw new Error("Unauthorized. Please login again.");
+}
+
+if(!response.ok || !data.success){
+throw new Error(
+data.message || "Unable to load payments."
+);
+}
+
+showPayments(data.payments || []);
+
+}catch(error){
+
+box.innerHTML=
+`<div class="error">${escapeHtml(error.message)}</div>`;
+
+}
+
+}
+
+
+/* DISPLAY */
+
+function showPayments(payments){
+
+const box=document.getElementById("payments");
+
+if(!payments.length){
+
+box.innerHTML=
+`<div class="empty">
+✅ No pending payments.
+</div>`;
+
+return;
+}
+
+box.innerHTML=
+`<div class="grid">
+${payments.map(createCard).join("")}
+</div>`;
+
+}
+
+
+/* CARD */
+
+function createCard(p){
+
+return `
+<div class="card">
+
+<div class="head">
+<h2>Payment #${p.id}</h2>
+<span class="status">
+${escapeHtml(p.status || "PENDING").toUpperCase()}
+</span>
+</div>
+
+<div class="detail">
+<span class="label">Student Email</span>
+<span class="value">
+${escapeHtml(
+p.student_email || p.email || "-"
+)}
+</span>
+</div>
+
+<div class="detail">
+<span class="label">Sender Name</span>
+<span class="value">
+${escapeHtml(
+p.sender_name || "-"
+)}
+</span>
+</div>
+
+<div class="detail">
+<span class="label">Bank</span>
+<span class="value">
+${escapeHtml(
+p.sender_bank || p.bank_name || "-"
+)}
+</span>
+</div>
+
+<div class="detail">
+<span class="label">Account</span>
+<span class="value">
+${escapeHtml(
+p.sender_account || p.account_number || "-"
+)}
+</span>
+</div>
+
+<div class="detail">
+<span class="label">Amount</span>
+<span class="value">
+LKR ${Number(p.amount || 0).toLocaleString()}
+</span>
+</div>
+
+<div class="detail">
+<span class="label">Submitted</span>
+<span class="value">
+${escapeHtml(p.created_at || "-")}
+</span>
+</div>
+
+<div class="actions">
+
+<button
+class="view"
+onclick="viewReceipt(${p.id})">
+🧾 View Slip
+</button>
+
+<button
+class="approve"
+onclick="approvePayment(${p.id})">
+✅ Approve — Activate 30 Days
+</button>
+
+<button
+class="reject"
+onclick="rejectPayment(${p.id})">
+❌ Reject
+</button>
+
+</div>
+
+</div>
+`;
+
+}
+
+
+/* VIEW SLIP */
+
+async function viewReceipt(id){
+
+try{
+
+const response=await fetch(
+WORKER+"/receipt/"+id,
+{
+headers:authHeaders()
+}
+);
+
+if(response.status===401 ||
+response.status===403){
+
+throw new Error("Unauthorized.");
+}
+
+if(!response.ok){
+
+const text=await response.text();
+
+throw new Error(
+text || "Unable to open slip."
+);
+}
+
+const blob=await response.blob();
+
+const url=URL.createObjectURL(blob);
+
+window.open(url,"_blank");
+
+}catch(error){
+
+alert(
+"❌ View Slip failed:\n\n"+
+error.message
+);
+
+}
+
+}
+
+
+/* APPROVE */
+
+async function approvePayment(id){
+
+if(!confirm(
+"Approve this payment?\n\n"+
+"Premium will be activated for 30 days."
+)) return;
+
+try{
+
+const response=await fetch(
+WORKER+"/approve",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json",
+...authHeaders()
+},
+body:JSON.stringify({
+payment_id:id
+})
+}
+);
+
+const data=await response.json();
+
+if(!response.ok || !data.success){
+
+throw new Error(
+data.message || "Approval failed."
+);
+}
+
+alert(
+"✅ Payment approved!\n\n"+
+"Student: "+(data.student_email || "-")+
+"\nPremium: ACTIVE"+
+"\nExpires: "+(data.membership_expiry || "-")
+);
+
+loadPayments();
+
+}catch(error){
+
+alert(
+"❌ Approval failed:\n\n"+
+error.message
+);
+
+}
+
+}
+
+
+/* REJECT */
+
+async function rejectPayment(id){
+
+const reason=prompt(
+"Enter rejection reason:"
+);
+
+if(reason===null) return;
+
+try{
+
+const response=await fetch(
+WORKER+"/reject",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json",
+...authHeaders()
+},
+body:JSON.stringify({
+payment_id:id,
+admin_note:reason.trim()
+})
+}
+);
+
+const data=await response.json();
+
+if(!response.ok || !data.success){
+
+throw new Error(
+data.message || "Rejection failed."
+);
+}
+
+alert("❌ Payment rejected.");
+
+loadPayments();
+
+}catch(error){
+
+alert(
+"❌ Rejection failed:\n\n"+
+error.message
+);
+
+}
+
+}
+
+
+/* LOGOUT */
+
+function logout(){
+
+ADMIN_KEY="";
+
+location.reload();
+
+}
+
+
+/* ESCAPE */
+
+function escapeHtml(value){
+
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+</script></body>
+</html>
