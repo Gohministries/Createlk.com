@@ -1,527 +1,931 @@
 <!DOCTYPE html><html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Premium Membership | CreateLK Academy</title><style>
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;min-height:100%}
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Premium Membership | CreateLK Academy</title><meta name="description"
+content="CreateLK Academy Premium Membership payment page.">
+
+<meta name="theme-color" content="#174ea6"><style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+min-height:100%;
+}
+
 body{
-font-family:Arial,Helvetica,sans-serif;
+min-height:100vh;
+font-family:"Segoe UI",Arial,sans-serif;
 background:#f4f7fb;
 color:#172033;
-overflow-x:hidden
+line-height:1.5;
 }
+
+/* HEADER */
+
 header{
+width:100%;
 background:#174ea6;
 color:#fff;
-padding:14px 16px;
+}
+
+.nav{
+width:100%;
+max-width:900px;
+min-height:64px;
+margin:auto;
+padding:12px 18px;
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:12px
+gap:15px;
 }
-.logo{font-size:17px;font-weight:800}
-header a{
+
+.logo{
+font-size:18px;
+font-weight:800;
+}
+
+.home{
 color:#fff;
 text-decoration:none;
-font-size:13px;
-font-weight:700
+font-size:14px;
+font-weight:700;
+white-space:nowrap;
 }
+
+/* MAIN */
+
 main{
 width:100%;
-max-width:680px;
+max-width:760px;
 margin:auto;
-padding:24px 14px 45px
+padding:28px 15px 45px;
 }
-.hero{text-align:center;margin-bottom:18px}
-.hero span{
-display:block;
-font-size:42px;
-margin-bottom:8px
+
+/* HERO */
+
+.hero{
+text-align:center;
+margin-bottom:20px;
 }
+
+.hero-icon{
+font-size:48px;
+line-height:1;
+margin-bottom:8px;
+}
+
 .hero h1{
-font-size:26px;
 color:#174ea6;
-margin-bottom:8px
+font-size:28px;
+line-height:1.3;
+margin-bottom:7px;
 }
+
 .hero p{
-font-size:14px;
-line-height:1.6;
-color:#667085
+color:#667085;
+font-size:15px;
 }
-.badge{
+
+.price{
 display:inline-block;
-margin-top:10px;
-padding:7px 12px;
+margin-top:11px;
+padding:8px 15px;
 background:#fff3cd;
-color:#946200;
+color:#8a6100;
 border-radius:20px;
-font-size:13px;
-font-weight:800
+font-size:14px;
+font-weight:800;
 }
+
+/* CARD */
+
 .card{
 width:100%;
 background:#fff;
-border-radius:16px;
-padding:18px;
-margin-bottom:15px;
-box-shadow:0 4px 18px rgba(0,0,0,.07)
+border-radius:18px;
+padding:22px;
+margin-bottom:17px;
+box-shadow:0 6px 26px rgba(0,0,0,.07);
 }
+
 .card h2{
-font-size:18px;
-line-height:1.4;
-margin-bottom:14px
+font-size:20px;
+line-height:1.3;
+margin-bottom:15px;
+color:#172033;
 }
+
+/* STATUS */
+
+.status{
+display:none;
+width:100%;
+padding:13px;
+border-radius:10px;
+margin-bottom:16px;
+font-size:14px;
+line-height:1.5;
+}
+
+.status.success{
+display:block;
+background:#ecfdf3;
+color:#027a48;
+border:1px solid #abefc6;
+}
+
+.status.error{
+display:block;
+background:#fef3f2;
+color:#b42318;
+border:1px solid #fecdca;
+}
+
+/* FORM */
+
+.field{
+width:100%;
+margin-bottom:17px;
+}
+
 label{
 display:block;
 font-size:14px;
 font-weight:700;
-margin-bottom:7px
+margin-bottom:7px;
 }
-input[type=email],
-input[type=file]{
+
+input[type="email"],
+input[type="file"]{
 display:block;
 width:100%;
 padding:13px;
 border:1px solid #d5dbe5;
 border-radius:10px;
 background:#fff;
+color:#172033;
 font-size:16px;
-margin-bottom:13px
-}
-input:focus{
 outline:none;
-border-color:#174ea6;
-box-shadow:0 0 0 3px rgba(23,78,166,.1)
 }
-button,.pay{
+
+input:focus{
+border-color:#174ea6;
+box-shadow:0 0 0 3px rgba(23,78,166,.10);
+}
+
+/* PAYHERE */
+
+.payhere{
+width:100%;
+padding:18px;
+background:#f8faff;
+border:1px solid #dbe4f0;
+border-radius:14px;
+}
+
+.payhere-title{
+font-size:18px;
+font-weight:800;
+margin-bottom:7px;
+}
+
+.payhere p{
+color:#667085;
+font-size:14px;
+line-height:1.6;
+margin-bottom:14px;
+}
+
+.payhere-btn{
 display:block;
 width:100%;
-min-height:48px;
-padding:13px 15px;
+padding:14px;
+border-radius:10px;
+background:#174ea6;
+color:#fff;
+text-align:center;
+text-decoration:none;
+font-size:16px;
+font-weight:800;
+}
+
+.payhere-btn:hover{
+background:#123d82;
+}
+
+.sandbox{
+margin-top:10px;
+padding:7px;
+border-radius:8px;
+background:#fff7d6;
+color:#946200;
+font-size:12px;
+font-weight:700;
+text-align:center;
+}
+
+/* DIVIDER */
+
+.divider{
+display:flex;
+align-items:center;
+gap:10px;
+margin:21px 0;
+color:#98a2b3;
+font-size:13px;
+font-weight:700;
+}
+
+.divider::before,
+.divider::after{
+content:"";
+height:1px;
+background:#e4e7ec;
+flex:1;
+}
+
+/* INFO */
+
+.info{
+width:100%;
+padding:13px;
+margin-bottom:15px;
+border-radius:10px;
+background:#eff8ff;
+border:1px solid #b2ddff;
+color:#175cd3;
+font-size:14px;
+line-height:1.5;
+}
+
+/* BANK */
+
+.bank{
+width:100%;
+background:#f8faff;
+border:1px solid #dbe7ff;
+border-radius:14px;
+overflow:hidden;
+}
+
+.bank-row{
+display:flex;
+align-items:flex-start;
+justify-content:space-between;
+gap:15px;
+padding:13px 14px;
+border-bottom:1px solid #e8edf5;
+}
+
+.bank-row:last-child{
+border-bottom:0;
+}
+
+.bank-label{
+flex:0 0 125px;
+color:#667085;
+font-size:14px;
+}
+
+.bank-value{
+flex:1;
+font-size:14px;
+font-weight:800;
+text-align:right;
+word-break:break-word;
+}
+
+.copy-btn{
+display:inline-block;
+border:0;
+background:#e8f0ff;
+color:#174ea6;
+padding:5px 9px;
+border-radius:7px;
+font-size:12px;
+font-weight:800;
+cursor:pointer;
+margin-left:5px;
+}
+
+.copy-btn:hover{
+background:#dbe7ff;
+}
+
+.copy-all{
+width:100%;
+margin-top:12px;
+padding:12px;
+border:1px solid #174ea6;
+border-radius:10px;
+background:#fff;
+color:#174ea6;
+font-size:14px;
+font-weight:800;
+cursor:pointer;
+}
+
+.copy-all:hover{
+background:#f5f8ff;
+}
+
+/* UPLOAD */
+
+.upload{
+width:100%;
+margin-top:18px;
+}
+
+.file-info{
+display:none;
+width:100%;
+margin-top:8px;
+padding:10px;
+background:#f2f4f7;
+border-radius:8px;
+color:#475467;
+font-size:13px;
+line-height:1.5;
+word-break:break-word;
+}
+
+/* BUTTON */
+
+.submit{
+display:block;
+width:100%;
+padding:14px;
+margin-top:13px;
 border:0;
 border-radius:10px;
 background:#174ea6;
 color:#fff;
-font-size:15px;
+font-size:16px;
 font-weight:800;
-text-align:center;
-text-decoration:none;
-cursor:pointer
+cursor:pointer;
 }
-button:disabled{opacity:.6;cursor:not-allowed}
-button:hover,.pay:hover{background:#123d82}
-.paybox{
-padding:15px;
-background:#f8faff;
-border:1px solid #dbe7ff;
-border-radius:12px
+
+.submit:hover{
+background:#123d82;
 }
-.small{
+
+.submit:disabled{
+opacity:.6;
+cursor:not-allowed;
+}
+
+/* NOTE */
+
+.note{
+margin-top:13px;
+color:#667085;
 font-size:13px;
 line-height:1.65;
+}
+
+/* BENEFITS */
+
+.benefits{
 color:#667085;
-margin-bottom:12px
-}
-.divider{
-text-align:center;
-color:#98a2b3;
-font-size:13px;
-font-weight:800;
-margin:17px 0
-}
-.bank{
-background:#f8faff;
-border:1px solid #dbe7ff;
-border-radius:12px;
-padding:10px
-}
-.row{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:10px;
-padding:11px 9px;
-background:#fff;
-border:1px solid #e4e9f1;
-border-radius:9px;
-margin-bottom:8px
-}
-.row:last-child{margin-bottom:0}
-.row div{
-min-width:0;
-flex:1;
-overflow:hidden
-}
-.row small{
-display:block;
-font-size:11px;
-color:#667085;
-margin-bottom:3px
-}
-.row b{
-display:block;
 font-size:14px;
-line-height:1.4;
-word-break:break-word;
-overflow-wrap:anywhere
+line-height:2;
 }
-.copy{
-width:auto;
-min-width:70px;
-min-height:36px;
-padding:7px 9px;
-font-size:12px;
-flex-shrink:0
-}
-.notice{
-margin-top:13px;
-padding:11px;
-border-radius:9px;
-background:#fff8e7;
-border:1px solid #f6d98a;
-color:#795b00;
-font-size:13px;
-line-height:1.55
-}
-.status{
-display:none;
-width:100%;
-padding:12px;
-border-radius:10px;
-margin-bottom:15px;
-font-size:14px;
-line-height:1.55;
-word-break:break-word
-}
-.status.success{
-display:block;
-background:#ecfdf3;
-border:1px solid #abefc6;
-color:#027a48
-}
-.status.error{
-display:block;
-background:#fef3f2;
-border:1px solid #fecdca;
-color:#b42318
-}
-#fileName{
-display:none;
-margin:-4px 0 12px;
-padding:9px;
-border-radius:8px;
-background:#f8f9fc;
-color:#667085;
-font-size:12px;
-line-height:1.5;
-word-break:break-word
-}
+
+/* FOOTER */
+
 footer{
+width:100%;
+padding:25px 15px 30px;
 text-align:center;
-padding:20px 14px 30px;
 color:#667085;
 font-size:13px;
-line-height:1.7
+line-height:1.8;
 }
+
 footer a{
 color:#174ea6;
+text-decoration:none;
 font-weight:700;
-text-decoration:none
 }
-@media(max-width:600px){
-header{padding:13px 12px}
-.logo{font-size:15px}
-header a{font-size:12px}
-main{padding:20px 10px 35px}
-.hero h1{font-size:24px}
-.hero span{font-size:38px}
-.card{padding:15px;border-radius:14px}
-.card h2{font-size:17px}
-.row{align-items:flex-start}
-.copy{min-width:66px}
-}
-@media(max-width:360px){
-.logo{font-size:14px}
-main{padding-left:8px;padding-right:8px}
-.card{padding:13px}
-.row{gap:6px;padding:9px 7px}
-.row b{font-size:13px}
-.copy{min-width:60px;font-size:11px;padding:6px}
-.hero h1{font-size:22px}
-}
-</style></head><body><header>
-<div class="logo">📚 CreateLK Academy</div>
-<a href="index.html">🏠 Home</a>
-</header><main><div class="hero">
-<span>⭐</span>
-<h1>Premium Membership</h1>
-<p>Unlock Premium AI English learning resources.</p>
-<div class="badge">LKR 1,500 • 30 Days</div>
-</div><div id="status" class="status"></div><section class="card"><h2>👤 Student Information</h2><label for="email">Registered Student Email</label>
 
-<input
-id="email"
+/* MOBILE */
+
+@media(max-width:600px){
+
+.nav{
+min-height:60px;
+padding:11px 14px;
+}
+
+.logo{
+font-size:16px;
+}
+
+.home{
+font-size:13px;
+}
+
+main{
+padding:22px 11px 35px;
+}
+
+.card{
+padding:17px;
+border-radius:15px;
+}
+
+.hero-icon{
+font-size:43px;
+}
+
+.hero h1{
+font-size:24px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.bank-row{
+display:block;
+}
+
+.bank-label{
+display:block;
+margin-bottom:4px;
+}
+
+.bank-value{
+text-align:left;
+}
+
+.copy-btn{
+margin-left:0;
+margin-top:6px;
+}
+
+}
+
+@media(max-width:360px){
+
+.logo{
+font-size:15px;
+}
+
+.home{
+font-size:12px;
+}
+
+main{
+padding-left:8px;
+padding-right:8px;
+}
+
+.card{
+padding:15px;
+}
+
+}
+
+</style></head><body><header><div class="nav"><div class="logo">
+📚 CreateLK Academy
+</div><a
+class="home"
+href="https://createlk.com/">
+🏠 Home
+</a>
+
+</div></header><main><!-- HERO --><section class="hero"><div class="hero-icon">
+⭐
+</div><h1>
+Premium Membership
+</h1><p>
+Unlock Premium AI English learning resources.
+</p><div class="price">
+LKR 1,500 • 30 Days
+</div></section><!-- STUDENT --><section class="card"><div
+id="status"
+class="status"
+role="alert"
+aria-live="polite">
+</div><h2>
+👤 Student Information
+</h2><div class="field"><label for="email">
+Registered Student Email
+</label><input
 type="email"
+id="email"
 placeholder="Enter your registered email"
 autocomplete="email"
-required
+required>
 
-«»
-
-</section><section class="card"><h2>💳 PayHere</h2><div class="paybox"><p class="small">
+</div></section><!-- PAYMENT --><section class="card"><h2>
+💳 Choose Payment Method
+</h2><!-- PAYHERE --><div class="payhere"><div class="payhere-title">
+💳 PayHere
+</div><p>
 Pay securely online using the CreateLK Academy PayHere payment page.
 </p><a
-class="pay"
+class="payhere-btn"
 href="https://sandbox.payhere.lk/pay/ob44d0014"
 target="_blank"
-rel="noopener"
-
-«»
-
+rel="noopener noreferrer">
 💳 Pay LKR 1,500 with PayHere
 </a>
 
-<p class="small" style="margin-top:10px;margin-bottom:0">
-<b>Sandbox Mode — Testing Only</b><br>
-Premium access is activated only after successful payment verification.
-</p></div></section><div class="divider">OR</div><section class="card"><h2>🏦 Manual Bank Transfer</h2><p class="small">
-Transfer <b>LKR 1,500</b> to the account below and upload your payment slip.
-</p><div class="bank"><div class="row">
-<div>
-<small>Bank</small>
-<b id="bank">People's Bank</b>
-</div>
-<button class="copy" type="button" onclick="copyText('bank')">
-📋 Copy
-</button>
-</div><div class="row">
-<div>
-<small>Branch</small>
-<b id="branch">Udapussellawa</b>
-</div>
-<button class="copy" type="button" onclick="copyText('branch')">
-📋 Copy
-</button>
-</div><div class="row">
-<div>
-<small>Account Name</small>
-<b id="accountName">Thinarathnam Sathiyanathan</b>
-</div>
-<button class="copy" type="button" onclick="copyText('accountName')">
-📋 Copy
-</button>
-</div><div class="row">
-<div>
-<small>Account Number</small>
-<b id="account">292200280023178</b>
-</div>
-<button class="copy" type="button" onclick="copyText('account')">
-📋 Copy
-</button>
-</div><div class="row">
-<div>
-<small>Amount</small>
-<b id="amount">LKR 1,500</b>
-</div>
-<button class="copy" type="button" onclick="copyText('amount')">
-📋 Copy
-</button>
-</div></div><br><label for="receipt">📎 Payment Slip</label>
+<div class="sandbox">
+Sandbox Mode — Testing Only
+</div><p style="margin-top:10px;margin-bottom:0">After completing your PayHere payment,
+return to CreateLK Academy.
 
-<input
-id="receipt"
-type="file"
-accept=".jpg,.jpeg,.png,.webp,.pdf"
+Premium access is activated only after
+successful payment verification.
 
-«»
+</p></div><!-- DIVIDER --><div class="divider">
+OR
+</div><!-- MANUAL --><h2>
+🏦 Manual Bank Transfer
+</h2><div class="info">Transfer <b>LKR 1,500</b> to the account below
+and upload your payment slip.
 
-<div id="fileName"></div><button
-id="submit"
+</div><!-- BANK DETAILS --><div class="bank"><div class="bank-row"><div class="bank-label">
+Bank
+</div><div class="bank-value">
+People's Bank
+</div></div><div class="bank-row"><div class="bank-label">
+Branch
+</div><div class="bank-value">
+Udapussellawa
+</div></div><div class="bank-row"><div class="bank-label">
+Account Name
+</div><div class="bank-value">
+Thinarathnam Saththiyanadan
+</div></div><div class="bank-row"><div class="bank-label">
+Account Number
+</div><div class="bank-value">292200280023178
+
+<button
 type="button"
+class="copy-btn"
+onclick="copyText('292200280023178',this)">
+Copy
+</button>
 
-«»
+</div></div><div class="bank-row"><div class="bank-label">
+Amount
+</div><div class="bank-value">LKR 1,500
 
+<button
+type="button"
+class="copy-btn"
+onclick="copyText('LKR 1,500',this)">
+Copy
+</button>
+
+</div></div></div><button
+type="button"
+class="copy-all"
+onclick="copyBankDetails(this)">
+📋 Copy All Bank Details
+</button>
+
+<!-- RECEIPT --><form
+id="paymentForm"
+class="upload"><div class="field"><label for="receipt">
+📎 Payment Slip
+</label><input
+type="file"
+id="receipt"
+accept=".jpg,.jpeg,.png,.webp,.pdf"
+required>
+
+<div
+id="fileInfo"
+class="file-info">
+</div></div><button
+type="submit"
+id="submitButton"
+class="submit">
 📤 Submit Payment Slip
 </button>
 
-<div class="notice">
-<strong>Important:</strong>
-Manual payments are reviewed by the administrator.
-Premium access will be activated for <b>30 days</b>
-only after successful payment verification.
-</div></section><section class="card"><h2>⭐ Premium Benefits</h2><p class="small">
-• Up to 100 AI MCQs every day<br>
+</form><div class="note"><b>Important:</b>
+Manual payments are reviewed by the
+CreateLK Academy administrator.
+
+Your Premium membership will be activated
+for <b>30 days</b> only after the payment
+has been successfully verified.
+
+</div></section><!-- BENEFITS --><section class="card"><h2>
+⭐ Premium Benefits
+</h2><div class="benefits">• Up to 100 AI MCQs every day<br>
 • Exactly 4 answer options<br>
 • Instant answer checking<br>
 • Detailed explanations<br>
 • Beginner, Intermediate and Advanced levels<br>
 • Premium membership verification<br>
 • 30 days Premium access
-</p></section><section class="card"><h2>🔐 Payment Verification</h2><p class="small" style="margin-bottom:0">
-PayHere payments are verified through the PayHere payment notification system.
-Manual bank payments are reviewed by the CreateLK Academy administrator.
-Premium access is activated only after successful payment verification.
-</p></section></main><footer>📚 <b>CreateLK Academy</b><br>
-Learn English. Build Your Future.
+
+</div></section><!-- SECURITY --><section class="card"><h2>
+🔐 Important
+</h2><div class="note">PayHere payments are verified through the
+PayHere payment notification system.
 
 <br><br>
 
-<a href="index.html">Home</a> ·
-<a href="premium.html">Premium AI</a>
+Manual bank payments are reviewed by the
+CreateLK Academy administrator.
 
 <br><br>
 
-© 2026 CreateLK Academy
+Payment return pages do not automatically
+activate Premium access.
+
+</div></section></main><footer>📚 <b>CreateLK Academy</b>
+
+<br>Learn English. Build Your Future.
+
+<br><br>
+
+<a href="https://createlk.com/">
+Home
+</a> · 
+
+<a href="premium.html">
+Premium AI
+</a><br><br>
+
+© 2026 CreateLK Academy.
+All Rights Reserved.
 
 </footer><script>
 
-const API="https://payment.gateofheavensl1.workers.dev";
+/* =========================
+   PAYMENT WORKER
+========================= */
 
-const email=document.getElementById("email");
-const file=document.getElementById("receipt");
-const submit=document.getElementById("submit");
-const statusBox=document.getElementById("status");
-const fileName=document.getElementById("fileName");
+const PAYMENT_API =
+"https://payment.gateofheavensl1.workers.dev";
 
 
-/* LOAD LOGGED-IN EMAIL */
+/* =========================
+   ELEMENTS
+========================= */
+
+const emailInput =
+document.getElementById("email");
+
+const receiptInput =
+document.getElementById("receipt");
+
+const fileInfo =
+document.getElementById("fileInfo");
+
+const form =
+document.getElementById("paymentForm");
+
+const submitButton =
+document.getElementById("submitButton");
+
+const statusBox =
+document.getElementById("status");
+
+
+/* =========================
+   LOAD SAVED EMAIL
+========================= */
 
 try{
 
-let savedEmail=
-localStorage.getItem("createlk_student_email");
-
-if(!savedEmail){
-
-const user=
-JSON.parse(
-localStorage.getItem("createlk_user")||"null"
+const savedEmail =
+localStorage.getItem(
+"createlk_student_email"
 );
 
-if(user && user.email){
-savedEmail=user.email;
-}
-
-}
-
 if(savedEmail){
-email.value=savedEmail;
+
+emailInput.value =
+savedEmail;
+
+}else{
+
+const savedUser =
+localStorage.getItem(
+"createlk_user"
+);
+
+if(savedUser){
+
+const user =
+JSON.parse(savedUser);
+
+if(
+user &&
+user.email
+){
+
+emailInput.value =
+user.email;
+
 }
 
-}catch(e){
-console.log(e);
 }
 
-
-/* COPY BANK DETAILS */
-
-async function copyText(id){
-
-const element=
-document.getElementById(id);
-
-const text=
-element.textContent.trim();
-
-try{
-
-await navigator.clipboard.writeText(text);
-
-show("✅ Copied: "+text,"success");
+}
 
 }catch(error){
 
-const area=
-document.createElement("textarea");
-
-area.value=text;
-
-document.body.appendChild(area);
-
-area.select();
-
-document.execCommand("copy");
-
-area.remove();
-
-show("✅ Copied: "+text,"success");
-
-}
+console.error(
+"Unable to load saved student information.",
+error
+);
 
 }
 
 
-/* FILE SELECT */
+/* =========================
+   STATUS
+========================= */
 
-file.addEventListener("change",function(){
+function showStatus(
+message,
+type
+){
 
-if(!file.files.length){
-fileName.style.display="none";
-return;
-}
+statusBox.className =
+"status " + type;
 
-const selected=file.files[0];
-
-fileName.textContent=
-"Selected: "+
-selected.name+
-" • "+
-(selected.size/1048576).toFixed(2)+
-" MB";
-
-fileName.style.display="block";
-
-});
-
-
-/* STATUS */
-
-function show(message,type){
-
-statusBox.className=
-"status "+type;
-
-statusBox.textContent=
+statusBox.textContent =
 message;
 
-statusBox.style.display="block";
+statusBox.style.display =
+"block";
 
 }
 
 
-/* SUBMIT PAYMENT */
+/* =========================
+   COPY TEXT
+========================= */
 
-submit.addEventListener("click",async function(){
+async function copyText(
+text,
+button
+){
 
-statusBox.style.display="none";
+try{
+
+await navigator.clipboard.writeText(
+text
+);
+
+const oldText =
+button.textContent;
+
+button.textContent =
+"Copied ✓";
+
+setTimeout(
+function(){
+
+button.textContent =
+oldText;
+
+},
+1500
+);
+
+}catch(error){
+
+window.prompt(
+"Copy this information:",
+text
+);
+
+}
+
+}
 
 
-const studentEmail=
-email.value.trim().toLowerCase();
+/* =========================
+   COPY ALL BANK DETAILS
+========================= */
 
-const selectedFile=
-file.files[0];
+async function copyBankDetails(
+button
+){
+
+const details =
+"Bank: People's Bank\n" +
+"Branch: Udapussellawa\n" +
+"Account Name: Thinarathnam Saththiyanadan\n" +
+"Account Number: 292200280023178\n" +
+"Amount: LKR 1,500";
+
+await copyText(
+details,
+button
+);
+
+}
 
 
-if(!studentEmail ||
-!studentEmail.includes("@")){
+/* =========================
+   FILE SELECTED
+========================= */
 
-show(
+receiptInput.addEventListener(
+"change",
+function(){
+
+const file =
+receiptInput.files[0];
+
+if(!file){
+
+fileInfo.style.display =
+"none";
+
+fileInfo.textContent =
+"";
+
+return;
+
+}
+
+const size =
+(
+file.size /
+1024 /
+1024
+).toFixed(2);
+
+fileInfo.textContent =
+"Selected: " +
+file.name +
+" • " +
+size +
+" MB";
+
+fileInfo.style.display =
+"block";
+
+}
+);
+
+
+/* =========================
+   SUBMIT PAYMENT
+========================= */
+
+form.addEventListener(
+"submit",
+async function(event){
+
+event.preventDefault();
+
+statusBox.style.display =
+"none";
+
+
+const email =
+emailInput.value
+.trim()
+.toLowerCase();
+
+const file =
+receiptInput.files[0];
+
+
+/* EMAIL */
+
+if(
+!email ||
+!email.includes("@")
+){
+
+showStatus(
 "Please enter your registered student email.",
 "error"
 );
 
-email.focus();
+emailInput.focus();
 
 return;
 
 }
 
 
-if(!selectedFile){
+/* FILE */
 
-show(
+if(!file){
+
+showStatus(
 "Please select your payment slip.",
 "error"
 );
@@ -531,29 +935,22 @@ return;
 }
 
 
-if(selectedFile.size>5*1024*1024){
+/* FILE TYPE */
 
-show(
-"Payment slip must be smaller than 5 MB.",
-"error"
-);
+const allowedTypes = [
 
-return;
-
-}
-
-
-const allowedTypes=[
 "image/jpeg",
 "image/png",
 "image/webp",
 "application/pdf"
+
 ];
 
+if(
+!allowedTypes.includes(file.type)
+){
 
-if(!allowedTypes.includes(selectedFile.type)){
-
-show(
+showStatus(
 "Only JPG, JPEG, PNG, WEBP or PDF files are accepted.",
 "error"
 );
@@ -563,19 +960,43 @@ return;
 }
 
 
-submit.disabled=true;
+/* FILE SIZE */
 
-submit.textContent="⏳ Uploading...";
+if(
+file.size >
+5 * 1024 * 1024
+){
+
+showStatus(
+"Payment slip must be smaller than 5 MB.",
+"error"
+);
+
+return;
+
+}
+
+
+/* BUTTON */
+
+submitButton.disabled =
+true;
+
+submitButton.textContent =
+"⏳ Submitting...";
 
 
 try{
 
-const formData=
+
+/* FORM DATA */
+
+const formData =
 new FormData();
 
 formData.append(
 "email",
-studentEmail
+email
 );
 
 formData.append(
@@ -590,13 +1011,16 @@ formData.append(
 
 formData.append(
 "receipt",
-selectedFile
+file
 );
 
 
-const response=
+/* REQUEST */
+
+const response =
 await fetch(
-API+"/api/manual-payment",
+PAYMENT_API +
+"/api/manual-payment",
 {
 method:"POST",
 body:formData
@@ -604,86 +1028,93 @@ body:formData
 );
 
 
-const responseText=
-await response.text();
+/* RESPONSE */
 
-let data;
+let result;
 
 try{
 
-data=
-JSON.parse(responseText);
+result =
+await response.json();
 
 }catch(error){
 
-console.error(
-"Worker response:",
-responseText
-);
-
 throw new Error(
-"Payment server returned an invalid response."
+"Invalid response from payment server."
 );
 
 }
 
+
+/* ERROR */
 
 if(
 !response.ok ||
-!data.success
+!result.success
 ){
 
 throw new Error(
-data.message ||
-data.error ||
-"Unable to submit payment slip."
+result.message ||
+"Payment submission failed."
 );
 
 }
 
 
+/* SAVE EMAIL */
+
 localStorage.setItem(
 "createlk_student_email",
-studentEmail
-);
-
-localStorage.setItem(
-"createlk_payment_status",
-"pending"
+email
 );
 
 
-show(
-"✅ Payment slip submitted successfully. Your payment is now pending verification. Premium access will be activated for 30 days after approval.",
+/* SUCCESS */
+
+showStatus(
+"✓ Payment slip submitted successfully. Your payment is now pending administrator verification.",
 "success"
 );
 
 
-submit.textContent="✅ Slip Submitted";
+/* CLEAR FILE */
 
-file.disabled=true;
+receiptInput.value =
+"";
 
-email.disabled=true;
+fileInfo.textContent =
+"";
+
+fileInfo.style.display =
+"none";
+
+
+/* RESET BUTTON */
+
+submitButton.disabled =
+false;
+
+submitButton.textContent =
+"📤 Submit Payment Slip";
 
 
 }catch(error){
 
 console.error(
-"Payment error:",
+"Payment submission error:",
 error
 );
 
-show(
-"❌ "+(
+showStatus(
 error.message ||
-"Unable to connect to the payment server."
-),
+"Unable to submit payment. Please try again.",
 "error"
 );
 
-submit.disabled=false;
+submitButton.disabled =
+false;
 
-submit.textContent=
+submitButton.textContent =
 "📤 Submit Payment Slip";
 
 }
