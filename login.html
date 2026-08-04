@@ -1,232 +1,489 @@
 <!DOCTYPE html><html lang="en">
 <head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Student Login | CreateLK Academy</title><meta name="description"
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Student Login | CreateLK Academy</title><meta name="description"
 content="Login to your CreateLK Academy student account.">
 
 <meta name="theme-color" content="#174ea6"><style>
 
+/* ================================
+   RESET
+================================ */
+
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:"Segoe UI",Arial,sans-serif;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    min-height:100%;
 }
 
 body{
-background:#f5f8ff;
-color:#172033;
-min-height:100vh;
+    min-height:100vh;
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#f5f8ff;
+    color:#172033;
+    overflow-x:hidden;
 }
 
+
+/* ================================
+   HEADER
+================================ */
+
 header{
-background:#174ea6;
-color:#fff;
-padding:15px 20px;
+    width:100%;
+    background:#174ea6;
+    color:#fff;
 }
 
 .nav{
-max-width:900px;
-margin:auto;
-display:flex;
-justify-content:space-between;
-align-items:center;
+    width:100%;
+    max-width:900px;
+    min-height:64px;
+    margin:0 auto;
+    padding:12px 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
 }
 
 .logo{
-font-size:19px;
-font-weight:800;
+    font-size:18px;
+    font-weight:800;
+    line-height:1.3;
 }
 
 .home{
-color:#fff;
-text-decoration:none;
-font-weight:700;
-font-size:14px;
+    flex-shrink:0;
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:700;
+    white-space:nowrap;
 }
+
+
+/* ================================
+   MAIN
+================================ */
 
 .container{
-max-width:480px;
-margin:45px auto;
-padding:15px;
+    width:100%;
+    max-width:480px;
+    margin:0 auto;
+    padding:35px 16px 30px;
 }
+
+
+/* ================================
+   CARD
+================================ */
 
 .card{
-background:#fff;
-padding:28px;
-border-radius:20px;
-box-shadow:0 8px 30px #0001;
+    width:100%;
+    background:#fff;
+    padding:28px 24px;
+    border-radius:20px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
 }
 
+
+/* ================================
+   LOGIN TITLE
+================================ */
+
 .icon{
-text-align:center;
-font-size:48px;
-margin-bottom:8px;
+    text-align:center;
+    font-size:44px;
+    line-height:1;
+    margin-bottom:14px;
 }
 
 h1{
-text-align:center;
-font-size:27px;
-color:#174ea6;
-margin-bottom:8px;
+    text-align:center;
+    color:#174ea6;
+    font-size:27px;
+    line-height:1.25;
+    margin-bottom:10px;
 }
 
 .subtitle{
-text-align:center;
-color:#667085;
-line-height:1.6;
-margin-bottom:25px;
+    text-align:center;
+    color:#667085;
+    font-size:15px;
+    line-height:1.6;
+    margin-bottom:25px;
 }
 
+
+/* ================================
+   STATUS
+================================ */
+
 .status{
-display:none;
-padding:13px;
-border-radius:10px;
-margin-bottom:18px;
-line-height:1.5;
+    width:100%;
+    display:none;
+    padding:13px 14px;
+    margin-bottom:18px;
+    border-radius:10px;
+    font-size:14px;
+    line-height:1.5;
+    overflow-wrap:anywhere;
 }
 
 .status.error{
-display:block;
-background:#fff0f0;
-color:#b42318;
-border:1px solid #fecdca;
+    display:block;
+    background:#fff0f0;
+    color:#b42318;
+    border:1px solid #fecdca;
 }
 
 .status.success{
-display:block;
-background:#ecfdf3;
-color:#027a48;
-border:1px solid #abefc6;
+    display:block;
+    background:#ecfdf3;
+    color:#027a48;
+    border:1px solid #abefc6;
 }
 
+
+/* ================================
+   FORM
+================================ */
+
 .field{
-margin-bottom:17px;
+    width:100%;
+    margin-bottom:18px;
 }
 
 label{
-display:block;
-font-weight:700;
-margin-bottom:7px;
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:700;
 }
 
 input{
-width:100%;
-padding:14px;
-border:1px solid #d5dbe5;
-border-radius:11px;
-font-size:16px;
-outline:none;
+    display:block;
+    width:100%;
+    min-height:50px;
+    padding:13px 14px;
+
+    border:1px solid #d5dbe5;
+    border-radius:11px;
+
+    background:#fff;
+    color:#172033;
+
+    font-size:16px;
+    line-height:1.3;
+
+    outline:none;
 }
 
 input:focus{
-border-color:#174ea6;
-box-shadow:0 0 0 3px #174ea61a;
+    border-color:#174ea6;
+    box-shadow:0 0 0 3px rgba(23,78,166,.10);
 }
 
+
+/* ================================
+   BUTTON
+================================ */
+
 button{
-width:100%;
-border:0;
-background:#174ea6;
-color:#fff;
-padding:15px;
-border-radius:11px;
-font-size:16px;
-font-weight:800;
-cursor:pointer;
+    display:block;
+    width:100%;
+    min-height:52px;
+
+    border:0;
+    border-radius:11px;
+
+    background:#174ea6;
+    color:#fff;
+
+    padding:14px 16px;
+
+    font-size:16px;
+    line-height:1.3;
+    font-weight:800;
+
+    cursor:pointer;
+
+    margin-top:5px;
+}
+
+button:hover{
+    background:#123d82;
 }
 
 button:disabled{
-opacity:.6;
-cursor:not-allowed;
+    opacity:.65;
+    cursor:not-allowed;
 }
 
+
+/* ================================
+   LINKS
+================================ */
+
 .register{
-text-align:center;
-margin-top:20px;
-color:#667085;
-font-size:14px;
+    width:100%;
+    text-align:center;
+    margin-top:22px;
+    color:#667085;
+    font-size:14px;
+    line-height:1.6;
 }
 
 .register a{
-color:#174ea6;
-font-weight:800;
-text-decoration:none;
+    color:#174ea6;
+    font-weight:800;
+    text-decoration:none;
 }
 
 .back{
-display:block;
-text-align:center;
-margin-top:18px;
-color:#174ea6;
-text-decoration:none;
-font-weight:700;
+    display:block;
+    width:100%;
+    text-align:center;
+    margin-top:17px;
+    color:#174ea6;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:700;
+    line-height:1.5;
 }
 
 .security{
-text-align:center;
-margin-top:25px;
-font-size:13px;
-color:#667085;
-line-height:1.6;
+    width:100%;
+    text-align:center;
+    margin-top:25px;
+    padding-top:20px;
+    border-top:1px solid #eef1f5;
+
+    font-size:13px;
+    color:#667085;
+    line-height:1.6;
 }
+
+
+/* ================================
+   FOOTER
+================================ */
 
 footer{
-text-align:center;
-padding:25px;
-color:#667085;
-font-size:13px;
+    width:100%;
+    text-align:center;
+    padding:0 16px 30px;
+
+    color:#667085;
+    font-size:13px;
+    line-height:1.6;
 }
 
-</style></head><body><header><div class="nav"><div class="logo">
-📚 CreateLK Academy
-</div><a class="home" href="index.html">
-🏠 Home
-</a></div></header><div class="container"><div class="card"><div class="icon">
-🔐
-</div><h1>
-Student Login
-</h1><p class="subtitle">
-Login to continue your English learning journey.
-</p><div id="status" class="status"></div><form id="loginForm"><div class="field"><label for="email">
-Email Address
-</label><input
-type="email"
-id="email"
-placeholder="Enter your email"
-autocomplete="email"
-required
 
-«»
+/* ================================
+   MOBILE
+================================ */
 
-</div><div class="field"><label for="password">
-Password
-</label><input
-type="password"
-id="password"
-placeholder="Enter your password"
-autocomplete="current-password"
-required
+@media(max-width:600px){
 
-«»
+    .nav{
+        min-height:60px;
+        padding:11px 15px;
+    }
 
-</div><button
-type="submit"
-id="loginButton"
+    .logo{
+        font-size:16px;
+    }
 
-«»
+    .home{
+        font-size:13px;
+    }
 
-🔐 Login
-</button>
+    .container{
+        padding:25px 12px 25px;
+    }
 
-</form><div class="register">Don't have an account?
+    .card{
+        padding:24px 18px;
+        border-radius:17px;
+    }
 
-<a href="register.html">
-✍️ Create Account
-</a></div><a class="back" href="index.html">
-← Back to Home
-</a><div class="security">🔒 Your account information is securely processed.
+    .icon{
+        font-size:40px;
+        margin-bottom:12px;
+    }
 
-</div></div></div><footer>📚 <b>CreateLK Academy</b> —
+    h1{
+        font-size:24px;
+    }
+
+    .subtitle{
+        font-size:14px;
+        margin-bottom:22px;
+    }
+
+    input{
+        min-height:49px;
+        font-size:16px;
+    }
+
+    button{
+        min-height:51px;
+    }
+
+}
+
+
+/* ================================
+   VERY SMALL PHONES
+================================ */
+
+@media(max-width:360px){
+
+    .nav{
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+    .logo{
+        font-size:15px;
+    }
+
+    .home{
+        font-size:12px;
+    }
+
+    .container{
+        padding-left:9px;
+        padding-right:9px;
+    }
+
+    .card{
+        padding:22px 15px;
+    }
+
+    h1{
+        font-size:22px;
+    }
+
+}
+
+</style></head><body><header><div class="nav">
+
+    <div class="logo">
+        📚 CreateLK Academy
+    </div>
+
+    <a
+        class="home"
+        href="index.html"
+    >
+        🏠 Home
+    </a>
+
+</div>
+
+</header><main class="container"><section class="card">
+
+    <div class="icon">
+        🔐
+    </div>
+
+    <h1>
+        Student Login
+    </h1>
+
+    <p class="subtitle">
+        Login to continue your English learning journey.
+    </p>
+
+
+    <div
+        id="status"
+        class="status"
+        role="alert"
+    ></div>
+
+
+    <form id="loginForm">
+
+        <div class="field">
+
+            <label for="email">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                autocomplete="email"
+                required
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+            >
+
+        </div>
+
+
+        <button
+            type="submit"
+            id="loginButton"
+        >
+            🔐 Login
+        </button>
+
+    </form>
+
+
+    <div class="register">
+
+        Don't have an account?
+
+        <a href="register.html">
+            ✍️ Create Account
+        </a>
+
+    </div>
+
+
+    <a
+        class="back"
+        href="index.html"
+    >
+        ← Back to Home
+    </a>
+
+
+    <div class="security">
+
+        🔒 Your account information is securely processed.
+
+    </div>
+
+</section>
+
+</main><footer>📚 <b>CreateLK Academy</b> —
 Learn English. Build Your Future.
 
 <br><br>
@@ -252,178 +509,183 @@ document.getElementById("status");
 
 function showStatus(message,type){
 
-statusBox.className =
-"status " + type;
+    statusBox.className =
+        "status " + type;
 
-statusBox.textContent =
-message;
+    statusBox.textContent =
+        message;
 
-statusBox.style.display =
-"block";
+    statusBox.style.display =
+        "block";
 
 }
 
 
 form.addEventListener(
-"submit",
-async function(event){
+    "submit",
+    async function(event){
 
-event.preventDefault();
-
-
-const email =
-document.getElementById("email")
-.value
-.trim()
-.toLowerCase();
+        event.preventDefault();
 
 
-const password =
-document.getElementById("password")
-.value;
+        const email =
+            document.getElementById("email")
+            .value
+            .trim()
+            .toLowerCase();
 
 
-button.disabled = true;
-
-button.textContent =
-"⏳ Logging in...";
-
-
-try{
-
-const response =
-await fetch(
-API + "/api/login",
-{
-method:"POST",
-
-headers:{
-"Content-Type":
-"application/json"
-},
-
-body:JSON.stringify({
-
-email:email,
-password:password
-
-})
-});
+        const password =
+            document.getElementById("password")
+            .value;
 
 
-let data;
+        button.disabled = true;
 
-try{
+        button.textContent =
+            "⏳ Logging in...";
 
-data =
-await response.json();
 
-}
-catch(jsonError){
+        statusBox.style.display =
+            "none";
 
-throw new Error(
-"Invalid response from login server."
+
+        try{
+
+            const response =
+                await fetch(
+                    API + "/api/login",
+                    {
+                        method:"POST",
+
+                        headers:{
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:JSON.stringify({
+                            email:email,
+                            password:password
+                        })
+                    }
+                );
+
+
+            let data;
+
+            try{
+
+                data =
+                    await response.json();
+
+            }
+            catch(e){
+
+                throw new Error(
+                    "Invalid response from login server."
+                );
+
+            }
+
+
+            if(
+                !response.ok ||
+                !data.success
+            ){
+
+                showStatus(
+                    data.message ||
+                    "Login failed. Please check your email and password.",
+                    "error"
+                );
+
+                button.disabled =
+                    false;
+
+                button.textContent =
+                    "🔐 Login";
+
+                return;
+
+            }
+
+
+            /*
+            =================================
+            SUCCESSFUL LOGIN
+            =================================
+            */
+
+            showStatus(
+                "✅ Login successful! Redirecting to payment...",
+                "success"
+            );
+
+
+            /*
+            Save user information
+            */
+
+            if(data.user){
+
+                localStorage.setItem(
+                    "createlk_user",
+                    JSON.stringify(data.user)
+                );
+
+            }
+
+
+            /*
+            Save email for payment page
+            */
+
+            localStorage.setItem(
+                "createlk_student_email",
+                email
+            );
+
+
+            /*
+            Redirect
+            */
+
+            setTimeout(
+                function(){
+
+                    window.location.href =
+                        "payment.html";
+
+                },
+                900
+            );
+
+
+        }
+        catch(error){
+
+            console.error(
+                "Login error:",
+                error
+            );
+
+
+            showStatus(
+                "❌ Unable to connect to CreateLK Academy. Please try again.",
+                "error"
+            );
+
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                "🔐 Login";
+
+        }
+
+    }
 );
-
-}
-
-
-if(
-!response.ok ||
-!data.success
-){
-
-showStatus(
-data.message ||
-"Login failed. Please check your email and password.",
-"error"
-);
-
-button.disabled = false;
-
-button.textContent =
-"🔐 Login";
-
-return;
-
-}
-
-
-/*
-====================================
-LOGIN SUCCESS
-====================================
-*/
-
-showStatus(
-"✅ Login successful! Redirecting to payment...",
-"success"
-);
-
-
-/*
-====================================
-SAVE STUDENT INFORMATION
-====================================
-*/
-
-if(data.user){
-
-localStorage.setItem(
-"createlk_user",
-JSON.stringify(data.user)
-);
-
-}
-
-
-/*
-Save email separately so payment.html
-can automatically identify the student.
-*/
-
-localStorage.setItem(
-"createlk_student_email",
-email
-);
-
-
-/*
-====================================
-REDIRECT TO PAYMENT PAGE
-====================================
-*/
-
-setTimeout(function(){
-
-window.location.replace(
-"payment.html"
-);
-
-},800);
-
-
-}
-catch(error){
-
-console.error(
-"Login error:",
-error
-);
-
-showStatus(
-"❌ Unable to connect to CreateLK Academy. Please try again.",
-"error"
-);
-
-button.disabled = false;
-
-button.textContent =
-"🔐 Login";
-
-}
-
-});
 
 </script></body>
 </html>
