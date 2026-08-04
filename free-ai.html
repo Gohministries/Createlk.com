@@ -2,509 +2,752 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Free AI English Learning | CreateLK Academy</title>
+<title>Free AI MCQ Generator | CreateLK Academy</title>
 
 <meta name="description"
-content="Practise English for free with CreateLK Academy's AI English learning tools, grammar practice, vocabulary and interactive exercises.">
+content="Generate English MCQs with four options using CreateLK Academy Free AI. Free users can generate up to 10 AI MCQs per day.">
 
 <meta name="theme-color" content="#174ea6">
 
 <style>
+
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f4f7fb;
+    background:#f5f8ff;
     color:#172033;
-    min-height:100vh;
 }
 
 header{
-    background:linear-gradient(135deg,#174ea6,#0b66c3);
-    color:white;
-    padding:18px 20px;
-    box-shadow:0 3px 12px rgba(0,0,0,.15);
+    background:#174ea6;
+    color:#fff;
+    position:sticky;
+    top:0;
+    z-index:99;
 }
 
-.header-inner{
+.nav{
     max-width:1100px;
     margin:auto;
+    padding:14px 18px;
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    gap:15px;
+    align-items:center;
 }
 
 .logo{
-    font-size:20px;
-    font-weight:bold;
-}
-
-.logo span{
-    display:block;
-    font-size:12px;
-    font-weight:normal;
-    opacity:.9;
-    margin-top:3px;
+    font-size:19px;
+    font-weight:800;
 }
 
 .menu{
     display:flex;
-    gap:8px;
+    gap:5px;
 }
 
 .menu a{
-    color:white;
+    color:#fff;
     text-decoration:none;
-    padding:9px 12px;
+    font-size:13px;
+    font-weight:700;
+    padding:9px;
     border-radius:8px;
-    font-size:14px;
 }
 
 .menu a:hover{
-    background:rgba(255,255,255,.15);
+    background:#ffffff20;
 }
 
-.container{
-    max-width:1100px;
+.menuBtn{
+    display:none;
+    background:none;
+    border:1px solid #ffffff66;
+    color:#fff;
+    padding:6px 10px;
+    border-radius:8px;
+    font-size:20px;
+}
+
+.mobile{
+    display:none;
+    background:#174ea6;
+    padding:8px 15px 15px;
+}
+
+.mobile a{
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    padding:12px;
+    font-weight:700;
+}
+
+main{
+    max-width:900px;
     margin:auto;
-    padding:30px 18px 50px;
+    padding:30px 15px 50px;
 }
 
 .hero{
     text-align:center;
-    padding:30px 10px 25px;
+    padding:25px 10px;
 }
 
 .hero-icon{
-    font-size:55px;
+    font-size:50px;
     margin-bottom:10px;
 }
 
 .hero h1{
-    font-size:34px;
     color:#174ea6;
+    font-size:32px;
     margin-bottom:10px;
 }
 
 .hero p{
+    color:#667085;
+    line-height:1.6;
     max-width:700px;
     margin:auto;
-    line-height:1.6;
-    color:#5b6575;
 }
 
-.ai-box{
-    max-width:850px;
-    margin:20px auto;
-    background:white;
-    border-radius:18px;
+.limit{
+    display:inline-block;
+    margin-top:15px;
+    padding:9px 15px;
+    border-radius:20px;
+    background:#e8f5ed;
+    color:#16834d;
+    font-size:14px;
+    font-weight:700;
+}
+
+.box{
+    background:#fff;
     padding:25px;
-    box-shadow:0 8px 30px rgba(0,0,0,.08);
-}
-
-.ai-title{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:20px;
-}
-
-.ai-title-icon{
-    width:50px;
-    height:50px;
-    border-radius:14px;
-    background:#e8f0ff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:25px;
-}
-
-.ai-title h2{
-    color:#174ea6;
-    font-size:22px;
-}
-
-.ai-title p{
-    color:#718096;
-    font-size:13px;
-    margin-top:4px;
+    border-radius:20px;
+    box-shadow:0 8px 30px #0001;
 }
 
 label{
     display:block;
-    font-weight:bold;
+    font-weight:800;
     margin-bottom:8px;
 }
 
-textarea{
+select,
+input{
     width:100%;
-    min-height:130px;
-    resize:vertical;
-    border:1px solid #d5dce8;
-    border-radius:12px;
-    padding:14px;
-    font-size:16px;
-    outline:none;
-    font-family:inherit;
-}
-
-textarea:focus{
-    border-color:#174ea6;
-    box-shadow:0 0 0 3px rgba(23,78,166,.1);
-}
-
-.actions{
-    display:flex;
-    gap:10px;
-    margin-top:12px;
-    flex-wrap:wrap;
-}
-
-button,
-.btn{
-    border:none;
-    cursor:pointer;
-    text-decoration:none;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:12px 18px;
+    padding:13px;
+    border:1px solid #d7deea;
     border-radius:10px;
-    font-weight:bold;
+    background:#fff;
     font-size:15px;
+    outline:none;
 }
 
-.ask{
+select:focus,
+input:focus{
+    border-color:#174ea6;
+}
+
+.field{
+    margin-bottom:18px;
+}
+
+.generate{
+    width:100%;
+    border:0;
     background:#174ea6;
-    color:white;
+    color:#fff;
+    padding:15px;
+    border-radius:11px;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
 }
 
-.ask:hover{
-    background:#103c82;
+.generate:hover{
+    background:#103d82;
 }
 
-.clear{
-    background:#eef1f5;
-    color:#334155;
-}
-
-.answer{
-    display:none;
-    margin-top:20px;
-    padding:18px;
-    background:#f7faff;
-    border-left:4px solid #174ea6;
-    border-radius:10px;
-    line-height:1.7;
-    white-space:pre-wrap;
+.generate:disabled{
+    opacity:.6;
+    cursor:not-allowed;
 }
 
 .loading{
     display:none;
-    margin-top:18px;
-    color:#174ea6;
-    font-weight:bold;
-}
-
-.features{
-    max-width:1000px;
-    margin:30px auto 0;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.card{
-    background:white;
-    padding:22px;
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
-}
-
-.card-icon{
-    font-size:30px;
-    margin-bottom:10px;
-}
-
-.card h3{
-    color:#174ea6;
-    margin-bottom:8px;
-}
-
-.card p{
-    color:#667085;
-    line-height:1.55;
-    font-size:14px;
-}
-
-.cta{
     text-align:center;
-    margin:35px auto 10px;
-    background:linear-gradient(135deg,#174ea6,#0b66c3);
-    color:white;
-    padding:28px 20px;
-    border-radius:18px;
-    max-width:850px;
+    margin-top:20px;
+    color:#174ea6;
+    font-weight:700;
 }
 
-.cta h2{
+.error{
+    display:none;
+    margin-top:20px;
+    background:#fff0f0;
+    color:#b42318;
+    padding:14px;
+    border-radius:10px;
+    line-height:1.5;
+}
+
+.result{
+    display:none;
+    margin-top:25px;
+}
+
+.question-card{
+    background:#f8faff;
+    border:1px solid #e0e7f2;
+    border-radius:15px;
+    padding:22px;
+}
+
+.question-number{
+    color:#174ea6;
+    font-size:13px;
+    font-weight:800;
     margin-bottom:8px;
 }
 
-.cta p{
-    opacity:.9;
+.question{
+    font-size:19px;
+    font-weight:800;
+    line-height:1.5;
     margin-bottom:18px;
 }
 
-.cta .btn{
-    background:white;
+.option{
+    display:block;
+    width:100%;
+    text-align:left;
+    background:#fff;
+    border:1px solid #d8dfeb;
+    padding:14px;
+    margin-top:10px;
+    border-radius:10px;
+    font-size:15px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.option:hover{
+    border-color:#174ea6;
+    background:#f2f6ff;
+}
+
+.option.correct{
+    border-color:#16834d;
+    background:#eaf8f0;
+    color:#12633d;
+    font-weight:700;
+}
+
+.option.wrong{
+    border-color:#d92d20;
+    background:#fff0ef;
+    color:#b42318;
+}
+
+.answer{
+    display:none;
+    margin-top:18px;
+    padding:15px;
+    border-radius:10px;
+    background:#eef7ff;
     color:#174ea6;
+    line-height:1.6;
+}
+
+.next{
+    display:none;
+    width:100%;
+    margin-top:15px;
+    border:0;
+    background:#20a464;
+    color:#fff;
+    padding:13px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.limit-box{
+    display:none;
+    text-align:center;
+    margin-top:20px;
+    padding:22px;
+    border-radius:15px;
+    background:#fff7e8;
+    border:1px solid #f5d48a;
+}
+
+.limit-box h3{
+    color:#a15c00;
+    margin-bottom:8px;
+}
+
+.limit-box p{
+    color:#72510e;
+    line-height:1.5;
+}
+
+.premium{
+    display:inline-block;
+    margin-top:15px;
+    background:#f5a623;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:800;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:22px;
+    color:#174ea6;
+    text-decoration:none;
+    font-weight:700;
 }
 
 footer{
     text-align:center;
-    padding:25px 15px;
-    color:#7b8494;
+    color:#667085;
+    padding:30px;
     font-size:13px;
+    line-height:1.8;
 }
 
 @media(max-width:700px){
-    .header-inner{
-        align-items:flex-start;
-    }
 
     .menu{
         display:none;
     }
 
+    .menuBtn{
+        display:block;
+    }
+
+    .mobile.open{
+        display:block;
+    }
+
     .hero h1{
-        font-size:28px;
+        font-size:27px;
     }
 
-    .features{
-        grid-template-columns:1fr;
-    }
-
-    .ai-box{
+    .box{
         padding:18px;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="header-inner">
 
-        <div class="logo">
-            📚 CreateLK Academy
-            <span>Learn English. Build Your Future.</span>
-        </div>
+<nav class="nav">
 
-        <nav class="menu">
-            <a href="./index.html">Home</a>
-            <a href="./ai-mcq.html">MCQ Practice</a>
-            <a href="./login.html">Login</a>
-            <a href="./membership.html">Premium</a>
-        </nav>
+<div class="logo">
+📚 CreateLK Academy
+</div>
 
-    </div>
+<div class="menu">
+
+<a href="./index.html">🏠 Home</a>
+
+<a href="./free-ai.html">
+🤖 Free AI MCQ
+</a>
+
+<a href="./ai-mcq.html">
+📝 AI MCQs
+</a>
+
+<a href="./membership.html">
+⭐ Premium
+</a>
+
+<a href="./login.html">
+🔐 Login
+</a>
+
+</div>
+
+<button class="menuBtn" id="menuBtn">
+☰
+</button>
+
+</nav>
+
+<div class="mobile" id="mobileMenu">
+
+<a href="./index.html">
+🏠 Home
+</a>
+
+<a href="./free-ai.html">
+🤖 Free AI MCQ
+</a>
+
+<a href="./ai-mcq.html">
+📝 AI MCQs
+</a>
+
+<a href="./membership.html">
+⭐ Premium Membership
+</a>
+
+<a href="./login.html">
+🔐 Student Login
+</a>
+
+</div>
+
 </header>
 
-<main class="container">
 
-    <section class="hero">
+<main>
 
-        <div class="hero-icon">🌱</div>
+<section class="hero">
 
-        <h1>Free AI English Learning</h1>
+<div class="hero-icon">
+🤖
+</div>
 
-        <p>
-            Improve your English with free AI-powered practice.
-            Ask questions, practise grammar, learn vocabulary
-            and develop your English skills.
-        </p>
+<h1>
+Free AI English MCQ Generator
+</h1>
 
-    </section>
+<p>
+Generate English multiple-choice questions with
+four answer options and learn from the explanation.
+</p>
 
+<div class="limit">
+🌱 Free: 10 AI MCQs per day
+</div>
 
-    <section class="ai-box">
-
-        <div class="ai-title">
-
-            <div class="ai-title-icon">
-                🤖
-            </div>
-
-            <div>
-                <h2>AI English Tutor</h2>
-                <p>Ask an English question and practise with AI.</p>
-            </div>
-
-        </div>
+</section>
 
 
-        <label for="question">
-            Ask your English question
-        </label>
+<section class="box">
 
-        <textarea
-            id="question"
-            placeholder="Example: What is the difference between 'has' and 'have'?"
-        ></textarea>
+<div class="field">
 
+<label for="topic">
+📚 Choose a topic
+</label>
 
-        <div class="actions">
+<select id="topic">
 
-            <button class="ask" onclick="askAI()">
-                🤖 Ask AI
-            </button>
+<option value="English Grammar">
+English Grammar
+</option>
 
-            <button class="clear" onclick="clearQuestion()">
-                Clear
-            </button>
+<option value="Tenses">
+Tenses
+</option>
 
-        </div>
+<option value="Vocabulary">
+Vocabulary
+</option>
 
+<option value="Prepositions">
+Prepositions
+</option>
 
-        <div id="loading" class="loading">
-            🤖 AI is preparing your answer...
-        </div>
+<option value="Articles">
+Articles
+</option>
 
-        <div id="answer" class="answer"></div>
+<option value="Pronouns">
+Pronouns
+</option>
 
-    </section>
+<option value="Adjectives">
+Adjectives
+</option>
 
+<option value="Adverbs">
+Adverbs
+</option>
 
-    <section class="features">
+<option value="Sentence Structure">
+Sentence Structure
+</option>
 
-        <div class="card">
+<option value="General English">
+General English
+</option>
 
-            <div class="card-icon">📖</div>
+</select>
 
-            <h3>Grammar Practice</h3>
-
-            <p>
-                Learn English grammar with simple explanations
-                and practical examples.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">🧠</div>
-
-            <h3>Vocabulary</h3>
-
-            <p>
-                Build your English vocabulary and understand
-                new words through examples.
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="card">
+<div class="field">
 
-            <div class="card-icon">✍️</div>
+<label for="level">
+🎯 Difficulty
+</label>
 
-            <h3>Writing Practice</h3>
+<select id="level">
 
-            <p>
-                Practise sentences, questions and everyday
-                English communication.
-            </p>
+<option value="Beginner">
+Beginner
+</option>
 
-        </div>
+<option value="Intermediate">
+Intermediate
+</option>
 
-    </section>
+<option value="Advanced">
+Advanced
+</option>
+
+</select>
+
+</div>
 
 
-    <section class="cta">
+<div class="field">
 
-        <h2>⭐ Want More English Practice?</h2>
+<label for="customTopic">
+✏️ Optional topic
+</label>
 
-        <p>
-            Try our interactive English MCQ practice
-            and premium learning resources.
-        </p>
+<input
+id="customTopic"
+type="text"
+placeholder="Example: Present Perfect Tense"
+>
 
-        <a class="btn" href="./ai-mcq.html">
-            📝 Start MCQ Practice →
-        </a>
+</div>
 
-    </section>
+
+<button
+class="generate"
+id="generateBtn"
+onclick="generateMCQ()">
+
+🤖 Generate MCQ
+
+</button>
+
+
+<div
+class="loading"
+id="loading">
+
+🤖 AI is creating your MCQ...
+
+</div>
+
+
+<div
+class="error"
+id="error">
+</div>
+
+
+<div
+class="limit-box"
+id="limitBox">
+
+<h3>
+🌱 Daily Free Limit Reached
+</h3>
+
+<p>
+You have used your 10 free AI MCQs for today.
+Your free allowance will reset tomorrow.
+</p>
+
+<a
+class="premium"
+href="./membership.html">
+
+⭐ Get Premium Access
+
+</a>
+
+</div>
+
+
+<div
+class="result"
+id="result">
+
+<div class="question-card">
+
+<div
+class="question-number"
+id="questionNumber">
+AI GENERATED MCQ
+</div>
+
+<div
+class="question"
+id="question">
+</div>
+
+
+<button
+class="option"
+id="optionA"
+onclick="selectAnswer('A')">
+</button>
+
+<button
+class="option"
+id="optionB"
+onclick="selectAnswer('B')">
+</button>
+
+<button
+class="option"
+id="optionC"
+onclick="selectAnswer('C')">
+</button>
+
+<button
+class="option"
+id="optionD"
+onclick="selectAnswer('D')">
+</button>
+
+
+<div
+class="answer"
+id="answer">
+</div>
+
+
+<button
+class="next"
+id="nextBtn"
+onclick="generateMCQ()">
+
+➡️ Generate Another MCQ
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<a
+class="back"
+href="./index.html">
+
+← Back to CreateLK Academy
+
+</a>
 
 </main>
 
 
 <footer>
 
-    © 2026 CreateLK Academy.
-    Learn English. Build Your Future.
+📚 <b>CreateLK Academy</b><br>
+
+Learn English. Build Your Future.<br><br>
+
+© 2026 CreateLK Academy. All Rights Reserved.
 
 </footer>
 
 
 <script>
 
-/*
-   IMPORTANT:
-   Replace this URL with your Cloudflare Worker AI API
-   when your AI backend is ready.
-*/
-
 const WORKER_URL =
-"https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev";
+"https://YOUR-WORKER-URL.workers.dev";
 
 
-async function askAI(){
+const menuBtn =
+document.getElementById("menuBtn");
 
-    const question =
-        document.getElementById("question").value.trim();
+const mobileMenu =
+document.getElementById("mobileMenu");
 
-    const answer =
-        document.getElementById("answer");
+
+menuBtn.onclick = () => {
+
+    mobileMenu.classList.toggle("open");
+
+    menuBtn.textContent =
+        mobileMenu.classList.contains("open")
+        ? "✕"
+        : "☰";
+
+};
+
+
+let currentAnswer = "";
+
+
+async function generateMCQ(){
+
+    const generateBtn =
+        document.getElementById("generateBtn");
 
     const loading =
         document.getElementById("loading");
 
+    const error =
+        document.getElementById("error");
 
-    if(!question){
+    const result =
+        document.getElementById("result");
 
-        answer.style.display = "block";
+    const limitBox =
+        document.getElementById("limitBox");
 
-        answer.textContent =
-            "Please enter an English question first.";
+    const topic =
+        document.getElementById("topic").value;
 
-        return;
-    }
+    const level =
+        document.getElementById("level").value;
 
+    const customTopic =
+        document.getElementById("customTopic").value.trim();
+
+
+    error.style.display = "none";
+
+    limitBox.style.display = "none";
+
+    result.style.display = "none";
+
+    generateBtn.disabled = true;
 
     loading.style.display = "block";
-    answer.style.display = "none";
 
-
-    /*
-       If your Worker API is connected,
-       this request will send the question to it.
-    */
 
     try{
 
         const response = await fetch(
-            WORKER_URL + "/api/ai",
+            WORKER_URL + "/api/free-mcq",
             {
                 method:"POST",
 
@@ -513,68 +756,204 @@ async function askAI(){
                 },
 
                 body:JSON.stringify({
-                    question:question
+
+                    topic:customTopic || topic,
+
+                    level:level,
+
+                    format:"mcq",
+
+                    options:4
+
                 })
             }
         );
-
-
-        if(!response.ok){
-            throw new Error("API error");
-        }
 
 
         const data =
             await response.json();
 
 
+        if(response.status === 429){
+
+            loading.style.display = "none";
+
+            limitBox.style.display = "block";
+
+            generateBtn.disabled = false;
+
+            return;
+        }
+
+
+        if(!response.ok){
+
+            throw new Error(
+                data.message ||
+                "Unable to generate MCQ."
+            );
+
+        }
+
+
         loading.style.display = "none";
-        answer.style.display = "block";
 
-
-        answer.textContent =
-            data.answer ||
-            data.response ||
-            "The AI could not provide an answer.";
+        displayMCQ(data);
 
     }
 
-    catch(error){
+    catch(err){
 
         loading.style.display = "none";
-        answer.style.display = "block";
 
-        /*
-           Temporary fallback message.
-           This keeps the page working even before
-           the Worker AI API is connected.
-        */
+        error.textContent =
+            err.message ||
+            "Connection error. Please try again.";
 
-        answer.textContent =
-`Your question:
+        error.style.display = "block";
 
-"${question}"
+    }
 
-Your AI Tutor is currently being connected.
+    finally{
 
-For now, please check your grammar, vocabulary,
-or try another English question.
-
-CreateLK Academy AI Tutor will be available here
-once the AI Worker API is connected.`;
+        generateBtn.disabled = false;
 
     }
 
 }
 
 
-function clearQuestion(){
+function displayMCQ(data){
 
-    document.getElementById("question").value = "";
+    const result =
+        document.getElementById("result");
 
-    document.getElementById("answer").style.display = "none";
+    const question =
+        document.getElementById("question");
 
-    document.getElementById("loading").style.display = "none";
+    const optionA =
+        document.getElementById("optionA");
+
+    const optionB =
+        document.getElementById("optionB");
+
+    const optionC =
+        document.getElementById("optionC");
+
+    const optionD =
+        document.getElementById("optionD");
+
+    const answer =
+        document.getElementById("answer");
+
+    const nextBtn =
+        document.getElementById("nextBtn");
+
+
+    question.textContent =
+        data.question || "";
+
+
+    optionA.textContent =
+        "A. " + (data.options?.A || "");
+
+    optionB.textContent =
+        "B. " + (data.options?.B || "");
+
+    optionC.textContent =
+        "C. " + (data.options?.C || "");
+
+    optionD.textContent =
+        "D. " + (data.options?.D || "");
+
+
+    currentAnswer =
+        String(
+            data.correctAnswer ||
+            data.answer ||
+            ""
+        ).toUpperCase();
+
+
+    answer.textContent =
+        "💡 " +
+        (
+            data.explanation ||
+            "Correct answer: " +
+            currentAnswer
+        );
+
+
+    optionA.className = "option";
+    optionB.className = "option";
+    optionC.className = "option";
+    optionD.className = "option";
+
+
+    answer.style.display = "none";
+
+    nextBtn.style.display = "none";
+
+    result.style.display = "block";
+
+}
+
+
+function selectAnswer(selected){
+
+    const answer =
+        document.getElementById("answer");
+
+    const nextBtn =
+        document.getElementById("nextBtn");
+
+
+    const options = {
+
+        A:document.getElementById("optionA"),
+
+        B:document.getElementById("optionB"),
+
+        C:document.getElementById("optionC"),
+
+        D:document.getElementById("optionD")
+
+    };
+
+
+    Object.values(options).forEach(
+        button => {
+            button.classList.remove(
+                "correct",
+                "wrong"
+            );
+        }
+    );
+
+
+    if(selected === currentAnswer){
+
+        options[selected]
+            .classList.add("correct");
+
+    }else{
+
+        options[selected]
+            .classList.add("wrong");
+
+        if(options[currentAnswer]){
+
+            options[currentAnswer]
+                .classList.add("correct");
+
+        }
+
+    }
+
+
+    answer.style.display = "block";
+
+    nextBtn.style.display = "block";
 
 }
 
