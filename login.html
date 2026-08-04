@@ -1,354 +1,353 @@
-172033<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
-content="width=device-width,initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Student Login | CreateLK Academy</title><meta name="description"
-content="Login to your CreateLK Academy student account and continue learning English online.">
+<title>Student Login | CreateLK Academy</title>
 
-<meta name="theme-color"
-content="#174ea6">
+<meta name="description"
+content="Login to your CreateLK Academy student account.">
 
 <style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:"Segoe UI",Arial,sans-serif;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
+font-family:"Segoe UI",Arial,sans-serif;
 background:#f5f8ff;
 color:#172033;
-min-height:100vh;
-display:flex;
-flex-direction:column;
+min-height:100vh
 }
-
-/* ================= HEADER ================= */
 
 header{
 background:#174ea6;
 color:#fff;
-box-shadow:0 3px 15px #0002;
+padding:15px 18px
 }
 
 .nav{
-max-width:1100px;
+max-width:1050px;
 margin:auto;
-padding:14px 18px;
 display:flex;
-align-items:center;
 justify-content:space-between;
+align-items:center
 }
 
 .logo{
 font-size:19px;
-font-weight:800;
+font-weight:800
 }
 
 .home{
 color:#fff;
 text-decoration:none;
-font-size:14px;
-font-weight:700;
-padding:9px 12px;
-border-radius:8px;
+font-weight:700
 }
-
-.home:hover{
-background:#ffffff20;
-}
-
-/* ================= MAIN ================= */
 
 main{
-flex:1;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:35px 15px;
+max-width:500px;
+margin:auto;
+padding:45px 15px
 }
 
 .card{
-width:100%;
-max-width:430px;
 background:#fff;
-padding:30px;
+padding:25px;
 border-radius:20px;
-box-shadow:0 8px 30px #00000012;
+box-shadow:0 8px 30px #0001
 }
 
-/* ================= TITLE ================= */
-
-.logoBox{
+.icon{
 text-align:center;
-margin-bottom:25px;
+font-size:50px;
+margin-bottom:10px
 }
 
-.logoBox .icon{
-font-size:42px;
-margin-bottom:8px;
-}
-
-.logoBox h1{
-font-size:25px;
+h1{
+text-align:center;
 color:#174ea6;
-margin-bottom:6px;
+margin-bottom:8px
 }
 
-.logoBox p{
-font-size:14px;
+.subtitle{
+text-align:center;
 color:#667085;
-line-height:1.5;
+line-height:1.6;
+margin-bottom:25px
 }
 
-/* ================= FORM ================= */
+.field{
+margin-bottom:17px
+}
 
 label{
 display:block;
-font-size:14px;
 font-weight:700;
-margin:15px 0 7px;
+margin-bottom:7px
 }
 
 input{
 width:100%;
 padding:14px;
-border:1px solid #d0d5dd;
-border-radius:10px;
-font-size:15px;
-outline:none;
-background:#fff;
+border:1px solid #d5dbe5;
+border-radius:11px;
+font-size:16px;
+outline:none
 }
 
 input:focus{
-border-color:#174ea6;
-box-shadow:0 0 0 3px #174ea61a;
+border-color:#174ea6
 }
 
-/* ================= LOGIN BUTTON ================= */
-
-.loginBtn{
+button{
 width:100%;
-margin-top:22px;
-padding:15px;
 border:0;
-border-radius:11px;
 background:#174ea6;
 color:#fff;
+padding:15px;
+border-radius:11px;
 font-size:16px;
 font-weight:800;
-cursor:pointer;
-box-shadow:0 5px 15px #174ea633;
-transition:.2s;
+cursor:pointer
 }
 
-.loginBtn:hover{
-background:#123d85;
-transform:translateY(-1px);
+button:disabled{
+opacity:.55
 }
 
-.loginBtn:disabled{
-opacity:.6;
-cursor:not-allowed;
-transform:none;
-}
-
-/* ================= MESSAGE ================= */
-
-.message{
+.status{
 display:none;
-margin-top:15px;
 padding:13px;
-border-radius:10px;
-font-size:14px;
-line-height:1.5;
+border-radius:11px;
+margin-bottom:17px;
+line-height:1.5
+}
+
+.status.error{
+display:block;
+background:#fef2f2;
+color:#b42318
+}
+
+.status.success{
+display:block;
+background:#ecfdf3;
+color:#027a48
+}
+
+.loading{
+display:none;
 text-align:center;
+padding:12px;
+color:#667085
 }
-
-.message.error{
-display:block;
-background:#fef3f2;
-color:#b42318;
-}
-
-.message.success{
-display:block;
-background:#e8f7ed;
-color:#176b35;
-}
-
-/* ================= LINKS ================= */
 
 .links{
 text-align:center;
-margin-top:22px;
-font-size:14px;
-line-height:2;
+margin-top:20px;
+line-height:2
 }
 
 .links a{
 color:#174ea6;
-font-weight:700;
 text-decoration:none;
+font-weight:700
 }
-
-.links a:hover{
-text-decoration:underline;
-}
-
-/* ================= SECURITY ================= */
 
 .security{
 margin-top:20px;
 padding:13px;
-background:#f5f8ff;
+background:#f8faff;
 border-radius:10px;
 text-align:center;
-font-size:12px;
-color:#667085;
-line-height:1.6;
+font-size:13px;
+color:#667085
 }
-
-/* ================= FOOTER ================= */
 
 footer{
 text-align:center;
-padding:20px 15px;
-font-size:12px;
 color:#667085;
+padding:25px;
+font-size:13px
 }
+</style>
+</head>
 
-@media(max-width:500px){
+<body>
 
-.card{
-padding:24px 18px;
-}
+<header>
+<div class="nav">
 
-.logoBox h1{
-font-size:23px;
-}
-
-}
-
-</style></head><body><!-- ================= HEADER ================= --><header><nav class="nav"><div class="logo">
+<div class="logo">
 📚 CreateLK Academy
-</div><a
-class="home"
-href="index.html">
+</div>
 
+<a class="home" href="index.html">
 🏠 Home
+</a>
 
-</a></nav></header><!-- ================= LOGIN ================= --><main><div class="card"><div class="logoBox"><div class="icon">
+</div>
+</header>
+
+<main>
+
+<section class="card">
+
+<div class="icon">
 🔐
-</div><h1>
+</div>
+
+<h1>
 Student Login
-</h1><p>
+</h1>
+
+<p class="subtitle">
 Login to continue your English learning journey.
-</p></div><form id="loginForm"><label for="email">
+</p>
+
+<div id="status" class="status"></div>
+
+<form id="loginForm">
+
+<div class="field">
+
+<label for="email">
 Email Address
-</label><input
-type="email"
+</label>
+
+<input
 id="email"
-name="email"
+type="email"
 placeholder="Enter your email"
 autocomplete="email"
-required
+required>
 
-«»
+</div>
+
+<div class="field">
 
 <label for="password">
 Password
-</label><input
-type="password"
+</label>
+
+<input
 id="password"
-name="password"
+type="password"
 placeholder="Enter your password"
 autocomplete="current-password"
-required
+required>
 
-«»
+</div>
 
-<!-- MAIN LOGIN BUTTON --><button
-class="loginBtn"
-id="loginBtn"
+<button
+id="loginButton"
 type="submit">
 
 🔐 Login
 
-</button></form><div
-id="message"
-class="message">
-</div><div class="links">Don't have an account?
+</button>
+
+<div id="loading" class="loading">
+⏳ Signing in...
+</div>
+
+</form>
+
+<div class="links">
+
+Don't have an account?
 
 <a href="register.html">
 ✍️ Create Account
-</a><br><a href="index.html">
+</a>
+
+<br>
+
+<a href="index.html">
 ← Back to Home
-</a></div><div class="security">🔒 Your account information is securely processed.
+</a>
 
-<br>📚 CreateLK Academy — Learn English. Build Your Future.
+</div>
 
-</div></div></main><!-- ================= FOOTER ================= --><footer>© 2026 CreateLK Academy.
-All Rights Reserved.
+<div class="security">
+🔒 Your account information is securely processed.
+</div>
 
-</footer><script>
+</section>
 
-"use strict";
+</main>
 
+<footer>
 
-/* =================================
-   LOGIN WORKER
-================================= */
+📚 CreateLK Academy — Learn English. Build Your Future.
 
-const API =
-"https://login.gateofheavensl1.workers.dev";
+<br>
 
+© 2026 CreateLK Academy. All Rights Reserved.
 
-/* =================================
-   ELEMENTS
-================================= */
+</footer>
+
+<script>
+
+/*
+================================================
+PUT YOUR NEW AUTH WORKER URL HERE
+================================================
+*/
+
+const AUTH_API =
+"https://YOUR-AUTH-WORKER.workers.dev";
+
 
 const form =
 document.getElementById("loginForm");
 
-const email =
-document.getElementById("email");
+const statusBox =
+document.getElementById("status");
 
-const password =
-document.getElementById("password");
+const button =
+document.getElementById("loginButton");
 
-const loginBtn =
-document.getElementById("loginBtn");
-
-const message =
-document.getElementById("message");
+const loading =
+document.getElementById("loading");
 
 
-/* =================================
-   SHOW MESSAGE
-================================= */
+function showStatus(message,type){
 
-function showMessage(
-text,
-type
-){
+statusBox.className =
+"status " + type;
 
-message.textContent =
-text;
-
-message.className =
-"message " + type;
-
-message.style.display =
-"block";
+statusBox.textContent =
+message;
 
 }
 
 
-/* =================================
-   LOGIN
-================================= */
+function getNextPage(){
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const next =
+params.get("next");
+
+if(
+next &&
+next.endsWith(".html") &&
+!next.includes("//") &&
+!next.includes("\\")
+){
+
+return next;
+
+}
+
+return "dashboard.html";
+
+}
+
 
 form.addEventListener(
 "submit",
@@ -356,23 +355,24 @@ async function(event){
 
 event.preventDefault();
 
+statusBox.className="status";
+statusBox.textContent="";
 
-const emailValue =
-email.value
+const email =
+document.getElementById("email")
+.value
 .trim()
 .toLowerCase();
 
-const passwordValue =
-password.value;
+const password =
+document.getElementById("password")
+.value;
 
 
-if(
-!emailValue ||
-!passwordValue
-){
+if(!email){
 
-showMessage(
-"Please enter your email and password.",
+showStatus(
+"Please enter your email address.",
 "error"
 );
 
@@ -381,25 +381,27 @@ return;
 }
 
 
-/* Disable button */
+if(!password){
 
-loginBtn.disabled =
-true;
+showStatus(
+"Please enter your password.",
+"error"
+);
 
-loginBtn.textContent =
-"⏳ Logging in...";
+return;
+
+}
 
 
-message.style.display =
-"none";
+button.disabled=true;
+loading.style.display="block";
 
 
 try{
 
-
 const response =
 await fetch(
-API + "/login",
+AUTH_API + "/api/login",
 {
 method:"POST",
 
@@ -409,56 +411,15 @@ headers:{
 },
 
 body:JSON.stringify({
-
-email:
-emailValue,
-
-password:
-passwordValue
-
+email:email,
+password:password
 })
-
-}
-);
+});
 
 
-/* =============================
-   READ RESPONSE
-============================= */
-
-const contentType =
-response.headers
-.get("content-type") || "";
-
-
-let data;
-
-
-if(
-contentType.includes(
-"application/json"
-)
-){
-
-data =
+const data =
 await response.json();
 
-}else{
-
-const text =
-await response.text();
-
-throw new Error(
-text ||
-"Invalid server response."
-);
-
-}
-
-
-/* =============================
-   LOGIN FAILED
-============================= */
 
 if(
 !response.ok ||
@@ -473,73 +434,44 @@ data.message ||
 }
 
 
-/* =============================
-   STUDENT
-============================= */
+/*
+Save account information.
+Never save the password.
+*/
 
-if(
-!data.student
-){
+const user =
+data.user || {
+email:email
+};
 
-throw new Error(
-"Login succeeded but student information was not returned."
+
+localStorage.setItem(
+"createlk_user",
+JSON.stringify(user)
+);
+
+
+if(data.token){
+
+localStorage.setItem(
+"createlk_token",
+data.token
 );
 
 }
 
 
-/* =============================
-   SAVE SESSION
-============================= */
-
-localStorage.setItem(
-"createlk_student",
-JSON.stringify(
-data.student
-)
-);
-
-
-/* =============================
-   SUCCESS
-============================= */
-
-showMessage(
-"✅ Login successful. Opening your dashboard...",
+showStatus(
+"✅ Login successful. Redirecting...",
 "success"
 );
-
-
-/* =============================
-   REDIRECT
-============================= */
-
-const params =
-new URLSearchParams(
-window.location.search
-);
-
-const next =
-params.get("next");
 
 
 setTimeout(
 function(){
 
-if(
-next &&
-next.endsWith(".html")
-){
-
 window.location.href =
-next;
-
-}else{
-
-window.location.href =
-"dashboard.html";
-
-}
+getNextPage();
 
 },
 700
@@ -548,33 +480,24 @@ window.location.href =
 
 }catch(error){
 
-console.error(
-"Login error:",
-error
-);
+console.error(error);
 
-
-showMessage(
-"❌ " +
-(
+showStatus(
 error.message ||
-"Unable to login. Please try again."
-),
+"Unable to connect to the Login Server.",
 "error"
 );
 
+}finally{
 
-/* Re-enable */
-
-loginBtn.disabled =
-false;
-
-loginBtn.textContent =
-"🔐 Login";
+button.disabled=false;
+loading.style.display="none";
 
 }
 
 });
 
+</script>
 
-</script></body></html>
+</body>
+</html>
