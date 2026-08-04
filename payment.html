@@ -3,368 +3,324 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Payment | CreateLK Academy</title>
+<title>CreateLK Academy | Payment</title>
 
 <style>
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f5f8ff;
-  color:#172033
-}
-header{
-  background:#174ea6;
-  color:white;
-  padding:16px;
-  text-align:center;
-  font-weight:800
+font-family:"Segoe UI",Arial,sans-serif;
+background:#f5f8ff;color:#172033;
+padding:20px
 }
 .card{
-  max-width:520px;
-  margin:30px auto;
-  background:white;
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 8px 25px #0001
+max-width:500px;margin:25px auto;background:#fff;
+padding:25px;border-radius:18px;
+box-shadow:0 8px 30px #0001
 }
-h1{margin-top:0;color:#174ea6}
-.email{
-  background:#eef4ff;
-  padding:12px;
-  border-radius:10px;
-  margin:15px 0;
-  word-break:break-word
-}
-.price{
-  font-size:25px;
-  font-weight:800;
-  margin:15px 0
+h1{text-align:center;color:#174ea6;margin-bottom:8px}
+.price{text-align:center;color:#667085;margin-bottom:22px}
+label{display:block;font-weight:700;margin:16px 0 7px}
+input{
+width:100%;padding:13px;border:1px solid #d1d5db;
+border-radius:10px;font-size:16px
 }
 .bank{
-  background:#f8fafc;
-  padding:15px;
-  border-radius:12px;
-  line-height:1.8
-}
-input[type=file]{
-  width:100%;
-  margin:15px 0
+background:#eef4ff;padding:15px;border-radius:12px;
+line-height:1.8;margin-bottom:15px
 }
 button{
-  width:100%;
-  border:0;
-  padding:14px;
-  border-radius:10px;
-  font-size:16px;
-  font-weight:800;
-  cursor:pointer;
-  background:#174ea6;
-  color:white
+width:100%;padding:14px;border:0;border-radius:10px;
+background:#174ea6;color:#fff;font-size:16px;
+font-weight:800;margin-top:18px;cursor:pointer
 }
-button:disabled{opacity:.5}
+button:disabled{opacity:.6}
 .status{
-  padding:15px;
-  border-radius:12px;
-  margin:15px 0;
-  font-weight:700
+margin-top:18px;padding:15px;border-radius:10px;
+font-weight:700;line-height:1.5
 }
-.pending{background:#fff4d6;color:#946200}
-.approved{background:#dcfce7;color:#166534}
-.rejected{background:#fee2e2;color:#991b1b}
+.pending{background:#fff8e1;color:#8a6200}
+.success{background:#dcfce7;color:#166534}
+.error{background:#fee2e2;color:#991b1b}
+.back{
+display:block;text-align:center;margin-top:18px;
+color:#174ea6;text-decoration:none;font-weight:700
+}
 .hidden{display:none}
-a{
-  display:block;
-  text-align:center;
-  margin-top:18px;
-  color:#174ea6;
-  font-weight:700;
-  text-decoration:none
-}
 </style>
 </head>
 
 <body>
 
-<header>📚 CreateLK Academy — Payment</header>
-
 <div class="card">
 
 <h1>⭐ Premium Membership</h1>
 
-<div class="price">LKR 1,500 • 30 Days</div>
-
-<div class="email">
-👤 Student Email<br>
-<b id="email">Loading...</b>
-</div>
-
-<div id="status"></div>
-
-<div id="paymentArea">
-
-<h3>🏦 Manual Bank Transfer</h3>
+<p class="price">
+LKR 1,500 • 30 Days
+</p>
 
 <div class="bank">
-<b>Bank:</b> People's Bank<br>
-<b>Branch:</b> Udapussellawa<br>
-<b>Account Name:</b> Thinarathnam Sathiyanathan<br>
-<b>Account Number:</b> 292200280023178<br>
-<b>Amount:</b> LKR 1,500
+<b>🏦 Bank Payment</b><br>
+Please deposit <b>LKR 1,500</b> to the CreateLK Academy
+bank account and upload your payment slip below.
 </div>
 
-<h3>📎 Upload Payment Slip</h3>
+<label>👤 Student Email</label>
 
 <input
-  type="file"
-  id="slip"
-  accept="image/*,.pdf">
+id="email"
+type="email"
+readonly
+>
 
-<button id="submit" onclick="submitPayment()">
-📤 Submit Payment Slip
+<label>📤 Payment Slip</label>
+
+<input
+id="slip"
+type="file"
+accept="image/jpeg,image/png,image/webp,application/pdf"
+>
+
+<button id="submitBtn">
+📤 Submit Payment
 </button>
 
-</div>
+<div id="status" class="hidden"></div>
 
-<a href="index.html">🏠 Back to Home</a>
+<a class="back" href="index.html">
+🏠 Back to Home
+</a>
 
 </div>
 
 <script>
 
 const API =
-"https://gateofheavensl1.workers.dev";
-
-const email =
-(
-  new URLSearchParams(location.search)
-  .get("email")
-  ||
-  localStorage.getItem("studentEmail")
-  ||
-  ""
-).trim().toLowerCase();
+"https://createlk-payment-api.gateofheavensl1.workers.dev";
 
 const emailBox =
 document.getElementById("email");
 
+const slip =
+document.getElementById("slip");
+
+const button =
+document.getElementById("submitBtn");
+
 const statusBox =
 document.getElementById("status");
 
-const paymentArea =
-document.getElementById("paymentArea");
 
-emailBox.textContent =
-email || "No email found";
+/* =========================
+   GET LOGGED-IN EMAIL
+========================= */
 
+const email =
+localStorage.getItem(
+"createlk_student_email"
+);
 
 if(!email){
 
-  showStatus(
-    "rejected",
-    "❌ Student email not found. Please login first."
-  );
+statusBox.className="status error";
+statusBox.textContent=
+"❌ Student email not found. Please login first.";
+statusBox.classList.remove("hidden");
 
-  paymentArea.classList.add("hidden");
+button.disabled=true;
 
 }else{
 
-  checkStatus();
+emailBox.value=email;
 
 }
 
 
-async function checkStatus(){
+/* =========================
+   SUBMIT PAYMENT
+========================= */
 
-  try{
+button.addEventListener(
+"click",
+async function(){
 
-    const r =
-    await fetch(
-      API +
-      "/payment-status?email=" +
-      encodeURIComponent(email)
-    );
+if(!email){
+return;
+}
 
-    const d =
-    await r.json();
+if(!slip.files.length){
 
-    if(!d.success){
-      return;
-    }
+showStatus(
+"❌ Please select your payment slip.",
+"error"
+);
 
-    if(d.status === "approved"){
+return;
+}
 
-      showStatus(
-        "approved",
-        "✅ Premium is ACTIVE until " +
-        new Date(d.expires_at)
-        .toLocaleDateString()
-      );
+const file=slip.files[0];
 
-      paymentArea.classList.add("hidden");
+const allowed=[
+"image/jpeg",
+"image/png",
+"image/webp",
+"application/pdf"
+];
 
-      return;
-    }
+if(!allowed.includes(file.type)){
 
-    if(d.status === "pending"){
+showStatus(
+"❌ Please upload JPG, PNG, WEBP or PDF.",
+"error"
+);
 
-      showStatus(
-        "pending",
-        "⏳ Payment Pending<br>" +
-        "Your payment slip has been submitted and is waiting for administrator verification."
-      );
+return;
+}
 
-      paymentArea.classList.add("hidden");
+if(file.size>5*1024*1024){
 
-      return;
-    }
+showStatus(
+"❌ Maximum file size is 5 MB.",
+"error"
+);
 
-    if(d.status === "rejected"){
+return;
+}
 
-      showStatus(
-        "rejected",
-        "❌ Payment was rejected.<br>You may upload a new payment slip."
-      );
+button.disabled=true;
+button.textContent="⏳ Uploading...";
 
-      paymentArea.classList.remove("hidden");
+try{
 
-    }
+/*
+Create payment record
+*/
 
-  }catch(e){
+const createResponse=
+await fetch(
+API+"/payment/create",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+email:email,
+amount:1500,
+days:30
+})
+}
+);
 
-    console.error(e);
+const payment=
+await createResponse.json();
 
-  }
+if(
+!createResponse.ok ||
+!payment.success
+){
+
+throw new Error(
+payment.message ||
+"Unable to create payment."
+);
+
+}
+
+const paymentId=
+payment.payment_id;
+
+
+/*
+Upload slip
+*/
+
+button.textContent="⏳ Uploading slip...";
+
+const formData=
+new FormData();
+
+formData.append(
+"payment_id",
+paymentId
+);
+
+formData.append(
+"email",
+email
+);
+
+formData.append(
+"slip",
+file
+);
+
+const uploadResponse=
+await fetch(
+API+"/payment/receipt",
+{
+method:"POST",
+body:formData
+}
+);
+
+const upload=
+await uploadResponse.json();
+
+if(
+!uploadResponse.ok ||
+!upload.success
+){
+
+throw new Error(
+upload.message ||
+"Slip upload failed."
+);
 
 }
 
 
-async function submitPayment(){
+/*
+PENDING
+*/
 
-  const file =
-  document.getElementById("slip").files[0];
+showStatus(
+"⏳ Payment submitted successfully! Your payment is now PENDING. Please wait for admin verification.",
+"pending"
+);
 
-  const button =
-  document.getElementById("submit");
+slip.value="";
 
-  if(!file){
+button.textContent=
+"⏳ Payment Pending";
 
-    alert("Please select your payment slip.");
+}catch(error){
 
-    return;
-  }
+console.error(error);
 
-  if(file.size > 5 * 1024 * 1024){
+showStatus(
+"❌ "+error.message,
+"error"
+);
 
-    alert("Maximum file size is 5 MB.");
-
-    return;
-  }
-
-  button.disabled = true;
-  button.textContent = "⏳ Uploading...";
-
-  try{
-
-    const base64 =
-    await toBase64(file);
-
-    const r =
-    await fetch(
-      API + "/submit-payment",
-      {
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json"
-        },
-        body:JSON.stringify({
-
-          email:email,
-
-          amount:1500,
-
-          file_name:file.name,
-
-          file_type:file.type,
-
-          file_data:base64
-
-        })
-      }
-    );
-
-    const d =
-    await r.json();
-
-    if(!r.ok || !d.success){
-
-      throw new Error(
-        d.message ||
-        "Payment submission failed."
-      );
-
-    }
-
-    showStatus(
-      "pending",
-      "⏳ Payment Pending<br>" +
-      "Your payment slip was submitted successfully. Please wait for administrator verification."
-    );
-
-    paymentArea.classList.add("hidden");
-
-  }catch(e){
-
-    alert(
-      "❌ " + e.message
-    );
-
-    button.disabled = false;
-    button.textContent =
-      "📤 Submit Payment Slip";
-
-  }
+button.disabled=false;
+button.textContent=
+"📤 Submit Payment";
 
 }
 
-
-function toBase64(file){
-
-  return new Promise(
-    (resolve,reject)=>{
-
-      const reader =
-      new FileReader();
-
-      reader.onload = () => {
-
-        const result =
-        reader.result;
-
-        resolve(
-          result.split(",")[1]
-        );
-
-      };
-
-      reader.onerror =
-      reject;
-
-      reader.readAsDataURL(file);
-
-    }
-  );
-
-}
+});
 
 
-function showStatus(type,text){
+function showStatus(message,type){
 
-  statusBox.className =
-    "status " + type;
+statusBox.className=
+"status "+type;
 
-  statusBox.innerHTML =
-    text;
+statusBox.textContent=
+message;
+
+statusBox.classList.remove("hidden");
 
 }
 
