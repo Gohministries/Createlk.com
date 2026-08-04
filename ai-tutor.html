@@ -4,32 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CreateLK Academy | Free AI English MCQ</title>
+<meta name="description" content="Free AI English MCQ practice with four options, answers and explanations.">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}
-header{background:#174ea6;color:white;padding:15px 18px;display:flex;justify-content:space-between}
-header a{color:white;text-decoration:none}
-main{max-width:700px;margin:auto;padding:25px 15px}
+header{background:#174ea6;color:#fff;padding:15px 18px;display:flex;justify-content:space-between;align-items:center}
+header a{color:#fff;text-decoration:none;font-weight:bold}
+main{max-width:720px;margin:auto;padding:25px 15px}
 .hero{text-align:center;margin-bottom:20px}
-.hero div{font-size:50px}
-.hero h1{color:#174ea6;margin:8px}
+.hero .icon{font-size:55px}
+.hero h1{color:#174ea6;margin:8px 0}
 .hero p{color:#667085;line-height:1.5}
-.card{background:white;border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 5px 25px #0001}
-.progress{height:10px;background:#e5eaf2;border-radius:10px;overflow:hidden;margin:10px 0}
+.card{background:#fff;border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 5px 25px #0001}
+.progressText{display:flex;justify-content:space-between;font-weight:bold;font-size:14px}
+.progress{height:10px;background:#e5eaf2;border-radius:10px;margin:10px 0;overflow:hidden}
 .fill{height:100%;width:0;background:#174ea6;transition:.3s}
-.stats{display:flex;justify-content:space-between;font-size:14px;font-weight:bold}
-input{width:100%;padding:14px;border:1px solid #d5dbe5;border-radius:10px;font-size:16px;margin:12px 0}
-button{width:100%;padding:14px;border:0;border-radius:10px;background:#174ea6;color:white;font-weight:bold;font-size:16px;cursor:pointer}
+.stats{display:flex;justify-content:space-between;color:#667085;font-size:14px}
+input{width:100%;padding:14px;border:1px solid #d5dbe5;border-radius:11px;font-size:16px;margin:12px 0}
+button{width:100%;padding:14px;border:0;border-radius:11px;background:#174ea6;color:#fff;font-size:16px;font-weight:bold;cursor:pointer}
 button:disabled{opacity:.5}
 #questionCard{display:none}
-.question{font-size:19px;font-weight:bold;line-height:1.5;margin:12px 0 18px}
-.option{background:white;color:#172033;border:2px solid #e0e5ed;text-align:left;margin:6px 0}
+.qnum{color:#174ea6;font-weight:bold;font-size:13px}
+.question{font-size:20px;font-weight:bold;line-height:1.5;margin:12px 0 18px}
+.option{background:#fff;color:#172033;border:2px solid #e0e5ed;text-align:left;margin:6px 0}
 .option:hover{border-color:#174ea6}
 .correct{background:#ecfdf3!important;border-color:#16a34a!important;color:#166534!important}
 .wrong{background:#fef2f2!important;border-color:#dc2626!important;color:#991b1b!important}
-.result{margin-top:15px;padding:14px;border-radius:10px;line-height:1.6}
-.loading{text-align:center;padding:15px;color:#667085;display:none}
-.error{color:#b42318;margin:10px 0}
+.result{display:none;margin-top:15px;padding:14px;border-radius:11px;line-height:1.6}
+.loading{text-align:center;color:#667085;padding:15px;display:none}
+.error{color:#b42318;margin-top:10px}
 footer{text-align:center;padding:25px;color:#667085;font-size:13px}
 footer a{color:#174ea6;text-decoration:none}
 </style>
@@ -45,15 +48,15 @@ footer a{color:#174ea6;text-decoration:none}
 <main>
 
 <section class="hero">
-<div>🤖</div>
+<div class="icon">🤖</div>
 <h1>Free AI English MCQ</h1>
-<p>Choose a topic and practise English with AI.</p>
+<p>Choose any English topic and let AI create a question with 4 options.</p>
 </section>
 
 <section class="card">
 
-<div class="stats">
-<span>📊 Daily Progress</span>
+<div class="progressText">
+<span>📊 Today's Progress</span>
 <span id="count">0 / 10</span>
 </div>
 
@@ -63,24 +66,27 @@ footer a{color:#174ea6;text-decoration:none}
 
 <div class="stats">
 <span>✅ Correct: <b id="score">0</b></span>
-<span>🎯 <b id="percent">0%</b></span>
+<span>🎯 Score: <b id="percent">0%</b></span>
 </div>
 
 </section>
 
 <section class="card">
 
-<h2>🎯 Choose Topic</h2>
+<h2>🎯 Choose a Topic</h2>
 
-<input id="topic"
-placeholder="Example: English Tenses">
+<input
+id="topic"
+maxlength="100"
+placeholder="Example: English Tenses"
+>
 
-<button id="generate" onclick="generate()">
+<button id="generate" onclick="generateMCQ()">
 ✨ Generate MCQ
 </button>
 
 <div class="loading" id="loading">
-🤖 AI is creating your question...
+🤖 CreateLK AI is creating your question...
 </div>
 
 <div class="error" id="error"></div>
@@ -89,7 +95,7 @@ placeholder="Example: English Tenses">
 
 <section class="card" id="questionCard">
 
-<div id="questionNumber"></div>
+<div class="qnum" id="qnum"></div>
 
 <div class="question" id="question"></div>
 
@@ -97,19 +103,24 @@ placeholder="Example: English Tenses">
 
 <div class="result" id="result"></div>
 
-<button id="next" style="display:none;margin-top:12px"
-onclick="generate()">
+<button
+id="next"
+style="display:none;margin-top:12px"
+onclick="generateMCQ()">
 ➡️ Next Question
 </button>
 
 </section>
 
 <section class="card">
-<h3>🌱 Free AI Learning</h3>
+
+<h3>🌱 Free AI Practice</h3>
+
 <p style="color:#667085;line-height:1.6;margin-top:8px">
-10 AI-generated English questions every day with
-4 options, instant answers and explanations.
+Generate English MCQs with exactly four options,
+instant answers and simple explanations.
 </p>
+
 </section>
 
 </main>
@@ -126,179 +137,418 @@ onclick="generate()">
 <script>
 
 const API="https://free.gateofheavensl1.workers.dev";
+
 const LIMIT=10;
 
-let data=JSON.parse(
-localStorage.getItem("clkmcq")||
-'{"date":"","used":0,"correct":0}'
-);
+let used=0;
+let correct=0;
 
-let today=new Date().toDateString();
 
-if(data.date!==today){
-data={date:today,used:0,correct:0};
-save();
-}
+/* =========================
+   ELEMENTS
+========================= */
 
-function save(){
-localStorage.setItem("clkmcq",JSON.stringify(data));
-update();
-}
+const topic=document.getElementById("topic");
+const generate=document.getElementById("generate");
+const loading=document.getElementById("loading");
+const error=document.getElementById("error");
+const questionCard=document.getElementById("questionCard");
+const qnum=document.getElementById("qnum");
+const question=document.getElementById("question");
+const options=document.getElementById("options");
+const result=document.getElementById("result");
+const next=document.getElementById("next");
 
-function update(){
+
+/* =========================
+   PROGRESS
+========================= */
+
+function updateProgress(){
 
 document.getElementById("count").textContent=
-data.used+" / "+LIMIT;
+used+" / "+LIMIT;
 
 document.getElementById("score").textContent=
-data.correct;
+correct;
 
-let p=data.used?
-Math.round(data.correct/data.used*100):0;
+let percent=used?
+Math.round(correct/used*100):0;
 
-document.getElementById("percent").textContent=p+"%";
+document.getElementById("percent").textContent=
+percent+"%";
 
 document.getElementById("fill").style.width=
-(data.used/LIMIT*100)+"%";
+Math.min(used/LIMIT*100,100)+"%";
 
-document.getElementById("generate").disabled=
-data.used>=LIMIT;
+generate.disabled=used>=LIMIT;
+
+if(used>=LIMIT)
+generate.textContent="🔒 Daily Limit Reached";
+else
+generate.textContent="✨ Generate MCQ";
 
 }
 
-async function generate(){
 
-if(data.used>=LIMIT){
-alert("You have completed today's 10 free questions.");
+/* =========================
+   GENERATE
+========================= */
+
+async function generateMCQ(){
+
+error.textContent="";
+
+if(used>=LIMIT){
+
+error.textContent=
+"Today's 10 free MCQs are completed. Please come back tomorrow.";
+
 return;
+
 }
 
-let topic=document.getElementById("topic").value.trim()||
+let selectedTopic=
+topic.value.trim() ||
 "English Grammar";
 
-document.getElementById("error").textContent="";
-document.getElementById("loading").style.display="block";
-document.getElementById("questionCard").style.display="none";
+generate.disabled=true;
+loading.style.display="block";
+questionCard.style.display="none";
 
-let prompt=`Create ONE English MCQ about ${topic}.
-Return ONLY JSON:
+
+const prompt=`
+
+You are CreateLK Academy English MCQ Generator.
+
+Create exactly ONE English multiple-choice question.
+
+Topic:
+${selectedTopic}
+
+STRICT RULES:
+
+- Exactly 4 options.
+- Options must be A, B, C and D.
+- Only ONE answer is correct.
+- Include a clear explanation.
+- Suitable for English learners.
+- Return ONLY valid JSON.
+- No markdown.
+- No extra text.
+
+Format:
+
 {
-"question":"...",
-"options":{"A":"...","B":"...","C":"...","D":"..."},
+"question":"Question",
+"options":{
+"A":"Option A",
+"B":"Option B",
+"C":"Option C",
+"D":"Option D"
+},
 "answer":"A",
-"explanation":"..."
+"explanation":"Explanation"
 }
-Exactly 4 options and only one correct answer.`;
+
+`;
+
 
 try{
 
-let r=await fetch(API+"/chat",{
+const response=await fetch(API+"/chat",{
+
 method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({message:prompt})
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+message:prompt
+})
+
 });
 
-let d=await r.json();
 
-let text=d.answer||d.response||d.result||d.message||"";
+const data=await response.json();
 
-text=text.replace(/```json|```/g,"").trim();
+console.log(data);
 
-let q=JSON.parse(text);
 
-data.used++;
-save();
+/* =========================
+   WORKER ERROR
+========================= */
 
-show(q);
+if(!response.ok || data.success===false){
+
+error.textContent=
+data.message ||
+data.error ||
+"Unable to generate MCQ.";
+
+return;
+
+}
+
+
+/* =========================
+   SERVER DAILY LIMIT
+========================= */
+
+if(
+data.limit_reached ||
+data.daily_limit_reached
+){
+
+error.textContent=
+"🔒 You have reached today's free AI limit.";
+
+return;
+
+}
+
+
+/* =========================
+   AI RESPONSE
+========================= */
+
+let text=
+data.answer ||
+data.response ||
+data.result ||
+data.message ||
+"";
+
+text=text
+.replace(/```json/gi,"")
+.replace(/```/g,"")
+.trim();
+
+
+let mcq;
+
+
+try{
+
+mcq=JSON.parse(text);
 
 }catch(e){
 
-document.getElementById("error").textContent=
-"Unable to generate question. Please try again.";
+let start=text.indexOf("{");
+let end=text.lastIndexOf("}");
+
+if(start===-1 || end===-1)
+throw e;
+
+mcq=JSON.parse(
+text.substring(start,end+1)
+);
+
+}
+
+
+/* =========================
+   VALIDATE
+========================= */
+
+if(
+!mcq.question ||
+!mcq.options ||
+!mcq.answer ||
+!mcq.explanation ||
+!mcq.options.A ||
+!mcq.options.B ||
+!mcq.options.C ||
+!mcq.options.D
+){
+
+throw new Error("Invalid MCQ");
+
+}
+
+
+/* =========================
+   COUNT
+========================= */
+
+used++;
+
+if(data.used!==undefined)
+used=data.used;
+
+if(data.limit!==undefined)
+document.getElementById("count").textContent=
+used+" / "+data.limit;
+
+updateProgress();
+
+
+/* =========================
+   DISPLAY
+========================= */
+
+showMCQ(mcq);
+
+
+}catch(e){
+
+console.error(e);
+
+error.textContent=
+"Unable to generate the question. Please try again.";
 
 }finally{
 
-document.getElementById("loading").style.display="none";
+loading.style.display="none";
+
+updateProgress();
 
 }
 
 }
 
-function show(q){
 
-document.getElementById("questionCard").style.display="block";
+/* =========================
+   SHOW MCQ
+========================= */
 
-document.getElementById("questionNumber").textContent=
-"Question "+data.used+" of "+LIMIT;
+function showMCQ(mcq){
 
-document.getElementById("question").textContent=q.question;
+questionCard.style.display="block";
 
-let box=document.getElementById("options");
-box.innerHTML="";
+qnum.textContent=
+"QUESTION "+used+" OF "+LIMIT;
 
-["A","B","C","D"].forEach(x=>{
+question.textContent=
+mcq.question;
 
-let b=document.createElement("button");
-b.className="option";
-b.textContent=x+". "+q.options[x];
+options.innerHTML="";
 
-b.onclick=()=>answer(b,x,q);
+result.style.display="none";
 
-box.appendChild(b);
+next.style.display="none";
+
+
+["A","B","C","D"].forEach(letter=>{
+
+const button=document.createElement("button");
+
+button.className="option";
+
+button.textContent=
+letter+". "+mcq.options[letter];
+
+button.onclick=()=>checkAnswer(
+button,
+letter,
+mcq.answer,
+mcq.explanation
+);
+
+options.appendChild(button);
 
 });
 
-document.getElementById("result").style.display="none";
-document.getElementById("next").style.display="none";
+
+questionCard.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
 
 }
 
-function answer(btn,choice,q){
 
-let buttons=document.querySelectorAll(".option");
+/* =========================
+   ANSWER
+========================= */
 
-buttons.forEach(b=>b.disabled=true);
+function checkAnswer(
+button,
+selected,
+answer,
+explanation
+){
 
-let correct=q.answer.toUpperCase();
+const buttons=
+document.querySelectorAll(".option");
 
 buttons.forEach(b=>{
-if(b.textContent.startsWith(correct+".")){
-b.classList.add("correct");
-}
+b.disabled=true;
 });
 
-let result=document.getElementById("result");
 
-if(choice===correct){
+answer=String(answer).toUpperCase();
+selected=String(selected).toUpperCase();
 
-btn.classList.add("correct");
-data.correct++;
-save();
+
+buttons.forEach(b=>{
+
+if(
+b.textContent.startsWith(answer+".")
+)
+b.classList.add("correct");
+
+});
+
+
+if(selected===answer){
+
+button.classList.add("correct");
+
+correct++;
 
 result.className="result correct";
+
 result.innerHTML=
-"🎉 <b>Correct!</b><br>"+q.explanation;
+"🎉 <b>Correct!</b><br>"+explanation;
 
 }else{
 
-btn.classList.add("wrong");
+button.classList.add("wrong");
 
 result.className="result wrong";
+
 result.innerHTML=
 "❌ <b>Incorrect.</b><br>"+
-"Correct answer: "+correct+
-"<br>"+q.explanation;
+"Correct answer: "+answer+
+"<br>"+explanation;
 
 }
+
 
 result.style.display="block";
 
-if(data.used<LIMIT)
-document.getElementById("next").style.display="block";
+updateProgress();
+
+
+if(used<LIMIT)
+next.style.display="block";
+
+
+result.scrollIntoView({
+behavior:"smooth",
+block:"nearest"
+});
 
 }
 
-update();
+
+/* =========================
+   ENTER KEY
+========================= */
+
+topic.addEventListener(
+"keydown",
+e=>{
+
+if(e.key==="Enter")
+generateMCQ();
+
+});
+
+
+updateProgress();
 
 </script>
 
