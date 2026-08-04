@@ -235,7 +235,9 @@ padding:8px 10px;
 background:#475569;
 color:#fff;
 font-size:12px;
+border:0;
 border-radius:8px;
+cursor:pointer;
 }
 
 .copy-btn:hover{
@@ -248,6 +250,10 @@ background:#174ea6;
 color:#fff;
 margin-top:12px;
 padding:12px;
+border:0;
+border-radius:10px;
+font-weight:800;
+cursor:pointer;
 }
 
 
@@ -452,7 +458,7 @@ class="status"
 </h2>
 
 <p>
-Pay <b>LKR 1,500</b> online using PayHere.
+Pay <b>LKR 1,500</b> securely online using PayHere.
 </p>
 
 
@@ -467,7 +473,7 @@ rel="noopener"
 
 
 <p class="small">
-After completing your online payment, follow the instructions provided by CreateLK Academy for verification.
+After completing your online payment, follow the PayHere instructions for verification.
 </p>
 
 </div>
@@ -495,8 +501,6 @@ Deposit or transfer <b>LKR 1,500</b> to the account below.
 <div class="bank-details">
 
 
-<!-- BANK -->
-
 <div class="bank-row">
 
 <div class="bank-info">
@@ -505,10 +509,7 @@ Deposit or transfer <b>LKR 1,500</b> to the account below.
 Bank
 </span>
 
-<span
-class="bank-value"
-id="bankName"
->
+<span class="bank-value">
 People's Bank
 </span>
 
@@ -516,6 +517,7 @@ People's Bank
 
 <button
 class="copy-btn"
+type="button"
 onclick="copyText('People\\'s Bank','Bank')"
 >
 📋 Copy
@@ -523,8 +525,6 @@ onclick="copyText('People\\'s Bank','Bank')"
 
 </div>
 
-
-<!-- BRANCH -->
 
 <div class="bank-row">
 
@@ -534,10 +534,7 @@ onclick="copyText('People\\'s Bank','Bank')"
 Branch
 </span>
 
-<span
-class="bank-value"
-id="branchName"
->
+<span class="bank-value">
 Udapussellawa
 </span>
 
@@ -545,6 +542,7 @@ Udapussellawa
 
 <button
 class="copy-btn"
+type="button"
 onclick="copyText('Udapussellawa','Branch')"
 >
 📋 Copy
@@ -552,8 +550,6 @@ onclick="copyText('Udapussellawa','Branch')"
 
 </div>
 
-
-<!-- ACCOUNT -->
 
 <div class="bank-row">
 
@@ -563,10 +559,7 @@ onclick="copyText('Udapussellawa','Branch')"
 Account No
 </span>
 
-<span
-class="bank-value"
-id="accountNumber"
->
+<span class="bank-value">
 292200280023178
 </span>
 
@@ -574,6 +567,7 @@ id="accountNumber"
 
 <button
 class="copy-btn"
+type="button"
 onclick="copyText('292200280023178','Account No')"
 >
 📋 Copy
@@ -581,8 +575,6 @@ onclick="copyText('292200280023178','Account No')"
 
 </div>
 
-
-<!-- CUSTOMER -->
 
 <div class="bank-row">
 
@@ -592,10 +584,7 @@ onclick="copyText('292200280023178','Account No')"
 Customer Name
 </span>
 
-<span
-class="bank-value"
-id="customerName"
->
+<span class="bank-value">
 Thinarathnam Saththiyanadan
 </span>
 
@@ -603,6 +592,7 @@ Thinarathnam Saththiyanadan
 
 <button
 class="copy-btn"
+type="button"
 onclick="copyText('Thinarathnam Saththiyanadan','Customer Name')"
 >
 📋 Copy
@@ -616,6 +606,7 @@ onclick="copyText('Thinarathnam Saththiyanadan','Customer Name')"
 
 <button
 class="copy-all"
+type="button"
 onclick="copyAllBankDetails()"
 >
 📋 Copy All Bank Details
@@ -630,7 +621,7 @@ After making the bank payment, upload your payment slip below for manual verific
 
 
 <!-- ============================
-     STUDENT EMAIL
+     STUDENT
 ============================= -->
 
 <label>
@@ -659,7 +650,7 @@ readonly
 <input
 type="file"
 id="slip"
-accept="image/jpeg,image/png,image/webp,application/pdf"
+accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf"
 >
 
 
@@ -671,6 +662,7 @@ Accepted: JPG, PNG, WEBP or PDF • Maximum 10MB
 <button
 class="submit"
 id="submitBtn"
+type="button"
 onclick="submitPayment()"
 >
 📤 Submit Manual Payment
@@ -694,24 +686,21 @@ class="pending-box"
 
 Your payment slip has been submitted successfully.
 
-<br>
+<br><br>
 
 Our team will verify your payment and activate your Premium membership.
 
 <br><br>
 
-Please do not submit another payment while this payment is being reviewed.
+Please wait for approval.
 
 </div>
 
 
-<!-- ============================
-     REUPLOAD
-============================= -->
-
 <button
 id="reupload"
 class="reupload"
+type="button"
 onclick="enableUpload()"
 >
 🔄 Upload Slip Again
@@ -733,13 +722,12 @@ href="index.html"
 
 <script>
 
-
 /* =================================
-   API
+   STUDENT PAYMENT WORKER
 ================================= */
 
 const API =
-"https://approve.gateofheavensl1.workers.dev";
+"https://payment.gateofheavensl1.workers.dev";
 
 
 /* =================================
@@ -769,7 +757,7 @@ document.getElementById("reupload");
 
 
 /* =================================
-   GET EMAIL
+   GET STUDENT EMAIL
 ================================= */
 
 function getStudentEmail(){
@@ -791,7 +779,6 @@ localStorage.getItem(
 )
 );
 
-
 if(user){
 
 email =
@@ -801,7 +788,11 @@ user.student_email ||
 
 }
 
-}catch(error){}
+}catch(error){
+
+console.log(error);
+
+}
 
 }
 
@@ -867,34 +858,28 @@ label
 
 try{
 
+if(
+navigator.clipboard &&
+window.isSecureContext
+){
+
 await navigator.clipboard.writeText(
 text
 );
 
-showStatus(
-"✅ " + label + " copied!",
-"success"
-);
-
-setTimeout(
-function(){
-
-statusBox.style.display =
-"none";
-
-},
-1800
-);
-
-}catch(error){
-
-/* Fallback */
+}else{
 
 const textarea =
 document.createElement("textarea");
 
 textarea.value =
 text;
+
+textarea.style.position =
+"fixed";
+
+textarea.style.left =
+"-9999px";
 
 document.body.appendChild(
 textarea
@@ -908,9 +893,31 @@ document.execCommand(
 
 textarea.remove();
 
+}
+
+
 showStatus(
 "✅ " + label + " copied!",
 "success"
+);
+
+
+setTimeout(
+function(){
+
+statusBox.style.display =
+"none";
+
+},
+1800
+);
+
+
+}catch(error){
+
+showStatus(
+"❌ Could not copy. Please copy it manually.",
+"error"
 );
 
 }
@@ -919,7 +926,7 @@ showStatus(
 
 
 /* =================================
-   COPY ALL
+   COPY ALL BANK DETAILS
 ================================= */
 
 function copyAllBankDetails(){
@@ -930,7 +937,6 @@ Branch: Udapussellawa
 Account No: 292200280023178
 Customer Name: Thinarathnam Saththiyanadan
 Amount: LKR 1,500`;
-
 
 copyText(
 details,
@@ -1002,33 +1008,36 @@ submitBtn.textContent =
 
 try{
 
-const form =
+const formData =
 new FormData();
 
 
-form.append(
+formData.append(
 "email",
 email
 );
 
-form.append(
+formData.append(
 "student_email",
 email
 );
 
-form.append(
+formData.append(
 "amount",
 "1500"
 );
 
-form.append(
+formData.append(
 "slip",
 file
 );
 
 
 /*
-Do NOT manually set Content-Type.
+IMPORTANT:
+Do NOT add Authorization header.
+The student payment Worker does not use
+the admin key.
 */
 
 const response =
@@ -1036,7 +1045,7 @@ await fetch(
 API + "/payment",
 {
 method:"POST",
-body:form
+body:formData
 }
 );
 
@@ -1072,7 +1081,7 @@ data.message ||
 
 
 /* =================================
-   SUCCESS → PENDING
+   PAYMENT SUBMITTED
 ================================= */
 
 showStatus(
@@ -1090,7 +1099,7 @@ uploadArea.style.display =
 
 
 reupload.style.display =
-"block";
+"none";
 
 
 localStorage.setItem(
@@ -1126,7 +1135,7 @@ submitBtn.textContent =
 
 
 /* =================================
-   RE-UPLOAD
+   ENABLE RE-UPLOAD
 ================================= */
 
 function enableUpload(){
@@ -1154,136 +1163,8 @@ submitBtn.textContent =
 
 }
 
-
-/* =================================
-   CHECK PAYMENT STATUS
-================================= */
-
-async function checkPayment(){
-
-if(!studentEmail){
-
-return;
-
-}
-
-
-try{
-
-const response =
-await fetch(
-API +
-"/payment-status?email=" +
-encodeURIComponent(
-studentEmail
-)
-);
-
-
-if(!response.ok){
-
-return;
-
-}
-
-
-const data =
-await response.json();
-
-
-if(!data.success){
-
-return;
-
-}
-
-
-/* PENDING */
-
-if(
-data.status === "pending"
-){
-
-uploadArea.style.display =
-"none";
-
-pendingBox.style.display =
-"block";
-
-reupload.style.display =
-"none";
-
-showStatus(
-"⏳ Your payment is currently PENDING approval.",
-"pending"
-);
-
-}
-
-
-/* REJECTED */
-
-else if(
-data.status === "rejected"
-){
-
-uploadArea.style.display =
-"block";
-
-pendingBox.style.display =
-"none";
-
-reupload.style.display =
-"none";
-
-showStatus(
-"❌ Your previous payment was rejected. Please upload a new slip.",
-"error"
-);
-
-}
-
-
-/* APPROVED */
-
-else if(
-data.status === "approved" ||
-data.status === "active"
-){
-
-uploadArea.style.display =
-"none";
-
-pendingBox.style.display =
-"none";
-
-reupload.style.display =
-"none";
-
-showStatus(
-"✅ Your payment has been approved. Premium membership is active.",
-"success"
-);
-
-}
-
-}catch(error){
-
-console.log(
-"Payment status check:",
-error
-);
-
-}
-
-}
-
-
-/* CHECK WHEN PAGE OPENS */
-
-checkPayment();
-
 </script>
 
 </body>
+
 </html>
