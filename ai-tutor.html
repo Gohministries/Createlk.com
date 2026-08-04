@@ -11,7 +11,7 @@ content="width=device-width, initial-scale=1.0">
 <title>CreateLK Academy | Free AI English Tutor</title>
 
 <meta name="description"
-content="CreateLK Academy Free AI English Tutor. Practise grammar, vocabulary, writing and English conversation with AI.">
+content="CreateLK Academy Free AI English Tutor. Practise grammar, vocabulary, writing and conversation with AI.">
 
 <meta name="theme-color"
 content="#1769e0">
@@ -19,9 +19,9 @@ content="#1769e0">
 <style>
 
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 body{
@@ -81,16 +81,16 @@ header{
     line-height:1.6;
 }
 
-.free-badge{
+.badge{
     display:inline-block;
+    margin-top:12px;
+    padding:7px 14px;
+    border-radius:20px;
     background:#ecfdf3;
     color:#027a48;
     border:1px solid #abefc6;
-    padding:7px 14px;
-    border-radius:20px;
     font-size:13px;
     font-weight:700;
-    margin-top:12px;
 }
 
 .card{
@@ -104,6 +104,10 @@ header{
 .card h2{
     font-size:20px;
     margin-bottom:15px;
+}
+
+.field{
+    margin-bottom:18px;
 }
 
 label{
@@ -120,7 +124,6 @@ textarea{
     padding:14px;
     font-size:16px;
     outline:none;
-    transition:.2s;
 }
 
 input:focus,
@@ -130,12 +133,8 @@ textarea:focus{
 }
 
 textarea{
-    min-height:130px;
+    min-height:140px;
     resize:vertical;
-}
-
-.field{
-    margin-bottom:18px;
 }
 
 button{
@@ -189,21 +188,10 @@ button:disabled{
 }
 
 .usage{
-    margin-top:12px;
     text-align:center;
-    font-size:13px;
     color:#667085;
-}
-
-.answer{
-    display:none;
-}
-
-.answer-box{
-    white-space:pre-wrap;
-    line-height:1.75;
-    font-size:16px;
-    color:#253047;
+    font-size:13px;
+    margin-top:12px;
 }
 
 .loading{
@@ -226,11 +214,20 @@ button:disabled{
 }
 
 @keyframes spin{
-
     to{
         transform:rotate(360deg);
     }
+}
 
+.answer{
+    display:none;
+}
+
+.answer-box{
+    white-space:pre-wrap;
+    line-height:1.75;
+    font-size:16px;
+    color:#253047;
 }
 
 .features{
@@ -255,13 +252,17 @@ button:disabled{
     display:flex;
     gap:10px;
     flex-wrap:wrap;
-    margin-top:10px;
+    margin-top:15px;
 }
 
 .links a{
-    text-decoration:none;
+    background:#eef4ff;
     color:#1769e0;
+    padding:11px 14px;
+    border-radius:9px;
+    text-decoration:none;
     font-weight:700;
+    font-size:14px;
 }
 
 footer{
@@ -269,6 +270,12 @@ footer{
     padding:25px 15px;
     color:#667085;
     font-size:14px;
+    line-height:1.8;
+}
+
+footer a{
+    color:#1769e0;
+    text-decoration:none;
 }
 
 @media(max-width:600px){
@@ -291,20 +298,22 @@ footer{
 
 </head>
 
+
 <body>
 
 
 <header>
 
-    <div class="logo">
-        📚 CreateLK Academy
-    </div>
+<div class="logo">
+📚 CreateLK Academy
+</div>
 
-    <div class="menu">
-        ☰
-    </div>
+<div class="menu">
+☰
+</div>
 
 </header>
+
 
 
 <main class="container">
@@ -312,203 +321,122 @@ footer{
 
 <section class="hero">
 
-    <div class="hero-icon">
-        🤖
-    </div>
+<div class="hero-icon">
+🤖
+</div>
 
-    <h1>
-        CreateLK Free AI English Tutor
-    </h1>
+<h1>
+CreateLK Free AI English Tutor
+</h1>
 
-    <p>
-        Learn English with your personal AI-powered tutor.
-        Ask questions, practise grammar, improve vocabulary,
-        correct sentences and develop your English skills.
-    </p>
+<p>
+Learn English with your personal AI-powered tutor.
+Ask questions, practise grammar, improve vocabulary,
+correct sentences and develop your English skills.
+</p>
 
-    <div class="free-badge">
-        🌱 FREE AI LEARNING
-    </div>
+<div class="badge">
+🌱 FREE AI LEARNING
+</div>
 
 </section>
 
 
+
 <section class="card">
 
-    <h2>
-        🤖 Ask CreateLK AI
-    </h2>
-
-    <div
-        id="status"
-        class="status">
-    </div>
+<h2>
+🤖 Ask CreateLK AI
+</h2>
 
 
-    <div class="field">
-
-        <label for="email">
-            Student Email
-        </label>
-
-        <input
-            type="email"
-            id="email"
-            placeholder="Enter your email"
-            autocomplete="email"
-        >
-
-    </div>
+<div
+id="status"
+class="status">
+</div>
 
 
-    <div class="field">
 
-        <label for="question">
-            Your English Question
-        </label>
+<div class="field">
 
-        <textarea
-            id="question"
-            maxlength="2000"
-            placeholder="Example: Explain the difference between 'has been' and 'had been'."
-        ></textarea>
+<label for="email">
+Student Email
+</label>
 
-    </div>
+<input
+type="email"
+id="email"
+placeholder="Enter your email"
+autocomplete="email"
+>
 
-
-    <button
-        id="askButton"
-        type="button"
-        onclick="askAI()"
-    >
-        🤖 Ask CreateLK AI
-    </button>
+</div>
 
 
-    <div
-        class="usage"
-        id="usage"
-    >
-        🌱 Free AI — Daily limit: 20 questions
-    </div>
+
+<div class="field">
+
+<label for="question">
+Your English Question
+</label>
+
+<textarea
+id="question"
+maxlength="2000"
+placeholder="Example: What is the difference between 'has been' and 'had been'?"
+></textarea>
+
+</div>
 
 
-    <div
-        class="loading"
-        id="loading"
-    >
 
-        <span class="spinner"></span>
+<button
+id="askButton"
+type="button"
+onclick="askAI()"
+>
+🤖 Ask CreateLK AI
+</button>
 
-        CreateLK AI is thinking...
 
-    </div>
+
+<div
+class="usage"
+id="usage"
+>
+🌱 Free AI — Daily limit: 20 questions
+</div>
+
+
+
+<div
+class="loading"
+id="loading"
+>
+
+<span class="spinner"></span>
+
+CreateLK AI is thinking...
+
+</div>
 
 </section>
 
 
 
 <section
-    class="card answer"
-    id="answerCard"
+class="card answer"
+id="answerCard"
 >
 
-    <h2>
-        🤖 AI Tutor Answer
-    </h2>
+<h2>
+🤖 AI Tutor Answer
+</h2>
 
-    <div
-        class="answer-box"
-        id="answer"
-    ></div>
-
-</section>
-
-
-
-<section class="card">
-
-    <h2>
-        📚 What Can CreateLK AI Help With?
-    </h2>
-
-
-    <div class="features">
-
-
-        <div class="feature">
-
-            <strong>
-                📖 Grammar
-            </strong>
-
-            Learn grammar rules with simple
-            explanations and examples.
-
-        </div>
-
-
-        <div class="feature">
-
-            <strong>
-                📝 Writing
-            </strong>
-
-            Correct sentences and improve
-            your writing.
-
-        </div>
-
-
-        <div class="feature">
-
-            <strong>
-                📚 Vocabulary
-            </strong>
-
-            Learn meanings, examples and
-            correct usage.
-
-        </div>
-
-
-        <div class="feature">
-
-            <strong>
-                💬 Conversation
-            </strong>
-
-            Practise everyday English
-            conversations.
-
-        </div>
-
-
-        <div class="feature">
-
-            <strong>
-                🎯 Exam Practice
-            </strong>
-
-            Get explanations for English
-            questions and MCQs.
-
-        </div>
-
-
-        <div class="feature">
-
-            <strong>
-                🌐 Tamil / Sinhala
-            </strong>
-
-            Ask for explanations in Tamil
-            or Sinhala when needed.
-
-        </div>
-
-
-    </div>
+<div
+class="answer-box"
+id="answer"
+></div>
 
 </section>
 
@@ -516,29 +444,126 @@ footer{
 
 <section class="card">
 
-    <h2>
-        ⭐ Want More AI Practice?
-    </h2>
+<h2>
+📚 What Can CreateLK AI Help With?
+</h2>
 
-    <p style="line-height:1.6;color:#667085;">
 
-        Upgrade to CreateLK Academy Premium
-        for advanced AI learning resources
-        and Premium AI MCQ practice.
+<div class="features">
 
-    </p>
 
-    <div class="links">
+<div class="feature">
 
-        <a href="premium.html">
-            ⭐ Premium AI
-        </a>
+<strong>
+📖 Grammar
+</strong>
 
-        <a href="membership.html">
-            💳 Membership
-        </a>
+Learn grammar rules with simple
+explanations and examples.
 
-    </div>
+</div>
+
+
+
+<div class="feature">
+
+<strong>
+📝 Writing
+</strong>
+
+Correct sentences and improve
+your English writing.
+
+</div>
+
+
+
+<div class="feature">
+
+<strong>
+📚 Vocabulary
+</strong>
+
+Learn meanings, examples and
+correct usage.
+
+</div>
+
+
+
+<div class="feature">
+
+<strong>
+💬 Conversation
+</strong>
+
+Practise everyday English
+conversations.
+
+</div>
+
+
+
+<div class="feature">
+
+<strong>
+🎯 Exam Practice
+</strong>
+
+Get help understanding English
+questions and MCQs.
+
+</div>
+
+
+
+<div class="feature">
+
+<strong>
+🌐 Tamil / Sinhala
+</strong>
+
+Ask for English explanations
+in Tamil or Sinhala when needed.
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<section class="card">
+
+<h2>
+⭐ More Learning
+</h2>
+
+<div class="links">
+
+<a href="index.html">
+🏠 Home
+</a>
+
+<a href="free-course.html">
+🌱 Free Learning
+</a>
+
+<a href="ai-mcq.html">
+📝 AI MCQs
+</a>
+
+<a href="premium.html">
+⭐ Premium AI
+</a>
+
+<a href="membership.html">
+💳 Membership
+</a>
+
+</div>
 
 </section>
 
@@ -546,18 +571,37 @@ footer{
 </main>
 
 
+
 <footer>
 
-    📚 CreateLK Academy
+📚 <b>CreateLK Academy</b>
 
-    <br><br>
+<br>
 
-    Home · About · Contact · Membership · Privacy · Refund Policy
+Learn English. Build Your Future.
 
-    <br><br>
+<br><br>
 
-    © 2026 CreateLK Academy.
-    All Rights Reserved.
+<a href="about.html">
+About
+</a>
+·
+<a href="contact.html">
+Contact
+</a>
+·
+<a href="privacy.html">
+Privacy
+</a>
+·
+<a href="terms.html">
+Terms
+</a>
+
+<br><br>
+
+© 2026 CreateLK Academy.
+All Rights Reserved.
 
 </footer>
 
@@ -567,52 +611,50 @@ footer{
 
 
 /*
-|--------------------------------------------------------------------------
-| CREATE LK FREE AI WORKER
-|--------------------------------------------------------------------------
+========================================================
+CREATE LK FREE AI WORKER
+========================================================
 */
 
 const AI_WORKER =
     "https://free.gateofheavensl1.workers.dev";
 
 
+/*
+========================================================
+ELEMENTS
+========================================================
+*/
+
 const emailInput =
     document.getElementById("email");
-
 
 const questionInput =
     document.getElementById("question");
 
-
 const askButton =
     document.getElementById("askButton");
-
 
 const statusBox =
     document.getElementById("status");
 
-
 const loading =
     document.getElementById("loading");
-
 
 const answerCard =
     document.getElementById("answerCard");
 
-
 const answerBox =
     document.getElementById("answer");
-
 
 const usageBox =
     document.getElementById("usage");
 
 
-
 /*
-|--------------------------------------------------------------------------
-| STATUS
-|--------------------------------------------------------------------------
+========================================================
+STATUS MESSAGE
+========================================================
 */
 
 function showStatus(message,type){
@@ -637,11 +679,10 @@ function clearStatus(){
 }
 
 
-
 /*
-|--------------------------------------------------------------------------
-| ASK AI
-|--------------------------------------------------------------------------
+========================================================
+ASK AI
+========================================================
 */
 
 async function askAI(){
@@ -654,19 +695,19 @@ async function askAI(){
 
     const email =
         emailInput.value
-            .trim()
-            .toLowerCase();
+        .trim()
+        .toLowerCase();
 
 
     const question =
         questionInput.value
-            .trim();
+        .trim();
 
 
     /*
-    --------------------------------
+    -----------------------------
     Validate email
-    --------------------------------
+    -----------------------------
     */
 
     if(!email){
@@ -679,7 +720,6 @@ async function askAI(){
         emailInput.focus();
 
         return;
-
     }
 
 
@@ -693,14 +733,13 @@ async function askAI(){
         emailInput.focus();
 
         return;
-
     }
 
 
     /*
-    --------------------------------
+    -----------------------------
     Validate question
-    --------------------------------
+    -----------------------------
     */
 
     if(!question){
@@ -713,7 +752,6 @@ async function askAI(){
         questionInput.focus();
 
         return;
-
     }
 
 
@@ -725,14 +763,13 @@ async function askAI(){
         );
 
         return;
-
     }
 
 
     /*
-    --------------------------------
+    -----------------------------
     Loading
-    --------------------------------
+    -----------------------------
     */
 
     askButton.disabled =
@@ -746,16 +783,15 @@ async function askAI(){
 
 
         /*
-        --------------------------------
-        Call Free Worker
-        --------------------------------
+        ================================================
+        CALL EXISTING FREE WORKER
+        ================================================
         */
 
         const response =
             await fetch(
                 AI_WORKER + "/chat",
                 {
-
                     method:"POST",
 
                     headers:{
@@ -770,15 +806,14 @@ async function askAI(){
                         message:question
 
                     })
-
                 }
             );
 
 
         /*
-        --------------------------------
-        Read response
-        --------------------------------
+        ================================================
+        READ RESPONSE
+        ================================================
         */
 
         const data =
@@ -786,15 +821,15 @@ async function askAI(){
 
 
         console.log(
-            "Free AI response:",
+            "CreateLK Free AI:",
             data
         );
 
 
         /*
-        --------------------------------
-        Error handling
-        --------------------------------
+        ================================================
+        ERROR HANDLING
+        ================================================
         */
 
         if(
@@ -802,13 +837,10 @@ async function askAI(){
             data.success === false
         ){
 
-            /*
-            Daily limit
-            */
-
             if(
                 data.limit_reached ||
-                data.daily_limit_reached
+                data.daily_limit_reached ||
+                data.limitReached
             ){
 
                 showStatus(
@@ -816,47 +848,25 @@ async function askAI(){
                     "error"
                 );
 
+                return;
             }
 
-            /*
-            Premium required
-            */
 
-            else if(
-                data.premium_required
-            ){
-
-                showStatus(
-                    "⭐ Premium membership is required for this feature.",
-                    "error"
-                );
-
-            }
-
-            /*
-            Normal error
-            */
-
-            else{
-
-                showStatus(
-                    data.message ||
-                    data.error ||
-                    "Unable to use CreateLK AI.",
-                    "error"
-                );
-
-            }
+            showStatus(
+                data.message ||
+                data.error ||
+                "Unable to use CreateLK AI.",
+                "error"
+            );
 
             return;
-
         }
 
 
         /*
-        --------------------------------
+        ================================================
         SUCCESS
-        --------------------------------
+        ================================================
         */
 
         showStatus(
@@ -866,15 +876,16 @@ async function askAI(){
 
 
         /*
-        --------------------------------
-        Answer
-        --------------------------------
+        ================================================
+        DISPLAY ANSWER
+        ================================================
         */
 
         answerBox.textContent =
             data.answer ||
             data.response ||
             data.result ||
+            data.message ||
             "No answer was returned.";
 
 
@@ -883,12 +894,26 @@ async function askAI(){
 
 
         /*
-        --------------------------------
-        Usage
-        --------------------------------
+        ================================================
+        USAGE INFORMATION
+        ================================================
         */
 
         if(
+            data.used !== undefined &&
+            data.limit !== undefined
+        ){
+
+            usageBox.textContent =
+                "🌱 Free AI usage: " +
+                data.used +
+                " / " +
+                data.limit +
+                " today";
+
+        }
+
+        else if(
             data.used !== undefined &&
             data.daily_limit !== undefined
         ){
@@ -914,9 +939,9 @@ async function askAI(){
 
 
         /*
-        --------------------------------
-        Scroll to answer
-        --------------------------------
+        ================================================
+        SCROLL TO ANSWER
+        ================================================
         */
 
         answerCard.scrollIntoView({
@@ -926,12 +951,10 @@ async function askAI(){
 
 
     }
-
-
     catch(error){
 
         console.error(
-            "AI Error:",
+            "CreateLK AI Error:",
             error
         );
 
@@ -942,8 +965,6 @@ async function askAI(){
         );
 
     }
-
-
     finally{
 
         askButton.disabled =
@@ -957,11 +978,10 @@ async function askAI(){
 }
 
 
-
 /*
-|--------------------------------------------------------------------------
-| ENTER KEY
-|--------------------------------------------------------------------------
+========================================================
+ENTER KEY SUPPORT
+========================================================
 */
 
 questionInput.addEventListener(
