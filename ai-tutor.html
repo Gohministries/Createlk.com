@@ -4,13 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>CreateLK Academy | Free AI English Tutor</title>
+<title>CreateLK Academy | Free AI English MCQs</title>
 
 <meta name="description"
-content="CreateLK Academy Free AI English Tutor - Generate English MCQs with 4 options, answers and explanations.">
+content="CreateLK Academy Free AI English MCQ Tutor. Generate English MCQs with four options, answers and explanations.">
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -18,30 +17,29 @@ content="CreateLK Academy Free AI English Tutor - Generate English MCQs with 4 o
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:"Segoe UI",Arial,sans-serif;
     background:#f4f7fb;
     color:#172033;
 }
 
 header{
     background:#174ea6;
-    color:white;
-    padding:15px 18px;
+    color:#fff;
+    padding:14px 18px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
-    font-size:18px;
     font-weight:800;
+    font-size:18px;
 }
 
 header a{
-    color:white;
+    color:#fff;
     text-decoration:none;
-    font-weight:bold;
-    font-size:14px;
+    font-weight:700;
 }
 
 main{
@@ -55,11 +53,11 @@ main{
     margin-bottom:20px;
 }
 
-.hero-icon{
+.icon{
     font-size:55px;
 }
 
-.hero h1{
+h1{
     color:#174ea6;
     font-size:29px;
     margin:8px 0;
@@ -73,31 +71,27 @@ main{
 .badge{
     display:inline-block;
     margin-top:10px;
-    padding:7px 13px;
+    padding:7px 14px;
+    border-radius:20px;
     background:#eaf2ff;
     color:#174ea6;
-    border-radius:20px;
     font-size:13px;
-    font-weight:bold;
+    font-weight:800;
 }
 
 .card{
-    background:white;
-    border-radius:18px;
+    background:#fff;
     padding:20px;
+    border-radius:18px;
     margin-bottom:16px;
-    box-shadow:0 5px 25px rgba(0,0,0,.07);
-}
-
-.card h2{
-    margin-bottom:14px;
+    box-shadow:0 5px 25px #0000000d;
 }
 
 .stats{
     display:flex;
     justify-content:space-between;
     font-size:14px;
-    font-weight:bold;
+    font-weight:700;
 }
 
 .progress{
@@ -105,30 +99,24 @@ main{
     background:#e5eaf2;
     border-radius:10px;
     overflow:hidden;
-    margin:10px 0 14px;
+    margin:10px 0 15px;
 }
 
-.progress-fill{
-    width:0;
+.progress-bar{
+    width:0%;
     height:100%;
-    background:#174ea6;
+    background:#20a464;
     transition:.3s;
 }
 
-input,
-select{
+input,select{
     width:100%;
     padding:14px;
+    margin:8px 0 14px;
     border:1px solid #d5dbe5;
     border-radius:11px;
     font-size:16px;
-    margin:10px 0 14px;
     outline:none;
-}
-
-input:focus,
-select:focus{
-    border-color:#174ea6;
 }
 
 button{
@@ -137,7 +125,7 @@ button{
     border:0;
     border-radius:11px;
     background:#174ea6;
-    color:white;
+    color:#fff;
     font-size:16px;
     font-weight:800;
     cursor:pointer;
@@ -145,32 +133,13 @@ button{
 
 button:disabled{
     opacity:.5;
-    cursor:not-allowed;
 }
 
 .loading{
     display:none;
     text-align:center;
+    padding:15px;
     color:#667085;
-    padding:15px 0 0;
-}
-
-.spinner{
-    display:inline-block;
-    width:18px;
-    height:18px;
-    border:3px solid #dbe7ff;
-    border-top-color:#174ea6;
-    border-radius:50%;
-    animation:spin .8s linear infinite;
-    vertical-align:middle;
-    margin-right:7px;
-}
-
-@keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
 }
 
 .status{
@@ -185,14 +154,12 @@ button:disabled{
     display:block;
     background:#fef2f2;
     color:#b42318;
-    border:1px solid #fecdca;
 }
 
 .status.success{
     display:block;
     background:#ecfdf3;
     color:#027a48;
-    border:1px solid #abefc6;
 }
 
 #questionCard{
@@ -210,19 +177,15 @@ button:disabled{
     font-size:20px;
     font-weight:800;
     line-height:1.5;
-    margin-bottom:18px;
+    margin-bottom:15px;
 }
 
 .option{
-    background:white;
+    background:#fff;
     color:#172033;
     border:2px solid #e0e5ed;
     text-align:left;
     margin:7px 0;
-}
-
-.option:hover{
-    border-color:#174ea6;
 }
 
 .option.correct{
@@ -239,598 +202,294 @@ button:disabled{
 
 .result{
     display:none;
-    margin-top:16px;
+    margin-top:15px;
     padding:15px;
     border-radius:12px;
     line-height:1.7;
 }
 
 .result.correct{
-    display:block;
     background:#ecfdf3;
     color:#166534;
 }
 
 .result.wrong{
-    display:block;
     background:#fef2f2;
     color:#991b1b;
 }
 
-.info{
-    color:#667085;
-    line-height:1.7;
-    font-size:14px;
+.premium-box{
+    display:none;
+    text-align:center;
+    background:#fff8e7;
+    border:1px solid #f6d889;
+}
+
+.premium-button{
+    display:block;
+    margin-top:14px;
+    padding:14px;
+    border-radius:11px;
+    background:#f5a623;
+    color:#fff;
+    text-decoration:none;
+    font-weight:800;
 }
 
 footer{
     text-align:center;
-    color:#667085;
     padding:25px;
+    color:#667085;
     font-size:13px;
-    line-height:1.8;
 }
 
 footer a{
     color:#174ea6;
     text-decoration:none;
-    font-weight:bold;
 }
 
 @media(max-width:600px){
-
-    .hero h1{
+    h1{
         font-size:25px;
     }
 
     .card{
         padding:17px;
     }
-
-    .question{
-        font-size:18px;
-    }
-
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-
-<div class="logo">
-📚 CreateLK Academy
-</div>
-
-<a href="https://createlk.com/">
-🏠 Home
-</a>
-
+<div class="logo">📚 CreateLK Academy</div>
+<a href="index.html">🏠 Home</a>
 </header>
-
 
 <main>
 
-
 <section class="hero">
+<div class="icon">🤖</div>
 
-<div class="hero-icon">
-🤖
-</div>
-
-<h1>
-Free AI English Tutor
-</h1>
+<h1>Free AI English MCQs</h1>
 
 <p>
-Learn English with AI-powered MCQ practice.
-Choose a topic and generate a question with four options.
+Generate English MCQs instantly with four options,
+answers and explanations.
 </p>
 
 <div class="badge">
-🌱 FREE — 10 MCQs / DAY
+🌱 FREE — 10 MCQs DAILY
 </div>
-
 </section>
-
 
 
 <section class="card">
 
 <div class="stats">
-
-<span>
-📊 Today's Progress
-</span>
-
-<span id="usage">
-0 / 10
-</span>
-
+<span>📊 Today's Progress</span>
+<span id="usage">0 / 10</span>
 </div>
-
 
 <div class="progress">
-
-<div
-class="progress-fill"
-id="progress"
-></div>
-
+<div class="progress-bar" id="progress"></div>
 </div>
 
-
 <div class="stats">
-
-<span>
-✅ Correct: <b id="score">0</b>
-</span>
-
-<span>
-🎯 Score: <b id="percent">0%</b>
-</span>
-
+<span>✅ Correct: <b id="score">0</b></span>
+<span>🎯 Score: <b id="percent">0%</b></span>
 </div>
 
 </section>
 
 
-
 <section class="card">
 
-<h2>
-🎯 Create Your MCQ
-</h2>
+<h2>🎯 Generate MCQ</h2>
 
-
-<label>
-English Topic
-</label>
+<label>Topic</label>
 
 <input
 id="topic"
 type="text"
+placeholder="Example: English Grammar"
 maxlength="100"
-placeholder="Example: English Tenses"
 >
 
-
-<label>
-Level
-</label>
+<label>Level</label>
 
 <select id="level">
-
-<option value="Beginner">
-Beginner
-</option>
-
-<option value="Intermediate" selected>
-Intermediate
-</option>
-
-<option value="Advanced">
-Advanced
-</option>
-
+<option>Beginner</option>
+<option selected>Intermediate</option>
+<option>Advanced</option>
 </select>
 
-
-<button
-id="generate"
-onclick="generateMCQ()"
->
+<button id="generate" onclick="generateMCQ()">
 ✨ Generate Free MCQ
 </button>
 
-
-<div
-class="loading"
-id="loading"
->
-
-<span class="spinner"></span>
-
-CreateLK AI is creating your question...
-
+<div class="loading" id="loading">
+⏳ CreateLK AI is generating your MCQ...
 </div>
 
-
-<div
-class="status"
-id="status"
-></div>
+<div class="status" id="status"></div>
 
 </section>
 
 
+<section class="card" id="questionCard">
 
-<section
-class="card"
-id="questionCard"
->
+<div class="question-number" id="questionNumber"></div>
 
-<div
-class="question-number"
-id="questionNumber"
-></div>
-
-
-<div
-class="question"
-id="question"
-></div>
-
+<div class="question" id="question"></div>
 
 <div id="options"></div>
 
-
-<div
-class="result"
-id="result"
-></div>
-
+<div class="result" id="result"></div>
 
 <button
 id="next"
 style="display:none;margin-top:12px"
 onclick="generateMCQ()"
 >
-➡️ Next Question
+➡️ Next MCQ
 </button>
 
 </section>
 
 
+<section class="card premium-box" id="premiumBox">
 
-<section class="card">
+<h2>⭐ Free Limit Reached</h2>
 
-<h2>
-🌱 Free AI English Learning
-</h2>
-
-<p class="info">
-
-Generate up to <b>10 English MCQs every day</b>.
-
-Each question includes:
-
-<br><br>
-
-✅ Four answer options<br>
-✅ Instant answer checking<br>
-✅ Correct answer<br>
-✅ Explanation<br>
-✅ Beginner to Advanced levels
-
-<br><br>
-
-No account or email is required.
-
+<p style="margin-top:8px;line-height:1.6;color:#745400">
+You have used all <b>10 free MCQs</b> available today.
 </p>
 
-</section>
-
-
-
-<section class="card">
-
-<h3>
-⭐ Want More AI Practice?
-</h3>
-
-<p class="info" style="margin-top:8px">
-
-Upgrade to Premium for up to
-<b>100 AI MCQs per day</b>.
-
-</p>
-
-<a
-href="https://createlk.com/premium.html"
-style="
-display:block;
-margin-top:12px;
-background:#f5a623;
-color:white;
-padding:14px;
-border-radius:11px;
-text-align:center;
-text-decoration:none;
-font-weight:bold;
-"
->
-⭐ Open Premium AI
+<a class="premium-button" href="login.html?next=premium.html">
+⭐ Upgrade to Premium
 </a>
 
 </section>
-
 
 </main>
 
 
-
 <footer>
+📚 <b>CreateLK Academy</b><br>
+Learn English. Build Your Future.<br><br>
 
-📚 <b>CreateLK Academy</b>
-
-<br>
-
-Learn English. Build Your Future.
-
-<br><br>
-
-<a href="https://createlk.com/">
-Home
-</a>
-·
-<a href="https://createlk.com/premium.html">
-Premium AI
-</a>
-·
-<a href="https://createlk.com/membership.html">
-Membership
-</a>
-·
-<a href="https://createlk.com/contact.html">
-Contact
-</a>
-
+<a href="index.html">Home</a> ·
+<a href="premium.html">Premium AI</a> ·
+<a href="membership.html">Membership</a>
 <br><br>
 
 © 2026 CreateLK Academy. All Rights Reserved.
-
 </footer>
-
 
 
 <script>
 
-
-/* =====================================
-   CLOUDFLARE FREE WORKER
-===================================== */
-
 const API =
 "https://free.gateofheavensl1.workers.dev/api/free-mcq";
 
-
-const DAILY_LIMIT = 10;
-
-
-/* =====================================
-   VARIABLES
-===================================== */
+const LIMIT = 10;
 
 let used = 0;
+let score = 0;
 
-let correct = 0;
-
-
-/* =====================================
-   ELEMENTS
-===================================== */
-
-const topicInput =
-document.getElementById("topic");
-
-const levelInput =
-document.getElementById("level");
-
-const generateButton =
+const generate =
 document.getElementById("generate");
 
 const loading =
 document.getElementById("loading");
 
-const statusBox =
+const status =
 document.getElementById("status");
 
 const questionCard =
 document.getElementById("questionCard");
 
-const questionNumber =
-document.getElementById("questionNumber");
-
-const questionBox =
-document.getElementById("question");
-
-const optionsBox =
-document.getElementById("options");
-
-const resultBox =
-document.getElementById("result");
-
-const nextButton =
-document.getElementById("next");
-
-
-/* =====================================
-   STATUS
-===================================== */
+const premiumBox =
+document.getElementById("premiumBox");
 
 function showStatus(message,type){
 
-statusBox.className =
-"status " + type;
-
-statusBox.textContent =
-message;
+status.className = "status " + type;
+status.textContent = message;
 
 }
-
-
-function clearStatus(){
-
-statusBox.className =
-"status";
-
-statusBox.textContent =
-"";
-
-}
-
-
-/* =====================================
-   PROGRESS
-===================================== */
 
 function updateProgress(){
 
 document.getElementById("usage").textContent =
-used + " / " + DAILY_LIMIT;
-
+used + " / " + LIMIT;
 
 document.getElementById("score").textContent =
-correct;
+score;
 
-
-const percent =
-used > 0
-?
-Math.round(
-(correct / used) * 100
-)
-:
-0;
-
+let percentage =
+used
+? Math.round((score / used) * 100)
+: 0;
 
 document.getElementById("percent").textContent =
-percent + "%";
-
+percentage + "%";
 
 document.getElementById("progress").style.width =
-Math.min(
-(used / DAILY_LIMIT) * 100,
-100
-) + "%";
+Math.min((used / LIMIT) * 100,100) + "%";
 
+if(used >= LIMIT){
 
-if(used >= DAILY_LIMIT){
+generate.disabled = true;
+generate.textContent = "🔒 Daily Limit Reached";
+premiumBox.style.display = "block";
 
-generateButton.disabled =
-true;
+}else{
 
-generateButton.textContent =
-"🔒 Daily Limit Reached";
-
-}
-
-else{
-
-generateButton.disabled =
-false;
-
-generateButton.textContent =
-"✨ Generate Free MCQ";
+generate.disabled = false;
+generate.textContent = "✨ Generate Free MCQ";
 
 }
 
 }
-
-
-/* =====================================
-   GENERATE MCQ
-===================================== */
 
 async function generateMCQ(){
 
-clearStatus();
+status.className = "status";
+status.textContent = "";
 
-resultBox.style.display =
-"none";
-
-nextButton.style.display =
-"none";
-
-
-if(used >= DAILY_LIMIT){
-
-showStatus(
-"🔒 You have completed today's 10 free MCQs. Please come back tomorrow.",
-"error"
-);
-
-return;
-
+if(used >= LIMIT){
+    premiumBox.style.display = "block";
+    return;
 }
-
 
 const topic =
-topicInput.value.trim()
-||
-"English Grammar";
-
+document.getElementById("topic").value.trim()
+|| "English Grammar";
 
 const level =
-levelInput.value;
+document.getElementById("level").value;
 
-
-generateButton.disabled =
-true;
-
-loading.style.display =
-"block";
-
-questionCard.style.display =
-"none";
-
+generate.disabled = true;
+loading.style.display = "block";
+questionCard.style.display = "none";
 
 try{
 
-
-const response =
-await fetch(
-API,
-{
+const response = await fetch(API,{
 method:"POST",
-
 headers:{
-"Content-Type":
-"application/json"
+"Content-Type":"application/json"
 },
-
 body:JSON.stringify({
-
 topic:topic,
-
 level:level
-
 })
-}
-);
+});
 
-
-let data;
-
-
-try{
-
-data =
-await response.json();
-
-}
-
-catch(e){
-
-throw new Error(
-"Invalid response from Free AI Worker."
-);
-
-}
-
-
-console.log(
-"Free Worker Response:",
-data
-);
-
-
-/* =====================================
-   DAILY LIMIT
-===================================== */
+const data = await response.json();
 
 if(
 response.status === 429 ||
@@ -838,158 +497,51 @@ data.limit_reached ||
 data.daily_limit_reached
 ){
 
-used =
-Number(
-data.used ||
-DAILY_LIMIT
-);
-
+used = LIMIT;
 updateProgress();
 
 showStatus(
-"🔒 You have reached today's 10 free MCQ limit.",
+"🔒 Your 10 free MCQs for today are finished.",
 "error"
 );
 
 return;
-
 }
 
+if(!response.ok || data.success === false){
 
-/* =====================================
-   WORKER ERROR
-===================================== */
-
-if(
-!response.ok ||
-data.success === false
-){
-
-showStatus(
+throw new Error(
 data.message ||
 data.error ||
-"Unable to generate an MCQ.",
-"error"
+"Unable to generate MCQ."
 );
 
-return;
-
 }
-
-
-/* =====================================
-   USAGE FROM SERVER
-===================================== */
-
-if(
-data.used !== undefined &&
-data.used !== null
-){
-
-used =
-Number(data.used);
-
-}
-
-else{
-
-used++;
-
-}
-
-
-/* =====================================
-   FIND MCQ
-===================================== */
 
 let mcq =
-data.mcq ||
-data.questionData;
+data.mcq || data.questionData;
 
-
-/*
-Worker may return:
-
-question
-options
-answer
-explanation
-*/
-
-if(
-!mcq &&
-data.question
-){
+if(!mcq && data.question){
 
 mcq = {
-
 question:data.question,
-
 options:data.options,
-
 answer:data.answer,
-
 explanation:data.explanation
-
 };
 
 }
 
+if(typeof mcq === "string"){
 
-/* =====================================
-   AI TEXT RESPONSE
-===================================== */
-
-if(
-typeof mcq === "string"
-){
-
-let text =
+mcq = JSON.parse(
 mcq
 .replace(/```json/gi,"")
 .replace(/```/g,"")
-.trim();
-
-
-try{
-
-mcq =
-JSON.parse(text);
-
-}
-
-catch(e){
-
-const start =
-text.indexOf("{");
-
-const end =
-text.lastIndexOf("}");
-
-
-if(
-start !== -1 &&
-end !== -1
-){
-
-mcq =
-JSON.parse(
-text.substring(
-start,
-end + 1
-)
+.trim()
 );
 
 }
-
-}
-
-}
-
-
-/* =====================================
-   VALIDATE
-===================================== */
 
 if(
 !mcq ||
@@ -999,11 +551,10 @@ if(
 ){
 
 throw new Error(
-"Invalid MCQ returned by Free AI Worker."
+"Invalid MCQ returned by AI."
 );
 
 }
-
 
 if(
 !mcq.options.A ||
@@ -1013,20 +564,23 @@ if(
 ){
 
 throw new Error(
-"AI did not return exactly four options."
+"AI must return four options."
 );
 
 }
 
+if(data.used !== undefined){
 
-/* =====================================
-   SHOW
-===================================== */
+used = Number(data.used);
+
+}else{
+
+used++;
+
+}
 
 updateProgress();
-
 showMCQ(mcq);
-
 
 }catch(error){
 
@@ -1034,25 +588,17 @@ console.error(error);
 
 showStatus(
 error.message ||
-"Unable to connect to Free AI. Please try again.",
+"Unable to connect to Free AI.",
 "error"
 );
 
 }finally{
 
-loading.style.display =
-"none";
+loading.style.display = "none";
 
-
-if(
-used < DAILY_LIMIT
-){
-
-generateButton.disabled =
-false;
-
+if(used < LIMIT){
+    generate.disabled = false;
 }
-
 
 updateProgress();
 
@@ -1060,70 +606,41 @@ updateProgress();
 
 }
 
-
-/* =====================================
-   SHOW MCQ
-===================================== */
-
 function showMCQ(mcq){
 
-questionCard.style.display =
-"block";
+questionCard.style.display = "block";
 
+document.getElementById("questionNumber").textContent =
+"QUESTION " + used + " OF " + LIMIT;
 
-questionNumber.textContent =
-"QUESTION " +
-used +
-" OF " +
-DAILY_LIMIT;
-
-
-questionBox.textContent =
+document.getElementById("question").textContent =
 mcq.question;
 
+const options =
+document.getElementById("options");
 
-optionsBox.innerHTML =
-"";
+options.innerHTML = "";
 
-
-resultBox.style.display =
+document.getElementById("result").style.display =
 "none";
 
-
-nextButton.style.display =
+document.getElementById("next").style.display =
 "none";
-
 
 const answer =
-String(mcq.answer)
-.toUpperCase()
-.trim();
+String(mcq.answer).trim().toUpperCase();
 
-
-["A","B","C","D"].forEach(
-letter=>{
-
+["A","B","C","D"].forEach(letter=>{
 
 const button =
 document.createElement("button");
 
-
-button.type =
-"button";
-
-
-button.className =
-"option";
-
+button.className = "option";
 
 button.textContent =
-letter +
-". " +
-mcq.options[letter];
+letter + ". " + mcq.options[letter];
 
-
-button.onclick =
-function(){
+button.onclick = ()=>{
 
 checkAnswer(
 button,
@@ -1134,13 +651,9 @@ mcq.explanation
 
 };
 
-
-optionsBox.appendChild(
-button
-);
+options.appendChild(button);
 
 });
-
 
 questionCard.scrollIntoView({
 behavior:"smooth",
@@ -1149,150 +662,74 @@ block:"start"
 
 }
 
-
-/* =====================================
-   CHECK ANSWER
-===================================== */
-
 function checkAnswer(
-clickedButton,
+clicked,
 selected,
 answer,
 explanation
 ){
 
-const buttons =
-document.querySelectorAll(
-".option"
-);
-
-
-buttons.forEach(
-button=>{
-
-button.disabled =
-true;
-
+document.querySelectorAll(".option")
+.forEach(button=>{
+button.disabled = true;
 });
 
-
-buttons.forEach(
-button=>{
+document.querySelectorAll(".option")
+.forEach(button=>{
 
 if(
 button.textContent
-.startsWith(
-answer + "."
-)
+.startsWith(answer + ".")
 ){
 
-button.classList.add(
-"correct"
-);
+button.classList.add("correct");
 
 }
 
 });
 
+const result =
+document.getElementById("result");
 
-if(
-selected === answer
-){
+if(selected === answer){
 
-clickedButton.classList.add(
-"correct"
-);
+clicked.classList.add("correct");
 
+score++;
 
-correct++;
+result.className = "result correct";
 
-
-resultBox.className =
-"result correct";
-
-
-resultBox.innerHTML =
+result.innerHTML =
 "🎉 <b>Correct!</b><br><br>" +
-(
-explanation ||
-"Excellent work!"
-);
+(explanation || "Excellent work!");
 
-}
+}else{
 
-else{
+clicked.classList.add("wrong");
 
-clickedButton.classList.add(
-"wrong"
-);
+result.className = "result wrong";
 
-
-resultBox.className =
-"result wrong";
-
-
-resultBox.innerHTML =
+result.innerHTML =
 "❌ <b>Incorrect.</b><br><br>" +
 "<b>Correct answer:</b> " +
 answer +
 "<br><br>" +
-(
-explanation ||
-"Please review the explanation."
-);
+(explanation || "");
 
 }
 
-
-resultBox.style.display =
-"block";
-
+result.style.display = "block";
 
 updateProgress();
 
+if(used < LIMIT){
 
-if(
-used < DAILY_LIMIT
-){
-
-nextButton.style.display =
+document.getElementById("next").style.display =
 "block";
 
 }
 
-
-resultBox.scrollIntoView({
-behavior:"smooth",
-block:"nearest"
-});
-
 }
-
-
-/* =====================================
-   ENTER KEY
-===================================== */
-
-topicInput.addEventListener(
-"keydown",
-function(event){
-
-if(
-event.key === "Enter"
-){
-
-event.preventDefault();
-
-generateMCQ();
-
-}
-
-});
-
-
-/* =====================================
-   START
-===================================== */
 
 updateProgress();
 
