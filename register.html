@@ -1,1109 +1,421 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Create Account | CreateLK Academy</title><meta name="description"
-content="Create your free CreateLK Academy student account and start learning English online.">
+<title>Create Account | CreateLK Academy</title>
 
-<meta name="theme-color"
-content="#174ea6">
+<meta name="description"
+content="Create your CreateLK Academy student account and start learning English online.">
 
 <style>
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-    font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
-    min-height:100vh;
-    background:
-        linear-gradient(
-            135deg,
-            #eef5ff,
-            #ffffff,
-            #fff8e9
-        );
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#f5f8ff;
     color:#172033;
 }
 
-a{
-    text-decoration:none;
-}
-
-.header{
+header{
     background:#174ea6;
-    color:#fff;
-    padding:15px 20px;
-    box-shadow:0 3px 15px rgba(0,0,0,.12);
+    color:white;
+    padding:14px 18px;
 }
 
-.header-inner{
-    max-width:1100px;
+.nav{
+    max-width:1050px;
     margin:auto;
-
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
 }
 
 .logo{
-    color:#fff;
-    font-size:21px;
+    font-size:19px;
     font-weight:800;
 }
 
-.home-link{
-    color:#fff;
-    padding:8px 13px;
-    border-radius:8px;
-    font-size:14px;
-    font-weight:600;
+.home{
+    color:white;
+    text-decoration:none;
+    font-weight:700;
 }
 
-.home-link:hover{
-    background:rgba(255,255,255,.15);
-}
-
-.page{
-    width:100%;
-    max-width:1100px;
+main{
+    max-width:500px;
     margin:auto;
-    padding:45px 20px 60px;
-
-    display:grid;
-    grid-template-columns:
-        minmax(280px,.85fr)
-        minmax(320px,1.15fr);
-
-    gap:35px;
-    align-items:center;
+    padding:40px 15px;
 }
 
-.info{
-    padding:20px;
+.card{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 8px 30px #0001;
 }
 
-.info-icon{
-    font-size:60px;
+.icon{
+    text-align:center;
+    font-size:48px;
     margin-bottom:10px;
 }
 
-.info h1{
+h1{
+    text-align:center;
     color:#174ea6;
-    font-size:42px;
-    line-height:1.15;
-    margin-bottom:15px;
+    margin-bottom:8px;
 }
 
-.info h1 span{
-    color:#f5a623;
-}
-
-.info p{
+.subtitle{
+    text-align:center;
     color:#667085;
-    font-size:17px;
+    line-height:1.6;
     margin-bottom:25px;
 }
 
-.benefits{
-    list-style:none;
-}
-
-.benefits li{
-    margin:13px 0;
-    font-weight:600;
-}
-
-.form-card{
-    background:#fff;
-    padding:32px;
-    border-radius:22px;
-    box-shadow:0 10px 40px rgba(0,0,0,.09);
-    border:1px solid #e7edf7;
-}
-
-.form-card h2{
-    color:#172033;
-    font-size:27px;
-    margin-bottom:5px;
-}
-
-.form-subtitle{
-    color:#667085;
-    font-size:14px;
-    margin-bottom:22px;
-}
-
-.form-row{
-    display:grid;
-    grid-template-columns:
-        repeat(2,1fr);
-    gap:14px;
-}
-
 .field{
-    margin-bottom:16px;
+    margin-bottom:17px;
 }
 
 label{
     display:block;
-    margin-bottom:6px;
-    font-size:14px;
     font-weight:700;
-    color:#344054;
+    margin-bottom:7px;
 }
 
 input{
     width:100%;
-    padding:13px 14px;
-    border:1px solid #d0d5dd;
-    border-radius:10px;
+    padding:14px;
+    border:1px solid #d5dbe5;
+    border-radius:11px;
+    font-size:16px;
     outline:none;
-    background:#fff;
-    color:#172033;
-    font-size:15px;
-    transition:.2s;
 }
 
 input:focus{
     border-color:#174ea6;
-    box-shadow:0 0 0 3px rgba(23,78,166,.10);
 }
 
-input.invalid{
-    border-color:#d92d20;
-}
-
-input.valid{
-    border-color:#20a464;
-}
-
-.password-wrapper{
-    position:relative;
-}
-
-.password-wrapper input{
-    padding-right:70px;
-}
-
-.show-password{
-    position:absolute;
-    right:8px;
-    top:50%;
-    transform:translateY(-50%);
-
-    border:0;
-    background:transparent;
-    color:#174ea6;
-    font-size:12px;
-    font-weight:700;
-    cursor:pointer;
-    padding:8px;
-}
-
-.password-strength{
-    margin-top:7px;
-    font-size:12px;
-    font-weight:700;
-    color:#667085;
-}
-
-.strength-bar{
-    width:100%;
-    height:5px;
-    background:#eaecf0;
-    border-radius:10px;
-    overflow:hidden;
-    margin-top:6px;
-}
-
-.strength-fill{
-    width:0;
-    height:100%;
-    transition:.2s;
-}
-
-.password-hint{
-    margin-top:6px;
-    color:#667085;
-    font-size:11px;
-}
-
-.checkbox-row{
-    display:flex;
-    align-items:flex-start;
-    gap:9px;
-    margin:5px 0 18px;
-}
-
-.checkbox-row input{
-    width:auto;
-    margin-top:4px;
-}
-
-.checkbox-row label{
-    margin:0;
-    font-size:12px;
-    font-weight:500;
-    color:#667085;
-}
-
-.checkbox-row a{
-    color:#174ea6;
-    font-weight:700;
-}
-
-.submit-button{
+button{
     width:100%;
     border:0;
     background:#174ea6;
-    color:#fff;
-    padding:14px;
-    border-radius:10px;
+    color:white;
+    padding:15px;
+    border-radius:11px;
     font-size:16px;
     font-weight:800;
     cursor:pointer;
-    transition:.2s;
 }
 
-.submit-button:hover{
-    background:#123d82;
+button:disabled{
+    opacity:.55;
 }
 
-.submit-button:disabled{
-    opacity:.65;
-    cursor:not-allowed;
-}
-
-.message{
+.status{
     display:none;
-    padding:12px 14px;
-    border-radius:10px;
+    padding:13px;
+    border-radius:11px;
     margin-bottom:17px;
-    font-size:14px;
-    font-weight:600;
+    line-height:1.5;
 }
 
-.message.success{
+.status.error{
     display:block;
-    background:#e8f7ed;
-    color:#176b35;
-}
-
-.message.error{
-    display:block;
-    background:#fff0ee;
+    background:#fef2f2;
     color:#b42318;
 }
 
-.login-text{
-    text-align:center;
-    margin-top:20px;
-    color:#667085;
-    font-size:14px;
-}
-
-.login-text a{
-    color:#174ea6;
-    font-weight:800;
+.status.success{
+    display:block;
+    background:#ecfdf3;
+    color:#027a48;
 }
 
 .loading{
     display:none;
-    margin-right:7px;
+    text-align:center;
+    padding:12px;
+    color:#667085;
 }
 
-.footer{
+.links{
     text-align:center;
-    padding:0 20px 30px;
+    margin-top:20px;
+    line-height:2;
+}
+
+.links a{
+    color:#174ea6;
+    text-decoration:none;
+    font-weight:700;
+}
+
+footer{
+    text-align:center;
     color:#667085;
+    padding:25px;
     font-size:13px;
 }
+</style>
+</head>
 
-/* ================================
-   MOBILE
-================================ */
+<body>
 
-@media(max-width:850px){
+<header>
+<div class="nav">
+<div class="logo">📚 CreateLK Academy</div>
+<a class="home" href="index.html">🏠 Home</a>
+</div>
+</header>
 
-    .page{
-        grid-template-columns:1fr;
-        max-width:650px;
-    }
+<main>
 
-    .info{
-        text-align:center;
-    }
+<section class="card">
 
-    .benefits{
-        display:inline-block;
-        text-align:left;
-    }
+<div class="icon">✍️</div>
 
-}
+<h1>Create Student Account</h1>
 
-@media(max-width:550px){
+<p class="subtitle">
+Create your account to access your CreateLK Academy learning dashboard.
+</p>
 
-    .header{
-        padding:13px 15px;
-    }
+<div id="status" class="status"></div>
 
-    .logo{
-        font-size:18px;
-    }
+<form id="registerForm">
 
-    .home-link{
-        font-size:12px;
-    }
-
-    .page{
-        padding:25px 14px 45px;
-    }
-
-    .info{
-        padding:10px;
-    }
-
-    .info-icon{
-        font-size:48px;
-    }
-
-    .info h1{
-        font-size:34px;
-    }
-
-    .info p{
-        font-size:15px;
-    }
-
-    .form-card{
-        padding:23px 18px;
-        border-radius:18px;
-    }
-
-    .form-card h2{
-        font-size:24px;
-    }
-
-    .form-row{
-        grid-template-columns:1fr;
-        gap:0;
-    }
-
-}
-
-</style></head><body><!-- =====================================
-     HEADER
-===================================== --><header class="header"><div class="header-inner"><a
-href="index.html"
-class="logo">
-
-📚 CreateLK Academy
-
-</a><a
-href="index.html"
-class="home-link">
-
-🏠 Home
-
-</a></div></header><!-- =====================================
-     MAIN
-===================================== --><main class="page"><!-- =====================================
-     INFORMATION
-===================================== --><section class="info"><div class="info-icon">
-🎓
-</div><h1>Start Your
-<br>
-
-<span>English Journey.</span>
-
-</h1><p>Create your free CreateLK Academy account
-and start improving your English step by step.
-
-</p><ul class="benefits"><li>
-✓ 100 Free English MCQs
-</li><li>
-✓ Beginner Grammar Practice
-</li><li>
-✓ Vocabulary Practice
-</li><li>
-✓ Learning Progress Tracking
-</li><li>
-✓ Free AI English Tutor
-</li><li>
-✓ Upgrade to Premium Anytime
-</li></ul></section><!-- =====================================
-     REGISTRATION FORM
-===================================== --><section class="form-card"><h2>
-Create Free Account
-</h2><p class="form-subtitle">Register once and start learning.
-
-</p><div
-    id="message"
-    class="message">
-</div><form
-    id="registerForm"
-    novalidate><!-- FIRST + LAST NAME --><div class="form-row"><div class="field"><label for="firstName">
-First Name
-</label><input
+<div class="field">
+<label for="name">Full Name</label>
+<input
+id="name"
 type="text"
-id="firstName"
-name="first_name"
-placeholder="Enter first name"
-autocomplete="given-name"
+placeholder="Enter your full name"
 required>
+</div>
 
-</div><div class="field"><label for="lastName">
-Last Name
-</label><input
-type="text"
-id="lastName"
-name="last_name"
-placeholder="Enter last name"
-autocomplete="family-name"
-required>
-
-</div></div><!-- EMAIL --><div class="field"><label for="email">
-Email Address
-</label><input
-type="email"
+<div class="field">
+<label for="email">Email Address</label>
+<input
 id="email"
-name="email"
-placeholder="you@example.com"
+type="email"
+placeholder="Enter your email"
 autocomplete="email"
 required>
+</div>
 
-</div><!-- PHONE --><div class="field"><label for="phone">
-Phone Number
-</label><input
-type="tel"
-id="phone"
-name="phone"
-placeholder="07XXXXXXXX"
-autocomplete="tel"
-inputmode="tel"
-required>
-
-</div><!-- PASSWORD --><div class="field"><label for="password">
-Password
-</label><div class="password-wrapper"><input
-type="password"
+<div class="field">
+<label for="password">Password</label>
+<input
 id="password"
-name="password"
-placeholder="Create a strong password"
-autocomplete="new-password"
-minlength="8"
-required>
-
-<button
-type="button"
-class="show-password"
-data-target="password">
-
-SHOW
-
-</button></div><div
-    class="password-strength"
-    id="strengthText">Password strength
-
-</div><div class="strength-bar"><div
-    class="strength-fill"
-    id="strengthFill">
-</div></div><div class="password-hint">Use at least 8 characters with uppercase,
-lowercase and a number.
-
-</div></div><!-- CONFIRM PASSWORD --><div class="field"><label for="confirmPassword">
-Confirm Password
-</label><div class="password-wrapper"><input
 type="password"
-id="confirmPassword"
-name="confirm_password"
+placeholder="Minimum 6 characters"
+autocomplete="new-password"
+required>
+</div>
+
+<div class="field">
+<label for="confirm">Confirm Password</label>
+<input
+id="confirm"
+type="password"
 placeholder="Enter password again"
 autocomplete="new-password"
 required>
+</div>
 
-<button
-type="button"
-class="show-password"
-data-target="confirmPassword">
+<button id="registerButton" type="submit">
+✍️ Create Account
+</button>
 
-SHOW
+<div id="loading" class="loading">
+⏳ Creating your account...
+</div>
 
-</button></div></div><!-- TERMS --><div class="checkbox-row"><input
-type="checkbox"
-id="terms"
-required>
+</form>
 
-<label for="terms">I agree to the
-<a href="privacy.html">
-Privacy Policy
-</a>
-and
-<a href="refund.html">
-Refund Policy
-</a>.
+<div class="links">
+Already have an account?
+<a href="login.html">🔐 Login</a>
+<br>
+<a href="index.html">← Back to Home</a>
+</div>
 
-</label></div><!-- SUBMIT --><button
-type="submit"
-class="submit-button"
-id="submitButton">
+</section>
 
-<span
-class="loading"
-id="loading">
+</main>
 
-⏳
+<footer>
+📚 CreateLK Academy — Learn English. Build Your Future.
+<br>
+© 2026 CreateLK Academy. All Rights Reserved.
+</footer>
 
-</span>Create Free Account
-
-</button></form><div class="login-text">Already have an account?
-
-<a href="login.html">
-Login here
-</a></div></section></main><div class="footer">© 2026 CreateLK Academy. All Rights Reserved.
-
-</div><script>
-
-"use strict";
-
-
-/* =====================================
-   IMPORTANT
-===================================== */
+<script>
 
 /*
-   CHANGE ONLY THIS URL if your existing
-   registration Worker uses another URL.
-
-   Example:
-   https://YOUR-WORKER.workers.dev/api/register
+CHANGE THIS TO YOUR NEW WORKER URL
 */
+const AUTH_API =
+"https://YOUR-NEW-WORKER.workers.dev";
 
-const REGISTER_API =
-    "https://wispy-sunset-479c.gateofheavensl1.workers.dev/api/register";
-
-
-/* =====================================
-   ELEMENTS
-===================================== */
 
 const form =
-    document.getElementById(
-        "registerForm"
-    );
+document.getElementById("registerForm");
 
-const message =
-    document.getElementById(
-        "message"
-    );
+const statusBox =
+document.getElementById("status");
 
-const submitButton =
-    document.getElementById(
-        "submitButton"
-    );
+const button =
+document.getElementById("registerButton");
 
 const loading =
-    document.getElementById(
-        "loading"
-    );
-
-const password =
-    document.getElementById(
-        "password"
-    );
-
-const confirmPassword =
-    document.getElementById(
-        "confirmPassword"
-    );
-
-const strengthText =
-    document.getElementById(
-        "strengthText"
-    );
-
-const strengthFill =
-    document.getElementById(
-        "strengthFill"
-    );
+document.getElementById("loading");
 
 
-/* =====================================
-   MESSAGE
-===================================== */
+function showStatus(message,type){
 
-function showMessage(
-    text,
-    type
-){
+statusBox.className =
+"status " + type;
 
-    message.textContent =
-        text;
-
-    message.className =
-        "message " + type;
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+statusBox.textContent =
+message;
 
 }
 
 
-/* =====================================
-   PASSWORD VISIBILITY
-===================================== */
+form.addEventListener(
+"submit",
+async function(event){
 
-document
-.querySelectorAll(".show-password")
-.forEach(function(button){
+event.preventDefault();
 
-    button.addEventListener(
-        "click",
-        function(){
+statusBox.className="status";
+statusBox.textContent="";
 
-            const target =
-                document.getElementById(
-                    button.dataset.target
-                );
+const name =
+document.getElementById("name")
+.value.trim();
 
-            if(
-                target.type ===
-                "password"
-            ){
+const email =
+document.getElementById("email")
+.value.trim()
+.toLowerCase();
 
-                target.type =
-                    "text";
+const password =
+document.getElementById("password")
+.value;
 
-                button.textContent =
-                    "HIDE";
+const confirm =
+document.getElementById("confirm")
+.value;
 
-            }else{
 
-                target.type =
-                    "password";
+if(password.length < 6){
 
-                button.textContent =
-                    "SHOW";
+showStatus(
+"Password must contain at least 6 characters.",
+"error"
+);
 
-            }
+return;
 
-        }
-    );
+}
 
+
+if(password !== confirm){
+
+showStatus(
+"Passwords do not match.",
+"error"
+);
+
+return;
+
+}
+
+
+button.disabled=true;
+loading.style.display="block";
+
+
+try{
+
+const response =
+await fetch(
+AUTH_API + "/api/register",
+{
+method:"POST",
+headers:{
+"Content-Type":
+"application/json"
+},
+body:JSON.stringify({
+name:name,
+email:email,
+password:password
+})
 });
 
 
-/* =====================================
-   PASSWORD STRENGTH
-===================================== */
+const data =
+await response.json();
 
-function checkPasswordStrength(
-    value
+
+if(
+!response.ok ||
+data.success === false
 ){
 
-    let score = 0;
-
-    if(value.length >= 8){
-        score++;
-    }
-
-    if(/[A-Z]/.test(value)){
-        score++;
-    }
-
-    if(/[a-z]/.test(value)){
-        score++;
-    }
-
-    if(/[0-9]/.test(value)){
-        score++;
-    }
-
-    if(/[^A-Za-z0-9]/.test(value)){
-        score++;
-    }
-
-
-    if(!value){
-
-        strengthText.textContent =
-            "Password strength";
-
-        strengthFill.style.width =
-            "0%";
-
-        return;
-
-    }
-
-
-    if(score <= 2){
-
-        strengthText.textContent =
-            "Weak password";
-
-        strengthFill.style.width =
-            "30%";
-
-    }else if(score <= 3){
-
-        strengthText.textContent =
-            "Medium password";
-
-        strengthFill.style.width =
-            "60%";
-
-    }else{
-
-        strengthText.textContent =
-            "Strong password";
-
-        strengthFill.style.width =
-            "100%";
-
-    }
+throw new Error(
+data.message ||
+"Unable to create account."
+);
 
 }
 
 
-password.addEventListener(
-    "input",
-    function(){
-
-        checkPasswordStrength(
-            password.value
-        );
-
-    }
+showStatus(
+"✅ Account created successfully. Redirecting to login...",
+"success"
 );
 
 
-/* =====================================
-   VALIDATION
-===================================== */
-
-function validateForm(){
-
-    const firstName =
-        document.getElementById(
-            "firstName"
-        ).value.trim();
-
-    const lastName =
-        document.getElementById(
-            "lastName"
-        ).value.trim();
-
-    const email =
-        document.getElementById(
-            "email"
-        ).value.trim();
-
-    const phone =
-        document.getElementById(
-            "phone"
-        ).value.trim();
-
-    const pass =
-        password.value;
-
-    const confirm =
-        confirmPassword.value;
-
-    const terms =
-        document.getElementById(
-            "terms"
-        ).checked;
+setTimeout(
+function(){
+window.location.href =
+"login.html";
+},
+1000
+);
 
 
-    if(!firstName){
+}catch(error){
 
-        showMessage(
-            "Please enter your first name.",
-            "error"
-        );
+console.error(error);
 
-        return false;
-    }
+showStatus(
+error.message ||
+"Unable to connect to the server.",
+"error"
+);
 
+}finally{
 
-    if(!lastName){
-
-        showMessage(
-            "Please enter your last name.",
-            "error"
-        );
-
-        return false;
-    }
-
-
-    const emailPattern =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-    if(
-        !emailPattern.test(email)
-    ){
-
-        showMessage(
-            "Please enter a valid email address.",
-            "error"
-        );
-
-        return false;
-    }
-
-
-    if(
-        phone.length < 9
-    ){
-
-        showMessage(
-            "Please enter a valid phone number.",
-            "error"
-        );
-
-        return false;
-    }
-
-
-    if(
-        pass.length < 8
-    ){
-
-        showMessage(
-            "Password must contain at least 8 characters.",
-            "error"
-        );
-
-        return false;
-    }
-
-
-    if(
-        pass !== confirm
-    ){
-
-        showMessage(
-            "Passwords do not match.",
-            "error"
-        );
-
-        return false;
-    }
-
-
-    if(!terms){
-
-        showMessage(
-            "Please agree to the Privacy Policy and Refund Policy.",
-            "error"
-        );
-
-        return false;
-    }
-
-
-    return true;
+button.disabled=false;
+loading.style.display="none";
 
 }
 
+});
 
-/* =====================================
-   REGISTER
-===================================== */
+</script>
 
-form.addEventListener(
-    "submit",
-    async function(event){
-
-        event.preventDefault();
-
-
-        message.className =
-            "message";
-
-        message.textContent =
-            "";
-
-
-        if(
-            !validateForm()
-        ){
-
-            return;
-        }
-
-
-        const firstName =
-            document.getElementById(
-                "firstName"
-            ).value.trim();
-
-        const lastName =
-            document.getElementById(
-                "lastName"
-            ).value.trim();
-
-        const email =
-            document.getElementById(
-                "email"
-            ).value.trim()
-            .toLowerCase();
-
-        const phone =
-            document.getElementById(
-                "phone"
-            ).value.trim();
-
-        const pass =
-            password.value;
-
-
-        submitButton.disabled =
-            true;
-
-        loading.style.display =
-            "inline";
-
-        submitButton.childNodes[
-            submitButton.childNodes.length - 1
-        ].textContent =
-            " Creating Account...";
-
-
-        try{
-
-            const response =
-                await fetch(
-                    REGISTER_API,
-                    {
-                        method:"POST",
-
-                        headers:{
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body:JSON.stringify({
-
-                            first_name:
-                                firstName,
-
-                            last_name:
-                                lastName,
-
-                            email:
-                                email,
-
-                            phone:
-                                phone,
-
-                            password:
-                                pass
-
-                        })
-                    }
-                );
-
-
-            let data;
-
-            try{
-
-                data =
-                    await response.json();
-
-            }catch(error){
-
-                data = {
-                    success:false,
-                    message:
-                        "The server returned an invalid response."
-                };
-
-            }
-
-
-            if(
-                response.ok &&
-                data.success
-            ){
-
-                showMessage(
-                    data.message ||
-                    "Registration successful! Redirecting to login...",
-                    "success"
-                );
-
-
-                form.reset();
-
-                strengthFill.style.width =
-                    "0%";
-
-                strengthText.textContent =
-                    "Password strength";
-
-
-                setTimeout(
-                    function(){
-
-                        window.location.href =
-                            "login.html";
-
-                    },
-                    1500
-                );
-
-
-                return;
-
-            }
-
-
-            showMessage(
-                data.message ||
-                "Registration failed. Please try again.",
-                "error"
-            );
-
-
-        }catch(error){
-
-            console.error(
-                "Registration error:",
-                error
-            );
-
-
-            showMessage(
-                "Unable to connect to the registration server. Please check your internet connection and try again.",
-                "error"
-            );
-
-
-        }finally{
-
-            submitButton.disabled =
-                false;
-
-            loading.style.display =
-                "none";
-
-            submitButton.childNodes[
-                submitButton.childNodes.length - 1
-            ].textContent =
-                " Create Free Account";
-
-        }
-
-    }
-);
-
-</script></body></html>
+</body>
+</html>
