@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1"><title>Premium Membership Payment | CreateLK Academy</title><meta name="description"
+content="CreateLK Academy Premium Membership payment page.">
 
-<title>Premium AI MCQ | CreateLK Academy</title>
-
-<meta name="description"
-content="CreateLK Academy Premium AI English MCQ practice with 4 options, answers and explanations.">
+<meta name="theme-color"
+content="#174ea6">
 
 <style>
 
@@ -18,18 +16,25 @@ content="CreateLK Academy Premium AI English MCQ practice with 4 options, answer
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f4f7fb;
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#f5f8ff;
     color:#172033;
+    min-height:100vh;
 }
 
 header{
     background:#174ea6;
     color:#fff;
     padding:15px 18px;
+}
+
+.nav{
+    max-width:900px;
+    margin:auto;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:15px;
 }
 
 .logo{
@@ -37,7 +42,7 @@ header{
     font-weight:800;
 }
 
-header a{
+.home{
     color:#fff;
     text-decoration:none;
     font-weight:700;
@@ -45,9 +50,9 @@ header a{
 }
 
 main{
-    max-width:750px;
+    max-width:600px;
     margin:auto;
-    padding:25px 15px 50px;
+    padding:30px 15px 50px;
 }
 
 .hero{
@@ -56,41 +61,45 @@ main{
 }
 
 .hero-icon{
-    font-size:55px;
+    font-size:50px;
 }
 
-.hero h1{
+h1{
     color:#174ea6;
-    font-size:30px;
+    font-size:28px;
     margin:8px 0;
 }
 
-.hero p{
+.subtitle{
     color:#667085;
     line-height:1.6;
-}
-
-.badge{
-    display:inline-block;
-    background:#fff3cd;
-    color:#946200;
-    padding:7px 12px;
-    border-radius:20px;
-    font-weight:800;
-    font-size:13px;
-    margin-top:10px;
 }
 
 .card{
     background:#fff;
     border-radius:18px;
-    padding:20px;
-    margin-bottom:16px;
-    box-shadow:0 5px 25px rgba(0,0,0,.07);
+    padding:22px;
+    margin-bottom:18px;
+    box-shadow:0 6px 25px rgba(0,0,0,.07);
 }
 
-.card h2{
-    margin-bottom:14px;
+.price{
+    text-align:center;
+    background:#fff8dc;
+    border:1px solid #f0d66b;
+    border-radius:14px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.price strong{
+    display:block;
+    font-size:30px;
+    color:#174ea6;
+}
+
+.price span{
+    color:#667085;
 }
 
 label{
@@ -99,27 +108,44 @@ label{
     margin-bottom:7px;
 }
 
-input,
-select{
+input{
     width:100%;
     padding:14px;
     border:1px solid #d5dbe5;
     border-radius:11px;
     font-size:16px;
-    margin-bottom:14px;
-    outline:none;
+    margin-bottom:16px;
 }
 
-input:focus,
-select:focus{
+input:focus{
+    outline:none;
     border-color:#174ea6;
+}
+
+.payment-info{
+    background:#f8faff;
+    border:1px solid #dbe7ff;
+    border-radius:12px;
+    padding:16px;
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+.payment-info strong{
+    color:#174ea6;
+}
+
+ul{
+    padding-left:20px;
+    line-height:1.9;
+    color:#475467;
 }
 
 button{
     width:100%;
-    padding:14px;
     border:0;
     border-radius:11px;
+    padding:15px;
     background:#174ea6;
     color:#fff;
     font-size:16px;
@@ -127,38 +153,15 @@ button{
     cursor:pointer;
 }
 
-button:disabled{
-    opacity:.5;
-    cursor:not-allowed;
-}
-
-.stats{
-    display:flex;
-    justify-content:space-between;
-    font-size:14px;
-    font-weight:700;
-}
-
-.progress{
-    height:10px;
-    background:#e5eaf2;
-    border-radius:10px;
-    overflow:hidden;
-    margin:10px 0 14px;
-}
-
-.progress-fill{
-    width:0;
-    height:100%;
-    background:#174ea6;
-    transition:.3s;
+button:hover{
+    background:#123d82;
 }
 
 .status{
     display:none;
     padding:13px;
     border-radius:11px;
-    margin-bottom:15px;
+    margin-bottom:16px;
     line-height:1.5;
 }
 
@@ -171,123 +174,23 @@ button:disabled{
 
 .error{
     display:block;
-    background:#fef3f2;
+    background:#fff0f0;
     color:#b42318;
     border:1px solid #fecdca;
 }
 
-.info{
-    display:block;
-    background:#eff8ff;
-    color:#175cd3;
-    border:1px solid #b2ddff;
-}
-
-#questionCard{
-    display:none;
-}
-
-.question-number{
-    color:#174ea6;
-    font-weight:800;
-    font-size:13px;
-    margin-bottom:10px;
-}
-
-.question{
-    font-size:20px;
-    font-weight:800;
-    line-height:1.5;
-    margin-bottom:18px;
-}
-
-.option{
-    background:#fff;
-    color:#172033;
-    border:2px solid #e0e5ed;
-    text-align:left;
-    margin:7px 0;
-}
-
-.option:hover{
-    border-color:#174ea6;
-}
-
-.option.correct{
-    background:#ecfdf3;
-    border-color:#16a34a;
-    color:#166534;
-}
-
-.option.wrong{
-    background:#fef2f2;
-    border-color:#dc2626;
-    color:#991b1b;
-}
-
-.result{
-    display:none;
-    margin-top:16px;
-    padding:15px;
-    border-radius:12px;
-    line-height:1.7;
-}
-
-.result.correct{
-    display:block;
-    background:#ecfdf3;
-    color:#166534;
-}
-
-.result.wrong{
-    display:block;
-    background:#fef2f2;
-    color:#991b1b;
-}
-
-.loading{
-    display:none;
+.note{
     text-align:center;
     color:#667085;
-    padding:15px;
-}
-
-.spinner{
-    display:inline-block;
-    width:18px;
-    height:18px;
-    border:3px solid #dbe7ff;
-    border-top-color:#174ea6;
-    border-radius:50%;
-    animation:spin .8s linear infinite;
-    vertical-align:middle;
-    margin-right:7px;
-}
-
-@keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-.membership{
-    display:none;
-    background:#f8faff;
-    border:1px solid #dbe7ff;
-    border-radius:12px;
-    padding:14px;
-    margin-bottom:15px;
+    font-size:13px;
     line-height:1.6;
-}
-
-.membership strong{
-    color:#174ea6;
+    margin-top:15px;
 }
 
 footer{
     text-align:center;
     color:#667085;
-    padding:25px;
+    padding:25px 15px;
     font-size:13px;
     line-height:1.8;
 }
@@ -300,1110 +203,161 @@ footer a{
 
 @media(max-width:600px){
 
-    .hero h1{
-        font-size:25px;
+    main{
+        padding:22px 12px 40px;
     }
 
     .card{
-        padding:17px;
+        padding:18px;
     }
 
-    .question{
-        font-size:18px;
+    h1{
+        font-size:24px;
     }
 
 }
 
-</style>
-</head>
-
-<body>
-
-<header>
-
-<div class="logo">
+</style></head><body><header><div class="nav"><div class="logo">
 📚 CreateLK Academy
-</div>
-
-<a href="https://createlk.com/">
+</div><a
+class="home"
+href="index.html">
 🏠 Home
 </a>
 
-</header>
-
-
-<main>
-
-<section class="hero">
-
-<div class="hero-icon">
-🤖
-</div>
-
-<h1>
-Premium AI MCQ
-</h1>
-
-<p>
-Practise English with AI-generated multiple-choice questions.
-</p>
-
-<div class="badge">
-⭐ PREMIUM — 100 MCQs / DAY
-</div>
-
-</section>
-
-
-<section class="card">
-
-<div id="status" class="status"></div>
-
-<div class="membership" id="membership">
-
-<strong>⭐ Premium Membership Active</strong>
-
-<div id="expiry"></div>
-
-</div>
-
-
-<h2>
-🔐 Premium Verification
-</h2>
-
-<label for="email">
+</div></header><main><section class="hero"><div class="hero-icon">
+⭐
+</div><h1>
+Premium Membership
+</h1><p class="subtitle">
+Unlock Premium AI English learning resources.
+</p></section><section class="card"><div class="price"><strong>
+LKR 1,500
+</strong><span>
+30-Day Premium Membership
+</span></div><div id="status"
+class="status"></div><label for="email">
 Registered Student Email
-</label>
-
-<input
+</label><input
 type="email"
 id="email"
 placeholder="Enter your registered email"
 autocomplete="email"
->
+required
 
+«»
 
-<label for="topic">
-📚 Topic
-</label>
-
-<input
-type="text"
-id="topic"
-placeholder="Example: English Tenses"
-maxlength="100"
->
-
-
-<label for="level">
-🎯 Level
-</label>
-
-<select id="level">
-
-<option value="Beginner">
-Beginner
-</option>
-
-<option value="Intermediate" selected>
-Intermediate
-</option>
-
-<option value="Advanced">
-Advanced
-</option>
-
-</select>
-
-
-<button
-id="generate"
-onclick="generateMCQ()"
->
-✨ Generate Premium MCQ
-</button>
-
-
-<div class="loading" id="loading">
-
-<span class="spinner"></span>
-
-CreateLK AI is creating your question...
-
-</div>
-
-</section>
-
-
-<section class="card">
-
-<div class="stats">
-
-<span>
-📊 Daily Progress
-</span>
-
-<span id="usage">
-0 / 100
-</span>
-
-</div>
-
-
-<div class="progress">
-
-<div
-class="progress-fill"
-id="progress"
-></div>
-
-</div>
-
-
-<div class="stats">
-
-<span>
-🎯 Correct: <b id="score">0</b>
-</span>
-
-<span>
-🏆 <b id="percent">0%</b>
-</span>
-
-</div>
-
-</section>
-
-
-<section
-class="card"
-id="questionCard"
->
-
-<div
-class="question-number"
-id="questionNumber"
-></div>
-
-<div
-class="question"
-id="question"
-></div>
-
-<div id="options"></div>
-
-<div
-class="result"
-id="result"
-></div>
-
-<button
-id="next"
-style="display:none;margin-top:12px"
-onclick="generateMCQ()"
->
-➡️ Next Question
-</button>
-
-</section>
-
-
-<section class="card">
-
-<h2>
-⭐ Premium Benefits
-</h2>
-
-<p style="color:#667085;line-height:1.7">
-
-• Up to 100 AI MCQs every day<br>
-• Exactly 4 answer options<br>
-• Instant answer checking<br>
-• Detailed explanations<br>
-• Beginner, Intermediate and Advanced levels<br>
-• Premium membership verification
-
-</p>
-
-</section>
-
-</main>
-
-
-<footer>
-
-📚 <b>CreateLK Academy</b>
-
-<br>
-
-Learn English. Build Your Future.
+<div class="payment-info"><strong>💳 Payment Instructions</strong>
 
 <br><br>
 
-<a href="https://createlk.com/">
+Make a payment of
+<strong>LKR 1,500</strong>
+to the official CreateLK Academy payment account.
+
+<br><br>
+
+<strong>After payment:</strong>
+
+<br>1. Keep your payment receipt.
+
+<br>2. Send your payment receipt to the administrator.
+
+<br>3. Your Premium membership will be manually verified.
+
+</div><button
+type="button"
+onclick="submitPayment()"
+id="paymentButton">
+
+📤 Submit Payment Receipt
+
+</button><p class="note">Premium access will be activated after
+payment verification.
+
+</p></section><section class="card"><h2>
+⭐ Premium Benefits
+</h2><br><ul><li>100 AI MCQs per day</li><li>AI-generated English questions</li><li>Beginner, Intermediate and Advanced levels</li><li>Exactly 4 answer options</li><li>Instant answer checking</li><li>Detailed explanations</li><li>30 days Premium access</li></ul></section></main><footer>📚 <b>CreateLK Academy</b>
+
+<br>Learn English. Build Your Future.
+
+<br><br>
+
+<a href="index.html">
 Home
 </a>
 ·
-<a href="https://createlk.com/membership.html">
-Membership
-</a>
-·
-<a href="https://createlk.com/payment.html">
-Payment
-</a>
-·
-<a href="https://createlk.com/contact.html">
-Contact
-</a>
-
-<br><br>
+<a href="premium.html">
+Premium AI
+</a><br><br>
 
 © 2026 CreateLK Academy
 
-</footer>
-
-
-<script>
-
-
-/* =====================================
-   EXISTING PREMIUM CLOUDFLARE WORKER
-===================================== */
-
-const API =
-"https://premium.gateofheavensl1.workers.dev/api/ai-mcq";
-
-
-const DAILY_LIMIT = 100;
-
-
-/* =====================================
-   ELEMENTS
-===================================== */
-
-const emailInput =
-document.getElementById("email");
-
-const topicInput =
-document.getElementById("topic");
-
-const levelInput =
-document.getElementById("level");
-
-const generateButton =
-document.getElementById("generate");
-
-const loading =
-document.getElementById("loading");
-
-const statusBox =
-document.getElementById("status");
-
-const membershipBox =
-document.getElementById("membership");
-
-const expiryBox =
-document.getElementById("expiry");
-
-const usageBox =
-document.getElementById("usage");
-
-const progress =
-document.getElementById("progress");
-
-const scoreBox =
-document.getElementById("score");
-
-const percentBox =
-document.getElementById("percent");
-
-const questionCard =
-document.getElementById("questionCard");
-
-const questionNumber =
-document.getElementById("questionNumber");
-
-const questionBox =
-document.getElementById("question");
-
-const optionsBox =
-document.getElementById("options");
-
-const resultBox =
-document.getElementById("result");
-
-const nextButton =
-document.getElementById("next");
-
-
-let used = 0;
-let correct = 0;
-
-
-/* =====================================
-   STATUS
-===================================== */
-
-function showStatus(message,type){
-
-statusBox.className =
-"status " + type;
-
-statusBox.textContent =
-message;
-
-}
-
-
-function clearStatus(){
-
-statusBox.className =
-"status";
-
-statusBox.textContent =
-"";
-
-}
-
-
-/* =====================================
-   PROGRESS
-===================================== */
-
-function updateProgress(){
-
-usageBox.textContent =
-used + " / " + DAILY_LIMIT;
-
-progress.style.width =
-Math.min(
-(used / DAILY_LIMIT) * 100,
-100
-) + "%";
-
-
-scoreBox.textContent =
-correct;
-
-
-let percentage =
-used > 0
-?
-Math.round((correct / used) * 100)
-:
-0;
-
-
-percentBox.textContent =
-percentage + "%";
-
-
-if(used >= DAILY_LIMIT){
-
-generateButton.disabled =
-true;
-
-generateButton.textContent =
-"🔒 Daily Limit Reached";
-
-}
-
-else{
-
-generateButton.disabled =
-false;
-
-generateButton.textContent =
-"✨ Generate Premium MCQ";
-
-}
-
-}
-
-
-/* =====================================
-   DATE FORMAT
-===================================== */
-
-function formatDate(value){
-
-if(!value)
-return "";
-
-const date =
-new Date(value);
-
-if(isNaN(date.getTime()))
-return value;
-
-return date.toLocaleString(
-undefined,
-{
-year:"numeric",
-month:"long",
-day:"numeric",
-hour:"numeric",
-minute:"2-digit"
-}
+</footer><script>
+
+/* ============================
+   LOAD LOGIN EMAIL
+============================ */
+
+const savedEmail =
+localStorage.getItem(
+    "createlk_student_email"
 );
 
-}
+if(savedEmail){
 
-
-/* =====================================
-   GENERATE MCQ
-===================================== */
-
-async function generateMCQ(){
-
-clearStatus();
-
-resultBox.style.display =
-"none";
-
-nextButton.style.display =
-"none";
-
-
-const email =
-emailInput.value.trim().toLowerCase();
-
-
-const topic =
-topicInput.value.trim()
-||
-"English Grammar";
-
-
-const level =
-levelInput.value;
-
-
-if(!email){
-
-showStatus(
-"Please enter your registered Premium email.",
-"error"
-);
-
-emailInput.focus();
-
-return;
+    document.getElementById("email")
+        .value = savedEmail;
 
 }
 
 
-if(!email.includes("@")){
+/* ============================
+   SUBMIT PAYMENT
+============================ */
 
-showStatus(
-"Please enter a valid email address.",
-"error"
-);
+function submitPayment(){
 
-emailInput.focus();
+    const email =
+        document.getElementById("email")
+        .value
+        .trim()
+        .toLowerCase();
 
-return;
+    const status =
+        document.getElementById("status");
 
-}
-
-
-if(used >= DAILY_LIMIT){
-
-showStatus(
-"You have reached the Premium daily limit of 100 MCQs.",
-"error"
-);
-
-return;
-
-}
+    const button =
+        document.getElementById("paymentButton");
 
 
-generateButton.disabled =
-true;
+    if(!email){
 
-loading.style.display =
-"block";
+        status.className =
+            "status error";
 
+        status.textContent =
+            "Please enter your registered student email.";
 
-/* =====================================
-   REQUEST
-===================================== */
-
-try{
-
-const response =
-await fetch(
-API,
-{
-method:"POST",
-
-headers:{
-"Content-Type":
-"application/json"
-},
-
-body:JSON.stringify({
-
-user_key:email,
-
-email:email,
-
-topic:topic,
-
-level:level
-
-})
-}
-);
+        return;
+    }
 
 
-/* =====================================
-   RESPONSE
-===================================== */
+    /*
+    Replace this section with your
+    existing payment/receipt workflow.
+    */
 
-let data;
+    status.className =
+        "status success";
 
-try{
+    status.textContent =
+        "✅ Your student email is confirmed. Please send your payment receipt to the administrator for verification.";
 
-data =
-await response.json();
+    button.textContent =
+        "✅ Email Confirmed";
 
 }
 
-catch(e){
-
-throw new Error(
-"Worker returned an invalid response."
-);
-
-}
-
-
-console.log(
-"Premium Worker:",
-data
-);
-
-
-/* =====================================
-   MEMBERSHIP ERROR
-===================================== */
-
-if(
-response.status === 401 ||
-data.premium_required
-){
-
-showStatus(
-"⭐ An active Premium membership is required to use Premium AI MCQs.",
-"error"
-);
-
-return;
-
-}
-
-
-if(data.expired){
-
-showStatus(
-"🔒 Your Premium membership has expired. Please renew your membership.",
-"error"
-);
-
-return;
-
-}
-
-
-/* =====================================
-   DAILY LIMIT
-===================================== */
-
-if(
-data.limit_reached ||
-data.daily_limit_reached
-){
-
-used =
-data.used ??
-DAILY_LIMIT;
-
-updateProgress();
-
-showStatus(
-"🔒 You have reached today's 100 Premium MCQ limit.",
-"error"
-);
-
-return;
-
-}
-
-
-/* =====================================
-   OTHER ERROR
-===================================== */
-
-if(
-!response.ok ||
-data.success === false
-){
-
-showStatus(
-data.message ||
-data.error ||
-"Unable to generate Premium MCQ.",
-"error"
-);
-
-return;
-
-}
-
-
-/* =====================================
-   MEMBERSHIP INFO
-===================================== */
-
-if(data.membership){
-
-membershipBox.style.display =
-"block";
-
-
-if(data.membership.expiry){
-
-expiryBox.textContent =
-"Premium access valid until: " +
-formatDate(
-data.membership.expiry
-);
-
-}
-
-}
-
-
-/* =====================================
-   USAGE
-===================================== */
-
-if(
-data.used !== undefined &&
-data.used !== null
-){
-
-used =
-Number(data.used);
-
-}
-
-else{
-
-used++;
-
-}
-
-
-/* =====================================
-   LIMIT FROM SERVER
-===================================== */
-
-const serverLimit =
-Number(
-data.limit ||
-data.daily_limit ||
-DAILY_LIMIT
-);
-
-
-/* =====================================
-   MCQ DATA
-===================================== */
-
-let mcq = data.mcq || data.question;
-
-
-/*
-Some Worker versions may return:
-
-data.question
-data.options
-data.answer
-data.explanation
-
-instead of:
-
-data.mcq
-*/
-
-if(
-!mcq &&
-data.question
-){
-
-mcq = {
-
-question:data.question,
-
-options:data.options,
-
-answer:data.answer,
-
-explanation:data.explanation
-
-};
-
-}
-
-
-/* =====================================
-   PARSE ANSWER TEXT IF NECESSARY
-===================================== */
-
-if(
-typeof mcq === "string"
-){
-
-let text =
-mcq
-.replace(/```json/gi,"")
-.replace(/```/g,"")
-.trim();
-
-
-try{
-
-mcq =
-JSON.parse(text);
-
-}
-
-catch(e){
-
-const start =
-text.indexOf("{");
-
-const end =
-text.lastIndexOf("}");
-
-if(
-start !== -1 &&
-end !== -1
-){
-
-mcq =
-JSON.parse(
-text.substring(
-start,
-end + 1
-)
-);
-
-}
-
-}
-
-}
-
-
-/* =====================================
-   VALIDATE MCQ
-===================================== */
-
-if(
-!mcq ||
-!mcq.question ||
-!mcq.options ||
-!mcq.answer
-){
-
-throw new Error(
-"Invalid MCQ returned by Worker."
-);
-
-}
-
-
-if(
-!mcq.options.A ||
-!mcq.options.B ||
-!mcq.options.C ||
-!mcq.options.D
-){
-
-throw new Error(
-"Worker did not return exactly four options."
-);
-
-}
-
-
-/* =====================================
-   UPDATE DISPLAY
-===================================== */
-
-usageBox.textContent =
-used + " / " + serverLimit;
-
-progress.style.width =
-Math.min(
-(used / serverLimit) * 100,
-100
-) + "%";
-
-
-showMCQ(mcq);
-
-
-}catch(error){
-
-console.error(error);
-
-showStatus(
-error.message ||
-"Unable to connect to Premium AI. Please try again.",
-"error"
-);
-
-}finally{
-
-loading.style.display =
-"none";
-
-if(used < DAILY_LIMIT){
-
-generateButton.disabled =
-false;
-
-}
-
-updateProgress();
-
-}
-
-}
-
-
-/* =====================================
-   SHOW MCQ
-===================================== */
-
-function showMCQ(mcq){
-
-questionCard.style.display =
-"block";
-
-
-questionNumber.textContent =
-"QUESTION " +
-used +
-" OF " +
-DAILY_LIMIT;
-
-
-questionBox.textContent =
-mcq.question;
-
-
-optionsBox.innerHTML =
-"";
-
-
-resultBox.style.display =
-"none";
-
-
-nextButton.style.display =
-"none";
-
-
-const answer =
-String(mcq.answer)
-.toUpperCase()
-.trim();
-
-
-["A","B","C","D"].forEach(
-letter=>{
-
-const button =
-document.createElement("button");
-
-button.className =
-"option";
-
-button.type =
-"button";
-
-button.textContent =
-letter + ". " +
-mcq.options[letter];
-
-button.onclick =
-function(){
-
-checkAnswer(
-button,
-letter,
-answer,
-mcq.explanation
-);
-
-};
-
-optionsBox.appendChild(
-button
-);
-
-});
-
-
-questionCard.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
-}
-
-
-/* =====================================
-   CHECK ANSWER
-===================================== */
-
-function checkAnswer(
-clickedButton,
-selected,
-answer,
-explanation
-){
-
-const buttons =
-document.querySelectorAll(
-".option"
-);
-
-
-buttons.forEach(
-button=>{
-
-button.disabled =
-true;
-
-});
-
-
-buttons.forEach(
-button=>{
-
-if(
-button.textContent
-.startsWith(answer + ".")
-){
-
-button.classList.add(
-"correct"
-);
-
-}
-
-});
-
-
-if(
-selected === answer
-){
-
-clickedButton.classList.add(
-"correct"
-);
-
-correct++;
-
-
-resultBox.className =
-"result correct";
-
-resultBox.innerHTML =
-"🎉 <b>Correct!</b><br><br>" +
-(explanation ||
-"Excellent work!");
-
-}
-
-else{
-
-clickedButton.classList.add(
-"wrong"
-);
-
-
-resultBox.className =
-"result wrong";
-
-resultBox.innerHTML =
-"❌ <b>Incorrect.</b><br><br>" +
-"<b>Correct answer:</b> " +
-answer +
-"<br><br>" +
-(explanation ||
-"Please review the explanation.");
-
-}
-
-
-resultBox.style.display =
-"block";
-
-
-updateProgress();
-
-
-if(used < DAILY_LIMIT){
-
-nextButton.style.display =
-"block";
-
-}
-
-
-resultBox.scrollIntoView({
-behavior:"smooth",
-block:"nearest"
-});
-
-}
-
-
-/* =====================================
-   ENTER KEY
-===================================== */
-
-topicInput.addEventListener(
-"keydown",
-function(event){
-
-if(event.key === "Enter"){
-
-event.preventDefault();
-
-generateMCQ();
-
-}
-
-});
-
-
-/* =====================================
-   INITIAL
-===================================== */
-
-updateProgress();
-
-</script>
-
-</body>
+</script></body>
 </html>
