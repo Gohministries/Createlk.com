@@ -13,8 +13,7 @@ content="width=device-width, initial-scale=1.0">
 <meta name="description"
 content="CreateLK Academy - Learn English online with Free AI English Tutor, AI MCQs and Premium English learning resources.">
 
-<meta name="theme-color"
-content="#174ea6">
+<meta name="theme-color" content="#174ea6">
 
 <style>
 
@@ -78,6 +77,7 @@ header{
     padding:6px 10px;
     border-radius:8px;
     font-size:20px;
+    cursor:pointer;
 }
 
 .mobile{
@@ -96,6 +96,11 @@ header{
     text-decoration:none;
     padding:12px;
     font-weight:700;
+    border-radius:8px;
+}
+
+.mobile a:hover{
+    background:#ffffff18;
 }
 
 main{
@@ -110,6 +115,11 @@ main{
     padding:45px 22px;
     text-align:center;
     box-shadow:0 8px 30px #0001;
+}
+
+.hero-icon{
+    font-size:48px;
+    margin-bottom:10px;
 }
 
 .hero h1{
@@ -151,6 +161,10 @@ main{
     color:#fff;
 }
 
+.btn:hover{
+    opacity:.92;
+}
+
 .grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -158,8 +172,7 @@ main{
     margin-top:25px;
 }
 
-.card,
-.info{
+.card{
     background:#fff;
     padding:20px;
     border-radius:16px;
@@ -170,8 +183,7 @@ main{
     margin-bottom:8px;
 }
 
-.card p,
-.info p{
+.card p{
     font-size:14px;
     color:#667085;
     line-height:1.6;
@@ -185,8 +197,26 @@ main{
     text-decoration:none;
 }
 
+.card a:hover{
+    text-decoration:underline;
+}
+
 .info{
+    background:#fff;
+    padding:20px;
+    border-radius:16px;
+    box-shadow:0 5px 22px #0001;
     margin-top:20px;
+}
+
+.info h2{
+    margin-bottom:10px;
+}
+
+.info p{
+    font-size:14px;
+    color:#667085;
+    line-height:1.6;
 }
 
 .links{
@@ -205,6 +235,21 @@ main{
     text-decoration:none;
     font-size:13px;
     font-weight:700;
+}
+
+.links a:hover{
+    background:#dce9ff;
+}
+
+.premium-note{
+    margin-top:15px;
+    background:#fff8e7;
+    border:1px solid #f6d889;
+    padding:14px;
+    border-radius:12px;
+    color:#745400;
+    font-size:14px;
+    line-height:1.6;
 }
 
 footer{
@@ -234,6 +279,7 @@ footer a{
     align-items:center;
     justify-content:center;
     font-size:27px;
+    box-shadow:0 5px 18px #0003;
 }
 
 @media(max-width:900px){
@@ -263,6 +309,10 @@ footer a{
         grid-template-columns:1fr 1fr;
     }
 
+    .hero{
+        padding:35px 18px;
+    }
+
     .hero h1{
         font-size:27px;
     }
@@ -287,31 +337,31 @@ footer a{
 
 <div class="menu">
 
-<a href="./index.html">
+<a href="index.html">
 🏠 Home
 </a>
 
-<a href="./free-course.html">
+<a href="free-course.html">
 🌱 Free Learning
 </a>
 
-<a href="./free-ai.html">
+<a href="free-ai.html">
 🤖 AI Tutor
 </a>
 
-<a href="./ai-mcq.html">
+<a href="ai-mcq.html">
 📝 AI MCQs
 </a>
 
-<a href="./premium.html">
+<a href="premium.html">
 ⭐ Premium AI
 </a>
 
-<a href="./membership.html">
+<a href="membership.html">
 💳 Membership
 </a>
 
-<a href="./login.html">
+<a href="login.html">
 🔐 Login
 </a>
 
@@ -320,8 +370,9 @@ footer a{
 
 <button
 class="menuBtn"
-id="mb"
+id="menuBtn"
 type="button"
+aria-label="Open menu"
 >
 ☰
 </button>
@@ -331,50 +382,50 @@ type="button"
 
 <div
 class="mobile"
-id="mm"
+id="mobileMenu"
 >
 
-<a href="./index.html">
+<a href="index.html">
 🏠 Home
 </a>
 
-<a href="./free-course.html">
+<a href="free-course.html">
 🌱 Free Learning
 </a>
 
-<a href="./free-ai.html">
+<a href="free-ai.html">
 🤖 Free AI English Tutor
 </a>
 
-<a href="./ai-mcq.html">
+<a href="ai-mcq.html">
 📝 AI MCQs
 </a>
 
-<a href="./premium.html">
+<a href="premium.html">
 ⭐ Premium AI MCQs
 </a>
 
-<a href="./membership.html">
+<a href="membership.html">
 💳 Premium Membership
 </a>
 
-<a href="./login.html">
+<a href="login.html">
 🔐 Student Login
 </a>
 
-<a href="./register.html">
+<a href="register.html">
 ✍️ Create Account
 </a>
 
-<a href="./payment.html">
+<a href="payment.html">
 💳 Payment
 </a>
 
-<a href="./dashboard.html">
+<a href="dashboard.html">
 👤 Dashboard
 </a>
 
-<a href="./contact.html">
+<a href="contact.html">
 📞 Contact
 </a>
 
@@ -388,13 +439,17 @@ id="mm"
 
 <section class="hero">
 
+<div class="hero-icon">
+📚
+</div>
+
 <h1>
-📚 Learn English. Build Your Future.
+Learn English. Build Your Future.
 </h1>
 
 <p>
 Learn English through structured lessons,
-Free AI-powered practice, MCQs and Premium
+AI-powered practice, MCQs and Premium
 learning resources.
 </p>
 
@@ -403,7 +458,7 @@ learning resources.
 
 <a
 class="btn free"
-href="./free-ai.html"
+href="free-ai.html"
 >
 🌱 Start Free AI Learning
 </a>
@@ -411,7 +466,7 @@ href="./free-ai.html"
 
 <a
 class="btn premium"
-href="./login.html?next=payment.html"
+href="login.html?next=payment.html"
 >
 ⭐ Premium — LKR 1,500 / 30 Days
 </a>
@@ -433,10 +488,11 @@ href="./login.html?next=payment.html"
 
 <p>
 Practise English grammar, vocabulary
-and essential English skills.
+and essential skills with our free
+learning resources.
 </p>
 
-<a href="./free-course.html">
+<a href="free-course.html">
 Start Learning →
 </a>
 
@@ -456,7 +512,7 @@ grammar, vocabulary, writing and
 conversation with CreateLK AI.
 </p>
 
-<a href="./free-ai.html">
+<a href="free-ai.html">
 Open AI Tutor →
 </a>
 
@@ -475,7 +531,7 @@ Practise English with AI-generated
 multiple-choice questions.
 </p>
 
-<a href="./ai-mcq.html">
+<a href="ai-mcq.html">
 Practice MCQs →
 </a>
 
@@ -494,7 +550,7 @@ Generate personalised English MCQs
 with Premium AI learning access.
 </p>
 
-<a href="./premium.html">
+<a href="premium.html">
 Open Premium AI →
 </a>
 
@@ -510,10 +566,11 @@ Open Premium AI →
 
 <p>
 Access Premium English learning
-resources for 30 days.
+resources for 30 days for
+LKR 1,500.
 </p>
 
-<a href="./membership.html">
+<a href="membership.html">
 View Membership →
 </a>
 
@@ -532,7 +589,7 @@ View your account and Premium
 membership status.
 </p>
 
-<a href="./dashboard.html">
+<a href="dashboard.html">
 Open Dashboard →
 </a>
 
@@ -547,11 +604,11 @@ Open Dashboard →
 </h3>
 
 <p>
-Need help with learning, membership
-or payment?
+Need help with learning,
+membership or payment?
 </p>
 
-<a href="./contact.html">
+<a href="contact.html">
 Contact Us →
 </a>
 
@@ -579,21 +636,30 @@ AI-MCQ usage.
 </p>
 
 
+<div class="premium-note">
+
+🔐 Premium access is available after
+successful payment and membership
+verification.
+
+</div>
+
+
 <div class="links">
 
-<a href="./membership.html">
+<a href="membership.html">
 ⭐ Membership
 </a>
 
-<a href="./premium.html">
+<a href="premium.html">
 🤖 Premium AI
 </a>
 
-<a href="./payment.html">
+<a href="payment.html">
 💳 Payment
 </a>
 
-<a href="./dashboard.html">
+<a href="dashboard.html">
 👤 Dashboard
 </a>
 
@@ -611,28 +677,29 @@ AI-MCQ usage.
 
 <p>
 
-Learn English through structured lessons,
-AI-powered practice, MCQs and Premium
-learning resources.
+Our goal is to help students improve
+their English through accessible
+lessons, AI-powered practice and
+structured learning resources.
 
 </p>
 
 
 <div class="links">
 
-<a href="./about.html">
+<a href="about.html">
 ℹ️ About
 </a>
 
-<a href="./contact.html">
+<a href="contact.html">
 📞 Contact
 </a>
 
-<a href="./privacy.html">
+<a href="privacy.html">
 🔒 Privacy
 </a>
 
-<a href="./terms.html">
+<a href="terms.html">
 📄 Terms
 </a>
 
@@ -655,23 +722,23 @@ Learn English. Build Your Future.
 
 <br><br>
 
-<a href="./about.html">
+<a href="about.html">
 About
 </a>
 ·
-<a href="./contact.html">
+<a href="contact.html">
 Contact
 </a>
 ·
-<a href="./privacy.html">
+<a href="privacy.html">
 Privacy
 </a>
 ·
-<a href="./terms.html">
+<a href="terms.html">
 Terms
 </a>
 ·
-<a href="./refund.html">
+<a href="refund.html">
 Refunds
 </a>
 
@@ -689,6 +756,7 @@ class="wa"
 href="https://wa.me/94771190395"
 target="_blank"
 rel="noopener noreferrer"
+aria-label="WhatsApp"
 >
 💬
 </a>
@@ -697,41 +765,43 @@ rel="noopener noreferrer"
 
 <script>
 
-const mb =
-document.getElementById("mb");
+const menuBtn =
+document.getElementById("menuBtn");
 
-const mm =
-document.getElementById("mm");
+const mobileMenu =
+document.getElementById("mobileMenu");
 
 
-mb.onclick=function(){
+menuBtn.addEventListener(
+"click",
+function(){
 
-mm.classList.toggle("open");
+mobileMenu.classList.toggle("open");
 
-mb.textContent =
-mm.classList.contains("open")
+menuBtn.textContent =
+mobileMenu.classList.contains("open")
 ? "✕"
 : "☰";
 
-};
+});
 
 
-mm.querySelectorAll("a").forEach(
-function(link){
+mobileMenu
+.querySelectorAll("a")
+.forEach(function(link){
 
 link.addEventListener(
 "click",
 function(){
 
-mm.classList.remove("open");
+mobileMenu.classList.remove("open");
 
-mb.textContent="☰";
-
-}
-);
+menuBtn.textContent="☰";
 
 }
 );
+
+});
 
 </script>
 
