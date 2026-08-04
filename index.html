@@ -1,9 +1,13 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CreateLK Academy | Learn English Online</title><meta name="description"
-content="CreateLK Academy - Learn English online with Free AI English Tutor, AI MCQs and Premium English learning resources.">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color" content="#174ea6"><style>
+<title>CreateLK Academy | Learn English Online</title><meta name="description"
+content="CreateLK Academy - Learn English online with AI English Tutor, AI MCQs and Premium English learning resources.">
+
+<meta name="theme-color"
+content="#174ea6">
+
+<style>
 
 *{
     box-sizing:border-box;
@@ -137,7 +141,6 @@ main{
     border-radius:11px;
     text-decoration:none;
     font-weight:800;
-    transition:.2s;
 }
 
 .free{
@@ -150,21 +153,18 @@ main{
     color:#fff;
 }
 
-.premium.active{
+.active{
     background:#15803d;
+    color:#fff;
 }
 
-.premium.pending{
-    background:#667085;
-}
-
-.premium.renew{
-    background:#d97706;
+.pending{
+    background:#946200;
+    color:#fff;
 }
 
 .btn:hover{
     opacity:.92;
-    transform:translateY(-1px);
 }
 
 .grid{
@@ -254,15 +254,32 @@ main{
     line-height:1.6;
 }
 
-.premium-status{
-    margin-top:10px;
-    padding:10px 12px;
-    border-radius:9px;
-    background:#ecfdf3;
-    color:#166534;
-    font-size:13px;
+.membership-status{
+    margin:15px auto 0;
+    max-width:650px;
+    padding:12px 15px;
+    border-radius:10px;
+    font-size:14px;
     font-weight:700;
     display:none;
+}
+
+.status-active{
+    display:block;
+    background:#dcfce7;
+    color:#166534;
+}
+
+.status-pending{
+    display:block;
+    background:#fff4d6;
+    color:#946200;
+}
+
+.status-expired{
+    display:block;
+    background:#fee2e2;
+    color:#991b1b;
 }
 
 footer{
@@ -335,11 +352,17 @@ footer a{
 </style></head><body><header><nav class="nav"><div class="logo">
 📚 CreateLK Academy
 </div><div class="menu"><a href="index.html">🏠 Home</a>
+
 <a href="free-course.html">🌱 Free Learning</a>
+
 <a href="ai-tutor.html">🤖 AI Tutor</a>
+
 <a href="ai-mcq.html">📝 AI MCQs</a>
-<a href="premium.html" id="desktopPremium">⭐ Premium AI</a>
-<a href="membership.html">💳 Membership</a>
+
+<a href="premium.html" id="desktopPremium">
+⭐ Premium AI
+</a><a href="membership.html">💳 Membership</a>
+
 <a href="login.html">🔐 Login</a>
 
 </div><button
@@ -350,19 +373,33 @@ aria-label="Open menu">
 ☰
 </button>
 
-</nav><div class="mobile" id="mobileMenu"><a href="index.html">🏠 Home</a>
+</nav><div
+class="mobile"
+id="mobileMenu"><a href="index.html">🏠 Home</a>
+
 <a href="free-course.html">🌱 Free Learning</a>
+
 <a href="ai-tutor.html">🤖 Free AI English Tutor</a>
+
 <a href="ai-mcq.html">📝 AI MCQs</a>
-<a href="premium.html" id="mobilePremium">⭐ Premium AI MCQs</a>
-<a href="membership.html">💳 Premium Membership</a>
+
+<a href="premium.html" id="mobilePremium">
+⭐ Premium AI MCQs
+</a><a href="membership.html">💳 Premium Membership</a>
+
 <a href="login.html">🔐 Student Login</a>
+
 <a href="register.html">✍️ Create Account</a>
+
 <a href="payment.html">💳 Payment</a>
+
 <a href="dashboard.html">👤 Dashboard</a>
+
 <a href="contact.html">📞 Contact</a>
 
-</div></header><main><section class="hero"><div class="hero-icon">📚</div><h1>
+</div></header><main><section class="hero"><div class="hero-icon">
+📚
+</div><h1>
 Learn English. Build Your Future.
 </h1><p>
 Learn English through structured lessons,
@@ -376,14 +413,14 @@ href="ai-tutor.html">
 
 <a
 class="btn premium"
-id="heroPremium"
+id="premiumButton"
 href="login.html?next=payment.html">
 ⭐ Premium — LKR 1,500 / 30 Days
 </a>
 
 </div><div
-id="premiumStatus"
-class="premium-status">
+id="membershipStatus"
+class="membership-status">
 </div></section><div class="grid"><div class="card"><h3>🌱 Free Learning</h3><p>
 Practise English grammar, vocabulary
 and essential skills with our free
@@ -404,9 +441,13 @@ Practice MCQs →
 </a></div><div class="card"><h3>⭐ Premium AI MCQs</h3><p>
 Generate personalised English MCQs
 with Premium AI learning access.
-</p><a href="premium.html" id="premiumCardLink">
+</p><a
+href="premium.html"
+id="premiumCardLink">
 Open Premium AI →
-</a></div><div class="card"><h3>💎 Premium Membership</h3><p>
+</a>
+
+</div><div class="card"><h3>💎 Premium Membership</h3><p>
 Access Premium English learning
 resources for 30 days for
 LKR 1,500.
@@ -422,30 +463,39 @@ Need help with learning,
 membership or payment?
 </p><a href="contact.html">
 Contact Us →
-</a></div></div><section class="info"><h2>⭐ Premium Membership</h2><p>Premium English membership costs
+</a></div></div><section class="info"><h2>
+⭐ Premium Membership
+</h2><p>
+Premium English membership costs
 <b>LKR 1,500 for 30 days</b>.
-
 Premium students can access additional
 English learning resources and higher
 AI-MCQ usage.
-
 </p><div class="premium-note">🔐 Premium access is available after
 successful payment and membership
 verification.
 
-</div><div class="links"><a href="membership.html">⭐ Membership</a>
-<a href="premium.html">🤖 Premium AI</a>
-<a href="payment.html">💳 Payment</a>
-<a href="dashboard.html">👤 Dashboard</a>
-
-</div></section><section class="info"><h2>📚 CreateLK Academy</h2><p>Our goal is to help students improve
+</div><div class="links"><a href="membership.html">
+⭐ Membership
+</a><a href="premium.html">
+🤖 Premium AI
+</a><a href="payment.html">
+💳 Payment
+</a><a href="dashboard.html">
+👤 Dashboard
+</a></div></section><section class="info"><h2>
+📚 CreateLK Academy
+</h2><p>
+Our goal is to help students improve
 their English through accessible
 lessons, AI-powered practice and
 structured learning resources.
-
 </p><div class="links"><a href="about.html">ℹ️ About</a>
+
 <a href="contact.html">📞 Contact</a>
+
 <a href="privacy.html">🔒 Privacy</a>
+
 <a href="terms.html">📄 Terms</a>
 
 </div></section></main><footer>📚 <b>CreateLK Academy</b>
@@ -482,9 +532,18 @@ aria-label="WhatsApp">
 
 "use strict";
 
-/* =========================================
-   MENU
-========================================= */
+
+/* =====================================
+   CONFIGURATION
+===================================== */
+
+const MEMBERSHIP_WORKER =
+"https://createlk-approval.gateofheavensl1.workers.dev";
+
+
+/* =====================================
+   MOBILE MENU
+===================================== */
 
 const menuBtn =
 document.getElementById("menuBtn");
@@ -514,92 +573,54 @@ link.addEventListener(
 function(){
 
 mobileMenu.classList.remove("open");
+
 menuBtn.textContent = "☰";
 
 });
 });
 
 
-/* =========================================
-   PREMIUM MEMBERSHIP CHECK
-========================================= */
-
-const MEMBERSHIP_API =
-"https://approve.gateofheavensl1.workers.dev";
-
+/* =====================================
+   FIND STUDENT EMAIL
+===================================== */
 
 function getStudentEmail(){
 
-    try{
+    const keys = [
+        "studentEmail",
+        "student_email",
+        "userEmail",
+        "user_email",
+        "email",
+        "registeredEmail"
+    ];
 
-        const directEmail =
-            localStorage.getItem(
-                "createlk_student_email"
-            );
+    for(const key of keys){
 
-        if(
-            directEmail &&
-            directEmail.includes("@")
-        ){
+        const value =
+            localStorage.getItem(key);
 
-            return directEmail
+        if(value && value.trim()){
+
+            return value
                 .trim()
                 .toLowerCase();
-
         }
-
-
-        const savedUser =
-            localStorage.getItem(
-                "createlk_user"
-            );
-
-        if(savedUser){
-
-            const user =
-                JSON.parse(savedUser);
-
-            if(
-                user &&
-                user.email &&
-                user.email.includes("@")
-            ){
-
-                return user.email
-                    .trim()
-                    .toLowerCase();
-
-            }
-
-        }
-
-    }
-    catch(error){
-
-        console.error(
-            "Unable to read student email:",
-            error
-        );
-
     }
 
     return null;
-
 }
 
 
-/* =========================================
-   CHANGE PREMIUM BUTTON
-========================================= */
+/* =====================================
+   UPDATE PREMIUM BUTTON
+===================================== */
 
-function setPremiumButton(
-    state,
-    expiry
-){
+function setPremiumActive(expiry){
 
-    const hero =
+    const button =
         document.getElementById(
-            "heroPremium"
+            "premiumButton"
         );
 
     const desktop =
@@ -619,226 +640,105 @@ function setPremiumButton(
 
     const status =
         document.getElementById(
-            "premiumStatus"
+            "membershipStatus"
         );
 
 
-    /* NORMAL */
+    button.textContent =
+        "✅ Premium Active";
 
-    if(state === "normal"){
+    button.href =
+        "premium.html";
 
-        hero.textContent =
-            "⭐ Premium — LKR 1,500 / 30 Days";
-
-        hero.href =
-            "login.html?next=payment.html";
-
-        hero.className =
-            "btn premium";
+    button.className =
+        "btn active";
 
 
-        desktop.textContent =
-            "⭐ Premium AI";
+    desktop.textContent =
+        "✅ Premium Active";
 
-        desktop.href =
-            "login.html?next=premium.html";
-
-
-        mobile.textContent =
-            "⭐ Premium AI MCQs";
-
-        mobile.href =
-            "login.html?next=premium.html";
+    desktop.href =
+        "premium.html";
 
 
-        card.textContent =
-            "Open Premium AI →";
+    mobile.textContent =
+        "✅ Premium Active";
 
-        card.href =
-            "login.html?next=premium.html";
-
-
-        status.style.display =
-            "none";
-
-        return;
-
-    }
+    mobile.href =
+        "premium.html";
 
 
-    /* PENDING */
+    card.textContent =
+        "Open Premium AI →";
 
-    if(state === "pending"){
-
-        hero.textContent =
-            "⏳ Payment Pending";
-
-        hero.href =
-            "dashboard.html";
-
-        hero.className =
-            "btn premium pending";
+    card.href =
+        "premium.html";
 
 
-        desktop.textContent =
-            "⏳ Payment Pending";
+    if(expiry){
 
-        desktop.href =
-            "dashboard.html";
-
-
-        mobile.textContent =
-            "⏳ Payment Pending";
-
-        mobile.href =
-            "dashboard.html";
-
-
-        card.textContent =
-            "⏳ Payment Pending →";
-
-        card.href =
-            "dashboard.html";
-
+        const date =
+            new Date(expiry);
 
         status.textContent =
-            "Your payment is being reviewed by the administrator.";
+            "⭐ Premium Active • Expires " +
+            date.toLocaleDateString();
 
-        status.style.display =
-            "block";
-
-        return;
-
-    }
-
-
-    /* ACTIVE */
-
-    if(state === "active"){
-
-        hero.textContent =
-            "⭐ Premium Active →";
-
-        hero.href =
-            "premium.html";
-
-        hero.className =
-            "btn premium active";
-
-
-        desktop.textContent =
-            "⭐ Premium Active";
-
-        desktop.href =
-            "premium.html";
-
-
-        mobile.textContent =
-            "⭐ Premium Active";
-
-        mobile.href =
-            "premium.html";
-
-
-        card.textContent =
-            "⭐ Open Premium AI →";
-
-        card.href =
-            "premium.html";
-
-
-        if(expiry){
-
-            const date =
-                new Date(expiry);
-
-            status.textContent =
-                "✓ Premium is active until " +
-                date.toLocaleDateString(
-                    "en-GB",
-                    {
-                        day:"2-digit",
-                        month:"short",
-                        year:"numeric"
-                    }
-                );
-
-            status.style.display =
-                "block";
-
-        }
-
-        return;
-
-    }
-
-
-    /* EXPIRED */
-
-    if(state === "expired"){
-
-        hero.textContent =
-            "🔄 Renew Premium — LKR 1,500";
-
-        hero.href =
-            "payment.html";
-
-        hero.className =
-            "btn premium renew";
-
-
-        desktop.textContent =
-            "🔄 Renew Premium";
-
-        desktop.href =
-            "payment.html";
-
-
-        mobile.textContent =
-            "🔄 Renew Premium";
-
-        mobile.href =
-            "payment.html";
-
-
-        card.textContent =
-            "🔄 Renew Premium →";
-
-        card.href =
-            "payment.html";
-
-
-        status.textContent =
-            "Your previous Premium membership has expired.";
-
-        status.style.display =
-            "block";
-
+        status.className =
+            "membership-status status-active";
     }
 
 }
 
 
-/* =========================================
-   CHECK MEMBERSHIP
-========================================= */
+/* =====================================
+   PENDING PAYMENT
+===================================== */
 
-async function checkPremiumMembership(){
+function setPending(){
+
+    const button =
+        document.getElementById(
+            "premiumButton"
+        );
+
+    const status =
+        document.getElementById(
+            "membershipStatus"
+        );
+
+
+    button.textContent =
+        "⏳ Payment Pending";
+
+    button.href =
+        "payment.html";
+
+    button.className =
+        "btn pending";
+
+
+    status.textContent =
+        "⏳ Your payment is waiting for administrator verification.";
+
+    status.className =
+        "membership-status status-pending";
+
+}
+
+
+/* =====================================
+   CHECK MEMBERSHIP
+===================================== */
+
+async function checkMembership(){
 
     const email =
         getStudentEmail();
 
 
-    /* No logged-in student */
-
     if(!email){
-
-        setPremiumButton(
-            "normal"
-        );
-
         return;
-
     }
 
 
@@ -846,17 +746,9 @@ async function checkPremiumMembership(){
 
         const response =
             await fetch(
-                MEMBERSHIP_API +
+                MEMBERSHIP_WORKER +
                 "/membership?email=" +
-                encodeURIComponent(email),
-                {
-                    method:"GET",
-                    headers:{
-                        "Accept":
-                            "application/json"
-                    },
-                    cache:"no-store"
-                }
+                encodeURIComponent(email)
             );
 
 
@@ -864,87 +756,51 @@ async function checkPremiumMembership(){
             await response.json();
 
 
-        console.log(
-            "Membership response:",
-            data
-        );
-
-
         if(
             !response.ok ||
             !data.success
         ){
-
-            setPremiumButton(
-                "normal"
-            );
-
             return;
-
         }
 
-
-        /* ACTIVE */
-
-        if(data.active === true){
-
-            setPremiumButton(
-                "active",
-                data.expires_at
-            );
-
-            return;
-
-        }
-
-
-        /* PENDING */
 
         if(
-            data.status === "pending"
+            data.active &&
+            data.membership
         ){
 
-            setPremiumButton(
-                "pending"
+            setPremiumActive(
+                data.membership.expires_at
             );
 
             return;
-
         }
 
-
-        /* EXPIRED */
 
         if(
-            data.status === "expired"
+            data.membership &&
+            data.membership.status === "expired"
         ){
 
-            setPremiumButton(
-                "expired"
-            );
+            const status =
+                document.getElementById(
+                    "membershipStatus"
+                );
 
-            return;
+            status.textContent =
+                "⚠️ Your Premium membership has expired.";
+
+            status.className =
+                "membership-status status-expired";
 
         }
-
-
-        setPremiumButton(
-            "normal"
-        );
 
     }
     catch(error){
 
-        console.error(
-            "Membership check failed:",
+        console.log(
+            "Membership check:",
             error
-        );
-
-        /* Do not block the website
-           if the API is temporarily unavailable */
-
-        setPremiumButton(
-            "normal"
         );
 
     }
@@ -952,11 +808,10 @@ async function checkPremiumMembership(){
 }
 
 
-/* =========================================
+/* =====================================
    START
-========================================= */
+===================================== */
 
-checkPremiumMembership();
+checkMembership();
 
-</script></body>
-</html>
+</script></body></html>
