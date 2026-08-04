@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<meta name="viewport"
-      content="width=device-width,initial-scale=1">
-
-<title>Premium Membership | CreateLK Academy</title>
+<title>Premium AI MCQ | CreateLK Academy</title>
 
 <meta name="description"
-      content="CreateLK Academy Premium English Membership - LKR 1,500 for 30 days.">
-
-<meta name="theme-color"
-      content="#174ea6">
+content="CreateLK Academy Premium AI English MCQ practice with 4 options, answers and explanations.">
 
 <style>
 
@@ -21,886 +15,1393 @@
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
-    min-height:100vh;
-    background:#f5f8ff;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7fb;
     color:#172033;
 }
 
 header{
     background:#174ea6;
     color:#fff;
-    padding:14px 18px;
-}
-
-.nav{
-    max-width:1000px;
-    margin:auto;
+    padding:15px 18px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
-    font-size:19px;
+    font-size:18px;
     font-weight:800;
 }
 
-.home{
+header a{
     color:#fff;
     text-decoration:none;
-    font-size:14px;
     font-weight:700;
+    font-size:14px;
 }
 
 main{
-    max-width:520px;
-    margin:35px auto;
-    padding:0 16px 50px;
+    max-width:750px;
+    margin:auto;
+    padding:25px 15px 50px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.hero-icon{
+    font-size:55px;
+}
+
+.hero h1{
+    color:#174ea6;
+    font-size:30px;
+    margin:8px 0;
+}
+
+.hero p{
+    color:#667085;
+    line-height:1.6;
+}
+
+.badge{
+    display:inline-block;
+    background:#fff3cd;
+    color:#946200;
+    padding:7px 12px;
+    border-radius:20px;
+    font-weight:800;
+    font-size:13px;
+    margin-top:10px;
 }
 
 .card{
     background:#fff;
-    border-radius:22px;
-    padding:25px;
-    box-shadow:0 8px 30px #00000012;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:16px;
+    box-shadow:0 5px 25px rgba(0,0,0,.07);
 }
 
-.title{
-    text-align:center;
-    color:#174ea6;
-    font-size:27px;
-    font-weight:900;
-}
-
-.subtitle{
-    text-align:center;
-    color:#667085;
-    margin-top:7px;
-    font-size:14px;
-}
-
-.price{
-    text-align:center;
-    margin:22px 0;
-    color:#174ea6;
-    font-size:36px;
-    font-weight:900;
-}
-
-.period{
-    text-align:center;
-    color:#667085;
-    margin-top:-15px;
-    margin-bottom:22px;
-}
-
-.notice{
-    background:#fff7e6;
-    border:1px solid #f5d58a;
-    border-radius:13px;
-    padding:15px;
-    font-size:14px;
-    line-height:1.65;
-    margin-bottom:22px;
-}
-
-.bank{
-    background:#eef4ff;
-    border-radius:14px;
-    padding:16px;
-    margin-bottom:22px;
-    line-height:1.7;
-    font-size:14px;
-}
-
-.bank strong{
-    color:#174ea6;
+.card h2{
+    margin-bottom:14px;
 }
 
 label{
     display:block;
-    font-size:14px;
-    font-weight:800;
-    margin:15px 0 7px;
+    font-weight:700;
+    margin-bottom:7px;
 }
 
-input{
+input,
+select{
     width:100%;
-    padding:13px;
-    border:1px solid #d0d5dd;
-    border-radius:10px;
-    font-size:15px;
+    padding:14px;
+    border:1px solid #d5dbe5;
+    border-radius:11px;
+    font-size:16px;
+    margin-bottom:14px;
     outline:none;
 }
 
-input:focus{
+input:focus,
+select:focus{
     border-color:#174ea6;
-    box-shadow:0 0 0 3px #174ea61a;
-}
-
-.file{
-    background:#f8fafc;
 }
 
 button{
     width:100%;
+    padding:14px;
     border:0;
     border-radius:11px;
-    padding:14px;
-    margin-top:21px;
     background:#174ea6;
     color:#fff;
-    font-size:15px;
-    font-weight:900;
+    font-size:16px;
+    font-weight:800;
     cursor:pointer;
 }
 
 button:disabled{
-    opacity:.6;
+    opacity:.5;
     cursor:not-allowed;
 }
 
-.message{
-    display:none;
-    margin-top:16px;
-    padding:13px;
-    border-radius:11px;
-    text-align:center;
+.stats{
+    display:flex;
+    justify-content:space-between;
     font-size:14px;
-    line-height:1.5;
+    font-weight:700;
 }
 
-.message.success{
-    display:block;
-    background:#e8f7ed;
-    color:#176b35;
+.progress{
+    height:10px;
+    background:#e5eaf2;
+    border-radius:10px;
+    overflow:hidden;
+    margin:10px 0 14px;
 }
 
-.message.error{
-    display:block;
-    background:#fef3f2;
-    color:#b42318;
+.progress-fill{
+    width:0;
+    height:100%;
+    background:#174ea6;
+    transition:.3s;
 }
 
 .status{
     display:none;
-    margin-top:15px;
     padding:13px;
     border-radius:11px;
-    background:#eef4ff;
-    color:#174ea6;
-    font-size:14px;
-    text-align:center;
+    margin-bottom:15px;
+    line-height:1.5;
 }
 
-.back{
+.success{
     display:block;
-    text-align:center;
-    margin-top:20px;
+    background:#ecfdf3;
+    color:#027a48;
+    border:1px solid #abefc6;
+}
+
+.error{
+    display:block;
+    background:#fef3f2;
+    color:#b42318;
+    border:1px solid #fecdca;
+}
+
+.info{
+    display:block;
+    background:#eff8ff;
+    color:#175cd3;
+    border:1px solid #b2ddff;
+}
+
+#questionCard{
+    display:none;
+}
+
+.question-number{
     color:#174ea6;
-    text-decoration:none;
-    font-size:14px;
     font-weight:800;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.question{
+    font-size:20px;
+    font-weight:800;
+    line-height:1.5;
+    margin-bottom:18px;
+}
+
+.option{
+    background:#fff;
+    color:#172033;
+    border:2px solid #e0e5ed;
+    text-align:left;
+    margin:7px 0;
+}
+
+.option:hover{
+    border-color:#174ea6;
+}
+
+.option.correct{
+    background:#ecfdf3;
+    border-color:#16a34a;
+    color:#166534;
+}
+
+.option.wrong{
+    background:#fef2f2;
+    border-color:#dc2626;
+    color:#991b1b;
+}
+
+.result{
+    display:none;
+    margin-top:16px;
+    padding:15px;
+    border-radius:12px;
+    line-height:1.7;
+}
+
+.result.correct{
+    display:block;
+    background:#ecfdf3;
+    color:#166534;
+}
+
+.result.wrong{
+    display:block;
+    background:#fef2f2;
+    color:#991b1b;
+}
+
+.loading{
+    display:none;
+    text-align:center;
+    color:#667085;
+    padding:15px;
+}
+
+.spinner{
+    display:inline-block;
+    width:18px;
+    height:18px;
+    border:3px solid #dbe7ff;
+    border-top-color:#174ea6;
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+    vertical-align:middle;
+    margin-right:7px;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.membership{
+    display:none;
+    background:#f8faff;
+    border:1px solid #dbe7ff;
+    border-radius:12px;
+    padding:14px;
+    margin-bottom:15px;
+    line-height:1.6;
+}
+
+.membership strong{
+    color:#174ea6;
 }
 
 footer{
     text-align:center;
     color:#667085;
+    padding:25px;
     font-size:13px;
-    padding:20px;
-    line-height:1.7;
+    line-height:1.8;
 }
 
-@media(max-width:550px){
+footer a{
+    color:#174ea6;
+    text-decoration:none;
+    font-weight:700;
+}
 
-    main{
-        margin-top:20px;
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:25px;
     }
 
     .card{
-        padding:20px;
+        padding:17px;
     }
 
-    .title{
-        font-size:24px;
+    .question{
+        font-size:18px;
     }
 
-    .price{
-        font-size:32px;
-    }
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
 
-<div class="nav">
-
 <div class="logo">
 📚 CreateLK Academy
 </div>
 
-<a class="home"
-   href="index.html">
+<a href="https://createlk.com/">
 🏠 Home
 </a>
-
-</div>
 
 </header>
 
 
 <main>
 
-<div class="card">
+<section class="hero">
 
-<div class="title">
-⭐ Premium Membership
+<div class="hero-icon">
+🤖
 </div>
 
-<div class="subtitle">
-Complete your membership purchase
+<h1>
+Premium AI MCQ
+</h1>
+
+<p>
+Practise English with AI-generated multiple-choice questions.
+</p>
+
+<div class="badge">
+⭐ PREMIUM — 100 MCQs / DAY
 </div>
 
-<div class="price">
-LKR 1,500
-</div>
-
-<div class="period">
-30 Days Premium Access
-</div>
+</section>
 
 
-<div class="notice">
+<section class="card">
 
-<b>📌 How it works</b><br>
+<div id="status" class="status"></div>
 
-1. Make the payment of <b>LKR 1,500</b>.<br>
-2. Enter your registered email address.<br>
-3. Enter your payment reference.<br>
-4. Upload your payment receipt.<br>
-5. Submit the payment for verification.<br>
-6. Admin will review and approve your payment.<br>
-7. After approval, Premium will be active for 30 days.
+<div class="membership" id="membership">
 
-</div>
+<strong>⭐ Premium Membership Active</strong>
 
-
-<div class="bank">
-
-<b>🏦 Payment Details</b><br><br>
-
-<strong>Bank:</strong> People's Bank<br>
-
-<strong>Branch:</strong> Udapussellawa<br>
-
-<strong>Account Name:</strong>
-Thinarathnam Saththiyanadan<br>
-
-<strong>Account Number:</strong>
-292200280023178<br>
-
-<strong>Amount:</strong>
-LKR 1,500
+<div id="expiry"></div>
 
 </div>
 
 
-<form id="paymentForm">
+<h2>
+🔐 Premium Verification
+</h2>
 
 <label for="email">
-📧 Registered Email Address
+Registered Student Email
 </label>
 
 <input
-    type="email"
-    id="email"
-    placeholder="Enter your registered email"
-    autocomplete="email"
-    required
+type="email"
+id="email"
+placeholder="Enter your registered email"
+autocomplete="email"
 >
 
 
-<label for="reference">
-🔢 Payment Reference
+<label for="topic">
+📚 Topic
 </label>
 
 <input
-    type="text"
-    id="reference"
-    placeholder="Enter payment reference"
-    maxlength="100"
-    required
+type="text"
+id="topic"
+placeholder="Example: English Tenses"
+maxlength="100"
 >
 
 
-<label for="receipt">
-🧾 Payment Receipt
+<label for="level">
+🎯 Level
 </label>
 
-<input
-    class="file"
-    type="file"
-    id="receipt"
-    accept="image/jpeg,image/png,image/webp,application/pdf"
-    required
->
+<select id="level">
 
-<small style="display:block;margin-top:7px;color:#667085">
-JPG, PNG, WEBP or PDF · Maximum 5 MB
-</small>
+<option value="Beginner">
+Beginner
+</option>
+
+<option value="Intermediate" selected>
+Intermediate
+</option>
+
+<option value="Advanced">
+Advanced
+</option>
+
+</select>
 
 
 <button
-    type="submit"
-    id="submitBtn">
-
-💳 Submit Payment
-
+id="generate"
+onclick="generateMCQ()"
+>
+✨ Generate Premium MCQ
 </button>
 
-</form>
 
+<div class="loading" id="loading">
+
+<span class="spinner"></span>
+
+CreateLK AI is creating your question...
+
+</div>
+
+</section>
+
+
+<section class="card">
+
+<div class="stats">
+
+<span>
+📊 Daily Progress
+</span>
+
+<span id="usage">
+0 / 100
+</span>
+
+</div>
+
+
+<div class="progress">
 
 <div
-    id="message"
-    class="message">
+class="progress-fill"
+id="progress"
+></div>
+
 </div>
 
+
+<div class="stats">
+
+<span>
+🎯 Correct: <b id="score">0</b>
+</span>
+
+<span>
+🏆 <b id="percent">0%</b>
+</span>
+
+</div>
+
+</section>
+
+
+<section
+class="card"
+id="questionCard"
+>
 
 <div
-    id="status"
-    class="status">
-</div>
+class="question-number"
+id="questionNumber"
+></div>
+
+<div
+class="question"
+id="question"
+></div>
+
+<div id="options"></div>
+
+<div
+class="result"
+id="result"
+></div>
+
+<button
+id="next"
+style="display:none;margin-top:12px"
+onclick="generateMCQ()"
+>
+➡️ Next Question
+</button>
+
+</section>
 
 
-<a
-    class="back"
-    href="dashboard.html">
+<section class="card">
 
-← Back to Dashboard
+<h2>
+⭐ Premium Benefits
+</h2>
 
-</a>
+<p style="color:#667085;line-height:1.7">
 
-</div>
+• Up to 100 AI MCQs every day<br>
+• Exactly 4 answer options<br>
+• Instant answer checking<br>
+• Detailed explanations<br>
+• Beginner, Intermediate and Advanced levels<br>
+• Premium membership verification
+
+</p>
+
+</section>
 
 </main>
 
 
 <footer>
 
-📚 <b>CreateLK Academy</b><br>
+📚 <b>CreateLK Academy</b>
 
-Learn English. Build Your Future.<br>
+<br>
 
-© 2026 CreateLK Academy. All Rights Reserved.
+Learn English. Build Your Future.
+
+<br><br>
+
+<a href="https://createlk.com/">
+Home
+</a>
+·
+<a href="https://createlk.com/membership.html">
+Membership
+</a>
+·
+<a href="https://createlk.com/payment.html">
+Payment
+</a>
+·
+<a href="https://createlk.com/contact.html">
+Contact
+</a>
+
+<br><br>
+
+© 2026 CreateLK Academy
 
 </footer>
 
 
 <script>
 
-"use strict";
-
 
 /* =====================================
-   YOUR PAYMENT WORKER
+   EXISTING PREMIUM CLOUDFLARE WORKER
 ===================================== */
 
 const API =
-"https://createlk-payment.gateofheavensl1.workers.dev";
+"https://premium.gateofheavensl1.workers.dev/api/ai-mcq";
+
+
+const DAILY_LIMIT = 100;
 
 
 /* =====================================
    ELEMENTS
 ===================================== */
 
-const form =
-document.getElementById(
-    "paymentForm"
-);
+const emailInput =
+document.getElementById("email");
 
-const email =
-document.getElementById(
-    "email"
-);
+const topicInput =
+document.getElementById("topic");
 
-const reference =
-document.getElementById(
-    "reference"
-);
+const levelInput =
+document.getElementById("level");
 
-const receipt =
-document.getElementById(
-    "receipt"
-);
+const generateButton =
+document.getElementById("generate");
 
-const submitBtn =
-document.getElementById(
-    "submitBtn"
-);
-
-const message =
-document.getElementById(
-    "message"
-);
+const loading =
+document.getElementById("loading");
 
 const statusBox =
-document.getElementById(
-    "status"
-);
+document.getElementById("status");
+
+const membershipBox =
+document.getElementById("membership");
+
+const expiryBox =
+document.getElementById("expiry");
+
+const usageBox =
+document.getElementById("usage");
+
+const progress =
+document.getElementById("progress");
+
+const scoreBox =
+document.getElementById("score");
+
+const percentBox =
+document.getElementById("percent");
+
+const questionCard =
+document.getElementById("questionCard");
+
+const questionNumber =
+document.getElementById("questionNumber");
+
+const questionBox =
+document.getElementById("question");
+
+const optionsBox =
+document.getElementById("options");
+
+const resultBox =
+document.getElementById("result");
+
+const nextButton =
+document.getElementById("next");
+
+
+let used = 0;
+let correct = 0;
 
 
 /* =====================================
-   GET LOGGED-IN STUDENT
+   STATUS
+===================================== */
+
+function showStatus(message,type){
+
+statusBox.className =
+"status " + type;
+
+statusBox.textContent =
+message;
+
+}
+
+
+function clearStatus(){
+
+statusBox.className =
+"status";
+
+statusBox.textContent =
+"";
+
+}
+
+
+/* =====================================
+   PROGRESS
+===================================== */
+
+function updateProgress(){
+
+usageBox.textContent =
+used + " / " + DAILY_LIMIT;
+
+progress.style.width =
+Math.min(
+(used / DAILY_LIMIT) * 100,
+100
+) + "%";
+
+
+scoreBox.textContent =
+correct;
+
+
+let percentage =
+used > 0
+?
+Math.round((correct / used) * 100)
+:
+0;
+
+
+percentBox.textContent =
+percentage + "%";
+
+
+if(used >= DAILY_LIMIT){
+
+generateButton.disabled =
+true;
+
+generateButton.textContent =
+"🔒 Daily Limit Reached";
+
+}
+
+else{
+
+generateButton.disabled =
+false;
+
+generateButton.textContent =
+"✨ Generate Premium MCQ";
+
+}
+
+}
+
+
+/* =====================================
+   DATE FORMAT
+===================================== */
+
+function formatDate(value){
+
+if(!value)
+return "";
+
+const date =
+new Date(value);
+
+if(isNaN(date.getTime()))
+return value;
+
+return date.toLocaleString(
+undefined,
+{
+year:"numeric",
+month:"long",
+day:"numeric",
+hour:"numeric",
+minute:"2-digit"
+}
+);
+
+}
+
+
+/* =====================================
+   GENERATE MCQ
+===================================== */
+
+async function generateMCQ(){
+
+clearStatus();
+
+resultBox.style.display =
+"none";
+
+nextButton.style.display =
+"none";
+
+
+const email =
+emailInput.value.trim().toLowerCase();
+
+
+const topic =
+topicInput.value.trim()
+||
+"English Grammar";
+
+
+const level =
+levelInput.value;
+
+
+if(!email){
+
+showStatus(
+"Please enter your registered Premium email.",
+"error"
+);
+
+emailInput.focus();
+
+return;
+
+}
+
+
+if(!email.includes("@")){
+
+showStatus(
+"Please enter a valid email address.",
+"error"
+);
+
+emailInput.focus();
+
+return;
+
+}
+
+
+if(used >= DAILY_LIMIT){
+
+showStatus(
+"You have reached the Premium daily limit of 100 MCQs.",
+"error"
+);
+
+return;
+
+}
+
+
+generateButton.disabled =
+true;
+
+loading.style.display =
+"block";
+
+
+/* =====================================
+   REQUEST
 ===================================== */
 
 try{
 
-    const saved =
-        localStorage.getItem(
-            "createlk_student"
-        );
+const response =
+await fetch(
+API,
+{
+method:"POST",
 
-    if(saved){
+headers:{
+"Content-Type":
+"application/json"
+},
 
-        const student =
-            JSON.parse(saved);
+body:JSON.stringify({
 
-        if(student.email){
+user_key:email,
 
-            email.value =
-                String(
-                    student.email
-                )
-                .trim()
-                .toLowerCase();
+email:email,
 
-        }
+topic:topic,
 
-    }
+level:level
+
+})
+}
+);
+
+
+/* =====================================
+   RESPONSE
+===================================== */
+
+let data;
+
+try{
+
+data =
+await response.json();
+
+}
+
+catch(e){
+
+throw new Error(
+"Worker returned an invalid response."
+);
+
+}
+
+
+console.log(
+"Premium Worker:",
+data
+);
+
+
+/* =====================================
+   MEMBERSHIP ERROR
+===================================== */
+
+if(
+response.status === 401 ||
+data.premium_required
+){
+
+showStatus(
+"⭐ An active Premium membership is required to use Premium AI MCQs.",
+"error"
+);
+
+return;
+
+}
+
+
+if(data.expired){
+
+showStatus(
+"🔒 Your Premium membership has expired. Please renew your membership.",
+"error"
+);
+
+return;
+
+}
+
+
+/* =====================================
+   DAILY LIMIT
+===================================== */
+
+if(
+data.limit_reached ||
+data.daily_limit_reached
+){
+
+used =
+data.used ??
+DAILY_LIMIT;
+
+updateProgress();
+
+showStatus(
+"🔒 You have reached today's 100 Premium MCQ limit.",
+"error"
+);
+
+return;
+
+}
+
+
+/* =====================================
+   OTHER ERROR
+===================================== */
+
+if(
+!response.ok ||
+data.success === false
+){
+
+showStatus(
+data.message ||
+data.error ||
+"Unable to generate Premium MCQ.",
+"error"
+);
+
+return;
+
+}
+
+
+/* =====================================
+   MEMBERSHIP INFO
+===================================== */
+
+if(data.membership){
+
+membershipBox.style.display =
+"block";
+
+
+if(data.membership.expiry){
+
+expiryBox.textContent =
+"Premium access valid until: " +
+formatDate(
+data.membership.expiry
+);
+
+}
+
+}
+
+
+/* =====================================
+   USAGE
+===================================== */
+
+if(
+data.used !== undefined &&
+data.used !== null
+){
+
+used =
+Number(data.used);
+
+}
+
+else{
+
+used++;
+
+}
+
+
+/* =====================================
+   LIMIT FROM SERVER
+===================================== */
+
+const serverLimit =
+Number(
+data.limit ||
+data.daily_limit ||
+DAILY_LIMIT
+);
+
+
+/* =====================================
+   MCQ DATA
+===================================== */
+
+let mcq = data.mcq || data.question;
+
+
+/*
+Some Worker versions may return:
+
+data.question
+data.options
+data.answer
+data.explanation
+
+instead of:
+
+data.mcq
+*/
+
+if(
+!mcq &&
+data.question
+){
+
+mcq = {
+
+question:data.question,
+
+options:data.options,
+
+answer:data.answer,
+
+explanation:data.explanation
+
+};
+
+}
+
+
+/* =====================================
+   PARSE ANSWER TEXT IF NECESSARY
+===================================== */
+
+if(
+typeof mcq === "string"
+){
+
+let text =
+mcq
+.replace(/```json/gi,"")
+.replace(/```/g,"")
+.trim();
+
+
+try{
+
+mcq =
+JSON.parse(text);
+
+}
+
+catch(e){
+
+const start =
+text.indexOf("{");
+
+const end =
+text.lastIndexOf("}");
+
+if(
+start !== -1 &&
+end !== -1
+){
+
+mcq =
+JSON.parse(
+text.substring(
+start,
+end + 1
+)
+);
+
+}
+
+}
+
+}
+
+
+/* =====================================
+   VALIDATE MCQ
+===================================== */
+
+if(
+!mcq ||
+!mcq.question ||
+!mcq.options ||
+!mcq.answer
+){
+
+throw new Error(
+"Invalid MCQ returned by Worker."
+);
+
+}
+
+
+if(
+!mcq.options.A ||
+!mcq.options.B ||
+!mcq.options.C ||
+!mcq.options.D
+){
+
+throw new Error(
+"Worker did not return exactly four options."
+);
+
+}
+
+
+/* =====================================
+   UPDATE DISPLAY
+===================================== */
+
+usageBox.textContent =
+used + " / " + serverLimit;
+
+progress.style.width =
+Math.min(
+(used / serverLimit) * 100,
+100
+) + "%";
+
+
+showMCQ(mcq);
+
 
 }catch(error){
 
-    console.log(
-        "Student data unavailable."
-    );
+console.error(error);
+
+showStatus(
+error.message ||
+"Unable to connect to Premium AI. Please try again.",
+"error"
+);
+
+}finally{
+
+loading.style.display =
+"none";
+
+if(used < DAILY_LIMIT){
+
+generateButton.disabled =
+false;
+
+}
+
+updateProgress();
+
+}
 
 }
 
 
 /* =====================================
-   MESSAGE
+   SHOW MCQ
 ===================================== */
 
-function showMessage(
-    text,
-    type
+function showMCQ(mcq){
+
+questionCard.style.display =
+"block";
+
+
+questionNumber.textContent =
+"QUESTION " +
+used +
+" OF " +
+DAILY_LIMIT;
+
+
+questionBox.textContent =
+mcq.question;
+
+
+optionsBox.innerHTML =
+"";
+
+
+resultBox.style.display =
+"none";
+
+
+nextButton.style.display =
+"none";
+
+
+const answer =
+String(mcq.answer)
+.toUpperCase()
+.trim();
+
+
+["A","B","C","D"].forEach(
+letter=>{
+
+const button =
+document.createElement("button");
+
+button.className =
+"option";
+
+button.type =
+"button";
+
+button.textContent =
+letter + ". " +
+mcq.options[letter];
+
+button.onclick =
+function(){
+
+checkAnswer(
+button,
+letter,
+answer,
+mcq.explanation
+);
+
+};
+
+optionsBox.appendChild(
+button
+);
+
+});
+
+
+questionCard.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+
+/* =====================================
+   CHECK ANSWER
+===================================== */
+
+function checkAnswer(
+clickedButton,
+selected,
+answer,
+explanation
 ){
 
-    message.textContent =
-        text;
-
-    message.className =
-        "message " + type;
-
-}
-
-
-/* =====================================
-   FILE → BASE64
-===================================== */
-
-function fileToBase64(
-    file
-){
-
-    return new Promise(
-        function(resolve,reject){
-
-            const reader =
-                new FileReader();
-
-            reader.onload =
-                function(){
-
-                    resolve(
-                        reader.result
-                    );
-
-                };
-
-            reader.onerror =
-                function(){
-
-                    reject(
-                        new Error(
-                            "Could not read receipt."
-                        )
-                    );
-
-                };
-
-            reader.readAsDataURL(
-                file
-            );
-
-        }
-    );
-
-}
-
-
-/* =====================================
-   CHECK MEMBERSHIP
-===================================== */
-
-async function checkMembership(){
-
-    const emailValue =
-        email.value
-            .trim()
-            .toLowerCase();
-
-    if(!emailValue){
-
-        return;
-
-    }
-
-    try{
-
-        const response =
-            await fetch(
-                API +
-                "/membership?email=" +
-                encodeURIComponent(
-                    emailValue
-                )
-            );
-
-        const data =
-            await response.json();
-
-        if(
-            response.ok &&
-            data.success &&
-            data.premium
-        ){
-
-            statusBox.style.display =
-                "block";
-
-            statusBox.innerHTML =
-                "⭐ <b>Premium is already active.</b><br>" +
-                "You do not need to make another payment.";
-
-            submitBtn.disabled =
-                true;
-
-            submitBtn.textContent =
-                "⭐ Premium Active";
-
-        }
-
-    }catch(error){
-
-        console.log(
-            "Membership check failed."
-        );
-
-    }
-
-}
-
-
-/* =====================================
-   EMAIL CHANGE
-===================================== */
-
-email.addEventListener(
-    "change",
-    checkMembership
+const buttons =
+document.querySelectorAll(
+".option"
 );
 
 
-/* =====================================
-   SUBMIT
-===================================== */
+buttons.forEach(
+button=>{
 
-form.addEventListener(
-    "submit",
-    async function(event){
+button.disabled =
+true;
 
-        event.preventDefault();
+});
 
 
-        const emailValue =
-            email.value
-                .trim()
-                .toLowerCase();
+buttons.forEach(
+button=>{
 
-        const referenceValue =
-            reference.value
-                .trim();
+if(
+button.textContent
+.startsWith(answer + ".")
+){
 
-        const file =
-            receipt.files[0];
+button.classList.add(
+"correct"
+);
 
+}
 
-        if(!emailValue){
+});
 
-            showMessage(
-                "Please enter your registered email.",
-                "error"
-            );
 
-            return;
+if(
+selected === answer
+){
 
-        }
+clickedButton.classList.add(
+"correct"
+);
 
+correct++;
 
-        if(!referenceValue){
 
-            showMessage(
-                "Please enter the payment reference.",
-                "error"
-            );
+resultBox.className =
+"result correct";
 
-            return;
+resultBox.innerHTML =
+"🎉 <b>Correct!</b><br><br>" +
+(explanation ||
+"Excellent work!");
 
-        }
+}
 
+else{
 
-        if(!file){
-
-            showMessage(
-                "Please select your payment receipt.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        /* Maximum 5 MB */
-
-        if(
-            file.size >
-            5 * 1024 * 1024
-        ){
-
-            showMessage(
-                "Receipt must be smaller than 5 MB.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        submitBtn.disabled =
-            true;
-
-        submitBtn.textContent =
-            "⏳ Submitting...";
-
-        message.className =
-            "message";
-
-
-        try{
-
-
-            /* ==============================
-               CREATE PAYMENT
-            ============================== */
-
-            const paymentResponse =
-                await fetch(
-                    API +
-                    "/payment/create",
-                    {
-                        method:"POST",
-
-                        headers:{
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body:JSON.stringify({
-
-                            email:
-                                emailValue,
-
-                            reference:
-                                referenceValue
-
-                        })
-
-                    }
-                );
-
-
-            const paymentData =
-                await paymentResponse.json();
-
-
-            if(
-                !paymentResponse.ok ||
-                !paymentData.success
-            ){
-
-                throw new Error(
-                    paymentData.message ||
-                    "Payment submission failed."
-                );
-
-            }
-
-
-            const paymentId =
-                paymentData.payment_id;
-
-
-            /* ==============================
-               UPLOAD RECEIPT
-            ============================== */
-
-            submitBtn.textContent =
-                "⏳ Uploading receipt...";
-
-
-            const base64 =
-                await fileToBase64(
-                    file
-                );
-
-
-            const receiptResponse =
-                await fetch(
-                    API +
-                    "/payment/receipt",
-                    {
-                        method:"POST",
-
-                        headers:{
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body:JSON.stringify({
-
-                            email:
-                                emailValue,
-
-                            payment_id:
-                                paymentId,
-
-                            filename:
-                                file.name,
-
-                            data:
-                                base64
-
-                        })
-
-                    }
-                );
-
-
-            const receiptData =
-                await receiptResponse.json();
-
-
-            if(
-                !receiptResponse.ok ||
-                !receiptData.success
-            ){
-
-                throw new Error(
-                    receiptData.message ||
-                    "Receipt upload failed."
-                );
-
-            }
-
-
-            /* ==============================
-               SUCCESS
-            ============================== */
-
-            showMessage(
-                "✅ Payment submitted successfully. Your payment is now waiting for admin approval.",
-                "success"
-            );
-
-
-            statusBox.style.display =
-                "block";
-
-            statusBox.innerHTML =
-                "⏳ <b>Payment Status: Pending</b><br>" +
-                "Premium will be activated after admin verification.";
-
-
-            form.reset();
-
-
-            /* Restore email */
-
-            email.value =
-                emailValue;
-
-
-            submitBtn.textContent =
-                "✅ Payment Submitted";
-
-
-        }catch(error){
-
-            console.error(
-                error
-            );
-
-
-            showMessage(
-                "❌ " +
-                (
-                    error.message ||
-                    "Connection error. Please try again."
-                ),
-                "error"
-            );
-
-
-            submitBtn.disabled =
-                false;
-
-            submitBtn.textContent =
-                "💳 Submit Payment";
-
-        }
-
-    }
+clickedButton.classList.add(
+"wrong"
 );
 
 
+resultBox.className =
+"result wrong";
+
+resultBox.innerHTML =
+"❌ <b>Incorrect.</b><br><br>" +
+"<b>Correct answer:</b> " +
+answer +
+"<br><br>" +
+(explanation ||
+"Please review the explanation.");
+
+}
+
+
+resultBox.style.display =
+"block";
+
+
+updateProgress();
+
+
+if(used < DAILY_LIMIT){
+
+nextButton.style.display =
+"block";
+
+}
+
+
+resultBox.scrollIntoView({
+behavior:"smooth",
+block:"nearest"
+});
+
+}
+
+
 /* =====================================
-   INITIAL MEMBERSHIP CHECK
+   ENTER KEY
 ===================================== */
 
-checkMembership();
+topicInput.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Enter"){
+
+event.preventDefault();
+
+generateMCQ();
+
+}
+
+});
+
+
+/* =====================================
+   INITIAL
+===================================== */
+
+updateProgress();
 
 </script>
 
