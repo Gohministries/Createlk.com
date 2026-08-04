@@ -1,1297 +1,687 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
+<title>Premium AI MCQ | CreateLK Academy</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta name="description"
+content="CreateLK Academy Premium AI English MCQ practice with explanations.">
 
-  <title>Premium AI MCQ | CreateLK Academy</title>
+<meta name="theme-color" content="#174ea6">
 
-  <meta
-    name="description"
-    content="CreateLK Academy Premium AI MCQ practice."
-  >
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-  <style>
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7fb;
+    color:#172033;
+    min-height:100vh;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+.header{
+    background:linear-gradient(135deg,#174ea6,#0b57d0);
+    color:white;
+    padding:22px 18px;
+    text-align:center;
+}
+
+.header h1{
+    font-size:25px;
+    margin-bottom:6px;
+}
+
+.header p{
+    font-size:14px;
+    opacity:.9;
+}
+
+.container{
+    max-width:720px;
+    margin:25px auto;
+    padding:0 15px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    margin-bottom:18px;
+}
+
+.badge{
+    display:inline-block;
+    background:#fff3cd;
+    color:#856404;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+h2{
+    font-size:21px;
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+input,
+select{
+    width:100%;
+    padding:13px;
+    border:1px solid #d5dbe5;
+    border-radius:10px;
+    font-size:15px;
+    margin-bottom:15px;
+    outline:none;
+}
+
+input:focus,
+select:focus{
+    border-color:#174ea6;
+}
+
+button{
+    width:100%;
+    border:none;
+    border-radius:11px;
+    padding:14px;
+    background:#174ea6;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0b57d0;
+}
+
+button:disabled{
+    background:#9aa4b2;
+    cursor:not-allowed;
+}
+
+.question{
+    font-size:19px;
+    line-height:1.5;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.option{
+    display:block;
+    background:#f7f9fc;
+    border:1px solid #dce2ea;
+    border-radius:11px;
+    padding:13px;
+    margin-bottom:10px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.option:hover{
+    background:#eef4ff;
+    border-color:#174ea6;
+}
+
+.option input{
+    width:auto;
+    margin:0 8px 0 0;
+}
+
+.answer-box{
+    margin-top:18px;
+    padding:16px;
+    background:#eef8f0;
+    border-left:4px solid #198754;
+    border-radius:8px;
+    line-height:1.6;
+}
+
+.explanation{
+    margin-top:10px;
+}
+
+.error{
+    background:#fff0f0;
+    color:#b42318;
+    padding:13px;
+    border-radius:9px;
+    margin-top:15px;
+    display:none;
+}
+
+.success{
+    background:#eef8f0;
+    color:#137333;
+    padding:13px;
+    border-radius:9px;
+    margin-top:15px;
+    display:none;
+}
+
+.usage{
+    text-align:center;
+    color:#667085;
+    font-size:13px;
+    margin-top:12px;
+}
+
+.loading{
+    display:none;
+    text-align:center;
+    padding:18px;
+}
+
+.spinner{
+    width:28px;
+    height:28px;
+    border:4px solid #dbe5f5;
+    border-top-color:#174ea6;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+    margin:auto auto 10px;
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg);}
+}
+
+.footer{
+    text-align:center;
+    padding:25px;
+    color:#667085;
+    font-size:13px;
+}
+
+.hidden{
+    display:none;
+}
+
+@media(max-width:500px){
+    .card{
+        padding:17px;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #eef5ff, #ffffff);
-      min-height: 100vh;
-      color: #172033;
+    .question{
+        font-size:17px;
     }
-
-    /* HEADER */
-
-    .header {
-      background: #174ea6;
-      color: white;
-      padding: 22px 15px;
-      text-align: center;
-    }
-
-    .header h1 {
-      font-size: 25px;
-    }
-
-    .header p {
-      margin-top: 7px;
-      font-size: 14px;
-      opacity: 0.92;
-    }
-
-    /* CONTAINER */
-
-    .container {
-      width: 100%;
-      max-width: 700px;
-      margin: 25px auto;
-      padding: 0 15px;
-    }
-
-    /* CARD */
-
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 18px;
-
-      box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.08);
-    }
-
-    /* USAGE */
-
-    .usage {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      background: #f1f6ff;
-      border-radius: 12px;
-
-      padding: 14px;
-      margin-bottom: 20px;
-    }
-
-    .usage strong {
-      color: #174ea6;
-    }
-
-    /* PREMIUM BADGE */
-
-    .badge {
-      display: inline-block;
-
-      background: #fff2c7;
-      color: #795900;
-
-      padding: 6px 12px;
-
-      border-radius: 20px;
-
-      font-size: 12px;
-      font-weight: bold;
-
-      margin-bottom: 15px;
-    }
-
-    /* FORM */
-
-    label {
-      display: block;
-
-      font-weight: bold;
-
-      margin-bottom: 7px;
-    }
-
-    select {
-      width: 100%;
-
-      padding: 13px;
-
-      border: 1px solid #ccd5e3;
-
-      border-radius: 10px;
-
-      margin-bottom: 17px;
-
-      font-size: 15px;
-
-      background: white;
-    }
-
-    /* BUTTON */
-
-    button {
-      width: 100%;
-
-      padding: 14px;
-
-      border: none;
-
-      border-radius: 10px;
-
-      background: #174ea6;
-
-      color: white;
-
-      font-size: 16px;
-
-      font-weight: bold;
-
-      cursor: pointer;
-    }
-
-    button:hover {
-      opacity: 0.92;
-    }
-
-    button:disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-    }
-
-    /* LOADING */
-
-    .loading {
-      display: none;
-
-      text-align: center;
-
-      padding: 20px 5px 5px;
-
-      color: #174ea6;
-
-      font-weight: bold;
-    }
-
-    /* ERROR */
-
-    .error {
-      display: none;
-
-      padding: 15px;
-
-      margin-bottom: 15px;
-
-      background: #ffe7e7;
-
-      color: #a00000;
-
-      border-radius: 10px;
-
-      line-height: 1.5;
-    }
-
-    /* QUESTION */
-
-    .question-card {
-      display: none;
-    }
-
-    .question {
-      font-size: 19px;
-
-      font-weight: bold;
-
-      line-height: 1.5;
-
-      margin-bottom: 20px;
-    }
-
-    /* OPTIONS */
-
-    .option {
-      width: 100%;
-
-      text-align: left;
-
-      background: #f7f9fc;
-
-      color: #172033;
-
-      border: 1px solid #dce3ee;
-
-      margin-bottom: 10px;
-    }
-
-    .option:hover {
-      background: #edf4ff;
-    }
-
-    .option.correct {
-      background: #dff6e6;
-
-      border-color: #36a35a;
-
-      color: #14652d;
-    }
-
-    .option.wrong {
-      background: #ffe2e2;
-
-      border-color: #dc4c4c;
-
-      color: #a00000;
-    }
-
-    /* EXPLANATION */
-
-    .explanation {
-      display: none;
-
-      margin-top: 18px;
-
-      padding: 15px;
-
-      background: #f1f6ff;
-
-      border-left: 4px solid #174ea6;
-
-      border-radius: 8px;
-
-      line-height: 1.6;
-    }
-
-    /* NEXT */
-
-    .next-btn {
-      display: none;
-
-      margin-top: 15px;
-    }
-
-    /* SMALL TEXT */
-
-    .small {
-      font-size: 13px;
-
-      color: #697386;
-
-      margin-top: 10px;
-
-      line-height: 1.5;
-    }
-
-    /* FOOTER */
-
-    .footer {
-      text-align: center;
-
-      padding: 25px 15px;
-
-      color: #7a8494;
-
-      font-size: 13px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 480px) {
-
-      .header h1 {
-        font-size: 21px;
-      }
-
-      .card {
-        padding: 18px;
-      }
-
-      .question {
-        font-size: 18px;
-      }
-
-    }
-
-  </style>
-
+}
+</style>
 </head>
-
 
 <body>
 
+<header class="header">
+    <h1>🤖 Premium AI MCQ</h1>
+    <p>CreateLK Academy</p>
+</header>
 
-  <!-- HEADER -->
-
-  <header class="header">
-
-    <h1>
-      📚 CreateLK Academy
-    </h1>
-
-    <p>
-      ⭐ Premium AI MCQ Practice
-    </p>
-
-  </header>
-
-
-
-  <!-- MAIN -->
-
-  <main class="container">
-
-
-    <!-- SETTINGS -->
+<main class="container">
 
     <section class="card">
 
+        <span class="badge">⭐ PREMIUM</span>
 
-      <!-- DAILY USAGE -->
+        <h2>AI English Practice</h2>
 
-      <div class="usage">
+        <label for="userKey">Student Email</label>
 
-        <div>
-          🤖 AI MCQs Today
-        </div>
-
-        <div>
-
-          <strong id="usageText">
-            0 / 100
-          </strong>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- PREMIUM -->
-
-      <div class="badge">
-        ⭐ PREMIUM
-      </div>
-
-
-
-      <!-- TOPIC -->
-
-      <label for="topic">
-        Select Topic
-      </label>
-
-      <select id="topic">
-
-        <option value="English Grammar">
-          English Grammar
-        </option>
-
-        <option value="Tenses">
-          Tenses
-        </option>
-
-        <option value="Articles">
-          Articles
-        </option>
-
-        <option value="Prepositions">
-          Prepositions
-        </option>
-
-        <option value="Vocabulary">
-          Vocabulary
-        </option>
-
-        <option value="Pronouns">
-          Pronouns
-        </option>
-
-        <option value="Adjectives">
-          Adjectives
-        </option>
-
-        <option value="Adverbs">
-          Adverbs
-        </option>
-
-        <option value="Conjunctions">
-          Conjunctions
-        </option>
-
-        <option value="Sentence Structure">
-          Sentence Structure
-        </option>
-
-      </select>
-
-
-
-      <!-- LEVEL -->
-
-      <label for="level">
-        Difficulty Level
-      </label>
-
-      <select id="level">
-
-        <option value="Beginner">
-          Beginner
-        </option>
-
-        <option
-          value="Intermediate"
-          selected
+        <input
+            type="email"
+            id="userKey"
+            placeholder="Enter your registered email"
+            autocomplete="email"
         >
-          Intermediate
-        </option>
 
-        <option value="Advanced">
-          Advanced
-        </option>
+        <label for="level">English Level</label>
 
-      </select>
+        <select id="level">
+            <option value="Beginner">Beginner</option>
+            <option value="Elementary">Elementary</option>
+            <option value="Intermediate" selected>Intermediate</option>
+            <option value="Upper Intermediate">Upper Intermediate</option>
+            <option value="Advanced">Advanced</option>
+        </select>
 
+        <label for="topic">Topic</label>
 
+        <select id="topic">
+            <option value="Grammar">Grammar</option>
+            <option value="Vocabulary">Vocabulary</option>
+            <option value="Tenses">Tenses</option>
+            <option value="Prepositions">Prepositions</option>
+            <option value="Articles">Articles</option>
+            <option value="Mixed English">Mixed English</option>
+        </select>
 
-      <!-- ERROR -->
+        <button id="generateBtn" onclick="generateMCQ()">
+            Generate AI MCQ
+        </button>
 
-      <div
-        id="error"
-        class="error"
-      ></div>
+        <div class="usage" id="usage">
+            Premium AI practice — maximum 100 questions per day
+        </div>
 
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>AI is creating your question...</p>
+        </div>
 
+        <div class="error" id="error"></div>
 
-      <!-- GENERATE -->
-
-      <button
-        id="generateBtn"
-        onclick="generateMCQ()"
-      >
-
-        🤖 Generate AI MCQ
-
-      </button>
-
-
-
-      <!-- LOADING -->
-
-      <div
-        id="loading"
-        class="loading"
-      >
-
-        🤖 Creating your AI question...
-
-      </div>
-
-
-
-      <p class="small">
-
-        Premium members can generate up to
-        <strong>100 AI MCQs per day.</strong>
-
-      </p>
-
+        <div class="success" id="success"></div>
 
     </section>
 
 
+    <section class="card hidden" id="questionCard">
 
-    <!-- QUESTION -->
+        <h2>📝 Your Question</h2>
 
-    <section
-      id="questionCard"
-      class="card question-card"
-    >
+        <div class="question" id="questionText"></div>
 
+        <div id="options"></div>
 
-      <div class="badge">
-        🤖 AI GENERATED MCQ
-      </div>
+        <button onclick="checkAnswer()" id="answerBtn">
+            Check Answer
+        </button>
 
+        <div class="answer-box hidden" id="answerBox">
 
+            <strong>Correct Answer:</strong>
+            <span id="correctAnswer"></span>
 
-      <div
-        id="question"
-        class="question"
-      ></div>
+            <div class="explanation">
+                <strong>Explanation:</strong>
+                <p id="explanationText"></p>
+            </div>
 
-
-
-      <div id="options"></div>
-
-
-
-      <div
-        id="explanation"
-        class="explanation"
-      ></div>
-
-
-
-      <button
-        id="nextBtn"
-        class="next-btn"
-        onclick="generateMCQ()"
-      >
-
-        ➡️ Next AI Question
-
-      </button>
-
+        </div>
 
     </section>
 
+</main>
 
-  </main>
-
-
-
-  <!-- FOOTER -->
-
-  <footer class="footer">
-
+<footer class="footer">
     © 2026 CreateLK Academy
-
-  </footer>
-
+</footer>
 
 
 <script>
 
-
-/*
-===========================================================
-  CLOUDFLARE WORKER URL
-===========================================================
-
-  IMPORTANT:
-
-  Replace the URL below with your actual Cloudflare Worker URL.
-
-  Example:
-
-  const WORKER_URL =
-    "https://createlk-ai.yourname.workers.dev";
-
-===========================================================
-*/
-
 const WORKER_URL =
-  "https://YOUR-WORKER.workers.dev";
+    "https://premium.gateofheavensl1.workers.dev";
 
+let currentQuestion = null;
 
 
 /*
-===========================================================
-  GET USER KEY
-===========================================================
+|--------------------------------------------------------------------------
+| Generate AI MCQ
+|--------------------------------------------------------------------------
 */
 
-function getUserKey() {
+async function generateMCQ(){
 
+    const userKey =
+        document.getElementById("userKey").value.trim();
 
-  let userKey =
-    localStorage.getItem(
-      "createlk_user_key"
-    );
+    const level =
+        document.getElementById("level").value;
 
+    const topic =
+        document.getElementById("topic").value;
 
-  /*
-  If the user key does not exist,
-  ask for the Premium email.
-  */
+    const error =
+        document.getElementById("error");
 
-  if (!userKey) {
+    const success =
+        document.getElementById("success");
 
+    const loading =
+        document.getElementById("loading");
 
-    userKey =
-      prompt(
-        "Enter your registered Premium email:"
-      );
+    const button =
+        document.getElementById("generateBtn");
 
+    error.style.display = "none";
+    success.style.display = "none";
 
-    if (userKey) {
+    if(!userKey){
 
+        error.textContent =
+            "Please enter your registered Premium email.";
 
-      userKey =
-        userKey
-          .trim()
-          .toLowerCase();
+        error.style.display = "block";
 
-
-      localStorage.setItem(
-        "createlk_user_key",
-        userKey
-      );
-
+        return;
     }
 
-  }
+    if(!userKey.includes("@")){
+
+        error.textContent =
+            "Please enter a valid email address.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+    button.disabled = true;
+    loading.style.display = "block";
+
+    document.getElementById("questionCard")
+        .classList.add("hidden");
+
+    try{
+
+        const response = await fetch(
+            WORKER_URL + "/api/ai-mcq",
+            {
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json"
+                },
+
+                body:JSON.stringify({
+
+                    user_key:userKey,
+
+                    level:level,
+
+                    topic:topic
+
+                })
+            }
+        );
 
 
-  return userKey;
-
-}
+        const data = await response.json();
 
 
+        if(!response.ok || data.success === false){
 
-/*
-===========================================================
-  GENERATE MCQ
-===========================================================
-*/
-
-async function generateMCQ() {
-
-
-  /*
-  Get user
-  */
-
-  const userKey =
-    getUserKey();
-
-
-  if (!userKey) {
-
-    showError(
-      "Please enter your registered Premium email."
-    );
-
-    return;
-
-  }
-
-
-
-  /*
-  Get topic
-  */
-
-  const topic =
-    document.getElementById(
-      "topic"
-    ).value;
-
-
-
-  /*
-  Get level
-  */
-
-  const level =
-    document.getElementById(
-      "level"
-    ).value;
-
-
-
-  /*
-  Buttons
-  */
-
-  const generateBtn =
-    document.getElementById(
-      "generateBtn"
-    );
-
-
-  const loading =
-    document.getElementById(
-      "loading"
-    );
-
-
-
-  /*
-  Disable button
-  */
-
-  generateBtn.disabled =
-    true;
-
-
-  loading.style.display =
-    "block";
-
-
-  hideError();
-
-
-
-  try {
-
-
-    /*
-    Call Cloudflare Worker
-    */
-
-    const response =
-      await fetch(
-
-        WORKER_URL +
-        "/api/ai-mcq",
-
-        {
-
-          method: "POST",
-
-          headers: {
-
-            "Content-Type":
-              "application/json"
-
-          },
-
-          body: JSON.stringify({
-
-            user_key:
-              userKey,
-
-            topic:
-              topic,
-
-            level:
-              level
-
-          })
-
+            throw new Error(
+                data.message ||
+                data.error ||
+                "Unable to generate MCQ."
+            );
         }
 
-      );
 
+        /*
+        --------------------------------------------------------------
+        Accept several possible response formats
+        --------------------------------------------------------------
+        */
 
+        currentQuestion =
+            data.question_data ||
+            data.question ||
+            data.mcq ||
+            data;
 
-    /*
-    Read response
-    */
 
-    const data =
-      await response.json();
+        displayQuestion(currentQuestion);
 
 
+        if(data.used !== undefined &&
+           data.limit !== undefined){
 
-    /*
-    Error handling
-    */
-
-    if (
-      !response.ok ||
-      !data.success
-    ) {
-
-
-      /*
-      Daily limit
-      */
-
-      if (
-        data.limit_reached
-      ) {
-
-        showError(
-          "You have reached today's 100 AI MCQ limit. Please try again tomorrow."
-        );
-
-      }
-
-
-      /*
-      Premium required
-      */
-
-      else if (
-        data.premium_required
-      ) {
-
-        showError(
-          "⭐ Active Premium membership is required to use AI MCQs."
-        );
-
-      }
-
-
-      /*
-      Other error
-      */
-
-      else {
-
-        showError(
-          data.error ||
-          "Unable to generate the question."
-        );
-
-      }
-
-
-      return;
-
-    }
-
-
-
-    /*
-    Display MCQ
-    */
-
-    displayMCQ(
-      data.mcq
-    );
-
-
-
-    /*
-    Update usage
-    */
-
-    updateUsage(
-
-      data.used_today,
-
-      data.daily_limit
-
-    );
-
-
-  }
-
-
-  catch (error) {
-
-
-    console.error(
-      "Request error:",
-      error
-    );
-
-
-    showError(
-      "Connection error. Please check your internet connection and try again."
-    );
-
-
-  }
-
-
-  finally {
-
-
-    generateBtn.disabled =
-      false;
-
-
-    loading.style.display =
-      "none";
-
-  }
-
-}
-
-
-
-/*
-===========================================================
-  DISPLAY MCQ
-===========================================================
-*/
-
-function displayMCQ(mcq) {
-
-
-  const questionCard =
-    document.getElementById(
-      "questionCard"
-    );
-
-
-  const question =
-    document.getElementById(
-      "question"
-    );
-
-
-  const options =
-    document.getElementById(
-      "options"
-    );
-
-
-  const explanation =
-    document.getElementById(
-      "explanation"
-    );
-
-
-  const nextBtn =
-    document.getElementById(
-      "nextBtn"
-    );
-
-
-
-  /*
-  Question
-  */
-
-  question.textContent =
-    mcq.question;
-
-
-
-  /*
-  Clear old options
-  */
-
-  options.innerHTML =
-    "";
-
-
-
-  /*
-  Hide explanation
-  */
-
-  explanation.style.display =
-    "none";
-
-
-
-  /*
-  Explanation
-  */
-
-  explanation.innerHTML =
-    "<strong>Explanation:</strong><br>" +
-    escapeHTML(
-      mcq.explanation || ""
-    );
-
-
-
-  /*
-  Hide next
-  */
-
-  nextBtn.style.display =
-    "none";
-
-
-
-  /*
-  Options
-  */
-
-  const letters = [
-    "A",
-    "B",
-    "C",
-    "D"
-  ];
-
-
-
-  letters.forEach(
-    function(letter) {
-
-
-      const button =
-        document.createElement(
-          "button"
-        );
-
-
-      button.className =
-        "option";
-
-
-      button.textContent =
-        letter +
-        ". " +
-        mcq.options[letter];
-
-
-      button.onclick =
-        function() {
-
-
-          checkAnswer(
-
-            button,
-
-            letter,
-
-            mcq.answer
-
-          );
-
-        };
-
-
-      options.appendChild(
-        button
-      );
-
-
-    }
-  );
-
-
-
-  /*
-  Show question card
-  */
-
-  questionCard.style.display =
-    "block";
-
-
-
-  /*
-  Scroll to question
-  */
-
-  questionCard.scrollIntoView({
-
-    behavior: "smooth",
-
-    block: "start"
-
-  });
-
-}
-
-
-
-/*
-===========================================================
-  CHECK ANSWER
-===========================================================
-*/
-
-function checkAnswer(
-
-  selectedButton,
-
-  selected,
-
-  correct
-
-) {
-
-
-  const optionButtons =
-    document.querySelectorAll(
-      ".option"
-    );
-
-
-
-  /*
-  Disable all options
-  */
-
-  optionButtons.forEach(
-    function(button) {
-
-      button.disabled =
-        true;
-
-    }
-  );
-
-
-
-  /*
-  Correct
-  */
-
-  if (
-    selected === correct
-  ) {
-
-
-    selectedButton.classList.add(
-      "correct"
-    );
-
-  }
-
-
-
-  /*
-  Wrong
-  */
-
-  else {
-
-
-    selectedButton.classList.add(
-      "wrong"
-    );
-
-
-    /*
-    Highlight correct answer
-    */
-
-    optionButtons.forEach(
-      function(button) {
-
-
-        if (
-
-          button.textContent
-            .startsWith(
-              correct + "."
-            )
-
-        ) {
-
-          button.classList.add(
-            "correct"
-          );
-
+            document.getElementById("usage").textContent =
+                "Today's usage: " +
+                data.used +
+                " / " +
+                data.limit;
         }
 
-      }
-    );
+    }
+    catch(err){
 
-  }
+        console.error(err);
 
+        error.textContent =
+            err.message ||
+            "Connection error. Please try again.";
 
+        error.style.display = "block";
 
-  /*
-  Show explanation
-  */
+    }
+    finally{
 
-  document.getElementById(
-    "explanation"
-  ).style.display =
-    "block";
+        button.disabled = false;
+        loading.style.display = "none";
 
-
-
-  /*
-  Show next button
-  */
-
-  document.getElementById(
-    "nextBtn"
-  ).style.display =
-    "block";
-
+    }
 }
-
 
 
 /*
-===========================================================
-  UPDATE USAGE
-===========================================================
+|--------------------------------------------------------------------------
+| Display Question
+|--------------------------------------------------------------------------
 */
 
-function updateUsage(
+function displayQuestion(q){
 
-  used,
-
-  limit
-
-) {
+    document
+        .getElementById("questionCard")
+        .classList.remove("hidden");
 
 
-  document.getElementById(
-    "usageText"
-  ).textContent =
+    const questionText =
+        q.question ||
+        q.question_text ||
+        q.text ||
+        "";
 
-    used +
-    " / " +
-    limit;
+
+    document
+        .getElementById("questionText")
+        .textContent = questionText;
+
+
+    const optionsContainer =
+        document.getElementById("options");
+
+    optionsContainer.innerHTML = "";
+
+
+    let options =
+        q.options ||
+        q.choices ||
+        [];
+
+
+    /*
+    If Worker returns:
+    {
+        A:"...",
+        B:"...",
+        C:"...",
+        D:"..."
+    }
+    */
+
+    if(!Array.isArray(options)){
+
+        options = [
+            q.A,
+            q.B,
+            q.C,
+            q.D
+        ].filter(Boolean);
+
+    }
+
+
+    options.forEach((option,index)=>{
+
+        const letter =
+            String.fromCharCode(65 + index);
+
+        const label =
+            document.createElement("label");
+
+        label.className = "option";
+
+        label.innerHTML = `
+            <input
+                type="radio"
+                name="answer"
+                value="${escapeHtml(option)}"
+            >
+            <strong>${letter}.</strong>
+            ${escapeHtml(option)}
+        `;
+
+        optionsContainer.appendChild(label);
+
+    });
+
+
+    document
+        .getElementById("answerBox")
+        .classList.add("hidden");
 
 }
-
 
 
 /*
-===========================================================
-  SHOW ERROR
-===========================================================
+|--------------------------------------------------------------------------
+| Check Answer
+|--------------------------------------------------------------------------
 */
 
-function showError(message) {
+function checkAnswer(){
+
+    if(!currentQuestion){
+
+        return;
+    }
 
 
-  const error =
-    document.getElementById(
-      "error"
-    );
+    const selected =
+        document.querySelector(
+            'input[name="answer"]:checked'
+        );
 
 
-  error.textContent =
-    message;
+    if(!selected){
+
+        alert("Please select an answer.");
+
+        return;
+    }
 
 
-  error.style.display =
-    "block";
+    const userAnswer =
+        selected.value;
+
+
+    const correct =
+        currentQuestion.correct_answer ||
+        currentQuestion.correctAnswer ||
+        currentQuestion.answer ||
+        currentQuestion.correct ||
+        "";
+
+
+    document
+        .getElementById("correctAnswer")
+        .textContent = correct;
+
+
+    document
+        .getElementById("explanationText")
+        .textContent =
+            currentQuestion.explanation ||
+            currentQuestion.answer_explanation ||
+            "No explanation was provided.";
+
+
+    document
+        .getElementById("answerBox")
+        .classList.remove("hidden");
+
+
+    /*
+    Highlight the selected answer
+    */
+
+    const selectedLabel =
+        selected.closest(".option");
+
+
+    if(
+        normalize(userAnswer) ===
+        normalize(correct)
+    ){
+
+        selectedLabel.style.borderColor =
+            "#198754";
+
+        selectedLabel.style.background =
+            "#eef8f0";
+
+    }
+    else{
+
+        selectedLabel.style.borderColor =
+            "#dc3545";
+
+        selectedLabel.style.background =
+            "#fff0f0";
+
+    }
 
 }
-
 
 
 /*
-===========================================================
-  HIDE ERROR
-===========================================================
+|--------------------------------------------------------------------------
+| Helpers
+|--------------------------------------------------------------------------
 */
 
-function hideError() {
+function normalize(value){
 
-
-  document.getElementById(
-    "error"
-  ).style.display =
-    "none";
+    return String(value || "")
+        .trim()
+        .toLowerCase();
 
 }
 
 
+function escapeHtml(value){
 
-/*
-===========================================================
-  ESCAPE HTML
-===========================================================
-*/
-
-function escapeHTML(text) {
-
-
-  const div =
-    document.createElement(
-      "div"
-    );
-
-
-  div.textContent =
-    text;
-
-
-  return div.innerHTML;
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
-
 
 </script>
 
-
 </body>
-
 </html>
