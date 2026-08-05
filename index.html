@@ -1,7 +1,16 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
 
-<title>CreateLK Academy | Learn English Online</title><meta name="description"
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>CreateLK Academy | Learn English Online</title>
+
+<meta name="description"
 content="CreateLK Academy - Learn English online with AI English Tutor, AI MCQs and Premium English learning resources.">
 
 <meta name="theme-color"
@@ -10,348 +19,364 @@ content="#174ea6">
 <style>
 
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:"Segoe UI",Arial,sans-serif;
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
-    background:#f5f8ff;
-    color:#172033;
+background:#f5f8ff;
+color:#172033;
 }
 
 header{
-    background:#174ea6;
-    color:#fff;
-    position:sticky;
-    top:0;
-    z-index:99;
+background:#174ea6;
+color:#fff;
+position:sticky;
+top:0;
+z-index:99;
 }
 
 .nav{
-    max-width:1100px;
-    margin:auto;
-    padding:14px 18px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+max-width:1100px;
+margin:auto;
+padding:14px 18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 .logo{
-    font-size:19px;
-    font-weight:800;
+font-size:19px;
+font-weight:800;
 }
 
 .menu{
-    display:flex;
-    gap:5px;
+display:flex;
+gap:5px;
 }
 
 .menu a{
-    color:#fff;
-    text-decoration:none;
-    font-size:13px;
-    font-weight:700;
-    padding:9px;
-    border-radius:8px;
+color:#fff;
+text-decoration:none;
+font-size:13px;
+font-weight:700;
+padding:9px;
+border-radius:8px;
 }
 
 .menu a:hover{
-    background:#ffffff20;
+background:#ffffff20;
 }
 
 .menuBtn{
-    display:none;
-    background:none;
-    border:1px solid #ffffff66;
-    color:#fff;
-    padding:6px 10px;
-    border-radius:8px;
-    font-size:20px;
-    cursor:pointer;
+display:none;
+background:none;
+border:1px solid #ffffff66;
+color:#fff;
+padding:6px 10px;
+border-radius:8px;
+font-size:20px;
+cursor:pointer;
 }
 
 .mobile{
-    display:none;
-    background:#174ea6;
-    padding:8px 15px 15px;
+display:none;
+background:#174ea6;
+padding:8px 15px 15px;
 }
 
 .mobile.open{
-    display:block;
+display:block;
 }
 
 .mobile a{
-    display:block;
-    color:#fff;
-    text-decoration:none;
-    padding:12px;
-    font-weight:700;
-    border-radius:8px;
+display:block;
+color:#fff;
+text-decoration:none;
+padding:12px;
+font-weight:700;
+border-radius:8px;
 }
 
 .mobile a:hover{
-    background:#ffffff18;
+background:#ffffff18;
 }
 
 main{
-    max-width:1050px;
-    margin:auto;
-    padding:30px 15px 50px;
+max-width:1050px;
+margin:auto;
+padding:30px 15px 50px;
 }
 
 .hero{
-    background:#fff;
-    border-radius:22px;
-    padding:45px 22px;
-    text-align:center;
-    box-shadow:0 8px 30px #0001;
+background:#fff;
+border-radius:22px;
+padding:45px 22px;
+text-align:center;
+box-shadow:0 8px 30px #0001;
 }
 
 .hero-icon{
-    font-size:50px;
-    margin-bottom:10px;
+font-size:50px;
+margin-bottom:10px;
 }
 
 .hero h1{
-    color:#174ea6;
-    font-size:34px;
-    margin-bottom:12px;
+color:#174ea6;
+font-size:34px;
+margin-bottom:12px;
 }
 
 .hero p{
-    max-width:700px;
-    margin:auto;
-    color:#667085;
-    line-height:1.7;
+max-width:700px;
+margin:auto;
+color:#667085;
+line-height:1.7;
 }
 
 .buttons{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
-    max-width:700px;
-    margin:25px auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+max-width:700px;
+margin:25px auto;
 }
 
 .btn{
-    display:block;
-    padding:15px;
-    border-radius:11px;
-    text-decoration:none;
-    font-weight:800;
+display:block;
+padding:15px;
+border-radius:11px;
+text-decoration:none;
+font-weight:800;
 }
 
 .free{
-    background:#20a464;
-    color:#fff;
+background:#20a464;
+color:#fff;
 }
 
 .premium{
-    background:#f5a623;
-    color:#fff;
+background:#f5a623;
+color:#fff;
 }
 
 .active{
-    background:#15803d;
-    color:#fff;
+background:#15803d;
+color:#fff;
 }
 
 .pending{
-    background:#946200;
-    color:#fff;
+background:#d97706;
+color:#fff;
 }
 
 .btn:hover{
-    opacity:.92;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:25px;
-}
-
-.card{
-    background:#fff;
-    padding:20px;
-    border-radius:16px;
-    box-shadow:0 5px 22px #0001;
-}
-
-.card h3{
-    margin-bottom:8px;
-}
-
-.card p{
-    font-size:14px;
-    color:#667085;
-    line-height:1.6;
-}
-
-.card a{
-    display:inline-block;
-    margin-top:12px;
-    color:#174ea6;
-    font-weight:800;
-    text-decoration:none;
-}
-
-.card a:hover{
-    text-decoration:underline;
-}
-
-.info{
-    background:#fff;
-    padding:20px;
-    border-radius:16px;
-    box-shadow:0 5px 22px #0001;
-    margin-top:20px;
-}
-
-.info h2{
-    margin-bottom:10px;
-}
-
-.info p{
-    font-size:14px;
-    color:#667085;
-    line-height:1.6;
-}
-
-.links{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
-    margin-top:15px;
-}
-
-.links a{
-    background:#eef4ff;
-    color:#174ea6;
-    padding:12px;
-    text-align:center;
-    border-radius:9px;
-    text-decoration:none;
-    font-size:13px;
-    font-weight:700;
-}
-
-.links a:hover{
-    background:#dce9ff;
-}
-
-.premium-note{
-    margin-top:15px;
-    background:#fff8e7;
-    border:1px solid #f6d889;
-    padding:14px;
-    border-radius:12px;
-    color:#745400;
-    font-size:14px;
-    line-height:1.6;
+opacity:.92;
 }
 
 .membership-status{
-    margin:15px auto 0;
-    max-width:650px;
-    padding:12px 15px;
-    border-radius:10px;
-    font-size:14px;
-    font-weight:700;
-    display:none;
+margin:15px auto 0;
+max-width:650px;
+padding:12px 15px;
+border-radius:10px;
+font-size:14px;
+font-weight:700;
+display:none;
 }
 
 .status-active{
-    display:block;
-    background:#dcfce7;
-    color:#166534;
+display:block;
+background:#dcfce7;
+color:#166534;
 }
 
 .status-pending{
-    display:block;
-    background:#fff4d6;
-    color:#946200;
+display:block;
+background:#fff4d6;
+color:#946200;
 }
 
 .status-expired{
-    display:block;
-    background:#fee2e2;
-    color:#991b1b;
+display:block;
+background:#fee2e2;
+color:#991b1b;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:25px;
+}
+
+.card{
+background:#fff;
+padding:20px;
+border-radius:16px;
+box-shadow:0 5px 22px #0001;
+}
+
+.card h3{
+margin-bottom:8px;
+}
+
+.card p{
+font-size:14px;
+color:#667085;
+line-height:1.6;
+}
+
+.card a{
+display:inline-block;
+margin-top:12px;
+color:#174ea6;
+font-weight:800;
+text-decoration:none;
+}
+
+.card a:hover{
+text-decoration:underline;
+}
+
+.info{
+background:#fff;
+padding:20px;
+border-radius:16px;
+box-shadow:0 5px 22px #0001;
+margin-top:20px;
+}
+
+.info h2{
+margin-bottom:10px;
+}
+
+.info p{
+font-size:14px;
+color:#667085;
+line-height:1.6;
+}
+
+.links{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+margin-top:15px;
+}
+
+.links a{
+background:#eef4ff;
+color:#174ea6;
+padding:12px;
+text-align:center;
+border-radius:9px;
+text-decoration:none;
+font-size:13px;
+font-weight:700;
+}
+
+.links a:hover{
+background:#dce9ff;
+}
+
+.premium-note{
+margin-top:15px;
+background:#fff8e7;
+border:1px solid #f6d889;
+padding:14px;
+border-radius:12px;
+color:#745400;
+font-size:14px;
+line-height:1.6;
 }
 
 footer{
-    text-align:center;
-    color:#667085;
-    padding:30px;
-    font-size:13px;
-    line-height:1.8;
+text-align:center;
+color:#667085;
+padding:30px;
+font-size:13px;
+line-height:1.8;
 }
 
 footer a{
-    color:#174ea6;
-    text-decoration:none;
+color:#174ea6;
+text-decoration:none;
 }
 
 .wa{
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    width:56px;
-    height:56px;
-    border-radius:50%;
-    background:#25d366;
-    color:#fff;
-    text-decoration:none;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:27px;
-    box-shadow:0 5px 18px #0003;
+position:fixed;
+right:18px;
+bottom:18px;
+width:56px;
+height:56px;
+border-radius:50%;
+background:#25d366;
+color:#fff;
+text-decoration:none;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:27px;
+box-shadow:0 5px 18px #0003;
 }
 
 @media(max-width:900px){
 
-    .menu{
-        display:none;
-    }
+.menu{
+display:none;
+}
 
-    .menuBtn{
-        display:block;
-    }
+.menuBtn{
+display:block;
+}
 
-    .grid{
-        grid-template-columns:1fr 1fr;
-    }
+.grid{
+grid-template-columns:1fr 1fr;
+}
 
 }
 
 @media(max-width:600px){
 
-    .buttons,
-    .grid{
-        grid-template-columns:1fr;
-    }
+.buttons,
+.grid{
+grid-template-columns:1fr;
+}
 
-    .links{
-        grid-template-columns:1fr 1fr;
-    }
+.links{
+grid-template-columns:1fr 1fr;
+}
 
-    .hero{
-        padding:35px 18px;
-    }
+.hero{
+padding:35px 18px;
+}
 
-    .hero h1{
-        font-size:27px;
-    }
+.hero h1{
+font-size:27px;
+}
 
 }
 
-</style></head><body><header><nav class="nav"><div class="logo">
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<nav class="nav">
+
+<div class="logo">
 📚 CreateLK Academy
-</div><div class="menu"><a href="index.html">🏠 Home</a>
+</div>
+
+<div class="menu">
+
+<a href="index.html">🏠 Home</a>
 
 <a href="free-course.html">🌱 Free Learning</a>
 
@@ -359,23 +384,39 @@ footer a{
 
 <a href="ai-mcq.html">📝 AI MCQs</a>
 
-<a href="premium.html" id="desktopPremium">
+<a href="premium.html"
+id="desktopPremium">
 ⭐ Premium AI
-</a><a href="membership.html">💳 Membership</a>
+</a>
 
-<a href="login.html">🔐 Login</a>
+<a href="membership.html">
+💳 Membership
+</a>
 
-</div><button
+<a href="login.html">
+🔐 Login
+</a>
+
+</div>
+
+
+<button
 class="menuBtn"
 id="menuBtn"
-type="button"
-aria-label="Open menu">
+type="button">
+
 ☰
+
 </button>
 
-</nav><div
+</nav>
+
+
+<div
 class="mobile"
-id="mobileMenu"><a href="index.html">🏠 Home</a>
+id="mobileMenu">
+
+<a href="index.html">🏠 Home</a>
 
 <a href="free-course.html">🌱 Free Learning</a>
 
@@ -383,114 +424,278 @@ id="mobileMenu"><a href="index.html">🏠 Home</a>
 
 <a href="ai-mcq.html">📝 AI MCQs</a>
 
-<a href="premium.html" id="mobilePremium">
+<a href="premium.html"
+id="mobilePremium">
 ⭐ Premium AI MCQs
-</a><a href="membership.html">💳 Premium Membership</a>
+</a>
 
-<a href="login.html">🔐 Student Login</a>
+<a href="membership.html">
+💳 Premium Membership
+</a>
 
-<a href="register.html">✍️ Create Account</a>
+<a href="login.html">
+🔐 Student Login
+</a>
 
-<a href="payment.html">💳 Payment</a>
+<a href="register.html">
+✍️ Create Account
+</a>
 
-<a href="dashboard.html">👤 Dashboard</a>
+<a href="payment.html">
+💳 Payment
+</a>
 
-<a href="contact.html">📞 Contact</a>
+<a href="dashboard.html">
+👤 Dashboard
+</a>
 
-</div></header><main><section class="hero"><div class="hero-icon">
+<a href="contact.html">
+📞 Contact
+</a>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+<div class="hero-icon">
 📚
-</div><h1>
+</div>
+
+<h1>
 Learn English. Build Your Future.
-</h1><p>
+</h1>
+
+<p>
 Learn English through structured lessons,
 AI-powered practice, MCQs and Premium
 learning resources.
-</p><div class="buttons"><a
+</p>
+
+
+<div class="buttons">
+
+<a
 class="btn free"
 href="ai-tutor.html">
+
 🌱 Start Free AI Learning
+
 </a>
+
 
 <a
 class="btn premium"
 id="premiumButton"
 href="login.html?next=payment.html">
+
 ⭐ Premium — LKR 1,500 / 30 Days
+
 </a>
 
-</div><div
+</div>
+
+
+<div
 id="membershipStatus"
 class="membership-status">
-</div></section><div class="grid"><div class="card"><h3>🌱 Free Learning</h3><p>
+</div>
+
+</section>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<h3>🌱 Free Learning</h3>
+
+<p>
 Practise English grammar, vocabulary
 and essential skills with our free
 learning resources.
-</p><a href="free-course.html">
+</p>
+
+<a href="free-course.html">
 Start Learning →
-</a></div><div class="card"><h3>🤖 Free AI English Tutor</h3><p>
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>🤖 Free AI English Tutor</h3>
+
+<p>
 Generate English practice questions
 with CreateLK AI. No email or account
 is required for free practice.
-</p><a href="ai-tutor.html">
+</p>
+
+<a href="ai-tutor.html">
 Open AI Tutor →
-</a></div><div class="card"><h3>📝 AI MCQs</h3><p>
-Practise English with AI-generated
-multiple-choice questions.
-</p><a href="ai-mcq.html">
-Practice MCQs →
-</a></div><div class="card"><h3>⭐ Premium AI MCQs</h3><p>
-Generate personalised English MCQs
-with Premium AI learning access.
-</p><a
-href="premium.html"
-id="premiumCardLink">
-Open Premium AI →
 </a>
 
-</div><div class="card"><h3>💎 Premium Membership</h3><p>
+</div>
+
+
+<div class="card">
+
+<h3>📝 AI MCQs</h3>
+
+<p>
+Practise English with AI-generated
+multiple-choice questions.
+</p>
+
+<a href="ai-mcq.html">
+Practice MCQs →
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>⭐ Premium AI MCQs</h3>
+
+<p>
+Generate personalised English MCQs
+with Premium AI learning access.
+</p>
+
+<a
+href="premium.html"
+id="premiumCardLink">
+
+Open Premium AI →
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>💎 Premium Membership</h3>
+
+<p>
 Access Premium English learning
 resources for 30 days for
 LKR 1,500.
-</p><a href="membership.html">
+</p>
+
+<a href="membership.html">
 View Membership →
-</a></div><div class="card"><h3>👤 Student Dashboard</h3><p>
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>👤 Student Dashboard</h3>
+
+<p>
 View your account and Premium
 membership status.
-</p><a href="dashboard.html">
+</p>
+
+<a href="dashboard.html">
 Open Dashboard →
-</a></div><div class="card"><h3>📞 Student Support</h3><p>
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>📞 Student Support</h3>
+
+<p>
 Need help with learning,
 membership or payment?
-</p><a href="contact.html">
+</p>
+
+<a href="contact.html">
 Contact Us →
-</a></div></div><section class="info"><h2>
+</a>
+
+</div>
+
+</div>
+
+
+<section class="info">
+
+<h2>
 ⭐ Premium Membership
-</h2><p>
+</h2>
+
+<p>
 Premium English membership costs
 <b>LKR 1,500 for 30 days</b>.
 Premium students can access additional
 English learning resources and higher
 AI-MCQ usage.
-</p><div class="premium-note">🔐 Premium access is available after
+</p>
+
+<div class="premium-note">
+
+🔐 Premium access is available after
 successful payment and membership
 verification.
 
-</div><div class="links"><a href="membership.html">
+</div>
+
+
+<div class="links">
+
+<a href="membership.html">
 ⭐ Membership
-</a><a href="premium.html">
+</a>
+
+<a href="premium.html">
 🤖 Premium AI
-</a><a href="payment.html">
+</a>
+
+<a href="payment.html">
 💳 Payment
-</a><a href="dashboard.html">
+</a>
+
+<a href="dashboard.html">
 👤 Dashboard
-</a></div></section><section class="info"><h2>
+</a>
+
+</div>
+
+</section>
+
+
+<section class="info">
+
+<h2>
 📚 CreateLK Academy
-</h2><p>
+</h2>
+
+<p>
 Our goal is to help students improve
 their English through accessible
 lessons, AI-powered practice and
 structured learning resources.
-</p><div class="links"><a href="about.html">ℹ️ About</a>
+</p>
+
+
+<div class="links">
+
+<a href="about.html">ℹ️ About</a>
 
 <a href="contact.html">📞 Contact</a>
 
@@ -498,9 +703,21 @@ structured learning resources.
 
 <a href="terms.html">📄 Terms</a>
 
-</div></section></main><footer>📚 <b>CreateLK Academy</b>
+</div>
 
-<br>Learn English. Build Your Future.
+</section>
+
+
+</main>
+
+
+<footer>
+
+📚 <b>CreateLK Academy</b>
+
+<br>
+
+Learn English. Build Your Future.
 
 <br><br>
 
@@ -519,31 +736,59 @@ structured learning resources.
 © 2026 CreateLK Academy.
 All Rights Reserved.
 
-</footer><a
+</footer>
+
+
+<a
 class="wa"
 href="https://wa.me/94771190395"
 target="_blank"
-rel="noopener noreferrer"
-aria-label="WhatsApp">
+rel="noopener noreferrer">
+
 💬
+
 </a>
+
 
 <script>
 
 "use strict";
 
 
-/* =====================================
-   CONFIGURATION
-===================================== */
+/* ==============================
+   WORKERS
+============================== */
 
-const MEMBERSHIP_WORKER =
-"https://createlk-approval.gateofheavensl1.workers.dev";
+const MEMBERSHIP_API =
+"https://createlk-membership.gateofheavensl1.workers.dev";
+
+const PAYMENT_API =
+"https://payment.gateofheavensl1.workers.dev";
 
 
-/* =====================================
+/* ==============================
+   ELEMENTS
+============================== */
+
+const premiumButton =
+document.getElementById("premiumButton");
+
+const desktopPremium =
+document.getElementById("desktopPremium");
+
+const mobilePremium =
+document.getElementById("mobilePremium");
+
+const premiumCardLink =
+document.getElementById("premiumCardLink");
+
+const membershipStatus =
+document.getElementById("membershipStatus");
+
+
+/* ==============================
    MOBILE MENU
-===================================== */
+============================== */
 
 const menuBtn =
 document.getElementById("menuBtn");
@@ -551,9 +796,7 @@ document.getElementById("menuBtn");
 const mobileMenu =
 document.getElementById("mobileMenu");
 
-menuBtn.addEventListener(
-"click",
-function(){
+menuBtn.onclick = function(){
 
 mobileMenu.classList.toggle("open");
 
@@ -562,256 +805,333 @@ mobileMenu.classList.contains("open")
 ? "✕"
 : "☰";
 
-});
+};
 
-mobileMenu
-.querySelectorAll("a")
-.forEach(function(link){
 
-link.addEventListener(
-"click",
+/* ==============================
+   GET STUDENT EMAIL
+============================== */
+
+function getEmail(){
+
+let email =
+localStorage.getItem(
+"createlk_student_email"
+);
+
+if(email)
+return email.trim().toLowerCase();
+
+
+try{
+
+const user =
+JSON.parse(
+localStorage.getItem(
+"createlk_user"
+)
+);
+
+if(user && user.email)
+return user.email.trim().toLowerCase();
+
+}catch(e){}
+
+
+try{
+
+const student =
+JSON.parse(
+localStorage.getItem(
+"createlk_student"
+)
+);
+
+if(student && student.email)
+return student.email.trim().toLowerCase();
+
+}catch(e){}
+
+
+return null;
+
+}
+
+
+/* ==============================
+   UPGRADE
+============================== */
+
+function upgrade(){
+
+premiumButton.textContent =
+"⭐ Premium — LKR 1,500 / 30 Days";
+
+premiumButton.href =
+"payment.html";
+
+premiumButton.className =
+"btn premium";
+
+
+desktopPremium.textContent =
+"⭐ Premium AI";
+
+desktopPremium.href =
+"payment.html";
+
+
+mobilePremium.textContent =
+"⭐ Premium AI MCQs";
+
+mobilePremium.href =
+"payment.html";
+
+
+premiumCardLink.textContent =
+"Open Premium AI →";
+
+premiumCardLink.href =
+"payment.html";
+
+
+membershipStatus.style.display =
+"none";
+
+}
+
+
+/* ==============================
+   PENDING
+============================== */
+
+function pending(){
+
+premiumButton.textContent =
+"⏳ Payment Pending";
+
+premiumButton.href =
+"payment.html";
+
+premiumButton.className =
+"btn pending";
+
+
+desktopPremium.textContent =
+"⏳ Payment Pending";
+
+desktopPremium.href =
+"payment.html";
+
+
+mobilePremium.textContent =
+"⏳ Payment Pending";
+
+mobilePremium.href =
+"payment.html";
+
+
+premiumCardLink.textContent =
+"⏳ Payment Pending";
+
+premiumCardLink.href =
+"payment.html";
+
+
+membershipStatus.textContent =
+"⏳ Your payment is waiting for administrator approval.";
+
+membershipStatus.className =
+"membership-status status-pending";
+
+}
+
+
+/* ==============================
+   ACTIVE
+============================== */
+
+function active(expiry){
+
+premiumButton.textContent =
+"⭐ Open Premium Courses";
+
+premiumButton.href =
+"premium-course.html";
+
+premiumButton.className =
+"btn active";
+
+
+desktopPremium.textContent =
+"⭐ Premium Active";
+
+desktopPremium.href =
+"premium-course.html";
+
+
+mobilePremium.textContent =
+"⭐ Premium Active";
+
+mobilePremium.href =
+"premium-course.html";
+
+
+premiumCardLink.textContent =
+"Open Premium Courses →";
+
+premiumCardLink.href =
+"premium-course.html";
+
+
+if(expiry){
+
+const date =
+new Date(
+String(expiry).replace(" ","T")
+);
+
+membershipStatus.textContent =
+"⭐ Premium Active • Expires " +
+date.toLocaleDateString();
+
+}else{
+
+membershipStatus.textContent =
+"⭐ Premium membership is active.";
+
+}
+
+
+membershipStatus.className =
+"membership-status status-active";
+
+}
+
+
+/* ==============================
+   CHECK STATUS
+============================== */
+
+async function checkStatus(){
+
+upgrade();
+
+const email =
+getEmail();
+
+if(!email)
+return;
+
+
+try{
+
+/* Check membership */
+
+let response =
+await fetch(
+MEMBERSHIP_API +
+"/status?email=" +
+encodeURIComponent(email) +
+"&t=" +
+Date.now()
+);
+
+let data =
+await response.json();
+
+console.log(
+"Membership:",
+data
+);
+
+
+if(
+data.success &&
+data.active
+){
+
+active(
+data.expires_at
+);
+
+return;
+
+}
+
+
+/* Check payment */
+
+response =
+await fetch(
+PAYMENT_API +
+"/payment-status?email=" +
+encodeURIComponent(email) +
+"&t=" +
+Date.now()
+);
+
+data =
+await response.json();
+
+console.log(
+"Payment:",
+data
+);
+
+
+if(
+data.success &&
+data.found &&
+data.payment &&
+data.payment.status ===
+"pending"
+){
+
+pending();
+
+}
+
+}catch(error){
+
+console.log(
+"Status check:",
+error
+);
+
+}
+
+}
+
+
+/* ==============================
+   START
+============================== */
+
+checkStatus();
+
+
+/* ==============================
+   RECHECK
+============================== */
+
+document.addEventListener(
+"visibilitychange",
 function(){
 
-mobileMenu.classList.remove("open");
+if(
+document.visibilityState ===
+"visible"
+){
 
-menuBtn.textContent = "☰";
+checkStatus();
+
+}
 
 });
-});
 
+</script>
 
-/* =====================================
-   FIND STUDENT EMAIL
-===================================== */
 
-function getStudentEmail(){
-
-    const keys = [
-        "studentEmail",
-        "student_email",
-        "userEmail",
-        "user_email",
-        "email",
-        "registeredEmail"
-    ];
-
-    for(const key of keys){
-
-        const value =
-            localStorage.getItem(key);
-
-        if(value && value.trim()){
-
-            return value
-                .trim()
-                .toLowerCase();
-        }
-    }
-
-    return null;
-}
-
-
-/* =====================================
-   UPDATE PREMIUM BUTTON
-===================================== */
-
-function setPremiumActive(expiry){
-
-    const button =
-        document.getElementById(
-            "premiumButton"
-        );
-
-    const desktop =
-        document.getElementById(
-            "desktopPremium"
-        );
-
-    const mobile =
-        document.getElementById(
-            "mobilePremium"
-        );
-
-    const card =
-        document.getElementById(
-            "premiumCardLink"
-        );
-
-    const status =
-        document.getElementById(
-            "membershipStatus"
-        );
-
-
-    button.textContent =
-        "✅ Premium Active";
-
-    button.href =
-        "premium.html";
-
-    button.className =
-        "btn active";
-
-
-    desktop.textContent =
-        "✅ Premium Active";
-
-    desktop.href =
-        "premium.html";
-
-
-    mobile.textContent =
-        "✅ Premium Active";
-
-    mobile.href =
-        "premium.html";
-
-
-    card.textContent =
-        "Open Premium AI →";
-
-    card.href =
-        "premium.html";
-
-
-    if(expiry){
-
-        const date =
-            new Date(expiry);
-
-        status.textContent =
-            "⭐ Premium Active • Expires " +
-            date.toLocaleDateString();
-
-        status.className =
-            "membership-status status-active";
-    }
-
-}
-
-
-/* =====================================
-   PENDING PAYMENT
-===================================== */
-
-function setPending(){
-
-    const button =
-        document.getElementById(
-            "premiumButton"
-        );
-
-    const status =
-        document.getElementById(
-            "membershipStatus"
-        );
-
-
-    button.textContent =
-        "⏳ Payment Pending";
-
-    button.href =
-        "payment.html";
-
-    button.className =
-        "btn pending";
-
-
-    status.textContent =
-        "⏳ Your payment is waiting for administrator verification.";
-
-    status.className =
-        "membership-status status-pending";
-
-}
-
-
-/* =====================================
-   CHECK MEMBERSHIP
-===================================== */
-
-async function checkMembership(){
-
-    const email =
-        getStudentEmail();
-
-
-    if(!email){
-        return;
-    }
-
-
-    try{
-
-        const response =
-            await fetch(
-                MEMBERSHIP_WORKER +
-                "/membership?email=" +
-                encodeURIComponent(email)
-            );
-
-
-        const data =
-            await response.json();
-
-
-        if(
-            !response.ok ||
-            !data.success
-        ){
-            return;
-        }
-
-
-        if(
-            data.active &&
-            data.membership
-        ){
-
-            setPremiumActive(
-                data.membership.expires_at
-            );
-
-            return;
-        }
-
-
-        if(
-            data.membership &&
-            data.membership.status === "expired"
-        ){
-
-            const status =
-                document.getElementById(
-                    "membershipStatus"
-                );
-
-            status.textContent =
-                "⚠️ Your Premium membership has expired.";
-
-            status.className =
-                "membership-status status-expired";
-
-        }
-
-    }
-    catch(error){
-
-        console.log(
-            "Membership check:",
-            error
-        );
-
-    }
-
-}
-
-
-/* =====================================
-   START
-===================================== */
-
-checkMembership();
-
-</script></body></html>
+</body>
+</html>
