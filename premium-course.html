@@ -3,52 +3,220 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>CreateLK Academy | Premium AI English MCQs</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}
-header{background:#174ea6;color:#fff;padding:14px}
-.nav{max-width:760px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+body{
+font-family:"Segoe UI",Arial,sans-serif;
+background:#f4f7fb;
+color:#172033;
+line-height:1.6
+}
+header{
+background:#174ea6;
+color:#fff;
+padding:14px
+}
+.nav{
+max-width:760px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center
+}
 .logo{font-weight:800}
-.nav a{color:#fff;text-decoration:none;font-weight:700}
-.nav-right{display:flex;gap:10px;align-items:center}
-.logout{display:none;background:#ffffff22;color:#fff;border:1px solid #ffffff55;padding:7px 10px;border-radius:8px;font-weight:700}
-main{max-width:760px;margin:auto;padding:25px 15px}
-.hero{text-align:center;margin-bottom:18px}
-.icon{font-size:48px}
-h1{color:#174ea6;margin:7px}
+.nav-right{
+display:flex;
+gap:10px;
+align-items:center
+}
+.home,.logout{
+color:#fff;
+font-weight:700;
+text-decoration:none
+}
+.logout{
+display:none;
+background:#ffffff18;
+border:1px solid #ffffff55;
+padding:7px 10px;
+border-radius:8px;
+cursor:pointer
+}
+main{
+max-width:760px;
+margin:auto;
+padding:25px 15px 50px
+}
+.hero{text-align:center;margin-bottom:20px}
+.icon{font-size:50px}
+h1{color:#174ea6;margin:8px 0}
 .hero p{color:#667085}
-.card{background:#fff;padding:20px;border-radius:18px;box-shadow:0 5px 24px #0001;margin-bottom:16px}
-.membership{padding:15px;border-radius:12px;margin-bottom:18px}
-.active{background:#dcfce7;color:#166534}
-.locked{background:#fee2e2;color:#991b1b}
-.login{background:#eef4ff;color:#174ea6;padding:15px;border-radius:12px}
-.login a{display:block;text-align:center;padding:13px;margin-top:10px;border-radius:10px;text-decoration:none;font-weight:800}
-.login-btn{background:#174ea6;color:#fff}
-.register-btn{border:2px solid #174ea6;color:#174ea6}
-.email{font-size:13px;margin-top:4px}
-.countdown{font-weight:800;margin-top:5px}
-.usage{font-weight:800;margin-top:7px}
+.card{
+background:#fff;
+padding:20px;
+border-radius:18px;
+margin-bottom:16px;
+box-shadow:0 5px 24px #0001
+}
+.membership{
+padding:15px;
+border-radius:12px;
+margin-bottom:18px
+}
+.active{
+background:#dcfce7;
+color:#166534
+}
+.locked{
+background:#fee2e2;
+color:#991b1b
+}
+.login-box{
+background:#eef4ff;
+color:#174ea6;
+padding:15px;
+border-radius:12px;
+margin-bottom:18px
+}
+.login-button,.register-button{
+display:block;
+width:100%;
+padding:13px;
+margin-top:10px;
+border-radius:10px;
+text-align:center;
+text-decoration:none;
+font-weight:800
+}
+.login-button{
+background:#174ea6;
+color:#fff
+}
+.register-button{
+background:#fff;
+color:#174ea6;
+border:2px solid #174ea6
+}
+.email{
+font-size:13px;
+word-break:break-word
+}
+.countdown,.usage{
+font-weight:800;
+margin-top:6px
+}
 .remaining{font-size:13px}
-.progress{height:8px;background:#ddd;border-radius:10px;margin-top:6px}
-.bar{height:100%;width:0%;background:#20a464;border-radius:10px}
-label{display:block;font-weight:800;margin:12px 0 6px}
-select{width:100%;padding:13px;border:1px solid #ddd;border-radius:10px;font-size:16px}
-button.generate{width:100%;padding:14px;margin-top:16px;border:0;border-radius:10px;background:#174ea6;color:#fff;font-size:16px;font-weight:800}
-button:disabled{opacity:.5}
-.msg{margin-top:12px;padding:12px;border-radius:10px;font-weight:700}
-.error{background:#fee2e2;color:#991b1b}
-.success{background:#dcfce7;color:#166534}
-.loading{text-align:center;padding:12px;display:none}
+.progress{
+height:9px;
+background:#e5e7eb;
+border-radius:10px;
+margin-top:7px;
+overflow:hidden
+}
+.bar{
+height:100%;
+width:0%;
+background:#20a464
+}
+label{
+display:block;
+font-weight:800;
+margin:12px 0 6px
+}
+select{
+width:100%;
+padding:13px;
+border:1px solid #d5dbe5;
+border-radius:10px;
+font-size:16px;
+background:#fff
+}
+.generate{
+width:100%;
+padding:14px;
+border:0;
+border-radius:10px;
+background:#174ea6;
+color:#fff;
+margin-top:16px;
+font-size:16px;
+font-weight:800;
+cursor:pointer
+}
+.generate:disabled{
+opacity:.5;
+cursor:not-allowed
+}
+.loading{
+display:none;
+text-align:center;
+padding:15px
+}
+.msg{
+display:none;
+padding:13px;
+border-radius:10px;
+margin-top:14px;
+font-weight:700
+}
+.success{
+background:#dcfce7;
+color:#166534
+}
+.error{
+background:#fee2e2;
+color:#991b1b
+}
 .question-card{display:none}
-.question{font-size:20px;font-weight:800;margin-bottom:15px}
-.option{width:100%;padding:14px;margin:6px 0;text-align:left;border:2px solid #ddd;border-radius:10px;background:#fff}
-.correct{background:#dcfce7!important;border-color:#16a34a!important}
-.wrong{background:#fee2e2!important;border-color:#dc2626!important}
-.answer{margin-top:15px;line-height:1.6}
-.next{display:none;width:100%;padding:13px;margin-top:15px;border:0;border-radius:10px;background:#174ea6;color:#fff;font-weight:800}
-footer{text-align:center;padding:25px;color:#667085;font-size:13px}
+.question{
+font-size:20px;
+font-weight:800;
+margin-bottom:18px
+}
+.option{
+width:100%;
+padding:14px;
+margin-bottom:10px;
+border:2px solid #ddd;
+border-radius:10px;
+background:#fff;
+text-align:left;
+font-size:16px;
+cursor:pointer
+}
+.option:disabled{cursor:default}
+.correct{
+background:#dcfce7!important;
+border-color:#16a34a!important;
+color:#166534
+}
+.wrong{
+background:#fee2e2!important;
+border-color:#dc2626!important;
+color:#991b1b
+}
+.answer{margin-top:15px}
+.next{
+display:none;
+width:100%;
+margin-top:15px;
+padding:14px;
+border:0;
+border-radius:10px;
+background:#174ea6;
+color:#fff;
+font-size:16px;
+font-weight:800
+}
+footer{
+text-align:center;
+padding:25px;
+color:#667085;
+font-size:13px
+}
 </style>
 </head>
 
@@ -56,10 +224,17 @@ footer{text-align:center;padding:25px;color:#667085;font-size:13px}
 
 <header>
 <div class="nav">
+
 <div class="logo">📚 CreateLK Academy</div>
+
 <div class="nav-right">
-<a href="index.html">🏠 Home</a>
-<button id="logout" class="logout">🚪 Logout</button>
+
+<a href="index.html" class="home">🏠 Home</a>
+
+<button id="logout" class="logout" type="button">
+🚪 Logout
+</button>
+
 </div>
 </div>
 </header>
@@ -67,9 +242,16 @@ footer{text-align:center;padding:25px;color:#667085;font-size:13px}
 <main>
 
 <section class="hero">
+
 <div class="icon">⭐</div>
+
 <h1>Premium AI English MCQs</h1>
-<p>Practise English with up to <b>100 AI-generated MCQs every day.</b></p>
+
+<p>
+Practise English with up to
+<b>100 AI-generated MCQs every day.</b>
+</p>
+
 </section>
 
 <section class="card">
@@ -78,18 +260,30 @@ footer{text-align:center;padding:25px;color:#667085;font-size:13px}
 ⏳ Checking Premium membership...
 </div>
 
-<div id="loginBox" class="login" style="display:none">
-<b>🔐 Premium login required</b>
-<div>Please login to access Premium AI.</div>
+<div id="loginBox" class="login-box" style="display:none">
 
-<a class="login-btn" href="login.html">🔐 Student Login</a>
-<a class="register-btn" href="register.html">✍️ Create Account</a>
+🔐 <b>Premium login required</b>
+
+<div style="font-size:14px;margin-top:5px">
+Please login to your CreateLK Academy account.
 </div>
 
-<div id="controls" style="display:none">
+<a href="login.html" class="login-button">
+🔐 Student Login
+</a>
+
+<a href="register.html" class="register-button">
+✍️ Create Account
+</a>
+
+</div>
+
+<div id="controls">
 
 <label>📚 Subject</label>
+
 <select id="category">
+
 <option>English Vocabulary</option>
 <option>English Grammar</option>
 <option>English Tenses</option>
@@ -102,16 +296,20 @@ footer{text-align:center;padding:25px;color:#667085;font-size:13px}
 <option>Conversation English</option>
 <option>Reading Comprehension</option>
 <option>Mixed English</option>
+
 </select>
 
 <label>🎓 Difficulty</label>
+
 <select id="level">
+
 <option>Beginner</option>
 <option selected>Intermediate</option>
 <option>Advanced</option>
+
 </select>
 
-<button id="generate" class="generate" disabled>
+<button id="generate" class="generate" type="button" disabled>
 ⏳ Checking Premium...
 </button>
 
@@ -119,43 +317,52 @@ footer{text-align:center;padding:25px;color:#667085;font-size:13px}
 🤖 Premium AI is generating...
 </div>
 
-<div id="msg"></div>
+<div id="msg" class="msg"></div>
 
 </div>
+
 </section>
 
 <section id="questionCard" class="card question-card">
+
 <div id="question" class="question"></div>
+
 <div id="options"></div>
+
 <div id="answer" class="answer"></div>
-<button id="next" class="next">➡️ Next MCQ</button>
+
+<button id="next" class="next" type="button">
+➡️ Next MCQ
+</button>
+
 </section>
 
 </main>
 
 <footer>
-📚 <b>CreateLK Academy</b><br>
-Learn English. Build Your Future.<br><br>
-© 2026 CreateLK Academy.
+
+📚 <b>CreateLK Academy</b>
+<br>
+Learn English. Build Your Future.
+<br><br>
+© 2026 CreateLK Academy. All Rights Reserved.
+
 </footer>
 
 <script>
 "use strict";
 
-/* SAME MEMBERSHIP WORKER USED BY MEMBERSHIP PAGE */
 const MEMBERSHIP_API =
 "https://createlk-membership.gateofheavensl1.workers.dev";
 
-/* AI WORKER ONLY GENERATES MCQ */
 const AI_API =
 "https://premium-worker.gateofheavensl1.workers.dev";
 
 const LIMIT=100;
 
 let email="";
-let usage=0;
 let premium=false;
-let expiry=null;
+let usage=0;
 let timer=null;
 
 const $=id=>document.getElementById(id);
@@ -165,58 +372,70 @@ const loginBox=$("loginBox");
 const controls=$("controls");
 const generate=$("generate");
 const loading=$("loading");
-const msgBox=$("msg");
+const msg=$("msg");
 const logout=$("logout");
 
 function getEmail(){
 
-for(const k of [
+for(const key of [
 "createlk_student_email",
 "studentEmail",
 "email"
 ]){
-const v=localStorage.getItem(k);
-if(v&&v.trim())return v.trim().toLowerCase();
+
+const v=localStorage.getItem(key);
+
+if(v&&v.trim())
+return v.trim().toLowerCase();
+
 }
 
-for(const k of [
+for(const key of [
 "createlk_user",
 "createlk_student"
 ]){
+
 try{
-const u=JSON.parse(localStorage.getItem(k));
-if(u&&u.email)return u.email.trim().toLowerCase();
+
+const u=JSON.parse(
+localStorage.getItem(key)
+);
+
+if(u&&u.email)
+return u.email.trim().toLowerCase();
+
 }catch(e){}
+
 }
 
 return "";
 }
 
-function message(text,type="error"){
-msgBox.className="msg "+type;
-msgBox.textContent=text;
+function message(text,type){
+
+msg.textContent=text;
+msg.className="msg "+type;
+msg.style.display="block";
+
 }
 
 function active(data){
 
-return data &&
+return !!(
+data &&
 (
 data.active===true ||
 String(data.status||"").toLowerCase()==="active" ||
-(data.membership &&
-(
-data.membership.active===true ||
-String(data.membership.status||"").toLowerCase()==="active"
-)) ||
-(data.subscription &&
-(
-data.subscription.active===true ||
-String(data.subscription.status||"").toLowerCase()==="active"
-))
+data.membership?.active===true ||
+String(data.membership?.status||"").toLowerCase()==="active" ||
+data.subscription?.active===true ||
+String(data.subscription?.status||"").toLowerCase()==="active"
+)
 );
+
 }
 
-function getExpiry(data){
+function expiry(data){
 
 return data?.expires_at ||
 data?.expiresAt ||
@@ -229,6 +448,7 @@ data?.subscription?.expires_at ||
 data?.subscription?.expiresAt ||
 data?.subscription?.expiry ||
 null;
+
 }
 
 function getUsage(data){
@@ -243,97 +463,69 @@ data?.subscription?.usage ??
 data?.subscription?.today_usage ??
 0
 )||0;
-}
 
-function showLogin(){
-
-premium=false;
-loginBox.style.display="block";
-controls.style.display="none";
-membership.className="membership locked";
-membership.innerHTML="🔐 <b>Please login to access Premium.</b>";
-logout.style.display="none";
-}
-
-function showActive(data){
-
-premium=true;
-
-loginBox.style.display="none";
-controls.style.display="block";
-logout.style.display="block";
-
-usage=getUsage(data);
-expiry=getExpiry(data);
-
-membership.className="membership active";
-
-membership.innerHTML=`
-<b>⭐ Premium Active</b>
-<div class="email">${email}</div>
-${expiry?`<div>📅 Expires: ${new Date(String(expiry).replace(" ","T")).toLocaleDateString()}</div>`:""}
-<div id="countdown" class="countdown"></div>
-<div class="usage">📊 Today's AI Usage: ${usage} / ${LIMIT}</div>
-<div class="remaining">✨ Remaining today: ${Math.max(0,LIMIT-usage)}</div>
-<div class="progress"><div id="bar" class="bar"></div></div>
-`;
-
-updateUsage();
-
-if(expiry)startCountdown(expiry);
-
-if(usage>=LIMIT){
-generate.disabled=true;
-generate.textContent="🔒 Daily Limit Reached";
-}else{
-generate.disabled=false;
-generate.textContent="✨ Generate Premium MCQ";
-}
-
-message("✅ Premium access verified.","success");
 }
 
 function updateUsage(){
 
-const bar=$("bar");
+const u=
+membership.querySelector(".usage");
 
-if(bar)
-bar.style.width=Math.min(usage/LIMIT*100,100)+"%";
+const r=
+membership.querySelector(".remaining");
 
-const r=membership.querySelector(".remaining");
-const u=membership.querySelector(".usage");
+const b=
+membership.querySelector(".bar");
 
-if(r)r.textContent=
+if(u)
+u.textContent=
+`📊 Today's AI Usage: ${usage} / ${LIMIT}`;
+
+if(r)
+r.textContent=
 `✨ Remaining today: ${Math.max(0,LIMIT-usage)}`;
 
-if(u)u.textContent=
-`📊 Today's AI Usage: ${usage} / ${LIMIT}`;
+if(b)
+b.style.width=
+Math.min(usage/LIMIT*100,100)+"%";
+
 }
 
-function startCountdown(x){
+function countdown(date){
 
 clearInterval(timer);
 
-const end=new Date(
-String(x).replace(" ","T")
+const end=
+new Date(
+String(date).replace(" ","T")
 ).getTime();
 
-function tick(){
+function run(){
 
-const box=$("countdown");
+const box=
+membership.querySelector(".countdown");
+
 if(!box)return;
 
-let s=Math.floor((end-Date.now())/1000);
+let s=
+Math.floor((end-Date.now())/1000);
 
 if(s<=0){
 
 clearInterval(timer);
+
 premium=false;
+
 generate.disabled=true;
+generate.textContent="🔒 Premium Expired";
 
 membership.className="membership locked";
-membership.innerHTML="🔒 <b>Premium membership expired.</b>";
+
+membership.innerHTML=
+"🔒 <b>Premium membership expired.</b>";
+
 return;
+
 }
 
 const d=Math.floor(s/86400);
@@ -347,190 +539,375 @@ s%=60;
 
 box.textContent=
 `⏳ Expires in: ${d}d ${h}h ${m}m ${s}s`;
+
 }
 
-tick();
-timer=setInterval(tick,1000);
+run();
+
+timer=setInterval(run,1000);
+
 }
 
-/* IMPORTANT:
-   VERIFY ONLY AGAINST MEMBERSHIP WORKER
-*/
+function showLogin(){
+
+premium=false;
+
+loginBox.style.display="block";
+controls.style.display="none";
+logout.style.display="none";
+
+membership.className="membership locked";
+
+membership.innerHTML=
+"🔐 <b>Please login to access Premium.</b>";
+
+}
+
+function showActive(data){
+
+premium=true;
+
+loginBox.style.display="none";
+controls.style.display="block";
+logout.style.display="block";
+
+usage=getUsage(data);
+
+const exp=expiry(data);
+
+membership.className="membership active";
+
+membership.innerHTML=`
+
+<b>⭐ Premium Active</b>
+
+<div class="email">${email}</div>
+
+${exp?
+`<div>📅 Expires:
+${new Date(
+String(exp).replace(" ","T")
+).toLocaleDateString()}</div>`
+:""}
+
+<div class="countdown">
+⏳ Checking...
+</div>
+
+<div class="usage">
+📊 Today's AI Usage: ${usage} / ${LIMIT}
+</div>
+
+<div class="remaining">
+✨ Remaining today: ${Math.max(0,LIMIT-usage)}
+</div>
+
+<div class="progress">
+<div class="bar"></div>
+</div>
+`;
+
+updateUsage();
+
+if(exp)countdown(exp);
+
+if(usage>=LIMIT){
+
+generate.disabled=true;
+generate.textContent="🔒 Daily Limit Reached";
+
+}else{
+
+generate.disabled=false;
+generate.textContent="✨ Generate Premium MCQ";
+
+}
+
+message(
+"✅ Premium access verified.",
+"success"
+);
+
+}
+
 async function verify(){
 
 email=getEmail();
 
 if(!email){
+
 showLogin();
-return;
+return false;
+
 }
 
 membership.className="membership";
-membership.innerHTML="⏳ Checking Premium membership...";
-controls.style.display="none";
+
+membership.innerHTML=
+"⏳ Checking Premium membership...";
 
 try{
 
-const response=await fetch(
+const response=
+await fetch(
 MEMBERSHIP_API+
 "/status?email="+
 encodeURIComponent(email)+
 "&t="+Date.now(),
 {
+method:"GET",
 cache:"no-store",
-headers:{Accept:"application/json"}
+headers:{
+"Accept":"application/json"
+}
 }
 );
 
-const text=await response.text();
+const text=
+await response.text();
 
-console.log("MEMBERSHIP:",text);
+console.log(
+"MEMBERSHIP RESPONSE:",
+text
+);
 
 let data;
 
 try{
+
 data=JSON.parse(text);
+
 }catch(e){
-throw new Error("Invalid membership response.");
+
+throw new Error(
+"Invalid membership response."
+);
+
 }
 
-if(!response.ok)
-throw new Error("Membership server error.");
-
 if(active(data)){
+
 showActive(data);
-}else{
+return true;
+
+}
 
 premium=false;
-
-membership.className="membership locked";
-membership.innerHTML="🔒 <b>Premium membership not found.</b>";
 
 controls.style.display="none";
 
-message("Premium membership not found.","error");
-}
+membership.className="membership locked";
+
+membership.innerHTML=
+"🔒 <b>Premium membership not found.</b>";
+
+generate.disabled=true;
+
+message(
+"Premium membership not found.",
+"error"
+);
+
+return false;
 
 }catch(e){
 
+console.error(e);
+
 premium=false;
 
+generate.disabled=true;
+
 membership.className="membership locked";
+
 membership.innerHTML=
 "⚠️ <b>Unable to verify Premium membership.</b>";
 
-controls.style.display="none";
+message(
+"❌ "+e.message,
+"error"
+);
 
-message(e.message,"error");
-}
+return false;
+
 }
 
-/* GENERATE */
-generate.onclick=async function(){
+}
+
+async function generateMCQ(){
+
+console.log("GENERATE CLICKED");
+
+message(
+"⏳ Connecting to Premium AI...",
+"success"
+);
 
 if(!premium){
-await verify();
-return;
+
+const ok=await verify();
+
+if(!ok)return;
+
 }
 
 if(usage>=LIMIT){
-message("🔒 Today's 100 MCQ limit has been reached.");
+
+message(
+"🔒 Daily limit reached.",
+"error"
+);
+
 return;
+
 }
 
 generate.disabled=true;
+generate.textContent="🤖 Generating...";
+
 loading.style.display="block";
-msgBox.style.display="none";
+
+$("questionCard").style.display="none";
 
 try{
 
-const response=await fetch(
+const response=
+await fetch(
 AI_API+"/api/ai-mcq",
 {
 method:"POST",
 headers:{
-"Content-Type":"application/json"
+"Content-Type":"application/json",
+"Accept":"application/json"
 },
 body:JSON.stringify({
+
 email:email,
+
 category:$("category").value,
+
 topic:$("category").value,
+
 level:$("level").value,
+
 type:"premium"
+
 })
 }
 );
 
-const text=await response.text();
+const text=
+await response.text();
 
-console.log("AI:",text);
+console.log(
+"AI RESPONSE:",
+text
+);
 
 let data;
 
 try{
-data=JSON.parse(text);
-}catch(e){
-throw new Error("Invalid AI response.");
-}
 
-if(!response.ok||data.success!==true)
+data=JSON.parse(text);
+
+}catch(e){
+
 throw new Error(
-data.error||data.message||"AI generation failed."
+"Invalid AI Worker response."
 );
 
-let mcq=data.mcq||data.data||data.result;
+}
 
-if(!mcq)
-throw new Error("MCQ not received.");
+if(!response.ok)
+throw new Error(
+data.error||
+data.message||
+"AI server error."
+);
+
+if(data.success!==true)
+throw new Error(
+data.error||
+data.message||
+"Premium AI generation failed."
+);
+
+let mcq=
+data.mcq||
+data.data||
+data.result;
 
 if(typeof mcq==="string")
 mcq=JSON.parse(mcq);
 
-if(!mcq.question||!mcq.options)
-throw new Error("Invalid MCQ data.");
+if(!mcq||
+!mcq.question||
+!mcq.options)
+throw new Error(
+"MCQ data missing."
+);
 
 usage=Number(
-data.usage ??
-data.today_usage ??
-(usage+1)
+data.usage??
+data.today_usage??
+usage+1
 );
 
 updateUsage();
+
 showMCQ(mcq);
 
-message("✅ MCQ generated successfully.","success");
+message(
+"✅ MCQ generated successfully.",
+"success"
+);
 
 }catch(e){
 
-generate.disabled=false;
-message("❌ "+e.message,"error");
+console.error(
+"AI ERROR:",
+e
+);
+
+message(
+"❌ "+e.message,
+"error"
+);
 
 }finally{
 
 loading.style.display="none";
 
 if(premium&&usage<LIMIT){
+
 generate.disabled=false;
-generate.textContent="✨ Generate Premium MCQ";
+generate.textContent=
+"✨ Generate Premium MCQ";
+
 }
+
 }
-};
+
+}
 
 function showMCQ(mcq){
 
 const card=$("questionCard");
 const q=$("question");
-const opts=$("options");
-const ans=$("answer");
+const options=$("options");
+const answer=$("answer");
 const next=$("next");
 
 card.style.display="block";
+
 q.textContent=mcq.question;
-opts.innerHTML="";
-ans.innerHTML="";
+
+options.innerHTML="";
+answer.innerHTML="";
 next.style.display="none";
 
-const correct=String(
+const correct=
+String(
 mcq.answer||
 mcq.correct_answer||
 mcq.correctAnswer||
@@ -539,59 +916,103 @@ mcq.correctAnswer||
 
 ["A","B","C","D"].forEach(letter=>{
 
-const b=document.createElement("button");
+const button=
+document.createElement("button");
 
-b.className="option";
-b.textContent=
-letter+". "+(mcq.options[letter]||"");
+button.type="button";
+button.className="option";
 
-b.onclick=()=>{
+button.textContent=
+letter+". "+
+(mcq.options[letter]||"");
 
-document.querySelectorAll(".option")
-.forEach(x=>x.disabled=true);
+button.onclick=function(){
+
+document
+.querySelectorAll(".option")
+.forEach(x=>{
+x.disabled=true;
+});
 
 if(letter===correct){
 
-b.classList.add("correct");
+button.classList.add("correct");
 
-ans.innerHTML=
+answer.innerHTML=
 "🎉 <b>Correct!</b><br><br>"+
-(mcq.explanation||"Excellent work!");
+(mcq.explanation||
+"Excellent work!");
 
 }else{
 
-b.classList.add("wrong");
+button.classList.add("wrong");
 
-document.querySelectorAll(".option")
+document
+.querySelectorAll(".option")
 .forEach(x=>{
-if(x.textContent.startsWith(correct+"."))
+
+if(
+x.textContent.startsWith(
+correct+"."
+)
+)
 x.classList.add("correct");
+
 });
 
-ans.innerHTML=
+answer.innerHTML=
 "❌ <b>Incorrect.</b><br><br>"+
-"Correct answer: <b>"+correct+"</b><br><br>"+
-(mcq.explanation||"Review the explanation.");
+"Correct answer: <b>"+
+correct+
+"</b><br><br>"+
+(mcq.explanation||
+"Review the explanation.");
+
 }
 
 if(premium&&usage<LIMIT)
 next.style.display="block";
+
 };
 
-opts.appendChild(b);
+options.appendChild(button);
+
 });
 
 card.scrollIntoView({
 behavior:"smooth",
 block:"start"
 });
+
 }
 
-next.onclick=()=>generate.click();
+generate.addEventListener(
+"click",
+function(e){
 
-logout.onclick=()=>{
+e.preventDefault();
 
-if(!confirm("Are you sure you want to logout?"))
+generateMCQ();
+
+}
+);
+
+$("next").addEventListener(
+"click",
+function(){
+
+generateMCQ();
+
+}
+);
+
+logout.addEventListener(
+"click",
+function(){
+
+if(!confirm(
+"Are you sure you want to logout?"
+))
 return;
 
 [
@@ -600,16 +1021,23 @@ return;
 "email",
 "createlk_user",
 "createlk_student"
-].forEach(k=>localStorage.removeItem(k));
+].forEach(
+k=>localStorage.removeItem(k)
+);
 
 sessionStorage.clear();
 
 clearInterval(timer);
 
-window.location.replace("index.html");
-};
+window.location.replace(
+"index.html"
+);
+
+}
+);
 
 verify();
+
 </script>
 
 </body>
