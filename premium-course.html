@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>CreateLK Academy | Premium AI MCQs</title>
 
@@ -119,8 +117,30 @@ border:1px solid #dbe7ff;
 border-radius:10px;
 margin-bottom:16px;
 font-size:14px;
-line-height:1.5;
+line-height:1.6;
 color:#475467;
+}
+
+.expiry{
+padding:14px;
+background:#ecfdf3;
+border:1px solid #bbf7d0;
+border-radius:12px;
+margin-bottom:16px;
+color:#166534;
+font-weight:700;
+line-height:1.6;
+}
+
+.expiry.expired{
+background:#fef2f2;
+border-color:#fecaca;
+color:#991b1b;
+}
+
+.countdown{
+font-size:18px;
+margin-top:5px;
 }
 
 label{
@@ -278,6 +298,10 @@ font-size:25px;
 padding:17px;
 }
 
+.stats{
+font-size:13px;
+}
+
 }
 
 </style>
@@ -353,6 +377,26 @@ id="membershipInfo"
 class="info">
 
 ⏳ Checking Premium membership...
+
+</div>
+
+
+<div
+id="expiryBox"
+class="expiry"
+style="display:none">
+
+⭐ Premium Membership
+
+<div
+id="expiryText">
+</div>
+
+<div
+id="countdown"
+class="countdown">
+Checking expiry...
+</div>
 
 </div>
 
@@ -566,12 +610,11 @@ All Rights Reserved.
 
 
 /* =================================
-   PREMIUM WORKER
+   CONFIG
 ================================= */
 
 const WORKER =
 "https://premium.gateofheavensl1.workers.dev";
-
 
 const LIMIT = 100;
 
@@ -586,6 +629,10 @@ let used = 0;
 
 let premiumVerified = false;
 
+let expiryTime = null;
+
+let countdownTimer = null;
+
 
 /* =================================
    GET STUDENT EMAIL
@@ -593,12 +640,26 @@ let premiumVerified = false;
 
 function getStudentEmail(){
 
-let value =
-localStorage.getItem(
-"createlk_student_email"
-);
+const keys = [
+"createlk_student_email",
+"studentEmail",
+"student_email",
+"userEmail",
+"user_email",
+"email",
+"registeredEmail"
+];
 
-if(value){
+
+for(const key of keys){
+
+const value =
+localStorage.getItem(key);
+
+if(
+value &&
+String(value).trim()
+){
 
 return String(value)
 .trim()
@@ -606,6 +667,10 @@ return String(value)
 
 }
 
+}
+
+
+/* createlk_user */
 
 try{
 
@@ -631,10 +696,15 @@ user.email
 
 }catch(e){
 
-console.log(e);
+console.log(
+"User data error:",
+e
+);
 
 }
 
+
+/* createlk_student */
 
 try{
 
@@ -660,7 +730,10 @@ student.email
 
 }catch(e){
 
-console.log(e);
+console.log(
+"Student data error:",
+e
+);
 
 }
 
@@ -694,7 +767,7 @@ box.className =
 
 
 /* =================================
-   UPDATE PROGRESS
+   PROGRESS
 ================================= */
 
 function updateProgress(){
@@ -720,19 +793,18 @@ document.getElementById(
 );
 
 
-if(used >= LIMIT){
+if(
+used >= LIMIT
+){
 
 button.disabled = true;
 
 button.textContent =
 "🔒 Daily Limit Reached";
 
-showStatus(
-"🔒 You have reached your 100 MCQ daily limit. Your limit resets at 12:00 AM.",
-"pending"
-);
-
-}else if(premiumVerified){
+}else if(
+premiumVerified
+){
 
 button.disabled = false;
 
@@ -745,7 +817,190 @@ button.textContent =
 
 
 /* =================================
-   VERIFY PREMIUM AUTOMATICALLY
+   EXPIRY COUNTDOWN
+================================= */
+
+function startExpiryCountdown(expiry){
+
+if(!expiry){
+
+return;
+
+}
+
+
+const expiryDate =
+new Date(expiry);
+
+
+if(
+isNaN(
+expiryDate.getTime()
+)
+){
+
+return;
+
+}
+
+
+expiryTime =
+expiryDate.getTime();
+
+
+const box =
+document.getElementById(
+"expiryBox"
+);
+
+const expiryText =
+document.getElementById(
+"expiryText"
+);
+
+const countdown =
+document.getElementById(
+"countdown"
+);
+
+
+box.style.display =
+"block";
+
+
+expiryText.textContent =
+"Valid until: " +
+expiryDate.toLocaleString(
+"en-GB",
+{
+day:"numeric",
+month:"short",
+year:"numeric",
+hour:"2-digit",
+minute:"2-digit"
+}
+);
+
+
+if(countdownTimer){
+
+clearInterval(
+countdownTimer
+);
+
+}
+
+
+function updateCountdown(){
+
+const now =
+Date.now();
+
+const remaining =
+expiryTime - now;
+
+
+if(
+remaining <= 0
+){
+
+clearInterval(
+countdownTimer
+);
+
+premiumVerified =
+false;
+
+
+box.className =
+"expiry expired";
+
+
+countdown.textContent =
+"❌ Premium membership expired.";
+
+
+document.getElementById(
+"generate"
+).disabled = true;
+
+
+document.getElementById(
+"generate"
+).textContent =
+"🔒 Premium Expired";
+
+
+showStatus(
+"❌ Your Premium membership has expired.",
+"error"
+);
+
+return;
+
+}
+
+
+const totalSeconds =
+Math.floor(
+remaining / 1000
+);
+
+
+const days =
+Math.floor(
+totalSeconds /
+86400
+);
+
+
+const hours =
+Math.floor(
+(
+totalSeconds % 86400
+) / 3600
+);
+
+
+const minutes =
+Math.floor(
+(
+totalSeconds % 3600
+) / 60
+);
+
+
+const seconds =
+totalSeconds % 60;
+
+
+countdown.textContent =
+"⏳ " +
+days +
+" days " +
+String(hours).padStart(2,"0") +
+":" +
+String(minutes).padStart(2,"0") +
+":" +
+String(seconds).padStart(2,"0") +
+" remaining";
+
+}
+
+
+updateCountdown();
+
+countdownTimer =
+setInterval(
+updateCountdown,
+1000
+);
+
+}
+
+
+/* =================================
+   VERIFY PREMIUM
 ================================= */
 
 async function verifyPremium(){
@@ -765,6 +1020,10 @@ showStatus(
 "❌ Student account not found. Please login first.",
 "error"
 );
+
+document.getElementById(
+"generate"
+).disabled = true;
 
 return;
 
@@ -809,16 +1068,26 @@ if(
 !data.success
 ){
 
+premiumVerified = false;
+
+
 document.getElementById(
 "membershipInfo"
 ).innerHTML =
 "🔒 Premium membership is not active.";
+
 
 showStatus(
 data.message ||
 "❌ Your Premium membership is not active.",
 "error"
 );
+
+
+document.getElementById(
+"generate"
+).disabled = true;
+
 
 return;
 
@@ -833,7 +1102,9 @@ premiumVerified = true;
 
 
 used =
-Number(data.used || 0);
+Number(
+data.used || 0
+);
 
 
 let expiry = "";
@@ -846,6 +1117,7 @@ data.membership
 expiry =
 data.membership.expiry ||
 data.membership.expires_at ||
+data.membership.expires ||
 "";
 
 }
@@ -854,25 +1126,26 @@ data.membership.expires_at ||
 document.getElementById(
 "membershipInfo"
 ).innerHTML =
-"⭐ <b>Premium Active</b>" +
-(
+"⭐ <b>Premium Active</b><br>" +
+"Account: " +
+email;
+
+
+if(expiry){
+
+startExpiryCountdown(
 expiry
-?
-" • Valid until " +
-new Date(
-expiry
-).toLocaleDateString(
-"en-GB"
-)
-:
-""
 );
+
+}
 
 
 updateProgress();
 
 
-if(used < LIMIT){
+if(
+used < LIMIT
+){
 
 showStatus(
 "✅ Premium access verified. Choose a category and generate your MCQ.",
@@ -888,10 +1161,24 @@ console.error(
 error
 );
 
+
+premiumVerified = false;
+
+
 showStatus(
 "❌ Unable to connect to Premium Worker.",
 "error"
 );
+
+document.getElementById(
+"membershipInfo"
+).innerHTML =
+"⚠️ Premium verification temporarily unavailable.";
+
+
+document.getElementById(
+"generate"
+).disabled = true;
 
 }
 
@@ -904,7 +1191,9 @@ showStatus(
 
 async function generateMCQ(){
 
-if(!premiumVerified){
+if(
+!premiumVerified
+){
 
 showStatus(
 "❌ Premium access is not verified.",
@@ -916,10 +1205,27 @@ return;
 }
 
 
-if(used >= LIMIT){
+if(
+expiryTime &&
+Date.now() >= expiryTime
+){
 
 showStatus(
-"🔒 Daily limit reached. Please try again after 12:00 AM.",
+"❌ Your Premium membership has expired.",
+"error"
+);
+
+return;
+
+}
+
+
+if(
+used >= LIMIT
+){
+
+showStatus(
+"🔒 Daily limit reached. Your 100 MCQs reset at 12:00 AM.",
 "pending"
 );
 
@@ -997,7 +1303,7 @@ data
 
 
 /* =================================
-   AUTH ERROR
+   PREMIUM ERROR
 ================================= */
 
 if(
@@ -1007,6 +1313,7 @@ data.expired
 ){
 
 premiumVerified = false;
+
 
 showStatus(
 data.message ||
@@ -1031,6 +1338,12 @@ data.limit_reached
 used = LIMIT;
 
 updateProgress();
+
+
+showStatus(
+"🔒 You have reached 100 MCQs today. Your limit resets at 12:00 AM.",
+"pending"
+);
 
 return;
 
@@ -1089,7 +1402,7 @@ data.explanation
 
 
 /* =================================
-   PARSE STRING MCQ
+   PARSE STRING
 ================================= */
 
 if(
@@ -1110,7 +1423,9 @@ mcq
 
 
 mcq =
-JSON.parse(mcq);
+JSON.parse(
+mcq
+);
 
 }
 
@@ -1155,7 +1470,7 @@ throw new Error(
 
 
 /* =================================
-   UPDATE USAGE
+   UPDATE SERVER USAGE
 ================================= */
 
 if(
@@ -1163,7 +1478,9 @@ data.used !== undefined
 ){
 
 used =
-Number(data.used);
+Number(
+data.used
+);
 
 }else{
 
@@ -1173,10 +1490,13 @@ used++;
 
 
 /* =================================
-   SHOW QUESTION
+   SHOW MCQ
 ================================= */
 
-showMCQ(mcq);
+showMCQ(
+mcq
+);
+
 
 updateProgress();
 
@@ -1187,6 +1507,7 @@ console.error(
 "MCQ generation error:",
 error
 );
+
 
 showStatus(
 "❌ " +
@@ -1273,7 +1594,9 @@ document.getElementById(
 
 
 const answer =
-String(mcq.answer)
+String(
+mcq.answer
+)
 .trim()
 .toUpperCase();
 
@@ -1289,6 +1612,7 @@ document.createElement(
 
 button.className =
 "option";
+
 
 button.textContent =
 letter +
@@ -1388,8 +1712,10 @@ clicked.classList.add(
 "correct"
 );
 
+
 result.className =
 "result correct";
+
 
 result.innerHTML =
 "🎉 <b>Correct!</b>" +
@@ -1405,8 +1731,10 @@ clicked.classList.add(
 "wrong"
 );
 
+
 result.className =
 "result wrong";
+
 
 result.innerHTML =
 "❌ <b>Incorrect.</b>" +
@@ -1427,7 +1755,8 @@ result.style.display =
 
 
 if(
-used < LIMIT
+used < LIMIT &&
+premiumVerified
 ){
 
 document.getElementById(
@@ -1441,7 +1770,7 @@ document.getElementById(
 
 
 /* =================================
-   START AUTOMATICALLY
+   START
 ================================= */
 
 document.addEventListener(
