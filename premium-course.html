@@ -1,6 +1,13 @@
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>CreateLK Academy | Premium AI English MCQs</title><style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>CreateLK Academy | Premium AI English MCQs</title>
+
+<style>
 
 *{
 box-sizing:border-box;
@@ -39,19 +46,21 @@ gap:10px;
 align-items:center;
 }
 
-.home,
-.logout{
+.home{
 color:white;
 font-weight:700;
 text-decoration:none;
 }
 
 .logout{
+display:none;
+color:white;
 background:#ffffff18;
 border:1px solid #ffffff55;
 padding:8px 10px;
 border-radius:8px;
 cursor:pointer;
+font-weight:700;
 }
 
 main{
@@ -256,9 +265,23 @@ color:#667085;
 font-size:13px;
 }
 
-</style></head><body><header><div class="nav"><div class="logo">
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
 📚 CreateLK Academy
-</div><div class="nav-right"><a
+</div>
+
+<div class="nav-right">
+
+<a
 class="home"
 href="index.html">
 🏠 Home
@@ -267,25 +290,55 @@ href="index.html">
 <button
 id="logout"
 class="logout"
-type="button"
-style="display:none;">
+type="button">
 🚪 Logout
 </button>
 
-</div></div></header><main><section class="hero"><div class="icon">
+</div>
+
+</div>
+
+</header>
+
+
+<main>
+
+<section class="hero">
+
+<div class="icon">
 ⭐
-</div><h1>
+</div>
+
+<h1>
 Premium AI English MCQs
-</h1><p>
+</h1>
+
+<p>
 Practise English with up to
 <b>100 AI-generated MCQs every day.</b>
-</p></section><section class="card"><div
-id="membership"
-class="membership">⏳ Checking Premium membership...
+</p>
 
-</div><label>
+</section>
+
+
+<section class="card">
+
+<div
+id="membership"
+class="membership">
+
+⏳ Checking Premium membership...
+
+</div>
+
+
+<label>
 📚 Subject
-</label><select id="category"><option>English Vocabulary</option>
+</label>
+
+<select id="category">
+
+<option>English Vocabulary</option>
 <option>English Grammar</option>
 <option>English Tenses</option>
 <option>Parts of Speech</option>
@@ -296,11 +349,31 @@ class="membership">⏳ Checking Premium membership...
 <option>Punctuation</option>
 <option>Conversation English</option>
 <option>Reading Comprehension</option>
-<option>Mixed English</option></select><label>
+<option>Mixed English</option>
+
+</select>
+
+
+<label>
 🎓 Difficulty
-</label><select id="level"><option>Beginner</option>
-<option selected>Intermediate</option>
-<option>Advanced</option></select><button
+</label>
+
+<select id="level">
+
+<option>Beginner</option>
+
+<option selected>
+Intermediate
+</option>
+
+<option>
+Advanced
+</option>
+
+</select>
+
+
+<button
 id="generate"
 class="generate"
 type="button"
@@ -308,56 +381,108 @@ disabled>
 
 ⏳ Checking Premium...
 
-</button><div
-id="loading"
-class="loading">🤖 Premium AI is generating...
+</button>
 
-</div><div
+
+<div
+id="loading"
+class="loading">
+
+🤖 Premium AI is generating...
+
+</div>
+
+
+<div
 id="status"
 class="status">
-</div></section><section
+</div>
+
+</section>
+
+
+<section
 id="questionCard"
-class="card question-card"><div
+class="card question-card">
+
+<div
 id="question"
 class="question">
-</div><div
+</div>
+
+<div
 id="options">
-</div><div
+</div>
+
+<div
 id="answer"
 class="answer">
-</div><button
+</div>
+
+<button
 id="next"
 class="next"
 type="button">
 
 ➡️ Next MCQ
 
-</button></section></main><footer>📚 <b>CreateLK Academy</b>
+</button>
 
-<br>Learn English. Build Your Future.
+</section>
+
+</main>
+
+
+<footer>
+
+📚 <b>CreateLK Academy</b>
+
+<br>
+
+Learn English. Build Your Future.
 
 <br><br>
 
 © 2026 CreateLK Academy.
 
-</footer><script>
+</footer>
+
+
+<script>
 
 "use strict";
 
 
-/* =================================
-   PREMIUM WORKER
-================================= */
+/* =====================================================
+   WORKERS
+===================================================== */
 
-const WORKER =
+/*
+   DO NOT CHANGE THE AI WORKER.
+   This is your existing working AI Worker.
+*/
+
+const AI_WORKER =
 "https://premium-worker.gateofheavensl1.workers.dev";
+
+
+/*
+   MEMBERSHIP WORKER.
+
+   This is kept separate from the AI Worker because
+   Premium status is handled by the membership system.
+*/
+
+const MEMBERSHIP_WORKER =
+"https://createlk-membership.gateofheavensl1.workers.dev";
+
 
 const LIMIT = 100;
 
 
-/* =================================
+/* =====================================================
    VARIABLES
-================================= */
+===================================================== */
 
 let email = "";
 let premium = false;
@@ -365,9 +490,9 @@ let usage = 0;
 let timer = null;
 
 
-/* =================================
+/* =====================================================
    ELEMENTS
-================================= */
+===================================================== */
 
 const $ =
 id => document.getElementById(id);
@@ -403,9 +528,9 @@ const logoutButton =
 $("logout");
 
 
-/* =================================
-   GET EMAIL
-================================= */
+/* =====================================================
+   GET LOGIN EMAIL
+===================================================== */
 
 function getEmail(){
 
@@ -418,9 +543,7 @@ const keys = [
 ];
 
 
-for(
-const key of keys
-){
+for(const key of keys){
 
 const value =
 localStorage.getItem(key);
@@ -438,6 +561,11 @@ return value
 
 }
 
+
+/*
+   Support user objects if your login page
+   stores the account this way.
+*/
 
 for(
 const key of [
@@ -474,9 +602,9 @@ return "";
 }
 
 
-/* =================================
-   UPDATE LOGIN UI
-================================= */
+/* =====================================================
+   LOGIN UI
+===================================================== */
 
 function updateLoginUI(){
 
@@ -498,9 +626,9 @@ logoutButton.style.display =
 }
 
 
-/* =================================
-   STATUS
-================================= */
+/* =====================================================
+   STATUS MESSAGE
+===================================================== */
 
 function msg(
 text,
@@ -519,9 +647,9 @@ status.style.display =
 }
 
 
-/* =================================
-   ACTIVE CHECK
-================================= */
+/* =====================================================
+   ACTIVE MEMBERSHIP
+===================================================== */
 
 function isActive(data){
 
@@ -530,7 +658,10 @@ return false;
 }
 
 
-/* Worker direct response */
+/*
+   Direct:
+   { active:true }
+*/
 
 if(
 data.active === true
@@ -541,7 +672,10 @@ return true;
 }
 
 
-/* status */
+/*
+   Direct status:
+   { status:"active" }
+*/
 
 if(
 String(
@@ -556,7 +690,9 @@ return true;
 }
 
 
-/* membership */
+/*
+   Membership object
+*/
 
 if(
 data.membership &&
@@ -572,7 +708,9 @@ return true;
 }
 
 
-/* subscription */
+/*
+   Subscription object
+*/
 
 if(
 data.subscription &&
@@ -593,9 +731,9 @@ return false;
 }
 
 
-/* =================================
+/* =====================================================
    EXPIRY
-================================= */
+===================================================== */
 
 function getExpiry(data){
 
@@ -636,9 +774,9 @@ null
 }
 
 
-/* =================================
+/* =====================================================
    USAGE
-================================= */
+===================================================== */
 
 function getUsage(data){
 
@@ -669,9 +807,9 @@ data.membership.today_usage
 }
 
 
-/* =================================
+/* =====================================================
    UPDATE USAGE
-================================= */
+===================================================== */
 
 function updateUsage(){
 
@@ -726,13 +864,14 @@ usage / LIMIT * 100,
 }
 
 
-/* =================================
+/* =====================================================
    COUNTDOWN
-================================= */
+===================================================== */
 
 function startCountdown(expiry){
 
 clearInterval(timer);
+
 
 const end =
 new Date(
@@ -749,9 +888,7 @@ Math.floor(
 );
 
 
-if(
-seconds <= 0
-){
+if(seconds <= 0){
 
 clearInterval(timer);
 
@@ -825,9 +962,9 @@ run,
 }
 
 
-/* =================================
+/* =====================================================
    VERIFY PREMIUM
-================================= */
+===================================================== */
 
 async function verify(){
 
@@ -835,6 +972,12 @@ updateLoginUI();
 
 email =
 getEmail();
+
+
+console.log(
+"LOGIN EMAIL:",
+email
+);
 
 
 if(!email){
@@ -865,24 +1008,38 @@ return;
 
 try{
 
-const response =
-await fetch(
 
-WORKER +
+/*
+   IMPORTANT:
+
+   Membership verification uses the membership Worker,
+   NOT the AI generation Worker.
+*/
+
+const url =
+MEMBERSHIP_WORKER +
 "/status?email=" +
 encodeURIComponent(email) +
 "&t=" +
-Date.now(),
+Date.now();
 
+
+console.log(
+"MEMBERSHIP URL:",
+url
+);
+
+
+const response =
+await fetch(
+url,
 {
 method:"GET",
 cache:"no-store",
 headers:{
 "Accept":"application/json"
 }
-
 }
-
 );
 
 
@@ -891,7 +1048,12 @@ await response.text();
 
 
 console.log(
-"PREMIUM STATUS:",
+"MEMBERSHIP HTTP:",
+response.status
+);
+
+console.log(
+"MEMBERSHIP RAW:",
 text
 );
 
@@ -906,11 +1068,16 @@ JSON.parse(text);
 }catch(e){
 
 throw new Error(
-"Premium worker returned invalid JSON."
+"Membership worker returned invalid JSON."
 );
 
 }
 
+
+/*
+   404 is shown clearly if the membership Worker
+   itself does not contain /status.
+*/
 
 if(
 !response.ok
@@ -923,6 +1090,10 @@ response.status
 
 }
 
+
+/* =====================================================
+   CHECK ACTIVE
+===================================================== */
 
 if(
 !isActive(data)
@@ -952,9 +1123,9 @@ return;
 }
 
 
-/* =================================
+/* =====================================================
    ACTIVE
-================================= */
+===================================================== */
 
 premium = true;
 
@@ -1002,7 +1173,8 @@ String(expiry)
 </div>` +
 
 `<div class="remaining">
-✨ Remaining today: ${Math.max(
+✨ Remaining today:
+${Math.max(
 LIMIT - usage,
 0
 )}
@@ -1024,6 +1196,10 @@ expiry
 
 }
 
+
+/* =====================================================
+   DAILY LIMIT
+===================================================== */
 
 if(
 usage >= LIMIT
@@ -1087,13 +1263,18 @@ msg(
 }
 
 
-/* =================================
-   GENERATE
-================================= */
+/* =====================================================
+   GENERATE PREMIUM MCQ
+===================================================== */
 
 async function generate(){
 
 if(!premium){
+
+msg(
+"🔒 Premium membership is required.",
+"error"
+);
 
 await verify();
 
@@ -1141,7 +1322,7 @@ try{
 const response =
 await fetch(
 
-WORKER +
+AI_WORKER +
 "/api/ai-mcq",
 
 {
@@ -1174,6 +1355,12 @@ type:"premium"
 
 const text =
 await response.text();
+
+
+console.log(
+"AI RAW RESPONSE:",
+text
+);
 
 
 let data;
@@ -1214,6 +1401,10 @@ data.message ||
 }
 
 
+/* =====================================================
+   FIND MCQ
+===================================================== */
+
 let mcq =
 
 data.mcq ||
@@ -1226,8 +1417,18 @@ if(
 typeof mcq === "string"
 ){
 
+try{
+
 mcq =
 JSON.parse(mcq);
+
+}catch(e){
+
+throw new Error(
+"Invalid MCQ data received."
+);
+
+}
 
 }
 
@@ -1248,20 +1449,37 @@ if(
 typeof mcq.options === "string"
 ){
 
+try{
+
 mcq.options =
 JSON.parse(
 mcq.options
 );
 
+}catch(e){
+
+throw new Error(
+"Invalid MCQ options."
+);
+
 }
 
+}
+
+
+/* =====================================================
+   UPDATE USAGE
+===================================================== */
 
 usage =
 Number(
 
 data.usage ??
+
 data.today_usage ??
+
 data.daily_usage ??
+
 (
 usage + 1
 )
@@ -1271,10 +1489,15 @@ usage + 1
 
 updateUsage();
 
+
 showMCQ(
 mcq
 );
 
+
+/* =====================================================
+   BUTTON AFTER GENERATION
+===================================================== */
 
 if(
 usage >= LIMIT
@@ -1331,17 +1554,19 @@ loading.style.display =
 }
 
 
-/* =================================
+/* =====================================================
    SHOW MCQ
-================================= */
+===================================================== */
 
 function showMCQ(mcq){
 
 questionCard.style.display =
 "block";
 
+
 question.textContent =
 mcq.question;
+
 
 options.innerHTML =
 "";
@@ -1357,8 +1582,11 @@ const correct =
 String(
 
 mcq.answer ||
+
 mcq.correct_answer ||
+
 mcq.correctAnswer ||
+
 ""
 
 )
@@ -1369,16 +1597,19 @@ mcq.correctAnswer ||
 ["A","B","C","D"].forEach(
 letter=>{
 
+
 const button =
 document.createElement(
 "button"
 );
+
 
 button.className =
 "option";
 
 button.type =
 "button";
+
 
 button.textContent =
 letter +
@@ -1391,6 +1622,7 @@ mcq.options[letter] ||
 
 button.onclick =
 function(){
+
 
 document
 .querySelectorAll(
@@ -1411,18 +1643,23 @@ button.classList.add(
 "correct"
 );
 
+
 answer.innerHTML =
+
 "🎉 <b>Correct!</b><br><br>" +
+
 (
 mcq.explanation ||
 "Excellent work!"
 );
+
 
 }else{
 
 button.classList.add(
 "wrong"
 );
+
 
 document
 .querySelectorAll(
@@ -1446,11 +1683,15 @@ x.classList.add(
 }
 );
 
+
 answer.innerHTML =
+
 "❌ <b>Incorrect.</b><br><br>" +
+
 "Correct answer: <b>" +
 correct +
 "</b><br><br>" +
+
 (
 mcq.explanation ||
 "Review the explanation."
@@ -1458,6 +1699,10 @@ mcq.explanation ||
 
 }
 
+
+/*
+   Show Next MCQ only if there is remaining usage.
+*/
 
 if(
 premium &&
@@ -1487,57 +1732,85 @@ block:"start"
 }
 
 
-/* =================================
+/* =====================================================
    BUTTONS
-================================= */
+===================================================== */
 
 generateButton.onclick =
 generate;
+
 
 next.onclick =
 generate;
 
 
-/* =================================
+/* =====================================================
    LOGOUT
-================================= */
+===================================================== */
 
 logoutButton.onclick =
 function(){
 
-localStorage.removeItem(
-"createlk_student_email"
-);
+if(
+!confirm(
+"Are you sure you want to logout?"
+)
+){
 
-localStorage.removeItem(
-"studentEmail"
-);
+return;
 
-localStorage.removeItem(
-"email"
-);
+}
 
-localStorage.removeItem(
-"createlk_user"
-);
 
-localStorage.removeItem(
+/*
+   Clear every login key used by the
+   CreateLK Academy login system.
+*/
+
+[
+"createlk_student_email",
+"studentEmail",
+"email",
+"createlk_user",
 "createlk_student"
+].forEach(
+key=>{
+localStorage.removeItem(key);
+}
 );
+
+
+/*
+   Clear session.
+*/
 
 sessionStorage.clear();
 
+
+/*
+   Reset page variables.
+*/
+
 email = "";
+
 premium = false;
+
+usage = 0;
 
 clearInterval(timer);
 
-/* Immediately hide logout */
+
+/*
+   Hide logout immediately.
+*/
 
 logoutButton.style.display =
 "none";
 
-/* Go home */
+
+/*
+   Return to home.
+*/
 
 window.location.href =
 "index.html";
@@ -1545,18 +1818,18 @@ window.location.href =
 };
 
 
-/* =================================
+/* =====================================================
    START
-================================= */
+===================================================== */
 
 updateLoginUI();
 
 verify();
 
 
-/* =================================
-   RETURN TO PAGE
-================================= */
+/* =====================================================
+   RECHECK WHEN RETURNING
+===================================================== */
 
 document.addEventListener(
 "visibilitychange",
@@ -1573,5 +1846,7 @@ verify();
 
 });
 
-</script></body>
+</script>
+
+</body>
 </html>
