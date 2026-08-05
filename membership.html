@@ -1,300 +1,902 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Premium Membership | CreateLK Academy</title><meta name="description"
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Premium Membership | CreateLK Academy</title>
+
+<meta name="description"
 content="CreateLK Academy Premium Membership - 30 days of premium English learning.">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Segoe UI",Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
-    background:#f5f8ff;
-    color:#172033;
-    line-height:1.6;
+background:#f5f8ff;
+color:#172033;
+line-height:1.6;
 }
 
 header{
-    background:#174ea6;
-    color:white;
-    position:sticky;
-    top:0;
-    z-index:1000;
+background:#174ea6;
+color:white;
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 .header-inner{
-    max-width:1100px;
-    margin:auto;
-    padding:15px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+max-width:1100px;
+margin:auto;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 .logo{
-    color:white;
-    text-decoration:none;
-    font-size:21px;
-    font-weight:800;
+color:white;
+text-decoration:none;
+font-size:21px;
+font-weight:800;
 }
 
 nav{
-    display:flex;
-    gap:8px;
+display:flex;
+gap:8px;
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    padding:8px 11px;
-    border-radius:8px;
-    font-weight:600;
-    font-size:14px;
+color:white;
+text-decoration:none;
+padding:8px 11px;
+border-radius:8px;
+font-weight:600;
+font-size:14px;
 }
 
 nav a:hover{
-    background:rgba(255,255,255,.15);
+background:#ffffff25;
 }
 
 .menu{
-    display:none;
-    font-size:27px;
-    cursor:pointer;
+display:none;
+font-size:27px;
+cursor:pointer;
 }
 
 .hero{
-    background:linear-gradient(135deg,#174ea6,#4285f4);
-    color:white;
-    text-align:center;
-    padding:60px 20px;
+background:linear-gradient(135deg,#174ea6,#4285f4);
+color:white;
+text-align:center;
+padding:60px 20px;
 }
 
 .hero h1{
-    font-size:40px;
-    margin-bottom:10px;
+font-size:40px;
+margin-bottom:10px;
 }
 
 .container{
-    max-width:1000px;
-    margin:auto;
-    padding:40px 20px 60px;
+max-width:1000px;
+margin:auto;
+padding:40px 20px 60px;
 }
 
 .card{
-    background:white;
-    border-radius:22px;
-    padding:35px 25px;
-    box-shadow:0 8px 30px rgba(0,0,0,.08);
-    text-align:center;
+background:white;
+border-radius:22px;
+padding:35px 25px;
+box-shadow:0 8px 30px #0001;
+text-align:center;
 }
 
 .badge{
-    display:inline-block;
-    background:#fff4d6;
-    color:#956400;
-    padding:7px 16px;
-    border-radius:30px;
-    font-weight:700;
-    margin-bottom:15px;
+display:inline-block;
+background:#fff4d6;
+color:#956400;
+padding:7px 16px;
+border-radius:30px;
+font-weight:700;
+margin-bottom:15px;
 }
 
 .price{
-    color:#174ea6;
-    font-size:45px;
-    font-weight:800;
-    margin:10px 0;
+color:#174ea6;
+font-size:45px;
+font-weight:800;
+margin:10px 0;
 }
 
 .price span{
-    font-size:16px;
-    color:#667085;
+font-size:16px;
+color:#667085;
 }
 
 .description{
-    max-width:700px;
-    margin:0 auto 25px;
-    color:#667085;
+max-width:700px;
+margin:0 auto 25px;
+color:#667085;
 }
 
 .features{
-    max-width:700px;
-    margin:25px auto;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-    text-align:left;
+max-width:700px;
+margin:25px auto;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+text-align:left;
 }
 
 .feature{
-    background:#f7f9fc;
-    padding:12px 15px;
-    border-radius:10px;
+background:#f7f9fc;
+padding:12px 15px;
+border-radius:10px;
 }
 
 .button{
-    display:inline-block;
-    width:100%;
-    max-width:500px;
-    padding:15px;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:800;
-    border:0;
-    cursor:pointer;
-    font-size:16px;
+display:inline-block;
+width:100%;
+max-width:500px;
+padding:15px;
+border-radius:12px;
+text-decoration:none;
+font-weight:800;
+border:0;
+cursor:pointer;
+font-size:16px;
 }
 
 .payment-button{
-    background:#1769ff;
-    color:white;
+background:#1769ff;
+color:white;
+}
+
+.premium-button{
+background:#15803d;
+color:white;
 }
 
 .free-button{
-    margin-top:15px;
-    background:#20a464;
-    color:white;
+margin-top:15px;
+background:#20a464;
+color:white;
 }
 
 .info-grid{
-    margin-top:25px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
+margin-top:25px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
 }
 
 .info{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
+background:white;
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 5px 20px #0001;
 }
 
 .info-icon{
-    font-size:30px;
+font-size:30px;
 }
 
 .info p{
-    color:#667085;
-    font-size:14px;
+color:#667085;
+font-size:14px;
+}
+
+.status{
+display:none;
+max-width:700px;
+margin:0 auto 20px;
+padding:16px;
+border-radius:12px;
+font-weight:700;
+}
+
+.active-status{
+display:block;
+background:#dcfce7;
+color:#166534;
+}
+
+.pending-status{
+display:block;
+background:#fff4d6;
+color:#946200;
+}
+
+.error-status{
+display:block;
+background:#fee2e2;
+color:#991b1b;
+}
+
+.email{
+font-size:13px;
+margin-top:5px;
+word-break:break-word;
+}
+
+.expiry{
+margin-top:5px;
+}
+
+.payment-area{
+display:block;
+}
+
+.active-area{
+display:none;
 }
 
 footer{
-    background:#172033;
-    color:white;
-    text-align:center;
-    padding:35px 20px;
+background:#172033;
+color:white;
+text-align:center;
+padding:35px 20px;
 }
 
 .footer-links{
-    margin:15px 0;
+margin:15px 0;
 }
 
 .footer-links a{
-    color:#ddd;
-    text-decoration:none;
-    margin:0 8px;
-    font-size:14px;
+color:#ddd;
+text-decoration:none;
+margin:0 8px;
+font-size:14px;
 }
 
 @media(max-width:750px){
 
-    .menu{
-        display:block;
-    }
-
-    nav{
-        display:none;
-        position:absolute;
-        top:65px;
-        left:0;
-        right:0;
-        background:#174ea6;
-        flex-direction:column;
-        padding:15px;
-    }
-
-    nav.show{
-        display:flex;
-    }
-
-    nav a{
-        text-align:center;
-    }
-
-    .hero h1{
-        font-size:30px;
-    }
-
-    .features,
-    .info-grid{
-        grid-template-columns:1fr;
-    }
+.menu{
+display:block;
 }
-</style></head><body><header>
-<div class="header-inner"><a href="index.html" class="logo">
+
+nav{
+display:none;
+position:absolute;
+top:65px;
+left:0;
+right:0;
+background:#174ea6;
+flex-direction:column;
+padding:15px;
+}
+
+nav.show{
+display:flex;
+}
+
+nav a{
+text-align:center;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+.features,
+.info-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header-inner">
+
+<a href="index.html" class="logo">
 📚 CreateLK Academy
-</a><div class="menu" onclick="toggleMenu()">☰</div><nav id="nav">
+</a>
+
+<div class="menu" id="menu">
+☰
+</div>
+
+<nav id="nav">
+
 <a href="index.html">🏠 Home</a>
+
 <a href="about.html">📖 About</a>
+
 <a href="membership.html">⭐ Membership</a>
+
 <a href="contact.html">📞 Contact</a>
+
 <a href="login.html">🔐 Login</a>
-</nav></div>
-</header><section class="hero">
+
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
 <h1>⭐ Premium English Membership</h1>
-<p>Unlock premium English learning content.</p>
-</section><main class="container"><div class="card"><div class="badge">⭐ PREMIUM MEMBERSHIP</div><h2>CreateLK Academy Premium</h2><div class="price">
-LKR 1,500 <span>/ 30 Days</span>
-</div><p class="description">
-Get access to premium English MCQs and learning
-courses for 30 days.
-</p><div class="features"><div class="feature">✓ 900 Premium English MCQs</div>
-<div class="feature">✓ 9 Premium Courses</div>
-<div class="feature">✓ Grammar Practice</div>
-<div class="feature">✓ Vocabulary Practice</div>
-<div class="feature">✓ Speaking Practice</div>
-<div class="feature">✓ Pronunciation Practice</div>
-<div class="feature">✓ Conversation Practice</div>
-<div class="feature">✓ Writing Practice</div>
-<div class="feature">✓ Listening Practice</div>
-<div class="feature">✓ Business English</div>
-<div class="feature">✓ Advanced English</div>
-<div class="feature">✓ Mobile & Computer Access</div></div><a href="payment.html" class="button payment-button">
+
+<p>
+Unlock premium English learning content.
+</p>
+
+</section>
+
+
+<main class="container">
+
+
+<!-- MEMBERSHIP STATUS -->
+
+<div
+id="status"
+class="status">
+⏳ Checking membership...
+</div>
+
+
+<!-- ACTIVE MEMBERSHIP -->
+
+<div
+id="activeArea"
+class="card active-area">
+
+<div class="badge">
+⭐ PREMIUM ACTIVE
+</div>
+
+<h2>
+✅ Premium membership is active
+</h2>
+
+<p class="email" id="activeEmail"></p>
+
+<p class="expiry" id="activeExpiry"></p>
+
+<br>
+
+<p class="description">
+Your Premium membership has been approved.
+You can now access Premium AI English MCQs.
+</p>
+
+<a
+href="premium-course.html"
+class="button premium-button">
+
+⭐ Open Premium AI
+
+</a>
+
+<br><br>
+
+<a
+href="dashboard.html"
+class="button"
+style="background:#174ea6;color:white">
+
+👤 Student Dashboard
+
+</a>
+
+<br><br>
+
+<a
+href="index.html"
+style="color:#174ea6;font-weight:800;text-decoration:none">
+
+🏠 Back to Home
+
+</a>
+
+</div>
+
+
+<!-- NORMAL MEMBERSHIP / PAYMENT -->
+
+<div
+id="paymentArea"
+class="card payment-area">
+
+<div class="badge">
+⭐ PREMIUM MEMBERSHIP
+</div>
+
+<h2>
+CreateLK Academy Premium
+</h2>
+
+<div class="price">
+LKR 1,500
+<span>/ 30 Days</span>
+</div>
+
+<p class="description">
+Get access to premium English MCQs and
+learning courses for 30 days.
+</p>
+
+
+<div class="features">
+
+<div class="feature">
+✓ 900 Premium English MCQs
+</div>
+
+<div class="feature">
+✓ Premium English Courses
+</div>
+
+<div class="feature">
+✓ Grammar Practice
+</div>
+
+<div class="feature">
+✓ Vocabulary Practice
+</div>
+
+<div class="feature">
+✓ Speaking Practice
+</div>
+
+<div class="feature">
+✓ Pronunciation Practice
+</div>
+
+<div class="feature">
+✓ Conversation Practice
+</div>
+
+<div class="feature">
+✓ Writing Practice
+</div>
+
+<div class="feature">
+✓ Listening Practice
+</div>
+
+<div class="feature">
+✓ Business English
+</div>
+
+<div class="feature">
+✓ Advanced English
+</div>
+
+<div class="feature">
+✓ Mobile & Computer Access
+</div>
+
+</div>
+
+
+<a
+href="payment.html"
+class="button payment-button">
+
 💳 Continue to Payment
-</a><a href="beginner-english.html" class="button free-button">
+
+</a>
+
+
+<a
+href="beginner-english.html"
+class="button free-button">
+
 🌱 Start Free Course
-</a></div><div class="info-grid"><div class="info">
-<div class="info-icon">🔐</div>
-<h3>Secure Payment</h3>
-<p>Pay through PayHere or Bank Deposit.</p>
-</div><div class="info">
-<div class="info-icon">📅</div>
-<h3>30 Days</h3>
-<p>Premium access is valid for 30 days.</p>
-</div><div class="info">
-<div class="info-icon">📚</div>
-<h3>900+ MCQs</h3>
-<p>Practice additional premium English questions.</p>
-</div></div></main><footer><strong>📚 CreateLK Academy</strong>
+
+</a>
+
+</div>
+
+
+<!-- INFORMATION -->
+
+<div class="info-grid">
+
+<div class="info">
+
+<div class="info-icon">
+🔐
+</div>
+
+<h3>
+Secure Payment
+</h3>
+
+<p>
+Pay through PayHere or Bank Deposit.
+</p>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-icon">
+📅
+</div>
+
+<h3>
+30 Days
+</h3>
+
+<p>
+Premium access is valid for 30 days.
+</p>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-icon">
+📚
+</div>
+
+<h3>
+900+ MCQs
+</h3>
+
+<p>
+Practice premium English questions.
+</p>
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<strong>
+📚 CreateLK Academy
+</strong>
 
 <div class="footer-links">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="membership.html">Membership</a>
-<a href="payment.html">Payment</a>
-<a href="contact.html">Contact</a>
-<a href="privacy.html">Privacy</a>
-<a href="refund.html">Refund Policy</a>
-</div>© 2026 CreateLK Academy. All Rights Reserved.
 
-</footer><script>
-function toggleMenu(){
-    document.getElementById("nav").classList.toggle("show");
+<a href="index.html">Home</a>
+
+<a href="about.html">About</a>
+
+<a href="membership.html">Membership</a>
+
+<a href="payment.html">Payment</a>
+
+<a href="contact.html">Contact</a>
+
+<a href="privacy.html">Privacy</a>
+
+<a href="refund.html">Refund Policy</a>
+
+</div>
+
+© 2026 CreateLK Academy.
+All Rights Reserved.
+
+</footer>
+
+
+<script>
+
+"use strict";
+
+
+/* =========================
+   SETTINGS
+========================= */
+
+const MEMBERSHIP_API =
+"https://createlk-membership.gateofheavensl1.workers.dev";
+
+const PREMIUM_PAGE =
+"premium-course.html";
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const nav =
+document.getElementById("nav");
+
+const menu =
+document.getElementById("menu");
+
+const status =
+document.getElementById("status");
+
+const activeArea =
+document.getElementById("activeArea");
+
+const paymentArea =
+document.getElementById("paymentArea");
+
+const activeEmail =
+document.getElementById("activeEmail");
+
+const activeExpiry =
+document.getElementById("activeExpiry");
+
+
+/* =========================
+   MENU
+========================= */
+
+menu.onclick=function(){
+
+nav.classList.toggle("show");
+
+};
+
+
+/* =========================
+   GET EMAIL
+========================= */
+
+function getEmail(){
+
+const direct =
+localStorage.getItem(
+"createlk_student_email"
+);
+
+if(direct){
+
+return direct
+.trim()
+.toLowerCase();
+
 }
-</script></body>
+
+
+for(
+const key of [
+"createlk_user",
+"createlk_student"
+]
+){
+
+try{
+
+const data =
+JSON.parse(
+localStorage.getItem(key)
+);
+
+if(
+data &&
+data.email
+){
+
+return data.email
+.trim()
+.toLowerCase();
+
+}
+
+}catch(e){}
+
+}
+
+return "";
+
+}
+
+
+/* =========================
+   STATUS MESSAGE
+========================= */
+
+function showStatus(
+text,
+type
+){
+
+status.textContent=text;
+
+status.className=
+"status "+type;
+
+}
+
+
+/* =========================
+   ACTIVE
+========================= */
+
+function showActive(data){
+
+paymentArea.style.display="none";
+
+activeArea.style.display="block";
+
+activeEmail.textContent=
+"👤 "+getEmail();
+
+
+if(data.expires_at){
+
+const date =
+new Date(
+String(data.expires_at)
+.replace(" ","T")
+);
+
+activeExpiry.textContent=
+"📅 Expires: "+
+date.toLocaleDateString();
+
+}else{
+
+activeExpiry.textContent=
+"📅 Membership: 30 Days";
+
+}
+
+
+showStatus(
+"✅ Premium membership is active.",
+"active-status"
+);
+
+}
+
+
+/* =========================
+   NOT ACTIVE
+========================= */
+
+function showPayment(){
+
+activeArea.style.display="none";
+
+paymentArea.style.display="block";
+
+status.style.display="none";
+
+}
+
+
+/* =========================
+   CHECK MEMBERSHIP
+========================= */
+
+async function checkMembership(){
+
+const email=getEmail();
+
+
+if(!email){
+
+showPayment();
+
+return;
+
+}
+
+
+showStatus(
+"⏳ Checking Premium membership...",
+""
+);
+
+
+try{
+
+const response =
+await fetch(
+MEMBERSHIP_API+
+"/status?email="+
+encodeURIComponent(email)+
+"&t="+
+Date.now(),
+{
+cache:"no-store"
+}
+);
+
+
+const data =
+await response.json();
+
+
+console.log(
+"Membership status:",
+data
+);
+
+
+/* ACTIVE */
+
+if(
+data &&
+data.success === true &&
+data.active === true
+){
+
+showActive(data);
+
+return;
+
+}
+
+
+/* NOT ACTIVE */
+
+showPayment();
+
+}catch(error){
+
+console.error(
+"Membership error:",
+error
+);
+
+showPayment();
+
+}
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+checkMembership();
+
+
+/* =========================
+   REFRESH AFTER RETURN
+========================= */
+
+document.addEventListener(
+"visibilitychange",
+function(){
+
+if(
+document.visibilityState ===
+"visible"
+){
+
+checkMembership();
+
+}
+
+});
+
+
+window.addEventListener(
+"focus",
+function(){
+
+checkMembership();
+
+});
+
+</script>
+
+</body>
 </html>
