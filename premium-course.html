@@ -1,1556 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>CreateLK Academy | Premium AI English MCQs</title>
+<title>CreateLK Academy | Premium AI MCQs</title>
 
 <style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#f5f8ff;
-color:#172033;
-line-height:1.6;
-}
-
-header{
-background:#174ea6;
-color:white;
-}
-
-.nav{
-max-width:900px;
-margin:auto;
-padding:14px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-weight:800;
-}
-
-.nav-right{
-display:flex;
-gap:10px;
-align-items:center;
-}
-
-.home{
-color:white;
-text-decoration:none;
-font-weight:700;
-}
-
-.logout{
-display:none;
-background:#ffffff20;
-color:white;
-border:1px solid #ffffff55;
-padding:8px 10px;
-border-radius:8px;
-font-weight:700;
-}
-
-main{
-max-width:720px;
-margin:auto;
-padding:30px 15px 50px;
-}
-
-.hero{
-text-align:center;
-margin-bottom:20px;
-}
-
-.icon{
-font-size:48px;
-}
-
-h1{
-color:#174ea6;
-margin:6px 0;
-}
-
-.hero p{
-color:#667085;
-}
-
-.card{
-background:white;
-padding:22px;
-border-radius:18px;
-box-shadow:0 6px 25px #0001;
-}
-
-.membership{
-padding:15px;
-border-radius:12px;
-margin-bottom:18px;
-font-weight:700;
-background:#eef4ff;
-color:#174ea6;
-}
-
-.active{
-background:#dcfce7;
-color:#166534;
-}
-
-.expired{
-background:#fee2e2;
-color:#991b1b;
-}
-
-.email{
-font-size:13px;
-margin-top:5px;
-word-break:break-word;
-}
-
-.countdown{
-margin-top:6px;
-font-weight:800;
-}
-
-.controls{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin-bottom:12px;
-}
-
-select{
-width:100%;
-padding:13px;
-border:1px solid #d5dbea;
-border-radius:9px;
-background:white;
-}
-
-button,
-.btn{
-width:100%;
-padding:14px;
-border:0;
-border-radius:10px;
-font-weight:800;
-font-size:15px;
-cursor:pointer;
-}
-
-.generate{
-background:#174ea6;
-color:white;
-}
-
-.generate:disabled{
-opacity:.6;
-}
-
-.message{
-display:none;
-margin-top:14px;
-padding:13px;
-border-radius:10px;
-font-weight:700;
-font-size:14px;
-word-break:break-word;
-}
-
-.info{
-display:block;
-background:#eef4ff;
-color:#174ea6;
-}
-
-.success{
-display:block;
-background:#dcfce7;
-color:#166534;
-}
-
-.error{
-display:block;
-background:#fee2e2;
-color:#991b1b;
-}
-
-.quiz{
-margin-top:18px;
-}
-
-.question{
-background:#f8fafc;
-border:1px solid #e1e7f0;
-padding:17px;
-border-radius:13px;
-margin-bottom:14px;
-}
-
-.question-title{
-font-weight:800;
-margin-bottom:10px;
-}
-
-.option{
-margin-top:8px;
-background:white;
-border:1px solid #d5dbea;
-text-align:left;
-}
-
-.option.selected{
-background:#eef4ff;
-border:2px solid #174ea6;
-}
-
-.option.correct{
-background:#dcfce7;
-border-color:#15803d;
-}
-
-.option.wrong{
-background:#fee2e2;
-border-color:#dc2626;
-}
-
-.explanation{
-margin-top:10px;
-padding:10px;
-background:#f1f5f9;
-border-radius:8px;
-font-size:13px;
-}
-
-.score{
-display:none;
-margin-top:18px;
-padding:18px;
-background:#174ea6;
-color:white;
-text-align:center;
-border-radius:12px;
-}
-
-.score-number{
-font-size:30px;
-font-weight:900;
-}
-
-footer{
-text-align:center;
-padding:25px;
-color:#667085;
-font-size:13px;
-}
-
-@media(max-width:600px){
-
-.controls{
-grid-template-columns:1fr;
-}
-
-.nav{
-padding:12px;
-}
-
-}
-
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#f4f7fb;color:#172033}
+header{background:#172554;color:white;padding:14px;display:flex;justify-content:space-between}
+button,select{padding:12px;border:0;border-radius:8px;font-size:15px}
+button{cursor:pointer}
+nav button{padding:8px;background:white;color:#172554}
+main{max-width:800px;margin:20px auto;padding:15px}
+.card{background:white;padding:20px;border-radius:14px;box-shadow:0 3px 15px #ddd;margin-bottom:18px}
+select{width:100%;border:1px solid #ccd}
+.generate{width:100%;margin-top:15px;background:#2563eb;color:white;font-weight:bold}
+.q{background:#f8fafc;padding:15px;margin:12px 0;border-radius:10px}
+.opt{display:block;background:white;padding:10px;margin:7px 0;border-radius:7px;border:1px solid #ddd}
+.status{padding:12px;margin-top:12px;border-radius:8px}
+.err{background:#fee2e2;color:#991b1b}
+.ok{background:#dcfce7;color:#166534}
+#questions{margin-top:15px}
+.submit{width:100%;background:#16a34a;color:white;font-weight:bold}
+#result{text-align:center;font-size:20px;font-weight:bold;margin-top:15px}
+footer{text-align:center;padding:25px;color:#64748b}
 </style>
-
 </head>
 
 <body>
 
-
 <header>
-
-<div class="nav">
-
-<div class="logo">
-📚 CreateLK Academy
-</div>
-
-<div class="nav-right">
-
-<a
-href="index.html"
-class="home">
-🏠 Home
-</a>
-
-<button
-id="logout"
-class="logout"
-type="button">
-🚪 Logout
-</button>
-
-</div>
-
-</div>
-
+<b>📚 CreateLK Academy</b>
+<nav>
+<button onclick="location.href='index.html'">🏠 Home</button>
+<button onclick="logout()">🚪 Logout</button>
+</nav>
 </header>
-
 
 <main>
 
-<section class="hero">
+<div class="card">
+<h2>⭐ Premium AI English MCQs</h2>
+<p>Practise English with AI-generated MCQs.</p>
 
-<div class="icon">⭐</div>
-
-<h1>
-Premium AI English MCQs
-</h1>
-
-<p>
-Practise English with up to 100 AI-generated MCQs every day.
-</p>
-
-</section>
-
-
-<div
-id="membership"
-class="membership">
-
-⏳ Checking Premium membership...
-
+<div id="member" class="status ok">
+⭐ Premium Membership Active<br>
+⏳ Expires in: <b id="time">Checking...</b>
 </div>
-
-
-<section
-id="app"
-class="card"
-style="display:none;">
-
-
-<div class="controls">
-
-<select id="level">
-
-<option value="beginner">
-Beginner
-</option>
-
-<option value="elementary">
-Elementary
-</option>
-
-<option value="intermediate"
-selected>
-Intermediate
-</option>
-
-<option value="upper-intermediate">
-Upper Intermediate
-</option>
-
-<option value="advanced">
-Advanced
-</option>
-
-</select>
-
-
-<select id="count">
-
-<option value="5">
-5 Questions
-</option>
-
-<option value="10"
-selected>
-10 Questions
-</option>
-
-<option value="20">
-20 Questions
-</option>
-
-<option value="50">
-50 Questions
-</option>
-
-<option value="100">
-100 Questions
-</option>
-
-</select>
-
-</div>
-
-
-<button
-id="generate"
-class="generate"
-type="button">
-
-🤖 Generate AI MCQs
-
-</button>
-
-
-<div
-id="message"
-class="message">
-</div>
-
-
-<div
-id="quiz"
-class="quiz">
-</div>
-
-
-<div
-id="score"
-class="score">
-
-<div>
-🎓 Your Score
-</div>
-
-<div
-id="scoreNumber"
-class="score-number">
-0 / 0
-</div>
-
-<div id="scoreText"></div>
-
-</div>
-
-
-<button
-id="submit"
-style="display:none;margin-top:15px;background:#15803d;color:white;"
-type="button">
-
-✅ Check Answers
-
-</button>
-
-
-</section>
-
-</main>
-
-
-<footer>
-
-📚 <b>CreateLK Academy</b>
 
 <br>
 
-Learn English. Build Your Future.
+<select id="subject">
+<option>🟢 General English</option>
+<option>📖 Grammar</option>
+<option>🧩 Vocabulary</option>
+<option>✍️ Sentence Formation</option>
+<option>🔤 Parts of Speech</option>
+<option>⏰ Tenses</option>
+<option>🗣️ Speaking English</option>
+<option>👂 Listening English</option>
+<option>📚 Reading Comprehension</option>
+<option>📝 Writing Skills</option>
+<option>🔄 Active & Passive Voice</option>
+<option>💬 Direct & Indirect Speech</option>
+<option>🔗 Prepositions</option>
+<option>🔢 Articles</option>
+<option>🔀 Conjunctions</option>
+<option>🧠 Synonyms</option>
+<option>↔️ Antonyms</option>
+<option>🎯 Phrasal Verbs</option>
+<option>💡 Idioms</option>
+<option>📰 Daily English</option>
+<option>💼 Business English</option>
+<option>🎓 Academic English</option>
+<option>✈️ Travel English</option>
+<option>👔 Job Interview English</option>
+<option>🏆 Advanced English</option>
+</select>
 
-<br><br>
+<button id="gen" class="generate" onclick="generate()">
+🤖 Generate AI MCQs
+</button>
 
+<div id="msg"></div>
+</div>
+
+<div id="box" class="card" style="display:none">
+<div id="questions"></div>
+<button class="submit" onclick="check()">✅ Submit Answers</button>
+<div id="result"></div>
+</div>
+
+</main>
+
+<footer>
+📚 CreateLK Academy<br>
+Learn English. Build Your Future.<br><br>
 © 2026 CreateLK Academy. All Rights Reserved.
-
 </footer>
-
 
 <script>
 
-"use strict";
+const WORKER="https://gateofheavensl1.workers.dev/api/ai-mcq";
+
+let qs=[];
+
+const email=
+localStorage.getItem("studentEmail")||
+localStorage.getItem("email")||
+localStorage.getItem("userEmail")||"";
+
+if(!email) location.href="login.html";
 
 
-/* =====================================
-   WORKERS
-===================================== */
+/* Generate */
 
-const MEMBERSHIP_API =
-"https://createlk-membership.gateofheavensl1.workers.dev";
+async function generate(){
 
-const AI_API =
-"https://premium-worker.gateofheavensl1.workers.dev";
+let btn=document.getElementById("gen");
+let msg=document.getElementById("msg");
+let subject=document.getElementById("subject").value;
 
-
-/* =====================================
-   ELEMENTS
-===================================== */
-
-const membership =
-document.getElementById("membership");
-
-const app =
-document.getElementById("app");
-
-const generate =
-document.getElementById("generate");
-
-const message =
-document.getElementById("message");
-
-const quiz =
-document.getElementById("quiz");
-
-const score =
-document.getElementById("score");
-
-const scoreNumber =
-document.getElementById("scoreNumber");
-
-const scoreText =
-document.getElementById("scoreText");
-
-const submit =
-document.getElementById("submit");
-
-const logout =
-document.getElementById("logout");
-
-let questions = [];
-
-let expiry = null;
-
-let timer = null;
-
-
-/* =====================================
-   EMAIL
-===================================== */
-
-function getEmail(){
-
-const keys = [
-"createlk_student_email",
-"studentEmail",
-"email",
-"userEmail",
-"loggedInEmail"
-];
-
-for(
-const key of keys
-){
-
-const value =
-localStorage.getItem(key);
-
-if(
-value &&
-value.includes("@")
-){
-
-return value
-.trim()
-.toLowerCase();
-
-}
-
-}
-
-
-const objects = [
-"createlk_user",
-"createlk_student",
-"currentUser",
-"user",
-"student"
-];
-
-for(
-const key of objects
-){
+btn.disabled=true;
+btn.textContent="⏳ Generating...";
+msg.innerHTML="";
 
 try{
 
-const raw =
-localStorage.getItem(key);
-
-if(!raw) continue;
-
-const user =
-JSON.parse(raw);
-
-if(
-user &&
-user.email &&
-String(user.email).includes("@")
-){
-
-return String(user.email)
-.trim()
-.toLowerCase();
-
-}
-
-}catch(e){}
-
-}
-
-return "";
-
-}
-
-
-/* =====================================
-   LOGIN
-===================================== */
-
-function updateLogin(){
-
-logout.style.display =
-getEmail()
-? "block"
-: "none";
-
-}
-
-
-/* =====================================
-   LOGOUT
-===================================== */
-
-logout.onclick =
-function(){
-
-if(
-!confirm("Are you sure you want to logout?")
-){
-
-return;
-
-}
-
-[
-"createlk_student_email",
-"studentEmail",
-"email",
-"userEmail",
-"loggedInEmail",
-"createlk_user",
-"createlk_student",
-"currentUser",
-"user",
-"student"
-]
-.forEach(
-key =>
-localStorage.removeItem(key)
-);
-
-sessionStorage.clear();
-
-location.href =
-"index.html";
-
-};
-
-
-/* =====================================
-   ACTIVE CHECK
-===================================== */
-
-function isActive(data){
-
-/*
- EXACT RESPONSE FROM YOUR WORKER:
-
- {
-   success:true,
-   active:true,
-   status:"active"
- }
-*/
-
-return (
-data &&
-(
-data.active === true ||
-String(data.active).toLowerCase() === "true" ||
-String(data.status).toLowerCase() === "active"
-)
-);
-
-}
-
-
-/* =====================================
-   GET EXPIRY
-===================================== */
-
-function getExpiry(data){
-
-return (
-data.expires_at ||
-data.expiresAt ||
-data.expiry ||
-data.expiry_date ||
-null
-);
-
-}
-
-
-/* =====================================
-   COUNTDOWN
-===================================== */
-
-function startCountdown(date){
-
-clearInterval(timer);
-
-const end =
-new Date(
-String(date).replace(" ","T")
-).getTime();
-
-if(
-isNaN(end)
-){
-
-return;
-
-}
-
-expiry = end;
-
-
-function update(){
-
-let seconds =
-Math.floor(
-(end - Date.now()) / 1000
-);
-
-if(
-seconds <= 0
-){
-
-clearInterval(timer);
-
-membership.className =
-"membership expired";
-
-membership.innerHTML =
-"🔒 <b>Premium membership expired.</b>";
-
-app.style.display =
-"none";
-
-return;
-
-}
-
-const days =
-Math.floor(
-seconds / 86400
-);
-
-seconds %= 86400;
-
-const hours =
-Math.floor(
-seconds / 3600
-);
-
-seconds %= 3600;
-
-const minutes =
-Math.floor(
-seconds / 60
-);
-
-seconds %= 60;
-
-membership.className =
-"membership active";
-
-membership.innerHTML = `
-
-⭐ <b>Premium Membership Active</b>
-
-<div class="email">
-${getEmail()}
-</div>
-
-<div>
-📅 Expires:
-${new Date(end).toLocaleDateString()}
-</div>
-
-<div class="countdown">
-
-⏳ Expires in:
-${days}d ${hours}h ${minutes}m ${seconds}s
-
-</div>
-
-`;
-
-}
-
-update();
-
-timer =
-setInterval(
-update,
-1000
-);
-
-}
-
-
-/* =====================================
-   CHECK MEMBERSHIP
-===================================== */
-
-async function checkMembership(){
-
-updateLogin();
-
-const email =
-getEmail();
-
-
-if(!email){
-
-membership.className =
-"membership expired";
-
-membership.innerHTML =
-"🔐 <b>Please login first.</b>";
-
-app.style.display =
-"none";
-
-return;
-
-}
-
-
-membership.className =
-"membership";
-
-membership.innerHTML =
-"⏳ Checking Premium membership...";
-
-
-try{
-
-const response =
-await fetch(
-
-MEMBERSHIP_API +
-"/status?email=" +
-encodeURIComponent(email) +
-"&t=" +
-Date.now(),
-
-{
-
-method:"GET",
-
-cache:"no-store",
-
-headers:{
-"Accept":
-"application/json"
-}
-
-}
-
-);
-
-
-const text =
-await response.text();
-
-
-console.log(
-"MEMBERSHIP RESPONSE:",
-text
-);
-
-
-if(
-!response.ok
-){
-
-throw new Error(
-"HTTP " +
-response.status
-);
-
-}
-
-
-const data =
-JSON.parse(text);
-
-
-console.log(
-"MEMBERSHIP DATA:",
-data
-);
-
-
-if(
-!isActive(data)
-){
-
-membership.className =
-"membership expired";
-
-membership.innerHTML = `
-
-🔒 <b>
-Premium membership is not active.
-</b>
-
-<div class="email">
-${email}
-</div>
-
-`;
-
-app.style.display =
-"none";
-
-return;
-
-}
-
-
-/* ACTIVE */
-
-app.style.display =
-"block";
-
-
-const exp =
-getExpiry(data);
-
-
-if(exp){
-
-startCountdown(exp);
-
-}else{
-
-membership.className =
-"membership active";
-
-membership.innerHTML =
-"⭐ <b>Premium Membership Active</b>";
-
-}
-
-}catch(error){
-
-console.error(
-"MEMBERSHIP ERROR:",
-error
-);
-
-membership.className =
-"membership expired";
-
-membership.innerHTML = `
-
-❌ <b>
-Unable to check membership.
-</b>
-
-<div class="email">
-${error.message}
-</div>
-
-`;
-
-app.style.display =
-"none";
-
-}
-
-}
-
-
-/* =====================================
-   MESSAGE
-===================================== */
-
-function showMessage(
-text,
-type
-){
-
-message.style.display =
-"block";
-
-message.className =
-"message " +
-type;
-
-message.textContent =
-text;
-
-}
-
-
-/* =====================================
-   GET QUESTIONS
-===================================== */
-
-function getQuestions(data){
-
-if(
-Array.isArray(data)
-){
-return data;
-}
-
-if(
-Array.isArray(data.questions)
-){
-return data.questions;
-}
-
-if(
-Array.isArray(data.mcqs)
-){
-return data.mcqs;
-}
-
-if(
-data.data &&
-Array.isArray(data.data.questions)
-){
-return data.data.questions;
-}
-
-return [];
-
-}
-
-
-/* =====================================
-   GENERATE
-===================================== */
-
-generate.onclick =
-async function(){
-
-const email =
-getEmail();
-
-
-if(!email){
-
-showMessage(
-"🔐 Please login first.",
-"error"
-);
-
-return;
-
-}
-
-
-if(
-expiry &&
-Date.now() >= expiry
-){
-
-showMessage(
-"🔒 Premium membership expired.",
-"error"
-);
-
-return;
-
-}
-
-
-const level =
-document.getElementById("level").value;
-
-const count =
-Number(
-document.getElementById("count").value
-);
-
-
-generate.disabled =
-true;
-
-generate.textContent =
-"⏳ Generating...";
-
-quiz.innerHTML =
-"";
-
-score.style.display =
-"none";
-
-submit.style.display =
-"none";
-
-
-showMessage(
-"🤖 AI is generating your MCQs. Please wait...",
-"info"
-);
-
-
-try{
-
-const response =
-await fetch(
-
-AI_API +
-"/api/ai-mcq",
-
-{
-
+let r=await fetch(WORKER,{
 method:"POST",
-
-headers:{
-"Content-Type":
-"application/json",
-"Accept":
-"application/json"
-},
-
-body:
-JSON.stringify({
-
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
 email:email,
-
 student_email:email,
-
-level:level,
-
-difficulty:level,
-
-count:count,
-
-number_of_questions:count,
-
-topic:
-"English Grammar and Vocabulary"
-
+subject:subject
 })
+});
+
+let text=await r.text();
+let d;
+
+try{d=JSON.parse(text)}
+catch(e){throw Error("AI Worker returned invalid JSON.")}
+
+if(!r.ok||!d.success)
+throw Error(d.error||d.message||"Generation failed.");
+
+qs=d.questions||d.mcqs||[];
+
+if(!Array.isArray(qs)||!qs.length)
+throw Error("No MCQs returned.");
+
+show();
+
+}catch(e){
+
+msg.innerHTML=
+`<div class="status err">❌ ${e.message}</div>`;
 
 }
 
-);
-
-
-const text =
-await response.text();
-
-
-console.log(
-"AI RESPONSE:",
-text
-);
-
-
-if(
-!response.ok
-){
-
-throw new Error(
-"AI Worker HTTP " +
-response.status +
-": " +
-text.substring(0,250)
-);
-
-}
-
-
-const data =
-JSON.parse(text);
-
-
-if(
-data.success === false
-){
-
-throw new Error(
-data.message ||
-"AI generation failed."
-);
+btn.disabled=false;
+btn.textContent="🤖 Generate AI MCQs";
 
 }
 
 
-const raw =
-getQuestions(data);
+/* Show questions */
 
+function show(){
 
-questions =
-raw.map(
-q => ({
+let html="";
 
-question:
-String(
-q.question ||
-q.question_text ||
-q.text ||
-q.prompt ||
-""
-),
+qs.forEach((q,i)=>{
 
-options:
-Array.isArray(q.options)
-? q.options.map(String)
-: [],
+let options=q.options||q.choices||[];
 
-answer:
-q.answer ??
-q.correct_answer ??
-q.correctAnswer ??
-q.correct ??
-q.answer_index ??
-q.correct_index,
+html+=`
+<div class="q">
+<b>Question ${i+1}</b>
+<p>${q.question}</p>
 
-explanation:
-String(
-q.explanation ||
-""
-)
+${options.map((o,j)=>`
+<label class="opt">
+<input type="radio"
+name="q${i}"
+value="${j}">
+${o}
+</label>
+`).join("")}
 
-})
-)
-.filter(
-q =>
-q.question &&
-q.options.length >= 2
-);
-
-
-if(
-questions.length === 0
-){
-
-throw new Error(
-"No MCQs returned by AI Worker."
-);
-
-}
-
-
-renderQuestions();
-
-
-showMessage(
-`✅ ${questions.length} MCQs generated successfully.`,
-"success"
-);
-
-
-}catch(error){
-
-console.error(
-"AI ERROR:",
-error
-);
-
-showMessage(
-"❌ " +
-error.message,
-"error"
-);
-
-}finally{
-
-generate.disabled =
-false;
-
-generate.textContent =
-"🤖 Generate AI MCQs";
-
-}
-
-};
-
-
-/* =====================================
-   RENDER
-===================================== */
-
-function renderQuestions(){
-
-quiz.innerHTML =
-"";
-
-
-questions.forEach(
-(q,index)=>{
-
-const box =
-document.createElement("div");
-
-box.className =
-"question";
-
-
-const title =
-document.createElement("div");
-
-title.className =
-"question-title";
-
-title.textContent =
-`${index+1}. ${q.question}`;
-
-box.appendChild(title);
-
-
-q.options.forEach(
-(option,optIndex)=>{
-
-const btn =
-document.createElement("button");
-
-btn.type =
-"button";
-
-btn.className =
-"option";
-
-btn.textContent =
-option;
-
-btn.onclick =
-function(){
-
-box.querySelectorAll(
-".option"
-).forEach(
-x =>
-x.classList.remove(
-"selected"
-)
-);
-
-btn.classList.add(
-"selected"
-);
-
-btn.dataset.selected =
-optIndex;
-
-};
-
-box.appendChild(btn);
+</div>`;
 
 });
 
-
-quiz.appendChild(box);
-
-});
-
-
-submit.style.display =
-"block";
+document.getElementById("questions").innerHTML=html;
+document.getElementById("box").style.display="block";
+window.scrollTo({top:500,behavior:"smooth"});
 
 }
 
 
-/* =====================================
-   SCORE
-===================================== */
+/* Check */
 
-submit.onclick =
-function(){
+function check(){
 
-let points = 0;
+let score=0;
 
+qs.forEach((q,i)=>{
 
-const boxes =
-quiz.querySelectorAll(
-".question"
+let a=document.querySelector(
+`input[name="q${i}"]:checked`
 );
 
+if(!a)return;
 
-boxes.forEach(
-(box,index)=>{
+let correct=
+q.correctAnswer??
+q.correct_answer??
+q.answer;
 
-const selected =
-box.querySelector(
-".selected"
-);
+let options=q.options||q.choices||[];
 
-if(!selected){
+if(
+String(a.value)==String(correct)||
+options[a.value]===correct
+)score++;
+
+});
+
+document.getElementById("result").textContent=
+`🎯 Score: ${score} / ${qs.length}`;
+
+}
+
+
+/* Countdown */
+
+let expiry=
+localStorage.getItem("premiumExpiresAt");
+
+function countdown(){
+
+if(!expiry)return;
+
+let d=new Date(expiry)-Date.now();
+
+if(d<=0){
+document.getElementById("time").textContent="Expired";
 return;
 }
 
-let correct =
-questions[index].answer;
+let days=Math.floor(d/86400000);
+let hrs=Math.floor(d/3600000)%24;
+let min=Math.floor(d/60000)%60;
+let sec=Math.floor(d/1000)%60;
 
-
-if(
-typeof correct === "string"
-){
-
-const c =
-correct.trim().toUpperCase();
-
-
-if(
-["A","B","C","D"].includes(c)
-){
-
-correct =
-["A","B","C","D"].indexOf(c);
-
-}else{
-
-const found =
-questions[index]
-.options
-.findIndex(
-x =>
-String(x)
-.toLowerCase()
-.trim()
-===
-correct
-.toLowerCase()
-.trim()
-);
-
-if(found >= 0){
-correct = found;
-}
+document.getElementById("time").textContent=
+`${days}d ${hrs}h ${min}m ${sec}s`;
 
 }
 
-}
+countdown();
+setInterval(countdown,1000);
 
 
-correct =
-Number(correct);
+/* Logout */
 
+function logout(){
 
-const selectedIndex =
-Number(
-selected.dataset.selected
-);
-
-
-box.querySelectorAll(
-".option"
-).forEach(
-(btn,i)=>{
-
-if(
-i === correct
-){
-
-btn.classList.add(
-"correct"
-);
+localStorage.removeItem("studentEmail");
+localStorage.removeItem("email");
+localStorage.removeItem("userEmail");
+location.href="login.html";
 
 }
-
-if(
-i === selectedIndex &&
-i !== correct
-){
-
-btn.classList.add(
-"wrong"
-);
-
-}
-
-});
-
-
-if(
-selectedIndex === correct
-){
-
-points++;
-
-}
-
-
-if(
-questions[index].explanation
-){
-
-const explanation =
-document.createElement(
-"div"
-);
-
-explanation.className =
-"explanation";
-
-explanation.textContent =
-"💡 " +
-questions[index].explanation;
-
-box.appendChild(
-explanation
-);
-
-}
-
-});
-
-
-scoreNumber.textContent =
-`${points} / ${questions.length}`;
-
-
-const percent =
-Math.round(
-points /
-questions.length *
-100
-);
-
-
-scoreText.textContent =
-percent >= 80
-? "🌟 Excellent work!"
-: percent >= 60
-? "👍 Good job!"
-: "📚 Keep practising!";
-
-
-score.style.display =
-"block";
-
-
-window.scrollTo({
-top:document.body.scrollHeight,
-behavior:"smooth"
-});
-
-};
-
-
-/* =====================================
-   START
-===================================== */
-
-updateLogin();
-
-checkMembership();
 
 </script>
 
