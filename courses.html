@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Courses | CreateLK Academy</title>
+
+<meta name="description" content="Explore English courses at CreateLK Academy. Improve grammar, vocabulary, speaking and practical English skills.">
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#f4f7fb;
+color:#172033;
+line-height:1.6
+}
+
+header{
+background:#172554;
+color:#fff;
+padding:14px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:relative
+}
+
+.logo{
+font-size:20px;
+font-weight:bold
+}
+
+.menu-btn{
+background:#fff;
+color:#172554;
+border:0;
+padding:8px 13px;
+border-radius:7px;
+font-size:20px;
+cursor:pointer
+}
+
+nav{
+display:none;
+position:absolute;
+right:5%;
+top:62px;
+background:#fff;
+width:210px;
+border-radius:10px;
+box-shadow:0 5px 20px #0003;
+overflow:hidden;
+z-index:100
+}
+
+nav.show{
+display:block
+}
+
+nav a{
+display:block;
+color:#172033;
+text-decoration:none;
+padding:12px 16px;
+font-size:15px;
+border-bottom:1px solid #eee
+}
+
+nav a:hover{
+background:#f1f5f9;
+color:#2563eb
+}
+
+.hero{
+text-align:center;
+padding:60px 20px;
+background:linear-gradient(135deg,#172554,#2563eb);
+color:#fff
+}
+
+.hero h1{
+font-size:36px;
+margin-bottom:10px
+}
+
+.hero p{
+font-size:18px
+}
+
+section{
+padding:50px 7%;
+text-align:center
+}
+
+h2{
+color:#172554;
+margin-bottom:15px
+}
+
+.course-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:22px;
+margin-top:30px
+}
+
+.course{
+background:#fff;
+padding:25px;
+border-radius:12px;
+box-shadow:0 4px 15px #0001;
+text-align:left
+}
+
+.course h3{
+color:#172554;
+margin-bottom:10px
+}
+
+.course p{
+margin-bottom:18px
+}
+
+.course-btn{
+display:inline-block;
+background:#172554;
+color:#fff;
+padding:10px 16px;
+border-radius:7px;
+text-decoration:none;
+font-weight:bold
+}
+
+.course-btn:hover{
+background:#2563eb
+}
+
+.info{
+max-width:800px;
+margin:auto
+}
+
+footer{
+background:#172033;
+color:#fff;
+text-align:center;
+padding:25px
+}
+
+footer a{
+color:#fff;
+margin:0 8px;
+text-decoration:none
+}
+
+.small{
+font-size:13px;
+color:#aaa;
+margin-top:10px
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">📚 CreateLK Academy</div>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<nav id="menu">
+
+<a href="index.html">🏠 Home</a>
+
+<a href="about.html">ℹ️ About</a>
+
+<a href="courses.html">📚 Explore Courses</a>
+
+<a href="premium.html">⭐ Premium Membership</a>
+
+<a href="login.html">🔐 Login</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>📚 Explore Our Courses</h1>
+
+<p>Learn English step by step and build your confidence.</p>
+
+</section>
+
+<section>
+
+<h2>English Learning Courses</h2>
+
+<div class="course-grid">
+
+<div class="course">
+
+<h3>📖 English Grammar</h3>
+
+<p>
+Learn essential English grammar rules, sentence structure, tenses and common grammar mistakes.
+</p>
+
+<a class="course-btn" href="login.html">
+Start Learning
+</a>
+
+</div>
+
+<div class="course">
+
+<h3>🧠 English Vocabulary</h3>
+
+<p>
+Build your vocabulary with useful words, meanings, examples and everyday English expressions.
+</p>
+
+<a class="course-btn" href="login.html">
+Start Learning
+</a>
+
+</div>
+
+<div class="course">
+
+<h3>🗣️ Spoken English</h3>
+
+<p>
+Improve your everyday communication skills and become more confident when speaking English.
+</p>
+
+<a class="course-btn" href="login.html">
+Start Learning
+</a>
+
+</div>
+
+<div class="course">
+
+<h3>✍️ English Writing</h3>
+
+<p>
+Learn how to write clear sentences, paragraphs, messages and practical English content.
+</p>
+
+<a class="course-btn" href="login.html">
+Start Learning
+</a>
+
+</div>
+
+<div class="course">
+
+<h3>🎯 English MCQ Practice</h3>
+
+<p>
+Test your grammar, vocabulary and general English knowledge with multiple-choice questions.
+</p>
+
+<a class="course-btn" href="login.html">
+Start Practice
+</a>
+
+</div>
+
+<div class="course">
+
+<h3>🤖 AI English Practice</h3>
+
+<p>
+Premium members can practise with AI-generated English MCQs and improve their knowledge every day.
+</p>
+
+<a class="course-btn" href="premium.html">
+⭐ Premium
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="info">
+
+<h2>Start Learning Today</h2>
+
+<p>
+Choose a course and start improving your English skills with CreateLK Academy.
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>📚 CreateLK Academy</p>
+
+<p>Learn English. Build Your Future.</p>
+
+<p>
+<a href="about.html">About</a>
+<a href="courses.html">Courses</a>
+<a href="premium.html">Premium</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="terms.html">Terms & Conditions</a>
+</p>
+
+<p class="small">
+© 2026 CreateLK Academy. All Rights Reserved.
+</p>
+
+</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("show");
+}
+
+document.addEventListener("click",function(e){
+
+const menu=document.getElementById("menu");
+const button=document.querySelector(".menu-btn");
+
+if(!menu.contains(e.target) && !button.contains(e.target)){
+menu.classList.remove("show");
+}
+
+});
+</script>
+
+</body>
+</html>
