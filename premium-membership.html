@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>CreateLK Academy | Premium Membership</title>
 
 <style>
-
 *{
 box-sizing:border-box;
 margin:0;
@@ -142,6 +137,7 @@ color:#991b1b;
 font-size:13px;
 margin-top:5px;
 word-break:break-word;
+font-weight:600;
 }
 
 .countdown{
@@ -227,15 +223,12 @@ grid-template-columns:1fr;
 }
 
 }
-
 </style>
-
 </head>
 
 <body>
 
 <header>
-
 <div class="nav">
 
 <div class="logo">
@@ -244,27 +237,16 @@ grid-template-columns:1fr;
 
 <div class="nav-right">
 
-<a
-href="index.html"
-class="home">
-
+<a href="index.html" class="home">
 🏠 Home
-
 </a>
 
-<button
-id="logout"
-class="logout"
-type="button">
-
+<button id="logout" class="logout" type="button">
 🚪 Logout
-
 </button>
 
 </div>
-
 </div>
-
 </header>
 
 
@@ -272,13 +254,9 @@ type="button">
 
 <section class="hero">
 
-<div class="icon">
-⭐
-</div>
+<div class="icon">⭐</div>
 
-<h1>
-Premium Membership
-</h1>
+<h1>Premium Membership</h1>
 
 <p>
 Unlock Premium AI English MCQs and practise every day.
@@ -289,46 +267,18 @@ Unlock Premium AI English MCQs and practise every day.
 
 <section class="card">
 
-
 <div class="price">
-
 LKR 1,500
-
-<small>
-• 30 Days
-</small>
-
+<small>• 30 Days</small>
 </div>
 
 
-<div
-id="status"
-class="status checking">
-
+<div id="status" class="status checking">
 ⏳ Checking Premium membership...
-
 </div>
 
 
-<div id="content">
-
-<a
-href="payment.html"
-class="button payment">
-
-💳 Continue to Payment
-
-</a>
-
-<a
-href="beginner-english.html"
-class="button free">
-
-🌱 Start Free Course
-
-</a>
-
-</div>
+<div id="content"></div>
 
 
 <div class="features">
@@ -372,29 +322,28 @@ Learn English. Build Your Future.
 
 
 <script>
-
 "use strict";
 
 
-/* =========================
-   MEMBERSHIP WORKER
-========================= */
+/* =====================================
+   CLOUDFLARE MEMBERSHIP WORKER
+===================================== */
 
 const MEMBERSHIP_API =
 "https://createlk-membership.gateofheavensl1.workers.dev";
 
 
-/* =========================
-   PREMIUM COURSE PAGE
-========================= */
+/* =====================================
+   PREMIUM PAGE
+===================================== */
 
 const PREMIUM_PAGE =
 "premium-course.html";
 
 
-/* =========================
+/* =====================================
    ELEMENTS
-========================= */
+===================================== */
 
 const statusBox =
 document.getElementById("status");
@@ -408,884 +357,992 @@ document.getElementById("logout");
 let timer = null;
 
 
-/* =========================
-   GET STUDENT EMAIL
-========================= */
+/* =====================================
+   ESCAPE HTML
+===================================== */
+
+function escapeHTML(value){
+
+if(!value){
+return "";
+}
+
+return String(value)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================
+   GET EMAIL
+===================================== */
 
 function getEmail(){
 
-    const keys = [
+const directKeys = [
 
-        "createlk_student_email",
+"createlk_student_email",
+"studentEmail",
+"email",
+"userEmail",
+"loggedInEmail"
 
-        "studentEmail",
-
-        "email"
-
-    ];
-
-
-    for(const key of keys){
-
-        const value =
-        localStorage.getItem(key);
-
-        if(
-            value &&
-            value.trim()
-        ){
-
-            return value
-            .trim()
-            .toLowerCase();
-
-        }
-
-    }
+];
 
 
-    const userKeys = [
+for(const key of directKeys){
 
-        "createlk_user",
+const value =
+localStorage.getItem(key);
 
-        "createlk_student"
+if(value){
 
-    ];
+const email =
+value.trim().toLowerCase();
 
+if(
+email &&
+email.includes("@")
+){
 
-    for(const key of userKeys){
+return email;
 
-        try{
+}
 
-            const raw =
-            localStorage.getItem(key);
-
-            if(!raw){
-                continue;
-            }
-
-            const user =
-            JSON.parse(raw);
-
-            if(
-                user &&
-                user.email
-            ){
-
-                return user.email
-                .trim()
-                .toLowerCase();
-
-            }
-
-        }catch(error){
-
-            console.log(
-                "User storage error:",
-                error
-            );
-
-        }
-
-    }
-
-
-    return "";
+}
 
 }
 
 
-/* =========================
+/* =====================================
+   CHECK OBJECT STORAGE
+===================================== */
+
+const objectKeys = [
+
+"createlk_user",
+"createlk_student",
+"user",
+"student",
+"currentUser"
+
+];
+
+
+for(const key of objectKeys){
+
+try{
+
+const raw =
+localStorage.getItem(key);
+
+if(!raw){
+continue;
+}
+
+const user =
+JSON.parse(raw);
+
+if(
+user &&
+typeof user.email === "string"
+){
+
+const email =
+user.email
+.trim()
+.toLowerCase();
+
+if(
+email &&
+email.includes("@")
+){
+
+return email;
+
+}
+
+}
+
+}catch(error){
+
+console.log(
+"Storage parse error:",
+key,
+error
+);
+
+}
+
+}
+
+
+return "";
+
+}
+
+
+/* =====================================
    LOGIN UI
-========================= */
+===================================== */
 
 function updateLoginUI(){
 
-    const email =
-    getEmail();
+const email =
+getEmail();
 
-
-    if(email){
-
-        logoutButton.style.display =
-        "block";
-
-    }else{
-
-        logoutButton.style.display =
-        "none";
-
-    }
+logoutButton.style.display =
+email ? "block" : "none";
 
 }
 
 
-/* =========================
+/* =====================================
    LOGOUT
-========================= */
+===================================== */
 
-logoutButton.onclick =
+logoutButton.addEventListener(
+"click",
 function(){
 
-    if(
-        !confirm(
-            "Are you sure you want to logout?"
-        )
-    ){
+if(
+!confirm(
+"Are you sure you want to logout?"
+)
+){
 
-        return;
+return;
 
-    }
-
-
-    const keys = [
-
-        "createlk_student_email",
-
-        "studentEmail",
-
-        "email",
-
-        "createlk_user",
-
-        "createlk_student"
-
-    ];
+}
 
 
-    keys.forEach(
-        key => {
+const keys = [
 
-            localStorage.removeItem(
-                key
-            );
+"createlk_student_email",
+"studentEmail",
+"email",
+"userEmail",
+"loggedInEmail",
+"createlk_user",
+"createlk_student",
+"user",
+"student",
+"currentUser"
 
-        }
-    );
-
-
-    sessionStorage.clear();
-
-
-    clearInterval(timer);
-
-
-    window.location.href =
-    "index.html";
-
-};
+];
 
 
-/* =========================
-   CHECK ACTIVE STATUS
-========================= */
+keys.forEach(function(key){
+
+localStorage.removeItem(key);
+
+});
+
+
+sessionStorage.clear();
+
+clearInterval(timer);
+
+window.location.href =
+"index.html";
+
+});
+
+
+/* =====================================
+   FIND ACTIVE MEMBERSHIP
+===================================== */
 
 function isActive(data){
 
-    if(!data){
-
-        return false;
-
-    }
+if(!data){
+return false;
+}
 
 
-    if(
-        data.active === true
-    ){
+/* DIRECT */
 
-        return true;
-
-    }
-
-
-    if(
-        String(
-            data.status || ""
-        ).toLowerCase()
-        === "active"
-    ){
-
-        return true;
-
-    }
+if(
+data.active === true
+){
+return true;
+}
 
 
-    if(
-        data.membership
-    ){
-
-        if(
-            data.membership.active
-            === true
-        ){
-
-            return true;
-
-        }
+if(
+String(data.active)
+.toLowerCase()
+==="true"
+){
+return true;
+}
 
 
-        if(
-            String(
-                data.membership.status || ""
-            ).toLowerCase()
-            === "active"
-        ){
-
-            return true;
-
-        }
-
-    }
+if(
+String(data.status || "")
+.toLowerCase()
+==="active"
+){
+return true;
+}
 
 
-    if(
-        data.subscription
-    ){
+/* MEMBERSHIP OBJECT */
 
-        if(
-            data.subscription.active
-            === true
-        ){
+if(data.membership){
 
-            return true;
+if(
+data.membership.active === true
+){
+return true;
+}
 
-        }
-
-
-        if(
-            String(
-                data.subscription.status || ""
-            ).toLowerCase()
-            === "active"
-        ){
-
-            return true;
-
-        }
-
-    }
-
-
-    return false;
+if(
+String(
+data.membership.status || ""
+)
+.toLowerCase()
+==="active"
+){
+return true;
+}
 
 }
 
 
-/* =========================
+/* SUBSCRIPTION OBJECT */
+
+if(data.subscription){
+
+if(
+data.subscription.active === true
+){
+return true;
+}
+
+if(
+String(
+data.subscription.status || ""
+)
+.toLowerCase()
+==="active"
+){
+return true;
+}
+
+}
+
+
+return false;
+
+}
+
+
+/* =====================================
    GET EXPIRY
-========================= */
+===================================== */
 
 function getExpiry(data){
 
-    if(!data){
-
-        return null;
-
-    }
+if(!data){
+return null;
+}
 
 
-    return (
+const possible = [
 
-        data.expires_at ||
+data.expires_at,
+data.expiresAt,
+data.expiry,
+data.expiry_date,
+data.expiration,
+data.expiration_date
 
-        data.expiresAt ||
+];
 
-        data.expiry ||
 
-        data.expiry_date ||
+if(data.membership){
 
-        (
-            data.membership &&
-            (
-                data.membership.expires_at ||
-                data.membership.expiresAt ||
-                data.membership.expiry
-            )
-        ) ||
-
-        (
-            data.subscription &&
-            (
-                data.subscription.expires_at ||
-                data.subscription.expiresAt ||
-                data.subscription.expiry
-            )
-        ) ||
-
-        null
-
-    );
+possible.push(
+data.membership.expires_at,
+data.membership.expiresAt,
+data.membership.expiry,
+data.membership.expiry_date
+);
 
 }
 
 
-/* =========================
-   OPEN PREMIUM COURSE
-========================= */
+if(data.subscription){
+
+possible.push(
+data.subscription.expires_at,
+data.subscription.expiresAt,
+data.subscription.expiry,
+data.subscription.expiry_date
+);
+
+}
+
+
+for(const value of possible){
+
+if(value){
+return value;
+}
+
+}
+
+
+return null;
+
+}
+
+
+/* =====================================
+   DATE PARSER
+===================================== */
+
+function parseDate(value){
+
+if(!value){
+return null;
+}
+
+
+let date =
+new Date(value);
+
+
+if(
+isNaN(date.getTime())
+){
+
+date =
+new Date(
+String(value)
+.replace(" ","T")
+);
+
+}
+
+
+if(
+isNaN(date.getTime())
+){
+
+return null;
+
+}
+
+
+return date;
+
+}
+
+
+/* =====================================
+   OPEN PREMIUM
+===================================== */
 
 function openPremium(){
 
-    window.location.href =
-    PREMIUM_PAGE;
+window.location.href =
+PREMIUM_PAGE;
 
 }
 
 
-/* =========================
+/* =====================================
    SHOW ACTIVE
-========================= */
+===================================== */
 
-function showActive(data){
+function showActive(data,email){
 
-    clearInterval(timer);
-
-
-    statusBox.className =
-    "status active";
+clearInterval(timer);
 
 
-    const email =
-    getEmail();
+statusBox.className =
+"status active";
 
 
-    let html =
-    "⭐ <b>Premium Membership Active</b>";
+let html =
+"⭐ <b>Premium Membership Active</b>";
+
+html +=
+`<div class="email">${escapeHTML(email)}</div>`;
 
 
-    if(email){
-
-        html +=
-        `<div class="email">${email}</div>`;
-
-    }
+const expiry =
+getExpiry(data);
 
 
-    const expiry =
-    getExpiry(data);
+const expiryDate =
+parseDate(expiry);
 
 
-    if(expiry){
+if(expiryDate){
 
-        const date =
-        new Date(
-            String(expiry)
-            .replace(" ","T")
-        );
-
-
-        if(
-            !isNaN(
-                date.getTime()
-            )
-        ){
-
-            html +=
-            `<div>📅 Expires: ${
-                date.toLocaleDateString()
-            }</div>`;
-
-        }
-
-    }
-
-
-    html += `
-
-        <div
-        id="countdown"
-        class="countdown">
-
-        ⏳ Calculating...
-
-        </div>
-
-    `;
-
-
-    statusBox.innerHTML =
-    html;
-
-
-    content.innerHTML = `
-
-        <button
-        id="openPremium"
-        type="button"
-        class="button premium">
-
-        ⭐ Open Premium AI
-
-        </button>
-
-        <a
-        href="index.html"
-        class="button free">
-
-        🏠 Back to Home
-
-        </a>
-
-    `;
-
-
-    const openButton =
-    document.getElementById(
-        "openPremium"
-    );
-
-
-    if(openButton){
-
-        openButton.addEventListener(
-            "click",
-            openPremium
-        );
-
-    }
-
-
-    if(expiry){
-
-        startCountdown(
-            expiry
-        );
-
-    }
+html +=
+`<div>📅 Expires: ${
+expiryDate.toLocaleDateString()
+}</div>`;
 
 }
 
 
-/* =========================
+html += `
+<div
+id="countdown"
+class="countdown">
+⏳ Calculating...
+</div>
+`;
+
+
+statusBox.innerHTML =
+html;
+
+
+content.innerHTML = `
+
+<button
+id="openPremium"
+type="button"
+class="button premium">
+
+⭐ Open Premium AI
+
+</button>
+
+<a
+href="index.html"
+class="button free">
+
+🏠 Back to Home
+
+</a>
+
+`;
+
+
+document
+.getElementById("openPremium")
+.addEventListener(
+"click",
+openPremium
+);
+
+
+if(expiryDate){
+
+startCountdown(
+expiryDate
+);
+
+}else{
+
+const box =
+document.getElementById(
+"countdown"
+);
+
+if(box){
+
+box.textContent =
+"✅ Membership active";
+
+}
+
+}
+
+}
+
+
+/* =====================================
    COUNTDOWN
-========================= */
+===================================== */
 
 function startCountdown(expiry){
 
-    clearInterval(timer);
+clearInterval(timer);
 
 
-    const end =
-    new Date(
-        String(expiry)
-        .replace(" ","T")
-    ).getTime();
+const end =
+expiry instanceof Date
+? expiry.getTime()
+: parseDate(expiry)?.getTime();
 
 
-    if(
-        isNaN(end)
-    ){
+if(
+!end ||
+isNaN(end)
+){
 
-        const box =
-        document.getElementById(
-            "countdown"
-        );
-
-        if(box){
-
-            box.textContent =
-            "📅 Membership active";
-
-        }
-
-        return;
-
-    }
-
-
-    function update(){
-
-        let seconds =
-        Math.floor(
-            (end - Date.now())
-            / 1000
-        );
-
-
-        const box =
-        document.getElementById(
-            "countdown"
-        );
-
-
-        if(!box){
-
-            return;
-
-        }
-
-
-        if(seconds <= 0){
-
-            clearInterval(timer);
-
-
-            statusBox.className =
-            "status expired";
-
-
-            statusBox.innerHTML =
-            "🔒 <b>Premium membership expired.</b>";
-
-
-            content.innerHTML = `
-
-                <a
-                href="payment.html"
-                class="button payment">
-
-                💳 Renew Premium
-
-                </a>
-
-                <a
-                href="index.html"
-                class="button free">
-
-                🏠 Back to Home
-
-                </a>
-
-            `;
-
-
-            return;
-
-        }
-
-
-        const days =
-        Math.floor(
-            seconds / 86400
-        );
-
-
-        seconds %= 86400;
-
-
-        const hours =
-        Math.floor(
-            seconds / 3600
-        );
-
-
-        seconds %= 3600;
-
-
-        const minutes =
-        Math.floor(
-            seconds / 60
-        );
-
-
-        seconds %= 60;
-
-
-        box.textContent =
-        `⏳ Expires in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-    }
-
-
-    update();
-
-
-    timer =
-    setInterval(
-        update,
-        1000
-    );
+return;
 
 }
 
 
-/* =========================
+function update(){
+
+const box =
+document.getElementById(
+"countdown"
+);
+
+
+if(!box){
+return;
+}
+
+
+let seconds =
+Math.floor(
+(end - Date.now()) / 1000
+);
+
+
+if(seconds <= 0){
+
+clearInterval(timer);
+
+
+statusBox.className =
+"status expired";
+
+
+statusBox.innerHTML =
+"🔒 <b>Premium membership expired.</b>";
+
+
+content.innerHTML = `
+
+<a
+href="payment.html"
+class="button payment">
+
+💳 Renew Premium
+
+</a>
+
+<a
+href="index.html"
+class="button free">
+
+🏠 Back to Home
+
+</a>
+
+`;
+
+return;
+
+}
+
+
+const days =
+Math.floor(
+seconds / 86400
+);
+
+seconds %= 86400;
+
+
+const hours =
+Math.floor(
+seconds / 3600
+);
+
+seconds %= 3600;
+
+
+const minutes =
+Math.floor(
+seconds / 60
+);
+
+seconds %= 60;
+
+
+box.textContent =
+`⏳ Expires in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+}
+
+
+update();
+
+timer =
+setInterval(
+update,
+1000
+);
+
+}
+
+
+/* =====================================
+   SHOW NOT ACTIVE
+===================================== */
+
+function showNotActive(email){
+
+clearInterval(timer);
+
+
+statusBox.className =
+"status expired";
+
+
+statusBox.innerHTML = `
+
+🔒 <b>Premium membership not found.</b>
+
+<div class="email">
+${escapeHTML(email)}
+</div>
+
+`;
+
+
+content.innerHTML = `
+
+<a
+href="payment.html"
+class="button payment">
+
+💳 Join Premium — LKR 1,500
+
+</a>
+
+<a
+href="index.html"
+class="button free">
+
+🏠 Back to Home
+
+</a>
+
+`;
+
+}
+
+
+/* =====================================
+   NO LOGIN
+===================================== */
+
+function showLogin(){
+
+clearInterval(timer);
+
+
+statusBox.className =
+"status expired";
+
+
+statusBox.innerHTML =
+"🔐 <b>Please login first.</b>";
+
+
+content.innerHTML = `
+
+<a
+href="login.html"
+class="button payment">
+
+🔐 Student Login
+
+</a>
+
+<a
+href="register.html"
+class="button free">
+
+✍️ Create Account
+
+</a>
+
+`;
+
+}
+
+
+/* =====================================
+   API ERROR
+===================================== */
+
+function showError(message){
+
+clearInterval(timer);
+
+
+statusBox.className =
+"status expired";
+
+
+statusBox.innerHTML = `
+
+❌ <b>Unable to check membership.</b>
+
+<div class="email">
+${escapeHTML(message)}
+</div>
+
+`;
+
+
+content.innerHTML = `
+
+<button
+type="button"
+onclick="checkMembership()"
+class="button premium">
+
+🔄 Check Again
+
+</button>
+
+<a
+href="payment.html"
+class="button payment">
+
+💳 Continue to Payment
+
+</a>
+
+<a
+href="index.html"
+class="button free">
+
+🏠 Back to Home
+
+</a>
+
+`;
+
+}
+
+
+/* =====================================
    CHECK MEMBERSHIP
-========================= */
+===================================== */
 
 async function checkMembership(){
 
-    updateLoginUI();
+updateLoginUI();
 
 
-    const email =
-    getEmail();
+const email =
+getEmail();
 
 
-    console.log(
-        "Premium email:",
-        email
-    );
+console.log(
+"CreateLK Premium email:",
+email
+);
 
 
-    /* =========================
-       NO EMAIL
-    ========================= */
+if(!email){
 
-    if(!email){
+showLogin();
 
-        statusBox.className =
-        "status expired";
-
-
-        statusBox.innerHTML =
-        "🔐 <b>Please login first.</b>";
-
-
-        content.innerHTML = `
-
-            <a
-            href="login.html"
-            class="button payment">
-
-            🔐 Student Login
-
-            </a>
-
-            <a
-            href="register.html"
-            class="button free">
-
-            ✍️ Create Account
-
-            </a>
-
-        `;
-
-
-        return;
-
-    }
-
-
-    /* =========================
-       CHECKING
-    ========================= */
-
-    statusBox.className =
-    "status checking";
-
-
-    statusBox.innerHTML =
-    "⏳ Checking Premium membership...";
-
-
-    try{
-
-
-        const url =
-        MEMBERSHIP_API +
-        "/status?email=" +
-        encodeURIComponent(email) +
-        "&t=" +
-        Date.now();
-
-
-        console.log(
-            "Membership URL:",
-            url
-        );
-
-
-        const response =
-        await fetch(
-
-            url,
-
-            {
-
-                method:"GET",
-
-                cache:"no-store",
-
-                headers:{
-
-                    "Accept":
-                    "application/json"
-
-                }
-
-            }
-
-        );
-
-
-        const text =
-        await response.text();
-
-
-        console.log(
-            "Membership response:",
-            text
-        );
-
-
-        let data;
-
-
-        try{
-
-            data =
-            JSON.parse(text);
-
-        }catch(error){
-
-            throw new Error(
-                "Membership Worker returned invalid JSON."
-            );
-
-        }
-
-
-        if(
-            !response.ok
-        ){
-
-            throw new Error(
-                "Membership server error: " +
-                response.status
-            );
-
-        }
-
-
-        console.log(
-            "Membership data:",
-            data
-        );
-
-
-        /* =========================
-           ACTIVE
-        ========================= */
-
-        if(
-            isActive(data)
-        ){
-
-            showActive(
-                data
-            );
-
-            return;
-
-        }
-
-
-        /* =========================
-           NOT ACTIVE
-        ========================= */
-
-        statusBox.className =
-        "status expired";
-
-
-        statusBox.innerHTML =
-        "🔒 <b>Premium membership not active.</b>" +
-        `<div class="email">${email}</div>`;
-
-
-        content.innerHTML = `
-
-            <a
-            href="payment.html"
-            class="button payment">
-
-            💳 Join Premium — LKR 1,500
-
-            </a>
-
-            <a
-            href="index.html"
-            class="button free">
-
-            🏠 Back to Home
-
-            </a>
-
-        `;
-
-
-    }catch(error){
-
-
-        console.error(
-            "Membership error:",
-            error
-        );
-
-
-        statusBox.className =
-        "status expired";
-
-
-        statusBox.innerHTML =
-        "❌ <b>Unable to check membership.</b>" +
-        `<div class="email">${error.message}</div>`;
-
-
-        content.innerHTML = `
-
-            <button
-            onclick="checkMembership()"
-            class="button premium">
-
-            🔄 Check Again
-
-            </button>
-
-            <a
-            href="payment.html"
-            class="button payment">
-
-            💳 Continue to Payment
-
-            </a>
-
-            <a
-            href="index.html"
-            class="button free">
-
-            🏠 Back to Home
-
-            </a>
-
-        `;
-
-    }
+return;
 
 }
 
 
-/* =========================
+statusBox.className =
+"status checking";
+
+
+statusBox.innerHTML =
+"⏳ Checking Premium membership...";
+
+
+content.innerHTML = "";
+
+
+try{
+
+
+/* =====================================
+   API URL
+===================================== */
+
+const url =
+MEMBERSHIP_API +
+"/status?email=" +
+encodeURIComponent(email) +
+"&t=" +
+Date.now();
+
+
+console.log(
+"Membership API:",
+url
+);
+
+
+/* =====================================
+   REQUEST
+===================================== */
+
+const response =
+await fetch(
+url,
+{
+method:"GET",
+cache:"no-store",
+headers:{
+"Accept":"application/json"
+}
+}
+);
+
+
+const text =
+await response.text();
+
+
+console.log(
+"Membership API response:",
+text
+);
+
+
+let data;
+
+
+try{
+
+data =
+JSON.parse(text);
+
+}catch(error){
+
+throw new Error(
+"Invalid JSON returned by Membership Worker."
+);
+
+}
+
+
+if(
+!response.ok
+){
+
+throw new Error(
+"Membership Worker HTTP " +
+response.status
+);
+
+}
+
+
+console.log(
+"Membership object:",
+data
+);
+
+
+/* =====================================
+   ACTIVE
+===================================== */
+
+if(
+isActive(data)
+){
+
+showActive(
+data,
+email
+);
+
+return;
+
+}
+
+
+/* =====================================
+   NOT ACTIVE
+===================================== */
+
+showNotActive(
+email
+);
+
+
+}catch(error){
+
+console.error(
+"Membership check failed:",
+error
+);
+
+
+showError(
+error.message ||
+"Connection error"
+);
+
+}
+
+}
+
+
+/* =====================================
    START
-========================= */
+===================================== */
 
 updateLoginUI();
 
 checkMembership();
 
 
-/* =========================
-   RECHECK
-========================= */
+/* =====================================
+   RECHECK WHEN RETURNING
+===================================== */
 
 document.addEventListener(
+"visibilitychange",
+function(){
 
-    "visibilitychange",
+if(
+document.visibilityState ===
+"visible"
+){
 
-    function(){
+checkMembership();
 
-        if(
-            document.visibilityState
-            === "visible"
-        ){
+}
 
-            checkMembership();
+});
 
-        }
 
-    }
+/* =====================================
+   RECHECK EVERY 60 SECONDS
+===================================== */
 
+setInterval(
+function(){
+
+if(
+document.visibilityState ===
+"visible"
+){
+
+checkMembership();
+
+}
+
+},
+60000
 );
 
 </script>
