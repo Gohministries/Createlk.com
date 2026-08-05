@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
 content="width=device-width,initial-scale=1">
 
-<title>Premium Membership | CreateLK Academy</title>
-
-<meta name="description"
+<title>Premium Membership | CreateLK Academy</title><meta name="description"
 content="CreateLK Academy Premium Membership Payment">
 
 <style>
@@ -320,7 +311,7 @@ cursor:not-allowed;
 }
 
 
-/* PENDING */
+/* PENDING / RESULT */
 
 .pending-box{
 display:none;
@@ -331,6 +322,18 @@ background:#fff7d6;
 border:1px solid #f3d77a;
 color:#7a5200;
 line-height:1.6;
+}
+
+.pending-box.approved{
+background:#ecfdf3;
+border-color:#abefc6;
+color:#166534;
+}
+
+.pending-box.rejected{
+background:#fff0f0;
+border-color:#fecdca;
+color:#991b1b;
 }
 
 
@@ -348,6 +351,10 @@ color:#fff;
 font-size:15px;
 font-weight:800;
 cursor:pointer;
+}
+
+.reupload:hover{
+background:#334155;
 }
 
 
@@ -389,341 +396,191 @@ flex-shrink:0;
 
 }
 
-</style>
-
-</head>
-
-
-<body>
-
-
-<header>
-
-<div class="nav">
-
-<div class="logo">
+</style></head><body><header><div class="nav"><div class="logo">
 📚 CreateLK Academy
-</div>
-
-<a
+</div><a
 class="home"
 href="index.html"
->
+
+«»
+
 🏠 Home
 </a>
 
-</div>
-
-</header>
-
-
-<main>
-
-<div class="card">
-
-
-<div class="icon">
+</div></header><main><div class="card"><div class="icon">
 ⭐
-</div>
-
-
-<h1>
+</div><h1>
 Premium Membership
-</h1>
-
-
-<div class="price">
+</h1><div class="price">
 LKR 1,500 • 30 Days
-</div>
-
-
-<div
+</div><div
 id="status"
 class="status"
-></div>
-
-
-<!-- ============================
+></div><!-- ============================
      ONLINE PAYMENT
-============================= -->
-
-<div class="section online">
-
-<span class="badge">
+============================= --><div class="section online"><span class="badge">
 ⚡ ONLINE PAYMENT
-</span>
-
-<h2>
+</span><h2>
 💳 Pay with PayHere
-</h2>
-
-<p>
+</h2><p>
 Pay <b>LKR 1,500</b> securely online using PayHere.
-</p>
-
-
-<a
+</p><a
 class="payhere-btn"
 href="YOUR_PAYHERE_PAYMENT_LINK"
 target="_blank"
 rel="noopener"
->
+
+«»
+
 💳 Pay LKR 1,500 Online
 </a>
 
-
 <p class="small">
 After completing your online payment, follow the PayHere instructions for verification.
-</p>
-
-</div>
-
-
-<!-- ============================
+</p></div><!-- ============================
      MANUAL PAYMENT
-============================= -->
-
-<div class="section manual">
-
-<span class="badge">
+============================= --><div class="section manual"><span class="badge">
 🏦 MANUAL PAYMENT
-</span>
-
-<h2>
+</span><h2>
 🏦 Bank Transfer
-</h2>
-
-<p>
+</h2><p>
 Deposit or transfer <b>LKR 1,500</b> to the account below.
-</p>
-
-
-<div class="bank-details">
-
-
-<div class="bank-row">
-
-<div class="bank-info">
-
-<span class="bank-label">
+</p><div class="bank-details"><div class="bank-row"><div class="bank-info"><span class="bank-label">
 Bank
-</span>
-
-<span class="bank-value">
+</span><span class="bank-value">
 People's Bank
-</span>
-
-</div>
-
-<button
+</span></div><button
 class="copy-btn"
 type="button"
-onclick="copyText('People\\'s Bank','Bank')"
->
+onclick="copyText('People\'s Bank','Bank')"
+
+«»
+
 📋 Copy
 </button>
 
-</div>
-
-
-<div class="bank-row">
-
-<div class="bank-info">
-
-<span class="bank-label">
+</div><div class="bank-row"><div class="bank-info"><span class="bank-label">
 Branch
-</span>
-
-<span class="bank-value">
+</span><span class="bank-value">
 Udapussellawa
-</span>
-
-</div>
-
-<button
+</span></div><button
 class="copy-btn"
 type="button"
 onclick="copyText('Udapussellawa','Branch')"
->
+
+«»
+
 📋 Copy
 </button>
 
-</div>
-
-
-<div class="bank-row">
-
-<div class="bank-info">
-
-<span class="bank-label">
+</div><div class="bank-row"><div class="bank-info"><span class="bank-label">
 Account No
-</span>
-
-<span class="bank-value">
+</span><span class="bank-value">
 292200280023178
-</span>
-
-</div>
-
-<button
+</span></div><button
 class="copy-btn"
 type="button"
 onclick="copyText('292200280023178','Account No')"
->
+
+«»
+
 📋 Copy
 </button>
 
-</div>
-
-
-<div class="bank-row">
-
-<div class="bank-info">
-
-<span class="bank-label">
+</div><div class="bank-row"><div class="bank-info"><span class="bank-label">
 Customer Name
-</span>
-
-<span class="bank-value">
+</span><span class="bank-value">
 Thinarathnam Saththiyanadan
-</span>
-
-</div>
-
-<button
+</span></div><button
 class="copy-btn"
 type="button"
 onclick="copyText('Thinarathnam Saththiyanadan','Customer Name')"
->
+
+«»
+
 📋 Copy
 </button>
 
-</div>
-
-
-</div>
-
-
-<button
+</div></div><button
 class="copy-all"
 type="button"
 onclick="copyAllBankDetails()"
->
+
+«»
+
 📋 Copy All Bank Details
 </button>
 
-
 <p class="small">
 After making the bank payment, upload your payment slip below for manual verification.
-</p>
-
-</div>
-
-
-<!-- ============================
+</p></div><!-- ============================
      STUDENT
-============================= -->
-
-<label>
+============================= --><label>
 👤 Student Email
-</label>
-
-
-<input
+</label><input
 type="email"
 id="email"
 readonly
->
 
+«»
 
 <!-- ============================
      UPLOAD
-============================= -->
-
-<div id="uploadArea">
-
-<label>
+============================= --><div id="uploadArea"><label>
 📤 Payment Slip
-</label>
-
-
-<input
+</label><input
 type="file"
 id="slip"
 accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf"
->
 
+«»
 
 <p class="small">
 Accepted: JPG, PNG, WEBP or PDF • Maximum 10MB
-</p>
-
-
-<button
+</p><button
 class="submit"
 id="submitBtn"
 type="button"
 onclick="submitPayment()"
->
+
+«»
+
 📤 Submit Manual Payment
 </button>
 
-</div>
-
-
-<!-- ============================
-     PENDING
-============================= -->
-
-<div
+</div><!-- ============================
+     PAYMENT RESULT
+============================= --><div
 id="pendingBox"
 class="pending-box"
 >
-
-⏳ <b>Payment Pending</b>
-
-<br><br>
-
-Your payment slip has been submitted successfully.
-
-<br><br>
-
-Our team will verify your payment and activate your Premium membership.
-
-<br><br>
-
-Please wait for approval.
-
-</div>
-
-
-<button
+</div><button
 id="reupload"
 class="reupload"
 type="button"
 onclick="enableUpload()"
->
+
+«»
+
 🔄 Upload Slip Again
 </button>
-
 
 <a
 class="back"
 href="index.html"
->
+
+«»
+
 🏠 Back to Home
 </a>
 
+</div></main><script>
 
-</div>
+"use strict";
 
-</main>
-
-
-<script>
 
 /* =================================
-   STUDENT PAYMENT WORKER
+   PAYMENT WORKER
 ================================= */
 
 const API =
@@ -754,6 +611,27 @@ document.getElementById("uploadArea");
 
 const reupload =
 document.getElementById("reupload");
+
+
+/* =================================
+   STATUS
+================================= */
+
+function showStatus(
+message,
+type
+){
+
+statusBox.className =
+"status " + type;
+
+statusBox.textContent =
+message;
+
+statusBox.style.display =
+"block";
+
+}
 
 
 /* =================================
@@ -790,19 +668,60 @@ user.student_email ||
 
 }catch(error){
 
-console.log(error);
+console.log(
+"User data error:",
+error
+);
 
 }
 
 }
 
 
-return String(email || "")
+if(!email){
+
+try{
+
+const student =
+JSON.parse(
+localStorage.getItem(
+"createlk_student"
+)
+);
+
+if(student){
+
+email =
+student.email ||
+student.student_email ||
+"";
+
+}
+
+}catch(error){
+
+console.log(
+"Student data error:",
+error
+);
+
+}
+
+}
+
+
+return String(
+email || ""
+)
 .trim()
 .toLowerCase();
 
 }
 
+
+/* =================================
+   LOAD EMAIL
+================================= */
 
 const studentEmail =
 getStudentEmail();
@@ -822,27 +741,6 @@ showStatus(
 
 submitBtn.disabled =
 true;
-
-}
-
-
-/* =================================
-   STATUS
-================================= */
-
-function showStatus(
-message,
-type
-){
-
-statusBox.className =
-"status " + type;
-
-statusBox.textContent =
-message;
-
-statusBox.style.display =
-"block";
 
 }
 
@@ -947,6 +845,318 @@ details,
 
 
 /* =================================
+   SHOW PENDING
+================================= */
+
+function showPending(){
+
+showStatus(
+"⏳ Your payment is pending verification.",
+"pending"
+);
+
+pendingBox.className =
+"pending-box";
+
+pendingBox.innerHTML = `
+⏳ <b>Payment Pending</b>
+
+<br><br>
+
+Your payment slip has been submitted successfully.
+
+<br><br>
+
+Our team will verify your payment and activate your Premium membership.
+
+<br><br>
+
+<b>Status: PENDING</b>
+
+<br><br>
+
+Please wait for approval.
+`;
+
+pendingBox.style.display =
+"block";
+
+uploadArea.style.display =
+"none";
+
+reupload.style.display =
+"none";
+
+}
+
+
+/* =================================
+   SHOW APPROVED
+================================= */
+
+function showApproved(payment){
+
+showStatus(
+"✅ Payment approved! Your Premium membership is active.",
+"success"
+);
+
+pendingBox.className =
+"pending-box approved";
+
+let verified =
+"";
+
+if(payment && payment.verified_at){
+
+verified =
+new Date(
+payment.verified_at
+).toLocaleDateString(
+"en-GB",
+{
+day:"numeric",
+month:"short",
+year:"numeric"
+}
+);
+
+}
+
+pendingBox.innerHTML = `
+✅ <b>Payment Approved</b>
+
+<br><br>
+
+Your LKR 1,500 payment has been approved.
+
+<br><br>
+
+⭐ <b>Premium Membership Active</b>
+
+<br><br>
+
+<b>Membership:</b> 30 Days
+
+${verified ? `
+<br>
+<b>Approved:</b> ${verified}
+` : ""}
+
+<br><br>
+
+You can now access your Premium learning resources.
+`;
+
+pendingBox.style.display =
+"block";
+
+uploadArea.style.display =
+"none";
+
+reupload.style.display =
+"none";
+
+}
+
+
+/* =================================
+   SHOW REJECTED
+================================= */
+
+function showRejected(){
+
+showStatus(
+"❌ Your payment was rejected. Please upload a valid payment slip.",
+"error"
+);
+
+pendingBox.className =
+"pending-box rejected";
+
+pendingBox.innerHTML = `
+❌ <b>Payment Rejected</b>
+
+<br><br>
+
+Your previous payment slip was not approved.
+
+<br><br>
+
+Please upload a valid payment slip and submit it again.
+`;
+
+pendingBox.style.display =
+"block";
+
+uploadArea.style.display =
+"block";
+
+reupload.style.display =
+"none";
+
+submitBtn.disabled =
+false;
+
+submitBtn.textContent =
+"📤 Submit Manual Payment";
+
+}
+
+
+/* =================================
+   CHECK PAYMENT STATUS FROM D1
+================================= */
+
+async function checkPaymentStatus(){
+
+const email =
+emailInput.value
+.trim()
+.toLowerCase();
+
+
+if(!email){
+
+return;
+
+}
+
+
+try{
+
+const response =
+await fetch(
+API +
+"/payment-status?email=" +
+encodeURIComponent(email),
+{
+method:"GET",
+cache:"no-store"
+}
+);
+
+
+const data =
+await response.json();
+
+
+console.log(
+"Payment status:",
+data
+);
+
+
+if(
+!response.ok ||
+!data.success
+){
+
+return;
+
+}
+
+
+/* =========================
+   NO PAYMENT
+========================= */
+
+if(!data.found){
+
+uploadArea.style.display =
+"block";
+
+pendingBox.style.display =
+"none";
+
+reupload.style.display =
+"none";
+
+return;
+
+}
+
+
+const payment =
+data.payment;
+
+
+/* =========================
+   PENDING
+========================= */
+
+if(
+payment.status === "pending"
+){
+
+showPending();
+
+return;
+
+}
+
+
+/* =========================
+   APPROVED
+========================= */
+
+if(
+payment.status === "approved"
+){
+
+showApproved(
+payment
+);
+
+return;
+
+}
+
+
+/* =========================
+   REJECTED
+========================= */
+
+if(
+payment.status === "rejected"
+){
+
+showRejected();
+
+return;
+
+}
+
+
+/* =========================
+   OTHER STATUS
+========================= */
+
+showStatus(
+"ℹ️ Payment status: " +
+payment.status,
+"pending"
+);
+
+
+}catch(error){
+
+console.error(
+"Payment status check error:",
+error
+);
+
+/*
+Do not hide the upload form if the
+status endpoint temporarily fails.
+*/
+
+}
+
+}
+
+
+/* =================================
    SUBMIT PAYMENT
 ================================= */
 
@@ -986,11 +1196,39 @@ return;
 }
 
 
-if(file.size >
-10 * 1024 * 1024){
+if(
+file.size >
+10 * 1024 * 1024
+){
 
 showStatus(
 "❌ File is too large. Maximum 10MB.",
+"error"
+);
+
+return;
+
+}
+
+
+/* File type check */
+
+const allowedTypes = [
+"image/jpeg",
+"image/png",
+"image/webp",
+"application/pdf"
+];
+
+
+if(
+!allowedTypes.includes(
+file.type
+)
+){
+
+showStatus(
+"❌ Invalid file. Please upload JPG, PNG, WEBP or PDF.",
 "error"
 );
 
@@ -1033,19 +1271,13 @@ file
 );
 
 
-/*
-IMPORTANT:
-Do NOT add Authorization header.
-The student payment Worker does not use
-the admin key.
-*/
-
 const response =
 await fetch(
 API + "/payment",
 {
 method:"POST",
-body:formData
+body:formData,
+cache:"no-store"
 }
 );
 
@@ -1080,9 +1312,9 @@ data.message ||
 }
 
 
-/* =================================
-   PAYMENT SUBMITTED
-================================= */
+/* =========================
+   SUCCESS
+========================= */
 
 showStatus(
 "✅ Payment slip submitted successfully. Your payment is now PENDING.",
@@ -1090,13 +1322,30 @@ showStatus(
 );
 
 
+pendingBox.className =
+"pending-box";
+
+pendingBox.innerHTML = `
+⏳ <b>Payment Pending</b>
+
+<br><br>
+
+Your payment slip has been submitted successfully.
+
+<br><br>
+
+Our team will verify your payment and activate your Premium membership.
+
+<br><br>
+
+<b>Status: PENDING</b>
+`;
+
 pendingBox.style.display =
 "block";
 
-
 uploadArea.style.display =
 "none";
-
 
 reupload.style.display =
 "none";
@@ -1105,6 +1354,16 @@ reupload.style.display =
 localStorage.setItem(
 "createlk_payment_status",
 "pending"
+);
+
+
+/*
+Check database again after submission
+*/
+
+setTimeout(
+checkPaymentStatus,
+800
 );
 
 
@@ -1117,14 +1376,17 @@ error
 
 
 showStatus(
-"❌ " + error.message,
+"❌ " +
+(
+error.message ||
+"Payment submission failed."
+),
 "error"
 );
 
 
 submitBtn.disabled =
 false;
-
 
 submitBtn.textContent =
 "📤 Submit Manual Payment";
@@ -1163,8 +1425,15 @@ submitBtn.textContent =
 
 }
 
-</script>
 
-</body>
+/* =================================
+   INITIAL DATABASE CHECK
+================================= */
 
-</html>
+if(studentEmail){
+
+checkPaymentStatus();
+
+}
+
+</script></body></html>
