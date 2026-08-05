@@ -1,7 +1,16 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
 content="width=device-width,initial-scale=1">
 
-<title>Premium Membership | CreateLK Academy</title><meta name="description"
+<title>Premium Membership | CreateLK Academy</title>
+
+<meta name="description"
 content="CreateLK Academy Premium Membership Payment">
 
 <style>
@@ -79,6 +88,11 @@ font-weight:800;
 margin-bottom:25px;
 }
 
+
+/* ================================
+   STATUS
+================================ */
+
 .status{
 display:none;
 padding:14px;
@@ -110,23 +124,46 @@ border:1px solid #fecaca;
 }
 
 
-/* PAYMENT SECTIONS */
+/* ================================
+   PAYMENT SECTIONS
+================================ */
 
 .section{
 padding:18px;
 border-radius:15px;
 margin-bottom:18px;
 border:1px solid #e5e7eb;
+color:#172033;
 }
+
+.section h2{
+color:#172033;
+font-size:19px;
+margin-bottom:7px;
+}
+
+.section p{
+color:#475467;
+line-height:1.6;
+}
+
+
+/* ================================
+   ONLINE PAYMENT
+================================ */
 
 .online{
-background:#f0fdf4;
+background:#f0fdf4 !important;
 border-color:#bbf7d0;
+color:#172033 !important;
 }
 
-.manual{
-background:#eff6ff;
-border-color:#bfdbfe;
+.online h2{
+color:#172033 !important;
+}
+
+.online p{
+color:#475467 !important;
 }
 
 .badge{
@@ -139,34 +176,17 @@ margin-bottom:9px;
 }
 
 .online .badge{
-background:#dcfce7;
-color:#166534;
+background:#dcfce7 !important;
+color:#166534 !important;
 }
-
-.manual .badge{
-background:#dbeafe;
-color:#1d4ed8;
-}
-
-.section h2{
-font-size:19px;
-margin-bottom:7px;
-}
-
-.section p{
-line-height:1.6;
-}
-
-
-/* PAYHERE */
 
 .payhere-btn{
 display:block;
 width:100%;
 text-align:center;
 text-decoration:none;
-background:#15803d;
-color:#fff;
+background:#15803d !important;
+color:#fff !important;
 padding:14px;
 border-radius:10px;
 font-weight:800;
@@ -174,11 +194,37 @@ margin-top:14px;
 }
 
 .payhere-btn:hover{
-background:#166534;
+background:#166534 !important;
 }
 
 
-/* BANK DETAILS */
+/* ================================
+   MANUAL PAYMENT
+================================ */
+
+.manual{
+background:#eff6ff !important;
+border-color:#bfdbfe;
+color:#172033 !important;
+}
+
+.manual h2{
+color:#172033 !important;
+}
+
+.manual p{
+color:#475467 !important;
+}
+
+.manual .badge{
+background:#dbeafe !important;
+color:#1d4ed8 !important;
+}
+
+
+/* ================================
+   BANK DETAILS
+================================ */
 
 .bank-details{
 background:#fff;
@@ -216,6 +262,7 @@ margin-bottom:2px;
 display:block;
 font-weight:700;
 word-break:break-word;
+color:#172033 !important;
 }
 
 .copy-btn{
@@ -248,7 +295,9 @@ cursor:pointer;
 }
 
 
-/* FORM */
+/* ================================
+   FORM
+================================ */
 
 label{
 display:block;
@@ -280,13 +329,15 @@ box-shadow:0 0 0 3px rgba(23,78,166,.1);
 
 .small{
 font-size:13px;
-color:#667085;
+color:#667085 !important;
 line-height:1.5;
 margin-top:7px;
 }
 
 
-/* SUBMIT */
+/* ================================
+   SUBMIT
+================================ */
 
 .submit{
 width:100%;
@@ -311,7 +362,9 @@ cursor:not-allowed;
 }
 
 
-/* PENDING / RESULT */
+/* ================================
+   PENDING / RESULT
+================================ */
 
 .pending-box{
 display:none;
@@ -325,9 +378,14 @@ line-height:1.6;
 }
 
 .pending-box.approved{
-background:#ecfdf3;
-border-color:#abefc6;
-color:#166534;
+display:block;
+background:#ecfdf3 !important;
+border:1px solid #abefc6 !important;
+color:#166534 !important;
+}
+
+.pending-box.approved b{
+color:#166534 !important;
 }
 
 .pending-box.rejected{
@@ -337,7 +395,9 @@ color:#991b1b;
 }
 
 
-/* REUPLOAD */
+/* ================================
+   REUPLOAD
+================================ */
 
 .reupload{
 display:none;
@@ -358,7 +418,9 @@ background:#334155;
 }
 
 
-/* BACK */
+/* ================================
+   BACK
+================================ */
 
 .back{
 display:block;
@@ -370,7 +432,26 @@ font-weight:700;
 }
 
 
-/* MOBILE */
+/* ================================
+   SAFETY FIXES
+================================ */
+
+#status{
+width:100%;
+position:relative;
+z-index:2;
+}
+
+#pendingBox{
+width:100%;
+position:relative;
+z-index:2;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
 
 @media(max-width:500px){
 
@@ -396,185 +477,326 @@ flex-shrink:0;
 
 }
 
-</style></head><body><header><div class="nav"><div class="logo">
-📚 CreateLK Academy
-</div><a
-class="home"
-href="index.html"
+</style>
 
-«»
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+📚 CreateLK Academy
+</div>
+
+<a
+class="home"
+href="index.html">
 
 🏠 Home
+
 </a>
 
-</div></header><main><div class="card"><div class="icon">
+</div>
+
+</header>
+
+
+<main>
+
+<div class="card">
+
+
+<div class="icon">
 ⭐
-</div><h1>
+</div>
+
+
+<h1>
 Premium Membership
-</h1><div class="price">
+</h1>
+
+
+<div class="price">
 LKR 1,500 • 30 Days
-</div><div
+</div>
+
+
+<div
 id="status"
-class="status"
-></div><!-- ============================
+class="status">
+</div>
+
+
+<!-- ============================
      ONLINE PAYMENT
-============================= --><div class="section online"><span class="badge">
+============================= -->
+
+<div class="section online">
+
+<span class="badge">
 ⚡ ONLINE PAYMENT
-</span><h2>
+</span>
+
+<h2>
 💳 Pay with PayHere
-</h2><p>
+</h2>
+
+<p>
 Pay <b>LKR 1,500</b> securely online using PayHere.
-</p><a
+</p>
+
+<a
 class="payhere-btn"
 href="YOUR_PAYHERE_PAYMENT_LINK"
 target="_blank"
-rel="noopener"
-
-«»
+rel="noopener">
 
 💳 Pay LKR 1,500 Online
+
 </a>
 
 <p class="small">
 After completing your online payment, follow the PayHere instructions for verification.
-</p></div><!-- ============================
+</p>
+
+</div>
+
+
+<!-- ============================
      MANUAL PAYMENT
-============================= --><div class="section manual"><span class="badge">
+============================= -->
+
+<div class="section manual">
+
+<span class="badge">
 🏦 MANUAL PAYMENT
-</span><h2>
+</span>
+
+<h2>
 🏦 Bank Transfer
-</h2><p>
+</h2>
+
+<p>
 Deposit or transfer <b>LKR 1,500</b> to the account below.
-</p><div class="bank-details"><div class="bank-row"><div class="bank-info"><span class="bank-label">
+</p>
+
+
+<div class="bank-details">
+
+
+<div class="bank-row">
+
+<div class="bank-info">
+
+<span class="bank-label">
 Bank
-</span><span class="bank-value">
+</span>
+
+<span class="bank-value">
 People's Bank
-</span></div><button
+</span>
+
+</div>
+
+<button
 class="copy-btn"
 type="button"
-onclick="copyText('People\'s Bank','Bank')"
-
-«»
+onclick="copyText('People\'s Bank','Bank')">
 
 📋 Copy
+
 </button>
 
-</div><div class="bank-row"><div class="bank-info"><span class="bank-label">
+</div>
+
+
+<div class="bank-row">
+
+<div class="bank-info">
+
+<span class="bank-label">
 Branch
-</span><span class="bank-value">
+</span>
+
+<span class="bank-value">
 Udapussellawa
-</span></div><button
+</span>
+
+</div>
+
+<button
 class="copy-btn"
 type="button"
-onclick="copyText('Udapussellawa','Branch')"
-
-«»
+onclick="copyText('Udapussellawa','Branch')">
 
 📋 Copy
+
 </button>
 
-</div><div class="bank-row"><div class="bank-info"><span class="bank-label">
+</div>
+
+
+<div class="bank-row">
+
+<div class="bank-info">
+
+<span class="bank-label">
 Account No
-</span><span class="bank-value">
+</span>
+
+<span class="bank-value">
 292200280023178
-</span></div><button
+</span>
+
+</div>
+
+<button
 class="copy-btn"
 type="button"
-onclick="copyText('292200280023178','Account No')"
-
-«»
+onclick="copyText('292200280023178','Account No')">
 
 📋 Copy
+
 </button>
 
-</div><div class="bank-row"><div class="bank-info"><span class="bank-label">
+</div>
+
+
+<div class="bank-row">
+
+<div class="bank-info">
+
+<span class="bank-label">
 Customer Name
-</span><span class="bank-value">
+</span>
+
+<span class="bank-value">
 Thinarathnam Saththiyanadan
-</span></div><button
+</span>
+
+</div>
+
+<button
 class="copy-btn"
 type="button"
-onclick="copyText('Thinarathnam Saththiyanadan','Customer Name')"
-
-«»
+onclick="copyText('Thinarathnam Saththiyanadan','Customer Name')">
 
 📋 Copy
+
 </button>
 
-</div></div><button
+</div>
+
+
+</div>
+
+
+<button
 class="copy-all"
 type="button"
-onclick="copyAllBankDetails()"
-
-«»
+onclick="copyAllBankDetails()">
 
 📋 Copy All Bank Details
+
 </button>
+
 
 <p class="small">
 After making the bank payment, upload your payment slip below for manual verification.
-</p></div><!-- ============================
+</p>
+
+</div>
+
+
+<!-- ============================
      STUDENT
-============================= --><label>
+============================= -->
+
+<label>
 👤 Student Email
-</label><input
+</label>
+
+<input
 type="email"
 id="email"
-readonly
+readonly>
 
-«»
 
 <!-- ============================
      UPLOAD
-============================= --><div id="uploadArea"><label>
+============================= -->
+
+<div id="uploadArea">
+
+<label>
 📤 Payment Slip
-</label><input
+</label>
+
+<input
 type="file"
 id="slip"
-accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf"
+accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf">
 
-«»
 
 <p class="small">
 Accepted: JPG, PNG, WEBP or PDF • Maximum 10MB
-</p><button
+</p>
+
+
+<button
 class="submit"
 id="submitBtn"
 type="button"
-onclick="submitPayment()"
-
-«»
+onclick="submitPayment()">
 
 📤 Submit Manual Payment
+
 </button>
 
-</div><!-- ============================
+</div>
+
+
+<!-- ============================
      PAYMENT RESULT
-============================= --><div
+============================= -->
+
+<div
 id="pendingBox"
-class="pending-box"
->
-</div><button
+class="pending-box">
+</div>
+
+
+<button
 id="reupload"
 class="reupload"
 type="button"
-onclick="enableUpload()"
-
-«»
+onclick="enableUpload()">
 
 🔄 Upload Slip Again
+
 </button>
+
 
 <a
 class="back"
-href="index.html"
-
-«»
+href="index.html">
 
 🏠 Back to Home
+
 </a>
 
-</div></main><script>
+
+</div>
+
+</main>
+
+
+<script>
 
 "use strict";
 
@@ -946,6 +1168,25 @@ ${verified ? `
 <br><br>
 
 You can now access your Premium learning resources.
+
+<br><br>
+
+<a
+href="premium-course.html"
+style="
+display:block;
+text-align:center;
+text-decoration:none;
+background:#15803d;
+color:#fff;
+padding:13px;
+border-radius:10px;
+font-weight:800;
+">
+
+⭐ Open Premium Courses
+
+</a>
 `;
 
 pendingBox.style.display =
@@ -1211,7 +1452,9 @@ return;
 }
 
 
-/* File type check */
+/* =================================
+   FILE TYPE CHECK
+================================= */
 
 const allowedTypes = [
 "image/jpeg",
@@ -1237,6 +1480,10 @@ return;
 }
 
 
+/* =================================
+   DISABLE BUTTON
+================================= */
+
 submitBtn.disabled =
 true;
 
@@ -1245,6 +1492,11 @@ submitBtn.textContent =
 
 
 try{
+
+
+/* =================================
+   FORM DATA
+================================= */
 
 const formData =
 new FormData();
@@ -1270,6 +1522,10 @@ formData.append(
 file
 );
 
+
+/* =================================
+   SEND TO PAYMENT WORKER
+================================= */
 
 const response =
 await fetch(
@@ -1299,6 +1555,10 @@ throw new Error(
 }
 
 
+/* =================================
+   CHECK RESPONSE
+================================= */
+
 if(
 !response.ok ||
 !data.success
@@ -1312,12 +1572,20 @@ data.message ||
 }
 
 
-/* =========================
+/* =================================
    SUCCESS
-========================= */
+   SAVE PENDING
+   REDIRECT HOME
+================================= */
+
+localStorage.setItem(
+"createlk_payment_status",
+"pending"
+);
+
 
 showStatus(
-"✅ Payment slip submitted successfully. Your payment is now PENDING.",
+"✅ Payment submitted successfully. Redirecting...",
 "pending"
 );
 
@@ -1326,7 +1594,7 @@ pendingBox.className =
 "pending-box";
 
 pendingBox.innerHTML = `
-⏳ <b>Payment Pending</b>
+⏳ <b>Payment Submitted</b>
 
 <br><br>
 
@@ -1334,11 +1602,11 @@ Your payment slip has been submitted successfully.
 
 <br><br>
 
-Our team will verify your payment and activate your Premium membership.
+<b>Status: PENDING</b>
 
 <br><br>
 
-<b>Status: PENDING</b>
+Redirecting to the home page...
 `;
 
 pendingBox.style.display =
@@ -1351,19 +1619,18 @@ reupload.style.display =
 "none";
 
 
-localStorage.setItem(
-"createlk_payment_status",
-"pending"
-);
-
-
 /*
-Check database again after submission
+   Redirect to index.html
 */
 
 setTimeout(
-checkPaymentStatus,
-800
+function(){
+
+window.location.href =
+"index.html";
+
+},
+1000
 );
 
 
@@ -1436,4 +1703,7 @@ checkPaymentStatus();
 
 }
 
-</script></body></html>
+</script>
+
+</body>
+</html>
