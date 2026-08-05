@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -14,7 +13,7 @@
 box-sizing:border-box;
 margin:0;
 padding:0;
-font-family:"Segoe UI",Arial,sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
@@ -26,15 +25,12 @@ line-height:1.6;
 header{
 background:#174ea6;
 color:white;
-position:sticky;
-top:0;
-z-index:100;
 }
 
 .nav{
 max-width:900px;
 margin:auto;
-padding:14px 18px;
+padding:14px;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -42,36 +38,32 @@ align-items:center;
 
 .logo{
 font-weight:800;
-font-size:18px;
 }
 
 .nav-right{
 display:flex;
-align-items:center;
 gap:10px;
+align-items:center;
 }
 
 .home{
 color:white;
 text-decoration:none;
 font-weight:700;
-font-size:14px;
 }
 
 .logout{
 display:none;
+background:#ffffff20;
 color:white;
-background:#ffffff18;
 border:1px solid #ffffff55;
-padding:8px 11px;
+padding:8px 10px;
 border-radius:8px;
-cursor:pointer;
 font-weight:700;
-font-size:13px;
 }
 
 main{
-max-width:760px;
+max-width:720px;
 margin:auto;
 padding:30px 15px 50px;
 }
@@ -82,17 +74,23 @@ margin-bottom:20px;
 }
 
 .icon{
-font-size:50px;
+font-size:48px;
 }
 
 h1{
 color:#174ea6;
-margin:7px 0;
+margin:6px 0;
 }
 
 .hero p{
 color:#667085;
-font-size:14px;
+}
+
+.card{
+background:white;
+padding:22px;
+border-radius:18px;
+box-shadow:0 6px 25px #0001;
 }
 
 .membership{
@@ -114,59 +112,59 @@ background:#fee2e2;
 color:#991b1b;
 }
 
-.countdown{
-margin-top:6px;
+.email{
 font-size:13px;
-font-weight:800;
+margin-top:5px;
+word-break:break-word;
 }
 
-.card{
-background:white;
-padding:22px;
-border-radius:18px;
-box-shadow:0 6px 25px #0001;
+.countdown{
+margin-top:6px;
+font-weight:800;
 }
 
 .controls{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:10px;
-margin-bottom:14px;
+margin-bottom:12px;
 }
 
 select{
 width:100%;
-padding:12px;
+padding:13px;
 border:1px solid #d5dbea;
 border-radius:9px;
 background:white;
-font-size:14px;
+}
+
+button,
+.btn{
+width:100%;
+padding:14px;
+border:0;
+border-radius:10px;
+font-weight:800;
+font-size:15px;
+cursor:pointer;
 }
 
 .generate{
-width:100%;
-padding:15px;
-border:0;
-border-radius:11px;
 background:#174ea6;
 color:white;
-font-size:16px;
-font-weight:800;
-cursor:pointer;
 }
 
 .generate:disabled{
 opacity:.6;
-cursor:not-allowed;
 }
 
 .message{
 display:none;
-margin-top:15px;
+margin-top:14px;
 padding:13px;
 border-radius:10px;
+font-weight:700;
 font-size:14px;
-font-weight:600;
 word-break:break-word;
 }
 
@@ -189,103 +187,65 @@ color:#991b1b;
 }
 
 .quiz{
-margin-top:20px;
+margin-top:18px;
 }
 
 .question{
 background:#f8fafc;
-border:1px solid #e4e9f2;
-padding:18px;
-border-radius:14px;
-margin-bottom:15px;
-}
-
-.question-title{
-font-size:17px;
-font-weight:800;
+border:1px solid #e1e7f0;
+padding:17px;
+border-radius:13px;
 margin-bottom:14px;
 }
 
+.question-title{
+font-weight:800;
+margin-bottom:10px;
+}
+
 .option{
-display:block;
-width:100%;
-text-align:left;
-background:white;
-border:1px solid #d8deea;
-padding:12px;
-border-radius:9px;
 margin-top:8px;
-cursor:pointer;
-font-size:14px;
+background:white;
+border:1px solid #d5dbea;
+text-align:left;
 }
 
 .option.selected{
-border:2px solid #174ea6;
 background:#eef4ff;
+border:2px solid #174ea6;
 }
 
 .option.correct{
 background:#dcfce7;
 border-color:#15803d;
-color:#166534;
-font-weight:700;
 }
 
 .option.wrong{
 background:#fee2e2;
 border-color:#dc2626;
-color:#991b1b;
 }
 
 .explanation{
-margin-top:12px;
+margin-top:10px;
 padding:10px;
-background:#f7f9fc;
+background:#f1f5f9;
 border-radius:8px;
 font-size:13px;
 }
 
 .score{
 display:none;
+margin-top:18px;
+padding:18px;
 background:#174ea6;
 color:white;
-padding:18px;
-border-radius:14px;
 text-align:center;
-margin-top:20px;
+border-radius:12px;
 }
 
 .score-number{
 font-size:30px;
 font-weight:900;
-}
-
-.footer-buttons{
-display:none;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin-top:20px;
-}
-
-.btn{
-display:block;
-padding:13px;
-border-radius:10px;
-text-align:center;
-font-weight:800;
-border:0;
-cursor:pointer;
-text-decoration:none;
-}
-
-.submit{
-background:#15803d;
-color:white;
-}
-
-.home-btn{
-background:#eef4ff;
-color:#174ea6;
 }
 
 footer{
@@ -301,20 +261,8 @@ font-size:13px;
 grid-template-columns:1fr;
 }
 
-.card{
-padding:17px;
-}
-
-.logo{
-font-size:16px;
-}
-
-.question-title{
-font-size:16px;
-}
-
-.footer-buttons{
-grid-template-columns:1fr;
+.nav{
+padding:12px;
 }
 
 }
@@ -322,7 +270,6 @@ grid-template-columns:1fr;
 </style>
 
 </head>
-
 
 <body>
 
@@ -340,18 +287,14 @@ grid-template-columns:1fr;
 <a
 href="index.html"
 class="home">
-
 🏠 Home
-
 </a>
 
 <button
 id="logout"
 class="logout"
 type="button">
-
 🚪 Logout
-
 </button>
 
 </div>
@@ -361,15 +304,11 @@ type="button">
 </header>
 
 
-
 <main>
-
 
 <section class="hero">
 
-<div class="icon">
-⭐
-</div>
+<div class="icon">⭐</div>
 
 <h1>
 Premium AI English MCQs
@@ -382,7 +321,6 @@ Practise English with up to 100 AI-generated MCQs every day.
 </section>
 
 
-
 <div
 id="membership"
 class="membership">
@@ -390,7 +328,6 @@ class="membership">
 ⏳ Checking Premium membership...
 
 </div>
-
 
 
 <section
@@ -411,7 +348,8 @@ Beginner
 Elementary
 </option>
 
-<option value="intermediate" selected>
+<option value="intermediate"
+selected>
 Intermediate
 </option>
 
@@ -432,16 +370,13 @@ Advanced
 5 Questions
 </option>
 
-<option value="10" selected>
+<option value="10"
+selected>
 10 Questions
 </option>
 
 <option value="20">
 20 Questions
-</option>
-
-<option value="30">
-30 Questions
 </option>
 
 <option value="50">
@@ -457,7 +392,6 @@ Advanced
 </div>
 
 
-
 <button
 id="generate"
 class="generate"
@@ -468,19 +402,16 @@ type="button">
 </button>
 
 
-
 <div
 id="message"
 class="message">
 </div>
 
 
-
 <div
 id="quiz"
 class="quiz">
 </div>
-
 
 
 <div
@@ -502,35 +433,19 @@ class="score-number">
 </div>
 
 
-
-<div
-id="footerButtons"
-class="footer-buttons">
-
 <button
 id="submit"
-class="btn submit"
+style="display:none;margin-top:15px;background:#15803d;color:white;"
 type="button">
 
 ✅ Check Answers
 
 </button>
 
-<a
-href="index.html"
-class="btn home-btn">
-
-🏠 Home
-
-</a>
-
-</div>
-
 
 </section>
 
 </main>
-
 
 
 <footer>
@@ -548,15 +463,14 @@ Learn English. Build Your Future.
 </footer>
 
 
-
 <script>
 
 "use strict";
 
 
-/* ======================================
+/* =====================================
    WORKERS
-====================================== */
+===================================== */
 
 const MEMBERSHIP_API =
 "https://createlk-membership.gateofheavensl1.workers.dev";
@@ -565,17 +479,17 @@ const AI_API =
 "https://premium-worker.gateofheavensl1.workers.dev";
 
 
-/* ======================================
+/* =====================================
    ELEMENTS
-====================================== */
+===================================== */
 
-const membershipBox =
+const membership =
 document.getElementById("membership");
 
 const app =
 document.getElementById("app");
 
-const generateButton =
+const generate =
 document.getElementById("generate");
 
 const message =
@@ -584,7 +498,7 @@ document.getElementById("message");
 const quiz =
 document.getElementById("quiz");
 
-const scoreBox =
+const score =
 document.getElementById("score");
 
 const scoreNumber =
@@ -593,25 +507,22 @@ document.getElementById("scoreNumber");
 const scoreText =
 document.getElementById("scoreText");
 
-const footerButtons =
-document.getElementById("footerButtons");
-
-const submitButton =
+const submit =
 document.getElementById("submit");
 
-const logoutButton =
+const logout =
 document.getElementById("logout");
 
 let questions = [];
 
-let countdownTimer = null;
+let expiry = null;
 
-let membershipExpiry = null;
+let timer = null;
 
 
-/* ======================================
-   GET EMAIL
-====================================== */
+/* =====================================
+   EMAIL
+===================================== */
 
 function getEmail(){
 
@@ -632,7 +543,6 @@ localStorage.getItem(key);
 
 if(
 value &&
-value.trim() &&
 value.includes("@")
 ){
 
@@ -645,7 +555,7 @@ return value
 }
 
 
-const objectKeys = [
+const objects = [
 "createlk_user",
 "createlk_student",
 "currentUser",
@@ -654,7 +564,7 @@ const objectKeys = [
 ];
 
 for(
-const key of objectKeys
+const key of objects
 ){
 
 try{
@@ -662,33 +572,24 @@ try{
 const raw =
 localStorage.getItem(key);
 
-if(!raw){
-continue;
-}
+if(!raw) continue;
 
 const user =
 JSON.parse(raw);
 
 if(
 user &&
-typeof user.email === "string" &&
-user.email.includes("@")
+user.email &&
+String(user.email).includes("@")
 ){
 
-return user.email
+return String(user.email)
 .trim()
 .toLowerCase();
 
 }
 
-}catch(error){
-
-console.log(
-"Storage error:",
-error
-);
-
-}
+}catch(e){}
 
 }
 
@@ -697,40 +598,29 @@ return "";
 }
 
 
-/* ======================================
-   LOGIN UI
-====================================== */
+/* =====================================
+   LOGIN
+===================================== */
 
 function updateLogin(){
 
-if(
+logout.style.display =
 getEmail()
-){
-
-logoutButton.style.display =
-"block";
-
-}else{
-
-logoutButton.style.display =
-"none";
-
-}
+? "block"
+: "none";
 
 }
 
 
-/* ======================================
+/* =====================================
    LOGOUT
-====================================== */
+===================================== */
 
-logoutButton.onclick =
+logout.onclick =
 function(){
 
 if(
-!confirm(
-"Are you sure you want to logout?"
-)
+!confirm("Are you sure you want to logout?")
 ){
 
 return;
@@ -756,191 +646,79 @@ localStorage.removeItem(key)
 
 sessionStorage.clear();
 
-clearInterval(
-countdownTimer
-);
-
 location.href =
 "index.html";
 
 };
 
 
-/* ======================================
-   MESSAGE
-====================================== */
-
-function showMessage(
-text,
-type
-){
-
-message.style.display =
-"block";
-
-message.className =
-"message " +
-type;
-
-message.textContent =
-text;
-
-}
-
-function hideMessage(){
-
-message.style.display =
-"none";
-
-}
-
-
-/* ======================================
-   ACTIVE MEMBERSHIP
-====================================== */
+/* =====================================
+   ACTIVE CHECK
+===================================== */
 
 function isActive(data){
 
-if(!data){
-return false;
-}
+/*
+ EXACT RESPONSE FROM YOUR WORKER:
 
-if(
-data.active === true
-){
-return true;
-}
+ {
+   success:true,
+   active:true,
+   status:"active"
+ }
+*/
 
-if(
-String(data.active || "")
-.toLowerCase()
-===
-"true"
-){
-return true;
-}
-
-if(
-String(data.status || "")
-.toLowerCase()
-===
-"active"
-){
-return true;
-}
-
-if(data.membership){
-
-if(
-data.membership.active === true
-){
-return true;
-}
-
-if(
-String(data.membership.status || "")
-.toLowerCase()
-===
-"active"
-){
-return true;
-}
-
-}
-
-if(data.subscription){
-
-if(
-data.subscription.active === true
-){
-return true;
-}
-
-if(
-String(data.subscription.status || "")
-.toLowerCase()
-===
-"active"
-){
-return true;
-}
-
-}
-
-return false;
+return (
+data &&
+(
+data.active === true ||
+String(data.active).toLowerCase() === "true" ||
+String(data.status).toLowerCase() === "active"
+)
+);
 
 }
 
 
-/* ======================================
-   EXPIRY
-====================================== */
+/* =====================================
+   GET EXPIRY
+===================================== */
 
 function getExpiry(data){
 
-if(!data){
-return null;
-}
-
 return (
-
 data.expires_at ||
-
 data.expiresAt ||
-
 data.expiry ||
-
 data.expiry_date ||
-
-(
-data.membership &&
-(
-data.membership.expires_at ||
-data.membership.expiresAt ||
-data.membership.expiry
-)
-) ||
-
-(
-data.subscription &&
-(
-data.subscription.expires_at ||
-data.subscription.expiresAt ||
-data.subscription.expiry
-)
-) ||
-
 null
-
 );
 
 }
 
 
-/* ======================================
+/* =====================================
    COUNTDOWN
-====================================== */
+===================================== */
 
-function startCountdown(expiry){
+function startCountdown(date){
 
-clearInterval(
-countdownTimer
-);
+clearInterval(timer);
 
 const end =
 new Date(
-String(expiry)
-.replace(" ","T")
+String(date).replace(" ","T")
 ).getTime();
 
 if(
 isNaN(end)
 ){
+
 return;
+
 }
 
-membershipExpiry =
-end;
+expiry = end;
 
 
 function update(){
@@ -954,18 +732,16 @@ if(
 seconds <= 0
 ){
 
-clearInterval(
-countdownTimer
-);
+clearInterval(timer);
+
+membership.className =
+"membership expired";
+
+membership.innerHTML =
+"🔒 <b>Premium membership expired.</b>";
 
 app.style.display =
 "none";
-
-membershipBox.className =
-"membership expired";
-
-membershipBox.textContent =
-"🔒 Premium membership expired.";
 
 return;
 
@@ -992,12 +768,21 @@ seconds / 60
 
 seconds %= 60;
 
-membershipBox.className =
+membership.className =
 "membership active";
 
-membershipBox.innerHTML = `
+membership.innerHTML = `
 
 ⭐ <b>Premium Membership Active</b>
+
+<div class="email">
+${getEmail()}
+</div>
+
+<div>
+📅 Expires:
+${new Date(end).toLocaleDateString()}
+</div>
 
 <div class="countdown">
 
@@ -1012,7 +797,7 @@ ${days}d ${hours}h ${minutes}m ${seconds}s
 
 update();
 
-countdownTimer =
+timer =
 setInterval(
 update,
 1000
@@ -1021,141 +806,206 @@ update,
 }
 
 
-/* ======================================
-   VERIFY MEMBERSHIP
-====================================== */
+/* =====================================
+   CHECK MEMBERSHIP
+===================================== */
 
-async function verifyMembership(){
+async function checkMembership(){
+
+updateLogin();
 
 const email =
 getEmail();
 
+
 if(!email){
 
-membershipBox.className =
+membership.className =
 "membership expired";
 
-membershipBox.textContent =
-"🔐 Please login first.";
+membership.innerHTML =
+"🔐 <b>Please login first.</b>";
 
 app.style.display =
 "none";
 
-return false;
+return;
 
 }
 
+
+membership.className =
+"membership";
+
+membership.innerHTML =
+"⏳ Checking Premium membership...";
+
+
 try{
 
-const url =
+const response =
+await fetch(
+
 MEMBERSHIP_API +
 "/status?email=" +
 encodeURIComponent(email) +
 "&t=" +
-Date.now();
+Date.now(),
 
-const response =
-await fetch(
-url,
 {
+
 method:"GET",
+
 cache:"no-store",
+
 headers:{
 "Accept":
 "application/json"
 }
+
 }
+
 );
+
 
 const text =
 await response.text();
 
+
 console.log(
-"Membership:",
+"MEMBERSHIP RESPONSE:",
 text
 );
+
 
 if(
 !response.ok
 ){
 
 throw new Error(
-"Membership HTTP " +
+"HTTP " +
 response.status
 );
 
 }
 
+
 const data =
 JSON.parse(text);
+
+
+console.log(
+"MEMBERSHIP DATA:",
+data
+);
+
 
 if(
 !isActive(data)
 ){
 
-membershipBox.className =
+membership.className =
 "membership expired";
 
-membershipBox.innerHTML =
-"🔒 <b>Premium membership not found.</b>";
+membership.innerHTML = `
+
+🔒 <b>
+Premium membership is not active.
+</b>
+
+<div class="email">
+${email}
+</div>
+
+`;
 
 app.style.display =
 "none";
 
-return false;
+return;
 
 }
 
-const expiry =
-getExpiry(data);
+
+/* ACTIVE */
 
 app.style.display =
 "block";
 
-if(expiry){
 
-startCountdown(
-expiry
-);
+const exp =
+getExpiry(data);
+
+
+if(exp){
+
+startCountdown(exp);
 
 }else{
 
-membershipBox.className =
+membership.className =
 "membership active";
 
-membershipBox.innerHTML =
+membership.innerHTML =
 "⭐ <b>Premium Membership Active</b>";
 
 }
 
-return true;
-
 }catch(error){
 
 console.error(
-"Membership error:",
+"MEMBERSHIP ERROR:",
 error
 );
 
-membershipBox.className =
+membership.className =
 "membership expired";
 
-membershipBox.textContent =
-"❌ Unable to check Premium membership.";
+membership.innerHTML = `
+
+❌ <b>
+Unable to check membership.
+</b>
+
+<div class="email">
+${error.message}
+</div>
+
+`;
 
 app.style.display =
 "none";
 
-return false;
-
 }
 
 }
 
 
-/* ======================================
-   NORMALIZE QUESTIONS
-====================================== */
+/* =====================================
+   MESSAGE
+===================================== */
+
+function showMessage(
+text,
+type
+){
+
+message.style.display =
+"block";
+
+message.className =
+"message " +
+type;
+
+message.textContent =
+text;
+
+}
+
+
+/* =====================================
+   GET QUESTIONS
+===================================== */
 
 function getQuestions(data){
 
@@ -1184,102 +1034,17 @@ Array.isArray(data.data.questions)
 return data.data.questions;
 }
 
-if(
-data.result &&
-Array.isArray(data.result)
-){
-return data.result;
-}
-
 return [];
 
 }
 
 
-/* ======================================
-   NORMALIZE ONE QUESTION
-====================================== */
+/* =====================================
+   GENERATE
+===================================== */
 
-function normalizeQuestion(q){
-
-if(!q){
-return null;
-}
-
-let options =
-q.options ||
-q.choices ||
-q.answers ||
-[];
-
-if(
-!Array.isArray(options)
-){
-
-if(
-typeof options === "object"
-){
-
-options =
-Object.values(options);
-
-}else{
-
-options = [];
-
-}
-
-}
-
-return {
-
-question:
-String(
-q.question ||
-q.question_text ||
-q.text ||
-q.prompt ||
-""
-),
-
-options:
-options.map(
-x =>
-String(x)
-),
-
-answer:
-q.answer ??
-q.correct_answer ??
-q.correctAnswer ??
-q.correct ??
-q.answer_index ??
-q.correct_index,
-
-explanation:
-String(
-q.explanation ||
-q.explain ||
-""
-)
-
-};
-
-}
-
-
-/* ======================================
-   GENERATE MCQS
-====================================== */
-
-generateButton.addEventListener(
-"click",
-async function(event){
-
-event.preventDefault();
-
-event.stopPropagation();
-
+generate.onclick =
+async function(){
 
 const email =
 getEmail();
@@ -1298,12 +1063,12 @@ return;
 
 
 if(
-membershipExpiry &&
-Date.now() >= membershipExpiry
+expiry &&
+Date.now() >= expiry
 ){
 
 showMessage(
-"🔒 Premium membership has expired.",
+"🔒 Premium membership expired.",
 "error"
 );
 
@@ -1313,34 +1078,28 @@ return;
 
 
 const level =
-document.getElementById(
-"level"
-).value;
+document.getElementById("level").value;
 
 const count =
 Number(
-document.getElementById(
-"count"
-).value
+document.getElementById("count").value
 );
 
 
-generateButton.disabled =
+generate.disabled =
 true;
 
-generateButton.textContent =
+generate.textContent =
 "⏳ Generating...";
 
 quiz.innerHTML =
 "";
 
-scoreBox.style.display =
+score.style.display =
 "none";
 
-footerButtons.style.display =
+submit.style.display =
 "none";
-
-hideMessage();
 
 
 showMessage(
@@ -1351,11 +1110,12 @@ showMessage(
 
 try{
 
-
 const response =
 await fetch(
+
 AI_API +
 "/api/ai-mcq",
+
 {
 
 method:"POST",
@@ -1370,23 +1130,17 @@ headers:{
 body:
 JSON.stringify({
 
-email:
-email,
+email:email,
 
-student_email:
-email,
+student_email:email,
 
-level:
-level,
+level:level,
 
-difficulty:
-level,
+difficulty:level,
 
-count:
-count,
+count:count,
 
-number_of_questions:
-count,
+number_of_questions:count,
 
 topic:
 "English Grammar and Vocabulary"
@@ -1394,19 +1148,16 @@ topic:
 })
 
 }
+
 );
 
 
 const text =
 await response.text();
 
-console.log(
-"AI HTTP:",
-response.status
-);
 
 console.log(
-"AI Response:",
+"AI RESPONSE:",
 text
 );
 
@@ -1419,26 +1170,14 @@ throw new Error(
 "AI Worker HTTP " +
 response.status +
 ": " +
-text.substring(0,300)
+text.substring(0,250)
 );
 
 }
 
 
-let data;
-
-try{
-
-data =
+const data =
 JSON.parse(text);
-
-}catch(error){
-
-throw new Error(
-"AI Worker returned invalid JSON."
-);
-
-}
 
 
 if(
@@ -1458,13 +1197,41 @@ getQuestions(data);
 
 
 questions =
-raw
-.map(
-normalizeQuestion
+raw.map(
+q => ({
+
+question:
+String(
+q.question ||
+q.question_text ||
+q.text ||
+q.prompt ||
+""
+),
+
+options:
+Array.isArray(q.options)
+? q.options.map(String)
+: [],
+
+answer:
+q.answer ??
+q.correct_answer ??
+q.correctAnswer ??
+q.correct ??
+q.answer_index ??
+q.correct_index,
+
+explanation:
+String(
+q.explanation ||
+""
+)
+
+})
 )
 .filter(
 q =>
-q &&
 q.question &&
 q.options.length >= 2
 );
@@ -1475,7 +1242,7 @@ questions.length === 0
 ){
 
 throw new Error(
-"No MCQs were returned by the AI Worker."
+"No MCQs returned by AI Worker."
 );
 
 }
@@ -1485,7 +1252,7 @@ renderQuestions();
 
 
 showMessage(
-`✅ ${questions.length} AI MCQs generated successfully.`,
+`✅ ${questions.length} MCQs generated successfully.`,
 "success"
 );
 
@@ -1493,7 +1260,7 @@ showMessage(
 }catch(error){
 
 console.error(
-"Generation error:",
+"AI ERROR:",
 error
 );
 
@@ -1503,24 +1270,22 @@ error.message,
 "error"
 );
 
-
 }finally{
 
-generateButton.disabled =
+generate.disabled =
 false;
 
-generateButton.textContent =
+generate.textContent =
 "🤖 Generate AI MCQs";
 
 }
 
-}
-);
+};
 
 
-/* ======================================
-   RENDER QUESTIONS
-====================================== */
+/* =====================================
+   RENDER
+===================================== */
 
 function renderQuestions(){
 
@@ -1532,18 +1297,14 @@ questions.forEach(
 (q,index)=>{
 
 const box =
-document.createElement(
-"div"
-);
+document.createElement("div");
 
 box.className =
 "question";
 
 
 const title =
-document.createElement(
-"div"
-);
+document.createElement("div");
 
 title.className =
 "question-title";
@@ -1551,89 +1312,69 @@ title.className =
 title.textContent =
 `${index+1}. ${q.question}`;
 
-box.appendChild(
-title
-);
+box.appendChild(title);
 
 
 q.options.forEach(
 (option,optIndex)=>{
 
-const button =
-document.createElement(
-"button"
-);
+const btn =
+document.createElement("button");
 
-button.type =
+btn.type =
 "button";
 
-button.className =
+btn.className =
 "option";
 
-button.textContent =
+btn.textContent =
 option;
 
-button.onclick =
+btn.onclick =
 function(){
 
-box
-.querySelectorAll(
+box.querySelectorAll(
 ".option"
-)
-.forEach(
+).forEach(
 x =>
 x.classList.remove(
 "selected"
 )
 );
 
-button.classList.add(
+btn.classList.add(
 "selected"
 );
 
-button.dataset.selected =
-"true";
-
-button.dataset.index =
+btn.dataset.selected =
 optIndex;
 
 };
 
-box.appendChild(
-button
-);
+box.appendChild(btn);
 
 });
 
 
-quiz.appendChild(
-box
-);
+quiz.appendChild(box);
 
 });
 
 
-footerButtons.style.display =
-"grid";
+submit.style.display =
+"block";
 
 }
 
 
-/* ======================================
-   CHECK ANSWERS
-====================================== */
+/* =====================================
+   SCORE
+===================================== */
 
-submitButton.onclick =
+submit.onclick =
 function(){
 
-if(
-questions.length === 0
-){
-return;
-}
-
-let score =
-0;
+let points = 0;
 
 
 const boxes =
@@ -1645,76 +1386,52 @@ quiz.querySelectorAll(
 boxes.forEach(
 (box,index)=>{
 
-const options =
-box.querySelectorAll(
-".option"
+const selected =
+box.querySelector(
+".selected"
 );
 
-let selected =
-null;
-
-
-options.forEach(
-(option,i)=>{
-
-if(
-option.dataset.selected ===
-"true"
-){
-
-selected =
-i;
-
+if(!selected){
+return;
 }
 
-});
-
-
-const question =
-questions[index];
-
 let correct =
-question.answer;
+questions[index].answer;
 
 
 if(
-typeof correct ===
-"string"
+typeof correct === "string"
 ){
 
-const value =
-correct
-.trim()
-.toUpperCase();
+const c =
+correct.trim().toUpperCase();
 
 
 if(
-["A","B","C","D"]
-.includes(value)
+["A","B","C","D"].includes(c)
 ){
 
 correct =
-["A","B","C","D"]
-.indexOf(value);
+["A","B","C","D"].indexOf(c);
 
 }else{
 
 const found =
-question.options.findIndex(
+questions[index]
+.options
+.findIndex(
 x =>
-x.toLowerCase().trim()
+String(x)
+.toLowerCase()
+.trim()
 ===
 correct
-.toLowerCase().trim()
+.toLowerCase()
+.trim()
 );
 
-if(
-found >= 0
-){
-
-correct =
-found;
-
+if(found >= 0){
+correct = found;
 }
 
 }
@@ -1726,25 +1443,33 @@ correct =
 Number(correct);
 
 
-options.forEach(
-(option,i)=>{
+const selectedIndex =
+Number(
+selected.dataset.selected
+);
+
+
+box.querySelectorAll(
+".option"
+).forEach(
+(btn,i)=>{
 
 if(
 i === correct
 ){
 
-option.classList.add(
+btn.classList.add(
 "correct"
 );
 
 }
 
 if(
-i === selected &&
-selected !== correct
+i === selectedIndex &&
+i !== correct
 ){
 
-option.classList.add(
+btn.classList.add(
 "wrong"
 );
 
@@ -1754,17 +1479,16 @@ option.classList.add(
 
 
 if(
-selected !== null &&
-selected === correct
+selectedIndex === correct
 ){
 
-score++;
+points++;
 
 }
 
 
 if(
-question.explanation
+questions[index].explanation
 ){
 
 const explanation =
@@ -1775,9 +1499,9 @@ document.createElement(
 explanation.className =
 "explanation";
 
-explanation.innerHTML =
-"💡 <b>Explanation:</b> " +
-question.explanation;
+explanation.textContent =
+"💡 " +
+questions[index].explanation;
 
 box.appendChild(
 explanation
@@ -1788,84 +1512,47 @@ explanation
 });
 
 
-const percentage =
+scoreNumber.textContent =
+`${points} / ${questions.length}`;
+
+
+const percent =
 Math.round(
-(score /
-questions.length) *
+points /
+questions.length *
 100
 );
 
 
-scoreNumber.textContent =
-`${score} / ${questions.length}`;
-
-
-if(
-percentage >= 80
-){
-
 scoreText.textContent =
-"🌟 Excellent work!";
-
-}else if(
-percentage >= 60
-){
-
-scoreText.textContent =
-"👍 Good job! Keep practising.";
-
-}else{
-
-scoreText.textContent =
-"📚 Keep practising. You can improve!";
-
-}
+percent >= 80
+? "🌟 Excellent work!"
+: percent >= 60
+? "👍 Good job!"
+: "📚 Keep practising!";
 
 
-scoreBox.style.display =
+score.style.display =
 "block";
 
 
 window.scrollTo({
-top:
-document.body.scrollHeight,
-behavior:
-"smooth"
+top:document.body.scrollHeight,
+behavior:"smooth"
 });
 
 };
 
 
-/* ======================================
+/* =====================================
    START
-====================================== */
+===================================== */
 
 updateLogin();
 
-verifyMembership();
-
-
-/* ======================================
-   RECHECK WHEN RETURNING
-====================================== */
-
-document.addEventListener(
-"visibilitychange",
-function(){
-
-if(
-document.visibilityState ===
-"visible"
-){
-
-verifyMembership();
-
-}
-
-});
+checkMembership();
 
 </script>
 
 </body>
-
 </html>
