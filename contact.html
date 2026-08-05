@@ -1,354 +1,365 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Contact | CreateLK Academy</title><meta name="description"
-content="Contact CreateLK Academy for support, membership, payment and English learning questions.">
+<title>Contact Us | CreateLK Academy</title>
+
+<meta name="description" content="Contact CreateLK Academy for questions, support and information about our English learning services.">
 
 <style>
-
 *{
-margin:0;
-padding:0;
 box-sizing:border-box;
-font-family:"Segoe UI",Arial,sans-serif
+margin:0;
+padding:0
 }
 
 body{
-background:#f4f7fc;
-color:#263238;
+font-family:Arial,sans-serif;
+background:#f4f7fb;
+color:#172033;
 line-height:1.6
 }
 
-nav{
-background:#fff;
-padding:16px 6%;
+header{
+background:#172554;
+color:#fff;
+padding:14px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 4px 20px rgba(0,0,0,.06)
+position:relative
 }
 
 .logo{
-font-size:22px;
-font-weight:800;
-color:#1565c0
+font-size:20px;
+font-weight:bold
 }
 
-nav ul{
-display:flex;
-list-style:none;
-gap:22px;
-flex-wrap:wrap
+.menu-btn{
+background:#fff;
+color:#172554;
+border:0;
+padding:8px 13px;
+border-radius:7px;
+font-size:20px;
+cursor:pointer
+}
+
+nav{
+display:none;
+position:absolute;
+right:5%;
+top:62px;
+background:#fff;
+width:210px;
+border-radius:10px;
+box-shadow:0 5px 20px #0003;
+overflow:hidden;
+z-index:100
+}
+
+nav.show{
+display:block
 }
 
 nav a{
+display:block;
+color:#172033;
 text-decoration:none;
-color:#37474f;
-font-weight:600
+padding:12px 16px;
+font-size:15px;
+border-bottom:1px solid #eee
 }
 
 nav a:hover{
-color:#1565c0
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:60px 20px
+background:#f1f5f9;
+color:#2563eb
 }
 
 .hero{
 text-align:center;
-margin-bottom:35px
+padding:55px 20px;
+background:linear-gradient(135deg,#172554,#2563eb);
+color:#fff
 }
 
 .hero h1{
-font-size:38px;
-color:#1565c0
+font-size:34px;
+margin-bottom:8px
 }
 
 .hero p{
-color:#68757c;
-margin-top:8px
+font-size:17px
+}
+
+section{
+padding:45px 20px
+}
+
+.contact-grid{
+max-width:900px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px
 }
 
 .card{
 background:#fff;
-padding:30px;
-border-radius:18px;
-box-shadow:0 6px 22px rgba(0,0,0,.06);
-margin-bottom:22px
+padding:28px;
+border-radius:14px;
+box-shadow:0 5px 20px #0002
 }
 
 .card h2{
-color:#1565c0;
+color:#172554;
+margin-bottom:15px
+}
+
+.card p{
 margin-bottom:12px
 }
 
-.info{
-margin:14px 0
+.contact-link{
+display:inline-block;
+margin-top:8px;
+color:#2563eb;
+font-weight:bold;
+text-decoration:none
 }
 
-.contact-box{
-background:#f8fafc;
-padding:22px;
-border-radius:14px;
-margin-top:18px
-}
-
-.whatsapp-button{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:8px;
-margin-top:15px;
-padding:13px 24px;
-border-radius:28px;
-background:#00897b;
-color:#fff;
-text-decoration:none;
-font-weight:700;
-font-size:15px;
-box-shadow:0 5px 15px rgba(0,137,123,.20)
-}
-
-.whatsapp-button:hover{
-background:#00695c;
-transform:translateY(-1px)
-}
-
-.whatsapp-number{
-margin-top:12px;
-font-size:14px;
-color:#53636b
-}
-
-label{
+form label{
 display:block;
-font-weight:600;
-margin:14px 0 6px
+font-weight:bold;
+margin:12px 0 6px
 }
 
 input,
 textarea{
 width:100%;
-padding:13px;
-border:1px solid #ccd5dc;
-border-radius:10px;
-font-size:15px
+padding:12px;
+border:1px solid #ccd3df;
+border-radius:7px;
+font-size:15px;
+font-family:Arial,sans-serif;
+outline:none
 }
 
 textarea{
-min-height:140px;
+min-height:130px;
 resize:vertical
 }
 
-button{
-margin-top:18px;
-padding:13px 25px;
+input:focus,
+textarea:focus{
+border-color:#2563eb
+}
+
+.btn{
+width:100%;
 border:0;
-border-radius:25px;
-background:#1565c0;
+background:#172554;
 color:#fff;
-font-weight:700;
-cursor:pointer
+padding:12px;
+border-radius:8px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+margin-top:15px
+}
+
+.btn:hover{
+background:#2563eb
+}
+
+.message{
+display:none;
+margin-top:15px;
+padding:10px;
+border-radius:7px;
+text-align:center;
+font-size:14px
 }
 
 footer{
-background:#111827;
-color:#9ca3af;
+background:#172033;
+color:#fff;
 text-align:center;
-padding:30px 20px;
-margin-top:50px
+padding:25px
 }
 
 footer a{
 color:#fff;
-text-decoration:none;
-margin:0 7px
+margin:0 8px;
+text-decoration:none
 }
 
-footer a:hover{
-text-decoration:underline
+.small{
+font-size:13px;
+color:#aaa;
+margin-top:10px
 }
+</style>
+</head>
 
-@media(max-width:700px){
+<body>
 
-nav{
-flex-direction:column;
-gap:10px
-}
+<header>
 
-.hero h1{
-font-size:32px
-}
+<div class="logo">📚 CreateLK Academy</div>
 
-.container{
-padding:40px 15px
-}
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-.card{
-padding:24px
-}
+<nav id="menu">
 
-.whatsapp-button{
-width:100%
-}
+<a href="index.html">🏠 Home</a>
 
-}
+<a href="about.html">ℹ️ About</a>
 
-</style></head><body><nav><div class="logo">
-📚 CreateLK Academy
-</div><ul><li>
-<a href="index.html">
-Home
+<a href="courses.html">📚 Explore Courses</a>
+
+<a href="premium.html">⭐ Premium Membership</a>
+
+<a href="login.html">🔐 Login</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>📞 Contact Us</h1>
+
+<p>We are here to help with your learning journey.</p>
+
+</section>
+
+<section>
+
+<div class="contact-grid">
+
+<div class="card">
+
+<h2>Get in Touch</h2>
+
+<p>
+Have a question about our courses, Premium Membership or English learning resources?
+</p>
+
+<p>
+Send us a message and we will respond as soon as possible.
+</p>
+
+<p>
+📧 <strong>Email Support</strong>
+</p>
+
+<a class="contact-link" href="mailto:support@createllkacademy.com">
+support@createllkacademy.com
 </a>
-</li><li>
-<a href="index.html#courses">
-Courses
-</a>
-</li><li>
-<a href="index.html#membership">
-Membership
-</a>
-</li><li>
-<a href="about.html">
-About
-</a>
-</li><li>
-<a href="register.html">
-Register
-</a>
-</li><li>
-<a href="login.html">
-Login
-</a>
-</li></ul></nav><main class="container"><div class="hero"><h1>
-Contact Us
-</h1><p>
-We're here to help with your learning and membership questions.
-</p></div><div class="card"><h2>
-📩 Get in Touch
-</h2><p class="info">
-If you have a question about your account,
-membership, payment or courses, please contact
-CreateLK Academy.
-</p><div class="contact-box"><p class="info">
-<strong>📚 Academy:</strong>
-CreateLK Academy
-</p><p class="info">
-<strong>🌐 Website:</strong>
-createlk.com
-</p><p class="info">
-<strong>📧 Email:</strong>
-gateofheavensl1@gmail.com
-</p><p class="info">
-<strong>💬 WhatsApp:</strong>
-077 119 0395
-</p><a
-class="whatsapp-button"
-href="https://wa.me/94771190395?text=Hello%20CreateLK%20Academy%2C%20I%20need%20support."
-target="_blank"
-rel="noopener noreferrer">
 
-💬 Chat with us on WhatsApp
+</div>
 
-</a><p class="whatsapp-number">
-WhatsApp support: 077 119 0395
-</p></div></div><div class="card"><h2>
-🕐 Support
-</h2><p class="info">
-For questions about payments, memberships,
-accounts or courses, please contact us using
-WhatsApp or email.
-</p><p class="info">
-We will respond as soon as reasonably possible.
-</p></div><div class="card"><h2>
-📝 Send a Message
-</h2><form
-action="#"
-method="post"
-onsubmit="return showMessage()"><label for="name">
-Your Name
-</label><input
-id="name"
-name="name"
+<div class="card">
+
+<h2>Send a Message</h2>
+
+<form id="contactForm">
+
+<label for="name">Name</label>
+
+<input
 type="text"
+id="name"
 placeholder="Your name"
 required
+>
 
-«»
+<label for="email">Email</label>
 
-<label for="email">
-Email Address
-</label><input
-id="email"
-name="email"
+<input
 type="email"
-placeholder="Your email address"
+id="email"
+placeholder="Your email"
 required
+>
 
-«»
+<label for="messageText">Message</label>
 
-<label for="message">
-Message
-</label><textarea
-id="message"
-name="message"
-placeholder="How can we help you?"
-required>
-</textarea><button type="submit">
+<textarea
+id="messageText"
+placeholder="Write your message..."
+required
+></textarea>
+
+<button class="btn" type="submit">
 Send Message
-</button></form><p
-id="formMessage"
-style="margin-top:15px;color:#00897b;font-size:13px">
-</p><p
-style="margin-top:15px;color:#68757c;font-size:13px">For immediate support, please use our
-WhatsApp number above.
+</button>
 
-</p></div><div class="card"><h2>
-💳 Payment & Membership Support
-</h2><p class="info">
-If you have completed a premium membership
-payment and have a problem accessing your
-account, please contact us with the email
-address used for your CreateLK Academy account.
-</p><p class="info">
-Please do not send passwords or other
-confidential login information.
-</p></div></main><footer><p>
-<strong>
-📚 CreateLK Academy
-</strong>
-</p><p>
-Learn English. Practice More. Improve Faster.
-</p><p style="margin-top:10px"><a href="about.html">
-About
-</a><a href="contact.html">
-Contact
-</a><a href="privacy.html">
-Privacy
-</a><a href="terms.html">
-Terms
-</a><a href="refund.html">
-Refund Policy
-</a><a href="membership.html">
-Membership
-</a><a href="payment.html">
-Payment
-</a></p><p style="margin-top:12px">
-© 2026 CreateLK Academy | All Rights Reserved
-</p></footer><script>
+<div id="message" class="message"></div>
 
-function showMessage(){
+</form>
 
-document.getElementById(
-"formMessage"
-).textContent =
-"Thank you. For immediate support, please contact us on WhatsApp.";
+</div>
 
-return false;
+</div>
 
+</section>
+
+<footer>
+
+<p>📚 CreateLK Academy</p>
+
+<p>Learn English. Build Your Future.</p>
+
+<p>
+<a href="about.html">About</a>
+<a href="courses.html">Courses</a>
+<a href="premium.html">Premium</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="terms.html">Terms & Conditions</a>
+</p>
+
+<p class="small">
+© 2026 CreateLK Academy. All Rights Reserved.
+</p>
+
+</footer>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("show");
 }
 
-</script></body></html>
+document.addEventListener("click",function(e){
+
+const menu=document.getElementById("menu");
+const button=document.querySelector(".menu-btn");
+
+if(!menu.contains(e.target) && !button.contains(e.target)){
+menu.classList.remove("show");
+}
+
+});
+
+document.getElementById("contactForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const message=document.getElementById("message");
+
+message.style.display="block";
+message.style.background="#dcfce7";
+message.style.color="#166534";
+message.textContent="Thank you! Your message has been received.";
+
+});
+
+</script>
+
+</body>
+</html>
