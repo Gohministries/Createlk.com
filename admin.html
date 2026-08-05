@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Admin Panel | CreateLK Academy</title>
+
+<meta name="description" content="CreateLK Academy administration panel.">
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#f4f7fb;
+color:#172033;
+line-height:1.6
+}
+
+header{
+background:#172033;
+color:#fff;
+padding:14px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:relative
+}
+
+.logo{
+font-size:20px;
+font-weight:bold
+}
+
+.menu-btn{
+background:#fff;
+color:#172033;
+border:0;
+padding:8px 13px;
+border-radius:7px;
+font-size:20px;
+cursor:pointer
+}
+
+nav{
+display:none;
+position:absolute;
+right:5%;
+top:62px;
+background:#fff;
+width:210px;
+border-radius:10px;
+box-shadow:0 5px 20px #0003;
+overflow:hidden;
+z-index:100
+}
+
+nav.show{
+display:block
+}
+
+nav a{
+display:block;
+color:#172033;
+text-decoration:none;
+padding:12px 16px;
+font-size:15px;
+border-bottom:1px solid #eee
+}
+
+nav a:hover{
+background:#f1f5f9;
+color:#2563eb
+}
+
+.hero{
+text-align:center;
+padding:45px 20px;
+background:linear-gradient(135deg,#172033,#334155);
+color:#fff
+}
+
+.hero h1{
+font-size:32px;
+margin-bottom:8px
+}
+
+.hero p{
+font-size:16px
+}
+
+section{
+padding:35px 20px
+}
+
+.container{
+max-width:1100px;
+margin:auto
+}
+
+.login-box,
+.panel{
+background:#fff;
+padding:25px;
+border-radius:14px;
+box-shadow:0 5px 20px #0002
+}
+
+.login-box{
+max-width:420px;
+margin:auto
+}
+
+.login-box h2,
+.panel h2{
+color:#172554;
+margin-bottom:18px
+}
+
+label{
+display:block;
+font-weight:bold;
+margin:12px 0 6px
+}
+
+input{
+width:100%;
+padding:11px;
+border:1px solid #ccd3df;
+border-radius:7px;
+font-size:15px
+}
+
+.btn{
+border:0;
+background:#172554;
+color:#fff;
+padding:10px 16px;
+border-radius:7px;
+font-weight:bold;
+cursor:pointer
+}
+
+.btn:hover{
+background:#2563eb
+}
+
+.btn.approve{
+background:#15803d
+}
+
+.btn.reject{
+background:#dc2626
+}
+
+.btn.logout{
+background:#dc2626
+}
+
+.message{
+display:none;
+padding:12px;
+border-radius:8px;
+margin-top:15px;
+text-align:center
+}
+
+.dashboard{
+display:none
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-bottom:25px
+}
+
+.stat{
+background:#f8fafc;
+padding:20px;
+border-radius:10px;
+text-align:center;
+border:1px solid #e2e8f0
+}
+
+.stat strong{
+display:block;
+font-size:26px;
+color:#172554
+}
+
+.table-wrap{
+overflow-x:auto
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+min-width:750px
+}
+
+th,
+td{
+padding:12px;
+border-bottom:1px solid #e5e7eb;
+text-align:left;
+font-size:14px
+}
+
+th{
+background:#f8fafc;
+color:#172554
+}
+
+.status{
+font-weight:bold
+}
+
+.pending{
+color:#b45309
+}
+
+.active{
+color:#15803d
+}
+
+.rejected{
+color:#dc2626
+}
+
+.actions{
+display:flex;
+gap:6px;
+flex-wrap:wrap
+}
+
+.slip-link{
+color:#2563eb;
+font-weight:bold;
+text-decoration:none
+}
+
+.note{
+font-size:13px;
+color:#64748b;
+margin-top:15px
+}
+
+footer{
+background:#172033;
+color:#fff;
+text-align:center;
+padding:25px;
+margin-top:30px
+}
+
+footer a{
+color:#fff;
+margin:0 8px;
+text-decoration:none
+}
+
+.small{
+font-size:13px;
+color:#aaa;
+margin-top:10px
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">📚 CreateLK Academy | Admin</div>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<nav id="menu">
+
+<a href="index.html">🏠 Website</a>
+<a href="dashboard.html">📊 Dashboard</a>
+<a href="courses.html">📚 Courses</a>
+<a href="premium.html">⭐ Premium</a>
+<a href="#" onclick="logout()">🚪 Logout</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>⚙️ Admin Panel</h1>
+
+<p>Manage Premium Membership applications.</p>
+
+</section>
+
+<section id="loginSection">
+
+<div class="login-box">
+
+<h2>🔐 Admin Login</h2>
+
+<form id="adminLogin">
+
+<label for="adminEmail">
+Admin Email
+</label>
+
+<input
+type="email"
+id="adminEmail"
+placeholder="Admin email"
+required
+>
+
+<label for="adminPassword">
+Password
+</label>
+
+<input
+type="password"
+id="adminPassword"
+placeholder="Admin password"
+required
+>
+
+<button class="btn" type="submit">
+Login
+</button>
+
+<div id="loginMessage" class="message"></div>
+
+</form>
+
+<p class="note">
+Admin authentication must be handled securely by your Cloudflare Worker. Do not put admin passwords inside this HTML file.
+</p>
+
+</div>
+
+</section>
+
+<section id="dashboard" class="dashboard">
+
+<div class="container">
+
+<div class="stats">
+
+<div class="stat">
+<strong id="pendingCount">0</strong>
+Pending
+</div>
+
+<div class="stat">
+<strong id="activeCount">0</strong>
+Active
+</div>
+
+<div class="stat">
+<strong id="rejectedCount">0</strong>
+Rejected
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>💳 Premium Payment Applications</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Email</th>
+<th>Reference</th>
+<th>Amount</th>
+<th>Date</th>
+<th>Status</th>
+<th>Receipt</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody id="applications">
+
+<tr>
+<td colspan="7" style="text-align:center">
+Loading applications...
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<p class="note">
+Review the payment receipt before approving a membership. Approval should be performed by the secure Cloudflare Worker.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>📚 CreateLK Academy</p>
+
+<p>Learn English. Build Your Future.</p>
+
+<p class="small">
+© 2026 CreateLK Academy. All Rights Reserved.
+</p>
+
+</footer>
+
+<script>
+
+const WORKER_URL="https://gateofheavensl1.workers.dev";
+
+function toggleMenu(){
+
+document.getElementById("menu").classList.toggle("show");
+
+}
+
+document.addEventListener("click",function(e){
+
+const menu=document.getElementById("menu");
+const button=document.querySelector(".menu-btn");
+
+if(!menu.contains(e.target) && !button.contains(e.target)){
+menu.classList.remove("show");
+}
+
+});
+
+const loginSection=document.getElementById("loginSection");
+const dashboard=document.getElementById("dashboard");
+
+function showLoginMessage(text,error=true){
+
+const box=document.getElementById("loginMessage");
+
+box.style.display="block";
+
+if(error){
+box.style.background="#fee2e2";
+box.style.color="#b91c1c";
+}else{
+box.style.background="#dcfce7";
+box.style.color="#166534";
+}
+
+box.textContent=text;
+
+}
+
+document.getElementById("adminLogin").addEventListener("submit",async function(e){
+
+e.preventDefault();
+
+const email=document.getElementById("adminEmail").value.trim();
+const password=document.getElementById("adminPassword").value;
+
+showLoginMessage("Connecting to secure admin service...",false);
+
+try{
+
+/*
+Connect this request to your secure Worker.
+
+Example:
+
+const response=await fetch(
+WORKER_URL+"/api/admin/login",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+email:email,
+password:password
+})
+}
+);
+
+const data=await response.json();
+
+*/
+
+if(!email || !password){
+
+showLoginMessage("Please enter your admin email and password.");
+return;
+
+}
+
+/*
+Temporary UI only.
+
+Do NOT use browser-side passwords
+for real admin authentication.
+*/
+
+setTimeout(function(){
+
+loginSection.style.display="none";
+dashboard.style.display="block";
+
+loadApplications();
+
+},500);
+
+});
+
+async function loadApplications(){
+
+const tbody=document.getElementById("applications");
+
+tbody.innerHTML=
+'<tr><td colspan="7" style="text-align:center">Loading...</td></tr>';
+
+try{
+
+/*
+Connect to your Worker:
+
+const response=await fetch(
+WORKER_URL+"/api/admin/subscriptions",
+{
+headers:{
+"Authorization":"Bearer "+adminToken
+}
+}
+);
+
+const data=await response.json();
+
+renderApplications(data.subscriptions);
+
+*/
+
+setTimeout(function(){
+
+renderApplications([]);
+
+},500);
+
+}catch(error){
+
+tbody.innerHTML=
+'<tr><td colspan="7" style="text-align:center;color:#b91c1c">Failed to load applications.</td></tr>';
+
+}
+
+}
+
+function renderApplications(items){
+
+const tbody=document.getElementById("applications");
+
+tbody.innerHTML="";
+
+if(!items.length){
+
+tbody.innerHTML=
+'<tr><td colspan="7" style="text-align:center">No payment applications found.</td></tr>';
+
+updateStats([]);
+
+return;
+
+}
+
+items.forEach(function(item){
+
+const tr=document.createElement("tr");
+
+const status=item.status || "pending";
+
+tr.innerHTML=`
+
+<td>${escapeHTML(item.email || "")}</td>
+
+<td>${escapeHTML(item.reference || "")}</td>
+
+<td>LKR ${escapeHTML(String(item.amount || 1500))}</td>
+
+<td>${escapeHTML(item.created_at || "")}</td>
+
+<td class="status ${escapeHTML(status)}">
+${escapeHTML(status)}
+</td>
+
+<td>
+${
+item.slip_url
+?
+`<a class="slip-link" href="${escapeAttribute(item.slip_url)}" target="_blank">View Receipt</a>`
+:
+"No receipt"
+}
+</td>
+
+<td>
+
+<div class="actions">
+
+${
+status==="pending"
+?
+`
+<button class="btn approve"
+onclick="approveApplication('${escapeAttribute(item.id)}')">
+Approve
+</button>
+
+<button class="btn reject"
+onclick="rejectApplication('${escapeAttribute(item.id)}')">
+Reject
+</button>
+`
+:
+"Completed"
+}
+
+</div>
+
+</td>
+
+`;
+
+tbody.appendChild(tr);
+
+});
+
+updateStats(items);
+
+}
+
+function updateStats(items){
+
+let pending=0;
+let active=0;
+let rejected=0;
+
+items.forEach(function(item){
+
+if(item.status==="pending") pending++;
+if(item.status==="active" || item.status==="approved") active++;
+if(item.status==="rejected") rejected++;
+
+});
+
+document.getElementById("pendingCount").textContent=pending;
+document.getElementById("activeCount").textContent=active;
+document.getElementById("rejectedCount").textContent=rejected;
+
+}
+
+async function approveApplication(id){
+
+if(!confirm("Approve this Premium Membership?")){
+return;
+}
+
+/*
+Secure Worker request should be used here.
+
+Example:
+
+await fetch(
+WORKER_URL+"/api/admin/approve",
+{
+method:"POST",
+headers:{
+"Authorization":"Bearer "+adminToken,
+"Content-Type":"application/json"
+},
+body:JSON.stringify({id:id})
+}
+);
+*/
+
+alert("Approval request must be connected to the secure Cloudflare Worker.");
+
+}
+
+async function rejectApplication(id){
+
+if(!confirm("Reject this payment application?")){
+return;
+}
+
+/*
+Secure Worker request should be used here.
+*/
+
+alert("Rejection request must be connected to the secure Cloudflare Worker.");
+
+}
+
+function escapeHTML(value){
+
+const div=document.createElement("div");
+div.textContent=value;
+return div.innerHTML;
+
+}
+
+function escapeAttribute(value){
+
+return String(value)
+.replace(/&/g,"&amp;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#39;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;");
+
+}
+
+function logout(){
+
+sessionStorage.removeItem("adminToken");
+localStorage.removeItem("adminToken");
+
+window.location.href="login.html";
+
+}
+
+</script>
+
+</body>
+</html>
