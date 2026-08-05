@@ -1,504 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Create Student Account | CreateLK Academy</title>
+<title>Create Account | CreateLK Academy</title>
 
-<meta name="description"
-content="Create your CreateLK Academy student account and start learning English.">
+<meta name="description" content="Create your CreateLK Academy account and start learning English.">
 
 <style>
-
 *{
 box-sizing:border-box;
 margin:0;
-padding:0;
-font-family:"Segoe UI",Arial,sans-serif;
+padding:0
 }
 
 body{
-background:#f5f8ff;
+font-family:Arial,sans-serif;
+background:#f4f7fb;
 color:#172033;
-min-height:100vh;
+line-height:1.6
 }
 
 header{
-background:#174ea6;
-color:white;
-padding:15px 20px;
-}
-
-.nav{
-max-width:900px;
-margin:auto;
+background:#172554;
+color:#fff;
+padding:14px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
+position:relative
 }
 
 .logo{
-font-size:19px;
-font-weight:800;
+font-size:20px;
+font-weight:bold
 }
 
-.home{
-color:white;
+.menu-btn{
+background:#fff;
+color:#172554;
+border:0;
+padding:8px 13px;
+border-radius:7px;
+font-size:20px;
+cursor:pointer
+}
+
+nav{
+display:none;
+position:absolute;
+right:5%;
+top:62px;
+background:#fff;
+width:210px;
+border-radius:10px;
+box-shadow:0 5px 20px #0003;
+overflow:hidden;
+z-index:100
+}
+
+nav.show{
+display:block
+}
+
+nav a{
+display:block;
+color:#172033;
 text-decoration:none;
-font-weight:700;
-font-size:14px;
+padding:12px 16px;
+font-size:15px;
+border-bottom:1px solid #eee
 }
 
-.container{
-max-width:480px;
-margin:45px auto;
-padding:15px;
+nav a:hover{
+background:#f1f5f9;
+color:#2563eb
 }
 
-.card{
-background:white;
-padding:28px;
-border-radius:20px;
-box-shadow:0 8px 30px #0001;
-}
-
-.icon{
+.hero{
 text-align:center;
-font-size:48px;
-margin-bottom:8px;
+padding:55px 20px;
+background:linear-gradient(135deg,#172554,#2563eb);
+color:#fff
 }
 
-h1{
-text-align:center;
-font-size:26px;
-color:#174ea6;
-margin-bottom:8px;
+.hero h1{
+font-size:34px;
+margin-bottom:8px
 }
 
-.subtitle{
+.hero p{
+font-size:17px
+}
+
+section{
+padding:45px 20px
+}
+
+.register-box{
+max-width:450px;
+margin:auto;
+background:#fff;
+padding:30px 25px;
+border-radius:14px;
+box-shadow:0 5px 20px #0002
+}
+
+.register-box h2{
 text-align:center;
-color:#667085;
-line-height:1.6;
-margin-bottom:25px;
+color:#172554;
+margin-bottom:22px
 }
 
 label{
 display:block;
-font-weight:700;
-margin-bottom:7px;
-}
-
-.field{
-margin-bottom:17px;
+font-weight:bold;
+margin:12px 0 6px
 }
 
 input{
 width:100%;
-padding:14px;
-border:1px solid #d5dbe5;
-border-radius:11px;
-font-size:16px;
-outline:none;
+padding:12px;
+border:1px solid #ccd3df;
+border-radius:7px;
+font-size:15px;
+outline:none
 }
 
 input:focus{
-border-color:#174ea6;
-box-shadow:0 0 0 3px #174ea61a;
+border-color:#2563eb
 }
 
-button{
+.btn{
 width:100%;
 border:0;
-background:#174ea6;
-color:white;
-padding:15px;
-border-radius:11px;
+background:#172554;
+color:#fff;
+padding:12px;
+border-radius:8px;
 font-size:16px;
-font-weight:800;
+font-weight:bold;
 cursor:pointer;
+margin-top:20px
 }
 
-button:disabled{
-opacity:.6;
+.btn:hover{
+background:#2563eb
 }
 
-.status{
+.message{
 display:none;
-padding:13px;
-border-radius:10px;
-margin-bottom:18px;
-line-height:1.5;
-}
-
-.status.error{
-display:block;
-background:#fff0f0;
-color:#b42318;
-border:1px solid #fecdca;
-}
-
-.status.success{
-display:block;
-background:#ecfdf3;
-color:#027a48;
-border:1px solid #abefc6;
+margin-top:15px;
+padding:10px;
+border-radius:7px;
+text-align:center;
+font-size:14px
 }
 
 .login{
 text-align:center;
-margin-top:20px;
-color:#667085;
-font-size:14px;
+margin-top:20px
 }
 
 .login a{
-color:#174ea6;
-font-weight:800;
-text-decoration:none;
+color:#2563eb;
+font-weight:bold;
+text-decoration:none
 }
 
-.back{
-display:block;
-text-align:center;
-margin-top:18px;
-color:#174ea6;
-text-decoration:none;
-font-weight:700;
-}
-
-.security{
-text-align:center;
-margin-top:25px;
+.note{
 font-size:13px;
-color:#667085;
-line-height:1.6;
+color:#666;
+margin-top:15px;
+text-align:center
 }
 
 footer{
+background:#172033;
+color:#fff;
 text-align:center;
-padding:25px;
-color:#667085;
-font-size:13px;
+padding:25px
 }
 
-</style>
+footer a{
+color:#fff;
+margin:0 8px;
+text-decoration:none
+}
 
+.small{
+font-size:13px;
+color:#aaa;
+margin-top:10px
+}
+</style>
 </head>
 
 <body>
 
 <header>
 
-<div class="nav">
+<div class="logo">📚 CreateLK Academy</div>
 
-<div class="logo">
-📚 CreateLK Academy
-</div>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-<a class="home" href="index.html">
-🏠 Home
-</a>
+<nav id="menu">
 
-</div>
+<a href="index.html">🏠 Home</a>
+
+<a href="about.html">ℹ️ About</a>
+
+<a href="courses.html">📚 Explore Courses</a>
+
+<a href="premium.html">⭐ Premium Membership</a>
+
+<a href="login.html">🔐 Login</a>
+
+</nav>
 
 </header>
 
+<section class="hero">
 
-<div class="container">
+<h1>📝 Create Your Account</h1>
 
-<div class="card">
+<p>Start your English learning journey today.</p>
 
-<div class="icon">
-✍️
-</div>
+</section>
 
-<h1>
-Create Student Account
-</h1>
+<section>
 
-<p class="subtitle">
-Create your account to access your
-CreateLK Academy learning dashboard.
-</p>
+<div class="register-box">
 
-
-<div id="status" class="status"></div>
-
+<h2>Register</h2>
 
 <form id="registerForm">
 
-<div class="field">
-
-<label for="name">
-Full Name
-</label>
+<label for="name">Full Name</label>
 
 <input
 type="text"
 id="name"
+name="name"
 placeholder="Enter your full name"
-autocomplete="name"
 required
 >
 
-</div>
-
-
-<div class="field">
-
-<label for="email">
-Email Address
-</label>
+<label for="email">Email Address</label>
 
 <input
 type="email"
 id="email"
+name="email"
 placeholder="Enter your email"
-autocomplete="email"
 required
 >
 
-</div>
-
-
-<div class="field">
-
-<label for="password">
-Password
-</label>
+<label for="password">Password</label>
 
 <input
 type="password"
 id="password"
+name="password"
 placeholder="Create a password"
-autocomplete="new-password"
+minlength="6"
 required
 >
 
-</div>
-
-
-<div class="field">
-
-<label for="confirmPassword">
-Confirm Password
-</label>
+<label for="confirmPassword">Confirm Password</label>
 
 <input
 type="password"
 id="confirmPassword"
+name="confirmPassword"
 placeholder="Confirm your password"
-autocomplete="new-password"
+minlength="6"
 required
 >
 
-</div>
-
-
-<button
-type="submit"
-id="registerButton"
->
-✍️ Create Account
+<button class="btn" type="submit">
+Create Account
 </button>
+
+<div id="message" class="message"></div>
 
 </form>
 
+<p class="note">
+By creating an account, you agree to our
+<a href="terms.html">Terms & Conditions</a>
+and
+<a href="privacy.html">Privacy Policy</a>.
+</p>
 
 <div class="login">
-
 Already have an account?
-
-<a href="login.html">
-🔐 Login
-</a>
-
-</div>
-
-
-<a class="back" href="index.html">
-← Back to Home
-</a>
-
-
-<div class="security">
-
-🔒 Your account information is securely processed.
-
+<a href="login.html">Login</a>
 </div>
 
 </div>
 
-</div>
-
+</section>
 
 <footer>
 
-📚 <b>CreateLK Academy</b><br>
+<p>📚 CreateLK Academy</p>
 
-Learn English. Build Your Future.<br><br>
+<p>Learn English. Build Your Future.</p>
 
-© 2026 CreateLK Academy.
-All Rights Reserved.
+<p>
+<a href="about.html">About</a>
+<a href="courses.html">Courses</a>
+<a href="premium.html">Premium</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="terms.html">Terms & Conditions</a>
+</p>
+
+<p class="small">
+© 2026 CreateLK Academy. All Rights Reserved.
+</p>
 
 </footer>
 
-
 <script>
-
-const API =
-"https://login.gateofheavensl1.workers.dev";
-
-
-const form =
-document.getElementById("registerForm");
-
-const statusBox =
-document.getElementById("status");
-
-const button =
-document.getElementById("registerButton");
-
-
-function showStatus(message,type){
-
-statusBox.className =
-"status " + type;
-
-statusBox.textContent =
-message;
-
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("show");
 }
 
+document.addEventListener("click",function(e){
 
-form.addEventListener(
-"submit",
-async function(event){
+const menu=document.getElementById("menu");
+const button=document.querySelector(".menu-btn");
 
-event.preventDefault();
-
-
-const name =
-document.getElementById("name")
-.value.trim();
-
-
-const email =
-document.getElementById("email")
-.value.trim()
-.toLowerCase();
-
-
-const password =
-document.getElementById("password")
-.value;
-
-
-const confirmPassword =
-document.getElementById("confirmPassword")
-.value;
-
-
-if(password !== confirmPassword){
-
-showStatus(
-"Passwords do not match.",
-"error"
-);
-
-return;
-
-}
-
-
-button.disabled=true;
-
-button.textContent=
-"Creating account...";
-
-
-try{
-
-const response =
-await fetch(
-API + "/api/register",
-{
-method:"POST",
-
-headers:{
-"Content-Type":
-"application/json"
-},
-
-body:JSON.stringify({
-
-name:name,
-email:email,
-password:password
-
-})
-});
-
-
-const data =
-await response.json();
-
-
-if(!response.ok ||
-!data.success){
-
-showStatus(
-data.message ||
-"Unable to create account.",
-"error"
-);
-
-return;
-
-}
-
-
-showStatus(
-"✅ Account created successfully. Redirecting to login...",
-"success"
-);
-
-
-setTimeout(
-function(){
-
-window.location.href =
-"login.html";
-
-},
-1200
-);
-
-
-}
-catch(error){
-
-console.error(error);
-
-showStatus(
-"❌ Failed to connect to CreateLK Academy. Please try again.",
-"error"
-);
-
-}
-finally{
-
-button.disabled=false;
-
-button.textContent=
-"✍️ Create Account";
-
+if(!menu.contains(e.target) && !button.contains(e.target)){
+menu.classList.remove("show");
 }
 
 });
 
+document.getElementById("registerForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const password=document.getElementById("password").value;
+const confirmPassword=document.getElementById("confirmPassword").value;
+const message=document.getElementById("message");
+
+message.style.display="block";
+
+if(password!==confirmPassword){
+
+message.style.background="#fee2e2";
+message.style.color="#b91c1c";
+message.textContent="Passwords do not match.";
+
+return;
+}
+
+message.style.background="#fff7ed";
+message.style.color="#9a3412";
+message.textContent="Registration system will be connected to the CreateLK Academy backend.";
+
+});
 </script>
 
 </body>
