@@ -1,1666 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
+<title>Dashboard | CreateLK Academy</title>
 
-<title>Student Dashboard | CreateLK Academy</title>
-
-<meta name="description"
-content="CreateLK Academy student dashboard for English learning, AI tutoring, Premium courses and progress tracking.">
-
-<meta name="theme-color"
-content="#174ea6">
+<meta name="description" content="CreateLK Academy student dashboard.">
 
 <style>
-
 *{
 box-sizing:border-box;
 margin:0;
-padding:0;
-font-family:"Segoe UI",Arial,sans-serif
+padding:0
 }
 
 body{
-background:#f5f8ff;
+font-family:Arial,sans-serif;
+background:#f4f7fb;
 color:#172033;
-min-height:100vh
-}
-
-a{
-text-decoration:none
-}
-
-button{
-font-family:inherit;
-cursor:pointer
+line-height:1.6
 }
 
 header{
-background:#174ea6;
-color:white;
-position:sticky;
-top:0;
-z-index:10;
-box-shadow:0 3px 15px #0002
-}
-
-.head{
-max-width:1100px;
-margin:auto;
-padding:14px 18px;
+background:#172554;
+color:#fff;
+padding:14px 5%;
 display:flex;
 justify-content:space-between;
-align-items:center
+align-items:center;
+position:relative
 }
 
 .logo{
 font-size:20px;
-font-weight:800
+font-weight:bold
 }
 
-.actions{
-display:flex;
-gap:8px
-}
-
-.actions button{
-border-radius:8px;
-padding:9px 13px;
-font-weight:700;
-border:1px solid #ffffff55
-}
-
-.ai{
-background:white;
-color:#174ea6;
-border:0!important
-}
-
-.logout{
-background:#ffffff18;
-color:white
-}
-
-main{
-max-width:1100px;
-margin:auto;
-padding:25px 18px 45px
-}
-
-.welcome,
-.stat,
-.card,
-.account{
-background:white;
-border-radius:18px;
-box-shadow:0 5px 22px #0000000d
-}
-
-.welcome{
-padding:23px;
-margin-bottom:18px
-}
-
-.welcome h1{
-font-size:28px;
-margin-bottom:5px
-}
-
-.welcome p,
-.card p{
-color:#667085
-}
-
-.status{
-display:inline-block;
-margin-top:12px;
-padding:7px 12px;
-border-radius:20px;
-background:#eef4ff;
-color:#174ea6;
-font-size:13px;
-font-weight:800
-}
-
-.member{
-display:none;
-margin-top:12px;
-padding:14px;
-border-radius:10px;
-background:#e8f7ed;
-color:#176b35;
-font-size:14px;
-font-weight:700;
-line-height:1.7
-}
-
-.member-details{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-margin-top:8px
-}
-
-.member-pill{
-background:white;
-padding:6px 10px;
+.menu-btn{
+background:#fff;
+color:#172554;
+border:0;
+padding:8px 13px;
 border-radius:7px;
-font-size:13px;
-color:#176b35
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:14px;
-margin-bottom:25px
-}
-
-.stat{
-padding:17px
-}
-
-.icon{
-font-size:30px;
-margin-bottom:5px
-}
-
-.value{
-font-size:22px;
-font-weight:800;
-color:#174ea6
-}
-
-.label{
-font-size:13px;
-color:#667085
-}
-
-h2.title{
-font-size:22px;
-margin:25px 0 13px
-}
-
-.grid{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(270px,1fr));
-gap:18px
-}
-
-.card{
-padding:22px;
-border-top:5px solid #174ea6
-}
-
-.free{
-border-color:#20a464
-}
-
-.premium{
-border-color:#f5a623
-}
-
-.ai-card{
-border-color:#7b61ff
-}
-
-.card h2{
 font-size:20px;
-margin-bottom:7px
+cursor:pointer
 }
 
-.card p{
-line-height:1.6;
-margin-bottom:15px
-}
-
-.features{
-list-style:none;
-margin-bottom:15px;
-font-size:14px
-}
-
-.features li{
-margin:6px 0
-}
-
-.btn{
-display:block;
-width:100%;
-padding:12px;
-text-align:center;
-border-radius:9px;
-font-weight:800;
-border:0
-}
-
-.green{
-background:#20a464;
-color:white
-}
-
-.gold{
-background:#f5a623;
-color:white
-}
-
-.blue{
-background:#174ea6;
-color:white
-}
-
-.light{
-background:#eef4ff;
-color:#174ea6
-}
-
-.progress{
-margin:15px 0
-}
-
-.progress-top{
-display:flex;
-justify-content:space-between;
-font-size:13px;
-font-weight:700;
-margin-bottom:6px
-}
-
-.bar{
-height:9px;
-background:#eaecf0;
-border-radius:20px;
-overflow:hidden
-}
-
-.fill{
-height:100%;
-width:0;
-background:#174ea6;
-transition:.5s
-}
-
-.ai-info{
-background:#f5f3ff;
-color:#4f46a5;
-padding:12px;
+nav{
+display:none;
+position:absolute;
+right:5%;
+top:62px;
+background:#fff;
+width:220px;
 border-radius:10px;
-font-size:13px;
-line-height:1.8;
-margin-bottom:15px
+box-shadow:0 5px 20px #0003;
+overflow:hidden;
+z-index:100
 }
 
-.account{
-padding:21px;
-margin-top:20px
+nav.show{
+display:block
 }
 
-.account h2{
-font-size:20px
-}
-
-.account-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-margin-top:14px
-}
-
-.account-item{
-background:#f5f8ff;
-padding:12px;
-border-radius:9px
-}
-
-.account-item small{
+nav a{
 display:block;
-color:#667085;
-margin-bottom:3px
+color:#172033;
+text-decoration:none;
+padding:12px 16px;
+font-size:15px;
+border-bottom:1px solid #eee
 }
 
-.account-item strong{
-font-size:14px;
-word-break:break-word
+nav a:hover{
+background:#f1f5f9;
+color:#2563eb
 }
 
-.footer{
+.hero{
 text-align:center;
-color:#667085;
-font-size:13px;
-line-height:1.7;
-margin-top:30px
+padding:50px 20px;
+background:linear-gradient(135deg,#172554,#2563eb);
+color:#fff
 }
 
-.loading{
-display:inline-block;
-margin-top:12px;
-padding:7px 12px;
-border-radius:20px;
-background:#f2f4f7;
-color:#667085;
-font-size:13px;
-font-weight:700
+.hero h1{
+font-size:34px;
+margin-bottom:8px
 }
 
-.error-status{
-background:#fff0f0!important;
-color:#b42318!important
-}
-
-@media(max-width:800px){
-
-.stats{
-grid-template-columns:repeat(2,1fr)
-}
-
-}
-
-@media(max-width:500px){
-
-.logo{
+.hero p{
 font-size:17px
 }
 
-.ai{
-display:none
+section{
+padding:40px 20px
 }
 
-main{
-padding:18px 13px 40px
+.container{
+max-width:1000px;
+margin:auto
 }
 
-.welcome h1{
-font-size:24px
+.welcome{
+background:#fff;
+padding:25px;
+border-radius:14px;
+box-shadow:0 5px 20px #0002;
+margin-bottom:25px
 }
 
-.stats{
-gap:9px
+.welcome h2{
+color:#172554;
+margin-bottom:6px
 }
 
-.stat{
-padding:14px
+.email{
+color:#64748b;
+font-size:14px
 }
 
-.value{
-font-size:19px
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px
 }
 
-.account-grid{
-grid-template-columns:1fr
+.card{
+background:#fff;
+padding:25px;
+border-radius:14px;
+box-shadow:0 5px 20px #0001
 }
 
+.card h3{
+color:#172554;
+margin-bottom:10px
 }
 
+.card p{
+font-size:14px;
+margin-bottom:18px
+}
+
+.btn{
+display:inline-block;
+background:#172554;
+color:#fff;
+padding:10px 16px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold
+}
+
+.btn:hover{
+background:#2563eb
+}
+
+.premium{
+border:2px solid #facc15
+}
+
+.premium-status{
+background:#ecfdf5;
+color:#166534;
+padding:10px;
+border-radius:8px;
+font-weight:bold;
+margin-bottom:15px
+}
+
+.logout{
+background:#dc2626
+}
+
+.logout:hover{
+background:#b91c1c
+}
+
+.message{
+display:none;
+margin-top:20px;
+padding:12px;
+border-radius:8px;
+text-align:center
+}
+
+footer{
+background:#172033;
+color:#fff;
+text-align:center;
+padding:25px
+}
+
+footer a{
+color:#fff;
+margin:0 8px;
+text-decoration:none
+}
+
+.small{
+font-size:13px;
+color:#aaa;
+margin-top:10px
+}
 </style>
-
 </head>
-
 
 <body>
 
-
 <header>
 
-<div class="head">
+<div class="logo">📚 CreateLK Academy</div>
 
-<div class="logo">
-📚 CreateLK Academy
-</div>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-<div class="actions">
+<nav id="menu">
 
-<button
-class="ai"
-id="aiBtn"
-type="button"
->
-🤖 AI Tutor
-</button>
+<a href="index.html">🏠 Home</a>
 
-<button
-class="logout"
-id="logout"
-type="button"
->
-Logout
-</button>
+<a href="dashboard.html">📊 Dashboard</a>
 
-</div>
+<a href="courses.html">📚 Explore Courses</a>
 
-</div>
+<a href="premium.html">⭐ Premium Membership</a>
+
+<a href="premium-mcq.html">🤖 AI MCQs</a>
+
+<a href="contact.html">📞 Contact</a>
+
+<a href="#" onclick="logout()">🚪 Logout</a>
+
+</nav>
 
 </header>
 
+<section class="hero">
 
-<main>
+<h1>📊 My Dashboard</h1>
 
-
-<section class="welcome">
-
-<h1 id="welcome">
-Welcome, Student!
-</h1>
-
-<p>
-Continue learning English and improve your skills step by step.
-</p>
-
-
-<div
-class="status"
-id="status"
->
-🌱 Free Member
-</div>
-
-
-<div
-class="member"
-id="member"
->
-
-⭐ <b>Premium membership is active.</b>
-
-<div class="member-details">
-
-<span
-class="member-pill"
-id="memberAmount"
->
-💳 LKR 1,500
-</span>
-
-<span
-class="member-pill"
-id="memberDays"
->
-📅 30 Days
-</span>
-
-<span
-class="member-pill"
-id="memberExpiry"
->
-⏰ Loading...
-</span>
-
-</div>
-
-</div>
-
-
-<div
-class="loading"
-id="membershipLoading"
->
-⏳ Checking Premium membership...
-</div>
+<p>Welcome to your CreateLK Academy learning area.</p>
 
 </section>
 
+<section>
 
-<section class="stats">
+<div class="container">
 
+<div class="welcome">
 
-<div class="stat">
+<h2>Welcome, <span id="userName">Student</span>!</h2>
 
-<div class="icon">
-📚
-</div>
-
-<div
-class="value"
-id="courses"
->
-1
-</div>
-
-<div class="label">
-Available Courses
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="icon">
-📝
-</div>
-
-<div
-class="value"
-id="questions"
->
-100+
-</div>
-
-<div class="label">
-Practice Questions
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="icon">
-🎯
-</div>
-
-<div
-class="value"
-id="percent"
->
-0%
-</div>
-
-<div class="label">
-Learning Progress
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="icon">
-🤖
-</div>
-
-<div class="value">
-AI
-</div>
-
-<div class="label">
-English Tutor
-</div>
-
-</div>
-
-
-</section>
-
-
-<h2 class="title">
-📚 Your Learning
-</h2>
-
-
-<div class="grid">
-
-
-<div class="card free">
-
-<div class="icon">
-🌱
-</div>
-
-<h2>
-Beginner English — FREE FOREVER
-</h2>
-
-<p>
-Build your English foundation with grammar, vocabulary and MCQ practice.
+<p class="email" id="userEmail">
+Checking account...
 </p>
 
-<ul class="features">
-
-<li>✓ 100 Free English MCQs</li>
-
-<li>✓ Beginner Grammar</li>
-
-<li>✓ Vocabulary Practice</li>
-
-<li>✓ Free Forever</li>
-
-</ul>
-
-
-<div class="progress">
-
-<div class="progress-top">
-
-<span>
-Course Progress
-</span>
-
-<span id="freeText">
-0%
-</span>
-
 </div>
 
-<div class="bar">
-
-<div
-class="fill"
-id="freeFill"
-></div>
-
-</div>
-
-</div>
-
-
-<a
-href="free-course.html"
-class="btn green"
->
-🌱 Continue Free Course
-</a>
-
-</div>
-
-
-<div class="card premium">
-
-<div class="icon">
-⭐
-</div>
-
-<h2>
-Premium English Learning
-</h2>
-
-<p>
-Unlock all 9 Premium English courses with 900 additional MCQs.
-</p>
-
-<ul class="features">
-
-<li>✓ 900 Premium MCQs</li>
-<li>✓ Grammar</li>
-<li>✓ Vocabulary</li>
-<li>✓ Speaking</li>
-<li>✓ Pronunciation</li>
-<li>✓ Conversation</li>
-<li>✓ Writing</li>
-<li>✓ Listening</li>
-<li>✓ Business English</li>
-<li>✓ Advanced English</li>
-
-</ul>
-
-
-<a
-href="payment.html"
-id="premiumBtn"
-class="btn gold"
->
-⭐ Upgrade to Premium — LKR 1,500
-</a>
-
-</div>
-
-
-<div class="card ai-card">
-
-<div class="icon">
-🤖
-</div>
-
-<h2>
-CreateLK AI English Tutor
-</h2>
-
-<p>
-Practise English with your AI tutor and improve grammar, vocabulary and conversation.
-</p>
-
-<div class="ai-info">
-
-✓ Grammar Help<br>
-✓ Vocabulary<br>
-✓ Writing Correction<br>
-✓ Conversation Practice<br>
-✓ English Explanations
-
-</div>
-
-<a
-href="free-ai.html"
-class="btn blue"
->
-🤖 Open CreateLK AI
-</a>
-
-</div>
-
+<div class="cards">
 
 <div class="card">
 
-<div class="icon">
-📊
-</div>
-
-<h2>
-My Learning Progress
-</h2>
+<h3>📚 My Courses</h3>
 
 <p>
-Track your completed questions, correct answers and learning progress.
+Explore English grammar, vocabulary, speaking, writing and other learning resources.
 </p>
 
-<div class="progress">
-
-<div class="progress-top">
-
-<span>
-Overall Progress
-</span>
-
-<span id="overallText">
-0%
-</span>
-
-</div>
-
-<div class="bar">
-
-<div
-class="fill"
-id="overallFill"
-></div>
-
-</div>
-
-</div>
-
-<a
-href="progress.html"
-class="btn light"
->
-📊 View My Progress
+<a class="btn" href="courses.html">
+Explore Courses
 </a>
 
 </div>
 
+<div class="card premium">
+
+<h3>⭐ Premium Membership</h3>
+
+<div id="premiumStatus" class="premium-status">
+Checking membership...
+</div>
+
+<p id="premiumText">
+Check your Premium Membership status and access premium features.
+</p>
+
+<a class="btn" href="premium.html">
+View Premium
+</a>
 
 </div>
 
+<div class="card">
 
-<section class="account">
+<h3>🤖 AI English MCQs</h3>
 
-<h2>
-👤 My Account
-</h2>
+<p>
+Practise English with AI-generated multiple-choice questions.
+</p>
 
-
-<div class="account-grid">
-
-
-<div class="account-item">
-
-<small>
-Name
-</small>
-
-<strong id="name">
--
-</strong>
+<a class="btn" href="premium-mcq.html">
+Start AI Practice
+</a>
 
 </div>
 
+<div class="card">
 
-<div class="account-item">
+<h3>📝 English Practice</h3>
 
-<small>
-Email
-</small>
+<p>
+Improve your grammar, vocabulary and general English knowledge through practice.
+</p>
 
-<strong id="email">
--
-</strong>
-
-</div>
-
-
-<div class="account-item">
-
-<small>
-Membership
-</small>
-
-<strong id="membership">
-Free Member
-</strong>
+<a class="btn" href="courses.html">
+Start Learning
+</a>
 
 </div>
 
-
-<div class="account-item">
-
-<small>
-Membership Days
-</small>
-
-<strong id="daysAccount">
--
-</strong>
-
 </div>
 
+<div id="message" class="message"></div>
 
-<div class="account-item">
+<br><br>
 
-<small>
-Membership Amount
-</small>
-
-<strong id="amountAccount">
--
-</strong>
-
-</div>
-
-
-<div class="account-item">
-
-<small>
-Membership Expiry
-</small>
-
-<strong id="expiryAccount">
--
-</strong>
-
-</div>
-
+<a class="btn logout" href="#" onclick="logout()">
+🚪 Logout
+</a>
 
 </div>
 
 </section>
 
+<footer>
 
-<div class="footer">
+<p>📚 CreateLK Academy</p>
 
-📚 CreateLK Academy
+<p>Learn English. Build Your Future.</p>
 
-<br>
+<p>
+<a href="about.html">About</a>
+<a href="courses.html">Courses</a>
+<a href="premium.html">Premium</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="terms.html">Terms & Conditions</a>
+</p>
 
-Learn English. Build Your Future.
-
-<br><br>
-
+<p class="small">
 © 2026 CreateLK Academy. All Rights Reserved.
+</p>
 
-</div>
-
-
-</main>
-
+</footer>
 
 <script>
 
-"use strict";
+function toggleMenu(){
 
-
-/* =========================================
-   API URLs
-========================================= */
-
-const MEMBERSHIP_API =
-"https://createlk-membership.gateofheavensl1.workers.dev";
-
-const PROGRESS_API =
-"https://progress.gateofheavensl1.workers.dev";
-
-
-/* =========================================
-   ELEMENTS
-========================================= */
-
-const welcome =
-document.getElementById("welcome");
-
-const nameEl =
-document.getElementById("name");
-
-const emailEl =
-document.getElementById("email");
-
-const statusEl =
-document.getElementById("status");
-
-const memberEl =
-document.getElementById("member");
-
-const memberAmount =
-document.getElementById("memberAmount");
-
-const memberDays =
-document.getElementById("memberDays");
-
-const memberExpiry =
-document.getElementById("memberExpiry");
-
-const membershipLoading =
-document.getElementById(
-"membershipLoading"
-);
-
-const membershipEl =
-document.getElementById("membership");
-
-const daysAccount =
-document.getElementById("daysAccount");
-
-const amountAccount =
-document.getElementById("amountAccount");
-
-const expiryAccount =
-document.getElementById(
-"expiryAccount"
-);
-
-const premiumBtn =
-document.getElementById("premiumBtn");
-
-
-/* =========================================
-   GET STUDENT
-========================================= */
-
-/*
-Your login system has used different
-localStorage names.
-
-We support both:
-
-createlk_student
-createlk_user
-*/
-
-let student = null;
-
-
-const studentStorage =
-localStorage.getItem(
-"createlk_student"
-);
-
-
-const userStorage =
-localStorage.getItem(
-"createlk_user"
-);
-
-
-try{
-
-if(studentStorage){
-
-student =
-JSON.parse(
-studentStorage
-);
+document.getElementById("menu").classList.toggle("show");
 
 }
 
-else if(userStorage){
+document.addEventListener("click",function(e){
 
-student =
-JSON.parse(
-userStorage
-);
+const menu=document.getElementById("menu");
+const button=document.querySelector(".menu-btn");
 
+if(!menu.contains(e.target) && !button.contains(e.target)){
+menu.classList.remove("show");
 }
-
-}catch(error){
-
-console.error(
-"Student data error:",
-error
-);
-
-student = null;
-
-}
-
-
-/* =========================================
-   GET EMAIL
-========================================= */
-
-let email = "";
-
-
-if(student){
-
-email =
-student.email ||
-student.student_email ||
-"";
-
-}
-
-
-if(!email){
-
-email =
-localStorage.getItem(
-"createlk_student_email"
-) || "";
-
-}
-
-
-email =
-String(email)
-.trim()
-.toLowerCase();
-
-
-/* =========================================
-   LOGIN CHECK
-========================================= */
-
-if(!email){
-
-location.href =
-"login.html";
-
-}
-
-
-/* =========================================
-   STUDENT NAME
-========================================= */
-
-if(student){
-
-const first =
-student.first_name ||
-student.firstName ||
-student.name ||
-"Student";
-
-const last =
-student.last_name ||
-student.lastName ||
-"";
-
-const fullName =
-(first + " " + last).trim();
-
-
-welcome.textContent =
-"Welcome, " + first + "!";
-
-
-nameEl.textContent =
-fullName || "Student";
-
-}else{
-
-welcome.textContent =
-"Welcome, Student!";
-
-nameEl.textContent =
-"Student";
-
-}
-
-
-emailEl.textContent =
-email;
-
-
-/* =========================================
-   DATE FORMAT
-========================================= */
-
-function formatDate(value){
-
-if(!value){
-
-return "-";
-
-}
-
-
-const date =
-new Date(value);
-
-
-if(
-isNaN(
-date.getTime()
-)
-){
-
-return value;
-
-}
-
-
-return date.toLocaleDateString(
-"en-GB",
-{
-day:"numeric",
-month:"short",
-year:"numeric"
-}
-);
-
-}
-
-
-/* =========================================
-   LOAD MEMBERSHIP
-========================================= */
-
-async function loadMembership(){
-
-try{
-
-membershipLoading.style.display =
-"inline-block";
-
-membershipLoading.textContent =
-"⏳ Checking Premium membership...";
-
-
-const response =
-await fetch(
-
-MEMBERSHIP_API +
-"/membership?email=" +
-encodeURIComponent(email),
-
-{
-method:"GET",
-headers:{
-"Accept":
-"application/json"
-}
-
-}
-
-);
-
-
-const data =
-await response.json();
-
-
-console.log(
-"Membership:",
-data
-);
-
-
-if(
-!response.ok ||
-!data.success
-){
-
-throw new Error(
-data.message ||
-"Membership check failed."
-);
-
-}
-
-
-/* =========================================
-   ACTIVE PREMIUM
-========================================= */
-
-if(data.active){
-
-const amount =
-Number(data.amount || 1500);
-
-const days =
-Number(data.days || 30);
-
-const expiry =
-formatDate(
-data.expires_at
-);
-
-
-statusEl.textContent =
-"⭐ Premium Active";
-
-statusEl.style.background =
-"#e8f7ed";
-
-statusEl.style.color =
-"#176b35";
-
-
-memberEl.style.display =
-"block";
-
-
-memberAmount.textContent =
-"💳 LKR " +
-amount.toLocaleString();
-
-
-memberDays.textContent =
-"📅 " +
-days +
-" Days";
-
-
-memberExpiry.textContent =
-"⏰ Expires: " +
-expiry;
-
-
-/* Account */
-
-membershipEl.textContent =
-"⭐ Premium Active";
-
-
-daysAccount.textContent =
-days +
-" Days";
-
-
-amountAccount.textContent =
-"LKR " +
-amount.toLocaleString();
-
-
-expiryAccount.textContent =
-expiry;
-
-
-/* Premium button */
-
-premiumBtn.href =
-"premium-course.html";
-
-premiumBtn.textContent =
-"⭐ Open Premium Courses";
-
-
-premiumBtn.className =
-"btn gold";
-
-
-}else{
-
-/* =========================================
-   FREE / EXPIRED
-========================================= */
-
-statusEl.textContent =
-data.status === "expired"
-? "⏰ Premium Expired"
-: "🌱 Free Member";
-
-
-if(data.status === "expired"){
-
-statusEl.style.background =
-"#fff0f0";
-
-statusEl.style.color =
-"#b42318";
-
-}else{
-
-statusEl.style.background =
-"#eef4ff";
-
-statusEl.style.color =
-"#174ea6";
-
-}
-
-
-memberEl.style.display =
-"none";
-
-
-membershipEl.textContent =
-data.status === "expired"
-? "⏰ Premium Expired"
-: "🌱 Free Member";
-
-
-daysAccount.textContent =
-Number(data.days || 0) > 0
-? data.days + " Days"
-: "-";
-
-
-amountAccount.textContent =
-Number(data.amount || 0) > 0
-? "LKR " +
-Number(data.amount).toLocaleString()
-: "-";
-
-
-expiryAccount.textContent =
-formatDate(
-data.expires_at
-);
-
-
-premiumBtn.href =
-"payment.html";
-
-premiumBtn.textContent =
-"⭐ Upgrade to Premium — LKR 1,500";
-
-}
-
-
-membershipLoading.style.display =
-"none";
-
-
-}catch(error){
-
-console.error(
-"Membership error:",
-error
-);
-
-
-membershipLoading.textContent =
-"⚠️ Membership status unavailable";
-
-
-membershipLoading.style.background =
-"#fff0f0";
-
-membershipLoading.style.color =
-"#b42318";
-
-
-/*
-Do NOT incorrectly mark the
-student as Premium when the API
-cannot be reached.
-*/
-
-statusEl.textContent =
-"🌱 Free Member";
-
-
-memberEl.style.display =
-"none";
-
-}
-
-}
-
-
-/* =========================================
-   LOAD PROGRESS
-========================================= */
-
-async function loadProgress(){
-
-try{
-
-const res =
-await fetch(
-PROGRESS_API + "/progress",
-{
-method:"POST",
-
-headers:{
-"Content-Type":
-"application/json"
-},
-
-body:JSON.stringify({
-student_email:
-email
-})
-
-}
-);
-
-
-if(!res.ok){
-
-throw new Error(
-"Progress API error"
-);
-
-}
-
-
-const data =
-await res.json();
-
-
-if(!data.success){
-
-return;
-
-}
-
-
-const courses =
-Array.isArray(
-data.courses
-)
-? data.courses
-: [];
-
-
-document.getElementById(
-"courses"
-).textContent =
-courses.length || 1;
-
-
-let total = 0;
-
-let completed = 0;
-
-
-courses.forEach(
-course => {
-
-total +=
-Number(
-course.total_questions
-) || 0;
-
-completed +=
-Number(
-course.completed_questions
-) || 0;
 
 });
 
-
-if(total > 0){
-
-const percentage =
-Math.min(
-100,
-(completed / total) * 100
-);
-
-const value =
-Math.round(
-percentage
-);
-
-
-document.getElementById(
-"percent"
-).textContent =
-value + "%";
-
-
-document.getElementById(
-"overallText"
-).textContent =
-value + "%";
-
-
-document.getElementById(
-"overallFill"
-).style.width =
-value + "%";
-
-
-const free =
-courses.find(
-course => {
-
-const courseName =
-String(
-course.course || ""
-).toLowerCase();
-
-return (
-courseName === "free" ||
-courseName.includes(
-"beginner"
-) ||
-courseName.includes(
-"free english"
-)
-);
-
-}
-);
-
-
-if(free){
-
-const freeTotal =
-Number(
-free.total_questions
-) || 0;
-
-const freeCompleted =
-Number(
-free.completed_questions
-) || 0;
-
-
-if(freeTotal > 0){
-
-const freePercentage =
-Math.round(
-Math.min(
-100,
-(freeCompleted /
-freeTotal) * 100
-)
-);
-
-
-document.getElementById(
-"freeText"
-).textContent =
-freePercentage + "%";
-
-
-document.getElementById(
-"freeFill"
-).style.width =
-freePercentage + "%";
-
-}
-
-}
-
-}
-
-
-if(total > 0){
-
-document.getElementById(
-"questions"
-).textContent =
-total;
-
-}
-
-}catch(error){
-
-console.log(
-"Progress unavailable:",
-error
-);
-
-}
-
-}
-
-
-/* =========================================
-   BUTTONS
-========================================= */
-
-document.getElementById(
-"aiBtn"
-).onclick =
-function(){
-
-location.href =
-"free-ai.html";
-
-};
-
-
-document.getElementById(
-"logout"
-).onclick =
-function(){
-
 /*
-Clear all login-related
-localStorage values.
+Temporary account display.
+
+Later connect this section to your
+Cloudflare Worker + D1 authentication API.
 */
 
-localStorage.removeItem(
-"createlk_student"
-);
+const savedName=localStorage.getItem("createlk_name");
+const savedEmail=localStorage.getItem("createlk_email");
 
-localStorage.removeItem(
-"createlk_user"
-);
+if(savedName){
+document.getElementById("userName").textContent=savedName;
+}
 
-localStorage.removeItem(
-"createlk_student_email"
-);
+if(savedEmail){
+document.getElementById("userEmail").textContent=savedEmail;
+}else{
+document.getElementById("userEmail").textContent="Account email";
+}
 
-localStorage.removeItem(
-"createlk_payment_status"
-);
+/*
+Temporary Premium status display.
 
-location.href =
-"index.html";
+The real Premium status must be checked
+from Cloudflare Worker + D1.
+*/
 
-};
+const premium=document.getElementById("premiumStatus");
 
+premium.textContent="⭐ Premium status will be checked securely.";
 
-/* =========================================
-   START
-========================================= */
+function logout(){
 
-loadMembership();
+localStorage.removeItem("createlk_name");
+localStorage.removeItem("createlk_email");
 
-loadProgress();
+window.location.href="login.html";
+
+}
 
 </script>
 
-
 </body>
-
 </html>
