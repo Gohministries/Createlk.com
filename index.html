@@ -1,93 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CreateLK Academy | Premium English Learning</title>
-
-<style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#f5f8ff;color:#172033;line-height:1.6}
-header{background:#174ea6;color:white;position:sticky;top:0;z-index:10}
-.nav{max-width:1050px;margin:auto;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+<title>CreateLK Academy | Premium English Learning</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f8ff;color:#172033}
+header{background:#174ea6;color:#fff;padding:14px 18px;position:sticky;top:0;z-index:10}
+.nav{max-width:1050px;margin:auto;display:flex;justify-content:space-between;align-items:center}
 .logo{font-weight:800;font-size:18px}
-.menu{display:flex;gap:6px}
-.menu a,.mobile a{color:white;text-decoration:none;font-weight:700;padding:9px}
-.menuBtn{display:none;background:none;border:1px solid #fff;color:white;padding:6px 10px;border-radius:8px;font-size:20px}
-.mobile{display:none;padding:8px 15px}
-.mobile.open{display:block}
-.mobile a{display:block}
-
-main{max-width:1050px;margin:auto;padding:30px 15px}
-.hero,.card,.info,.step{background:white;border-radius:18px;box-shadow:0 5px 22px #0001}
-.hero{text-align:center;padding:45px 20px}
-.icon{font-size:55px}
+.menu{display:flex;gap:8px}
+.menu a{color:#fff;text-decoration:none;font-weight:700;padding:8px}
+.menuBtn{display:none;background:none;border:1px solid #fff;color:#fff;padding:6px 10px;border-radius:7px;font-size:20px}
+.mobile{display:none;background:#174ea6;padding:10px}
+.mobile a{display:block;color:#fff;text-decoration:none;padding:11px;font-weight:700}
+main{max-width:1050px;margin:auto;padding:25px 15px}
+.hero,.card,.info{background:#fff;border-radius:18px;padding:25px;margin-bottom:18px;box-shadow:0 5px 22px #0001}
+.hero{text-align:center}
+.icon{font-size:50px}
 h1,h2{color:#174ea6}
-.hero p{max-width:700px;margin:10px auto;color:#667085}
-.price{margin:20px auto;padding:15px;background:#fff8e7;border:1px solid #f3d47a;border-radius:14px;color:#9a6500;font-size:25px;font-weight:900;max-width:600px}
-
+h1{font-size:30px;margin:8px}
+.hero p{color:#667085;line-height:1.7}
+.price{margin:20px auto;padding:16px;background:#fff8e7;border:1px solid #f3d47a;border-radius:12px;font-size:22px;font-weight:900;color:#9a6500;max-width:600px}
 .buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:650px;margin:auto}
-.btn{padding:15px;border-radius:10px;text-decoration:none;text-align:center;font-weight:800;color:white;background:#f5a623}
-.btn.active{background:#15803d}
-.btn.pending{background:#d97706}
-
-.status{display:none;margin:15px auto 0;max-width:650px;padding:12px;border-radius:10px;font-weight:700}
-.activeStatus{display:block;background:#dcfce7;color:#166534}
-.pendingStatus{display:block;background:#fff4d6;color:#946200}
-.errorStatus{display:block;background:#fee2e2;color:#991b1b}
-
-.title{text-align:center;margin:35px 0 15px}
-.grid,.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.card,.step,.info{padding:22px}
-.card-icon{font-size:32px}
-.card p,.step p,.info p,.info li{color:#667085;font-size:14px}
-.card a{display:inline-block;margin-top:10px;color:#174ea6;font-weight:800;text-decoration:none}
-.step{text-align:center}
-.number{margin:auto auto 10px;width:40px;height:40px;border-radius:50%;background:#174ea6;color:white;display:flex;align-items:center;justify-content:center;font-weight:900}
-.info{margin-top:25px}
-.info ul{margin:12px 0 0 20px}
-.links{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}
-.links a{background:#eef4ff;color:#174ea6;padding:11px;text-align:center;text-decoration:none;border-radius:8px;font-weight:700;font-size:13px}
-
+.btn{display:block;padding:15px;border-radius:10px;text-decoration:none;text-align:center;font-weight:800}
+.premium{background:#f5a623;color:#fff}
+.active{background:#15803d;color:#fff}
+.pending{background:#d97706;color:#fff}
+.status{display:none;margin:15px auto 0;max-width:650px;padding:13px;border-radius:10px;font-weight:700}
+.status.active{display:block;background:#dcfce7;color:#166534}
+.status.pending{display:block;background:#fff4d6;color:#946200}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card h3{margin:8px 0}
+.card p,.info p{color:#667085;line-height:1.6}
+.card a{display:inline-block;margin-top:12px;color:#174ea6;font-weight:800;text-decoration:none}
+.links{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+.links a{padding:12px;background:#eef4ff;color:#174ea6;text-align:center;text-decoration:none;border-radius:8px;font-weight:700}
 footer{text-align:center;padding:30px;color:#667085;font-size:13px}
-footer a{color:#174ea6}
-.wa{position:fixed;right:18px;bottom:18px;background:#25d366;color:white;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:25px}
+.wa{position:fixed;right:18px;bottom:18px;background:#25d366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:25px}
 
 @media(max-width:900px){
 .menu{display:none}.menuBtn{display:block}
-.grid,.steps{grid-template-columns:1fr 1fr}
+.grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:600px){
-main{padding:20px 12px}
-.hero{padding:35px 15px}
-h1{font-size:28px}
-.buttons,.grid,.steps{grid-template-columns:1fr}
+.buttons,.grid{grid-template-columns:1fr}
 .links{grid-template-columns:1fr 1fr}
-.price{font-size:22px}
+.hero{padding:22px 15px}
+h1{font-size:27px}
 }
-</style>
-</head>
-
-<body>
-
-<header>
-<nav class="nav">
-
-<div class="logo">📚 CreateLK Academy</div>
-
-<div class="menu">
+</style></head><body><header>
+<div class="nav"><div class="logo">📚 CreateLK Academy</div><div class="menu">
 <a href="index.html">🏠 Home</a>
-<a id="desktopPremium" href="premium-course.html">⭐ Premium AI</a>
+<a id="premiumNav" href="premium-course.html">⭐ Premium AI</a>
 <a href="payment.html">💳 Payment</a>
 <a href="dashboard.html">👤 Dashboard</a>
 <a href="login.html">🔐 Login</a>
-</div>
+</div><button class="menuBtn" id="menuBtn">☰</button>
 
-<button id="menuBtn" class="menuBtn">☰</button>
-
-</nav>
-
-<div id="mobileMenu" class="mobile">
+</div><div class="mobile" id="mobileMenu">
 <a href="index.html">🏠 Home</a>
 <a id="mobilePremium" href="premium-course.html">⭐ Premium AI</a>
 <a href="payment.html">💳 Payment</a>
@@ -96,469 +66,298 @@ h1{font-size:28px}
 <a href="register.html">✍️ Register</a>
 <a href="contact.html">📞 Contact</a>
 </div>
-</header>
-
-
-<main>
-
-<section class="hero">
-
-<div class="icon">📚</div>
-
-<h1>Learn English.<br>Build Your Future.</h1>
-
-<p>
+</header><main><section class="hero"><div class="icon">📚</div><h1>Learn English.<br>Build Your Future.</h1><p>
 Improve your English through structured Premium lessons,
 AI-powered practice, MCQs and personalised learning resources.
-</p>
-
-<div class="price">
-⭐ LKR 1,500 / 30 Days
-</div>
-
-<div class="buttons">
-
-<a id="premiumButton"
-class="btn"
+</p><div class="price">
+⭐ LKR 1,500 / 30 Days<br>
+<small>Premium English Learning Membership</small>
+</div><div class="buttons"><a id="premiumButton"
+class="btn premium"
 href="payment.html">
 ⭐ Join Premium — LKR 1,500
 </a>
 
-<a id="exploreButton"
-class="btn"
+<a class="btn active"
 href="premium-course.html">
 📚 Explore Premium AI
 </a>
 
-</div>
-
-<div id="status" class="status"></div>
-
-</section>
-
-
-<div class="title">
-<h2>⭐ What You Get</h2>
-<p>Everything you need to improve your English.</p>
-</div>
-
-
-<div class="grid">
-
-<div class="card">
-<div class="card-icon">🤖</div>
-<h3>AI English Practice</h3>
+</div><div id="membershipStatus" class="status"></div></section><div class="grid"><div class="card">
+<h3>🤖 AI English Practice</h3>
 <p>Practise English with AI-generated multiple-choice questions.</p>
 <a href="premium-course.html">Start Premium AI →</a>
-</div>
-
-<div class="card">
-<div class="card-icon">📚</div>
-<h3>Structured Learning</h3>
+</div><div class="card">
+<h3>📚 Structured Learning</h3>
 <p>Learn grammar, vocabulary, tenses and sentence structure.</p>
 <a href="premium-course.html">View Premium Course →</a>
-</div>
-
-<div class="card">
-<div class="card-icon">🎯</div>
-<h3>Personal Practice</h3>
+</div><div class="card">
+<h3>🎯 Personal Practice</h3>
 <p>Choose your subject and difficulty level.</p>
 <a href="premium-course.html">Practise Now →</a>
-</div>
-
-<div class="card">
-<div class="card-icon">📝</div>
-<h3>Premium AI MCQs</h3>
+</div><div class="card">
+<h3>📝 Premium AI MCQs</h3>
 <p>Generate up to 100 AI-powered English MCQs per day.</p>
 <a href="premium-course.html">Open Premium AI →</a>
-</div>
-
-<div class="card">
-<div class="card-icon">📈</div>
-<h3>Improve Your Skills</h3>
+</div><div class="card">
+<h3>📈 Improve Your Skills</h3>
 <p>Strengthen vocabulary, grammar and everyday English.</p>
 <a href="premium-course.html">Continue Learning →</a>
-</div>
-
-<div class="card">
-<div class="card-icon">🔐</div>
-<h3>Verified Premium Access</h3>
+</div><div class="card">
+<h3>🔐 Verified Premium Access</h3>
 <p>Premium content is available after payment approval.</p>
 <a href="dashboard.html">Check Membership →</a>
-</div>
-
-</div>
-
-
-<div class="title">
-<h2>🚀 How Premium Works</h2>
-<p>Three simple steps to start learning.</p>
-</div>
-
-<div class="steps">
-
-<div class="step">
-<div class="number">1</div>
-<h3>Create Account</h3>
-<p>Register your student account.</p>
-</div>
-
-<div class="step">
-<div class="number">2</div>
-<h3>Make Payment</h3>
-<p>Pay LKR 1,500 and submit your receipt.</p>
-</div>
-
-<div class="step">
-<div class="number">3</div>
-<h3>Start Learning</h3>
-<p>After approval, access Premium AI.</p>
-</div>
-
-</div>
-
-
-<section class="info">
-
-<h2>💎 Premium Learning</h2>
-
-<p>
-CreateLK Academy Premium Membership provides access
-to Premium English learning resources for <b>30 days</b>.
-</p>
-
-<ul>
+</div></div><section class="info">
+<h2>💎 Premium Learning</h2><p>
+CreateLK Academy Premium Membership provides access to
+Premium English learning resources for <b>30 days</b>.
+</p><ul>
 <li>⭐ Premium English learning resources</li>
 <li>🤖 AI-generated English MCQ practice</li>
-<li>📝 Up to <b>100 Premium AI MCQs per day</b></li>
+<li>📝 Up to 100 Premium AI MCQs per day</li>
 <li>🎓 Beginner, Intermediate and Advanced levels</li>
 <li>📚 Multiple English subjects and topics</li>
 <li>🔐 Membership verification and expiry system</li>
-</ul>
-
-<div class="links">
+</ul><div class="links">
 <a href="premium-course.html">⭐ Premium AI</a>
 <a href="payment.html">💳 Payment</a>
 <a href="dashboard.html">👤 Dashboard</a>
 <a href="login.html">🔐 Login</a>
 </div>
-
-</section>
-
-
-<section class="info">
-
+</section><section class="info">
 <h2>📞 Need Help?</h2>
-
 <p>
-For registration, payment, Premium approval or course support,
-please contact CreateLK Academy.
-</p>
-
-<div class="links">
+If you have questions about registration, payment,
+Premium approval or your course, please contact support.
+</p><div class="links">
 <a href="contact.html">📞 Contact</a>
 <a href="login.html">🔐 Login</a>
 <a href="register.html">✍️ Register</a>
 <a href="dashboard.html">👤 Dashboard</a>
 </div>
-
-</section>
-
-</main>
-
-
-<footer>
-
+</section></main><footer>
 📚 <b>CreateLK Academy</b><br>
 Learn English. Build Your Future.<br><br>
-
 <a href="about.html">About</a> ·
 <a href="contact.html">Contact</a> ·
 <a href="privacy.html">Privacy</a> ·
 <a href="terms.html">Terms</a> ·
 <a href="refund.html">Refunds</a>
-
 <br><br>
-
 © 2026 CreateLK Academy. All Rights Reserved.
-
-</footer>
-
-
-<a class="wa"
+</footer><a class="wa"
 href="https://wa.me/94771190395"
-target="_blank">
-💬
-</a>
-
+target="_blank">💬</a>
 
 <script>
-
 "use strict";
 
-const WORKER =
-"https://premium-worker.gateofheavensl1.workers.dev";
+const MEMBERSHIP_API =
+"https://createlk-membership.gateofheavensl1.workers.dev";
 
-const premiumPage =
+const PAYMENT_API =
+"https://payment.gateofheavensl1.workers.dev";
+
+const COURSE =
 "premium-course.html";
 
-const paymentPage =
-"payment.html";
+const premiumButton =
+document.getElementById("premiumButton");
 
-const $=id=>document.getElementById(id);
+const premiumNav =
+document.getElementById("premiumNav");
 
-const premiumButton=$("premiumButton");
-const exploreButton=$("exploreButton");
-const status=$("status");
+const mobilePremium =
+document.getElementById("mobilePremium");
 
-
-/* MOBILE MENU */
-
-$("menuBtn").onclick=()=>{
-$("mobileMenu").classList.toggle("open");
-};
-
-
-/* EMAIL */
+const membershipStatus =
+document.getElementById("membershipStatus");
 
 function getEmail(){
 
-for(const k of [
-"createlk_student_email",
-"studentEmail",
-"email"
-]){
+const direct =
+localStorage.getItem("createlk_student_email");
 
-const v=localStorage.getItem(k);
+if(direct)
+return direct.trim().toLowerCase();
 
-if(v) return v.trim().toLowerCase();
-
-}
-
-for(const k of [
+for(const key of [
 "createlk_user",
 "createlk_student"
 ]){
 
 try{
 
-const v=JSON.parse(
-localStorage.getItem(k)
-);
+const user =
+JSON.parse(localStorage.getItem(key));
 
-if(v?.email)
-return v.email.trim().toLowerCase();
+if(user && user.email)
+return user.email.trim().toLowerCase();
 
 }catch(e){}
 
 }
 
 return "";
+}
+
+function setCourseLinks(){
+
+premiumButton.href = COURSE;
+premiumNav.href = COURSE;
+mobilePremium.href = COURSE;
 
 }
 
+function setActive(expiry){
 
-/* STATUS MESSAGE */
+setCourseLinks();
 
-function show(text,type){
-
-status.textContent=text;
-status.className="status "+type;
-
-}
-
-
-/* DEFAULT */
-
-function normal(){
-
-premiumButton.textContent=
-"⭐ Join Premium — LKR 1,500";
-
-premiumButton.href=paymentPage;
-premiumButton.className="btn";
-
-exploreButton.textContent=
-"📚 Explore Premium AI";
-
-exploreButton.href=premiumPage;
-exploreButton.className="btn";
-
-}
-
-
-/* ACTIVE */
-
-function active(){
-
-premiumButton.textContent=
+premiumButton.textContent =
 "⭐ Open Premium AI";
 
-premiumButton.href=premiumPage;
-premiumButton.className="btn active";
+premiumButton.className =
+"btn active";
 
-exploreButton.textContent=
-"📚 Explore Premium AI";
+premiumNav.textContent =
+"⭐ Premium Active";
 
-exploreButton.href=premiumPage;
-exploreButton.className="btn active";
+mobilePremium.textContent =
+"⭐ Premium Active";
 
-show(
-"⭐ Premium membership is active. You can start learning now.",
-"activeStatus"
-);
+membershipStatus.textContent =
+expiry
+? "⭐ Premium Active • Expires " +
+new Date(String(expiry).replace(" ","T")).toLocaleDateString()
+: "⭐ Premium membership is active.";
+
+membershipStatus.className =
+"status active";
 
 }
 
+function setPending(){
 
-/* CHECK */
+premiumButton.href =
+"payment.html";
 
-async function checkPremium(){
+premiumButton.textContent =
+"⏳ Payment Pending";
 
-normal();
+premiumButton.className =
+"btn pending";
 
-const email=getEmail();
+premiumNav.href =
+"payment.html";
+
+mobilePremium.href =
+"payment.html";
+
+premiumNav.textContent =
+"⏳ Payment Pending";
+
+mobilePremium.textContent =
+"⏳ Payment Pending";
+
+membershipStatus.textContent =
+"⏳ Payment received and waiting for administrator approval.";
+
+membershipStatus.className =
+"status pending";
+
+}
+
+async function checkStatus(){
+
+const email = getEmail();
 
 if(!email){
-
-show(
-"🔐 Please login to access Premium.",
-"errorStatus"
-);
-
 return;
-
 }
 
 try{
 
-const r=await fetch(
-WORKER+
-"/api/verify-premium?email="+
-encodeURIComponent(email)+
-"&t="+Date.now(),
-{
-cache:"no-store"
-}
+let r =
+await fetch(
+MEMBERSHIP_API +
+"/status?email=" +
+encodeURIComponent(email) +
+"&t=" +
+Date.now(),
+{cache:"no-store"}
 );
 
-const data=await r.json();
+let data = await r.json();
 
-console.log("Premium:",data);
+console.log("MEMBERSHIP:",data);
 
-if(
-r.ok &&
-data.active===true
-){
+if(data.success && data.active){
 
-active();
+setActive(data.expires_at);
 return;
 
 }
 
-
-/* PAYMENT CHECK */
-
-try{
-
-const p=await fetch(
-"https://payment.gateofheavensl1.workers.dev"+
-"/payment-status?email="+
-encodeURIComponent(email)+
-"&t="+Date.now(),
-{
-cache:"no-store"
-}
+r =
+await fetch(
+PAYMENT_API +
+"/payment-status?email=" +
+encodeURIComponent(email) +
+"&t=" +
+Date.now(),
+{cache:"no-store"}
 );
 
-const pd=await p.json();
+data = await r.json();
+
+console.log("PAYMENT:",data);
 
 if(
-pd.success &&
-pd.found &&
-pd.payment &&
-String(pd.payment.status).toLowerCase()==="pending"
+data.success &&
+data.found &&
+data.payment &&
+String(data.payment.status).toLowerCase()
+==="pending"
 ){
 
-premiumButton.textContent=
-"⏳ Payment Pending";
-
-premiumButton.href=paymentPage;
-
-exploreButton.textContent=
-"⏳ Payment Pending";
-
-exploreButton.href=paymentPage;
-
-show(
-"⏳ Payment received and waiting for approval.",
-"pendingStatus"
-);
-
-return;
+setPending();
 
 }
-
-}catch(e){}
-
-show(
-"🔒 Premium membership required.",
-"errorStatus"
-);
 
 }catch(e){
 
-console.error(e);
-
-show(
-"⚠️ Unable to check Premium status. Try again.",
-"errorStatus"
-);
+console.log("Status error:",e);
 
 }
 
 }
 
+/* FORCE CORRECT COURSE LINK */
+setCourseLinks();
 
-/* BUTTONS */
+document.getElementById("menuBtn").onclick =
+function(){
 
-premiumButton.onclick=function(){
+const menu =
+document.getElementById("mobileMenu");
 
-if(
-premiumButton.classList.contains("active")
-){
-
-window.location.href=premiumPage;
-
-}
+menu.style.display =
+menu.style.display === "block"
+? "none"
+: "block";
 
 };
 
-exploreButton.onclick=function(){
-
-window.location.href=premiumPage;
-
-};
-
-
-/* START */
-
-checkPremium();
-
-
-/* CHECK AGAIN */
+checkStatus();
 
 document.addEventListener(
 "visibilitychange",
-()=>{
+function(){
 
 if(document.visibilityState==="visible")
-checkPremium();
+checkStatus();
 
-}
-);
+});
 
-</script>
-
-</body>
+</script></body>
 </html>
