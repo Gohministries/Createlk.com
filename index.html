@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
 content="width=device-width,initial-scale=1.0">
 
-<title>CreateLK Academy | Learn English Online</title>
-
-<meta name="description"
-content="CreateLK Academy - Learn English online with AI English Tutor, AI MCQs and Premium English learning resources.">
+<title>CreateLK Academy | Premium English Learning</title><meta name="description"
+content="CreateLK Academy Premium English Learning. Learn English with structured courses, AI-powered MCQs and personalised practice.">
 
 <meta name="theme-color"
 content="#174ea6">
 
 <style>
+
+/* ==============================
+   RESET
+============================== */
 
 *{
 box-sizing:border-box;
@@ -28,14 +23,21 @@ font-family:"Segoe UI",Arial,sans-serif;
 body{
 background:#f5f8ff;
 color:#172033;
+line-height:1.6;
 }
+
+
+/* ==============================
+   HEADER
+============================== */
 
 header{
 background:#174ea6;
 color:#fff;
 position:sticky;
 top:0;
-z-index:99;
+z-index:100;
+box-shadow:0 2px 12px #0002;
 }
 
 .nav{
@@ -54,7 +56,8 @@ font-weight:800;
 
 .menu{
 display:flex;
-gap:5px;
+gap:4px;
+align-items:center;
 }
 
 .menu a{
@@ -62,7 +65,7 @@ color:#fff;
 text-decoration:none;
 font-size:13px;
 font-weight:700;
-padding:9px;
+padding:9px 10px;
 border-radius:8px;
 }
 
@@ -104,44 +107,87 @@ border-radius:8px;
 background:#ffffff18;
 }
 
+
+/* ==============================
+   MAIN
+============================== */
+
 main{
 max-width:1050px;
 margin:auto;
-padding:30px 15px 50px;
+padding:30px 15px 55px;
 }
+
+
+/* ==============================
+   HERO
+============================== */
 
 .hero{
 background:#fff;
-border-radius:22px;
-padding:45px 22px;
+border-radius:24px;
+padding:50px 22px;
 text-align:center;
 box-shadow:0 8px 30px #0001;
 }
 
 .hero-icon{
-font-size:50px;
-margin-bottom:10px;
+font-size:55px;
+margin-bottom:8px;
 }
 
 .hero h1{
 color:#174ea6;
-font-size:34px;
+font-size:35px;
 margin-bottom:12px;
+line-height:1.25;
 }
 
 .hero p{
-max-width:700px;
+max-width:720px;
 margin:auto;
 color:#667085;
+font-size:16px;
 line-height:1.7;
 }
+
+
+/* ==============================
+   PREMIUM PRICE
+============================== */
+
+.price-box{
+max-width:620px;
+margin:25px auto 0;
+background:#fff8e7;
+border:1px solid #f3d47a;
+border-radius:16px;
+padding:18px;
+}
+
+.price{
+font-size:27px;
+font-weight:900;
+color:#9a6500;
+}
+
+.price-small{
+font-size:14px;
+color:#745400;
+margin-top:3px;
+}
+
+
+/* ==============================
+   BUTTONS
+============================== */
 
 .buttons{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:14px;
-max-width:700px;
-margin:25px auto;
+max-width:650px;
+margin:25px auto 0;
 }
 
 .btn{
@@ -150,11 +196,13 @@ padding:15px;
 border-radius:11px;
 text-decoration:none;
 font-weight:800;
+text-align:center;
+transition:.2s;
 }
 
-.free{
-background:#20a464;
-color:#fff;
+.btn:hover{
+opacity:.92;
+transform:translateY(-1px);
 }
 
 .premium{
@@ -172,15 +220,16 @@ background:#d97706;
 color:#fff;
 }
 
-.btn:hover{
-opacity:.92;
-}
+
+/* ==============================
+   MEMBERSHIP STATUS
+============================== */
 
 .membership-status{
-margin:15px auto 0;
+margin:18px auto 0;
 max-width:650px;
-padding:12px 15px;
-border-radius:10px;
+padding:13px 15px;
+border-radius:11px;
 font-size:14px;
 font-weight:700;
 display:none;
@@ -204,22 +253,48 @@ background:#fee2e2;
 color:#991b1b;
 }
 
+
+/* ==============================
+   FEATURES
+============================== */
+
+.section-title{
+text-align:center;
+margin:35px 0 18px;
+}
+
+.section-title h2{
+color:#174ea6;
+font-size:25px;
+}
+
+.section-title p{
+color:#667085;
+font-size:14px;
+margin-top:5px;
+}
+
 .grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:15px;
-margin-top:25px;
 }
 
 .card{
 background:#fff;
-padding:20px;
-border-radius:16px;
+padding:22px;
+border-radius:17px;
 box-shadow:0 5px 22px #0001;
 }
 
-.card h3{
+.card-icon{
+font-size:32px;
 margin-bottom:8px;
+}
+
+.card h3{
+margin-bottom:7px;
+font-size:17px;
 }
 
 .card p{
@@ -230,39 +305,104 @@ line-height:1.6;
 
 .card a{
 display:inline-block;
-margin-top:12px;
+margin-top:13px;
 color:#174ea6;
 font-weight:800;
 text-decoration:none;
+font-size:14px;
 }
 
 .card a:hover{
 text-decoration:underline;
 }
 
+
+/* ==============================
+   HOW IT WORKS
+============================== */
+
+.steps{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:18px;
+}
+
+.step{
+background:#fff;
+padding:22px;
+border-radius:17px;
+box-shadow:0 5px 22px #0001;
+text-align:center;
+}
+
+.step-number{
+width:40px;
+height:40px;
+margin:0 auto 10px;
+border-radius:50%;
+background:#174ea6;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:900;
+}
+
+.step h3{
+font-size:16px;
+margin-bottom:6px;
+}
+
+.step p{
+font-size:13px;
+color:#667085;
+}
+
+
+/* ==============================
+   PREMIUM INFO
+============================== */
+
 .info{
 background:#fff;
-padding:20px;
-border-radius:16px;
+padding:24px;
+border-radius:18px;
 box-shadow:0 5px 22px #0001;
-margin-top:20px;
+margin-top:25px;
 }
 
 .info h2{
+color:#174ea6;
 margin-bottom:10px;
 }
 
 .info p{
 font-size:14px;
 color:#667085;
-line-height:1.6;
+line-height:1.7;
 }
+
+.info ul{
+margin:14px 0 0 20px;
+color:#667085;
+font-size:14px;
+}
+
+.info li{
+margin-bottom:7px;
+}
+
+
+/* ==============================
+   LINKS
+============================== */
 
 .links{
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:10px;
-margin-top:15px;
+margin-top:18px;
 }
 
 .links a{
@@ -280,21 +420,15 @@ font-weight:700;
 background:#dce9ff;
 }
 
-.premium-note{
-margin-top:15px;
-background:#fff8e7;
-border:1px solid #f6d889;
-padding:14px;
-border-radius:12px;
-color:#745400;
-font-size:14px;
-line-height:1.6;
-}
+
+/* ==============================
+   FOOTER
+============================== */
 
 footer{
 text-align:center;
 color:#667085;
-padding:30px;
+padding:30px 15px;
 font-size:13px;
 line-height:1.8;
 }
@@ -303,6 +437,11 @@ footer a{
 color:#174ea6;
 text-decoration:none;
 }
+
+
+/* ==============================
+   WHATSAPP
+============================== */
 
 .wa{
 position:fixed;
@@ -319,7 +458,13 @@ align-items:center;
 justify-content:center;
 font-size:27px;
 box-shadow:0 5px 18px #0003;
+z-index:90;
 }
+
+
+/* ==============================
+   MOBILE
+============================== */
 
 @media(max-width:900px){
 
@@ -335,12 +480,33 @@ display:block;
 grid-template-columns:1fr 1fr;
 }
 
+.steps{
+grid-template-columns:1fr 1fr;
+}
+
 }
 
 @media(max-width:600px){
 
+main{
+padding:20px 12px 45px;
+}
+
+.hero{
+padding:35px 17px;
+}
+
+.hero h1{
+font-size:27px;
+}
+
+.hero p{
+font-size:14px;
+}
+
 .buttons,
-.grid{
+.grid,
+.steps{
 grid-template-columns:1fr;
 }
 
@@ -348,415 +514,284 @@ grid-template-columns:1fr;
 grid-template-columns:1fr 1fr;
 }
 
-.hero{
-padding:35px 18px;
-}
-
-.hero h1{
-font-size:27px;
+.price{
+font-size:23px;
 }
 
 }
 
-</style>
 
-</head>
+/* ==============================
+   SMALL DEVICES
+============================== */
 
+@media(max-width:380px){
 
-<body>
+.links{
+grid-template-columns:1fr;
+}
 
+.logo{
+font-size:17px;
+}
 
-<header>
+}
 
-<nav class="nav">
-
-<div class="logo">
+</style></head><body><!-- ==============================
+     HEADER
+============================== --><header><nav class="nav"><div class="logo">
 📚 CreateLK Academy
-</div>
-
-<div class="menu">
-
-<a href="index.html">🏠 Home</a>
-
-<a href="free-course.html">🌱 Free Learning</a>
-
-<a href="ai-tutor.html">🤖 AI Tutor</a>
-
-<a href="ai-mcq.html">📝 AI MCQs</a>
-
-<a href="premium.html"
+</div><div class="menu"><a href="index.html">
+🏠 Home
+</a><a href="premium-course.html"
 id="desktopPremium">
-⭐ Premium AI
+⭐ Premium Course
 </a>
 
 <a href="membership.html">
-💳 Membership
-</a>
-
-<a href="login.html">
+💎 Membership
+</a><a href="payment.html">
+💳 Payment
+</a><a href="dashboard.html">
+👤 Dashboard
+</a><a href="login.html">
 🔐 Login
-</a>
-
-</div>
-
-
-<button
+</a></div><button
 class="menuBtn"
 id="menuBtn"
 type="button">
 
 ☰
 
-</button>
-
-</nav>
-
-
-<div
+</button></nav><div
 class="mobile"
-id="mobileMenu">
-
-<a href="index.html">🏠 Home</a>
-
-<a href="free-course.html">🌱 Free Learning</a>
-
-<a href="ai-tutor.html">🤖 Free AI English Tutor</a>
-
-<a href="ai-mcq.html">📝 AI MCQs</a>
-
-<a href="premium.html"
+id="mobileMenu"><a href="index.html">
+🏠 Home
+</a><a href="premium-course.html"
 id="mobilePremium">
-⭐ Premium AI MCQs
+⭐ Premium Course
 </a>
 
 <a href="membership.html">
-💳 Premium Membership
-</a>
-
-<a href="login.html">
-🔐 Student Login
-</a>
-
-<a href="register.html">
-✍️ Create Account
-</a>
-
-<a href="payment.html">
+💎 Premium Membership
+</a><a href="payment.html">
 💳 Payment
-</a>
-
-<a href="dashboard.html">
-👤 Dashboard
-</a>
-
-<a href="contact.html">
+</a><a href="dashboard.html">
+👤 Student Dashboard
+</a><a href="login.html">
+🔐 Student Login
+</a><a href="register.html">
+✍️ Create Account
+</a><a href="contact.html">
 📞 Contact
-</a>
-
-</div>
-
-</header>
-
-
-<main>
-
-
-<section class="hero">
-
-<div class="hero-icon">
+</a></div></header><!-- ==============================
+     MAIN
+============================== --><main><!-- HERO --><section class="hero"><div class="hero-icon">
 📚
-</div>
-
-<h1>
-Learn English. Build Your Future.
-</h1>
-
-<p>
-Learn English through structured lessons,
-AI-powered practice, MCQs and Premium
-learning resources.
-</p>
-
-
-<div class="buttons">
-
-<a
-class="btn free"
-href="ai-tutor.html">
-
-🌱 Start Free AI Learning
-
-</a>
-
-
-<a
+</div><h1>
+Learn English.<br>
+Build Your Future.
+</h1><p>
+Improve your English through structured
+Premium lessons, AI-powered practice,
+MCQs and personalised learning resources.
+</p><div class="price-box"><div class="price">
+⭐ LKR 1,500 / 30 Days
+</div><div class="price-small">
+Premium English Learning Membership
+</div></div><div class="buttons"><a
 class="btn premium"
 id="premiumButton"
-href="login.html?next=payment.html">
+href="payment.html">
 
-⭐ Premium — LKR 1,500 / 30 Days
+⭐ Join Premium — LKR 1,500
 
-</a>
+</a><a
+class="btn"
+href="premium-course.html"
+style="background:#174ea6;color:#fff">
 
-</div>
+📚 Explore Premium Course
 
-
-<div
+</a></div><div
 id="membershipStatus"
 class="membership-status">
-</div>
-
-</section>
-
-
-<div class="grid">
-
-
-<div class="card">
-
-<h3>🌱 Free Learning</h3>
-
-<p>
-Practise English grammar, vocabulary
-and essential skills with our free
-learning resources.
-</p>
-
-<a href="free-course.html">
-Start Learning →
-</a>
-
-</div>
-
-
-<div class="card">
-
-<h3>🤖 Free AI English Tutor</h3>
-
-<p>
-Generate English practice questions
-with CreateLK AI. No email or account
-is required for free practice.
-</p>
-
-<a href="ai-tutor.html">
-Open AI Tutor →
-</a>
-
-</div>
-
-
-<div class="card">
-
-<h3>📝 AI MCQs</h3>
-
-<p>
+</div></section><!-- FEATURES --><div class="section-title"><h2>
+⭐ What You Get
+</h2><p>
+Everything you need to improve your English.
+</p></div><div class="grid"><div class="card"><div class="card-icon">
+🤖
+</div><h3>
+AI English Practice
+</h3><p>
 Practise English with AI-generated
-multiple-choice questions.
-</p>
-
-<a href="ai-mcq.html">
-Practice MCQs →
-</a>
-
-</div>
-
-
-<div class="card">
-
-<h3>⭐ Premium AI MCQs</h3>
-
-<p>
-Generate personalised English MCQs
-with Premium AI learning access.
-</p>
-
-<a
-href="premium.html"
-id="premiumCardLink">
-
-Open Premium AI →
-
-</a>
-
-</div>
-
-
-<div class="card">
-
-<h3>💎 Premium Membership</h3>
-
-<p>
-Access Premium English learning
-resources for 30 days for
-LKR 1,500.
-</p>
-
-<a href="membership.html">
-View Membership →
-</a>
-
-</div>
-
-
-<div class="card">
-
-<h3>👤 Student Dashboard</h3>
-
-<p>
-View your account and Premium
-membership status.
-</p>
-
-<a href="dashboard.html">
-Open Dashboard →
-</a>
-
-</div>
-
-
-<div class="card">
-
-<h3>📞 Student Support</h3>
-
-<p>
-Need help with learning,
-membership or payment?
-</p>
-
-<a href="contact.html">
-Contact Us →
-</a>
-
-</div>
-
-</div>
-
-
-<section class="info">
-
-<h2>
-⭐ Premium Membership
-</h2>
-
-<p>
-Premium English membership costs
-<b>LKR 1,500 for 30 days</b>.
-Premium students can access additional
-English learning resources and higher
-AI-MCQ usage.
-</p>
-
-<div class="premium-note">
-
-🔐 Premium access is available after
-successful payment and membership
-verification.
-
-</div>
-
-
-<div class="links">
-
-<a href="membership.html">
-⭐ Membership
-</a>
-
-<a href="premium.html">
-🤖 Premium AI
-</a>
-
-<a href="payment.html">
+multiple-choice questions designed
+for your selected subject and level.
+</p><a href="premium-course.html">
+Start Premium Practice →
+</a></div><div class="card"><div class="card-icon">
+📚
+</div><h3>
+Structured Learning
+</h3><p>
+Learn grammar, vocabulary, tenses,
+sentence structure and other important
+English skills step by step.
+</p><a href="premium-course.html">
+View Course →
+</a></div><div class="card"><div class="card-icon">
+🎯
+</div><h3>
+Personal Practice
+</h3><p>
+Choose your English subject and
+difficulty level to practise according
+to your learning needs.
+</p><a href="premium-course.html">
+Practise Now →
+</a></div><div class="card"><div class="card-icon">
+📝
+</div><h3>
+Premium AI MCQs
+</h3><p>
+Generate up to 100 AI-powered English
+MCQs per day during your active
+Premium membership.
+</p><a href="premium-course.html">
+Open AI MCQs →
+</a></div><div class="card"><div class="card-icon">
+📈
+</div><h3>
+Improve Your Skills
+</h3><p>
+Use regular practice to strengthen
+your vocabulary, grammar, comprehension
+and everyday English.
+</p><a href="premium-course.html">
+Continue Learning →
+</a></div><div class="card"><div class="card-icon">
+🔐
+</div><h3>
+Verified Premium Access
+</h3><p>
+Premium content is available only after
+your payment has been verified and your
+membership has been activated.
+</p><a href="dashboard.html">
+Check Membership →
+</a></div></div><!-- HOW IT WORKS --><div class="section-title"><h2>
+🚀 How Premium Works
+</h2><p>
+Three simple steps to start learning.
+</p></div><div class="steps"><div class="step"><div class="step-number">
+1
+</div><h3>
+Create Your Account
+</h3><p>
+Register your email and create your
+student account.
+</p></div><div class="step"><div class="step-number">
+2
+</div><h3>
+Make Payment
+</h3><p>
+Pay LKR 1,500 and submit your payment
+receipt for verification.
+</p></div><div class="step"><div class="step-number">
+3
+</div><h3>
+Start Learning
+</h3><p>
+After approval, access your Premium
+course and AI English practice.
+</p></div></div><!-- PREMIUM INFORMATION --><section class="info"><h2>
+💎 Premium Membership
+</h2><p>
+CreateLK Academy Premium Membership
+provides access to our Premium English
+learning resources for <b>30 days</b>.
+</p><ul><li>
+⭐ Premium English learning resources
+</li><li>
+🤖 AI-generated English MCQ practice
+</li><li>
+📝 Up to <b>100 Premium AI MCQs per day</b>
+</li><li>
+🎓 Beginner, Intermediate and Advanced levels
+</li><li>
+📚 Multiple English subjects and topics
+</li><li>
+🔐 Membership verification and expiry system
+</li></ul><div class="links"><a href="membership.html">
+💎 Membership
+</a><a href="premium-course.html">
+📚 Premium Course
+</a><a href="payment.html">
 💳 Payment
-</a>
-
-<a href="dashboard.html">
+</a><a href="dashboard.html">
 👤 Dashboard
+</a></div></section><!-- SUPPORT --><section class="info"><h2>
+📞 Need Help?
+</h2><p>
+If you have questions about registration,
+payment, Premium approval or your course,
+please contact CreateLK Academy support.
+</p><div class="links"><a href="contact.html">
+📞 Contact
+</a><a href="login.html">
+🔐 Login
+</a><a href="register.html">
+✍️ Register
+</a><a href="dashboard.html">
+👤 Dashboard
+</a></div></section></main><!-- ==============================
+     FOOTER
+============================== --><footer>📚 <b>CreateLK Academy</b>
+
+<br>Learn English. Build Your Future.
+
+<br><br>
+
+<a href="about.html">
+About
 </a>
-
-</div>
-
-</section>
-
-
-<section class="info">
-
-<h2>
-📚 CreateLK Academy
-</h2>
-
-<p>
-Our goal is to help students improve
-their English through accessible
-lessons, AI-powered practice and
-structured learning resources.
-</p>
-
-
-<div class="links">
-
-<a href="about.html">ℹ️ About</a>
-
-<a href="contact.html">📞 Contact</a>
-
-<a href="privacy.html">🔒 Privacy</a>
-
-<a href="terms.html">📄 Terms</a>
-
-</div>
-
-</section>
-
-
-</main>
-
-
-<footer>
-
-📚 <b>CreateLK Academy</b>
-
-<br>
-
-Learn English. Build Your Future.
-
-<br><br>
-
-<a href="about.html">About</a>
 ·
-<a href="contact.html">Contact</a>
+<a href="contact.html">
+Contact
+</a>
 ·
-<a href="privacy.html">Privacy</a>
+<a href="privacy.html">
+Privacy
+</a>
 ·
-<a href="terms.html">Terms</a>
+<a href="terms.html">
+Terms
+</a>
 ·
-<a href="refund.html">Refunds</a>
-
-<br><br>
+<a href="refund.html">
+Refunds
+</a><br><br>
 
 © 2026 CreateLK Academy.
 All Rights Reserved.
 
-</footer>
-
-
-<a
+</footer><!-- WHATSAPP --><a
 class="wa"
 href="https://wa.me/94771190395"
 target="_blank"
-rel="noopener noreferrer">
+rel="noopener noreferrer"
+aria-label="Contact CreateLK Academy on WhatsApp">
 
 💬
 
-</a>
-
-
-<script>
+</a><script>
 
 "use strict";
 
 
 /* ==============================
-   WORKERS
+   API
 ============================== */
 
 const MEMBERSHIP_API =
@@ -779,11 +814,11 @@ document.getElementById("desktopPremium");
 const mobilePremium =
 document.getElementById("mobilePremium");
 
-const premiumCardLink =
-document.getElementById("premiumCardLink");
-
 const membershipStatus =
 document.getElementById("membershipStatus");
+
+const premiumCourse =
+"premium-course.html";
 
 
 /* ==============================
@@ -796,7 +831,8 @@ document.getElementById("menuBtn");
 const mobileMenu =
 document.getElementById("mobileMenu");
 
-menuBtn.onclick = function(){
+menuBtn.onclick =
+function(){
 
 mobileMenu.classList.toggle("open");
 
@@ -809,18 +845,23 @@ mobileMenu.classList.contains("open")
 
 
 /* ==============================
-   GET STUDENT EMAIL
+   GET EMAIL
 ============================== */
 
 function getEmail(){
 
-let email =
+const direct =
 localStorage.getItem(
 "createlk_student_email"
 );
 
-if(email)
-return email.trim().toLowerCase();
+if(direct){
+
+return direct
+.trim()
+.toLowerCase();
+
+}
 
 
 try{
@@ -832,8 +873,16 @@ localStorage.getItem(
 )
 );
 
-if(user && user.email)
-return user.email.trim().toLowerCase();
+if(
+user &&
+user.email
+){
+
+return user.email
+.trim()
+.toLowerCase();
+
+}
 
 }catch(e){}
 
@@ -847,25 +896,33 @@ localStorage.getItem(
 )
 );
 
-if(student && student.email)
-return student.email.trim().toLowerCase();
+if(
+student &&
+student.email
+){
+
+return student.email
+.trim()
+.toLowerCase();
+
+}
 
 }catch(e){}
 
 
-return null;
+return "";
 
 }
 
 
 /* ==============================
-   UPGRADE
+   DEFAULT / UPGRADE
 ============================== */
 
 function upgrade(){
 
 premiumButton.textContent =
-"⭐ Premium — LKR 1,500 / 30 Days";
+"⭐ Join Premium — LKR 1,500";
 
 premiumButton.href =
 "payment.html";
@@ -875,24 +932,17 @@ premiumButton.className =
 
 
 desktopPremium.textContent =
-"⭐ Premium AI";
+"⭐ Premium Course";
 
 desktopPremium.href =
-"payment.html";
+premiumCourse;
 
 
 mobilePremium.textContent =
-"⭐ Premium AI MCQs";
+"⭐ Premium Course";
 
 mobilePremium.href =
-"payment.html";
-
-
-premiumCardLink.textContent =
-"Open Premium AI →";
-
-premiumCardLink.href =
-"payment.html";
+premiumCourse;
 
 
 membershipStatus.style.display =
@@ -931,15 +981,8 @@ mobilePremium.href =
 "payment.html";
 
 
-premiumCardLink.textContent =
-"⏳ Payment Pending";
-
-premiumCardLink.href =
-"payment.html";
-
-
 membershipStatus.textContent =
-"⏳ Your payment is waiting for administrator approval.";
+"⏳ Your payment has been received and is waiting for administrator approval.";
 
 membershipStatus.className =
 "membership-status status-pending";
@@ -954,10 +997,10 @@ membershipStatus.className =
 function active(expiry){
 
 premiumButton.textContent =
-"⭐ Open Premium Courses";
+"⭐ Open Premium Course";
 
 premiumButton.href =
-"premium-course.html";
+premiumCourse;
 
 premiumButton.className =
 "btn active";
@@ -967,28 +1010,22 @@ desktopPremium.textContent =
 "⭐ Premium Active";
 
 desktopPremium.href =
-"premium-course.html";
+premiumCourse;
 
 
 mobilePremium.textContent =
 "⭐ Premium Active";
 
 mobilePremium.href =
-"premium-course.html";
-
-
-premiumCardLink.textContent =
-"Open Premium Courses →";
-
-premiumCardLink.href =
-"premium-course.html";
+premiumCourse;
 
 
 if(expiry){
 
 const date =
 new Date(
-String(expiry).replace(" ","T")
+String(expiry)
+.replace(" ","T")
 );
 
 membershipStatus.textContent =
@@ -1010,7 +1047,7 @@ membershipStatus.className =
 
 
 /* ==============================
-   CHECK STATUS
+   CHECK MEMBERSHIP
 ============================== */
 
 async function checkStatus(){
@@ -1020,13 +1057,19 @@ upgrade();
 const email =
 getEmail();
 
-if(!email)
+
+if(!email){
+
 return;
+
+}
 
 
 try{
 
-/* Check membership */
+/* ------------------------------
+   CHECK ACTIVE MEMBERSHIP
+------------------------------ */
 
 let response =
 await fetch(
@@ -1037,8 +1080,10 @@ encodeURIComponent(email) +
 Date.now()
 );
 
+
 let data =
 await response.json();
+
 
 console.log(
 "Membership:",
@@ -1060,7 +1105,9 @@ return;
 }
 
 
-/* Check payment */
+/* ------------------------------
+   CHECK PAYMENT
+------------------------------ */
 
 response =
 await fetch(
@@ -1071,8 +1118,10 @@ encodeURIComponent(email) +
 Date.now()
 );
 
+
 data =
 await response.json();
+
 
 console.log(
 "Payment:",
@@ -1084,7 +1133,9 @@ if(
 data.success &&
 data.found &&
 data.payment &&
-data.payment.status ===
+String(
+data.payment.status
+).toLowerCase() ===
 "pending"
 ){
 
@@ -1095,7 +1146,7 @@ pending();
 }catch(error){
 
 console.log(
-"Status check:",
+"Membership status check:",
 error
 );
 
@@ -1112,7 +1163,7 @@ checkStatus();
 
 
 /* ==============================
-   RECHECK
+   RECHECK WHEN USER RETURNS
 ============================== */
 
 document.addEventListener(
@@ -1130,8 +1181,5 @@ checkStatus();
 
 });
 
-</script>
 
-
-</body>
-</html>
+</script></body></html>
