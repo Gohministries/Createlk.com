@@ -18,8 +18,6 @@ color:#172033;
 line-height:1.6;
 }
 
-/* HEADER */
-
 header{
 background:#174ea6;
 color:#fff;
@@ -96,15 +94,11 @@ border-radius:8px;
 background:#ffffff18;
 }
 
-/* MAIN */
-
 main{
 max-width:1050px;
 margin:auto;
 padding:30px 15px 55px;
 }
-
-/* HERO */
 
 .hero{
 background:#fff;
@@ -134,8 +128,6 @@ font-size:16px;
 line-height:1.7;
 }
 
-/* PRICE */
-
 .price-box{
 max-width:620px;
 margin:25px auto 0;
@@ -156,8 +148,6 @@ font-size:14px;
 color:#745400;
 margin-top:3px;
 }
-
-/* BUTTONS */
 
 .buttons{
 display:grid;
@@ -197,7 +187,10 @@ background:#d97706;
 color:#fff;
 }
 
-/* MEMBERSHIP STATUS */
+.login-required{
+background:#174ea6;
+color:#fff;
+}
 
 .membership-status{
 margin:18px auto 0;
@@ -221,13 +214,11 @@ background:#fff4d6;
 color:#946200;
 }
 
-.status-expired{
+.status-login{
 display:block;
-background:#fee2e2;
-color:#991b1b;
+background:#eef4ff;
+color:#174ea6;
 }
-
-/* FEATURES */
 
 .section-title{
 text-align:center;
@@ -287,8 +278,6 @@ font-size:14px;
 text-decoration:underline;
 }
 
-/* HOW IT WORKS */
-
 .steps{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -327,8 +316,6 @@ font-size:13px;
 color:#667085;
 }
 
-/* INFO */
-
 .info{
 background:#fff;
 padding:24px;
@@ -358,8 +345,6 @@ font-size:14px;
 margin-bottom:7px;
 }
 
-/* LINKS */
-
 .links{
 display:grid;
 grid-template-columns:repeat(4,1fr);
@@ -382,8 +367,6 @@ font-weight:700;
 background:#dce9ff;
 }
 
-/* FOOTER */
-
 footer{
 text-align:center;
 color:#667085;
@@ -396,8 +379,6 @@ footer a{
 color:#174ea6;
 text-decoration:none;
 }
-
-/* WHATSAPP */
 
 .wa{
 position:fixed;
@@ -416,8 +397,6 @@ font-size:27px;
 box-shadow:0 5px 18px #0003;
 z-index:90;
 }
-
-/* MOBILE */
 
 @media(max-width:900px){
 
@@ -485,20 +464,17 @@ font-size:17px;
 
 }
 
-</style></head><body><!-- HEADER --><header><nav class="nav"><div class="logo">
+</style></head><body><header><nav class="nav"><div class="logo">
 📚 CreateLK Academy
 </div><div class="menu"><a href="index.html">
 🏠 Home
-</a><a href="premium-course.html"
-id="desktopPremium">
-⭐ Premium Course
-</a>
-
-<a href="payment.html">
+</a><a href="premium-course.html" id="desktopPremium">
+⭐ Premium AI
+</a><a href="payment.html">
 💳 Payment
 </a><a href="dashboard.html">
 👤 Dashboard
-</a><a href="login.html">
+</a><a href="login.html" id="desktopLogin">
 🔐 Login
 </a></div><button
 class="menuBtn"
@@ -507,26 +483,21 @@ type="button">
 ☰
 </button>
 
-</nav><div
-class="mobile"
-id="mobileMenu"><a href="index.html">
+</nav><div class="mobile" id="mobileMenu"><a href="index.html">
 🏠 Home
-</a><a href="premium-course.html"
-id="mobilePremium">
-⭐ Premium Course
-</a>
-
-<a href="payment.html">
+</a><a href="premium-course.html" id="mobilePremium">
+⭐ Premium AI
+</a><a href="payment.html">
 💳 Payment
 </a><a href="dashboard.html">
 👤 Student Dashboard
-</a><a href="login.html">
+</a><a href="login.html" id="mobileLogin">
 🔐 Student Login
 </a><a href="register.html">
 ✍️ Create Account
 </a><a href="contact.html">
 📞 Contact
-</a></div></header><!-- MAIN --><main><!-- HERO --><section class="hero"><div class="hero-icon">
+</a></div></header><main><section class="hero"><div class="hero-icon">
 📚
 </div><h1>
 Learn English.<br>
@@ -542,22 +513,23 @@ Premium English Learning Membership
 </div></div><div class="buttons"><a
 class="btn premium"
 id="premiumButton"
-href="payment.html">
+href="login.html">
 
-⭐ Join Premium — LKR 1,500
+🔐 Login to Access Premium
 
 </a><a
 class="btn"
-href="premium-course.html"
+id="exploreButton"
+href="login.html"
 style="background:#174ea6;color:#fff">
 
-📚 Explore Premium Course
+📚 Login & Start Premium
 
 </a></div><div
 id="membershipStatus"
 class="membership-status">
-</div></section><!-- FEATURES --><div class="section-title"><h2>
-⭐ What You Get
+</div></section><div class="section-title"><h2>
+⭐ Premium English Learning
 </h2><p>
 Everything you need to improve your English.
 </p></div><div class="grid"><div class="card"><div class="card-icon">
@@ -568,8 +540,12 @@ AI English Practice
 Practise English with AI-generated
 multiple-choice questions designed
 for your selected subject and level.
-</p><a href="premium-course.html">
-Start Premium Practice →
+</p><a
+href="login.html"
+class="premiumLink">
+
+🔐 Login to Practice →
+
 </a></div><div class="card"><div class="card-icon">
 📚
 </div><h3>
@@ -578,8 +554,12 @@ Structured Learning
 Learn grammar, vocabulary, tenses,
 sentence structure and other important
 English skills step by step.
-</p><a href="premium-course.html">
-View Course →
+</p><a
+href="login.html"
+class="premiumLink">
+
+🔐 Login to Learn →
+
 </a></div><div class="card"><div class="card-icon">
 🎯
 </div><h3>
@@ -588,8 +568,12 @@ Personal Practice
 Choose your English subject and
 difficulty level to practise according
 to your learning needs.
-</p><a href="premium-course.html">
-Practise Now →
+</p><a
+href="login.html"
+class="premiumLink">
+
+🔐 Login to Practice →
+
 </a></div><div class="card"><div class="card-icon">
 📝
 </div><h3>
@@ -598,8 +582,12 @@ Premium AI MCQs
 Generate up to 100 AI-powered English
 MCQs per day during your active
 Premium membership.
-</p><a href="premium-course.html">
-Open AI MCQs →
+</p><a
+href="login.html"
+class="premiumLink">
+
+🔐 Login for AI MCQs →
+
 </a></div><div class="card"><div class="card-icon">
 📈
 </div><h3>
@@ -608,19 +596,23 @@ Improve Your Skills
 Use regular practice to strengthen
 your vocabulary, grammar, comprehension
 and everyday English.
-</p><a href="premium-course.html">
-Continue Learning →
+</p><a
+href="login.html"
+class="premiumLink">
+
+🔐 Login & Continue →
+
 </a></div><div class="card"><div class="card-icon">
 🔐
 </div><h3>
 Verified Premium Access
 </h3><p>
 Premium content is available only after
-your payment has been verified and your
-membership has been activated.
-</p><a href="dashboard.html">
-Check Membership →
-</a></div></div><!-- HOW IT WORKS --><div class="section-title"><h2>
+your account is logged in and your
+Premium membership has been activated.
+</p><a href="login.html" id="verifyLink">🔐 Login to Check →
+
+</a></div></div><div class="section-title"><h2>
 🚀 How Premium Works
 </h2><p>
 Three simple steps to start learning.
@@ -645,7 +637,7 @@ Start Learning
 </h3><p>
 After approval, access your Premium
 course and AI English practice.
-</p></div></div><!-- PREMIUM INFORMATION --><section class="info"><h2>
+</p></div></div><section class="info"><h2>
 💎 Premium Membership
 </h2><p>
 CreateLK Academy Premium Membership
@@ -663,15 +655,15 @@ learning resources for <b>30 days</b>.
 📚 Multiple English subjects and topics
 </li><li>
 🔐 Membership verification and expiry system
-</li></ul><div class="links"><a href="premium-course.html">
-📚 Premium Course
-</a><a href="payment.html">
+</li></ul><div class="links"><a href="payment.html">
 💳 Payment
 </a><a href="dashboard.html">
 👤 Dashboard
 </a><a href="login.html">
 🔐 Login
-</a></div></section><!-- SUPPORT --><section class="info"><h2>
+</a><a href="register.html">
+✍️ Register
+</a></div></section><section class="info"><h2>
 📞 Need Help?
 </h2><p>
 If you have questions about registration,
@@ -685,10 +677,11 @@ please contact CreateLK Academy support.
 ✍️ Register
 </a><a href="dashboard.html">
 👤 Dashboard
-</a></div></section></main><!-- FOOTER --><footer>📚 <b>CreateLK Academy</b>
+</a></div></section></main><footer>📚 <b>CreateLK Academy</b>
 
-<br>
-Learn English. Build Your Future.<br><br>
+<br>Learn English. Build Your Future.
+
+<br><br>
 
 <a href="about.html">
 About
@@ -713,7 +706,7 @@ Refunds
 © 2026 CreateLK Academy.
 All Rights Reserved.
 
-</footer><!-- WHATSAPP --><a
+</footer><a
 class="wa"
 href="https://wa.me/94771190395"
 target="_blank"
@@ -745,17 +738,29 @@ const PAYMENT_API =
 const premiumButton =
 document.getElementById("premiumButton");
 
+const exploreButton =
+document.getElementById("exploreButton");
+
 const desktopPremium =
 document.getElementById("desktopPremium");
 
 const mobilePremium =
 document.getElementById("mobilePremium");
 
+const desktopLogin =
+document.getElementById("desktopLogin");
+
+const mobileLogin =
+document.getElementById("mobileLogin");
+
 const membershipStatus =
 document.getElementById("membershipStatus");
 
-const premiumCourse =
-"premium-course.html";
+const verifyLink =
+document.getElementById("verifyLink");
+
+const premiumLinks =
+document.querySelectorAll(".premiumLink");
 
 
 /* ==============================
@@ -782,7 +787,7 @@ mobileMenu.classList.contains("open")
 
 
 /* ==============================
-   GET EMAIL
+   GET LOGIN EMAIL
 ============================== */
 
 function getEmail(){
@@ -853,10 +858,91 @@ return "";
 
 
 /* ==============================
-   DEFAULT
+   NOT LOGGED IN
 ============================== */
 
-function upgrade(){
+function loggedOut(){
+
+premiumButton.textContent =
+"🔐 Login to Access Premium";
+
+premiumButton.href =
+"login.html";
+
+premiumButton.className =
+"btn login-required";
+
+
+exploreButton.textContent =
+"🔐 Login & Start Premium";
+
+exploreButton.href =
+"login.html";
+
+
+desktopPremium.textContent =
+"⭐ Premium AI";
+
+desktopPremium.href =
+"login.html";
+
+
+mobilePremium.textContent =
+"⭐ Premium AI";
+
+mobilePremium.href =
+"login.html";
+
+
+desktopLogin.textContent =
+"🔐 Login";
+
+desktopLogin.href =
+"login.html";
+
+
+mobileLogin.textContent =
+"🔐 Student Login";
+
+mobileLogin.href =
+"login.html";
+
+
+verifyLink.textContent =
+"🔐 Login to Check";
+
+verifyLink.href =
+"login.html";
+
+
+premiumLinks.forEach(function(link){
+
+link.href =
+"login.html";
+
+link.textContent =
+link.textContent.replace(
+/^(🔐|⭐).*/,
+"🔐 Login to Access →"
+);
+
+});
+
+
+membershipStatus.textContent =
+"🔐 Please login to access Premium AI English MCQs.";
+
+membershipStatus.className =
+"membership-status status-login";
+
+}
+
+
+/* ==============================
+   LOGGED IN - NOT PREMIUM
+============================== */
+
+function loggedIn(){
 
 premiumButton.textContent =
 "⭐ Join Premium — LKR 1,500";
@@ -868,22 +954,60 @@ premiumButton.className =
 "btn premium";
 
 
+exploreButton.textContent =
+"📚 Open Premium Course";
+
+exploreButton.href =
+"premium-course.html";
+
+
 desktopPremium.textContent =
-"⭐ Premium Course";
+"⭐ Premium AI";
 
 desktopPremium.href =
-premiumCourse;
+"premium-course.html";
 
 
 mobilePremium.textContent =
-"⭐ Premium Course";
+"⭐ Premium AI";
 
 mobilePremium.href =
-premiumCourse;
+"premium-course.html";
 
 
-membershipStatus.style.display =
-"none";
+desktopLogin.textContent =
+"🚪 Logout";
+
+desktopLogin.href =
+"#";
+
+mobileLogin.textContent =
+"🚪 Logout";
+
+mobileLogin.href =
+"#";
+
+
+verifyLink.textContent =
+"💳 Check Premium";
+
+verifyLink.href =
+"payment.html";
+
+
+premiumLinks.forEach(function(link){
+
+link.href =
+"premium-course.html";
+
+});
+
+
+membershipStatus.textContent =
+"👤 You are logged in. Purchase Premium to unlock AI English MCQs.";
+
+membershipStatus.className =
+"membership-status status-login";
 
 }
 
@@ -904,6 +1028,13 @@ premiumButton.className =
 "btn pending";
 
 
+exploreButton.textContent =
+"⏳ Payment Pending";
+
+exploreButton.href =
+"payment.html";
+
+
 desktopPremium.textContent =
 "⏳ Payment Pending";
 
@@ -916,6 +1047,14 @@ mobilePremium.textContent =
 
 mobilePremium.href =
 "payment.html";
+
+
+premiumLinks.forEach(function(link){
+
+link.href =
+"payment.html";
+
+});
 
 
 membershipStatus.textContent =
@@ -928,33 +1067,55 @@ membershipStatus.className =
 
 
 /* ==============================
-   ACTIVE
+   ACTIVE PREMIUM
 ============================== */
 
 function active(expiry){
 
 premiumButton.textContent =
-"⭐ Open Premium Course";
+"⭐ Open Premium AI";
 
 premiumButton.href =
-premiumCourse;
+"premium-course.html";
 
 premiumButton.className =
 "btn active";
+
+
+exploreButton.textContent =
+"📚 Open Premium Course";
+
+exploreButton.href =
+"premium-course.html";
 
 
 desktopPremium.textContent =
 "⭐ Premium Active";
 
 desktopPremium.href =
-premiumCourse;
+"premium-course.html";
 
 
 mobilePremium.textContent =
 "⭐ Premium Active";
 
 mobilePremium.href =
-premiumCourse;
+"premium-course.html";
+
+
+premiumLinks.forEach(function(link){
+
+link.href =
+"premium-course.html";
+
+});
+
+
+verifyLink.textContent =
+"⭐ Open Premium";
+
+verifyLink.href =
+"premium-course.html";
 
 
 if(expiry){
@@ -984,23 +1145,82 @@ membershipStatus.className =
 
 
 /* ==============================
-   CHECK MEMBERSHIP
+   LOGOUT
+============================== */
+
+function logout(){
+
+localStorage.removeItem(
+"createlk_student_email"
+);
+
+localStorage.removeItem(
+"createlk_user"
+);
+
+localStorage.removeItem(
+"createlk_student"
+);
+
+window.location.href =
+"login.html";
+
+}
+
+
+desktopLogin.onclick =
+function(e){
+
+if(desktopLogin.textContent.includes("Logout")){
+
+e.preventDefault();
+
+logout();
+
+}
+
+};
+
+
+mobileLogin.onclick =
+function(e){
+
+if(mobileLogin.textContent.includes("Logout")){
+
+e.preventDefault();
+
+logout();
+
+}
+
+};
+
+
+/* ==============================
+   CHECK STATUS
 ============================== */
 
 async function checkStatus(){
 
-upgrade();
-
 const email =
 getEmail();
 
+
 if(!email){
+
+loggedOut();
 
 return;
 
 }
 
+
+loggedIn();
+
+
 try{
+
+/* ACTIVE MEMBERSHIP */
 
 let response =
 await fetch(
@@ -1011,8 +1231,10 @@ encodeURIComponent(email) +
 Date.now()
 );
 
+
 let data =
 await response.json();
+
 
 console.log(
 "Membership:",
@@ -1034,7 +1256,7 @@ return;
 }
 
 
-/* CHECK PAYMENT */
+/* PAYMENT STATUS */
 
 response =
 await fetch(
@@ -1045,8 +1267,10 @@ encodeURIComponent(email) +
 Date.now()
 );
 
+
 data =
 await response.json();
+
 
 console.log(
 "Payment:",
@@ -1071,7 +1295,7 @@ pending();
 }catch(error){
 
 console.log(
-"Membership status check:",
+"Status check:",
 error
 );
 
@@ -1088,7 +1312,7 @@ checkStatus();
 
 
 /* ==============================
-   RECHECK
+   CHECK WHEN USER RETURNS
 ============================== */
 
 document.addEventListener(
