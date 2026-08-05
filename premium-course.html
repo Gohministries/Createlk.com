@@ -14,7 +14,7 @@ button{cursor:pointer}
 nav button{padding:8px;background:white;color:#172554}
 main{max-width:800px;margin:20px auto;padding:15px}
 .card{background:white;padding:20px;border-radius:14px;box-shadow:0 3px 15px #ddd;margin-bottom:18px}
-select{width:100%;border:1px solid #ccd}
+select{width:100%;border:1px solid #ccd;margin-top:8px}
 .generate{width:100%;margin-top:15px;background:#2563eb;color:white;font-weight:bold}
 .q{background:#f8fafc;padding:15px;margin:12px 0;border-radius:10px}
 .opt{display:block;background:white;padding:10px;margin:7px 0;border-radius:7px;border:1px solid #ddd}
@@ -41,6 +41,7 @@ footer{text-align:center;padding:25px;color:#64748b}
 <main>
 
 <div class="card">
+
 <h2>⭐ Premium AI English MCQs</h2>
 <p>Practise English with AI-generated MCQs.</p>
 
@@ -51,7 +52,10 @@ footer{text-align:center;padding:25px;color:#64748b}
 
 <br>
 
+<label><b>📚 Choose Subject</b></label>
+
 <select id="subject">
+
 <option>🟢 General English</option>
 <option>📖 Grammar</option>
 <option>🧩 Vocabulary</option>
@@ -77,6 +81,18 @@ footer{text-align:center;padding:25px;color:#64748b}
 <option>✈️ Travel English</option>
 <option>👔 Job Interview English</option>
 <option>🏆 Advanced English</option>
+
+</select>
+
+<br><br>
+
+<label><b>🔢 Number of Questions</b></label>
+
+<select id="count">
+<option value="5">5 Questions</option>
+<option value="10">10 Questions</option>
+<option value="20">20 Questions</option>
+<option value="30">30 Questions</option>
 </select>
 
 <button id="gen" class="generate" onclick="generate()">
@@ -84,12 +100,19 @@ footer{text-align:center;padding:25px;color:#64748b}
 </button>
 
 <div id="msg"></div>
+
 </div>
 
 <div id="box" class="card" style="display:none">
+
 <div id="questions"></div>
-<button class="submit" onclick="check()">✅ Submit Answers</button>
+
+<button class="submit" onclick="check()">
+✅ Submit Answers
+</button>
+
 <div id="result"></div>
+
 </div>
 
 </main>
@@ -120,7 +143,9 @@ async function generate(){
 
 let btn=document.getElementById("gen");
 let msg=document.getElementById("msg");
+
 let subject=document.getElementById("subject").value;
+let count=Number(document.getElementById("count").value);
 
 btn.disabled=true;
 btn.textContent="⏳ Generating...";
@@ -130,19 +155,31 @@ try{
 
 let r=await fetch(WORKER,{
 method:"POST",
-headers:{"Content-Type":"application/json"},
+headers:{
+"Content-Type":"application/json"
+},
 body:JSON.stringify({
+
 email:email,
 student_email:email,
-subject:subject
+
+subject:subject,
+
+question_count:count,
+count:count
+
 })
 });
 
 let text=await r.text();
+
 let d;
 
-try{d=JSON.parse(text)}
-catch(e){throw Error("AI Worker returned invalid JSON.")}
+try{
+d=JSON.parse(text);
+}catch(e){
+throw Error("AI Worker returned invalid JSON.");
+}
 
 if(!r.ok||!d.success)
 throw Error(d.error||d.message||"Generation failed.");
@@ -178,26 +215,41 @@ qs.forEach((q,i)=>{
 let options=q.options||q.choices||[];
 
 html+=`
+
 <div class="q">
+
 <b>Question ${i+1}</b>
+
 <p>${q.question}</p>
 
 ${options.map((o,j)=>`
+
 <label class="opt">
+
 <input type="radio"
 name="q${i}"
 value="${j}">
+
 ${o}
+
 </label>
+
 `).join("")}
 
-</div>`;
+</div>
+
+`;
 
 });
 
 document.getElementById("questions").innerHTML=html;
+
 document.getElementById("box").style.display="block";
-window.scrollTo({top:500,behavior:"smooth"});
+
+window.scrollTo({
+top:500,
+behavior:"smooth"
+});
 
 }
 
@@ -248,8 +300,11 @@ if(!expiry)return;
 let d=new Date(expiry)-Date.now();
 
 if(d<=0){
+
 document.getElementById("time").textContent="Expired";
+
 return;
+
 }
 
 let days=Math.floor(d/86400000);
@@ -263,6 +318,7 @@ document.getElementById("time").textContent=
 }
 
 countdown();
+
 setInterval(countdown,1000);
 
 
@@ -273,6 +329,7 @@ function logout(){
 localStorage.removeItem("studentEmail");
 localStorage.removeItem("email");
 localStorage.removeItem("userEmail");
+
 location.href="login.html";
 
 }
