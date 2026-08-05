@@ -166,6 +166,7 @@ background:#fff;
 color:#172033;
 border:2px solid #ddd;
 text-align:left;
+margin-bottom:10px;
 }
 
 .correct{
@@ -324,13 +325,27 @@ Home · Membership · Free AI · Premium
 "use strict";
 
 /* =================================
-   WORKER
+   WORKER CONFIG
 ================================= */
 
 const WORKER =
 "https://createlk-free-ai.gateofheavensl1.workers.dev";
 
 const LIMIT = 10;
+
+
+/* =================================
+   DEVICE ID MANAGEMENT
+================================= */
+
+function getDeviceUUID() {
+  let deviceId = localStorage.getItem("createlk_device_id");
+  if (!deviceId) {
+    deviceId = "browser-" + Math.random().toString(36).substring(2) + Date.now().toString(36);
+    localStorage.setItem("createlk_device_id", deviceId);
+  }
+  return deviceId;
+}
 
 
 /* =================================
@@ -761,7 +776,8 @@ method:"POST",
 
 headers:{
 "Content-Type":"application/json",
-"Accept":"application/json"
+"Accept":"application/json",
+"X-Device-ID": getDeviceUUID()
 },
 
 body:JSON.stringify({
