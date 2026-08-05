@@ -98,6 +98,7 @@ margin-bottom:20px;
 height:100%;
 width:0%;
 background:#20a464;
+transition:.3s;
 }
 
 label{
@@ -125,10 +126,12 @@ background:#174ea6;
 color:white;
 font-weight:bold;
 margin-top:15px;
+cursor:pointer;
 }
 
 button:disabled{
 opacity:.5;
+cursor:not-allowed;
 }
 
 .status{
@@ -177,11 +180,18 @@ text-align:left;
 .correct{
 background:#dcfce7!important;
 border-color:#16a34a!important;
+color:#166534!important;
 }
 
 .wrong{
 background:#fee2e2!important;
 border-color:#dc2626!important;
+color:#991b1b!important;
+}
+
+#result{
+margin-top:15px;
+line-height:1.6;
 }
 
 footer{
@@ -189,6 +199,7 @@ text-align:center;
 padding:25px;
 color:#667085;
 font-size:13px;
+line-height:1.7;
 }
 
 </style>
@@ -209,7 +220,6 @@ font-size:13px;
 
 
 <main>
-
 
 <section class="hero">
 
@@ -264,63 +274,111 @@ class="bar">
 </h3>
 
 
-<label>
-Subject
+<label for="category">
+📚 Subject
 </label>
 
 <select id="category">
 
-<option>
-English Vocabulary
+<option value="English Vocabulary">
+📝 English Vocabulary
 </option>
 
-<option>
-English Grammar
+<option value="English Grammar">
+📚 English Grammar
 </option>
 
-<option>
-English Tenses
+<option value="English Tenses">
+⏰ English Tenses
 </option>
 
-<option>
-Parts of Speech
+<option value="Parts of Speech">
+🧩 Parts of Speech
 </option>
 
-<option>
-Prepositions
+<option value="Prepositions">
+🔗 Prepositions
 </option>
 
-<option>
-Articles
+<option value="Articles">
+📰 Articles
 </option>
 
-<option>
-Sentence Structure
+<option value="Sentence Structure">
+✍️ Sentence Structure
 </option>
 
-<option>
-Mixed English
+<option value="Spelling">
+🔤 Spelling
+</option>
+
+<option value="Punctuation">
+❗ Punctuation
+</option>
+
+<option value="Pronouns">
+👤 Pronouns
+</option>
+
+<option value="Adjectives">
+🎨 Adjectives
+</option>
+
+<option value="Adverbs">
+⚡ Adverbs
+</option>
+
+<option value="Conjunctions">
+🔀 Conjunctions
+</option>
+
+<option value="Modal Verbs">
+🎯 Modal Verbs
+</option>
+
+<option value="Active and Passive Voice">
+🔄 Active & Passive Voice
+</option>
+
+<option value="Direct and Indirect Speech">
+🗣️ Direct & Indirect Speech
+</option>
+
+<option value="Question Formation">
+❓ Question Formation
+</option>
+
+<option value="Conversation English">
+💬 Conversation English
+</option>
+
+<option value="Reading Comprehension">
+📖 Reading Comprehension
+</option>
+
+<option value="Mixed English">
+🏆 Mixed English
 </option>
 
 </select>
 
 
-<label>
-Difficulty
+<label for="level">
+🎓 Difficulty
 </label>
 
 <select id="level">
 
-<option>
-Beginner
+<option value="Beginner">
+🌱 Beginner
 </option>
 
-<option selected>
-Intermediate
+<option value="Intermediate" selected>
+📘 Intermediate
 </option>
 
-<option>
-Advanced
+<option value="Advanced">
+🎓 Advanced
 </option>
 
 </select>
@@ -366,10 +424,7 @@ class="question">
 
 <div id="options"></div>
 
-<div
-id="result"
-style="margin-top:15px;line-height:1.6">
-</div>
+<div id="result"></div>
 
 <button
 id="next"
@@ -407,13 +462,8 @@ All Rights Reserved.
 
 <script>
 
-/* =====================================
-   FREE AI WORKER
-===================================== */
-
 const WORKER =
 "https://createlk-free-ai.gateofheavensl1.workers.dev";
-
 
 const LIMIT = 10;
 
@@ -425,9 +475,9 @@ localStorage.getItem(
 );
 
 
-/* =====================================
+/* ================================
    DAILY RESET
-===================================== */
+================================ */
 
 const today =
 new Date().toISOString().slice(0,10);
@@ -436,7 +486,6 @@ const savedDate =
 localStorage.getItem(
 "createlk_free_ai_date"
 );
-
 
 if(savedDate !== today){
 
@@ -455,9 +504,9 @@ localStorage.setItem(
 }
 
 
-/* =====================================
+/* ================================
    PROGRESS
-===================================== */
+================================ */
 
 function updateProgress(){
 
@@ -474,7 +523,6 @@ used / LIMIT * 100,
 100
 ) + "%";
 
-
 if(used >= LIMIT){
 
 document.getElementById(
@@ -490,13 +538,12 @@ document.getElementById(
 
 }
 
-
 updateProgress();
 
 
-/* =====================================
+/* ================================
    STATUS
-===================================== */
+================================ */
 
 function status(
 text,
@@ -508,7 +555,8 @@ document.getElementById(
 "status"
 );
 
-box.textContent = text;
+box.textContent =
+text;
 
 box.className =
 "status " + type;
@@ -516,9 +564,9 @@ box.className =
 }
 
 
-/* =====================================
+/* ================================
    GENERATE
-===================================== */
+================================ */
 
 async function generate(){
 
@@ -533,7 +581,6 @@ return;
 
 }
 
-
 const category =
 document.getElementById(
 "category"
@@ -543,7 +590,6 @@ const level =
 document.getElementById(
 "level"
 ).value;
-
 
 const button =
 document.getElementById(
@@ -562,12 +608,8 @@ try{
 
 const response =
 await fetch(
-
-WORKER +
-"/api/ai-mcq",
-
+WORKER + "/api/ai-mcq",
 {
-
 method:"POST",
 
 headers:{
@@ -584,20 +626,8 @@ topic:category,
 level:level
 
 })
-
 }
-
 );
-
-
-if(!response.ok){
-
-throw new Error(
-"AI Worker HTTP " +
-response.status
-);
-
-}
 
 
 const data =
@@ -609,13 +639,23 @@ data
 );
 
 
-if(
-data.success === false
-){
+if(!response.ok){
 
 throw new Error(
-data.message ||
 data.error ||
+data.message ||
+"AI Worker HTTP " +
+response.status
+);
+
+}
+
+
+if(data.success === false){
+
+throw new Error(
+data.error ||
+data.message ||
 "AI generation failed."
 );
 
@@ -641,7 +681,8 @@ mcq
 
 if(
 !mcq ||
-!mcq.question
+!mcq.question ||
+!mcq.options
 ){
 
 throw new Error(
@@ -652,7 +693,6 @@ throw new Error(
 
 
 showMCQ(mcq);
-
 
 used++;
 
@@ -671,7 +711,10 @@ status(
 
 }catch(error){
 
-console.error(error);
+console.error(
+"FREE AI ERROR:",
+error
+);
 
 status(
 "❌ " + error.message,
@@ -696,9 +739,9 @@ button.disabled = false;
 }
 
 
-/* =====================================
+/* ================================
    SHOW MCQ
-===================================== */
+================================ */
 
 function showMCQ(mcq){
 
@@ -725,6 +768,17 @@ document.getElementById(
 options.innerHTML = "";
 
 
+document.getElementById(
+"result"
+).innerHTML = "";
+
+
+document.getElementById(
+"next"
+).style.display =
+"none";
+
+
 let choices =
 mcq.options ||
 mcq.choices;
@@ -732,12 +786,12 @@ mcq.choices;
 
 if(Array.isArray(choices)){
 
-const x = {};
+const converted = {};
 
 choices.forEach(
 (value,index)=>{
 
-x[
+converted[
 String.fromCharCode(
 65 + index
 )
@@ -745,7 +799,8 @@ String.fromCharCode(
 
 });
 
-choices = x;
+choices =
+converted;
 
 }
 
@@ -765,6 +820,10 @@ mcq.correctAnswer ||
 .forEach(
 letter=>{
 
+if(!choices[letter]){
+return;
+}
+
 const button =
 document.createElement(
 "button"
@@ -779,12 +838,14 @@ choices[letter];
 
 
 button.onclick =
-()=>{
+function(){
 
 document
 .querySelectorAll(".option")
 .forEach(
-b=>b.disabled=true
+b=>{
+b.disabled = true;
+}
 );
 
 
@@ -800,7 +861,7 @@ document.getElementById(
 "🎉 <b>Correct!</b><br><br>" +
 (
 mcq.explanation ||
-"Excellent!"
+"Excellent work!"
 );
 
 }else{
@@ -817,7 +878,9 @@ b=>{
 
 if(
 b.textContent
-.startsWith(answer + ".")
+.startsWith(
+answer + "."
+)
 ){
 
 b.classList.add(
@@ -838,16 +901,22 @@ answer +
 "</b><br><br>" +
 (
 mcq.explanation ||
-"Review the answer."
+"Review the answer and try again."
 );
 
 }
 
 
+if(
+used < LIMIT
+){
+
 document.getElementById(
 "next"
 ).style.display =
 "block";
+
+}
 
 };
 
@@ -859,15 +928,16 @@ button
 
 
 card.scrollIntoView({
-behavior:"smooth"
+behavior:"smooth",
+block:"start"
 });
 
 }
 
 
-/* =====================================
+/* ================================
    BUTTONS
-===================================== */
+================================ */
 
 document.getElementById(
 "generate"
@@ -878,7 +948,15 @@ generate;
 document.getElementById(
 "next"
 ).onclick =
-generate;
+function(){
+
+if(used < LIMIT){
+
+generate();
+
+}
+
+};
 
 </script>
 
