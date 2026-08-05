@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>CreateLK Academy | Premium AI English MCQs</title>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>CreateLK Academy | Premium Membership</title>
 
 <style>
+
 *{
 box-sizing:border-box;
 margin:0;
@@ -193,6 +197,7 @@ font-size:13px;
 }
 
 @media(max-width:600px){
+
 .features{
 grid-template-columns:1fr;
 }
@@ -209,13 +214,19 @@ font-size:13px;
 padding:7px 9px;
 font-size:12px;
 }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <header>
+
 <div class="nav">
 
 <div class="logo">
@@ -224,20 +235,33 @@ font-size:12px;
 
 <div class="nav-right">
 
-<a href="index.html" class="home">
+<a
+href="index.html"
+class="home">
+
 🏠 Home
+
 </a>
 
-<button id="logout" class="logout">
+<button
+id="logout"
+class="logout"
+type="button">
+
 🚪 Logout
+
 </button>
 
 </div>
+
 </div>
+
 </header>
 
 
+
 <main>
+
 
 <section class="hero">
 
@@ -256,20 +280,34 @@ Practise English with up to 100 AI-generated MCQs every day.
 </section>
 
 
+
 <section class="card">
 
+
 <div class="price">
+
 LKR 1,500
-<small>• 30 Days</small>
+
+<small>
+• 30 Days
+</small>
+
 </div>
 
 
-<div id="status" class="status checking">
+
+<div
+id="status"
+class="status checking">
+
 ⏳ Checking Premium membership...
+
 </div>
+
 
 
 <div id="content"></div>
+
 
 
 <div class="features">
@@ -292,9 +330,11 @@ LKR 1,500
 
 </div>
 
+
 </section>
 
 </main>
+
 
 
 <footer>
@@ -312,6 +352,7 @@ Learn English. Build Your Future.
 </footer>
 
 
+
 <script>
 
 "use strict";
@@ -323,6 +364,14 @@ Learn English. Build Your Future.
 
 const MEMBERSHIP_API =
 "https://createlk-membership.gateofheavensl1.workers.dev";
+
+
+/* =====================================
+   AI PAGE
+===================================== */
+
+const PREMIUM_AI_PAGE =
+"premium-ai-mcq.html";
 
 
 /* =====================================
@@ -357,6 +406,7 @@ const keys = [
 
 ];
 
+
 for(const key of keys){
 
 const value =
@@ -388,6 +438,7 @@ const objectKeys = [
 "student"
 
 ];
+
 
 for(const key of objectKeys){
 
@@ -427,6 +478,7 @@ e
 
 }
 
+
 return "";
 
 }
@@ -458,8 +510,11 @@ if(
 "Are you sure you want to logout?"
 )
 ){
+
 return;
+
 }
+
 
 const keys = [
 
@@ -476,16 +531,20 @@ const keys = [
 
 ];
 
+
 keys.forEach(
 key =>
 localStorage.removeItem(key)
 );
 
+
 sessionStorage.clear();
+
 
 clearInterval(
 countdownTimer
 );
+
 
 location.href =
 "index.html";
@@ -510,7 +569,9 @@ if(
 data.success === true &&
 data.active === true
 ){
+
 return true;
+
 }
 
 
@@ -519,7 +580,9 @@ return true;
 if(
 data.active === true
 ){
+
 return true;
+
 }
 
 
@@ -531,7 +594,9 @@ String(data.active)
 ===
 "true"
 ){
+
 return true;
+
 }
 
 
@@ -543,7 +608,9 @@ String(data.status || "")
 ===
 "active"
 ){
+
 return true;
+
 }
 
 
@@ -554,7 +621,9 @@ if(data.membership){
 if(
 data.membership.active === true
 ){
+
 return true;
+
 }
 
 if(
@@ -565,7 +634,9 @@ data.membership.status || ""
 ===
 "active"
 ){
+
 return true;
+
 }
 
 }
@@ -578,7 +649,9 @@ if(data.subscription){
 if(
 data.subscription.active === true
 ){
+
 return true;
+
 }
 
 if(
@@ -589,10 +662,13 @@ data.subscription.status || ""
 ===
 "active"
 ){
+
 return true;
+
 }
 
 }
+
 
 return false;
 
@@ -609,47 +685,60 @@ if(!data){
 return null;
 }
 
+
 if(data.expires_at){
 return data.expires_at;
 }
+
 
 if(data.expiresAt){
 return data.expiresAt;
 }
 
+
 if(data.expiry){
 return data.expiry;
 }
+
 
 if(data.expiry_date){
 return data.expiry_date;
 }
 
-if(
-data.membership
-){
+
+if(data.membership){
 
 return (
+
 data.membership.expires_at ||
+
 data.membership.expiresAt ||
+
 data.membership.expiry ||
+
 null
+
 );
 
 }
 
-if(
-data.subscription
-){
+
+if(data.subscription){
 
 return (
+
 data.subscription.expires_at ||
+
 data.subscription.expiresAt ||
+
 data.subscription.expiry ||
+
 null
+
 );
 
 }
+
 
 return null;
 
@@ -660,11 +749,15 @@ return null;
    SHOW ACTIVE
 ===================================== */
 
-function showActive(data,email){
+function showActive(
+data,
+email
+){
 
 clearInterval(
 countdownTimer
 );
+
 
 statusBox.className =
 "status active";
@@ -675,8 +768,15 @@ getExpiry(data);
 
 
 let html = `
-⭐ <b>Premium Membership Active</b>
-<div class="email">${email}</div>
+
+⭐ <b>
+Premium Membership Active
+</b>
+
+<div class="email">
+${email}
+</div>
+
 `;
 
 
@@ -688,11 +788,15 @@ String(expiry)
 .replace(" ","T")
 );
 
+
 if(
-!isNaN(date.getTime())
+!isNaN(
+date.getTime()
+)
 ){
 
 html += `
+
 <div>
 📅 Expires:
 ${date.toLocaleDateString()}
@@ -701,8 +805,11 @@ ${date.toLocaleDateString()}
 <div
 id="countdown"
 class="countdown">
+
 ⏳ Calculating...
+
 </div>
+
 `;
 
 }
@@ -713,6 +820,10 @@ class="countdown">
 statusBox.innerHTML =
 html;
 
+
+/* =====================================
+   CORRECT AI PAGE LINK
+===================================== */
 
 content.innerHTML = `
 
@@ -736,20 +847,26 @@ class="button free">
 `;
 
 
-document
-.getElementById("premiumButton")
-.onclick =
+const premiumButton =
+document.getElementById(
+"premiumButton"
+);
+
+
+premiumButton.onclick =
 function(){
 
-location.href =
-"premium-course.html";
+window.location.href =
+PREMIUM_AI_PAGE;
 
 };
 
 
 if(expiry){
 
-startCountdown(expiry);
+startCountdown(
+expiry
+);
 
 }
 
@@ -760,14 +877,16 @@ startCountdown(expiry);
    COUNTDOWN
 ===================================== */
 
-function startCountdown(expiry){
+function startCountdown(
+expiry
+){
 
 clearInterval(
 countdownTimer
 );
 
 
-let end =
+const end =
 new Date(
 String(expiry)
 .replace(" ","T")
@@ -777,7 +896,9 @@ String(expiry)
 if(
 isNaN(end)
 ){
+
 return;
+
 }
 
 
@@ -787,6 +908,7 @@ const box =
 document.getElementById(
 "countdown"
 );
+
 
 if(!box){
 return;
@@ -805,11 +927,14 @@ clearInterval(
 countdownTimer
 );
 
+
 statusBox.className =
 "status expired";
 
+
 statusBox.innerHTML =
 "🔒 <b>Premium membership expired.</b>";
+
 
 content.innerHTML = `
 
@@ -831,6 +956,7 @@ class="button free">
 
 `;
 
+
 return;
 
 }
@@ -841,6 +967,7 @@ Math.floor(
 seconds / 86400
 );
 
+
 seconds %= 86400;
 
 
@@ -849,6 +976,7 @@ Math.floor(
 seconds / 3600
 );
 
+
 seconds %= 3600;
 
 
@@ -856,6 +984,7 @@ const minutes =
 Math.floor(
 seconds / 60
 );
+
 
 seconds %= 60;
 
@@ -867,6 +996,7 @@ box.textContent =
 
 
 update();
+
 
 countdownTimer =
 setInterval(
@@ -881,20 +1011,26 @@ update,
    NOT ACTIVE
 ===================================== */
 
-function showNotActive(email){
+function showNotActive(
+email
+){
 
 statusBox.className =
 "status expired";
 
+
 statusBox.innerHTML = `
 
-🔒 <b>Premium membership not found.</b>
+🔒 <b>
+Premium membership not found.
+</b>
 
 <div class="email">
 ${email}
 </div>
 
 `;
+
 
 content.innerHTML = `
 
@@ -928,8 +1064,10 @@ function showLogin(){
 statusBox.className =
 "status expired";
 
+
 statusBox.innerHTML =
 "🔐 <b>Please login first.</b>";
+
 
 content.innerHTML = `
 
@@ -958,25 +1096,32 @@ class="button free">
    API ERROR
 ===================================== */
 
-function showError(message){
+function showError(
+errorMessage
+){
 
 statusBox.className =
 "status expired";
 
+
 statusBox.innerHTML = `
 
-❌ <b>Membership server error.</b>
+❌ <b>
+Membership server error.
+</b>
 
 <div class="email">
-${message}
+${errorMessage}
 </div>
 
 `;
+
 
 content.innerHTML = `
 
 <button
 class="button premium"
+type="button"
 onclick="checkMembership()">
 
 🔄 Check Again
@@ -1027,11 +1172,13 @@ return;
 statusBox.className =
 "status checking";
 
+
 statusBox.innerHTML =
 "⏳ Checking Premium membership...";
 
 
 try{
+
 
 const url =
 MEMBERSHIP_API +
@@ -1054,7 +1201,8 @@ url,
 method:"GET",
 cache:"no-store",
 headers:{
-"Accept":"application/json"
+"Accept":
+"application/json"
 }
 }
 );
@@ -1131,12 +1279,14 @@ showNotActive(
 email
 );
 
+
 }catch(error){
 
 console.error(
 "Membership error:",
 error
 );
+
 
 showError(
 error.message
