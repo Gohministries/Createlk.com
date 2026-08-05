@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Premium Membership | CreateLK Academy</title>
+
+<meta name="description" content="CreateLK Academy Premium Membership with advanced English practice and AI-generated MCQs.">
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#f4f7fb;
+color:#172033;
+line-height:1.6
+}
+
+header{
+background:#172554;
+color:#fff;
+padding:14px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:relative
+}
+
+.logo{
+font-size:20px;
+font-weight:bold
+}
+
+.menu-btn{
+background:#fff;
+color:#172554;
+border:0;
+padding:8px 13px;
+border-radius:7px;
+font-size:20px;
+cursor:pointer
+}
+
+nav{
+display:none;
+position:absolute;
+right:5%;
+top:62px;
+background:#fff;
+width:210px;
+border-radius:10px;
+box-shadow:0 5px 20px #0003;
+overflow:hidden;
+z-index:100
+}
+
+nav.show{
+display:block
+}
+
+nav a{
+display:block;
+color:#172033;
+text-decoration:none;
+padding:12px 16px;
+font-size:15px;
+border-bottom:1px solid #eee
+}
+
+nav a:hover{
+background:#f1f5f9;
+color:#2563eb
+}
+
+.hero{
+text-align:center;
+padding:60px 20px;
+background:linear-gradient(135deg,#172554,#2563eb);
+color:#fff
+}
+
+.hero h1{
+font-size:36px;
+margin-bottom:10px
+}
+
+.hero p{
+font-size:18px
+}
+
+section{
+padding:50px 7%;
+text-align:center
+}
+
+.premium-box{
+max-width:650px;
+margin:auto;
+background:#fff;
+padding:35px 25px;
+border-radius:15px;
+box-shadow:0 5px 20px #0002
+}
+
+.price{
+font-size:36px;
+font-weight:bold;
+color:#172554;
+margin:15px 0
+}
+
+.price span{
+font-size:16px;
+font-weight:normal;
+color:#555
+}
+
+.features{
+text-align:left;
+max-width:450px;
+margin:25px auto
+}
+
+.features p{
+margin:12px 0
+}
+
+.btn{
+display:inline-block;
+background:#facc15;
+color:#172033;
+padding:12px 24px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+margin:5px
+}
+
+.btn.secondary{
+background:#172554;
+color:#fff
+}
+
+.info{
+max-width:800px;
+margin:auto
+}
+
+footer{
+background:#172033;
+color:#fff;
+text-align:center;
+padding:25px
+}
+
+footer a{
+color:#fff;
+margin:0 8px;
+text-decoration:none
+}
+
+.small{
+font-size:13px;
+color:#aaa;
+margin-top:10px
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">📚 CreateLK Academy</div>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<nav id="menu">
+
+<a href="index.html">🏠 Home</a>
+
+<a href="about.html">ℹ️ About</a>
+
+<a href="courses.html">📚 Explore Courses</a>
+
+<a href="premium.html">⭐ Premium Membership</a>
+
+<a href="login.html">🔐 Login</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>⭐ Premium Membership</h1>
+
+<p>Take your English learning to the next level.</p>
+
+</section>
+
+<section>
+
+<div class="premium-box">
+
+<h2>30-Day Premium Membership</h2>
+
+<div class="price">
+LKR 1,500
+<span>/ 30 days</span>
+</div>
+
+<div class="features">
+
+<p>✅ Access premium English learning features</p>
+
+<p>✅ AI-generated English MCQ practice</p>
+
+<p>✅ Practise up to 100 AI MCQs per day</p>
+
+<p>✅ Grammar and vocabulary practice</p>
+
+<p>✅ Improve your English knowledge every day</p>
+
+</div>
+
+<a class="btn" href="register.html">
+Create Account
+</a>
+
+<a class="btn secondary" href="login.html">
+Login
+</a>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="info">
+
+<h2>How Premium Works</h2>
+
+<p>
+Create an account, complete the Premium Membership payment process and wait for membership activation.
+</p>
+
+<br>
+
+<p>
+Once your payment is verified, your 30-day Premium Membership will be activated.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="info">
+
+<h2>Premium AI Practice</h2>
+
+<p>
+Premium members can practise English with AI-generated multiple-choice questions and improve their skills every day.
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>📚 CreateLK Academy</p>
+
+<p>Learn English. Build Your Future.</p>
+
+<p>
+<a href="about.html">About</a>
+<a href="courses.html">Courses</a>
+<a href="premium.html">Premium</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="terms.html">Terms & Conditions</a>
+</p>
+
+<p class="small">
+© 2026 CreateLK Academy. All Rights Reserved.
+</p>
+
+</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("show");
+}
+
+document.addEventListener("click",function(e){
+
+const menu=document.getElementById("menu");
+const button=document.querySelector(".menu-btn");
+
+if(!menu.contains(e.target) && !button.contains(e.target)){
+menu.classList.remove("show");
+}
+
+});
+</script>
+
+</body>
+</html>
