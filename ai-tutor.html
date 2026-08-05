@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>CreateLK Academy | Free AI English MCQs</title>
-
-<meta name="description"
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>CreateLK Academy | Free AI English MCQs</title><meta name="description"
 content="CreateLK Academy Free AI English MCQs. Practise English with AI-generated questions.">
 
 <style>
@@ -255,6 +248,7 @@ text-align:center;
 padding:25px;
 color:#667085;
 font-size:13px;
+line-height:1.8;
 }
 
 footer a{
@@ -262,254 +256,160 @@ color:#174ea6;
 text-decoration:none;
 }
 
-</style>
-</head>
+@media(max-width:500px){
 
-<body>
+main{
+padding:20px 12px 40px;
+}
 
-<header>
+h1{
+font-size:25px;
+}
 
-<div class="logo">
+.card{
+padding:17px;
+}
+
+.stats{
+font-size:13px;
+}
+
+}
+
+</style></head><body><header><div class="logo">
 📚 CreateLK Academy
-</div>
-
-<a href="index.html">
+</div><a href="index.html">
 🏠 Home
-</a>
-
-</header>
-
-
-<main>
-
-
-<section class="hero">
-
-<div class="icon">
+</a></header><main><section class="hero"><div class="icon">
 🤖
-</div>
-
-<h1>
+</div><h1>
 Free AI English MCQs
-</h1>
-
-<p>
+</h1><p>
 Practise English with AI-generated
 multiple-choice questions.
 No account or email is required.
-</p>
-
-<div class="badge">
+</p><div class="badge">
 🌱 FREE — 10 MCQs / DAY
-</div>
-
-</section>
-
-
-<section class="card">
-
-<div class="stats">
-
-<span>
+</div></section><section class="card"><div class="stats"><span>
 🌱 Free Daily Progress
-</span>
-
-<span id="usage">
-0 / 10
-</span>
-
-</div>
-
-
-<div class="progress">
-
-<div
+</span><span id="usage">
+Checking...
+</span></div><div class="progress"><div
 class="progress-bar"
-id="progress"
-></div>
-
-</div>
-
-
-<h2>
+id="progress">
+</div></div><h2>
 🎯 Choose Your Practice
-</h2>
-
-
-<label
+</h2><label
 for="category"
 style="
 display:block;
 font-weight:700;
 margin-top:15px;
 "
->
+
+«»
+
 📚 Category
 </label>
 
-<select id="category">
-
-<option value="English Grammar">
+<select id="category"><option value="English Grammar">
 English Grammar
-</option>
-
-<option value="Tenses">
+</option><option value="Tenses">
 Tenses
-</option>
-
-<option value="Vocabulary">
+</option><option value="Vocabulary">
 Vocabulary
-</option>
-
-<option value="Articles">
+</option><option value="Articles">
 Articles
-</option>
-
-<option value="Prepositions">
+</option><option value="Prepositions">
 Prepositions
-</option>
-
-<option value="Pronouns">
+</option><option value="Pronouns">
 Pronouns
-</option>
-
-<option value="Adjectives">
+</option><option value="Adjectives">
 Adjectives
-</option>
-
-<option value="Adverbs">
+</option><option value="Adverbs">
 Adverbs
-</option>
-
-<option value="Conjunctions">
+</option><option value="Conjunctions">
 Conjunctions
-</option>
-
-<option value="Active and Passive Voice">
+</option><option value="Active and Passive Voice">
 Active & Passive Voice
-</option>
-
-<option value="Direct and Indirect Speech">
+</option><option value="Direct and Indirect Speech">
 Direct & Indirect Speech
-</option>
-
-<option value="Sentence Correction">
+</option><option value="Sentence Correction">
 Sentence Correction
-</option>
-
-<option value="Synonyms and Antonyms">
+</option><option value="Synonyms and Antonyms">
 Synonyms & Antonyms
-</option>
-
-<option value="Reading Comprehension">
+</option><option value="Reading Comprehension">
 Reading Comprehension
-</option>
-
-<option value="Mixed English">
+</option><option value="Mixed English">
 Mixed English
-</option>
-
-</select>
-
-
-<label
+</option></select><label
 for="level"
 style="
 display:block;
 font-weight:700;
 "
->
+
+«»
+
 📊 Level
 </label>
 
-<select id="level">
-
-<option value="Beginner">
+<select id="level"><option value="Beginner">
 Beginner
-</option>
-
-<option
+</option><option
 value="Intermediate"
 selected
 >
 Intermediate
-</option>
-
-<option value="Advanced">
+</option><option value="Advanced">
 Advanced
-</option>
-
-</select>
-
-
-<button
+</option></select><button
 id="generate"
 onclick="generateMCQ()"
->
+
+«»
+
 ✨ Generate Free MCQ
 </button>
-
 
 <div
 class="loading"
 id="loading"
 >
 ⏳ AI is generating your question...
-</div>
-
-
-<div
+</div><div
 class="status"
-id="status"
-></div>
-
-</section>
-
-
-<section
+id="status">
+</div></section><section
 class="card"
 id="questionCard"
->
-
-<div
+><div
 class="question-number"
-id="questionNumber"
-></div>
-
-<div
+id="questionNumber">
+</div><div
 class="question"
-id="question"
-></div>
-
-<div id="options"></div>
-
-<div
+id="question">
+</div><div id="options">
+</div><div
 class="result"
-id="result"
-></div>
-
-<button
+id="result">
+</div><button
 id="next"
 style="display:none;margin-top:12px"
 onclick="generateMCQ()"
->
+
+«»
+
 ➡️ Next MCQ
 </button>
 
-</section>
-
-
-<section
+</section><section
 class="card premium-box"
 id="premiumBox"
 style="display:none"
->
-
-<h2>
+><h2>
 ⭐ Want More AI MCQs?
-</h2>
-
-<p
+</h2><p
 style="
 margin-top:8px;
 color:#745400;
@@ -519,24 +419,18 @@ line-height:1.6;
 You have used all 10 free AI MCQs for today.
 Upgrade to Premium and get up to
 100 AI MCQs per day plus Premium learning resources.
-</p>
-
-<a
+</p><a
 class="premium-button"
 href="payment.html"
->
+
+«»
+
 ⭐ Upgrade to Premium — LKR 1,500
 </a>
 
-</section>
+</section></main><footer>📚 <b>CreateLK Academy</b>
 
-
-</main>
-
-
-<footer>
-
-📚 <b>CreateLK Academy</b>
+<br>Learn English. Build Your Future.
 
 <br><br>
 
@@ -554,17 +448,12 @@ Free AI
 ·
 <a href="premium-course.html">
 Premium
-</a>
-
-<br><br>
+</a><br><br>
 
 © 2026 CreateLK Academy.
 All Rights Reserved.
 
-</footer>
-
-
-<script>
+</footer><script>
 
 "use strict";
 
@@ -615,6 +504,9 @@ statusBox.className =
 
 statusBox.textContent =
 message;
+
+statusBox.style.display =
+"block";
 
 }
 
@@ -678,93 +570,6 @@ premiumBox.style.display =
 
 
 /* =================================
-   LOAD DAILY USAGE
-================================= */
-
-async function loadUsage(){
-
-try{
-
-const response =
-await fetch(
-WORKER +
-"/api/free-usage",
-{
-method:"POST",
-headers:{
-"Content-Type":
-"application/json"
-},
-body:JSON.stringify({
-device:getDeviceId()
-}),
-cache:"no-store"
-}
-);
-
-
-const data =
-await response.json();
-
-
-if(
-response.ok &&
-data.success
-){
-
-used =
-Number(data.used || 0);
-
-updateProgress();
-
-}
-
-}catch(error){
-
-console.log(
-"Usage check:",
-error
-);
-
-/*
-Fallback only for display.
-The Worker must enforce
-the real daily limit.
-*/
-
-const saved =
-localStorage.getItem(
-"createlk_free_usage"
-);
-
-const savedDate =
-localStorage.getItem(
-"createlk_free_usage_date"
-);
-
-const today =
-getTodayKey();
-
-
-if(savedDate === today){
-
-used =
-Number(saved || 0);
-
-}else{
-
-used = 0;
-
-}
-
-updateProgress();
-
-}
-
-}
-
-
-/* =================================
    DEVICE ID
 ================================= */
 
@@ -820,7 +625,7 @@ now.getDate()
 
 
 /* =================================
-   SAVE FALLBACK USAGE
+   SAVE LOCAL FALLBACK
 ================================= */
 
 function saveLocalUsage(){
@@ -839,6 +644,107 @@ getTodayKey()
 
 
 /* =================================
+   LOAD DAILY USAGE
+================================= */
+
+async function loadUsage(){
+
+try{
+
+const response =
+await fetch(
+WORKER +
+"/api/free-usage",
+{
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+device:getDeviceId()
+}),
+
+cache:"no-store"
+}
+);
+
+
+const data =
+await response.json();
+
+
+if(
+response.ok &&
+data.success
+){
+
+used =
+Number(
+data.used || 0
+);
+
+saveLocalUsage();
+
+updateProgress();
+
+return;
+
+}
+
+throw new Error(
+"Unable to load usage."
+);
+
+}catch(error){
+
+console.log(
+"Usage check:",
+error
+);
+
+
+/*
+Fallback display only.
+The Worker remains
+the real authority.
+*/
+
+const saved =
+localStorage.getItem(
+"createlk_free_usage"
+);
+
+const savedDate =
+localStorage.getItem(
+"createlk_free_usage_date"
+);
+
+const today =
+getTodayKey();
+
+
+if(savedDate === today){
+
+used =
+Number(saved || 0);
+
+}else{
+
+used = 0;
+
+}
+
+updateProgress();
+
+}
+
+}
+
+
+/* =================================
    GENERATE MCQ
 ================================= */
 
@@ -847,7 +753,7 @@ async function generateMCQ(){
 if(used >= LIMIT){
 
 showStatus(
-"🔒 You have reached today's 10 free MCQs.",
+"🔒 You have reached today's 10 free MCQs. Your limit resets at 12:00 AM.",
 "error"
 );
 
@@ -885,13 +791,16 @@ try{
 
 const response =
 await fetch(
-WORKER + "/api/free-mcq",
+WORKER +
+"/api/free-mcq",
 {
 method:"POST",
+
 headers:{
 "Content-Type":
 "application/json"
 },
+
 body:JSON.stringify({
 
 device:getDeviceId(),
@@ -902,7 +811,9 @@ topic:category,
 
 level:level
 
-})
+}),
+
+cache:"no-store"
 }
 );
 
@@ -1082,12 +993,18 @@ showStatus(
 
 }catch(error){
 
-console.error(error);
+console.error(
+"MCQ generation error:",
+error
+);
 
 
 showStatus(
+"❌ " +
+(
 error.message ||
-"Unable to connect to AI.",
+"Unable to connect to AI."
+),
 "error"
 );
 
@@ -1104,7 +1021,6 @@ generateButton.disabled =
 false;
 
 }
-
 
 updateProgress();
 
@@ -1132,6 +1048,15 @@ document.getElementById(
 "question"
 ).textContent =
 mcq.question;
+
+
+document.getElementById(
+"questionNumber"
+).textContent =
+"QUESTION " +
+used +
+" OF " +
+LIMIT;
 
 
 const options =
@@ -1168,7 +1093,7 @@ mcq.answer
 
 ["A","B","C","D"]
 .forEach(
-letter=>{
+function(letter){
 
 const button =
 document.createElement(
@@ -1177,7 +1102,6 @@ document.createElement(
 
 button.className =
 "option";
-
 
 button.textContent =
 letter +
@@ -1227,8 +1151,11 @@ explanation
 document.querySelectorAll(
 ".option"
 ).forEach(
-button=>{
-button.disabled=true;
+function(button){
+
+button.disabled =
+true;
+
 }
 );
 
@@ -1236,7 +1163,7 @@ button.disabled=true;
 document.querySelectorAll(
 ".option"
 ).forEach(
-button=>{
+function(button){
 
 if(
 button.textContent
@@ -1251,7 +1178,8 @@ button.classList.add(
 
 }
 
-});
+}
+);
 
 
 const result =
@@ -1274,7 +1202,6 @@ score++;
 result.className =
 "result correct";
 
-
 result.innerHTML =
 "🎉 <b>Correct!</b><br><br>" +
 (
@@ -1282,17 +1209,14 @@ explanation ||
 "Great job!"
 );
 
-
 }else{
 
 clicked.classList.add(
 "wrong"
 );
 
-
 result.className =
 "result wrong";
-
 
 result.innerHTML =
 "❌ <b>Incorrect.</b><br><br>" +
@@ -1327,12 +1251,21 @@ document.getElementById(
    START
 ================================= */
 
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
 loadUsage();
 
+}
+);
 
-/* =================================
-   AUTOMATIC MIDNIGHT RESET DISPLAY
-================================= */
+
+/*
+Refresh usage every minute.
+The Worker decides the real
+daily count and reset.
+*/
 
 setInterval(
 function(){
@@ -1343,7 +1276,5 @@ loadUsage();
 60000
 );
 
-</script>
-
-</body>
+</script></body>
 </html>
