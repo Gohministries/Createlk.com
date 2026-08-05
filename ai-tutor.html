@@ -1,7 +1,17 @@
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>CreateLK Academy | Free AI English MCQs</title><meta name="description"
-content="CreateLK Academy Free AI English MCQs. Practise English with AI-generated questions.">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>CreateLK Academy | Free AI English MCQs</title>
+
+<meta name="description"
+content="CreateLK Academy Free AI English MCQs. Practise English with AI-generated multiple-choice questions.">
 
 <style>
 
@@ -15,26 +25,34 @@ body{
 font-family:"Segoe UI",Arial,sans-serif;
 background:#f4f7fb;
 color:#172033;
+min-height:100vh;
 }
 
 header{
 background:#174ea6;
-color:white;
+color:#fff;
 padding:14px 18px;
+}
+
+.nav{
+max-width:720px;
+margin:auto;
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
+gap:15px;
 }
 
 .logo{
-font-weight:800;
 font-size:18px;
+font-weight:800;
 }
 
-header a{
-color:white;
+.home{
+color:#fff;
 text-decoration:none;
 font-weight:700;
+font-size:14px;
 }
 
 main{
@@ -50,6 +68,7 @@ margin-bottom:20px;
 
 .icon{
 font-size:55px;
+margin-bottom:5px;
 }
 
 h1{
@@ -68,18 +87,18 @@ display:inline-block;
 margin-top:10px;
 padding:7px 14px;
 border-radius:20px;
-background:#e8f5e9;
+background:#dcfce7;
 color:#166534;
 font-size:13px;
 font-weight:800;
 }
 
 .card{
-background:white;
+background:#fff;
 padding:20px;
 border-radius:18px;
 margin-bottom:16px;
-box-shadow:0 5px 25px #0000000d;
+box-shadow:0 5px 25px rgba(0,0,0,.06);
 }
 
 .stats{
@@ -94,7 +113,7 @@ height:10px;
 background:#e5eaf2;
 border-radius:10px;
 overflow:hidden;
-margin:10px 0 15px;
+margin:10px 0 18px;
 }
 
 .progress-bar{
@@ -104,163 +123,209 @@ background:#20a464;
 transition:.3s;
 }
 
-input,
+label{
+display:block;
+font-size:14px;
+font-weight:800;
+margin-bottom:6px;
+color:#344054;
+}
+
 select{
 width:100%;
 padding:14px;
-margin:8px 0 14px;
+margin-bottom:15px;
 border:1px solid #d5dbe5;
 border-radius:11px;
 font-size:16px;
 outline:none;
-background:white;
+background:#fff;
+color:#172033;
 }
 
-button{
+select:focus{
+border-color:#174ea6;
+}
+
+.btn{
+display:block;
 width:100%;
-padding:14px;
 border:0;
-border-radius:11px;
-background:#174ea6;
-color:white;
+border-radius:12px;
+padding:14px 18px;
 font-size:16px;
 font-weight:800;
 cursor:pointer;
+text-align:center;
+text-decoration:none;
+transition:.2s;
 }
 
-button:disabled{
-opacity:.5;
+.btn:hover{
+transform:translateY(-1px);
+}
+
+.btn:disabled{
+opacity:.65;
 cursor:not-allowed;
+transform:none;
+}
+
+.ai-btn{
+background:#174ea6;
+color:#fff;
+}
+
+.ai-btn:hover{
+background:#123d88;
 }
 
 .loading{
 display:none;
 text-align:center;
-padding:15px;
+padding:20px 10px;
 color:#667085;
+font-weight:700;
 }
 
-.status{
+.spinner{
+width:32px;
+height:32px;
+border:4px solid #dbe4f0;
+border-top-color:#174ea6;
+border-radius:50%;
+margin:0 auto 10px;
+animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+to{
+transform:rotate(360deg);
+}
+}
+
+#mcqResult{
 display:none;
-margin-top:14px;
-padding:13px;
-border-radius:11px;
-line-height:1.5;
-}
-
-.status.error{
-display:block;
-background:#fef2f2;
-color:#b42318;
-}
-
-.status.success{
-display:block;
-background:#ecfdf3;
-color:#027a48;
-}
-
-.status.info{
-display:block;
-background:#eff6ff;
-color:#174ea6;
-}
-
-#questionCard{
-display:none;
-}
-
-.question-number{
-color:#174ea6;
-font-size:13px;
-font-weight:800;
-margin-bottom:10px;
 }
 
 .question{
-font-size:20px;
-font-weight:800;
+font-size:19px;
 line-height:1.5;
-margin-bottom:15px;
+font-weight:800;
+margin-bottom:18px;
+color:#172033;
 }
 
 .option{
-background:white;
-color:#172033;
-border:2px solid #e0e5ed;
+width:100%;
+display:block;
 text-align:left;
-margin:7px 0;
+padding:14px;
+margin:9px 0;
+background:#fff;
+border:1px solid #d5dbe5;
+border-radius:12px;
+font-size:15px;
+color:#172033;
+cursor:pointer;
+transition:.2s;
 }
 
 .option:hover{
-background:#f8faff;
+background:#f5f8ff;
+border-color:#174ea6;
+}
+
+.option:disabled{
+cursor:default;
 }
 
 .option.correct{
-background:#ecfdf3;
+background:#dcfce7;
 border-color:#16a34a;
 color:#166534;
 }
 
 .option.wrong{
-background:#fef2f2;
+background:#fee2e2;
 border-color:#dc2626;
 color:#991b1b;
 }
 
-.result{
+.answer{
 display:none;
-margin-top:15px;
-padding:15px;
+margin-top:16px;
+padding:14px;
 border-radius:12px;
-line-height:1.7;
-}
-
-.result.correct{
 background:#ecfdf3;
 color:#166534;
+border:1px solid #abefc6;
+line-height:1.5;
 }
 
-.result.wrong{
-background:#fef2f2;
+.explanation{
+margin-top:10px;
+color:#475467;
+}
+
+.next-btn{
+display:none;
+margin-top:15px;
+background:#174ea6;
+color:#fff;
+}
+
+.error{
+display:none;
+padding:15px;
+border-radius:12px;
+background:#fee2e2;
 color:#991b1b;
+border:1px solid #fecaca;
+line-height:1.5;
+margin-bottom:16px;
 }
 
-.premium-box{
-background:#fff8e7;
-border:1px solid #f6d889;
-}
-
-.premium-button{
-display:block;
-margin-top:14px;
+.limit-box{
+background:#fff7d6;
+color:#946200;
+border:1px solid #f3d77a;
 padding:14px;
-border-radius:11px;
-background:#f5a623;
-color:white;
+border-radius:12px;
+margin-bottom:16px;
+line-height:1.5;
+display:none;
+}
+
+.free-info{
 text-align:center;
-text-decoration:none;
-font-weight:800;
+font-size:13px;
+color:#667085;
+margin-top:12px;
+line-height:1.5;
 }
 
 footer{
+background:#fff;
+border-top:1px solid #e5eaf2;
+padding:25px 15px;
 text-align:center;
-padding:25px;
 color:#667085;
-font-size:13px;
-line-height:1.8;
+font-size:14px;
+line-height:1.7;
+}
+
+footer strong{
+color:#174ea6;
 }
 
 footer a{
 color:#174ea6;
 text-decoration:none;
+font-weight:700;
 }
 
 @media(max-width:500px){
-
-main{
-padding:20px 12px 40px;
-}
 
 h1{
 font-size:25px;
@@ -270,742 +335,743 @@ font-size:25px;
 padding:17px;
 }
 
-.stats{
-font-size:13px;
+.question{
+font-size:17px;
 }
 
 }
 
-</style></head><body><header><div class="logo">
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
 📚 CreateLK Academy
-</div><a href="index.html">
+</div>
+
+<a
+href="index.html"
+class="home">
 🏠 Home
-</a></header><main><section class="hero"><div class="icon">
+</a>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+<div class="icon">
 🤖
-</div><h1>
+</div>
+
+<h1>
 Free AI English MCQs
-</h1><p>
+</h1>
+
+<p>
 Practise English with AI-generated
 multiple-choice questions.
 No account or email is required.
-</p><div class="badge">
+</p>
+
+<span class="badge">
 🌱 FREE — 10 MCQs / DAY
-</div></section><section class="card"><div class="stats"><span>
+</span>
+
+</section>
+
+
+<section class="card">
+
+<div class="stats">
+
+<span>
 🌱 Free Daily Progress
-</span><span id="usage">
-Checking...
-</span></div><div class="progress"><div
-class="progress-bar"
-id="progress">
-</div></div><h2>
-🎯 Choose Your Practice
-</h2><label
-for="category"
-style="
-display:block;
-font-weight:700;
-margin-top:15px;
-"
+</span>
 
-«»
+<span id="progressText">
+0 / 10
+</span>
 
-📚 Category
-</label>
+</div>
 
-<select id="category"><option value="English Grammar">
-English Grammar
-</option><option value="Tenses">
-Tenses
-</option><option value="Vocabulary">
-Vocabulary
-</option><option value="Articles">
-Articles
-</option><option value="Prepositions">
-Prepositions
-</option><option value="Pronouns">
-Pronouns
-</option><option value="Adjectives">
-Adjectives
-</option><option value="Adverbs">
-Adverbs
-</option><option value="Conjunctions">
-Conjunctions
-</option><option value="Active and Passive Voice">
-Active & Passive Voice
-</option><option value="Direct and Indirect Speech">
-Direct & Indirect Speech
-</option><option value="Sentence Correction">
-Sentence Correction
-</option><option value="Synonyms and Antonyms">
-Synonyms & Antonyms
-</option><option value="Reading Comprehension">
-Reading Comprehension
-</option><option value="Mixed English">
-Mixed English
-</option></select><label
-for="level"
-style="
-display:block;
-font-weight:700;
-"
-
-«»
-
-📊 Level
-</label>
-
-<select id="level"><option value="Beginner">
-Beginner
-</option><option
-value="Intermediate"
-selected
->
-Intermediate
-</option><option value="Advanced">
-Advanced
-</option></select><button
-id="generate"
-onclick="generateMCQ()"
-
-«»
-
-✨ Generate Free MCQ
-</button>
+<div class="progress">
 
 <div
-class="loading"
-id="loading"
->
-⏳ AI is generating your question...
-</div><div
-class="status"
-id="status">
-</div></section><section
-class="card"
-id="questionCard"
-><div
-class="question-number"
-id="questionNumber">
-</div><div
-class="question"
-id="question">
-</div><div id="options">
-</div><div
-class="result"
-id="result">
-</div><button
-id="next"
-style="display:none;margin-top:12px"
-onclick="generateMCQ()"
+id="progressBar"
+class="progress-bar">
+</div>
 
-«»
+</div>
 
-➡️ Next MCQ
+</section>
+
+
+<section class="card">
+
+<h2 style="
+margin-bottom:18px;
+color:#174ea6;
+">
+🎯 Choose Your Practice
+</h2>
+
+
+<label for="subject">
+Subject
+</label>
+
+<select id="subject">
+
+<option value="English Grammar">
+English Grammar
+</option>
+
+<option value="English Vocabulary">
+English Vocabulary
+</option>
+
+<option value="English Tenses">
+English Tenses
+</option>
+
+<option value="Prepositions">
+Prepositions
+</option>
+
+<option value="Articles">
+Articles
+</option>
+
+<option value="Parts of Speech">
+Parts of Speech
+</option>
+
+</select>
+
+
+<label for="level">
+Difficulty
+</label>
+
+<select id="level">
+
+<option value="Beginner">
+Beginner
+</option>
+
+<option
+value="Intermediate"
+selected>
+Intermediate
+</option>
+
+<option value="Advanced">
+Advanced
+</option>
+
+</select>
+
+
+<div
+id="limitBox"
+class="limit-box">
+</div>
+
+
+<div
+id="errorBox"
+class="error">
+</div>
+
+
+<button
+id="generateBtn"
+type="button"
+class="btn ai-btn">
+
+✨ Generate Free MCQ
+
 </button>
 
-</section><section
-class="card premium-box"
-id="premiumBox"
-style="display:none"
-><h2>
-⭐ Want More AI MCQs?
-</h2><p
-style="
-margin-top:8px;
-color:#745400;
-line-height:1.6;
-"
->
-You have used all 10 free AI MCQs for today.
-Upgrade to Premium and get up to
-100 AI MCQs per day plus Premium learning resources.
-</p><a
-class="premium-button"
-href="payment.html"
 
-«»
+<div
+id="loading"
+class="loading">
 
-⭐ Upgrade to Premium — LKR 1,500
-</a>
+<div class="spinner"></div>
 
-</section></main><footer>📚 <b>CreateLK Academy</b>
+🤖 AI is generating your
+English question...
 
-<br>Learn English. Build Your Future.
+</div>
+
+
+<div class="free-info">
+
+You can generate up to
+<strong>10 free MCQs per day</strong>
+on this device.
+
+</div>
+
+</section>
+
+
+<section
+id="mcqResult"
+class="card">
+
+<div
+id="question"
+class="question">
+</div>
+
+<div id="options">
+</div>
+
+<div
+id="answerBox"
+class="answer">
+
+<strong>
+✅ Correct Answer:
+</strong>
+
+<span id="correctAnswer">
+</span>
+
+<div
+id="explanation"
+class="explanation">
+</div>
+
+</div>
+
+<button
+id="nextBtn"
+type="button"
+class="btn next-btn">
+
+➡️ Generate Next MCQ
+
+</button>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<strong>
+📚 CreateLK Academy
+</strong>
+
+<br>
+
+Learn English. Build Your Future.
 
 <br><br>
 
 <a href="index.html">
 Home
 </a>
+
 ·
-<a href="membership.html">
+
+<a href="payment.html">
 Membership
 </a>
+
 ·
-<a href="ai-tutor.html">
+
+<a href="free-ai.html">
 Free AI
 </a>
+
 ·
+
 <a href="premium-course.html">
 Premium
-</a><br><br>
+</a>
+
+<br><br>
 
 © 2026 CreateLK Academy.
 All Rights Reserved.
 
-</footer><script>
-
-"use strict";
+</footer>
 
 
-/* =================================
-   CONFIG
-================================= */
+<script>
 
-const WORKER =
-"https://premium.gateofheavensl1.workers.dev";
+/* =====================================================
+   CLOUDFLARE FREE AI WORKER
+===================================================== */
 
-const LIMIT = 10;
-
-
-/* =================================
-   VARIABLES
-================================= */
-
-let used = 0;
-let score = 0;
+const AI_WORKER_URL =
+"https://createlk-free-ai.gateofheavensl1.workers.dev";
 
 
-/* =================================
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+const DAILY_LIMIT = 10;
+
+const USAGE_KEY =
+"createlk_free_ai_usage";
+
+
+/* =====================================================
    ELEMENTS
-================================= */
+===================================================== */
 
-const generateButton =
-document.getElementById("generate");
+const generateBtn =
+document.getElementById("generateBtn");
+
+const nextBtn =
+document.getElementById("nextBtn");
+
+const subjectSelect =
+document.getElementById("subject");
+
+const levelSelect =
+document.getElementById("level");
+
+const progressText =
+document.getElementById("progressText");
+
+const progressBar =
+document.getElementById("progressBar");
 
 const loading =
 document.getElementById("loading");
 
-const statusBox =
-document.getElementById("status");
+const errorBox =
+document.getElementById("errorBox");
 
-const premiumBox =
-document.getElementById("premiumBox");
+const limitBox =
+document.getElementById("limitBox");
 
+const mcqResult =
+document.getElementById("mcqResult");
 
-/* =================================
-   STATUS
-================================= */
+const questionBox =
+document.getElementById("question");
 
-function showStatus(message,type){
+const optionsBox =
+document.getElementById("options");
 
-statusBox.className =
-"status " + type;
+const answerBox =
+document.getElementById("answerBox");
 
-statusBox.textContent =
-message;
+const correctAnswer =
+document.getElementById("correctAnswer");
 
-statusBox.style.display =
-"block";
-
-}
-
-
-/* =================================
-   PROGRESS
-================================= */
-
-function updateProgress(){
-
-document.getElementById(
-"usage"
-).textContent =
-used + " / " + LIMIT;
+const explanation =
+document.getElementById("explanation");
 
 
-document.getElementById(
-"progress"
-).style.width =
-Math.min(
-(used / LIMIT) * 100,
-100
-) + "%";
+/* =====================================================
+   DATE
+===================================================== */
 
+function todayKey(){
 
-document.getElementById(
-"questionNumber"
-).textContent =
-used
-?
-"QUESTION " + used + " OF " + LIMIT
-:
-"";
-
-
-if(used >= LIMIT){
-
-generateButton.disabled =
-true;
-
-generateButton.textContent =
-"🔒 Daily Limit Reached";
-
-premiumBox.style.display =
-"block";
-
-}else{
-
-generateButton.disabled =
-false;
-
-generateButton.textContent =
-"✨ Generate Free MCQ";
-
-premiumBox.style.display =
-"none";
-
-}
-
-}
-
-
-/* =================================
-   DEVICE ID
-================================= */
-
-function getDeviceId(){
-
-let id =
-localStorage.getItem(
-"createlk_free_device"
-);
-
-if(!id){
-
-id =
-"free_" +
-Date.now() +
-"_" +
-Math.random()
-.toString(36)
-.substring(2,10);
-
-localStorage.setItem(
-"createlk_free_device",
-id
-);
-
-}
-
-return id;
-
-}
-
-
-/* =================================
-   DATE KEY
-================================= */
-
-function getTodayKey(){
-
-const now =
+const d =
 new Date();
 
-return now.getFullYear() +
+return (
+d.getFullYear() +
 "-" +
 String(
-now.getMonth()+1
+d.getMonth()+1
 ).padStart(2,"0") +
 "-" +
 String(
-now.getDate()
-).padStart(2,"0");
-
-}
-
-
-/* =================================
-   SAVE LOCAL FALLBACK
-================================= */
-
-function saveLocalUsage(){
-
-localStorage.setItem(
-"createlk_free_usage",
-String(used)
-);
-
-localStorage.setItem(
-"createlk_free_usage_date",
-getTodayKey()
+d.getDate()
+).padStart(2,"0")
 );
 
 }
 
 
-/* =================================
-   LOAD DAILY USAGE
-================================= */
+/* =====================================================
+   USAGE
+===================================================== */
 
-async function loadUsage(){
+function getUsage(){
 
 try{
-
-const response =
-await fetch(
-WORKER +
-"/api/free-usage",
-{
-method:"POST",
-
-headers:{
-"Content-Type":
-"application/json"
-},
-
-body:JSON.stringify({
-device:getDeviceId()
-}),
-
-cache:"no-store"
-}
-);
-
-
-const data =
-await response.json();
-
-
-if(
-response.ok &&
-data.success
-){
-
-used =
-Number(
-data.used || 0
-);
-
-saveLocalUsage();
-
-updateProgress();
-
-return;
-
-}
-
-throw new Error(
-"Unable to load usage."
-);
-
-}catch(error){
-
-console.log(
-"Usage check:",
-error
-);
-
-
-/*
-Fallback display only.
-The Worker remains
-the real authority.
-*/
 
 const saved =
+JSON.parse(
 localStorage.getItem(
-"createlk_free_usage"
+USAGE_KEY
+)
 );
-
-const savedDate =
-localStorage.getItem(
-"createlk_free_usage_date"
-);
-
-const today =
-getTodayKey();
-
-
-if(savedDate === today){
-
-used =
-Number(saved || 0);
-
-}else{
-
-used = 0;
-
-}
-
-updateProgress();
-
-}
-
-}
-
-
-/* =================================
-   GENERATE MCQ
-================================= */
-
-async function generateMCQ(){
-
-if(used >= LIMIT){
-
-showStatus(
-"🔒 You have reached today's 10 free MCQs. Your limit resets at 12:00 AM.",
-"error"
-);
-
-premiumBox.style.display =
-"block";
-
-return;
-
-}
-
-
-const category =
-document.getElementById(
-"category"
-).value;
-
-
-const level =
-document.getElementById(
-"level"
-).value;
-
-
-generateButton.disabled =
-true;
-
-loading.style.display =
-"block";
-
-statusBox.style.display =
-"none";
-
-
-try{
-
-const response =
-await fetch(
-WORKER +
-"/api/free-mcq",
-{
-method:"POST",
-
-headers:{
-"Content-Type":
-"application/json"
-},
-
-body:JSON.stringify({
-
-device:getDeviceId(),
-
-category:category,
-
-topic:category,
-
-level:level
-
-}),
-
-cache:"no-store"
-}
-);
-
-
-const data =
-await response.json();
-
-
-/* =============================
-   DAILY LIMIT
-============================= */
 
 if(
-response.status === 429 ||
-data.limit_reached
+!saved ||
+saved.date !== todayKey()
 ){
 
-used = LIMIT;
-
-updateProgress();
-
-showStatus(
-"🔒 You have reached today's 10 free MCQs. Your free limit will reset at 12:00 AM.",
-"error"
-);
-
-premiumBox.style.display =
-"block";
-
-return;
-
-}
-
-
-/* =============================
-   ERROR
-============================= */
-
-if(
-!response.ok ||
-data.success === false
-){
-
-throw new Error(
-data.message ||
-data.error ||
-"Unable to generate MCQ."
-);
-
-}
-
-
-/* =============================
-   GET MCQ
-============================= */
-
-let mcq =
-data.mcq ||
-data.questionData;
-
-
-if(
-!mcq &&
-data.question
-){
-
-mcq = {
-
-question:
-data.question,
-
-options:
-data.options,
-
-answer:
-data.answer,
-
-explanation:
-data.explanation
-
+return {
+date:todayKey(),
+count:0
 };
 
 }
 
+return saved;
 
-/* =============================
-   STRING JSON
-============================= */
+}catch{
 
-if(
-typeof mcq === "string"
-){
+return {
+date:todayKey(),
+count:0
+};
 
-mcq =
-JSON.parse(
-mcq
-.replace(
-/```json/gi,
-""
-)
-.replace(
-/```/g,
-""
-)
-.trim()
+}
+
+}
+
+
+/* =====================================================
+   SAVE USAGE
+===================================================== */
+
+function saveUsage(count){
+
+localStorage.setItem(
+
+USAGE_KEY,
+
+JSON.stringify({
+
+date:todayKey(),
+
+count:count
+
+})
+
 );
 
 }
 
 
-/* =============================
-   VALIDATE
-============================= */
+/* =====================================================
+   PROGRESS
+===================================================== */
 
-if(
-!mcq ||
-!mcq.question ||
-!mcq.options ||
-!mcq.answer
-){
+function updateProgress(){
 
-throw new Error(
-"Invalid MCQ returned by AI."
+const usage =
+getUsage();
+
+const count =
+Math.min(
+usage.count,
+DAILY_LIMIT
 );
 
-}
+
+progressText.textContent =
+count +
+" / " +
+DAILY_LIMIT;
+
+
+progressBar.style.width =
+(
+count /
+DAILY_LIMIT *
+100
+) +
+"%";
 
 
 if(
-!mcq.options.A ||
-!mcq.options.B ||
-!mcq.options.C ||
-!mcq.options.D
+count >= DAILY_LIMIT
 ){
 
-throw new Error(
-"AI must return four options."
-);
+limitBox.style.display =
+"block";
 
-}
+limitBox.innerHTML =
+"<strong>🌱 Daily limit reached.</strong><br>" +
+"You have used all 10 free MCQs for today. " +
+"Your free limit will reset tomorrow.";
 
-
-/* =============================
-   UPDATE USAGE
-============================= */
-
-if(
-data.used !== undefined
-){
-
-used =
-Number(data.used);
+generateBtn.disabled =
+true;
 
 }else{
 
-used++;
+limitBox.style.display =
+"none";
+
+generateBtn.disabled =
+false;
 
 }
 
-saveLocalUsage();
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+function showError(message){
+
+errorBox.innerHTML =
+"❌ " +
+escapeHTML(
+message ||
+"Something went wrong."
+);
+
+errorBox.style.display =
+"block";
+
+}
+
+
+function hideError(){
+
+errorBox.style.display =
+"none";
+
+}
+
+
+/* =====================================================
+   GENERATE
+===================================================== */
+
+async function generateMCQ(){
+
+hideError();
+
+
+const usage =
+getUsage();
+
+
+if(
+usage.count >=
+DAILY_LIMIT
+){
 
 updateProgress();
 
+return;
 
-/* =============================
-   SHOW QUESTION
-============================= */
-
-showMCQ(mcq);
+}
 
 
-showStatus(
-"✅ New AI English MCQ generated.",
-"success"
+const subject =
+subjectSelect.value;
+
+const level =
+levelSelect.value;
+
+
+generateBtn.disabled =
+true;
+
+nextBtn.style.display =
+"none";
+
+loading.style.display =
+"block";
+
+mcqResult.style.display =
+"none";
+
+
+try{
+
+
+/* ==============================
+   CLOUDFLARE WORKER REQUEST
+============================== */
+
+const response =
+await fetch(
+
+AI_WORKER_URL +
+"/api/ai-mcq",
+
+{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+subject:subject,
+
+level:level,
+
+type:"free",
+
+count:1
+
+})
+
+}
+
 );
+
+
+console.log(
+"HTTP status:",
+response.status
+);
+
+
+if(!response.ok){
+
+const text =
+await response.text();
+
+console.error(
+"Worker error:",
+text
+);
+
+throw new Error(
+"AI Worker HTTP " +
+response.status
+);
+
+}
+
+
+const data =
+await response.json();
+
+
+console.log(
+"AI Worker response:",
+data
+);
+
+
+if(
+data.success !== true
+){
+
+throw new Error(
+
+data.error ||
+data.message ||
+"AI generation failed."
+
+);
+
+}
+
+
+/* ==============================
+   FIND MCQ
+============================== */
+
+let mcq =
+data.question ||
+data.mcq ||
+data.data ||
+data.result;
+
+
+/* Array response */
+
+if(
+Array.isArray(mcq)
+){
+
+mcq =
+mcq[0];
+
+}
+
+
+/* Nested questions */
+
+if(
+mcq &&
+Array.isArray(
+mcq.questions
+)
+){
+
+mcq =
+mcq.questions[0];
+
+}
+
+
+if(!mcq){
+
+throw new Error(
+"No question returned by AI Worker."
+);
+
+}
+
+
+/* ==============================
+   DISPLAY
+============================== */
+
+displayMCQ(mcq);
+
+
+/* ==============================
+   COUNT
+============================== */
+
+usage.count++;
+
+saveUsage(
+usage.count
+);
+
+updateProgress();
 
 
 }catch(error){
 
 console.error(
-"MCQ generation error:",
+"FREE AI ERROR:",
 error
 );
 
-
-showStatus(
-"❌ " +
-(
+showError(
 error.message ||
-"Unable to connect to AI."
-),
-"error"
+"Unable to generate MCQ. Please try again."
 );
 
 
@@ -1015,266 +1081,407 @@ loading.style.display =
 "none";
 
 
-if(used < LIMIT){
+if(
+getUsage().count <
+DAILY_LIMIT
+){
 
-generateButton.disabled =
+generateBtn.disabled =
 false;
 
 }
 
-updateProgress();
-
 }
 
 }
 
 
-/* =================================
-   SHOW MCQ
-================================= */
+/* =====================================================
+   DISPLAY
+===================================================== */
 
-function showMCQ(mcq){
+function displayMCQ(mcq){
 
-const card =
-document.getElementById(
-"questionCard"
-);
-
-card.style.display =
-"block";
-
-
-document.getElementById(
-"question"
-).textContent =
-mcq.question;
-
-
-document.getElementById(
-"questionNumber"
-).textContent =
-"QUESTION " +
-used +
-" OF " +
-LIMIT;
-
-
-const options =
-document.getElementById(
-"options"
-);
-
-options.innerHTML =
+let question =
+mcq.question ||
+mcq.question_text ||
+mcq.questionText ||
+mcq.text ||
 "";
 
 
-const result =
-document.getElementById(
-"result"
-);
+let options =
+mcq.options ||
+mcq.choices ||
+mcq.answers ||
+[];
 
-result.style.display =
+
+let answer =
+mcq.answer ||
+mcq.correct_answer ||
+mcq.correctAnswer ||
+mcq.correct ||
+"";
+
+
+let explain =
+mcq.explanation ||
+mcq.explain ||
+"";
+
+
+/* Options object */
+
+if(
+options &&
+!Array.isArray(options) &&
+typeof options === "object"
+){
+
+options =
+Object.values(options);
+
+}
+
+
+/* Options string */
+
+if(
+typeof options === "string"
+){
+
+try{
+
+options =
+JSON.parse(options);
+
+}catch{
+
+options =
+options
+.split("\n")
+.filter(Boolean);
+
+}
+
+}
+
+
+questionBox.textContent =
+question ||
+"Question generated successfully.";
+
+
+optionsBox.innerHTML =
+"";
+
+answerBox.style.display =
 "none";
 
+correctAnswer.textContent =
+"";
 
-document.getElementById(
-"next"
-).style.display =
-"none";
-
-
-const answer =
-String(
-mcq.answer
-)
-.trim()
-.toUpperCase();
+explanation.textContent =
+explain || "";
 
 
-["A","B","C","D"]
-.forEach(
-function(letter){
+if(
+Array.isArray(options) &&
+options.length
+){
+
+options.forEach(
+(option,index)=>{
+
+let text =
+option;
+
+
+/* Object option */
+
+if(
+typeof option ===
+"object"
+){
+
+text =
+option.text ||
+option.label ||
+option.value ||
+option.answer ||
+"";
+
+}
+
 
 const button =
 document.createElement(
 "button"
 );
 
+
+button.type =
+"button";
+
 button.className =
 "option";
 
-button.textContent =
-letter +
-". " +
-mcq.options[letter];
+
+const letter =
+String.fromCharCode(
+65 + index
+);
 
 
-button.onclick =
-function(){
+const strong =
+document.createElement(
+"strong"
+);
+
+strong.textContent =
+letter + ". ";
+
+
+button.appendChild(
+strong
+);
+
+
+button.appendChild(
+document.createTextNode(
+String(text)
+)
+);
+
+
+button.dataset.answer =
+String(text);
+
+
+button.addEventListener(
+"click",
+()=>{
 
 checkAnswer(
 button,
-letter,
-answer,
-mcq.explanation
+String(text),
+answer
 );
 
-};
+}
+);
 
 
-options.appendChild(
+optionsBox.appendChild(
 button
 );
 
-});
+}
+);
+
+}else{
+
+optionsBox.innerHTML =
+"<p style='color:#991b1b'>" +
+"The AI returned an invalid question format." +
+"</p>";
+
+}
 
 
-card.scrollIntoView({
-behavior:"smooth",
-block:"start"
+if(answer){
+
+correctAnswer.textContent =
+String(answer);
+
+}
+
+
+mcqResult.style.display =
+"block";
+
+
+window.scrollTo({
+
+top:
+mcqResult.offsetTop -
+20,
+
+behavior:"smooth"
+
 });
 
 }
 
 
-/* =================================
-   CHECK ANSWER
-================================= */
+/* =====================================================
+   ANSWER
+===================================================== */
 
 function checkAnswer(
-clicked,
+button,
 selected,
-answer,
-explanation
+answer
 ){
 
-document.querySelectorAll(
+const buttons =
+optionsBox.querySelectorAll(
 ".option"
-).forEach(
-function(button){
+);
 
-button.disabled =
+
+buttons.forEach(
+b=>{
+b.disabled =
 true;
-
 }
 );
 
 
-document.querySelectorAll(
-".option"
-).forEach(
-function(button){
+const selectedText =
+normalize(selected);
+
+const answerText =
+normalize(answer);
+
 
 if(
-button.textContent
-.startsWith(
-answer + "."
-)
+selectedText ===
+answerText
 ){
 
 button.classList.add(
 "correct"
 );
 
-}
-
-}
-);
-
-
-const result =
-document.getElementById(
-"result"
-);
-
-
-if(
-selected === answer
-){
-
-clicked.classList.add(
-"correct"
-);
-
-score++;
-
-
-result.className =
-"result correct";
-
-result.innerHTML =
-"🎉 <b>Correct!</b><br><br>" +
-(
-explanation ||
-"Great job!"
-);
-
 }else{
 
-clicked.classList.add(
+button.classList.add(
 "wrong"
 );
 
-result.className =
-"result wrong";
 
-result.innerHTML =
-"❌ <b>Incorrect.</b><br><br>" +
-"<b>Correct answer:</b> " +
-answer +
-"<br><br>" +
-(
-explanation ||
+buttons.forEach(
+b=>{
+
+if(
+normalize(
+b.dataset.answer
+) ===
+answerText
+){
+
+b.classList.add(
+"correct"
+);
+
+}
+
+}
+);
+
+}
+
+
+if(answer){
+
+answerBox.style.display =
+"block";
+
+}
+
+
+if(
+getUsage().count <
+DAILY_LIMIT
+){
+
+nextBtn.style.display =
+"block";
+
+}
+
+}
+
+
+/* =====================================================
+   NORMALIZE
+===================================================== */
+
+function normalize(value){
+
+return String(
+value || ""
+)
+.trim()
+.toLowerCase()
+.replace(
+/^[a-d][.)]\s*/i,
 ""
+)
+.trim();
+
+}
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function escapeHTML(value){
+
+return String(
+value || ""
+)
+.replace(
+/&/g,
+"&amp;"
+)
+.replace(
+/</g,
+"&lt;"
+)
+.replace(
+/>/g,
+"&gt;"
+)
+.replace(
+/"/g,
+"&quot;"
+)
+.replace(
+/'/g,
+"&#039;"
 );
 
 }
 
 
-result.style.display =
-"block";
+/* =====================================================
+   EVENTS
+===================================================== */
+
+generateBtn.addEventListener(
+"click",
+generateMCQ
+);
+
+nextBtn.addEventListener(
+"click",
+generateMCQ
+);
 
 
-if(used < LIMIT){
-
-document.getElementById(
-"next"
-).style.display =
-"block";
-
-}
-
-}
-
-
-/* =================================
+/* =====================================================
    START
-================================= */
+===================================================== */
 
-document.addEventListener(
-"DOMContentLoaded",
-function(){
+updateProgress();
 
-loadUsage();
-
-}
-);
+</script>
 
 
-/*
-Refresh usage every minute.
-The Worker decides the real
-daily count and reset.
-*/
+</body>
 
-setInterval(
-function(){
-
-loadUsage();
-
-},
-60000
-);
-
-</script></body>
 </html>
