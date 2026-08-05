@@ -1,21 +1,24 @@
 <!DOCTYPE html><html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CreateLK Academy | Premium AI English MCQs</title><style>
-*{box-sizing:border-box;margin:0;padding:0}
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>CreateLK Academy | Premium AI English MCQs</title><style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
 font-family:Arial,sans-serif;
 background:#f4f7fb;
 color:#172033;
-line-height:1.6
+line-height:1.6;
 }
 
 header{
 background:#174ea6;
 color:#fff;
-padding:14px
+padding:14px;
 }
 
 .nav{
@@ -23,21 +26,24 @@ max-width:760px;
 margin:auto;
 display:flex;
 justify-content:space-between;
-align-items:center
+align-items:center;
 }
 
-.logo{font-weight:800}
+.logo{
+font-weight:800;
+}
 
 .nav-right{
 display:flex;
 gap:10px;
-align-items:center
+align-items:center;
 }
 
-.home,.logout{
+.home,
+.logout{
 color:#fff;
 font-weight:700;
-text-decoration:none
+text-decoration:none;
 }
 
 .logout{
@@ -45,71 +51,75 @@ background:#ffffff18;
 border:1px solid #ffffff55;
 padding:8px 10px;
 border-radius:8px;
-cursor:pointer
+cursor:pointer;
 }
 
 main{
 max-width:760px;
 margin:auto;
-padding:25px 15px
+padding:25px 15px;
 }
 
 .hero{
 text-align:center;
-margin-bottom:20px
+margin-bottom:20px;
 }
 
-.icon{font-size:50px}
+.icon{
+font-size:50px;
+}
 
 h1{
 color:#174ea6;
-margin:8px 0
+margin:8px 0;
 }
 
-.hero p{color:#667085}
+.hero p{
+color:#667085;
+}
 
 .card{
 background:#fff;
 padding:20px;
 border-radius:18px;
 margin-bottom:16px;
-box-shadow:0 5px 24px #0001
+box-shadow:0 5px 24px #0001;
 }
 
 .membership{
 padding:15px;
 border-radius:12px;
 margin-bottom:18px;
-line-height:1.6
+line-height:1.6;
 }
 
 .active{
 background:#dcfce7;
-color:#166534
+color:#166534;
 }
 
 .locked{
 background:#fee2e2;
-color:#991b1b
+color:#991b1b;
 }
 
 .email{
 font-size:13px;
-word-break:break-word
+word-break:break-word;
 }
 
 .countdown{
 font-weight:800;
-margin-top:5px
+margin-top:5px;
 }
 
 .usage{
 font-weight:800;
-margin-top:8px
+margin-top:8px;
 }
 
 .remaining{
-font-size:13px
+font-size:13px;
 }
 
 .progress{
@@ -117,19 +127,20 @@ height:9px;
 background:#e5e7eb;
 border-radius:10px;
 margin-top:7px;
-overflow:hidden
+overflow:hidden;
 }
 
 .progress-bar{
 height:100%;
-width:0;
-background:#20a464
+width:0%;
+background:#20a464;
+transition:.3s;
 }
 
 label{
 display:block;
 font-weight:800;
-margin:12px 0 6px
+margin:12px 0 6px;
 }
 
 select{
@@ -137,35 +148,38 @@ width:100%;
 padding:13px;
 border:1px solid #d5dbe5;
 border-radius:10px;
-font-size:16px
+font-size:16px;
 }
 
 button{
 font-size:16px;
 font-weight:800;
-cursor:pointer
+cursor:pointer;
 }
 
-.generate,.next{
+.generate,
+.next{
 width:100%;
 padding:14px;
 border:0;
 border-radius:10px;
 background:#174ea6;
-color:white
+color:white;
 }
 
-.generate{margin-top:16px}
+.generate{
+margin-top:16px;
+}
 
 .generate:disabled{
 opacity:.5;
-cursor:not-allowed
+cursor:not-allowed;
 }
 
 .loading{
 text-align:center;
 padding:15px;
-display:none
+display:none;
 }
 
 .status{
@@ -173,27 +187,29 @@ padding:13px;
 border-radius:10px;
 margin-top:14px;
 font-weight:700;
-display:none
+display:none;
 }
 
 .success{
 display:block;
 background:#dcfce7;
-color:#166534
+color:#166534;
 }
 
 .error{
 display:block;
 background:#fee2e2;
-color:#991b1b
+color:#991b1b;
 }
 
-.question-card{display:none}
+.question-card{
+display:none;
+}
 
 .question{
 font-size:20px;
 font-weight:800;
-margin-bottom:18px
+margin-bottom:18px;
 }
 
 .option{
@@ -203,55 +219,71 @@ margin-bottom:10px;
 border:2px solid #ddd;
 border-radius:10px;
 background:#fff;
-text-align:left
+text-align:left;
 }
 
-.option:disabled{cursor:default}
+.option:disabled{
+cursor:default;
+}
 
 .correct{
 background:#dcfce7!important;
 border-color:#16a34a!important;
-color:#166534
+color:#166534;
 }
 
 .wrong{
 background:#fee2e2!important;
 border-color:#dc2626!important;
-color:#991b1b
+color:#991b1b;
 }
 
 .answer{
 margin-top:15px;
-line-height:1.6
+line-height:1.6;
 }
 
 .next{
 display:none;
-margin-top:15px
+margin-top:15px;
 }
 
 footer{
 text-align:center;
 padding:25px;
 color:#667085;
-font-size:13px
+font-size:13px;
 }
-</style></head><body><header>
-<div class="nav"><div class="logo">📚 CreateLK Academy</div><div class="nav-right">
-<a class="home" href="index.html">🏠 Home</a>
-<button id="logout" class="logout" type="button">🚪 Logout</button>
-</div></div>
-</header><main><section class="hero">
-<div class="icon">⭐</div><h1>Premium AI English MCQs</h1><p>
+
+</style></head><body><header><div class="nav"><div class="logo">
+📚 CreateLK Academy
+</div><div class="nav-right"><a
+class="home"
+href="index.html">
+🏠 Home
+</a>
+
+<button
+id="logout"
+class="logout"
+type="button">
+🚪 Logout
+</button>
+
+</div></div></header><main><section class="hero"><div class="icon">
+⭐
+</div><h1>
+Premium AI English MCQs
+</h1><p>
 Practise English with up to
 <b>100 AI-generated MCQs every day.</b>
-</p>
-</section><section class="card"><div id="membership" class="membership">
-⏳ Checking Premium membership...
-</div><label>📚 Subject</label>
+</p></section><section class="card"><div
+id="membership"
+class="membership">⏳ Checking Premium membership...
 
-<select id="category">
-<option>English Vocabulary</option>
+</div><label>
+📚 Subject
+</label><select id="category"><option>English Vocabulary</option>
 <option>English Grammar</option>
 <option>English Tenses</option>
 <option>Parts of Speech</option>
@@ -262,82 +294,146 @@ Practise English with up to
 <option>Punctuation</option>
 <option>Conversation English</option>
 <option>Reading Comprehension</option>
-<option>Mixed English</option>
-</select><label>🎓 Difficulty</label>
+<option>Mixed English</option></select><label>
+🎓 Difficulty
+</label><select id="level"><option>
+Beginner
+</option><option selected>
+Intermediate
+</option><option>
+Advanced
+</option></select><button
+id="generate"
+class="generate"
+type="button"
+disabled>
 
-<select id="level">
-<option>Beginner</option>
-<option selected>Intermediate</option>
-<option>Advanced</option>
-</select><button id="generate" class="generate" type="button" disabled>
 ⏳ Checking Premium...
-</button><div id="loading" class="loading">
-🤖 Premium AI is generating...
-</div><div id="status" class="status"></div></section><section id="questionCard" class="card question-card"><div id="question" class="question"></div><div id="options"></div><div id="answer" class="answer"></div><button id="next" class="next" type="button">
+
+</button><div
+id="loading"
+class="loading">🤖 Premium AI is generating...
+
+</div><div
+id="status"
+class="status">
+</div></section><section
+id="questionCard"
+class="card question-card"><div
+id="question"
+class="question">
+</div><div
+id="options">
+</div><div
+id="answer"
+class="answer">
+</div><button
+id="next"
+class="next"
+type="button">
+
 ➡️ Next MCQ
-</button></section></main><footer>
-📚 <b>CreateLK Academy</b><br>
-Learn English. Build Your Future.<br><br>
+
+</button></section></main><footer>📚 <b>CreateLK Academy</b>
+
+<br>Learn English. Build Your Future.
+
+<br><br>
+
 © 2026 CreateLK Academy.
+
 </footer><script>
+
 "use strict";
 
-/* =========================
-   WORKERS
-========================= */
+
+/* =====================================
+   ONE PREMIUM WORKER
+===================================== */
 
 const WORKER =
 "https://premium-worker.gateofheavensl1.workers.dev";
 
-const MEMBERSHIP_API =
-"https://createlk-membership.gateofheavensl1.workers.dev";
-
 const LIMIT = 100;
+
 
 let email = "";
 let premium = false;
 let usage = 0;
 let timer = null;
-let expiry = null;
-
-const $ = id => document.getElementById(id);
-
-const membership = $("membership");
-const generateButton = $("generate");
-const loading = $("loading");
-const status = $("status");
-const questionCard = $("questionCard");
-const question = $("question");
-const options = $("options");
-const answer = $("answer");
-const next = $("next");
 
 
-/* =========================
-   EMAIL
-========================= */
+const $ =
+id => document.getElementById(id);
+
+
+const membership =
+$("membership");
+
+const generateButton =
+$("generate");
+
+const loading =
+$("loading");
+
+const status =
+$("status");
+
+const questionCard =
+$("questionCard");
+
+const question =
+$("question");
+
+const options =
+$("options");
+
+const answer =
+$("answer");
+
+const next =
+$("next");
+
+
+/* =====================================
+   GET LOGIN EMAIL
+===================================== */
 
 function getEmail(){
 
 const keys = [
+
 "createlk_student_email",
-"studentEmail"
+"studentEmail",
+"email"
+
 ];
+
 
 for(const key of keys){
 
 const value =
 localStorage.getItem(key);
 
-if(value && value.trim()){
-return value.trim().toLowerCase();
+if(
+value &&
+value.trim()
+){
+
+return value
+.trim()
+.toLowerCase();
+
 }
 
 }
+
 
 for(const key of [
+
 "createlk_user",
 "createlk_student"
+
 ]){
 
 try{
@@ -346,6 +442,7 @@ const user =
 JSON.parse(
 localStorage.getItem(key)
 );
+
 
 if(
 user &&
@@ -362,17 +459,23 @@ return user.email
 
 }
 
+
 return "";
+
 }
 
 
-/* =========================
+/* =====================================
    STATUS MESSAGE
-========================= */
+===================================== */
 
-function msg(text,type){
+function msg(
+text,
+type
+){
 
-status.textContent = text;
+status.textContent =
+text;
 
 status.className =
 "status " + type;
@@ -383,65 +486,23 @@ status.style.display =
 }
 
 
-/* =========================
-   UPDATE USAGE
-========================= */
-
-function updateUsage(){
-
-const remain =
-Math.max(LIMIT - usage,0);
-
-const used =
-membership.querySelector(".usage");
-
-const left =
-membership.querySelector(".remaining");
-
-const bar =
-membership.querySelector(".progress-bar");
-
-if(used){
-
-used.textContent =
-`📊 Today's AI Usage: ${usage} / ${LIMIT}`;
-
-}
-
-if(left){
-
-left.textContent =
-`✨ Remaining today: ${remain}`;
-
-}
-
-if(bar){
-
-bar.style.width =
-Math.min(
-usage / LIMIT * 100,
-100
-) + "%";
-
-}
-
-}
-
-
-/* =========================
+/* =====================================
    COUNTDOWN
-========================= */
+===================================== */
 
-function startCountdown(value){
+function startCountdown(
+expiry
+){
 
 clearInterval(timer);
 
-expiry = value;
 
 const end =
 new Date(
-String(value).replace(" ","T")
+String(expiry)
+.replace(" ","T")
 ).getTime();
+
 
 function run(){
 
@@ -450,13 +511,15 @@ Math.floor(
 (end - Date.now()) / 1000
 );
 
+
 if(seconds <= 0){
 
 clearInterval(timer);
 
 premium = false;
 
-generateButton.disabled = true;
+generateButton.disabled =
+true;
 
 generateButton.textContent =
 "🔒 Premium Expired";
@@ -471,128 +534,285 @@ return;
 
 }
 
-const d =
-Math.floor(seconds / 86400);
+
+const days =
+Math.floor(
+seconds / 86400
+);
 
 seconds %= 86400;
 
-const h =
-Math.floor(seconds / 3600);
+
+const hours =
+Math.floor(
+seconds / 3600
+);
 
 seconds %= 3600;
 
-const m =
-Math.floor(seconds / 60);
+
+const minutes =
+Math.floor(
+seconds / 60
+);
 
 seconds %= 60;
 
+
 const box =
-membership.querySelector(".countdown");
+membership.querySelector(
+".countdown"
+);
+
 
 if(box){
 
 box.textContent =
-`⏳ Expires in: ${d}d ${h}h ${m}m ${seconds}s`;
+`⏳ Expires in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
 
 }
 
 }
+
 
 run();
 
 timer =
-setInterval(run,1000);
+setInterval(
+run,
+1000
+);
 
 }
 
 
-/* =========================
-   ACTIVE RESPONSE CHECK
-========================= */
+/* =====================================
+   FIND ACTIVE MEMBERSHIP
+===================================== */
 
-function isActive(data){
+function getActive(data){
 
 if(!data){
 return false;
 }
 
-if(data.active === true){
+
+/* Direct response */
+
+if(
+data.active === true
+){
+
 return true;
+
 }
 
-if(data.status &&
-String(data.status).toLowerCase() === "active"){
+
+/* status */
+
+if(
+String(
+data.status || ""
+).toLowerCase()
+===
+"active"
+){
+
 return true;
+
 }
 
-if(data.membership &&
-String(data.membership.status).toLowerCase() === "active"){
+
+/* membership object */
+
+if(
+data.membership &&
+String(
+data.membership.status || ""
+).toLowerCase()
+===
+"active"
+){
+
 return true;
+
 }
 
-if(data.subscription &&
-String(data.subscription.status).toLowerCase() === "active"){
+
+/* subscription object */
+
+if(
+data.subscription &&
+String(
+data.subscription.status || ""
+).toLowerCase()
+===
+"active"
+){
+
 return true;
+
 }
+
 
 return false;
+
 }
 
 
-/* =========================
+/* =====================================
    GET EXPIRY
-========================= */
+===================================== */
 
 function getExpiry(data){
 
+if(!data){
+return null;
+}
+
+
 return (
+
 data.expires_at ||
+
 data.expiresAt ||
+
 data.expiry ||
+
 data.expiry_date ||
-(data.membership && (
+
+(
+data.membership &&
+(
 data.membership.expires_at ||
 data.membership.expiresAt
-)) ||
-(data.subscription && (
+)
+) ||
+
+(
+data.subscription &&
+(
 data.subscription.expires_at ||
 data.subscription.expiresAt
-)) ||
+)
+) ||
+
 null
+
 );
 
 }
 
 
-/* =========================
+/* =====================================
    GET USAGE
-========================= */
+===================================== */
 
 function getUsage(data){
 
+if(!data){
+return 0;
+}
+
+
 return Number(
+
 data.usage ??
+
 data.today_usage ??
+
 data.daily_usage ??
-(data.membership &&
+
+(
+data.membership &&
 (
 data.membership.usage ??
 data.membership.today_usage
-)) ??
+)
+) ??
+
 0
+
 );
 
 }
 
 
-/* =========================
+/* =====================================
+   UPDATE USAGE
+===================================== */
+
+function updateUsage(){
+
+const remaining =
+Math.max(
+LIMIT - usage,
+0
+);
+
+
+const used =
+membership.querySelector(
+".usage"
+);
+
+
+const left =
+membership.querySelector(
+".remaining"
+);
+
+
+const bar =
+membership.querySelector(
+".progress-bar"
+);
+
+
+if(used){
+
+used.textContent =
+`📊 Today's AI Usage: ${usage} / ${LIMIT}`;
+
+}
+
+
+if(left){
+
+left.textContent =
+`✨ Remaining today: ${remaining}`;
+
+}
+
+
+if(bar){
+
+bar.style.width =
+Math.min(
+usage / LIMIT * 100,
+100
+) + "%";
+
+}
+
+}
+
+
+/* =====================================
    VERIFY PREMIUM
-========================= */
+===================================== */
 
 async function verify(){
 
 email =
 getEmail();
+
+
+console.log(
+"LOGIN EMAIL:",
+email
+);
+
 
 if(!email){
 
@@ -604,7 +824,8 @@ membership.className =
 membership.innerHTML =
 "🔐 <b>Please login to access Premium.</b>";
 
-generateButton.disabled = true;
+generateButton.disabled =
+true;
 
 generateButton.textContent =
 "🔐 Login Required";
@@ -618,18 +839,27 @@ return;
 
 }
 
+
 try{
 
-const url =
-MEMBERSHIP_API +
-"/status?email=" +
-encodeURIComponent(email) +
-"&t=" +
-Date.now();
+
+/*
+ IMPORTANT:
+
+Use the SAME premium-worker
+for membership verification.
+*/
+
 
 const response =
 await fetch(
-url,
+
+WORKER +
+"/status?email=" +
+encodeURIComponent(email) +
+"&t=" +
+Date.now(),
+
 {
 method:"GET",
 cache:"no-store",
@@ -637,26 +867,65 @@ headers:{
 "Accept":"application/json"
 }
 }
+
 );
 
-if(!response.ok){
+
+const text =
+await response.text();
+
+
+console.log(
+"PREMIUM STATUS HTTP:",
+response.status
+);
+
+console.log(
+"PREMIUM STATUS RAW:",
+text
+);
+
+
+let data;
+
+
+try{
+
+data =
+JSON.parse(text);
+
+}catch(e){
 
 throw new Error(
-"Membership server returned " +
-response.status
+"Premium worker returned invalid JSON."
 );
 
 }
 
-const data =
-await response.json();
 
 console.log(
-"MEMBERSHIP RESPONSE:",
+"PREMIUM STATUS:",
 data
 );
 
-if(!isActive(data)){
+
+/*
+ If worker returns:
+
+{
+  "active": true,
+  "expires_at": "...",
+  "usage": 0
+}
+
+we unlock Premium.
+*/
+
+
+if(
+!response.ok ||
+!getActive(data)
+){
 
 premium = false;
 
@@ -666,13 +935,14 @@ membership.className =
 membership.innerHTML =
 "🔒 <b>Premium membership not found.</b>";
 
-generateButton.disabled = true;
+generateButton.disabled =
+true;
 
 generateButton.textContent =
 "🔒 Premium Required";
 
 msg(
-"Your Premium membership is not active.",
+"Premium membership not found.",
 "error"
 );
 
@@ -681,35 +951,45 @@ return;
 }
 
 
-/* =========================
+/* =====================================
    ACTIVE
-========================= */
+===================================== */
 
 premium = true;
+
 
 usage =
 getUsage(data);
 
-expiry =
+
+const expiry =
 getExpiry(data);
+
 
 membership.className =
 "membership active";
+
 
 membership.innerHTML =
 
 "<b>⭐ Premium Active</b>" +
 
-`<div class="email">${email}</div>` +
+`<div class="email">
+${email}
+</div>` +
 
 (
 expiry
 ?
-`<div>📅 Expires: ${
+`<div>
+📅 Expires:
+${
 new Date(
-String(expiry).replace(" ","T")
+String(expiry)
+.replace(" ","T")
 ).toLocaleDateString()
-}</div>`
+}
+</div>`
 :
 ""
 ) +
@@ -733,17 +1013,25 @@ LIMIT - usage,
 <div class="progress-bar"></div>
 </div>`;
 
+
 updateUsage();
+
 
 if(expiry){
 
-startCountdown(expiry);
+startCountdown(
+expiry
+);
 
 }
 
-if(usage >= LIMIT){
 
-generateButton.disabled = true;
+if(
+usage >= LIMIT
+){
+
+generateButton.disabled =
+true;
 
 generateButton.textContent =
 "🔒 Daily Limit Reached";
@@ -755,7 +1043,8 @@ msg(
 
 }else{
 
-generateButton.disabled = false;
+generateButton.disabled =
+false;
 
 generateButton.textContent =
 "✨ Generate Premium MCQ";
@@ -767,22 +1056,36 @@ msg(
 
 }
 
+
 }catch(error){
 
 console.error(
-"Membership verification error:",
+"PREMIUM VERIFY ERROR:",
 error
 );
 
+
 premium = false;
 
-generateButton.disabled = true;
+
+generateButton.disabled =
+true;
+
 
 generateButton.textContent =
 "⏳ Try Again";
 
+
+membership.className =
+"membership locked";
+
+
+membership.innerHTML =
+"⚠️ <b>Unable to verify Premium membership.</b>";
+
+
 msg(
-"❌ Unable to verify Premium membership. Please refresh and try again.",
+"❌ " + error.message,
 "error"
 );
 
@@ -791,9 +1094,9 @@ msg(
 }
 
 
-/* =========================
+/* =====================================
    GENERATE MCQ
-========================= */
+===================================== */
 
 async function generate(){
 
@@ -810,7 +1113,10 @@ return;
 
 }
 
-if(usage >= LIMIT){
+
+if(
+usage >= LIMIT
+){
 
 msg(
 "🔒 Today's 100 MCQ limit has been reached.",
@@ -821,7 +1127,9 @@ return;
 
 }
 
-generateButton.disabled = true;
+
+generateButton.disabled =
+true;
 
 loading.style.display =
 "block";
@@ -832,18 +1140,26 @@ status.style.display =
 questionCard.style.display =
 "none";
 
+
 const category =
 $("category").value;
+
 
 const level =
 $("level").value;
 
+
 try{
+
 
 const response =
 await fetch(
-WORKER + "/api/ai-mcq",
+
+WORKER +
+"/api/ai-mcq",
+
 {
+
 method:"POST",
 
 headers:{
@@ -864,28 +1180,44 @@ level:level,
 type:"premium"
 
 })
+
 }
+
 );
 
+
+const text =
+await response.text();
+
+
+console.log(
+"AI RAW RESPONSE:",
+text
+);
+
+
 let data;
+
 
 try{
 
 data =
-await response.json();
+JSON.parse(text);
 
 }catch(e){
 
 throw new Error(
-"Invalid response from AI server."
+"AI worker returned invalid JSON."
 );
 
 }
+
 
 console.log(
 "AI RESPONSE:",
 data
 );
+
 
 if(
 !response.ok ||
@@ -893,20 +1225,34 @@ data.success !== true
 ){
 
 throw new Error(
+
 data.error ||
 data.message ||
 "Premium AI generation failed."
+
 );
 
 }
 
+
+/* =====================================
+   FIND MCQ
+===================================== */
+
 let mcq =
+
 data.mcq ||
+
 data.data ||
+
 data.result ||
+
 data;
 
-if(typeof mcq === "string"){
+
+if(
+typeof mcq === "string"
+){
 
 try{
 
@@ -923,6 +1269,7 @@ throw new Error(
 
 }
 
+
 if(
 !mcq.question ||
 !mcq.options
@@ -934,12 +1281,17 @@ throw new Error(
 
 }
 
-if(typeof mcq.options === "string"){
+
+if(
+typeof mcq.options === "string"
+){
 
 try{
 
 mcq.options =
-JSON.parse(mcq.options);
+JSON.parse(
+mcq.options
+);
 
 }catch(e){
 
@@ -951,54 +1303,83 @@ throw new Error(
 
 }
 
+
+/* =====================================
+   USAGE
+===================================== */
+
 usage =
 Number(
+
 data.usage ??
+
 data.today_usage ??
-(usage + 1)
+
+data.daily_usage ??
+
+(
+usage + 1
+)
+
 );
+
 
 updateUsage();
 
-showMCQ(mcq);
 
-if(usage >= LIMIT){
+showMCQ(
+mcq
+);
 
-generateButton.disabled = true;
+
+if(
+usage >= LIMIT
+){
+
+generateButton.disabled =
+true;
 
 generateButton.textContent =
 "🔒 Daily Limit Reached";
 
 }else{
 
-generateButton.disabled = false;
+generateButton.disabled =
+false;
 
 generateButton.textContent =
 "✨ Generate Premium MCQ";
 
 }
 
+
 msg(
 "✅ MCQ generated successfully.",
 "success"
 );
 
+
 }catch(error){
 
 console.error(
-"Generation error:",
+"AI GENERATION ERROR:",
 error
 );
 
-generateButton.disabled = false;
+
+generateButton.disabled =
+false;
+
 
 generateButton.textContent =
 "✨ Generate Premium MCQ";
+
 
 msg(
 "❌ " + error.message,
 "error"
 );
+
 
 }finally{
 
@@ -1010,81 +1391,122 @@ loading.style.display =
 }
 
 
-/* =========================
+/* =====================================
    SHOW MCQ
-========================= */
+===================================== */
 
 function showMCQ(mcq){
 
 questionCard.style.display =
 "block";
 
+
 question.textContent =
 mcq.question;
 
-options.innerHTML = "";
 
-answer.innerHTML = "";
+options.innerHTML =
+"";
+
+
+answer.innerHTML =
+"";
+
 
 next.style.display =
 "none";
 
+
 const correct =
 String(
+
 mcq.answer ||
+
 mcq.correct_answer ||
+
 mcq.correctAnswer ||
+
 ""
-).trim().toUpperCase();
+
+)
+.trim()
+.toUpperCase();
+
 
 ["A","B","C","D"].forEach(
 letter=>{
 
+
 const button =
-document.createElement("button");
+document.createElement(
+"button"
+);
+
 
 button.className =
 "option";
 
+
 button.type =
 "button";
 
+
 button.textContent =
-letter + ". " +
+
+letter +
+". " +
 (
-mcq.options[letter] || ""
+mcq.options[letter] ||
+""
 );
+
 
 button.onclick =
 function(){
 
+
 document
-.querySelectorAll(".option")
+.querySelectorAll(
+".option"
+)
 .forEach(
-x=>x.disabled = true
+x=>{
+x.disabled = true;
+}
 );
 
-if(letter === correct){
+
+if(
+letter === correct
+){
 
 button.classList.add(
 "correct"
 );
 
+
 answer.innerHTML =
+
 "🎉 <b>Correct!</b><br><br>" +
+
 (
 mcq.explanation ||
 "Excellent work!"
 );
 
+
 }else{
+
 
 button.classList.add(
 "wrong"
 );
 
+
 document
-.querySelectorAll(".option")
+.querySelectorAll(
+".option"
+)
 .forEach(
 x=>{
 
@@ -1100,19 +1522,25 @@ x.classList.add(
 
 }
 
-});
+}
+);
+
 
 answer.innerHTML =
+
 "❌ <b>Incorrect.</b><br><br>" +
+
 "Correct answer: <b>" +
 correct +
 "</b><br><br>" +
+
 (
 mcq.explanation ||
 "Review the explanation."
 );
 
 }
+
 
 if(
 premium &&
@@ -1126,11 +1554,13 @@ next.style.display =
 
 };
 
+
 options.appendChild(
 button
 );
 
 });
+
 
 questionCard.scrollIntoView({
 behavior:"smooth",
@@ -1140,23 +1570,25 @@ block:"start"
 }
 
 
-/* =========================
+/* =====================================
    BUTTONS
-========================= */
+===================================== */
 
 generateButton.onclick =
 generate;
+
 
 next.onclick =
 generate;
 
 
-/* =========================
+/* =====================================
    LOGOUT
-========================= */
+===================================== */
 
 $("logout").onclick =
 function(){
+
 
 if(
 !confirm(
@@ -1168,6 +1600,7 @@ return;
 
 }
 
+
 [
 "createlk_student_email",
 "studentEmail",
@@ -1175,13 +1608,19 @@ return;
 "createlk_user",
 "createlk_student"
 ].forEach(
-key =>
-localStorage.removeItem(key)
+key=>{
+localStorage.removeItem(key);
+}
 );
+
 
 sessionStorage.clear();
 
-clearInterval(timer);
+
+clearInterval(
+timer
+);
+
 
 window.location.href =
 "login.html";
@@ -1189,16 +1628,16 @@ window.location.href =
 };
 
 
-/* =========================
+/* =====================================
    START
-========================= */
+===================================== */
 
 verify();
 
 
-/* =========================
-   RECHECK
-========================= */
+/* =====================================
+   CHECK AGAIN WHEN RETURNING
+===================================== */
 
 document.addEventListener(
 "visibilitychange",
