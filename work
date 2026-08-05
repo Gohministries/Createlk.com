@@ -1,0 +1,806 @@
+export default {
+  async fetch(request, env) {
+
+    /* ==============================
+       CORS
+    ============================== */
+
+    const corsHeaders = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, X-Device-ID"
+    };
+
+    /* ==============================
+       OPTIONS
+    ============================== */
+
+    if (request.method === "OPTIONS") {
+      return new Response(null, {
+        status: 204,
+        headers: corsHeaders
+      });
+    }
+
+    const url = new URL(request.url);
+
+    /* ==============================
+       HOME / TEST
+    ============================== */
+
+    if (
+      request.method === "GET" &&
+      url.pathname === "/"
+    ) {
+
+      return json({
+        success: true,
+        message: "CreateLK Academy Free AI Worker is working.",
+        endpoint: "POST /api/ai-mcq",
+        model: "@cf/meta/llama-3.1-8b-instruct-fast",
+        daily_limit: 10,
+        database: "free_ai_usage",
+        json_mode: true
+      }, 200, corsHeaders);
+    }
+
+    /* ==============================
+       AI MCQ
+    ============================== */
+
+    if (
+      request.method === "POST" &&
+      url.pathname === "/api/ai-mcq"
+    ) {
+
+      try {
+
+        /* ==========================
+           READ REQUEST
+        ========================== */
+
+        let body;
+
+        try {
+
+          body = await request.json();
+
+        } catch (error) {
+
+          return json({
+            success: false,
+            error: "Invalid JSON request."
+          }, 400, corsHeaders);
+
+        }
+
+        const category =
+          String(
+            body.category ||
+            body.topic ||
+            "English Vocabulary"
+          ).trim();
+
+        const level =
+          String(
+            body.level ||
+            "Intermediate"
+          ).trim();
+
+        /* ==========================
+           DEVICE ID
+        ========================== */
+
+        let deviceId =
+          String(
+            body.device_id ||
+            request.headers.get("X-Device-ID") ||
+            ""
+          ).trim();
+
+        if (!deviceId) {
+
+          return json({
+            success: false,
+            error: "Device ID is required."
+          }, 400, corsHeaders);
+
+        }
+
+        /* ==========================
+           DATE
+        ========================== */
+
+        const today =
+          new Date()
+            .toISOString()
+            .slice(0, 10);
+
+        /* ==========================
+           D1 CHECK
+        ========================== */
+
+        if (!env.DB) {
+
+          return json({
+            success: false,
+            error: "D1 binding DB is missing."
+          }, 500, corsHeaders);
+
+        }
+
+        let row;
+
+        try {
+
+          row =
+            await env.DB.prepare(`
+              SELECT used
+              FROM free_ai_usage
+              WHERE device_id = ?
+              AND usage_date = ?
+            `)
+            .bind(
+              deviceId,
+              today
+            )
+            .first();
+
+        } catch (error) {
+
+          return json({
+            success: false,
+            error:
+              "D1 database error: " +
+              error.message
+          }, 500, corsHeaders);
+
+        }
+
+        const used =
+          row
+            ? Number(row.used || 0)
+            : 0;
+
+        /* ==========================
+           DAILY LIMIT
+        ========================== */
+
+        if (used >= 10) {
+
+          return json({
+            success: false,
+            error: "Daily free limit reached.",
+            used: used,
+            limit: 10,
+            remaining: 0
+          }, 429, corsHeaders);
+
+        }
+
+        /* ==========================
+           AI BINDING
+        ========================== */
+
+        if (!env.AI) {
+
+          return json({
+            success: false,
+            error:
+              "Workers AI binding AI is missing."
+          }, 500, corsHeaders);
+
+        }
+
+        /* ==========================
+           PROMPT
+        ========================== */
+
+        const prompt = `
+Create exactly ONE English multiple-choice question.
+
+Subject: ${category}
+
+Difficulty: ${level}
+
+The question must be educational and suitable for English learners.
+
+Create exactly four answer choices.
+
+The correct answer must be exactly one of:
+A
+B
+C
+D
+
+Return only the requested structured data.
+`;
+
+        /* ==========================
+           JSON SCHEMA
+        ========================== */
+
+        const responseFormat = {
+
+          type: "json_schema",
+
+          json_schema: {
+
+            type: "object",
+
+            properties: {
+
+              question: {
+                type: "string"
+              },
+
+              options: {
+
+                type: "object",
+
+                properties: {
+
+                  A: {
+                    type: "string"
+                  },
+
+                  B: {
+                    type: "string"
+                  },
+
+                  C: {
+                    type: "string"
+                  },
+
+                  D: {
+                    type: "string"
+                  }
+
+                },
+
+                required: [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ],
+
+                additionalProperties: false
+              },
+
+              answer: {
+
+                type: "string",
+
+                enum: [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+
+              },
+
+              explanation: {
+
+                type: "string"
+
+              }
+
+            },
+
+            required: [
+              "question",
+              "options",
+              "answer",
+              "explanation"
+            ],
+
+            additionalProperties: false
+
+          }
+
+        };
+
+        /* ==========================
+           CALL CLOUDFLARE AI
+        ========================== */
+
+        let aiResult;
+
+        try {
+
+          aiResult =
+            await env.AI.run(
+
+              "@cf/meta/llama-3.1-8b-instruct-fast",
+
+              {
+
+                messages: [
+
+                  {
+                    role: "system",
+
+                    content:
+                      "You are an English education assistant. Generate one high-quality English MCQ."
+                  },
+
+                  {
+                    role: "user",
+
+                    content: prompt
+                  }
+
+                ],
+
+                response_format:
+                  responseFormat,
+
+                max_tokens: 500,
+
+                temperature: 0.2
+
+              }
+
+            );
+
+        } catch (error) {
+
+          return json({
+            success: false,
+            error:
+              "Workers AI error: " +
+              error.message
+          }, 502, corsHeaders);
+
+        }
+
+        /* ==========================
+           EXTRACT RESPONSE
+        ========================== */
+
+        let mcq = null;
+
+        /*
+          Depending on the Workers AI
+          response, the structured object
+          can be inside response.
+        */
+
+        if (
+          aiResult &&
+          aiResult.response
+        ) {
+
+          if (
+            typeof aiResult.response === "object"
+          ) {
+
+            mcq =
+              aiResult.response;
+
+          } else if (
+            typeof aiResult.response === "string"
+          ) {
+
+            try {
+
+              mcq =
+                JSON.parse(
+                  aiResult.response
+                );
+
+            } catch (error) {
+
+              mcq = null;
+
+            }
+
+          }
+
+        }
+
+        /*
+          Some responses can expose
+          result.response.
+        */
+
+        if (
+          !mcq &&
+          aiResult &&
+          aiResult.result &&
+          aiResult.result.response
+        ) {
+
+          if (
+            typeof aiResult.result.response === "object"
+          ) {
+
+            mcq =
+              aiResult.result.response;
+
+          } else if (
+            typeof aiResult.result.response === "string"
+          ) {
+
+            try {
+
+              mcq =
+                JSON.parse(
+                  aiResult.result.response
+                );
+
+            } catch (error) {
+
+              mcq = null;
+
+            }
+
+          }
+
+        }
+
+        /* ==========================
+           FALLBACK TEXT PARSING
+        ========================== */
+
+        if (!mcq) {
+
+          let text = "";
+
+          if (
+            aiResult &&
+            typeof aiResult.response === "string"
+          ) {
+
+            text =
+              aiResult.response;
+
+          }
+
+          if (
+            !text &&
+            aiResult &&
+            aiResult.result &&
+            typeof aiResult.result === "string"
+          ) {
+
+            text =
+              aiResult.result;
+
+          }
+
+          text =
+            String(text || "")
+              .trim();
+
+          if (text) {
+
+            text =
+              text
+                .replace(/```json/gi, "")
+                .replace(/```/g, "")
+                .trim();
+
+            const first =
+              text.indexOf("{");
+
+            const last =
+              text.lastIndexOf("}");
+
+            if (
+              first !== -1 &&
+              last !== -1 &&
+              last > first
+            ) {
+
+              text =
+                text.slice(
+                  first,
+                  last + 1
+                );
+
+            }
+
+            try {
+
+              mcq =
+                JSON.parse(text);
+
+            } catch (error) {
+
+              mcq = null;
+
+            }
+
+          }
+
+        }
+
+        /* ==========================
+           VALIDATE
+        ========================== */
+
+        if (
+          !mcq ||
+          typeof mcq !== "object"
+        ) {
+
+          return json({
+
+            success: false,
+
+            error:
+              "AI returned an empty or invalid MCQ.",
+
+            debug: {
+
+              hasResponse:
+                !!(
+                  aiResult &&
+                  aiResult.response
+                ),
+
+              responseType:
+                aiResult &&
+                typeof aiResult.response,
+
+              model:
+                "@cf/meta/llama-3.1-8b-instruct-fast"
+
+            }
+
+          }, 502, corsHeaders);
+
+        }
+
+        /* ==========================
+           QUESTION
+        ========================== */
+
+        if (
+          typeof mcq.question !== "string" ||
+          !mcq.question.trim()
+        ) {
+
+          return json({
+            success: false,
+            error:
+              "AI MCQ question is missing."
+          }, 502, corsHeaders);
+
+        }
+
+        /* ==========================
+           OPTIONS
+        ========================== */
+
+        if (
+          !mcq.options ||
+          typeof mcq.options !== "object"
+        ) {
+
+          return json({
+            success: false,
+            error:
+              "AI MCQ options are missing."
+          }, 502, corsHeaders);
+
+        }
+
+        const letters = [
+          "A",
+          "B",
+          "C",
+          "D"
+        ];
+
+        for (
+          const letter of letters
+        ) {
+
+          if (
+            typeof mcq.options[letter] !== "string" ||
+            !mcq.options[letter].trim()
+          ) {
+
+            return json({
+              success: false,
+              error:
+                "AI MCQ option " +
+                letter +
+                " is missing."
+            }, 502, corsHeaders);
+
+          }
+
+        }
+
+        /* ==========================
+           ANSWER
+        ========================== */
+
+        const answer =
+          String(
+            mcq.answer || ""
+          )
+            .trim()
+            .toUpperCase();
+
+        if (
+          !letters.includes(answer)
+        ) {
+
+          return json({
+            success: false,
+            error:
+              "AI returned an invalid answer."
+          }, 502, corsHeaders);
+
+        }
+
+        /* ==========================
+           INCREMENT D1
+        ========================== */
+
+        try {
+
+          await env.DB.prepare(`
+            INSERT INTO free_ai_usage
+              (device_id, usage_date, used)
+
+            VALUES (?, ?, 1)
+
+            ON CONFLICT(device_id, usage_date)
+
+            DO UPDATE SET
+              used = used + 1
+          `)
+          .bind(
+            deviceId,
+            today
+          )
+          .run();
+
+        } catch (error) {
+
+          return json({
+            success: false,
+            error:
+              "D1 usage update failed: " +
+              error.message
+          }, 500, corsHeaders);
+
+        }
+
+        /* ==========================
+           SUCCESS
+        ========================== */
+
+        const newUsed =
+          used + 1;
+
+        return json({
+
+          success: true,
+
+          mcq: {
+
+            question:
+              mcq.question.trim(),
+
+            options: {
+
+              A:
+                mcq.options.A.trim(),
+
+              B:
+                mcq.options.B.trim(),
+
+              C:
+                mcq.options.C.trim(),
+
+              D:
+                mcq.options.D.trim()
+
+            },
+
+            answer:
+
+              answer,
+
+            explanation:
+
+              String(
+                mcq.explanation ||
+                "Good work! Review the explanation carefully."
+              ).trim()
+
+          },
+
+          usage:
+            newUsed,
+
+          limit:
+            10,
+
+          remaining:
+            Math.max(
+              10 - newUsed,
+              0
+            ),
+
+          date:
+            today
+
+        }, 200, corsHeaders);
+
+      } catch (error) {
+
+        return json({
+
+          success: false,
+
+          error:
+            "Worker error: " +
+            error.message
+
+        }, 500, corsHeaders);
+
+      }
+
+    }
+
+    /* ==============================
+       404
+    ============================== */
+
+    return json({
+
+      success: false,
+
+      error:
+        "Endpoint not found."
+
+    }, 404, corsHeaders);
+
+  }
+};
+
+
+/* =================================
+   JSON HELPER
+================================= */
+
+function json(
+  data,
+  status = 200,
+  corsHeaders = {}
+) {
+
+  return new Response(
+
+    JSON.stringify(data),
+
+    {
+
+      status: status,
+
+      headers: {
+
+        "Content-Type":
+          "application/json; charset=UTF-8",
+
+        "Cache-Control":
+          "no-store",
+
+        ...corsHeaders
+
+      }
+
+    }
+
+  );
+
+}
