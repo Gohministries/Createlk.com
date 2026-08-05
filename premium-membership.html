@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>CreateLK Academy | Premium Membership</title><style>
 
 *{
@@ -37,10 +36,28 @@ font-weight:800;
 font-size:18px;
 }
 
-.nav a{
+.nav-right{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.home{
 color:#fff;
 text-decoration:none;
 font-weight:700;
+font-size:14px;
+}
+
+.logout{
+display:none;
+background:#ffffff18;
+color:#fff;
+border:1px solid #ffffff55;
+padding:8px 11px;
+border-radius:8px;
+font-weight:700;
+cursor:pointer;
 font-size:14px;
 }
 
@@ -110,11 +127,6 @@ background:#fee2e2;
 color:#991b1b;
 }
 
-.pending{
-background:#fff4d6;
-color:#946200;
-}
-
 .email{
 font-size:13px;
 margin-top:5px;
@@ -155,10 +167,6 @@ background:#174ea6;
 color:#fff;
 }
 
-.hidden{
-display:none;
-}
-
 .features{
 margin-top:20px;
 display:grid;
@@ -186,16 +194,45 @@ font-size:13px;
 grid-template-columns:1fr;
 }
 
+.nav{
+padding:12px;
+}
+
+.logo{
+font-size:16px;
+}
+
+.logout{
+font-size:13px;
+padding:7px 9px;
+}
+
 }
 
 </style></head><body><header><div class="nav"><div class="logo">
 📚 CreateLK Academy
-</div><a href="index.html">
+</div><div class="nav-right"><a
+class="home"
+href="index.html">
+
 🏠 Home
-</a></div></header><main><section class="hero"><div class="icon">⭐</div><h1>Premium Membership</h1><p>
+
+</a><button
+id="logout"
+class="logout"
+type="button">
+
+🚪 Logout
+
+</button></div></div></header><main><section class="hero"><div class="icon">
+⭐
+</div><h1>
+Premium Membership
+</h1><p>
 Unlock Premium AI English MCQs and practise every day.
-</p></section><section class="card"><div class="price">
-LKR 1,500 <small>• 30 Days</small>
+</p></section><section class="card"><div class="price">LKR 1,500
+<small>• 30 Days</small>
+
 </div><div
 id="status"
 class="status checking">⏳ Checking Premium membership...
@@ -221,9 +258,11 @@ class="button free">
 </div><div class="feature">
 📅 30-Day Membership
 </div></div></section></main><footer>📚 <b>CreateLK Academy</b>
-<br>
-Learn English. Build Your Future.
+
+<br>Learn English. Build Your Future.
+
 <br><br>
+
 © 2026 CreateLK Academy. All Rights Reserved.
 
 </footer><script>
@@ -239,6 +278,14 @@ const MEMBERSHIP_API =
 "https://createlk-membership.gateofheavensl1.workers.dev";
 
 
+/*
+   IMPORTANT
+
+   Your Premium AI page filename must be:
+
+   premium-course.html
+*/
+
 const PREMIUM_PAGE =
 "premium-course.html";
 
@@ -246,8 +293,14 @@ const PREMIUM_PAGE =
 const statusBox =
 document.getElementById("status");
 
+
 const content =
 document.getElementById("content");
+
+
+const logoutButton =
+document.getElementById("logout");
+
 
 let timer = null;
 
@@ -272,6 +325,7 @@ for(const key of keys){
 const value =
 localStorage.getItem(key);
 
+
 if(
 value &&
 value.trim()
@@ -286,6 +340,10 @@ return value
 }
 
 
+/*
+   Support stored user objects
+*/
+
 for(
 const key of [
 "createlk_user",
@@ -299,6 +357,7 @@ const user =
 JSON.parse(
 localStorage.getItem(key)
 );
+
 
 if(
 user &&
@@ -322,34 +381,72 @@ return "";
 
 
 /* =====================================================
-   CHECK ACTIVE STATUS
+   LOGIN UI
+===================================================== */
+
+function updateLoginUI(){
+
+if(
+getEmail()
+){
+
+logoutButton.style.display =
+"block";
+
+}else{
+
+logoutButton.style.display =
+"none";
+
+}
+
+}
+
+
+/* =====================================================
+   ACTIVE MEMBERSHIP CHECK
 ===================================================== */
 
 function isActive(data){
 
 if(!data){
+
 return false;
+
 }
 
 
 /*
-   Direct active response
-*/
+   Direct:
 
-if(data.active === true){
-return true;
-}
-
-
-/*
-   Status response
+   { active:true }
 */
 
 if(
-String(data.status || "")
-.toLowerCase() === "active"
+data.active === true
 ){
+
 return true;
+
+}
+
+
+/*
+   Status:
+
+   { status:"active" }
+*/
+
+if(
+String(
+data.status || ""
+).toLowerCase()
+===
+"active"
+){
+
+return true;
+
 }
 
 
@@ -361,11 +458,16 @@ if(
 data.membership &&
 (
 data.membership.active === true ||
-String(data.membership.status || "")
-.toLowerCase() === "active"
+String(
+data.membership.status || ""
+).toLowerCase()
+===
+"active"
 )
 ){
+
 return true;
+
 }
 
 
@@ -377,11 +479,16 @@ if(
 data.subscription &&
 (
 data.subscription.active === true ||
-String(data.subscription.status || "")
-.toLowerCase() === "active"
+String(
+data.subscription.status || ""
+).toLowerCase()
+===
+"active"
 )
 ){
+
 return true;
+
 }
 
 
@@ -397,8 +504,11 @@ return false;
 function getExpiry(data){
 
 if(!data){
+
 return null;
+
 }
+
 
 return (
 
@@ -436,7 +546,32 @@ null
 
 
 /* =====================================================
-   SHOW ACTIVE
+   OPEN PREMIUM COURSE
+===================================================== */
+
+function openPremium(){
+
+console.log(
+"Opening:",
+PREMIUM_PAGE
+);
+
+
+/*
+   Direct navigation.
+
+   This avoids problems with dynamically
+   generated <a> links.
+*/
+
+window.location.href =
+PREMIUM_PAGE;
+
+}
+
+
+/* =====================================================
+   SHOW ACTIVE MEMBERSHIP
 ===================================================== */
 
 function showActive(data){
@@ -469,8 +604,10 @@ if(expiry){
 
 const date =
 new Date(
-String(expiry).replace(" ","T")
+String(expiry)
+.replace(" ","T")
 );
+
 
 html +=
 `<div>📅 Expires: ${date.toLocaleDateString()}</div>`;
@@ -479,9 +616,15 @@ html +=
 
 
 html +=
-`<div id="countdown" class="countdown">
+`
+<div
+id="countdown"
+class="countdown">
+
 ⏳ Calculating...
-</div>`;
+
+</div>
+`;
 
 
 statusBox.innerHTML =
@@ -490,18 +633,22 @@ html;
 
 /*
    IMPORTANT:
-   Open the actual Premium AI page.
+
+   Use a button instead of a dynamic
+   href link.
 */
 
-content.innerHTML = `
+content.innerHTML =
 
-<a
-href="${PREMIUM_PAGE}"
+`
+<button
+id="openPremium"
+type="button"
 class="button premium">
 
 ⭐ Open Premium AI
 
-</a>
+</button>
 
 <a
 href="index.html"
@@ -510,13 +657,36 @@ class="button free">
 🏠 Back to Home
 
 </a>
-
 `;
 
 
+/*
+   Attach click event
+*/
+
+const openButton =
+document.getElementById(
+"openPremium"
+);
+
+
+if(openButton){
+
+openButton.onclick =
+openPremium;
+
+}
+
+
+/*
+   Start countdown
+*/
+
 if(expiry){
 
-startCountdown(expiry);
+startCountdown(
+expiry
+);
 
 }
 
@@ -534,7 +704,8 @@ clearInterval(timer);
 
 const end =
 new Date(
-String(expiry).replace(" ","T")
+String(expiry)
+.replace(" ","T")
 ).getTime();
 
 
@@ -547,15 +718,21 @@ Math.floor(
 
 
 const box =
-document.getElementById("countdown");
+document.getElementById(
+"countdown"
+);
 
 
 if(!box){
+
 return;
+
 }
 
 
-if(seconds <= 0){
+if(
+seconds <= 0
+){
 
 clearInterval(timer);
 
@@ -568,8 +745,9 @@ statusBox.innerHTML =
 "🔒 <b>Premium membership expired.</b>";
 
 
-content.innerHTML = `
+content.innerHTML =
 
+`
 <a
 href="payment.html"
 class="button payment">
@@ -585,8 +763,8 @@ class="button free">
 🏠 Back to Home
 
 </a>
-
 `;
+
 
 return;
 
@@ -598,6 +776,7 @@ Math.floor(
 seconds / 86400
 );
 
+
 seconds %= 86400;
 
 
@@ -605,6 +784,7 @@ const hours =
 Math.floor(
 seconds / 3600
 );
+
 
 seconds %= 3600;
 
@@ -614,16 +794,19 @@ Math.floor(
 seconds / 60
 );
 
+
 seconds %= 60;
 
 
 box.textContent =
+
 `⏳ Expires in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
 
 }
 
 
 update();
+
 
 timer =
 setInterval(
@@ -640,6 +823,9 @@ update,
 
 async function checkMembership(){
 
+updateLoginUI();
+
+
 const email =
 getEmail();
 
@@ -649,12 +835,14 @@ if(!email){
 statusBox.className =
 "status expired";
 
+
 statusBox.innerHTML =
 "🔐 <b>Please login first.</b>";
 
 
-content.innerHTML = `
+content.innerHTML =
 
+`
 <a
 href="login.html"
 class="button payment">
@@ -670,8 +858,8 @@ class="button free">
 ✍️ Create Account
 
 </a>
-
 `;
+
 
 return;
 
@@ -680,19 +868,28 @@ return;
 
 try{
 
+
 statusBox.className =
 "status checking";
+
 
 statusBox.innerHTML =
 "⏳ Checking Premium membership...";
 
 
 const url =
+
 MEMBERSHIP_API +
 "/status?email=" +
 encodeURIComponent(email) +
 "&t=" +
 Date.now();
+
+
+console.log(
+"Membership URL:",
+url
+);
 
 
 const response =
@@ -717,6 +914,7 @@ console.log(
 response.status
 );
 
+
 console.log(
 "Membership RAW:",
 text
@@ -724,6 +922,7 @@ text
 
 
 let data;
+
 
 try{
 
@@ -739,7 +938,9 @@ throw new Error(
 }
 
 
-if(!response.ok){
+if(
+!response.ok
+){
 
 throw new Error(
 "Membership server error: " +
@@ -759,7 +960,9 @@ data
    ACTIVE
 ===================================================== */
 
-if(isActive(data)){
+if(
+isActive(data)
+){
 
 showActive(data);
 
@@ -775,12 +978,14 @@ return;
 statusBox.className =
 "status expired";
 
+
 statusBox.innerHTML =
 "🔒 <b>Premium membership not active.</b>";
 
 
-content.innerHTML = `
+content.innerHTML =
 
+`
 <a
 href="payment.html"
 class="button payment">
@@ -796,8 +1001,8 @@ class="button free">
 🏠 Back to Home
 
 </a>
-
 `;
+
 
 }catch(error){
 
@@ -810,12 +1015,14 @@ error
 statusBox.className =
 "status expired";
 
+
 statusBox.innerHTML =
 "❌ <b>Unable to check membership.</b>";
 
 
-content.innerHTML = `
+content.innerHTML =
 
+`
 <a
 href="payment.html"
 class="button payment">
@@ -831,7 +1038,6 @@ class="button free">
 🏠 Back to Home
 
 </a>
-
 `;
 
 }
@@ -840,14 +1046,81 @@ class="button free">
 
 
 /* =====================================================
+   LOGOUT
+===================================================== */
+
+logoutButton.onclick =
+function(){
+
+const confirmed =
+confirm(
+"Are you sure you want to logout?"
+);
+
+
+if(!confirmed){
+
+return;
+
+}
+
+
+/*
+   Remove all login keys
+*/
+
+[
+"createlk_student_email",
+"studentEmail",
+"email",
+"createlk_user",
+"createlk_student"
+].forEach(
+key=>{
+
+localStorage.removeItem(
+key
+);
+
+}
+);
+
+
+/*
+   Clear session
+*/
+
+sessionStorage.clear();
+
+
+/*
+   Stop countdown
+*/
+
+clearInterval(timer);
+
+
+/*
+   Go home
+*/
+
+window.location.href =
+"index.html";
+
+};
+
+
+/* =====================================================
    START
 ===================================================== */
+
+updateLoginUI();
 
 checkMembership();
 
 
 /* =====================================================
-   RECHECK WHEN RETURNING
+   RECHECK WHEN PAGE BECOMES VISIBLE
 ===================================================== */
 
 document.addEventListener(
@@ -855,7 +1128,8 @@ document.addEventListener(
 function(){
 
 if(
-document.visibilityState === "visible"
+document.visibilityState ===
+"visible"
 ){
 
 checkMembership();
@@ -864,5 +1138,4 @@ checkMembership();
 
 });
 
-</script></body>
-</html>
+</script></body></html>
