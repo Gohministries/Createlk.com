@@ -1,37 +1,43 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Login | CreateLK Academy</title>
-<meta name="description" content="Login to your CreateLK Academy account."><style>
-*{box-sizing:border-box;margin:0;padding:0}
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Login | CreateLK Academy</title><meta name="description" content="Login to your CreateLK Academy account."><style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
 font-family:Arial,sans-serif;
 background:#f4f7fb;
 color:#172033;
-line-height:1.6
+line-height:1.6;
 }
 
 header{
 background:#172554;
-color:#fff;
+color:white;
 padding:14px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-position:relative
+position:relative;
 }
 
-.logo{font-size:20px;font-weight:bold}
+.logo{
+font-size:20px;
+font-weight:bold;
+}
 
 .menu-btn{
-background:#fff;
+background:white;
 color:#172554;
 border:0;
 padding:8px 13px;
 border-radius:7px;
 font-size:20px;
-cursor:pointer
+cursor:pointer;
 }
 
 nav{
@@ -39,15 +45,17 @@ display:none;
 position:absolute;
 right:5%;
 top:62px;
-background:#fff;
+background:white;
 width:210px;
 border-radius:10px;
 box-shadow:0 5px 20px #0003;
 overflow:hidden;
-z-index:100
+z-index:100;
 }
 
-nav.show{display:block}
+nav.show{
+display:block;
+}
 
 nav a{
 display:block;
@@ -55,80 +63,85 @@ color:#172033;
 text-decoration:none;
 padding:12px 16px;
 font-size:15px;
-border-bottom:1px solid #eee
-}
-
-nav a:hover{
-background:#f1f5f9;
-color:#2563eb
+border-bottom:1px solid #eee;
 }
 
 .hero{
 text-align:center;
 padding:55px 20px;
 background:linear-gradient(135deg,#172554,#2563eb);
-color:#fff
+color:white;
 }
 
 .hero h1{
 font-size:34px;
-margin-bottom:8px
+margin-bottom:8px;
 }
 
-.hero p{font-size:17px}
+.hero p{
+font-size:17px;
+}
 
-section{padding:45px 20px}
+section{
+padding:45px 20px;
+}
 
 .login-box{
 max-width:430px;
 margin:auto;
-background:#fff;
+background:white;
 padding:30px 25px;
 border-radius:14px;
-box-shadow:0 5px 20px #0002
+box-shadow:0 5px 20px #0002;
 }
 
 .login-box h2{
 text-align:center;
 color:#172554;
-margin-bottom:22px
+margin-bottom:22px;
 }
 
 label{
 display:block;
 font-weight:bold;
-margin:12px 0 6px
+margin:12px 0 6px;
 }
 
 input{
 width:100%;
-padding:12px;
+padding:13px;
 border:1px solid #ccd3df;
 border-radius:7px;
 font-size:15px;
-outline:none
+outline:none;
 }
 
-input:focus{border-color:#2563eb}
+input:focus{
+border-color:#2563eb;
+}
 
-.btn{
+#loginBtn{
+display:block;
 width:100%;
-border:0;
 background:#172554;
-color:#fff;
-padding:12px;
+color:white;
+border:none;
+padding:14px;
 border-radius:8px;
 font-size:16px;
 font-weight:bold;
 cursor:pointer;
-margin-top:20px
+margin-top:20px;
+min-height:48px;
 }
 
-.btn:hover{background:#2563eb}
+#loginBtn:hover{
+background:#2563eb;
+}
 
-.btn:disabled{
+#loginBtn:disabled{
 opacity:.6;
-cursor:not-allowed
+cursor:not-allowed;
 }
 
 .message{
@@ -137,37 +150,37 @@ margin-top:15px;
 padding:10px;
 border-radius:7px;
 text-align:center;
-font-size:14px
+font-size:14px;
 }
 
 .register{
 text-align:center;
-margin-top:20px
+margin-top:20px;
 }
 
 .register a{
 color:#2563eb;
 font-weight:bold;
-text-decoration:none
+text-decoration:none;
 }
 
 footer{
 background:#172033;
-color:#fff;
+color:white;
 text-align:center;
-padding:25px
+padding:25px;
 }
 
 footer a{
-color:#fff;
+color:white;
 margin:0 8px;
-text-decoration:none
+text-decoration:none;
 }
 
 .small{
 font-size:13px;
 color:#aaa;
-margin-top:10px
+margin-top:10px;
 }
 </style></head><body><header><div class="logo">📚 CreateLK Academy</div><button class="menu-btn" onclick="toggleMenu()">☰</button>
 
@@ -177,10 +190,9 @@ margin-top:10px
 <a href="premium.html">⭐ Premium Membership</a>
 <a href="login.html">🔐 Login</a>
 
-</nav></header><section class="hero"><h1>🔐 Welcome Back</h1>
-<p>Login to continue your English learning journey.</p></section><section><div class="login-box"><h2>Login to Your Account</h2><form id="loginForm"><label for="email">Email Address</label>
-
-<input
+</nav></header><section class="hero"><h1>🔐 Welcome Back</h1><p>Login to continue your English learning journey.</p></section><section><div class="login-box"><h2>Login to Your Account</h2><form id="loginForm"><label for="email">
+Email Address
+</label><input
 type="email"
 id="email"
 name="email"
@@ -190,9 +202,9 @@ autocomplete="email"
 
 «»
 
-<label for="password">Password</label>
-
-<input
+<label for="password">
+Password
+</label><input
 type="password"
 id="password"
 name="password"
@@ -202,13 +214,19 @@ autocomplete="current-password"
 
 «»
 
-<button class="btn" id="loginBtn" type="submit">
-Login
-</button><div id="message" class="message"></div></form><div class="register">
+<button
+type="submit"
+id="loginBtn"
+
+«»
+
+🔐 Login
+</button>
+
+<div id="message" class="message"></div></form><div class="register">
 Don't have an account?
 <a href="register.html">Create Account</a>
-</div></div></section><footer><p>📚 CreateLK Academy</p>
-<p>Learn English. Build Your Future.</p><p>
+</div></div></section><footer><p>📚 CreateLK Academy</p><p>Learn English. Build Your Future.</p><p>
 <a href="about.html">About</a>
 <a href="courses.html">Courses</a>
 <a href="premium.html">Premium</a>
@@ -218,10 +236,6 @@ Don't have an account?
 </p><p class="small">
 © 2026 CreateLK Academy. All Rights Reserved.
 </p></footer><script>
-
-/* =========================
-   MENU
-========================= */
 
 function toggleMenu(){
 document.getElementById("menu").classList.toggle("show");
@@ -239,16 +253,7 @@ menu.classList.remove("show");
 });
 
 
-/* =========================
-   CREATE LK ACADEMY API
-========================= */
-
 const WORKER_URL="https://gateofheavensl1.workers.dev";
-
-
-/* =========================
-   LOGIN
-========================= */
 
 document.getElementById("loginForm").addEventListener("submit",async function(e){
 
@@ -256,6 +261,7 @@ e.preventDefault();
 
 const email=document.getElementById("email").value.trim();
 const password=document.getElementById("password").value;
+
 const message=document.getElementById("message");
 const button=document.getElementById("loginBtn");
 
@@ -265,41 +271,33 @@ message.style.color="#1d4ed8";
 message.textContent="Logging in...";
 
 button.disabled=true;
-button.textContent="Logging in...";
+button.textContent="Please wait...";
 
 try{
 
-const response=await fetch(WORKER_URL+"/api/login",{
-
+const response=await fetch(
+WORKER_URL+"/api/login",
+{
 method:"POST",
-
 headers:{
 "Content-Type":"application/json"
 },
-
 body:JSON.stringify({
 email:email,
 password:password
 })
-
-});
-
-let data;
-
-try{
-data=await response.json();
-}catch{
-throw new Error("Invalid response from server.");
 }
+);
+
+const data=await response.json();
 
 if(!response.ok || !data.success){
 
-throw new Error(data.message || "Invalid email or password.");
+throw new Error(
+data.message || "Invalid email or password."
+);
 
 }
-
-
-/* Save login information */
 
 if(data.user){
 
@@ -319,12 +317,9 @@ data.token
 
 }
 
-
-/* Success */
-
 message.style.background="#ecfdf5";
 message.style.color="#166534";
-message.textContent="Login successful. Redirecting...";
+message.textContent="Login successful!";
 
 setTimeout(function(){
 
@@ -334,12 +329,14 @@ window.location.href="index.html";
 
 }catch(error){
 
+message.style.display="block";
 message.style.background="#fef2f2";
 message.style.color="#b91c1c";
-message.textContent=error.message || "Unable to login. Please try again.";
+message.textContent=
+error.message || "Login failed. Please try again.";
 
 button.disabled=false;
-button.textContent="Login";
+button.textContent="🔐 Login";
 
 }
 
