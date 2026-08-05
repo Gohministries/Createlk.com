@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>Login | CreateLK Academy</title>
-
-<meta name="description" content="Login to your CreateLK Academy account.">
-
-<style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0
-}
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Login | CreateLK Academy</title>
+<meta name="description" content="Login to your CreateLK Academy account."><style>
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
 font-family:Arial,sans-serif;
@@ -32,10 +22,7 @@ align-items:center;
 position:relative
 }
 
-.logo{
-font-size:20px;
-font-weight:bold
-}
+.logo{font-size:20px;font-weight:bold}
 
 .menu-btn{
 background:#fff;
@@ -60,9 +47,7 @@ overflow:hidden;
 z-index:100
 }
 
-nav.show{
-display:block
-}
+nav.show{display:block}
 
 nav a{
 display:block;
@@ -90,13 +75,9 @@ font-size:34px;
 margin-bottom:8px
 }
 
-.hero p{
-font-size:17px
-}
+.hero p{font-size:17px}
 
-section{
-padding:45px 20px
-}
+section{padding:45px 20px}
 
 .login-box{
 max-width:430px;
@@ -128,9 +109,7 @@ font-size:15px;
 outline:none
 }
 
-input:focus{
-border-color:#2563eb
-}
+input:focus{border-color:#2563eb}
 
 .btn{
 width:100%;
@@ -145,8 +124,11 @@ cursor:pointer;
 margin-top:20px
 }
 
-.btn:hover{
-background:#2563eb
+.btn:hover{background:#2563eb}
+
+.btn:disabled{
+opacity:.6;
+cursor:not-allowed
 }
 
 .message{
@@ -187,50 +169,16 @@ font-size:13px;
 color:#aaa;
 margin-top:10px
 }
-</style>
-</head>
+</style></head><body><header><div class="logo">📚 CreateLK Academy</div><button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-<body>
-
-<header>
-
-<div class="logo">📚 CreateLK Academy</div>
-
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-<nav id="menu">
-
-<a href="index.html">🏠 Home</a>
-
+<nav id="menu"><a href="index.html">🏠 Home</a>
 <a href="about.html">ℹ️ About</a>
-
 <a href="courses.html">📚 Explore Courses</a>
-
 <a href="premium.html">⭐ Premium Membership</a>
-
 <a href="login.html">🔐 Login</a>
 
-</nav>
-
-</header>
-
-<section class="hero">
-
-<h1>🔐 Welcome Back</h1>
-
-<p>Login to continue your English learning journey.</p>
-
-</section>
-
-<section>
-
-<div class="login-box">
-
-<h2>Login to Your Account</h2>
-
-<form id="loginForm">
-
-<label for="email">Email Address</label>
+</nav></header><section class="hero"><h1>🔐 Welcome Back</h1>
+<p>Login to continue your English learning journey.</p></section><section><div class="login-box"><h2>Login to Your Account</h2><form id="loginForm"><label for="email">Email Address</label>
 
 <input
 type="email"
@@ -238,7 +186,9 @@ id="email"
 name="email"
 placeholder="Enter your email"
 required
->
+autocomplete="email"
+
+«»
 
 <label for="password">Password</label>
 
@@ -248,47 +198,31 @@ id="password"
 name="password"
 placeholder="Enter your password"
 required
->
+autocomplete="current-password"
 
-<button class="btn" type="submit">
+«»
+
+<button class="btn" id="loginBtn" type="submit">
 Login
-</button>
-
-<div id="message" class="message"></div>
-
-</form>
-
-<div class="register">
+</button><div id="message" class="message"></div></form><div class="register">
 Don't have an account?
 <a href="register.html">Create Account</a>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>📚 CreateLK Academy</p>
-
-<p>Learn English. Build Your Future.</p>
-
-<p>
+</div></div></section><footer><p>📚 CreateLK Academy</p>
+<p>Learn English. Build Your Future.</p><p>
 <a href="about.html">About</a>
 <a href="courses.html">Courses</a>
 <a href="premium.html">Premium</a>
 <a href="contact.html">Contact</a>
 <a href="privacy.html">Privacy Policy</a>
 <a href="terms.html">Terms & Conditions</a>
-</p>
-
-<p class="small">
+</p><p class="small">
 © 2026 CreateLK Academy. All Rights Reserved.
-</p>
+</p></footer><script>
 
-</footer>
+/* =========================
+   MENU
+========================= */
 
-<script>
 function toggleMenu(){
 document.getElementById("menu").classList.toggle("show");
 }
@@ -304,19 +238,112 @@ menu.classList.remove("show");
 
 });
 
-document.getElementById("loginForm").addEventListener("submit",function(e){
+
+/* =========================
+   CREATE LK ACADEMY API
+========================= */
+
+const WORKER_URL="https://gateofheavensl1.workers.dev";
+
+
+/* =========================
+   LOGIN
+========================= */
+
+document.getElementById("loginForm").addEventListener("submit",async function(e){
 
 e.preventDefault();
 
+const email=document.getElementById("email").value.trim();
+const password=document.getElementById("password").value;
 const message=document.getElementById("message");
+const button=document.getElementById("loginBtn");
 
 message.style.display="block";
-message.style.background="#fff7ed";
-message.style.color="#9a3412";
-message.textContent="Login system will be connected to the CreateLK Academy backend.";
+message.style.background="#eff6ff";
+message.style.color="#1d4ed8";
+message.textContent="Logging in...";
+
+button.disabled=true;
+button.textContent="Logging in...";
+
+try{
+
+const response=await fetch(WORKER_URL+"/api/login",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+email:email,
+password:password
+})
 
 });
-</script>
 
-</body>
+let data;
+
+try{
+data=await response.json();
+}catch{
+throw new Error("Invalid response from server.");
+}
+
+if(!response.ok || !data.success){
+
+throw new Error(data.message || "Invalid email or password.");
+
+}
+
+
+/* Save login information */
+
+if(data.user){
+
+localStorage.setItem(
+"createlk_user",
+JSON.stringify(data.user)
+);
+
+}
+
+if(data.token){
+
+localStorage.setItem(
+"createlk_token",
+data.token
+);
+
+}
+
+
+/* Success */
+
+message.style.background="#ecfdf5";
+message.style.color="#166534";
+message.textContent="Login successful. Redirecting...";
+
+setTimeout(function(){
+
+window.location.href="index.html";
+
+},1000);
+
+}catch(error){
+
+message.style.background="#fef2f2";
+message.style.color="#b91c1c";
+message.textContent=error.message || "Unable to login. Please try again.";
+
+button.disabled=false;
+button.textContent="Login";
+
+}
+
+});
+
+</script></body>
 </html>
