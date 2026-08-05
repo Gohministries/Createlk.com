@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>CreateLK Academy | Premium AI MCQs</title>
+
+<meta name="description"
+content="CreateLK Academy Premium AI English MCQs">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:"Segoe UI",Arial,sans-serif;
+background:#f4f7fb;
+color:#172033;
+}
+
+header{
+background:#174ea6;
+color:#fff;
+padding:15px 18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:18px;
+font-weight:800;
+}
+
+header a{
+color:#fff;
+text-decoration:none;
+font-weight:700;
+}
+
+main{
+max-width:720px;
+margin:auto;
+padding:25px 15px 50px;
+}
+
+.hero{
+text-align:center;
+margin-bottom:20px;
+}
+
+.icon{
+font-size:52px;
+}
+
+h1{
+color:#174ea6;
+font-size:29px;
+margin:8px 0;
+}
+
+.hero p{
+color:#667085;
+line-height:1.6;
+}
+
+.badge{
+display:inline-block;
+margin-top:10px;
+padding:7px 14px;
+border-radius:20px;
+background:#fff8e7;
+color:#946200;
+font-size:13px;
+font-weight:800;
+}
+
+.card{
+background:#fff;
+padding:20px;
+border-radius:18px;
+margin-bottom:16px;
+box-shadow:0 5px 25px #0000000d;
+}
+
+.stats{
+display:flex;
+justify-content:space-between;
+font-size:14px;
+font-weight:800;
+}
+
+.progress{
+height:10px;
+background:#e5eaf2;
+border-radius:10px;
+overflow:hidden;
+margin:10px 0 15px;
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:#f5a623;
+transition:.3s;
+}
+
+.info{
+padding:12px;
+background:#f8faff;
+border:1px solid #dbe7ff;
+border-radius:10px;
+margin-bottom:16px;
+font-size:14px;
+line-height:1.5;
+color:#475467;
+}
+
+label{
+display:block;
+font-weight:700;
+font-size:14px;
+margin:12px 0 5px;
+}
+
+select{
+width:100%;
+padding:14px;
+border:1px solid #d5dbe5;
+border-radius:11px;
+font-size:16px;
+background:#fff;
+outline:none;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:14px;
+border:0;
+border-radius:11px;
+background:#174ea6;
+color:#fff;
+font-size:16px;
+font-weight:800;
+cursor:pointer;
+}
+
+button:disabled{
+opacity:.5;
+cursor:not-allowed;
+}
+
+.loading{
+display:none;
+text-align:center;
+padding:15px;
+color:#667085;
+}
+
+.status{
+display:none;
+margin-top:14px;
+padding:13px;
+border-radius:11px;
+line-height:1.5;
+}
+
+.status.success{
+display:block;
+background:#ecfdf3;
+color:#166534;
+}
+
+.status.error{
+display:block;
+background:#fef2f2;
+color:#991b1b;
+}
+
+.status.pending{
+display:block;
+background:#fff7d6;
+color:#946200;
+}
+
+#questionCard{
+display:none;
+}
+
+.question-number{
+color:#174ea6;
+font-size:13px;
+font-weight:800;
+margin-bottom:10px;
+}
+
+.question{
+font-size:20px;
+font-weight:800;
+line-height:1.5;
+margin-bottom:15px;
+}
+
+.option{
+background:#fff;
+color:#172033;
+border:2px solid #e0e5ed;
+text-align:left;
+margin:7px 0;
+}
+
+.option:hover{
+background:#f8faff;
+}
+
+.option.correct{
+background:#ecfdf3;
+border-color:#16a34a;
+color:#166534;
+}
+
+.option.wrong{
+background:#fef2f2;
+border-color:#dc2626;
+color:#991b1b;
+}
+
+.result{
+display:none;
+margin-top:15px;
+padding:15px;
+border-radius:12px;
+line-height:1.7;
+}
+
+.result.correct{
+background:#ecfdf3;
+color:#166534;
+}
+
+.result.wrong{
+background:#fef2f2;
+color:#991b1b;
+}
+
+footer{
+text-align:center;
+padding:25px;
+color:#667085;
+font-size:13px;
+line-height:1.8;
+}
+
+footer a{
+color:#174ea6;
+text-decoration:none;
+}
+
+@media(max-width:500px){
+
+main{
+padding:20px 12px 40px;
+}
+
+h1{
+font-size:25px;
+}
+
+.card{
+padding:17px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+📚 CreateLK Academy
+</div>
+
+<a href="index.html">
+🏠 Home
+</a>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+<div class="icon">
+⭐
+</div>
+
+<h1>
+Premium AI English MCQs
+</h1>
+
+<p>
+Practise personalised English MCQs
+with answers and explanations.
+</p>
+
+<div class="badge">
+⭐ PREMIUM • 100 MCQs / DAY
+</div>
+
+</section>
+
+
+<section class="card">
+
+<div class="stats">
+
+<span>
+⭐ Daily Usage
+</span>
+
+<span id="usage">
+Checking...
+</span>
+
+</div>
+
+
+<div class="progress">
+
+<div
+id="progress"
+class="progress-bar">
+</div>
+
+</div>
+
+
+<div
+id="membershipInfo"
+class="info">
+
+⏳ Checking Premium membership...
+
+</div>
+
+
+<div
+id="status"
+class="status">
+</div>
+
+
+<h2>
+🎯 Generate Premium MCQ
+</h2>
+
+
+<label for="category">
+📚 Category
+</label>
+
+<select id="category">
+
+<option value="Grammar">
+📚 Grammar
+</option>
+
+<option value="Tenses">
+⏰ English Tenses
+</option>
+
+<option value="Vocabulary">
+📝 Vocabulary
+</option>
+
+<option value="Spelling">
+🔤 Spelling
+</option>
+
+<option value="Parts of Speech">
+🧩 Parts of Speech
+</option>
+
+<option value="Conversation">
+💬 Conversation
+</option>
+
+<option value="Reading Comprehension">
+📖 Reading Comprehension
+</option>
+
+<option value="Sentence Structure">
+✍️ Sentence Structure
+</option>
+
+<option value="Active and Passive Voice">
+🔄 Active & Passive Voice
+</option>
+
+<option value="Direct and Indirect Speech">
+🗣️ Direct & Indirect Speech
+</option>
+
+<option value="Question Formation">
+❓ Question Formation
+</option>
+
+<option value="Prepositions">
+🔗 Prepositions
+</option>
+
+<option value="Conjunctions">
+🔀 Conjunctions
+</option>
+
+<option value="Articles">
+📰 Articles
+</option>
+
+<option value="Modal Verbs">
+🎯 Modal Verbs
+</option>
+
+<option value="Comparatives and Superlatives">
+📈 Comparatives & Superlatives
+</option>
+
+<option value="Business English">
+💼 Business English
+</option>
+
+<option value="Academic English">
+🎓 Academic English
+</option>
+
+<option value="Everyday English">
+🌍 Everyday English
+</option>
+
+<option value="Mixed English">
+🏆 Mixed English
+</option>
+
+</select>
+
+
+<label for="level">
+🎓 Difficulty
+</label>
+
+<select id="level">
+
+<option value="Beginner">
+🌱 Beginner
+</option>
+
+<option value="Intermediate" selected>
+📘 Intermediate
+</option>
+
+<option value="Advanced">
+🎓 Advanced
+</option>
+
+</select>
+
+
+<button
+id="generate"
+onclick="generateMCQ()"
+disabled>
+
+⏳ Checking Premium...
+
+</button>
+
+
+<div
+id="loading"
+class="loading">
+
+⏳ Premium AI is generating...
+
+</div>
+
+</section>
+
+
+<section
+id="questionCard"
+class="card">
+
+<div
+id="questionNumber"
+class="question-number">
+</div>
+
+<div
+id="question"
+class="question">
+</div>
+
+<div id="options">
+</div>
+
+<div
+id="result"
+class="result">
+</div>
+
+<button
+id="next"
+style="display:none"
+onclick="generateMCQ()">
+
+➡️ Next MCQ
+
+</button>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+📚 <b>CreateLK Academy</b>
+
+<br>
+
+Learn English. Build Your Future.
+
+<br><br>
+
+<a href="index.html">Home</a>
+·
+<a href="membership.html">Membership</a>
+·
+<a href="dashboard.html">Dashboard</a>
+
+<br><br>
+
+© 2026 CreateLK Academy.
+All Rights Reserved.
+
+</footer>
+
+
+<script>
+
+"use strict";
+
+
+/* =================================
+   PREMIUM WORKER
+================================= */
+
+const WORKER =
+"https://premium.gateofheavensl1.workers.dev";
+
+
+const LIMIT = 100;
+
+
+/* =================================
+   VARIABLES
+================================= */
+
+let email = "";
+
+let used = 0;
+
+let premiumVerified = false;
+
+
+/* =================================
+   GET STUDENT EMAIL
+================================= */
+
+function getStudentEmail(){
+
+let value =
+localStorage.getItem(
+"createlk_student_email"
+);
+
+if(value){
+
+return String(value)
+.trim()
+.toLowerCase();
+
+}
+
+
+try{
+
+const user =
+JSON.parse(
+localStorage.getItem(
+"createlk_user"
+)
+);
+
+if(
+user &&
+user.email
+){
+
+return String(
+user.email
+)
+.trim()
+.toLowerCase();
+
+}
+
+}catch(e){
+
+console.log(e);
+
+}
+
+
+try{
+
+const student =
+JSON.parse(
+localStorage.getItem(
+"createlk_student"
+)
+);
+
+if(
+student &&
+student.email
+){
+
+return String(
+student.email
+)
+.trim()
+.toLowerCase();
+
+}
+
+}catch(e){
+
+console.log(e);
+
+}
+
+
+return "";
+
+}
+
+
+/* =================================
+   STATUS
+================================= */
+
+function showStatus(
+message,
+type
+){
+
+const box =
+document.getElementById(
+"status"
+);
+
+box.textContent =
+message;
+
+box.className =
+"status " + type;
+
+}
+
+
+/* =================================
+   UPDATE PROGRESS
+================================= */
+
+function updateProgress(){
+
+document.getElementById(
+"usage"
+).textContent =
+used + " / " + LIMIT;
+
+
+document.getElementById(
+"progress"
+).style.width =
+Math.min(
+(used / LIMIT) * 100,
+100
+) + "%";
+
+
+const button =
+document.getElementById(
+"generate"
+);
+
+
+if(used >= LIMIT){
+
+button.disabled = true;
+
+button.textContent =
+"🔒 Daily Limit Reached";
+
+showStatus(
+"🔒 You have reached your 100 MCQ daily limit. Your limit resets at 12:00 AM.",
+"pending"
+);
+
+}else if(premiumVerified){
+
+button.disabled = false;
+
+button.textContent =
+"✨ Generate Premium MCQ";
+
+}
+
+}
+
+
+/* =================================
+   VERIFY PREMIUM AUTOMATICALLY
+================================= */
+
+async function verifyPremium(){
+
+email =
+getStudentEmail();
+
+
+if(!email){
+
+document.getElementById(
+"membershipInfo"
+).innerHTML =
+"❌ Please login to your CreateLK Academy account first.";
+
+showStatus(
+"❌ Student account not found. Please login first.",
+"error"
+);
+
+return;
+
+}
+
+
+try{
+
+const response =
+await fetch(
+WORKER +
+"/api/verify-premium",
+{
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+email:email
+}),
+
+cache:"no-store"
+}
+);
+
+
+const data =
+await response.json();
+
+
+console.log(
+"Premium verification:",
+data
+);
+
+
+if(
+!response.ok ||
+!data.success
+){
+
+document.getElementById(
+"membershipInfo"
+).innerHTML =
+"🔒 Premium membership is not active.";
+
+showStatus(
+data.message ||
+"❌ Your Premium membership is not active.",
+"error"
+);
+
+return;
+
+}
+
+
+/* =================================
+   PREMIUM ACTIVE
+================================= */
+
+premiumVerified = true;
+
+
+used =
+Number(data.used || 0);
+
+
+let expiry = "";
+
+
+if(
+data.membership
+){
+
+expiry =
+data.membership.expiry ||
+data.membership.expires_at ||
+"";
+
+}
+
+
+document.getElementById(
+"membershipInfo"
+).innerHTML =
+"⭐ <b>Premium Active</b>" +
+(
+expiry
+?
+" • Valid until " +
+new Date(
+expiry
+).toLocaleDateString(
+"en-GB"
+)
+:
+""
+);
+
+
+updateProgress();
+
+
+if(used < LIMIT){
+
+showStatus(
+"✅ Premium access verified. Choose a category and generate your MCQ.",
+"success"
+);
+
+}
+
+}catch(error){
+
+console.error(
+"Premium verification error:",
+error
+);
+
+showStatus(
+"❌ Unable to connect to Premium Worker.",
+"error"
+);
+
+}
+
+}
+
+
+/* =================================
+   GENERATE MCQ
+================================= */
+
+async function generateMCQ(){
+
+if(!premiumVerified){
+
+showStatus(
+"❌ Premium access is not verified.",
+"error"
+);
+
+return;
+
+}
+
+
+if(used >= LIMIT){
+
+showStatus(
+"🔒 Daily limit reached. Please try again after 12:00 AM.",
+"pending"
+);
+
+return;
+
+}
+
+
+const category =
+document.getElementById(
+"category"
+).value;
+
+
+const level =
+document.getElementById(
+"level"
+).value;
+
+
+const button =
+document.getElementById(
+"generate"
+);
+
+
+button.disabled = true;
+
+
+document.getElementById(
+"loading"
+).style.display =
+"block";
+
+
+try{
+
+const response =
+await fetch(
+WORKER +
+"/api/ai-mcq",
+{
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+email:email,
+
+topic:category,
+
+category:category,
+
+level:level
+
+}),
+
+cache:"no-store"
+}
+);
+
+
+const data =
+await response.json();
+
+
+console.log(
+"AI MCQ response:",
+data
+);
+
+
+/* =================================
+   AUTH ERROR
+================================= */
+
+if(
+response.status === 401 ||
+data.premium_required ||
+data.expired
+){
+
+premiumVerified = false;
+
+showStatus(
+data.message ||
+"❌ Premium membership is not active.",
+"error"
+);
+
+return;
+
+}
+
+
+/* =================================
+   DAILY LIMIT
+================================= */
+
+if(
+response.status === 429 ||
+data.limit_reached
+){
+
+used = LIMIT;
+
+updateProgress();
+
+return;
+
+}
+
+
+/* =================================
+   GENERAL ERROR
+================================= */
+
+if(
+!response.ok ||
+data.success === false
+){
+
+throw new Error(
+data.message ||
+data.error ||
+"Unable to generate MCQ."
+);
+
+}
+
+
+/* =================================
+   FIND MCQ
+================================= */
+
+let mcq =
+data.mcq ||
+data.questionData;
+
+
+if(
+!mcq &&
+data.question
+){
+
+mcq = {
+
+question:
+data.question,
+
+options:
+data.options,
+
+answer:
+data.answer,
+
+explanation:
+data.explanation
+
+};
+
+}
+
+
+/* =================================
+   PARSE STRING MCQ
+================================= */
+
+if(
+typeof mcq === "string"
+){
+
+mcq =
+mcq
+.replace(
+/```json/gi,
+""
+)
+.replace(
+/```/g,
+""
+)
+.trim();
+
+
+mcq =
+JSON.parse(mcq);
+
+}
+
+
+/* =================================
+   VALIDATE
+================================= */
+
+if(
+!mcq ||
+!mcq.question ||
+!mcq.options ||
+!mcq.answer
+){
+
+throw new Error(
+"Invalid MCQ returned by Premium AI."
+);
+
+}
+
+
+const letters =
+["A","B","C","D"];
+
+
+for(
+const letter of letters
+){
+
+if(
+!mcq.options[letter]
+){
+
+throw new Error(
+"AI did not return four options."
+);
+
+}
+
+}
+
+
+/* =================================
+   UPDATE USAGE
+================================= */
+
+if(
+data.used !== undefined
+){
+
+used =
+Number(data.used);
+
+}else{
+
+used++;
+
+}
+
+
+/* =================================
+   SHOW QUESTION
+================================= */
+
+showMCQ(mcq);
+
+updateProgress();
+
+
+}catch(error){
+
+console.error(
+"MCQ generation error:",
+error
+);
+
+showStatus(
+"❌ " +
+(
+error.message ||
+"Unable to generate Premium MCQ."
+),
+"error"
+);
+
+}finally{
+
+document.getElementById(
+"loading"
+).style.display =
+"none";
+
+
+if(
+used < LIMIT &&
+premiumVerified
+){
+
+button.disabled = false;
+
+}
+
+}
+
+}
+
+
+/* =================================
+   SHOW MCQ
+================================= */
+
+function showMCQ(mcq){
+
+const card =
+document.getElementById(
+"questionCard"
+);
+
+card.style.display =
+"block";
+
+
+document.getElementById(
+"question"
+).textContent =
+mcq.question;
+
+
+document.getElementById(
+"questionNumber"
+).textContent =
+"QUESTION " +
+used +
+" OF " +
+LIMIT;
+
+
+const options =
+document.getElementById(
+"options"
+);
+
+options.innerHTML = "";
+
+
+const result =
+document.getElementById(
+"result"
+);
+
+result.style.display =
+"none";
+
+
+document.getElementById(
+"next"
+).style.display =
+"none";
+
+
+const answer =
+String(mcq.answer)
+.trim()
+.toUpperCase();
+
+
+["A","B","C","D"]
+.forEach(
+function(letter){
+
+const button =
+document.createElement(
+"button"
+);
+
+button.className =
+"option";
+
+button.textContent =
+letter +
+". " +
+mcq.options[letter];
+
+
+button.onclick =
+function(){
+
+checkAnswer(
+button,
+letter,
+answer,
+mcq.explanation
+);
+
+};
+
+
+options.appendChild(
+button
+);
+
+});
+
+
+card.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+
+/* =================================
+   CHECK ANSWER
+================================= */
+
+function checkAnswer(
+clicked,
+selected,
+answer,
+explanation
+){
+
+document
+.querySelectorAll(
+".option"
+)
+.forEach(
+function(button){
+
+button.disabled = true;
+
+}
+);
+
+
+/* Highlight correct */
+
+document
+.querySelectorAll(
+".option"
+)
+.forEach(
+function(button){
+
+if(
+button.textContent
+.startsWith(
+answer + "."
+)
+){
+
+button.classList.add(
+"correct"
+);
+
+}
+
+}
+);
+
+
+const result =
+document.getElementById(
+"result"
+);
+
+
+if(
+selected === answer
+){
+
+clicked.classList.add(
+"correct"
+);
+
+result.className =
+"result correct";
+
+result.innerHTML =
+"🎉 <b>Correct!</b>" +
+"<br><br>" +
+(
+explanation ||
+"Excellent work!"
+);
+
+}else{
+
+clicked.classList.add(
+"wrong"
+);
+
+result.className =
+"result wrong";
+
+result.innerHTML =
+"❌ <b>Incorrect.</b>" +
+"<br><br>" +
+"<b>Correct answer:</b> " +
+answer +
+"<br><br>" +
+(
+explanation ||
+"Review this question and try again."
+);
+
+}
+
+
+result.style.display =
+"block";
+
+
+if(
+used < LIMIT
+){
+
+document.getElementById(
+"next"
+).style.display =
+"block";
+
+}
+
+}
+
+
+/* =================================
+   START AUTOMATICALLY
+================================= */
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+verifyPremium();
+
+}
+);
+
+</script>
+
+</body>
+</html>
