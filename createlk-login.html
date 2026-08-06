@@ -1,10 +1,20 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Login | CreateLK Academy</title><meta name="description"
-content="Login to your CreateLK Academy account.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Login | CreateLK Academy</title>
+
+<meta
+name="description"
+content="Login to your CreateLK Academy account."
+>
 
 <style>
+
 *{
 box-sizing:border-box;
 margin:0;
@@ -215,81 +225,172 @@ padding:25px 20px;
 }
 
 }
-</style></head><body><header><div class="logo">
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+<div class="logo">
 📚 CreateLK Academy
-</div><button
+</div>
+
+<button
 type="button"
 class="menu-btn"
 onclick="toggleMenu()">
 ☰
 </button>
 
-<nav id="menu"><a href="index.html">
+<nav id="menu">
+
+<a href="index.html">
 🏠 Home
-</a><a href="courses.html">
+</a>
+
+<a href="about.html">
+ℹ️ About
+</a>
+
+<a href="courses.html">
 📚 Explore Courses
-</a><a href="membership.html">
+</a>
+
+<a href="membership.html">
 ⭐ Premium Membership
-</a><a href="createlk-login.html">
+</a>
+
+<a href="createlk-login.html">
 🔐 Login
-</a></nav></header><section class="hero"><h1>
+</a>
+
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<h1>
 🔐 Welcome Back
-</h1><p>
+</h1>
+
+<p>
 Login to continue your English learning journey.
-</p></section><section class="login-section"><div class="login-box"><h2>
+</p>
+
+</section>
+
+
+<section class="login-section">
+
+<div class="login-box">
+
+<h2>
 Login to Your Account
-</h2><form id="loginForm"><label for="email">
+</h2>
+
+<form id="loginForm">
+
+<label for="email">
 Email Address
-</label><input
+</label>
+
+<input
 type="email"
 id="email"
 name="email"
 placeholder="Enter your email"
 autocomplete="email"
 required
-
-«»
+>
 
 <label for="password">
 Password
-</label><input
+</label>
+
+<input
 type="password"
 id="password"
 name="password"
 placeholder="Enter your password"
 autocomplete="current-password"
 required
-
-«»
+>
 
 <button
 type="submit"
 id="loginBtn">
+
 🔐 Login
+
 </button>
 
 <div
 id="message"
 class="message">
-</div></form><div class="register">Don't have an account?
+</div>
+
+</form>
+
+
+<div class="register">
+
+Don't have an account?
 
 <a href="register.html">
 Create Account
-</a></div></div></section><footer><p>
-📚 CreateLK Academy
-</p><p>
-Learn English. Build Your Future.
-</p><p><a href="courses.html">
-Courses
-</a><a href="membership.html">
-Premium
-</a><a href="contact.html">
-Contact
-</a></p><p class="small">
-© 2026 CreateLK Academy. All Rights Reserved.
-</p></footer><script>
+</a>
 
-/* MOBILE MENU */
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>
+📚 CreateLK Academy
+</p>
+
+<p>
+Learn English. Build Your Future.
+</p>
+
+<p>
+
+<a href="courses.html">
+Courses
+</a>
+
+<a href="membership.html">
+Premium
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</p>
+
+<p class="small">
+© 2026 CreateLK Academy. All Rights Reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+/* =====================================
+   MOBILE MENU
+===================================== */
 
 function toggleMenu(){
 
@@ -299,6 +400,7 @@ document
 .toggle("show");
 
 }
+
 
 document.addEventListener(
 "click",
@@ -321,12 +423,18 @@ menu.classList.remove("show");
 
 });
 
-/* CREATE LK LOGIN API */
+
+/* =====================================
+   LOGIN API
+===================================== */
 
 const LOGIN_API =
 "https://createlk-login.gateofheavensl1.workers.dev/api/login";
 
-/* LOGIN */
+
+/* =====================================
+   LOGIN FORM
+===================================== */
 
 document
 .getElementById("loginForm")
@@ -336,6 +444,7 @@ async function(event){
 
 event.preventDefault();
 
+
 const email =
 document
 .getElementById("email")
@@ -343,16 +452,18 @@ document
 .trim()
 .toLowerCase();
 
+
 const password =
 document
 .getElementById("password")
 .value;
 
-const button =
-document.getElementById("loginBtn");
 
-const message =
-document.getElementById("message");
+const button =
+document.getElementById(
+"loginBtn"
+);
+
 
 if(!email || !password){
 
@@ -365,16 +476,25 @@ return;
 
 }
 
+
 button.disabled=true;
 
-button.textContent="Please wait...";
+button.textContent=
+"Please wait...";
+
 
 showMessage(
 "Connecting to CreateLK Academy...",
 "info"
 );
 
+
 try{
+
+
+/* =====================================
+   SEND LOGIN REQUEST
+===================================== */
 
 const response =
 await fetch(
@@ -383,32 +503,45 @@ LOGIN_API,
 method:"POST",
 
 headers:{
-"Content-Type":"application/json",
-"Accept":"application/json"
+"Content-Type":
+"application/json",
+
+"Accept":
+"application/json"
 },
 
 body:JSON.stringify({
+
 email:email,
+
 password:password
+
 })
+
 }
 );
 
-/* READ SERVER RESPONSE */
+
+/* =====================================
+   READ RESPONSE
+===================================== */
 
 const text =
 await response.text();
 
-let data={};
+
+let data;
+
 
 try{
 
-data=JSON.parse(text);
+data =
+JSON.parse(text);
 
-}catch(e){
+}catch(error){
 
 console.error(
-"Invalid server response:",
+"Server response:",
 text
 );
 
@@ -418,18 +551,24 @@ throw new Error(
 
 }
 
-/* CHECK HTTP STATUS */
+
+/* =====================================
+   HTTP ERROR
+===================================== */
 
 if(!response.ok){
 
 throw new Error(
 data.message ||
-"Login failed. Please check your email and password."
+"Login failed."
 );
 
 }
 
-/* CHECK API SUCCESS */
+
+/* =====================================
+   API ERROR
+===================================== */
 
 if(!data.success){
 
@@ -440,7 +579,10 @@ data.message ||
 
 }
 
-/* SAVE USER */
+
+/* =====================================
+   SAVE USER
+===================================== */
 
 if(data.user){
 
@@ -451,7 +593,20 @@ JSON.stringify(data.user)
 
 }
 
-/* SAVE TOKEN */
+
+/* =====================================
+   SAVE EMAIL
+===================================== */
+
+localStorage.setItem(
+"createlk_student_email",
+email
+);
+
+
+/* =====================================
+   SAVE TOKEN
+===================================== */
 
 if(data.token){
 
@@ -462,22 +617,27 @@ data.token
 
 }
 
-/* SUCCESS */
+
+/* =====================================
+   SUCCESS
+===================================== */
 
 showMessage(
 "Login successful! Redirecting...",
 "success"
 );
 
+
 setTimeout(
 function(){
 
-window.location.href=
+window.location.href =
 "membership.html";
 
 },
 800
 );
+
 
 }catch(error){
 
@@ -486,51 +646,81 @@ console.error(
 error
 );
 
+
 showMessage(
 error.message ||
 "Unable to connect to login server.",
 "error"
 );
 
+
 button.disabled=false;
 
-button.textContent="🔐 Login";
+button.textContent=
+"🔐 Login";
 
 }
 
 });
 
-/* MESSAGE FUNCTION */
 
-function showMessage(text,type){
+/* =====================================
+   MESSAGE
+===================================== */
+
+function showMessage(
+text,
+type
+){
 
 const message =
-document.getElementById("message");
+document.getElementById(
+"message"
+);
 
-message.style.display="block";
 
-message.textContent=text;
+message.style.display=
+"block";
+
+
+message.textContent=
+text;
+
 
 if(type==="success"){
 
-message.style.background="#dcfce7";
-message.style.color="#166534";
+message.style.background=
+"#dcfce7";
+
+message.style.color=
+"#166534";
 
 }
+
 else if(type==="error"){
 
-message.style.background="#fee2e2";
-message.style.color="#991b1b";
+message.style.background=
+"#fee2e2";
+
+message.style.color=
+"#991b1b";
 
 }
+
 else{
 
-message.style.background="#eff6ff";
-message.style.color="#1d4ed8";
+message.style.background=
+"#eff6ff";
+
+message.style.color=
+"#1d4ed8";
 
 }
 
 }
 
-</script></body>
+</script>
+
+
+</body>
 </html>
