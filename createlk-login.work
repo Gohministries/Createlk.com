@@ -1,457 +1,720 @@
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
-  "Content-Type": "application/json"
-};
+<!DOCTYPE html>
+<html lang="en">
 
-function response(data, status = 200) {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: corsHeaders
-  });
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Login | CreateLK Academy</title>
+
+<meta
+name="description"
+content="Login to your CreateLK Academy account."
+>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-async function hashPassword(password, salt) {
-  const encoder = new TextEncoder();
-
-  const keyMaterial = await crypto.subtle.importKey(
-    "raw",
-    encoder.encode(password),
-    "PBKDF2",
-    false,
-    ["deriveBits"]
-  );
-
-  const bits = await crypto.subtle.deriveBits(
-    {
-      name: "PBKDF2",
-      salt: encoder.encode(salt),
-      iterations: 100000,
-      hash: "SHA-256"
-    },
-    keyMaterial,
-    256
-  );
-
-  return Array.from(new Uint8Array(bits))
-    .map(b => b.toString(16).padStart(2, "0"))
-    .join("");
+body{
+font-family:Arial,sans-serif;
+background:#f4f7fb;
+color:#172033;
+line-height:1.6;
 }
 
-function createSalt() {
-  const bytes = new Uint8Array(16);
-  crypto.getRandomValues(bytes);
-
-  return Array.from(bytes)
-    .map(b => b.toString(16).padStart(2, "0"))
-    .join("");
+header{
+background:#172554;
+color:white;
+padding:14px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:relative;
 }
 
-function createToken() {
-  return crypto.randomUUID();
+.logo{
+font-size:20px;
+font-weight:bold;
 }
 
-export default {
+.menu-btn{
+background:white;
+color:#172554;
+border:0;
+padding:8px 13px;
+border-radius:7px;
+font-size:20px;
+cursor:pointer;
+}
+
+nav{
+display:none;
+position:absolute;
+right:5%;
+top:62px;
+background:white;
+width:220px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+overflow:hidden;
+z-index:1000;
+}
+
+nav.show{
+display:block;
+}
+
+nav a{
+display:block;
+color:#172033;
+text-decoration:none;
+padding:12px 16px;
+font-size:15px;
+border-bottom:1px solid #eee;
+}
+
+nav a:hover{
+background:#f1f5f9;
+color:#2563eb;
+}
+
+.hero{
+text-align:center;
+padding:55px 20px;
+background:linear-gradient(135deg,#172554,#2563eb);
+color:white;
+}
+
+.hero h1{
+font-size:34px;
+margin-bottom:8px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+.login-section{
+padding:45px 20px;
+}
+
+.login-box{
+max-width:430px;
+margin:auto;
+background:white;
+padding:30px 25px;
+border-radius:14px;
+box-shadow:0 5px 20px rgba(0,0,0,.12);
+}
+
+.login-box h2{
+text-align:center;
+color:#172554;
+margin-bottom:22px;
+}
+
+label{
+display:block;
+font-weight:bold;
+margin:12px 0 6px;
+}
+
+input{
+display:block;
+width:100%;
+padding:13px;
+border:1px solid #ccd3df;
+border-radius:7px;
+font-size:16px;
+outline:none;
+}
+
+input:focus{
+border-color:#2563eb;
+}
+
+#loginBtn{
+display:block;
+width:100%;
+height:52px;
+margin-top:20px;
+padding:14px;
+background:#172554;
+color:white;
+border:0;
+border-radius:8px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+}
+
+#loginBtn:hover{
+background:#2563eb;
+}
+
+#loginBtn:disabled{
+opacity:.6;
+cursor:not-allowed;
+}
+
+.message{
+display:none;
+margin-top:15px;
+padding:11px;
+border-radius:7px;
+text-align:center;
+font-size:14px;
+}
+
+.register{
+text-align:center;
+margin-top:20px;
+}
+
+.register a{
+color:#2563eb;
+font-weight:bold;
+text-decoration:none;
+}
+
+footer{
+background:#172033;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+footer p{
+margin:8px 0;
+}
 
-  async fetch(request, env) {
+footer a{
+color:white;
+margin:0 7px;
+text-decoration:none;
+}
 
-    if (request.method === "OPTIONS") {
-      return new Response(null, {
-        status: 204,
-        headers: corsHeaders
-      });
-    }
+footer a:hover{
+text-decoration:underline;
+}
 
-    const url = new URL(request.url);
-    const path = url.pathname;
+.small{
+font-size:13px;
+color:#aaa;
+margin-top:10px;
+}
 
-    /*
-    =========================
-    HOME / API STATUS
-    =========================
-    */
+@media(max-width:500px){
 
-    if (request.method === "GET" && path === "/") {
+.logo{
+font-size:17px;
+}
 
-      return response({
-        success: true,
-        service: "CreateLK Academy Authentication API",
-        status: "online",
-        routes: [
-          "POST /api/register",
-          "POST /api/login",
-          "GET /api/me"
-        ]
-      });
+.hero h1{
+font-size:28px;
+}
 
-    }
+.hero p{
+font-size:15px;
+}
 
+.login-box{
+padding:25px 20px;
+}
 
-    /*
-    =========================
-    REGISTER
-    =========================
-    */
+}
+
+</style>
 
-    if (
-      request.method === "POST" &&
-      path === "/api/register"
-    ) {
+</head>
 
-      try {
+<body>
 
-        const body = await request.json();
 
-        const name = String(body.name || "").trim();
-        const email = String(body.email || "")
-          .trim()
-          .toLowerCase();
+<header>
 
-        const password = String(body.password || "");
+<div class="logo">
+📚 CreateLK Academy
+</div>
 
-        if (!name || !email || !password) {
+<button
+type="button"
+class="menu-btn"
+onclick="toggleMenu()"
+aria-label="Open navigation">
+☰
+</button>
 
-          return response({
-            success: false,
-            message: "Name, email and password are required."
-          }, 400);
+<nav id="menu">
 
-        }
+<a href="index.html">
+🏠 Home
+</a>
 
-        if (password.length < 6) {
+<a href="about.html">
+ℹ️ About
+</a>
 
-          return response({
-            success: false,
-            message: "Password must contain at least 6 characters."
-          }, 400);
+<a href="courses.html">
+📚 Explore Courses
+</a>
 
-        }
+<a href="membership.html">
+⭐ Premium Membership
+</a>
 
+<a href="createlk-login.html">
+🔐 Login
+</a>
 
-        /*
-        Check existing user
-        */
+</nav>
 
-        const existing = await env.DB
-          .prepare(
-            "SELECT id FROM users WHERE email = ?"
-          )
-          .bind(email)
-          .first();
+</header>
 
-        if (existing) {
 
-          return response({
-            success: false,
-            message: "An account with this email already exists."
-          }, 409);
+<section class="hero">
 
-        }
+<h1>
+🔐 Welcome Back
+</h1>
 
+<p>
+Login to continue your English learning journey.
+</p>
 
-        /*
-        Create password hash
-        */
+</section>
 
-        const salt = createSalt();
 
-        const passwordHash =
-          await hashPassword(password, salt);
+<section class="login-section">
 
+<div class="login-box">
 
-        /*
-        Create user
-        */
+<h2>
+Login to Your Account
+</h2>
 
-        const result = await env.DB
-          .prepare(
-            `INSERT INTO users
-            (name,email,password_hash,password_salt,created_at)
-            VALUES (?,?,?,?,datetime('now'))`
-          )
-          .bind(
-            name,
-            email,
-            passwordHash,
-            salt
-          )
-          .run();
+<form id="loginForm">
 
+<label for="email">
+Email Address
+</label>
 
-        if (!result.success) {
+<input
+type="email"
+id="email"
+name="email"
+placeholder="Enter your email"
+autocomplete="email"
+required
+>
 
-          return response({
-            success: false,
-            message: "Unable to create account."
-          }, 500);
+<label for="password">
+Password
+</label>
 
-        }
+<input
+type="password"
+id="password"
+name="password"
+placeholder="Enter your password"
+autocomplete="current-password"
+required
+>
 
+<button
+type="submit"
+id="loginBtn">
 
-        return response({
-          success: true,
-          message: "Account created successfully."
-        }, 201);
+🔐 Login
 
+</button>
 
-      } catch (error) {
+<div
+id="message"
+class="message">
+</div>
 
-        return response({
-          success: false,
-          message: "Registration server error."
-        }, 500);
+</form>
 
-      }
 
-    }
+<div class="register">
 
+Don't have an account?
 
-    /*
-    =========================
-    LOGIN
-    =========================
-    */
+<a href="register.html">
+Create Account
+</a>
 
-    if (
-      request.method === "POST" &&
-      path === "/api/login"
-    ) {
+</div>
 
-      try {
+</div>
 
-        const body = await request.json();
+</section>
 
-        const email = String(body.email || "")
-          .trim()
-          .toLowerCase();
 
-        const password = String(body.password || "");
+<footer>
 
-        if (!email || !password) {
+<p>
+📚 CreateLK Academy
+</p>
 
-          return response({
-            success: false,
-            message: "Email and password are required."
-          }, 400);
+<p>
+Learn English. Build Your Future.
+</p>
 
-        }
+<p>
 
+<a href="courses.html">
+Courses
+</a>
 
-        /*
-        Find user
-        */
+<a href="membership.html">
+Premium
+</a>
 
-        const user = await env.DB
-          .prepare(
-            `SELECT
-              id,
-              name,
-              email,
-              password_hash,
-              password_salt
-             FROM users
-             WHERE email = ?`
-          )
-          .bind(email)
-          .first();
+<a href="contact.html">
+Contact
+</a>
 
+</p>
 
-        if (!user) {
+<p class="small">
+© 2026 CreateLK Academy. All Rights Reserved.
+</p>
 
-          return response({
-            success: false,
-            message: "Invalid email or password."
-          }, 401);
+</footer>
 
-        }
 
+<script>
 
-        /*
-        Verify password
-        */
+/* =====================================
+   MOBILE MENU
+===================================== */
 
-        const passwordHash =
-          await hashPassword(
-            password,
-            user.password_salt
-          );
+function toggleMenu(){
 
+const menu =
+document.getElementById("menu");
 
-        if (passwordHash !== user.password_hash) {
+menu.classList.toggle("show");
 
-          return response({
-            success: false,
-            message: "Invalid email or password."
-          }, 401);
+}
 
-        }
 
+document.addEventListener(
+"click",
+function(event){
 
-        /*
-        Create login session
-        */
+const menu =
+document.getElementById("menu");
 
-        const token = createToken();
+const button =
+document.querySelector(".menu-btn");
 
-        const expiresAt =
-          new Date(
-            Date.now() + 30 * 24 * 60 * 60 * 1000
-          ).toISOString();
+if(
+!menu.contains(event.target) &&
+!button.contains(event.target)
+){
 
+menu.classList.remove("show");
 
-        await env.DB
-          .prepare(
-            `INSERT INTO sessions
-            (token,user_id,expires_at,created_at)
-            VALUES (?,?,?,datetime('now'))`
-          )
-          .bind(
-            token,
-            user.id,
-            expiresAt
-          )
-          .run();
+}
 
+});
 
-        /*
-        Successful login
-        */
 
-        return response({
-          success: true,
-          message: "Login successful.",
+/* =====================================
+   LOGIN WORKER
+===================================== */
 
-          token: token,
+const LOGIN_API =
+"https://createlk-login.gateofheavensl1.workers.dev/api/login";
 
-          user: {
-            id: user.id,
-            name: user.name,
-            email: user.email
-          }
 
-        });
+/* =====================================
+   MESSAGE
+===================================== */
 
-      } catch (error) {
+function showMessage(text,type){
 
-        return response({
-          success: false,
-          message: "Login server error."
-        }, 500);
+const message =
+document.getElementById("message");
 
-      }
+message.style.display="block";
 
-    }
+message.textContent=text;
 
 
-    /*
-    =========================
-    CHECK LOGIN
-    =========================
-    */
+if(type==="success"){
 
-    if (
-      request.method === "GET" &&
-      path === "/api/me"
-    ) {
+message.style.background="#dcfce7";
+message.style.color="#166534";
 
-      try {
+}
 
-        const authorization =
-          request.headers.get("Authorization");
+else if(type==="error"){
 
-        if (!authorization) {
+message.style.background="#fee2e2";
+message.style.color="#991b1b";
 
-          return response({
-            success: false,
-            message: "Not logged in."
-          }, 401);
+}
 
-        }
+else{
 
+message.style.background="#eff6ff";
+message.style.color="#1d4ed8";
 
-        const token =
-          authorization.replace("Bearer ", "");
+}
 
+}
 
-        const session = await env.DB
-          .prepare(
-            `SELECT
-              sessions.token,
-              sessions.expires_at,
-              users.id,
-              users.name,
-              users.email
-             FROM sessions
-             JOIN users
-             ON users.id = sessions.user_id
-             WHERE sessions.token = ?`
-          )
-          .bind(token)
-          .first();
 
+/* =====================================
+   LOGIN
+===================================== */
 
-        if (!session) {
+document
+.getElementById("loginForm")
+.addEventListener(
+"submit",
+async function(event){
 
-          return response({
-            success: false,
-            message: "Invalid session."
-          }, 401);
+event.preventDefault();
 
-        }
 
+const email =
+document
+.getElementById("email")
+.value
+.trim()
+.toLowerCase();
 
-        if (
-          new Date(session.expires_at) < new Date()
-        ) {
 
-          await env.DB
-            .prepare(
-              "DELETE FROM sessions WHERE token = ?"
-            )
-            .bind(token)
-            .run();
+const password =
+document
+.getElementById("password")
+.value;
 
-          return response({
-            success: false,
-            message: "Session expired."
-          }, 401);
 
-        }
+const button =
+document.getElementById(
+"loginBtn"
+);
 
 
-        return response({
-          success: true,
-          user: {
-            id: session.id,
-            name: session.name,
-            email: session.email
-          }
-        });
+if(!email || !password){
 
-      } catch (error) {
+showMessage(
+"Please enter your email and password.",
+"error"
+);
 
-        return response({
-          success: false,
-          message: "Session check failed."
-        }, 500);
+return;
 
-      }
+}
 
-    }
 
+button.disabled=true;
 
-    /*
-    =========================
-    404
-    =========================
-    */
+button.textContent=
+"Please wait...";
 
-    return response({
-      success: false,
-      message: "API route not found."
-    }, 404);
 
-  }
+showMessage(
+"Connecting to CreateLK Academy...",
+"info"
+);
 
-};
+
+try{
+
+const response =
+await fetch(
+LOGIN_API,
+{
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json",
+
+"Accept":
+"application/json"
+},
+
+body:JSON.stringify({
+
+email:email,
+
+password:password
+
+})
+
+}
+);
+
+
+/* =====================================
+   READ RESPONSE
+===================================== */
+
+const text =
+await response.text();
+
+
+let data;
+
+try{
+
+data =
+JSON.parse(text);
+
+}
+
+catch(error){
+
+console.error(
+"Server response:",
+text
+);
+
+throw new Error(
+"Login server returned an invalid response."
+);
+
+}
+
+
+/* =====================================
+   CHECK ERROR
+===================================== */
+
+if(!response.ok){
+
+throw new Error(
+data.message ||
+"Login failed."
+);
+
+}
+
+
+if(!data.success){
+
+throw new Error(
+data.message ||
+"Invalid email or password."
+);
+
+}
+
+
+/* =====================================
+   SAVE TOKEN
+===================================== */
+
+if(data.token){
+
+localStorage.setItem(
+"createlk_token",
+data.token
+);
+
+}
+
+
+/* =====================================
+   SAVE USER
+===================================== */
+
+if(data.user){
+
+localStorage.setItem(
+"createlk_user",
+JSON.stringify(data.user)
+);
+
+
+/* Save email separately for membership page */
+
+if(data.user.email){
+
+localStorage.setItem(
+"createlk_student_email",
+String(data.user.email)
+.trim()
+.toLowerCase()
+);
+
+}
+
+}
+
+
+/* =====================================
+   FALLBACK EMAIL
+===================================== */
+
+localStorage.setItem(
+"createlk_student_email",
+email
+);
+
+
+/* =====================================
+   SUCCESS
+===================================== */
+
+showMessage(
+"Login successful! Redirecting...",
+"success"
+);
+
+
+setTimeout(
+function(){
+
+window.location.href =
+"membership.html";
+
+},
+800
+);
+
+
+}
+catch(error){
+
+console.error(
+"Login error:",
+error
+);
+
+
+showMessage(
+error.message ||
+"Unable to connect to login server.",
+"error"
+);
+
+
+button.disabled=false;
+
+button.textContent=
+"🔐 Login";
+
+}
+
+});
+
+</script>
+
+
+</body>
+</html>
