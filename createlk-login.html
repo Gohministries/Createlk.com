@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>Login | CreateLK Academy</title>
-
-<meta name="description"
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Login | CreateLK Academy</title><meta name="description"
 content="Login to your CreateLK Academy account.">
 
 <style>
-
 *{
 box-sizing:border-box;
 margin:0;
@@ -221,96 +215,52 @@ padding:25px 20px;
 }
 
 }
-
-</style>
-</head>
-
-<body>
-
-<header>
-
-<div class="logo">
+</style></head><body><header><div class="logo">
 📚 CreateLK Academy
-</div>
-
-<button
+</div><button
 type="button"
 class="menu-btn"
 onclick="toggleMenu()">
 ☰
 </button>
 
-<nav id="menu">
-
-<a href="index.html">
+<nav id="menu"><a href="index.html">
 🏠 Home
-</a>
-
-<a href="courses.html">
+</a><a href="courses.html">
 📚 Explore Courses
-</a>
-
-<a href="membership.html">
+</a><a href="membership.html">
 ⭐ Premium Membership
-</a>
-
-<a href="createlk-login.html">
+</a><a href="createlk-login.html">
 🔐 Login
-</a>
-
-</nav>
-
-</header>
-
-
-<section class="hero">
-
-<h1>
+</a></nav></header><section class="hero"><h1>
 🔐 Welcome Back
-</h1>
-
-<p>
+</h1><p>
 Login to continue your English learning journey.
-</p>
-
-</section>
-
-
-<section class="login-section">
-
-<div class="login-box">
-
-<h2>
+</p></section><section class="login-section"><div class="login-box"><h2>
 Login to Your Account
-</h2>
-
-<form id="loginForm">
-
-<label for="email">
+</h2><form id="loginForm"><label for="email">
 Email Address
-</label>
-
-<input
+</label><input
 type="email"
 id="email"
 name="email"
 placeholder="Enter your email"
 autocomplete="email"
 required
->
+
+«»
 
 <label for="password">
 Password
-</label>
-
-<input
+</label><input
 type="password"
 id="password"
 name="password"
 placeholder="Enter your password"
 autocomplete="current-password"
 required
->
+
+«»
 
 <button
 type="submit"
@@ -321,60 +271,23 @@ id="loginBtn">
 <div
 id="message"
 class="message">
-</div>
-
-</form>
-
-
-<div class="register">
-
-Don't have an account?
+</div></form><div class="register">Don't have an account?
 
 <a href="register.html">
 Create Account
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<footer>
-
-<p>
+</a></div></div></section><footer><p>
 📚 CreateLK Academy
-</p>
-
-<p>
+</p><p>
 Learn English. Build Your Future.
-</p>
-
-<p>
-
-<a href="courses.html">
+</p><p><a href="courses.html">
 Courses
-</a>
-
-<a href="membership.html">
+</a><a href="membership.html">
 Premium
-</a>
-
-<a href="contact.html">
+</a><a href="contact.html">
 Contact
-</a>
-
-</p>
-
-<p class="small">
+</a></p><p class="small">
 © 2026 CreateLK Academy. All Rights Reserved.
-</p>
-
-</footer>
-
-
-<script>
+</p></footer><script>
 
 /* MOBILE MENU */
 
@@ -386,7 +299,6 @@ document
 .toggle("show");
 
 }
-
 
 document.addEventListener(
 "click",
@@ -409,12 +321,10 @@ menu.classList.remove("show");
 
 });
 
+/* CREATE LK LOGIN API */
 
-/* LOGIN WORKER */
-
-const WORKER_URL =
-"https://createlk-login.gateofheavensl1.workers.dev";
-
+const LOGIN_API =
+"https://createlk-login.gateofheavensl1.workers.dev/api/login";
 
 /* LOGIN */
 
@@ -444,71 +354,63 @@ document.getElementById("loginBtn");
 const message =
 document.getElementById("message");
 
-
 if(!email || !password){
 
-message.style.display="block";
-
-message.style.background="#fee2e2";
-
-message.style.color="#991b1b";
-
-message.textContent=
-"Please enter your email and password.";
+showMessage(
+"Please enter your email and password.",
+"error"
+);
 
 return;
 
 }
 
-
 button.disabled=true;
 
-button.textContent=
-"Please wait...";
+button.textContent="Please wait...";
 
-
-message.style.display="block";
-
-message.style.background="#eff6ff";
-
-message.style.color="#1d4ed8";
-
-message.textContent=
-"Connecting to CreateLK Academy...";
-
+showMessage(
+"Connecting to CreateLK Academy...",
+"info"
+);
 
 try{
 
 const response =
 await fetch(
-WORKER_URL + "/api/login",
+LOGIN_API,
 {
 method:"POST",
 
 headers:{
-"Content-Type":"application/json"
+"Content-Type":"application/json",
+"Accept":"application/json"
 },
 
 body:JSON.stringify({
-
 email:email,
-
 password:password
-
 })
-
 }
 );
 
+/* READ SERVER RESPONSE */
 
-let data;
+const text =
+await response.text();
+
+let data={};
 
 try{
 
-data =
-await response.json();
+data=JSON.parse(text);
 
-}catch(error){
+}catch(e){
+
+console.error(
+"Invalid server response:",
+text
+);
 
 throw new Error(
 "Login server returned an invalid response."
@@ -516,11 +418,20 @@ throw new Error(
 
 }
 
+/* CHECK HTTP STATUS */
 
-if(
-!response.ok ||
-!data.success
-){
+if(!response.ok){
+
+throw new Error(
+data.message ||
+"Login failed. Please check your email and password."
+);
+
+}
+
+/* CHECK API SUCCESS */
+
+if(!data.success){
 
 throw new Error(
 data.message ||
@@ -528,7 +439,6 @@ data.message ||
 );
 
 }
-
 
 /* SAVE USER */
 
@@ -541,7 +451,6 @@ JSON.stringify(data.user)
 
 }
 
-
 /* SAVE TOKEN */
 
 if(data.token){
@@ -553,56 +462,75 @@ data.token
 
 }
 
-
 /* SUCCESS */
 
-message.style.background="#dcfce7";
-
-message.style.color="#166534";
-
-message.textContent=
-"Login successful! Redirecting...";
-
-
-/*
-IMPORTANT:
-Your repository has membership.html,
-not premium.html.
-*/
+showMessage(
+"Login successful! Redirecting...",
+"success"
+);
 
 setTimeout(
 function(){
 
-window.location.href =
+window.location.href=
 "membership.html";
 
 },
 800
 );
 
-
 }catch(error){
 
-message.style.display="block";
+console.error(
+"Login error:",
+error
+);
 
-message.style.background="#fee2e2";
-
-message.style.color="#991b1b";
-
-message.textContent =
+showMessage(
 error.message ||
-"Unable to connect to login server.";
+"Unable to connect to login server.",
+"error"
+);
 
 button.disabled=false;
 
-button.textContent=
-"🔐 Login";
+button.textContent="🔐 Login";
 
 }
 
 });
 
-</script>
+/* MESSAGE FUNCTION */
 
-</body>
+function showMessage(text,type){
+
+const message =
+document.getElementById("message");
+
+message.style.display="block";
+
+message.textContent=text;
+
+if(type==="success"){
+
+message.style.background="#dcfce7";
+message.style.color="#166534";
+
+}
+else if(type==="error"){
+
+message.style.background="#fee2e2";
+message.style.color="#991b1b";
+
+}
+else{
+
+message.style.background="#eff6ff";
+message.style.color="#1d4ed8";
+
+}
+
+}
+
+</script></body>
 </html>
