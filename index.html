@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>CreateLK Academy | Learn English. Build Your Future.</title>
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1"
+>
 
-<meta name="description"
-content="CreateLK Academy helps you improve English through practical courses and MCQ practice.">
+<title>
+CreateLK Academy | Learn English. Build Your Future.
+</title>
+
+<meta
+name="description"
+content="CreateLK Academy helps you improve English through practical courses and MCQ practice."
+>
 
 <style>
 
@@ -194,9 +204,11 @@ padding:11px 18px;
 }
 
 </style>
+
 </head>
 
 <body>
+
 
 <header>
 
@@ -204,12 +216,14 @@ padding:11px 18px;
 📚 CreateLK Academy
 </div>
 
+
 <button
 type="button"
 class="menu-btn"
 onclick="toggleMenu()">
 ☰
 </button>
+
 
 <nav id="menu">
 
@@ -225,10 +239,11 @@ onclick="toggleMenu()">
 📚 Explore Courses
 </a>
 
-<a href="premium.html">
+<a href="membership.html">
 ⭐ Premium Membership
 </a>
 
+<!-- LOGIN LINK -->
 <a href="createlk-login.html">
 🔐 Login
 </a>
@@ -249,16 +264,26 @@ Improve your English with practical lessons,
 courses and MCQ practice.
 </p>
 
+
 <a
 class="btn primary"
 href="courses.html">
 Explore Courses
 </a>
 
+
 <a
 class="btn"
-href="premium.html">
+href="membership.html">
 ⭐ Premium Membership
+</a>
+
+
+<!-- LOGIN BUTTON ADDED -->
+<a
+class="btn"
+href="createlk-login.html">
+🔐 Login
 </a>
 
 </section>
@@ -275,7 +300,9 @@ Simple and practical English learning designed
 for students and learners.
 </p>
 
+
 <div class="cards">
+
 
 <div class="card">
 
@@ -332,6 +359,7 @@ and daily practice.
 
 </div>
 
+
 </div>
 
 </section>
@@ -347,7 +375,9 @@ Start Learning Today
 Create your account and begin improving your English.
 </p>
 
+
 <br>
+
 
 <a
 class="btn primary"
@@ -355,10 +385,11 @@ href="register.html">
 Create Account
 </a>
 
+
 <a
 class="btn"
 href="createlk-login.html">
-Login
+🔐 Login
 </a>
 
 </section>
@@ -374,6 +405,7 @@ Login
 Learn English. Build Your Future.
 </p>
 
+
 <p>
 
 <a href="about.html">
@@ -384,7 +416,7 @@ About
 Courses
 </a>
 
-<a href="premium.html">
+<a href="membership.html">
 Premium
 </a>
 
@@ -401,6 +433,7 @@ Terms & Conditions
 </a>
 
 </p>
+
 
 <p class="small">
 © 2026 CreateLK Academy. All Rights Reserved.
@@ -420,13 +453,17 @@ document
 
 }
 
-document.addEventListener("click",function(e){
+
+document.addEventListener(
+"click",
+function(e){
 
 const menu =
 document.getElementById("menu");
 
 const button =
 document.querySelector(".menu-btn");
+
 
 if(
 !menu.contains(e.target) &&
@@ -440,6 +477,7 @@ menu.classList.remove("show");
 });
 
 </script>
+
 
 </body>
 </html>
