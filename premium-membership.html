@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>CreateLK Academy | Premium Membership</title><style>
 
-<title>CreateLK Academy | Premium Membership</title>
-
-<style>
 *{
 box-sizing:border-box;
 margin:0;
@@ -223,105 +218,49 @@ grid-template-columns:1fr;
 }
 
 }
-</style>
-</head>
 
-<body>
-
-<header>
-<div class="nav">
-
-<div class="logo">
+</style></head><body><header><div class="nav"><div class="logo">
 📚 CreateLK Academy
-</div>
-
-<div class="nav-right">
-
-<a href="index.html" class="home">
+</div><div class="nav-right"><a href="index.html" class="home">
 🏠 Home
-</a>
+</a><button
+id="logout"
+class="logout"
+type="button">
 
-<button id="logout" class="logout" type="button">
 🚪 Logout
-</button>
 
-</div>
-</div>
-</header>
-
-
-<main>
-
-<section class="hero">
-
-<div class="icon">⭐</div>
-
-<h1>Premium Membership</h1>
-
-<p>
+</button></div></div></header><main><section class="hero"><div class="icon">
+⭐
+</div><h1>
+Premium Membership
+</h1><p>
 Unlock Premium AI English MCQs and practise every day.
-</p>
-
-</section>
-
-
-<section class="card">
-
-<div class="price">
+</p></section><section class="card"><div class="price">
 LKR 1,500
 <small>• 30 Days</small>
-</div>
+</div><div
+id="status"
+class="status checking">⏳ Checking Premium membership...
 
-
-<div id="status" class="status checking">
-⏳ Checking Premium membership...
-</div>
-
-
-<div id="content"></div>
-
-
-<div class="features">
-
-<div class="feature">
+</div><div id="content"></div><div class="features"><div class="feature">
 🤖 Up to 100 AI MCQs per day
-</div>
-
-<div class="feature">
+</div><div class="feature">
 📚 Premium English Practice
-</div>
-
-<div class="feature">
+</div><div class="feature">
 🎓 Beginner to Advanced
-</div>
-
-<div class="feature">
+</div><div class="feature">
 📅 30-Day Membership
-</div>
+</div></div></section></main><footer>📚 <b>CreateLK Academy</b>
 
-</div>
-
-</section>
-
-</main>
-
-
-<footer>
-
-📚 <b>CreateLK Academy</b>
-
-<br>
-
-Learn English. Build Your Future.
+<br>Learn English. Build Your Future.
 
 <br><br>
 
 © 2026 CreateLK Academy. All Rights Reserved.
 
-</footer>
+</footer><script>
 
-
-<script>
 "use strict";
 
 
@@ -393,7 +332,6 @@ const directKeys = [
 
 ];
 
-
 for(const key of directKeys){
 
 const value =
@@ -431,7 +369,6 @@ const objectKeys = [
 "currentUser"
 
 ];
-
 
 for(const key of objectKeys){
 
@@ -480,7 +417,6 @@ error
 
 }
 
-
 return "";
 
 }
@@ -519,7 +455,6 @@ return;
 
 }
 
-
 const keys = [
 
 "createlk_student_email",
@@ -531,17 +466,16 @@ const keys = [
 "createlk_student",
 "user",
 "student",
-"currentUser"
+"currentUser",
+"createlk_token"
 
 ];
-
 
 keys.forEach(function(key){
 
 localStorage.removeItem(key);
 
 });
-
 
 sessionStorage.clear();
 
@@ -563,15 +497,11 @@ if(!data){
 return false;
 }
 
-
-/* DIRECT */
-
 if(
 data.active === true
 ){
 return true;
 }
-
 
 if(
 String(data.active)
@@ -580,7 +510,6 @@ String(data.active)
 ){
 return true;
 }
-
 
 if(
 String(data.status || "")
@@ -636,7 +565,6 @@ return true;
 
 }
 
-
 return false;
 
 }
@@ -652,7 +580,6 @@ if(!data){
 return null;
 }
 
-
 const possible = [
 
 data.expires_at,
@@ -663,7 +590,6 @@ data.expiration,
 data.expiration_date
 
 ];
-
 
 if(data.membership){
 
@@ -676,7 +602,6 @@ data.membership.expiry_date
 
 }
 
-
 if(data.subscription){
 
 possible.push(
@@ -688,7 +613,6 @@ data.subscription.expiry_date
 
 }
 
-
 for(const value of possible){
 
 if(value){
@@ -696,7 +620,6 @@ return value;
 }
 
 }
-
 
 return null;
 
@@ -713,10 +636,8 @@ if(!value){
 return null;
 }
 
-
 let date =
 new Date(value);
-
 
 if(
 isNaN(date.getTime())
@@ -730,7 +651,6 @@ String(value)
 
 }
 
-
 if(
 isNaN(date.getTime())
 ){
@@ -738,7 +658,6 @@ isNaN(date.getTime())
 return null;
 
 }
-
 
 return date;
 
@@ -765,10 +684,8 @@ function showActive(data,email){
 
 clearInterval(timer);
 
-
 statusBox.className =
 "status active";
-
 
 let html =
 "⭐ <b>Premium Membership Active</b>";
@@ -776,14 +693,11 @@ let html =
 html +=
 `<div class="email">${escapeHTML(email)}</div>`;
 
-
 const expiry =
 getExpiry(data);
 
-
 const expiryDate =
 parseDate(expiry);
-
 
 if(expiryDate){
 
@@ -794,7 +708,6 @@ expiryDate.toLocaleDateString()
 
 }
 
-
 html += `
 <div
 id="countdown"
@@ -803,10 +716,8 @@ class="countdown">
 </div>
 `;
 
-
 statusBox.innerHTML =
 html;
-
 
 content.innerHTML = `
 
@@ -829,14 +740,12 @@ class="button free">
 
 `;
 
-
 document
 .getElementById("openPremium")
 .addEventListener(
 "click",
 openPremium
 );
-
 
 if(expiryDate){
 
@@ -871,12 +780,10 @@ function startCountdown(expiry){
 
 clearInterval(timer);
 
-
 const end =
 expiry instanceof Date
 ? expiry.getTime()
 : parseDate(expiry)?.getTime();
-
 
 if(
 !end ||
@@ -887,7 +794,6 @@ return;
 
 }
 
-
 function update(){
 
 const box =
@@ -895,30 +801,24 @@ document.getElementById(
 "countdown"
 );
 
-
 if(!box){
 return;
 }
-
 
 let seconds =
 Math.floor(
 (end - Date.now()) / 1000
 );
 
-
 if(seconds <= 0){
 
 clearInterval(timer);
 
-
 statusBox.className =
 "status expired";
 
-
 statusBox.innerHTML =
 "🔒 <b>Premium membership expired.</b>";
-
 
 content.innerHTML = `
 
@@ -944,14 +844,12 @@ return;
 
 }
 
-
 const days =
 Math.floor(
 seconds / 86400
 );
 
 seconds %= 86400;
-
 
 const hours =
 Math.floor(
@@ -960,7 +858,6 @@ seconds / 3600
 
 seconds %= 3600;
 
-
 const minutes =
 Math.floor(
 seconds / 60
@@ -968,12 +865,10 @@ seconds / 60
 
 seconds %= 60;
 
-
 box.textContent =
 `⏳ Expires in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
 
 }
-
 
 update();
 
@@ -994,10 +889,8 @@ function showNotActive(email){
 
 clearInterval(timer);
 
-
 statusBox.className =
 "status expired";
-
 
 statusBox.innerHTML = `
 
@@ -1008,7 +901,6 @@ ${escapeHTML(email)}
 </div>
 
 `;
-
 
 content.innerHTML = `
 
@@ -1041,19 +933,16 @@ function showLogin(){
 
 clearInterval(timer);
 
-
 statusBox.className =
 "status expired";
-
 
 statusBox.innerHTML =
 "🔐 <b>Please login first.</b>";
 
-
 content.innerHTML = `
 
 <a
-href="login.html"
+href="createlk-login.html"
 class="button payment">
 
 🔐 Student Login
@@ -1081,10 +970,8 @@ function showError(message){
 
 clearInterval(timer);
 
-
 statusBox.className =
 "status expired";
-
 
 statusBox.innerHTML = `
 
@@ -1095,7 +982,6 @@ ${escapeHTML(message)}
 </div>
 
 `;
-
 
 content.innerHTML = `
 
@@ -1137,16 +1023,13 @@ async function checkMembership(){
 
 updateLoginUI();
 
-
 const email =
 getEmail();
-
 
 console.log(
 "CreateLK Premium email:",
 email
 );
-
 
 if(!email){
 
@@ -1156,24 +1039,15 @@ return;
 
 }
 
-
 statusBox.className =
 "status checking";
-
 
 statusBox.innerHTML =
 "⏳ Checking Premium membership...";
 
-
 content.innerHTML = "";
 
-
 try{
-
-
-/* =====================================
-   API URL
-===================================== */
 
 const url =
 MEMBERSHIP_API +
@@ -1182,16 +1056,10 @@ encodeURIComponent(email) +
 "&t=" +
 Date.now();
 
-
 console.log(
 "Membership API:",
 url
 );
-
-
-/* =====================================
-   REQUEST
-===================================== */
 
 const response =
 await fetch(
@@ -1205,19 +1073,15 @@ headers:{
 }
 );
 
-
 const text =
 await response.text();
-
 
 console.log(
 "Membership API response:",
 text
 );
 
-
 let data;
-
 
 try{
 
@@ -1232,7 +1096,6 @@ throw new Error(
 
 }
 
-
 if(
 !response.ok
 ){
@@ -1244,16 +1107,10 @@ response.status
 
 }
 
-
 console.log(
 "Membership object:",
 data
 );
-
-
-/* =====================================
-   ACTIVE
-===================================== */
 
 if(
 isActive(data)
@@ -1268,15 +1125,9 @@ return;
 
 }
 
-
-/* =====================================
-   NOT ACTIVE
-===================================== */
-
 showNotActive(
 email
 );
-
 
 }catch(error){
 
@@ -1284,7 +1135,6 @@ console.error(
 "Membership check failed:",
 error
 );
-
 
 showError(
 error.message ||
@@ -1345,7 +1195,5 @@ checkMembership();
 60000
 );
 
-</script>
-
-</body>
+</script></body>
 </html>
