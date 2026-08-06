@@ -1,0 +1,457 @@
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Content-Type": "application/json"
+};
+
+function response(data, status = 200) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: corsHeaders
+  });
+}
+
+async function hashPassword(password, salt) {
+  const encoder = new TextEncoder();
+
+  const keyMaterial = await crypto.subtle.importKey(
+    "raw",
+    encoder.encode(password),
+    "PBKDF2",
+    false,
+    ["deriveBits"]
+  );
+
+  const bits = await crypto.subtle.deriveBits(
+    {
+      name: "PBKDF2",
+      salt: encoder.encode(salt),
+      iterations: 100000,
+      hash: "SHA-256"
+    },
+    keyMaterial,
+    256
+  );
+
+  return Array.from(new Uint8Array(bits))
+    .map(b => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function createSalt() {
+  const bytes = new Uint8Array(16);
+  crypto.getRandomValues(bytes);
+
+  return Array.from(bytes)
+    .map(b => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function createToken() {
+  return crypto.randomUUID();
+}
+
+export default {
+
+  async fetch(request, env) {
+
+    if (request.method === "OPTIONS") {
+      return new Response(null, {
+        status: 204,
+        headers: corsHeaders
+      });
+    }
+
+    const url = new URL(request.url);
+    const path = url.pathname;
+
+    /*
+    =========================
+    HOME / API STATUS
+    =========================
+    */
+
+    if (request.method === "GET" && path === "/") {
+
+      return response({
+        success: true,
+        service: "CreateLK Academy Authentication API",
+        status: "online",
+        routes: [
+          "POST /api/register",
+          "POST /api/login",
+          "GET /api/me"
+        ]
+      });
+
+    }
+
+
+    /*
+    =========================
+    REGISTER
+    =========================
+    */
+
+    if (
+      request.method === "POST" &&
+      path === "/api/register"
+    ) {
+
+      try {
+
+        const body = await request.json();
+
+        const name = String(body.name || "").trim();
+        const email = String(body.email || "")
+          .trim()
+          .toLowerCase();
+
+        const password = String(body.password || "");
+
+        if (!name || !email || !password) {
+
+          return response({
+            success: false,
+            message: "Name, email and password are required."
+          }, 400);
+
+        }
+
+        if (password.length < 6) {
+
+          return response({
+            success: false,
+            message: "Password must contain at least 6 characters."
+          }, 400);
+
+        }
+
+
+        /*
+        Check existing user
+        */
+
+        const existing = await env.DB
+          .prepare(
+            "SELECT id FROM users WHERE email = ?"
+          )
+          .bind(email)
+          .first();
+
+        if (existing) {
+
+          return response({
+            success: false,
+            message: "An account with this email already exists."
+          }, 409);
+
+        }
+
+
+        /*
+        Create password hash
+        */
+
+        const salt = createSalt();
+
+        const passwordHash =
+          await hashPassword(password, salt);
+
+
+        /*
+        Create user
+        */
+
+        const result = await env.DB
+          .prepare(
+            `INSERT INTO users
+            (name,email,password_hash,password_salt,created_at)
+            VALUES (?,?,?,?,datetime('now'))`
+          )
+          .bind(
+            name,
+            email,
+            passwordHash,
+            salt
+          )
+          .run();
+
+
+        if (!result.success) {
+
+          return response({
+            success: false,
+            message: "Unable to create account."
+          }, 500);
+
+        }
+
+
+        return response({
+          success: true,
+          message: "Account created successfully."
+        }, 201);
+
+
+      } catch (error) {
+
+        return response({
+          success: false,
+          message: "Registration server error."
+        }, 500);
+
+      }
+
+    }
+
+
+    /*
+    =========================
+    LOGIN
+    =========================
+    */
+
+    if (
+      request.method === "POST" &&
+      path === "/api/login"
+    ) {
+
+      try {
+
+        const body = await request.json();
+
+        const email = String(body.email || "")
+          .trim()
+          .toLowerCase();
+
+        const password = String(body.password || "");
+
+        if (!email || !password) {
+
+          return response({
+            success: false,
+            message: "Email and password are required."
+          }, 400);
+
+        }
+
+
+        /*
+        Find user
+        */
+
+        const user = await env.DB
+          .prepare(
+            `SELECT
+              id,
+              name,
+              email,
+              password_hash,
+              password_salt
+             FROM users
+             WHERE email = ?`
+          )
+          .bind(email)
+          .first();
+
+
+        if (!user) {
+
+          return response({
+            success: false,
+            message: "Invalid email or password."
+          }, 401);
+
+        }
+
+
+        /*
+        Verify password
+        */
+
+        const passwordHash =
+          await hashPassword(
+            password,
+            user.password_salt
+          );
+
+
+        if (passwordHash !== user.password_hash) {
+
+          return response({
+            success: false,
+            message: "Invalid email or password."
+          }, 401);
+
+        }
+
+
+        /*
+        Create login session
+        */
+
+        const token = createToken();
+
+        const expiresAt =
+          new Date(
+            Date.now() + 30 * 24 * 60 * 60 * 1000
+          ).toISOString();
+
+
+        await env.DB
+          .prepare(
+            `INSERT INTO sessions
+            (token,user_id,expires_at,created_at)
+            VALUES (?,?,?,datetime('now'))`
+          )
+          .bind(
+            token,
+            user.id,
+            expiresAt
+          )
+          .run();
+
+
+        /*
+        Successful login
+        */
+
+        return response({
+          success: true,
+          message: "Login successful.",
+
+          token: token,
+
+          user: {
+            id: user.id,
+            name: user.name,
+            email: user.email
+          }
+
+        });
+
+      } catch (error) {
+
+        return response({
+          success: false,
+          message: "Login server error."
+        }, 500);
+
+      }
+
+    }
+
+
+    /*
+    =========================
+    CHECK LOGIN
+    =========================
+    */
+
+    if (
+      request.method === "GET" &&
+      path === "/api/me"
+    ) {
+
+      try {
+
+        const authorization =
+          request.headers.get("Authorization");
+
+        if (!authorization) {
+
+          return response({
+            success: false,
+            message: "Not logged in."
+          }, 401);
+
+        }
+
+
+        const token =
+          authorization.replace("Bearer ", "");
+
+
+        const session = await env.DB
+          .prepare(
+            `SELECT
+              sessions.token,
+              sessions.expires_at,
+              users.id,
+              users.name,
+              users.email
+             FROM sessions
+             JOIN users
+             ON users.id = sessions.user_id
+             WHERE sessions.token = ?`
+          )
+          .bind(token)
+          .first();
+
+
+        if (!session) {
+
+          return response({
+            success: false,
+            message: "Invalid session."
+          }, 401);
+
+        }
+
+
+        if (
+          new Date(session.expires_at) < new Date()
+        ) {
+
+          await env.DB
+            .prepare(
+              "DELETE FROM sessions WHERE token = ?"
+            )
+            .bind(token)
+            .run();
+
+          return response({
+            success: false,
+            message: "Session expired."
+          }, 401);
+
+        }
+
+
+        return response({
+          success: true,
+          user: {
+            id: session.id,
+            name: session.name,
+            email: session.email
+          }
+        });
+
+      } catch (error) {
+
+        return response({
+          success: false,
+          message: "Session check failed."
+        }, 500);
+
+      }
+
+    }
+
+
+    /*
+    =========================
+    404
+    =========================
+    */
+
+    return response({
+      success: false,
+      message: "API route not found."
+    }, 404);
+
+  }
+
+};
