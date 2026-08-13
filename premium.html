@@ -6,169 +6,173 @@
 
 <title>Premium Membership | CreateLK Academy</title>
 
-<meta name="description" content="CreateLK Academy Premium Membership with advanced English practice and AI-generated MCQs.">
+<script src="https://www.payhere.lk/lib/payhere.js"></script>
 
 <style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-font-family:Arial,sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 background:#f4f7fb;
-color:#172033;
-line-height:1.6
+color:#172033
 }
 
 header{
-background:#172554;
-color:#fff;
-padding:14px 5%;
+background:#fff;
+border-bottom:1px solid #e5e7eb
+}
+
+.nav{
+max-width:700px;
+margin:auto;
+padding:15px;
 display:flex;
 justify-content:space-between;
-align-items:center;
-position:relative
+align-items:center
 }
 
 .logo{
-font-size:20px;
-font-weight:bold
+font-size:18px;
+font-weight:800;
+color:#155eef
 }
 
-.menu-btn{
-background:#fff;
-color:#172554;
-border:0;
-padding:8px 13px;
-border-radius:7px;
-font-size:20px;
-cursor:pointer
-}
-
-nav{
-display:none;
-position:absolute;
-right:5%;
-top:62px;
-background:#fff;
-width:210px;
-border-radius:10px;
-box-shadow:0 5px 20px #0003;
-overflow:hidden;
-z-index:100
-}
-
-nav.show{
-display:block
-}
-
-nav a{
-display:block;
-color:#172033;
+.back{
 text-decoration:none;
-padding:12px 16px;
-font-size:15px;
-border-bottom:1px solid #eee
+color:#475467;
+font-size:13px;
+font-weight:700
 }
 
-nav a:hover{
-background:#f1f5f9;
-color:#2563eb
+.container{
+max-width:600px;
+margin:30px auto;
+padding:0 15px 50px
 }
 
-.hero{
-text-align:center;
-padding:60px 20px;
-background:linear-gradient(135deg,#172554,#2563eb);
-color:#fff
-}
-
-.hero h1{
-font-size:36px;
-margin-bottom:10px
-}
-
-.hero p{
-font-size:18px
-}
-
-section{
-padding:50px 7%;
+.card{
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:18px;
+padding:25px;
+box-shadow:0 8px 25px rgba(0,0,0,.05);
 text-align:center
 }
 
-.premium-box{
-max-width:650px;
+.icon{
+width:65px;
+height:65px;
 margin:auto;
-background:#fff;
-padding:35px 25px;
-border-radius:15px;
-box-shadow:0 5px 20px #0002
+border-radius:17px;
+background:#fff7d6;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px
+}
+
+h1{
+font-size:25px;
+margin:15px 0 8px
+}
+
+.subtitle{
+font-size:14px;
+color:#667085;
+line-height:1.5;
+margin-bottom:25px
 }
 
 .price{
-font-size:36px;
-font-weight:bold;
-color:#172554;
-margin:15px 0
+font-size:32px;
+font-weight:900;
+color:#155eef;
+margin:10px 0
 }
 
-.price span{
-font-size:16px;
-font-weight:normal;
-color:#555
-}
-
-.features{
-text-align:left;
-max-width:450px;
-margin:25px auto
-}
-
-.features p{
-margin:12px 0
-}
-
-.btn{
-display:inline-block;
-background:#facc15;
-color:#172033;
-padding:12px 24px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-margin:5px
-}
-
-.btn.secondary{
-background:#172554;
-color:#fff
+.plan{
+font-size:13px;
+color:#667085;
+margin-bottom:25px
 }
 
 .info{
-max-width:800px;
-margin:auto
+text-align:left;
+background:#f8fafc;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:16px;
+margin-bottom:20px
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+gap:15px;
+padding:7px 0;
+font-size:13px
+}
+
+.row span:first-child{
+color:#667085
+}
+
+.row span:last-child{
+font-weight:700;
+text-align:right
+}
+
+.pay{
+width:100%;
+height:50px;
+border:0;
+border-radius:10px;
+background:#155eef;
+color:#fff;
+font-size:15px;
+font-weight:800;
+cursor:pointer
+}
+
+.pay:disabled{
+opacity:.6;
+cursor:not-allowed
+}
+
+.message{
+display:none;
+margin-top:15px;
+padding:12px;
+border-radius:10px;
+font-size:13px;
+line-height:1.5
+}
+
+.success{
+display:block;
+background:#ecfdf3;
+border:1px solid #bbf7d0;
+color:#166534
+}
+
+.error{
+display:block;
+background:#fff1f2;
+border:1px solid #fecdd3;
+color:#be123c
+}
+
+.note{
+margin-top:15px;
+font-size:11px;
+color:#98a2b3
 }
 
 footer{
-background:#172033;
-color:#fff;
 text-align:center;
-padding:25px
-}
-
-footer a{
-color:#fff;
-margin:0 8px;
-text-decoration:none
-}
-
-.small{
-font-size:13px;
-color:#aaa;
-margin-top:10px
+padding:25px;
+font-size:11px;
+color:#98a2b3
 }
 </style>
 </head>
@@ -176,142 +180,325 @@ margin-top:10px
 <body>
 
 <header>
+<div class="nav">
 
-<div class="logo">📚 CreateLK Academy</div>
+<div class="logo">
+📚 CreateLK Academy
+</div>
 
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<a href="dashboard.html" class="back">
+← Dashboard
+</a>
 
-<nav id="menu">
-
-<a href="index.html">🏠 Home</a>
-
-<a href="about.html">ℹ️ About</a>
-
-<a href="courses.html">📚 Explore Courses</a>
-
-<a href="premium.html">⭐ Premium Membership</a>
-
-<a href="login.html">🔐 Login</a>
-
-</nav>
-
+</div>
 </header>
 
-<section class="hero">
+<main class="container">
 
-<h1>⭐ Premium Membership</h1>
+<div class="card">
 
-<p>Take your English learning to the next level.</p>
+<div class="icon">⭐</div>
 
-</section>
+<h1>Premium Membership</h1>
 
-<section>
-
-<div class="premium-box">
-
-<h2>30-Day Premium Membership</h2>
+<div class="subtitle">
+Unlock premium English learning features and AI English MCQ practice.
+</div>
 
 <div class="price">
 LKR 1,500
-<span>/ 30 days</span>
 </div>
 
-<div class="features">
-
-<p>✅ Access premium English learning features</p>
-
-<p>✅ AI-generated English MCQ practice</p>
-
-<p>✅ Practise up to 100 AI MCQs per day</p>
-
-<p>✅ Grammar and vocabulary practice</p>
-
-<p>✅ Improve your English knowledge every day</p>
-
+<div class="plan">
+30-Day Premium Membership
 </div>
-
-<a class="btn" href="register.html">
-Create Account
-</a>
-
-<a class="btn secondary" href="login.html">
-Login
-</a>
-
-</div>
-
-</section>
-
-<section>
 
 <div class="info">
 
-<h2>How Premium Works</h2>
+<div class="row">
+<span>Student</span>
+<span id="studentName">Loading...</span>
+</div>
 
-<p>
-Create an account, complete the Premium Membership payment process and wait for membership activation.
-</p>
+<div class="row">
+<span>Email</span>
+<span id="studentEmail">Loading...</span>
+</div>
 
-<br>
-
-<p>
-Once your payment is verified, your 30-day Premium Membership will be activated.
-</p>
+<div class="row">
+<span>Membership</span>
+<span>30 Days</span>
+</div>
 
 </div>
 
-</section>
+<button
+id="payButton"
+class="pay"
+type="button">
 
-<section>
+⭐ Pay LKR 1,500 with PayHere
 
-<div class="info">
+</button>
 
-<h2>Premium AI Practice</h2>
+<div
+id="message"
+class="message">
+</div>
 
-<p>
-Premium members can practise English with AI-generated multiple-choice questions and improve their skills every day.
-</p>
+<div class="note">
+Secure payment powered by PayHere.
+</div>
 
 </div>
 
-</section>
+</main>
 
 <footer>
-
-<p>📚 CreateLK Academy</p>
-
-<p>Learn English. Build Your Future.</p>
-
-<p>
-<a href="about.html">About</a>
-<a href="courses.html">Courses</a>
-<a href="premium.html">Premium</a>
-<a href="contact.html">Contact</a>
-<a href="privacy.html">Privacy Policy</a>
-<a href="terms.html">Terms & Conditions</a>
-</p>
-
-<p class="small">
-© 2026 CreateLK Academy. All Rights Reserved.
-</p>
-
+© 2026 CreateLK Academy. All rights reserved.
 </footer>
 
 <script>
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("show");
+
+const API =
+"https://createlk-academy-api.createlk.workers.dev";
+
+const STUDENT_KEY =
+"createlk_student";
+
+const LOGIN_KEY =
+"createlk_logged_in";
+
+let student=null;
+
+try{
+
+student=JSON.parse(
+sessionStorage.getItem(STUDENT_KEY)||"null"
+);
+
+}catch(e){
+
+student=null;
+
 }
 
-document.addEventListener("click",function(e){
+if(
+!student ||
+sessionStorage.getItem(LOGIN_KEY)!=="true"
+){
 
-const menu=document.getElementById("menu");
-const button=document.querySelector(".menu-btn");
+window.location.href="login.html";
 
-if(!menu.contains(e.target) && !button.contains(e.target)){
-menu.classList.remove("show");
 }
 
-});
+const studentId =
+student?.id ||
+student?.student_id;
+
+if(!studentId){
+
+window.location.href="login.html";
+
+}
+
+const studentName =
+[
+student?.first_name,
+student?.last_name
+]
+.filter(Boolean)
+.join(" ");
+
+document.getElementById(
+"studentName"
+).textContent=
+studentName||"Student";
+
+document.getElementById(
+"studentEmail"
+).textContent=
+student?.email||"";
+
+const payButton =
+document.getElementById("payButton");
+
+const message =
+document.getElementById("message");
+
+function showMessage(text,type){
+
+message.textContent=text;
+
+message.className=
+"message "+type;
+
+}
+
+payhere.onCompleted=function(orderId){
+
+showMessage(
+"Payment completed. PayHere is confirming your payment.",
+"success"
+);
+
+setTimeout(function(){
+
+window.location.href=
+"dashboard.html";
+
+},3000);
+
+};
+
+payhere.onDismissed=function(){
+
+payButton.disabled=false;
+
+payButton.textContent=
+"⭐ Pay LKR 1,500 with PayHere";
+
+};
+
+payhere.onError=function(error){
+
+payButton.disabled=false;
+
+payButton.textContent=
+"⭐ Pay LKR 1,500 with PayHere";
+
+showMessage(
+"Payment error: "+error,
+"error"
+);
+
+};
+
+payButton.onclick=async function(){
+
+payButton.disabled=true;
+
+payButton.textContent=
+"Connecting to PayHere...";
+
+message.className="message";
+
+try{
+
+const response=
+await fetch(
+API+"/api/payhere/create",
+{
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+student_id:Number(studentId)
+})
+
+}
+);
+
+const data=
+await response.json();
+
+if(
+!response.ok ||
+data.success!==true
+){
+
+throw new Error(
+data.message||
+"Unable to create payment."
+);
+
+}
+
+const payment={
+
+/*
+LIVE PAYHERE
+*/
+sandbox:false,
+
+merchant_id:
+data.merchant_id,
+
+return_url:
+data.return_url,
+
+cancel_url:
+data.cancel_url,
+
+notify_url:
+data.notify_url,
+
+order_id:
+data.order_id,
+
+items:
+data.items,
+
+amount:
+data.amount,
+
+currency:
+data.currency,
+
+hash:
+data.hash,
+
+first_name:
+data.first_name,
+
+last_name:
+data.last_name,
+
+email:
+data.email,
+
+phone:
+data.phone||"",
+
+address:
+data.address||
+"Sri Lanka",
+
+city:
+data.city||
+"Nuwara Eliya",
+
+country:
+data.country||
+"Sri Lanka"
+
+};
+
+payhere.startPayment(payment);
+
+}catch(error){
+
+console.error(error);
+
+payButton.disabled=false;
+
+payButton.textContent=
+"⭐ Pay LKR 1,500 with PayHere";
+
+showMessage(
+error.message||
+"Unable to start PayHere payment.",
+"error"
+);
+
+}
+
+};
+
 </script>
 
 </body>
