@@ -1,25 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
 
 <title>Terms & Conditions | CreateLK Academy</title>
 
-<meta name="description" content="Terms and Conditions for using CreateLK Academy.">
+<meta name="description"
+content="Terms and Conditions for using CreateLK Academy, including accounts, educational content, premium membership, payments and acceptable use.">
+
+<meta name="theme-color"
+content="#172554">
+
+<link rel="icon"
+href="https://files.gohministries.org/file_00000000f02c82088b7cf2676012b775.png">
+
+<link rel="canonical"
+href="https://createlk.com/terms.html">
+
+<!-- Google AdSense -->
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7369880405117405"
+crossorigin="anonymous"></script>
 
 <style>
+
 *{
 box-sizing:border-box;
 margin:0;
 padding:0
 }
 
+html{
+scroll-behavior:smooth
+}
+
 body{
-font-family:Arial,sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 background:#f4f7fb;
 color:#172033;
 line-height:1.7
+}
+
+a{
+color:#2563eb;
+text-decoration:none
 }
 
 header{
@@ -29,12 +58,14 @@ padding:14px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-position:relative
+position:relative;
+z-index:1000
 }
 
 .logo{
 font-size:20px;
-font-weight:bold
+font-weight:bold;
+color:#fff
 }
 
 .menu-btn{
@@ -73,6 +104,10 @@ font-size:15px;
 border-bottom:1px solid #eee
 }
 
+nav a:last-child{
+border-bottom:0
+}
+
 nav a:hover{
 background:#f1f5f9;
 color:#2563eb
@@ -81,7 +116,12 @@ color:#2563eb
 .hero{
 text-align:center;
 padding:55px 20px;
-background:linear-gradient(135deg,#172554,#2563eb);
+background:
+linear-gradient(
+135deg,
+#172554,
+#2563eb
+);
 color:#fff
 }
 
@@ -107,12 +147,22 @@ border-radius:14px;
 box-shadow:0 5px 20px #0002
 }
 
-.terms h2{
-color:#172554;
-margin:25px 0 8px
+.updated{
+text-align:center;
+font-size:13px;
+color:#64748b;
+margin-bottom:25px;
+padding-bottom:15px;
+border-bottom:1px solid #e5e7eb
 }
 
-.terms h2:first-child{
+.terms h2{
+color:#172554;
+margin:25px 0 8px;
+font-size:22px
+}
+
+.terms h2:first-of-type{
 margin-top:0
 }
 
@@ -124,11 +174,24 @@ margin-bottom:14px
 margin:10px 0 15px 22px
 }
 
+.terms li{
+margin-bottom:6px
+}
+
+.terms a{
+color:#2563eb;
+font-weight:600
+}
+
 footer{
 background:#172033;
 color:#fff;
 text-align:center;
 padding:25px
+}
+
+footer p{
+margin:5px 0
 }
 
 footer a{
@@ -137,57 +200,160 @@ margin:0 8px;
 text-decoration:none
 }
 
+footer a:hover{
+color:#fbbf24
+}
+
 .small{
 font-size:13px;
 color:#aaa;
 margin-top:10px
 }
+
+@media(max-width:600px){
+
+header{
+padding:13px 4%
+}
+
+.logo{
+font-size:17px
+}
+
+.hero{
+padding:45px 18px
+}
+
+.hero h1{
+font-size:29px
+}
+
+.hero p{
+font-size:14px
+}
+
+section{
+padding:30px 14px
+}
+
+.terms{
+padding:22px 18px
+}
+
+.terms h2{
+font-size:19px
+}
+
+.terms p,
+.terms li{
+font-size:14px
+}
+
+footer{
+padding:22px 12px
+}
+
+footer a{
+display:inline-block;
+margin:4px 6px
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 
-<div class="logo">📚 CreateLK Academy</div>
+<div class="logo">
+📚 CreateLK Academy
+</div>
 
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<button
+class="menu-btn"
+onclick="toggleMenu()"
+aria-label="Open navigation menu"
+aria-expanded="false"
+id="menuBtn">
+
+☰
+
+</button>
 
 <nav id="menu">
 
-<a href="index.html">🏠 Home</a>
+<a href="index.html">
+🏠 Home
+</a>
 
-<a href="about.html">ℹ️ About</a>
+<a href="about.html">
+ℹ️ About
+</a>
 
-<a href="courses.html">📚 Explore Courses</a>
+<a href="courses.html">
+📚 Explore Courses
+</a>
 
-<a href="premium.html">⭐ Premium Membership</a>
+<a href="premium.html">
+⭐ Premium Membership
+</a>
 
-<a href="login.html">🔐 Login</a>
+<a href="login.html">
+🔐 Login
+</a>
+
+<a href="register.html">
+📝 Register
+</a>
 
 </nav>
 
 </header>
 
+
+<!-- HERO -->
+
 <section class="hero">
 
-<h1>📄 Terms & Conditions</h1>
+<h1>
+📄 Terms & Conditions
+</h1>
 
-<p>Please read these terms before using CreateLK Academy.</p>
+<p>
+Please read these terms before using CreateLK Academy.
+</p>
 
 </section>
+
+
+<!-- TERMS -->
 
 <section>
 
 <div class="terms">
 
-<h2>1. Acceptance of Terms</h2>
+<div class="updated">
+Last updated: August 28, 2026
+</div>
+
+
+<h2>
+1. Acceptance of Terms
+</h2>
 
 <p>
 By accessing or using CreateLK Academy, you agree to these Terms & Conditions. If you do not agree with these terms, please do not use the service.
 </p>
 
-<h2>2. About Our Service</h2>
+
+<h2>
+2. About Our Service
+</h2>
 
 <p>
 CreateLK Academy provides online English learning resources, courses, MCQ practice and other educational features.
@@ -197,7 +363,10 @@ CreateLK Academy provides online English learning resources, courses, MCQ practi
 Features may be changed, updated, added or removed as the platform develops.
 </p>
 
-<h2>3. User Accounts</h2>
+
+<h2>
+3. User Accounts
+</h2>
 
 <p>
 Some features require you to create an account. You are responsible for providing accurate information and keeping your account credentials secure.
@@ -207,7 +376,10 @@ Some features require you to create an account. You are responsible for providin
 You should not share your password or allow unauthorized persons to use your account.
 </p>
 
-<h2>4. Educational Content</h2>
+
+<h2>
+4. Educational Content
+</h2>
 
 <p>
 The educational materials provided by CreateLK Academy are intended for learning and practice purposes.
@@ -217,20 +389,39 @@ The educational materials provided by CreateLK Academy are intended for learning
 We do not guarantee that completing a course or using our practice materials will result in a particular academic, employment or examination outcome.
 </p>
 
-<h2>5. Premium Membership</h2>
+
+<h2>
+5. Premium Membership
+</h2>
 
 <p>
 Premium Membership provides access to selected premium features for the applicable membership period.
 </p>
 
 <ul>
-<li>Premium access is activated after successful payment verification.</li>
-<li>A 30-day membership is valid for the applicable 30-day period.</li>
-<li>Premium access may expire automatically at the end of the membership period.</li>
-<li>Premium features may be updated or changed over time.</li>
+
+<li>
+Premium access is activated after successful payment verification.
+</li>
+
+<li>
+A 30-day membership is valid for the applicable 30-day period.
+</li>
+
+<li>
+Premium access may expire automatically at the end of the membership period.
+</li>
+
+<li>
+Premium features may be updated or changed over time.
+</li>
+
 </ul>
 
-<h2>6. Payments</h2>
+
+<h2>
+6. Payments
+</h2>
 
 <p>
 Users are responsible for providing accurate payment information and following the payment instructions displayed by CreateLK Academy.
@@ -240,20 +431,60 @@ Users are responsible for providing accurate payment information and following t
 Membership activation may require payment verification before access is granted.
 </p>
 
-<h2>7. Prohibited Use</h2>
+
+<h2>
+7. Refunds
+</h2>
+
+<p>
+Refunds, where applicable, are handled according to the CreateLK Academy Refund Policy.
+</p>
+
+<p>
+Please review our
+<a href="refund.html">
+Refund Policy
+</a>
+before purchasing a Premium Membership.
+</p>
+
+
+<h2>
+8. Prohibited Use
+</h2>
 
 <p>
 You agree not to misuse the website or attempt to interfere with its operation.
 </p>
 
 <ul>
-<li>Do not attempt unauthorized access to accounts or systems.</li>
-<li>Do not copy or redistribute protected content without permission.</li>
-<li>Do not use the service for unlawful purposes.</li>
-<li>Do not intentionally interfere with the website or its services.</li>
+
+<li>
+Do not attempt unauthorized access to accounts or systems.
+</li>
+
+<li>
+Do not copy or redistribute protected content without permission.
+</li>
+
+<li>
+Do not use the service for unlawful purposes.
+</li>
+
+<li>
+Do not intentionally interfere with the website or its services.
+</li>
+
+<li>
+Do not attempt to bypass membership, usage or security restrictions.
+</li>
+
 </ul>
 
-<h2>8. Intellectual Property</h2>
+
+<h2>
+9. Intellectual Property
+</h2>
 
 <p>
 Website content, branding, graphics, educational materials and other original content provided by CreateLK Academy may be protected by applicable intellectual property laws.
@@ -263,39 +494,98 @@ Website content, branding, graphics, educational materials and other original co
 You may use the content for personal educational purposes but may not reproduce or redistribute it without appropriate permission.
 </p>
 
-<h2>9. AI-Generated Content</h2>
+
+<h2>
+10. AI-Generated Content
+</h2>
 
 <p>
-Some premium learning features may use artificial intelligence to generate practice questions or educational content.
+Some learning features may use artificial intelligence to generate practice questions or educational content.
 </p>
 
 <p>
 AI-generated content may occasionally contain errors. Users should use it as learning and practice material and verify important information where appropriate.
 </p>
 
-<h2>10. Service Availability</h2>
+
+<h2>
+11. Service Availability
+</h2>
 
 <p>
-We aim to keep CreateLK Academy available and reliable, but we do not guarantee uninterrupted access. Maintenance, technical problems or circumstances outside our control may temporarily affect the service.
+We aim to keep CreateLK Academy available and reliable, but we do not guarantee uninterrupted access. Maintenance, technical problems, internet failures or circumstances outside our control may temporarily affect the service.
 </p>
 
-<h2>11. Account Suspension</h2>
+
+<h2>
+12. Third-Party Services
+</h2>
+
+<p>
+CreateLK Academy may use third-party services for payment processing, hosting, analytics, authentication, advertising or other technical functions.
+</p>
+
+<p>
+Third-party services may have their own terms and privacy policies. Users should review those policies where applicable.
+</p>
+
+
+<h2>
+13. Advertising
+</h2>
+
+<p>
+CreateLK Academy may display advertisements from third-party advertising providers, including Google AdSense, if the website is approved and eligible to display advertisements.
+</p>
+
+<p>
+Advertising availability may vary by page, user, location and other factors.
+</p>
+
+
+<h2>
+14. Account Suspension
+</h2>
 
 <p>
 We may suspend or restrict an account if we reasonably believe that the account is being used in violation of these Terms & Conditions or applicable law.
 </p>
 
-<h2>12. Changes to These Terms</h2>
+
+<h2>
+15. Changes to These Terms
+</h2>
 
 <p>
 We may update these Terms & Conditions from time to time. Updated terms will be published on this page.
 </p>
 
-<h2>13. Contact</h2>
+<p>
+Your continued use of CreateLK Academy after changes are published means that you accept the updated terms.
+</p>
+
+
+<h2>
+16. Privacy
+</h2>
+
+<p>
+Your use of CreateLK Academy is also subject to our
+<a href="privacy.html">
+Privacy Policy
+</a>.
+</p>
+
+
+<h2>
+17. Contact
+</h2>
 
 <p>
 If you have questions about these Terms & Conditions, please contact us through our
-<a href="contact.html">Contact Us</a>
+<a href="contact.html">
+Contact Us
+</a>
 page.
 </p>
 
@@ -303,19 +593,49 @@ page.
 
 </section>
 
+
+<!-- FOOTER -->
+
 <footer>
 
-<p>📚 CreateLK Academy</p>
-
-<p>Learn English. Build Your Future.</p>
+<p>
+📚 CreateLK Academy
+</p>
 
 <p>
-<a href="about.html">About</a>
-<a href="courses.html">Courses</a>
-<a href="premium.html">Premium</a>
-<a href="contact.html">Contact</a>
-<a href="privacy.html">Privacy Policy</a>
-<a href="terms.html">Terms & Conditions</a>
+Learn English. Build Your Future.
+</p>
+
+<p>
+
+<a href="about.html">
+About
+</a>
+
+<a href="courses.html">
+Courses
+</a>
+
+<a href="premium.html">
+Premium
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+<a href="privacy.html">
+Privacy Policy
+</a>
+
+<a href="terms.html">
+Terms & Conditions
+</a>
+
+<a href="refund.html">
+Refund Policy
+</a>
+
 </p>
 
 <p class="small">
@@ -324,24 +644,59 @@ page.
 
 </footer>
 
+
+<!-- MENU SCRIPT -->
+
 <script>
 
+const menu=
+document.getElementById("menu");
+
+const menuBtn=
+document.getElementById("menuBtn");
+
+
 function toggleMenu(){
-document.getElementById("menu").classList.toggle("show");
+
+const open=
+menu.classList.toggle("show");
+
+menuBtn.textContent=
+open ? "✕" : "☰";
+
+menuBtn.setAttribute(
+"aria-expanded",
+open ? "true" : "false"
+);
+
 }
 
-document.addEventListener("click",function(e){
 
-const menu=document.getElementById("menu");
-const button=document.querySelector(".menu-btn");
+document.addEventListener(
+"click",
+function(e){
 
-if(!menu.contains(e.target) && !button.contains(e.target)){
+if(
+!menu.contains(e.target) &&
+!menuBtn.contains(e.target)
+){
+
 menu.classList.remove("show");
+
+menuBtn.textContent="☰";
+
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
+
 }
 
-});
+}
+);
 
 </script>
 
 </body>
+
 </html>
